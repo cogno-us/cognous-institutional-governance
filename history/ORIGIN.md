@@ -1,16 +1,16 @@
 # Origin
 
-Alvorada emerged from experiments in governed artificial intelligence
-collaboration and institutional reasoning.
+Alvorada emerged from experiments involving governed artificial intelligence
+collaboration, institutional reasoning, and constitutional design.
 
-An earlier experimental repository explored governance events, artificial
-intelligence role differentiation, communication protocols, validation, state
-representation, and constitutional engineering. That repository is not
-automatically authoritative for this new repository.
+An earlier experimental implementation existed. Its contents are not
+automatically authoritative for this repository.
 
 The clean repository was created because accumulated experimental scaffolding
 and conversational state made provenance and design boundaries increasingly
-difficult to maintain. It therefore begins with explicit research questions,
-provenance, human decisions, and constitutional requirements before formal
-implementation.
+difficult to maintain.
 
+This repository starts again from:
+
+> research -> issues -> alternatives -> review -> explicit human decisions ->
+> requirements -> constitutional drafting

@@ -9,14 +9,15 @@ computational substrate exercising it.
 
 ## Current state
 
-**CONSTITUTIONAL RESEARCH AND DESIGN**
+**CURRENT STATE: CONSTITUTIONAL RESEARCH AND DESIGN**
 
-This repository is **not**:
+**NOT: ADOPTED CONSTITUTION**
 
-- an adopted Constitution;
-- a governance runtime;
-- a production authorization system; or
-- an artificial intelligence control system.
+**NOT: GOVERNANCE RUNTIME**
+
+**NOT: PRODUCTION AUTHORIZATION SYSTEM**
+
+**NOT: ARTIFICIAL INTELLIGENCE CONTROL SYSTEM**
 
 Repository sophistication must not be mistaken for institutional maturity.
 

@@ -1,68 +1,19 @@
 {
-  "register_status": "RESEARCH_BASELINE",
-  "novelty_rule": "Absence of identified prior art is not evidence of novelty.",
-  "permitted_research_classifications": [
-    "ESTABLISHED_PRIOR_ART",
-    "KNOWN_BUT_UNCOMMON",
-    "UNUSUAL_APPLICATION",
-    "UNUSUAL_COMBINATION",
-    "POTENTIALLY_DISTINCTIVE",
-    "NO_CLOSE_PRIOR_ART_FOUND_IN_SEARCH",
-    "INSUFFICIENT_EVIDENCE"
+  "index_status": "RESEARCH_BASELINE",
+  "registers": [
+    {
+      "name": "Prior-art research register",
+      "path": "PRIOR_ART_REGISTER.yaml",
+      "status": "RESEARCH_LEAD_COLLECTION",
+      "provenance": {
+        "source": "constitutional research baseline brief",
+        "review_state": "NOT_YET_REVIEWED"
+      }
+    }
   ],
-  "candidate_dispositions": [
-    "CANDIDATE_ADOPT",
-    "CANDIDATE_EXTEND",
-    "CANDIDATE_DESIGN",
-    "NOT_APPLICABLE"
-  ],
-  "intellectual_neighborhoods": [
-    {"name": "Electronic Institutions", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Normative Multi-Agent Systems", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Computational Institutional Theory", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Computational Constitutionalism", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Decentralized Autonomous Organization governance", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Constitutional Artificial Intelligence", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Artificial intelligence agent governance", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Computational law", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Rules as Code", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Policy as Code", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Authorization and access-control systems", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Capability-based security", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Provenance systems", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Institutional-power logic", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Model-risk governance", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Human factors and automation reliance", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Political science of formal versus effective power", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Requirements traceability and safety-critical engineering", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}}
-  ],
-  "research_leads": [
-    {"name": "ISLANDER", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "AMELI", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "MOISE+", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "S-MOISE+", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "ORA4MAS", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Normative Programming Language", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "JaCaMo", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Arbitrum Constitution", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Metagov", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "PolicyKit", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "OpenAI Model Spec", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Anthropic Claude Constitution", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Microsoft agent-governance work", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "World Wide Web Consortium PROV", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "World Wide Web Consortium Verifiable Credentials", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "role-based access control", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "attribute-based access control", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "relationship-based access control", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Open Policy Agent", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Cedar", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Supervisory Guidance on Model Risk Management SR 11-7", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Intelligence Community Directive 203", "status": "SOURCE_TO_VERIFY", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}},
-    {"name": "Architecture Decision Records", "status": "RESEARCH_LEAD", "provenance": {"supplied_by": "repository bootstrap brief", "primary_source_reference": "NOT_YET_INGESTED", "verified_by": "NOT_YET_VERIFIED", "verified_on": "NOT_YET_VERIFIED"}}
-  ],
+  "verified_sources": [],
   "provenance": {
-    "source": "repository bootstrap brief",
+    "source": "constitutional research baseline brief",
     "review_state": "NOT_YET_REVIEWED"
   }
 }

@@ -1,0 +1,38 @@
+{
+  "questions": [
+    {
+      "question_id": "FQ-01",
+      "status": "UNRESOLVED",
+      "question": "Who or what constrains foundational human constitutional authority?",
+      "provenance": {"source": "constitutional research baseline brief"}
+    },
+    {
+      "question_id": "FQ-02",
+      "status": "UNRESOLVED",
+      "question": "What narrowly permissible action, if any, exists during imminent irreversible harm when competent authority cannot be reached?",
+      "provenance": {"source": "constitutional research baseline brief"}
+    },
+    {
+      "question_id": "FQ-03",
+      "status": "UNRESOLVED",
+      "question": "What happens during temporary or permanent loss of foundational human authority?",
+      "provenance": {"source": "constitutional research baseline brief"}
+    },
+    {
+      "question_id": "FQ-04",
+      "status": "UNRESOLVED",
+      "question": "Who resolves a constitutional dispute when foundational human authority is itself a party?",
+      "provenance": {"source": "constitutional research baseline brief"}
+    },
+    {
+      "question_id": "FQ-05",
+      "status": "UNRESOLVED",
+      "question": "Which constitutional principles, if any, cannot be changed through ordinary amendment and instead require explicit refounding?",
+      "provenance": {"source": "constitutional research baseline brief"}
+    }
+  ],
+  "provenance": {
+    "source": "constitutional research baseline brief",
+    "review_state": "NOT_YET_REVIEWED"
+  }
+}

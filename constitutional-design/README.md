@@ -64,6 +64,5 @@ engines, or runtime enforcement be designed.
 - `issues/` records unresolved constitutional questions.
 - `decisions/` defines the Constitutional Decision Record model.
 - `requirements/` defines traceable constitutional requirements.
-- `FOUNDATIONAL_QUESTIONS.md` preserves the unresolved questions that prevent
+- `FOUNDATIONAL_QUESTIONS.yaml` preserves the unresolved questions that prevent
   premature closure.
-
