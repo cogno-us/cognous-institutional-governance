@@ -1,0 +1,18 @@
+{
+  "issue_id": "IR-09",
+  "title": "Incentive Compatibility",
+  "status": "OPEN",
+  "question": "How should institutional incentives make constitutional behavior more stable than circumvention, capture, or concentration of power?",
+  "working_context": "NOT_YET_INGESTED",
+  "known_prior_art": [],
+  "historical_evidence": [],
+  "experimental_evidence": [],
+  "candidate_architectures": [],
+  "dependencies": [],
+  "conflicts": [],
+  "dissent": [],
+  "human_decision_required": true,
+  "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
+  "last_reviewed": "NOT_YET_REVIEWED"
+}
+

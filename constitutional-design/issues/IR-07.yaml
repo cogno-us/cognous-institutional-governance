@@ -1,0 +1,18 @@
+{
+  "issue_id": "IR-07",
+  "title": "Offices, Roles, Membership and Standing",
+  "status": "OPEN",
+  "question": "How should durable institutional functions be distinguished from the humans, artificial intelligence models, software systems, or instances performing them?",
+  "working_context": "NOT_YET_INGESTED",
+  "known_prior_art": [],
+  "historical_evidence": [],
+  "experimental_evidence": [],
+  "candidate_architectures": [],
+  "dependencies": [],
+  "conflicts": [],
+  "dissent": [],
+  "human_decision_required": true,
+  "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
+  "last_reviewed": "NOT_YET_REVIEWED"
+}
+

@@ -1,0 +1,18 @@
+{
+  "issue_id": "IR-17",
+  "title": "Constitutional Hierarchy",
+  "status": "OPEN",
+  "question": "What belongs in constitutional law versus subordinate governance law, technical standards, formal representations, and implementations?",
+  "working_context": "NOT_YET_INGESTED",
+  "known_prior_art": [],
+  "historical_evidence": [],
+  "experimental_evidence": [],
+  "candidate_architectures": [],
+  "dependencies": [],
+  "conflicts": [],
+  "dissent": [],
+  "human_decision_required": true,
+  "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
+  "last_reviewed": "NOT_YET_REVIEWED"
+}
+

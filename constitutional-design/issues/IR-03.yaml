@@ -1,0 +1,18 @@
+{
+  "issue_id": "IR-03",
+  "title": "Emergency Necessity",
+  "status": "OPEN",
+  "question": "What, if anything, may an actor do when irreversible harm is imminent but competent authority cannot be reached?",
+  "working_context": "NOT_YET_INGESTED",
+  "known_prior_art": [],
+  "historical_evidence": [],
+  "experimental_evidence": [],
+  "candidate_architectures": [],
+  "dependencies": [],
+  "conflicts": [],
+  "dissent": [],
+  "human_decision_required": true,
+  "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
+  "last_reviewed": "NOT_YET_REVIEWED"
+}
+

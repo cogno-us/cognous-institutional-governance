@@ -1,0 +1,18 @@
+{
+  "issue_id": "IR-06",
+  "title": "Constitutional Adjudication",
+  "status": "OPEN",
+  "question": "How are constitutional disputes resolved, especially when foundational authority is itself a party to the dispute?",
+  "working_context": "NOT_YET_INGESTED",
+  "known_prior_art": [],
+  "historical_evidence": [],
+  "experimental_evidence": [],
+  "candidate_architectures": [],
+  "dependencies": [],
+  "conflicts": [],
+  "dissent": [],
+  "human_decision_required": true,
+  "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
+  "last_reviewed": "NOT_YET_REVIEWED"
+}
+
