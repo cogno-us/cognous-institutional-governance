@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "When does reliance on generated analysis, recommendation, prediction, or cognition become consequential enough to trigger stronger governance?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-AI-001", "PA-RELIANCE-001", "PA-EPISTEMIC-001"],
   "historical_evidence": ["HE-T03", "HE-T09"],
   "experimental_evidence": [],
   "candidate_architectures": [],

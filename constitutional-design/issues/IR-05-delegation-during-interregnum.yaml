@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "Which previously valid delegations, if any, survive temporary absence of foundational authority?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-AI-003", "PA-AUTH-002", "PA-AUTH-006", "PA-AUTH-007", "PA-AUTH-008", "PA-AUTH-009"],
   "historical_evidence": ["HE-T05"],
   "experimental_evidence": [],
   "candidate_architectures": [],

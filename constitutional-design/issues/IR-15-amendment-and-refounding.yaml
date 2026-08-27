@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "How may constitutional law change, and when does change become refounding rather than amendment?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-CC-001", "PA-CC-002", "PA-CC-004", "PA-PROV-001", "PA-DISSENT-001", "PA-DISSENT-002"],
   "historical_evidence": ["HE-ROME-003", "HE-ROME-004", "HE-BRITAIN-004", "HE-BURKE-FRANCE-001", "HE-BURKE-FRANCE-002", "HE-BURKE-FRANCE-003", "HE-US-003", "HE-US-004", "HE-SWISS-003", "HE-T04", "HE-T08"],
   "experimental_evidence": [],
   "candidate_architectures": [],

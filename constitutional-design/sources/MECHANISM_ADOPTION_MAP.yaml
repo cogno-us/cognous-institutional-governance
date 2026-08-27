@@ -1,0 +1,172 @@
+{
+  "map_status": "RESEARCH_ARTIFACT",
+  "evidence_boundary": "Candidate dispositions organize research only. They are not adoption, rejection, requirements, architecture, constitutional decisions, or novelty findings.",
+  "entries": [
+    {
+      "mechanism": "Capability-oriented least-authority controls",
+      "prior_art_sources": ["PA-AUTH-002", "PA-AUTH-003", "PA-AUTH-004", "PA-AUTH-005"],
+      "candidate_disposition": "CANDIDATE_ADOPT",
+      "rationale": "Capability, role, attribute, and relationship controls are established authorization mechanisms, but institutional entitlement to grant authority remains external.",
+      "relevant_issues": ["IR-01", "IR-02", "IR-05", "IR-07", "IR-10", "IR-17"],
+      "known_gaps": ["Legitimate grant authority, office linkage, revocation, and interregnum effects require separate constitutional treatment."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Scoped delegated authorization and credential evidence",
+      "prior_art_sources": ["PA-AUTH-006", "PA-AUTH-007", "PA-AUTH-008"],
+      "candidate_disposition": "CANDIDATE_ADOPT",
+      "rationale": "Standards provide reusable delegation, consent, identifier, and credential primitives without deciding institutional legitimacy.",
+      "relevant_issues": ["IR-01", "IR-05", "IR-07", "IR-13", "IR-17", "IR-18"],
+      "known_gaps": ["Delegation survival, revocation during incapacity, issuer authority, and human comprehensibility remain unresolved."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Interoperable provenance and provenance-of-provenance",
+      "prior_art_sources": ["PA-PROV-001"],
+      "candidate_disposition": "CANDIDATE_ADOPT",
+      "rationale": "W3C PROV supplies established traceability concepts that can be reused without treating provenance as truth, authorization, or legitimacy.",
+      "relevant_issues": ["IR-12", "IR-13", "IR-15", "IR-16", "IR-18"],
+      "known_gaps": ["Constitutional authority types, dissent effects, retention, integrity, and post-termination duties are outside PROV."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Separated policy administration, decision, information, and enforcement functions",
+      "prior_art_sources": ["PA-POLICY-001", "PA-POLICY-002", "PA-POLICY-003"],
+      "candidate_disposition": "CANDIDATE_ADOPT",
+      "rationale": "Policy-as-code and XACML establish reusable functional separation and structured evaluation patterns.",
+      "relevant_issues": ["IR-01", "IR-02", "IR-10", "IR-13", "IR-17", "IR-18"],
+      "known_gaps": ["Independence, legitimate policy authorship, trustworthy inputs, explanation, and constitutional adjudication are not supplied."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Durable decision records with explicit supersession",
+      "prior_art_sources": ["PA-DISSENT-002"],
+      "candidate_disposition": "CANDIDATE_ADOPT",
+      "rationale": "Architecture Decision Records establish a compact record and supersession pattern suitable for research reuse.",
+      "relevant_issues": ["IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
+      "known_gaps": ["Authority, dissent, sealing, cryptographic integrity, enforceability, and retention governance require extension."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Durable institutional offices distinct from occupants",
+      "prior_art_sources": ["PA-NMAS-001", "PA-NMAS-002", "PA-NMAS-003", "PA-NMAS-005", "PA-AUTH-003"],
+      "candidate_disposition": "CANDIDATE_EXTEND",
+      "rationale": "Organizational MAS and RBAC establish roles and organizational structures, but not a complete office lifecycle independent of human, model, or software occupants.",
+      "relevant_issues": ["IR-04", "IR-07", "IR-10", "IR-17"],
+      "known_gaps": ["Appointment, certification, tenure, removal, succession, interregnum, and standing remain unresolved."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Executable norms under a constitutional source hierarchy",
+      "prior_art_sources": ["PA-NMAS-004", "PA-CC-001", "PA-CC-003", "PA-POLICY-003"],
+      "candidate_disposition": "CANDIDATE_EXTEND",
+      "rationale": "Norm languages, executable community policy, DAO governance, and policy standards establish rule representation and enforcement components.",
+      "relevant_issues": ["IR-02", "IR-09", "IR-10", "IR-14", "IR-17", "IR-18"],
+      "known_gaps": ["Technical validity must remain distinct from legitimate constitutional authority and contested interpretation."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Auditable delegation chains across agents and trust domains",
+      "prior_art_sources": ["PA-AI-003", "PA-AUTH-008", "PA-AUTH-009"],
+      "candidate_disposition": "CANDIDATE_EXTEND",
+      "rationale": "Runtime controls, DIDs, credentials, and a mutable IETF draft provide adjacent delegation-chain mechanisms.",
+      "relevant_issues": ["IR-01", "IR-05", "IR-13", "IR-17", "IR-18"],
+      "known_gaps": ["The IETF source requires a version pin; office scope, revocation, interregnum, and constitutional validity are not established."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Structured dissent, objection, appeal, and supersession state",
+      "prior_art_sources": ["PA-DISSENT-001", "PA-DISSENT-002", "PA-DISSENT-003"],
+      "candidate_disposition": "CANDIDATE_EXTEND",
+      "rationale": "Standards processes, decision records, and judicial publication establish durable objection and dissent practices in different domains.",
+      "relevant_issues": ["IR-06", "IR-12", "IR-15", "IR-17", "IR-18"],
+      "known_gaps": ["No source supplies a general machine-readable dissent object with sealing, access, and execution-effect semantics."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Dynamic per-decision reliance thresholds",
+      "prior_art_sources": ["PA-RELIANCE-001", "PA-EPISTEMIC-001", "PA-AUTH-004", "PA-POLICY-002"],
+      "candidate_disposition": "CANDIDATE_DESIGN",
+      "rationale": "Model-risk governance and context-sensitive authorization are adjacent, but the search did not establish a general dynamic threshold combining consequence, uncertainty, reversibility, authority, affected interests, and reliance.",
+      "relevant_issues": ["IR-11", "IR-13", "IR-14", "IR-18"],
+      "known_gaps": ["ICD 203 remains unverified; no numerical or constitutional threshold is established. This gap is insufficient evidence, not a novelty claim."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Formal-versus-effective power telemetry",
+      "prior_art_sources": ["PA-POWER-001", "PA-AI-003", "PA-CC-001"],
+      "candidate_disposition": "CANDIDATE_DESIGN",
+      "rationale": "Power theory and operational audit mechanisms motivate measurement, but no validated computational metric was verified.",
+      "relevant_issues": ["IR-08", "IR-09", "IR-10", "IR-18"],
+      "known_gaps": ["The power source needs primary-text review; influence, capture, concentration, and circumvention indicators remain design questions, not novelty findings."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Dual human-and-AI anti-capture controls",
+      "prior_art_sources": ["PA-NMAS-001", "PA-CC-001", "PA-CC-003"],
+      "candidate_disposition": "CANDIDATE_DESIGN",
+      "rationale": "Organizational structure and community governance provide partial controls, but the reviewed sources do not establish a dual anti-capture system for humans and AI systems.",
+      "relevant_issues": ["IR-02", "IR-08", "IR-09", "IR-10", "IR-18"],
+      "known_gaps": ["Collusion, concentration, circumvention, incentive compatibility, and independent oversight require design. Insufficient evidence is not novelty."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Separation of institutional legitimacy from machine validity",
+      "prior_art_sources": ["PA-AUTH-001", "PA-CC-001", "PA-POLICY-003"],
+      "candidate_disposition": "CANDIDATE_DESIGN",
+      "rationale": "Institutional-power logic and Arbitrum's on-chain/off-chain distinction show that practical or technical effects differ from legitimate authority.",
+      "relevant_issues": ["IR-01", "IR-02", "IR-06", "IR-08", "IR-17", "IR-18"],
+      "known_gaps": ["No reviewed source supplies a complete executable legitimacy model or authoritative constitutional adjudicator; no novelty inference follows."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "AI office lifecycle, succession, and interregnum",
+      "prior_art_sources": ["PA-NMAS-001", "PA-CC-001", "PA-AUTH-003", "PA-AI-003"],
+      "candidate_disposition": "CANDIDATE_DESIGN",
+      "rationale": "Roles, council replacement, RBAC, and runtime identity are partial analogues but do not establish replaceable AI-office lifecycle law.",
+      "relevant_issues": ["IR-04", "IR-05", "IR-07", "IR-10", "IR-17", "IR-18"],
+      "known_gaps": ["Certification, appointment, removal, model replacement, succession, incapacity, and surviving delegation remain unresolved and are not claimed novel."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Amendment-versus-refounding threshold and institutional termination",
+      "prior_art_sources": ["PA-CC-001", "PA-CC-004", "PA-PROV-001", "PA-DISSENT-002"],
+      "candidate_disposition": "CANDIDATE_DESIGN",
+      "rationale": "Amendment, versioning, provenance, and supersession are established separately, but refounding and termination semantics were not established.",
+      "relevant_issues": ["IR-15", "IR-16", "IR-17", "IR-18"],
+      "known_gaps": ["Thresholds, shutdown authority, surviving restrictions, records, and obligations require design. The coverage gap is not a novelty finding."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Emergency necessity under unavailable competent authority",
+      "prior_art_sources": ["PA-CC-001", "PA-AI-003"],
+      "candidate_disposition": "CANDIDATE_DESIGN",
+      "rationale": "Council and runtime emergency controls are indirect evidence only; no complete irreversible-harm and unavailable-authority doctrine was verified.",
+      "relevant_issues": ["IR-03", "IR-05", "IR-14", "IR-18"],
+      "known_gaps": ["Trigger, scope, proportionality, audit, expiry, ratification, and remedy remain insufficiently evidenced and are not claimed novel."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Model-behavior constitutions as institutional authority",
+      "prior_art_sources": ["PA-AI-001", "PA-AI-002"],
+      "candidate_disposition": "NOT_APPLICABLE",
+      "rationale": "Behavioral constitutions and instruction hierarchies are relevant evidence about model governance but are not institutional constitutions or grants of authority.",
+      "relevant_issues": ["IR-02", "IR-11", "IR-14", "IR-17", "IR-18"],
+      "known_gaps": ["Institutional sovereignty, offices, delegation, legitimacy, adjudication, and amendment authority remain outside these sources."],
+      "decision_required": true
+    },
+    {
+      "mechanism": "Token-voting mechanics as a direct constitutional template",
+      "prior_art_sources": ["PA-CC-001", "PA-CC-004"],
+      "candidate_disposition": "NOT_APPLICABLE",
+      "rationale": "Token-governed amendment and voting are prior art, but direct transplantation would not answer Alvorada's human-authority and mixed human/AI legitimacy questions.",
+      "relevant_issues": ["IR-01", "IR-02", "IR-09", "IR-14", "IR-15", "IR-18"],
+      "known_gaps": ["Constituency, standing, non-token legitimacy, capture resistance, and human constitutional control require independent decisions."],
+      "decision_required": true
+    }
+  ],
+  "provenance": {
+    "source": "Synthesis of PRIOR_ART_REGISTER.yaml and the authoritative prior-art research report dated 2026-08-27",
+    "review_state": "RESEARCH_ONLY_DESK_REVIEWED_2026-08-27"
+  }
+}

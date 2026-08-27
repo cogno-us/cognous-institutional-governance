@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "How is foundational human authority itself constrained when exercising institutional power?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-EI-001", "PA-EI-002", "PA-NMAS-001", "PA-NMAS-002", "PA-NMAS-003", "PA-NMAS-004", "PA-NMAS-005", "PA-CC-001", "PA-CC-003", "PA-AI-001", "PA-AI-002", "PA-AI-003", "PA-AUTH-001", "PA-AUTH-002", "PA-AUTH-004", "PA-POLICY-001", "PA-POLICY-002", "PA-POLICY-003"],
   "historical_evidence": ["HE-ATHENS-001", "HE-ATHENS-004", "HE-ROME-002", "HE-BRITAIN-002", "HE-BURKE-FRANCE-003", "HE-US-001", "HE-US-002", "HE-SWISS-001", "HE-SWISS-002", "HE-T01"],
   "experimental_evidence": [],
   "candidate_architectures": [],

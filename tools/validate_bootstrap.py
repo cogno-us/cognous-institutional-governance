@@ -5,10 +5,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 
 ISSUE_FIELDS = {
@@ -34,7 +36,81 @@ PLACEHOLDERS = {
     "NOT_YET_REVIEWED",
     "NOT_YET_VERIFIED",
 }
-SOURCE_LEAD_STATUSES = {"RESEARCH_LEAD", "SOURCE_TO_VERIFY"}
+PRIOR_ART_SOURCE_STATUSES = {
+    "VERIFIED",
+    "PARTIALLY_VERIFIED",
+    "SOURCE_TO_VERIFY",
+    "RESEARCH_LEAD",
+}
+PRIOR_ART_OVERLAP_CLASSIFICATIONS = {
+    "ESTABLISHED_PRIOR_ART",
+    "KNOWN_BUT_UNCOMMON",
+    "UNUSUAL_APPLICATION",
+    "UNUSUAL_COMBINATION",
+    "POTENTIALLY_DISTINCTIVE",
+    "NO_CLOSE_PRIOR_ART_FOUND_IN_SEARCH",
+    "INSUFFICIENT_EVIDENCE",
+}
+CANDIDATE_DISPOSITIONS = {
+    "CANDIDATE_ADOPT",
+    "CANDIDATE_EXTEND",
+    "CANDIDATE_DESIGN",
+    "NOT_APPLICABLE",
+}
+PRIOR_ART_REGISTER_FIELDS = {
+    "register_status",
+    "evidence_boundary",
+    "novelty_rule",
+    "permitted_research_classifications",
+    "source_statuses",
+    "candidate_dispositions",
+    "prior_art_entries",
+    "provenance",
+}
+PRIOR_ART_ENTRY_FIELDS = {
+    "prior_art_id",
+    "name",
+    "field_or_tradition",
+    "source_type",
+    "source_status",
+    "source_reference",
+    "source_title",
+    "source_author_or_organization",
+    "source_date",
+    "mechanisms",
+    "relevant_issues",
+    "overlap_classification",
+    "candidate_disposition",
+    "what_is_established",
+    "what_alvorada_may_extend",
+    "what_is_not_supported",
+    "limitations",
+    "provenance",
+    "review_status",
+}
+ADOPTION_MAP_FIELDS = {
+    "map_status",
+    "evidence_boundary",
+    "entries",
+    "provenance",
+}
+ADOPTION_ENTRY_FIELDS = {
+    "mechanism",
+    "prior_art_sources",
+    "candidate_disposition",
+    "rationale",
+    "relevant_issues",
+    "known_gaps",
+    "decision_required",
+}
+FORBIDDEN_FINAL_ADOPTION_STATUSES = {
+    "ADOPTED",
+    "APPROVED",
+    "REJECTED",
+    "DECIDED",
+    "FINAL",
+    "ACCEPTED_FOR_DRAFTING",
+}
 HISTORICAL_SOURCE_STATUSES = {
     "SOURCE_TO_VERIFY",
     "PARTIALLY_VERIFIED",
@@ -77,6 +153,7 @@ EXPECTED_ISSUE_FILENAMES = {
     "IR-17-constitutional-hierarchy.yaml",
     "IR-18-human-control-and-comprehensibility.yaml",
 }
+EXPECTED_ISSUE_IDS = {f"IR-{index:02d}" for index in range(1, 19)}
 
 
 @dataclass(frozen=True)
@@ -133,6 +210,28 @@ def _contains_novel(value: Any) -> bool:
     return isinstance(value, str) and value.strip().upper() == "NOVEL"
 
 
+def _contains_unqualified_conclusion(value: Any, conclusion: str) -> bool:
+    if isinstance(value, dict):
+        return any(
+            _contains_unqualified_conclusion(item, conclusion)
+            for item in value.values()
+        )
+    if isinstance(value, list):
+        return any(
+            _contains_unqualified_conclusion(item, conclusion) for item in value
+        )
+    if not isinstance(value, str):
+        return False
+    words = re.findall(r"[A-Z_]+", value.upper())
+    for index, word in enumerate(words):
+        if word != conclusion:
+            continue
+        context = words[max(0, index - 4) : index]
+        if not {"NO", "NOT", "NEVER", "WITHOUT"}.intersection(context):
+            return True
+    return False
+
+
 def _contains_exact_string(value: Any, expected: str) -> bool:
     if isinstance(value, dict):
         return any(
@@ -149,6 +248,38 @@ def _has_content(value: Any) -> bool:
     if isinstance(value, (list, dict)):
         return bool(value)
     return value is not None
+
+
+def _matches_exact_vocabulary(value: Any, expected: set[str]) -> bool:
+    return (
+        isinstance(value, list)
+        and len(value) == len(expected)
+        and all(isinstance(item, str) for item in value)
+        and set(value) == expected
+    )
+
+
+def _source_reference_urls(value: Any) -> list[str] | None:
+    if isinstance(value, str):
+        if ";" in value:
+            return None
+        return [value]
+    if (
+        isinstance(value, list)
+        and value
+        and all(isinstance(item, str) for item in value)
+    ):
+        return value
+    return None
+
+
+def _is_stable_http_reference(value: str) -> bool:
+    if not value.strip() or value != value.strip() or any(
+        character.isspace() for character in value
+    ):
+        return False
+    parsed = urlparse(value)
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
 def _load_record_set(
@@ -176,14 +307,28 @@ def validate(root: Path) -> ValidationResult:
         errors.append("ISSUE_FILENAMES: issue filenames do not match the baseline")
 
     issue_ids = [record.get("issue_id") for record in issues]
+    string_issue_ids = [
+        issue_id for issue_id in issue_ids if isinstance(issue_id, str)
+    ]
     duplicate_ids = sorted(
-        {issue_id for issue_id in issue_ids if issue_ids.count(issue_id) > 1}
+        {
+            issue_id
+            for issue_id in string_issue_ids
+            if string_issue_ids.count(issue_id) > 1
+        }
     )
     if duplicate_ids:
         errors.append(f"DUPLICATE_ISSUE_ID: {', '.join(map(str, duplicate_ids))}")
+    if len(string_issue_ids) != len(issues) or set(string_issue_ids) != EXPECTED_ISSUE_IDS:
+        errors.append("ISSUE_IDENTIFIERS: expected exactly IR-01 through IR-18")
 
     for issue in issues:
         path = issue["_record_path"]
+        expected_issue_id = Path(path).name[:5]
+        if issue.get("issue_id") != expected_issue_id:
+            errors.append(
+                f"ISSUE_IDENTIFIER_FILENAME: {path}: expected {expected_issue_id}"
+            )
         missing = sorted(ISSUE_FIELDS - issue.keys())
         if missing:
             errors.append(f"ISSUE_FIELDS: {path}: missing {', '.join(missing)}")
@@ -210,7 +355,11 @@ def validate(root: Path) -> ValidationResult:
     )
     if not _has_provenance(questions_record):
         errors.append(f"PROVENANCE_REQUIRED: {questions_path}")
-    question_ids = [question.get("question_id") for question in questions]
+    question_ids = [
+        question.get("question_id")
+        for question in questions
+        if isinstance(question.get("question_id"), str)
+    ]
     expected_question_ids = {f"FQ-{index:02d}" for index in range(1, 6)}
     if len(questions) != 5 or set(question_ids) != expected_question_ids:
         errors.append(
@@ -301,44 +450,345 @@ def validate(root: Path) -> ValidationResult:
     prior_art = _load_record(prior_art_path, errors) or {}
     if not _has_provenance(prior_art):
         errors.append(f"PROVENANCE_REQUIRED: {prior_art_path}")
-    source_entries: list[dict[str, Any]] = []
-    for collection_name in ("intellectual_neighborhoods", "research_leads"):
-        collection = prior_art.get(collection_name)
-        if not isinstance(collection, list):
-            errors.append(f"SOURCE_REGISTER: {collection_name} must be a list")
+    if set(prior_art) != PRIOR_ART_REGISTER_FIELDS:
+        errors.append(
+            "PRIOR_ART_REGISTER_SCHEMA: top-level fields do not match the baseline"
+        )
+    if prior_art.get("register_status") != "DESK_REVIEWED_PRIOR_ART_BASELINE":
+        errors.append("PRIOR_ART_REGISTER_STATUS: expected desk-reviewed baseline")
+    if not _is_evidence(prior_art.get("evidence_boundary")):
+        errors.append("PRIOR_ART_EVIDENCE_BOUNDARY: required")
+    overlap_vocabulary = prior_art.get("permitted_research_classifications", [])
+    if (
+        not _matches_exact_vocabulary(
+            overlap_vocabulary, PRIOR_ART_OVERLAP_CLASSIFICATIONS
+        )
+    ):
+        errors.append(
+            "PRIOR_ART_OVERLAP_VOCABULARY: register metadata does not match"
+        )
+    source_status_vocabulary = prior_art.get("source_statuses", [])
+    if (
+        not _matches_exact_vocabulary(
+            source_status_vocabulary, PRIOR_ART_SOURCE_STATUSES
+        )
+    ):
+        errors.append("PRIOR_ART_SOURCE_STATUS_VOCABULARY: metadata does not match")
+    disposition_vocabulary = prior_art.get("candidate_dispositions", [])
+    if (
+        not _matches_exact_vocabulary(
+            disposition_vocabulary, CANDIDATE_DISPOSITIONS
+        )
+    ):
+        errors.append("CANDIDATE_DISPOSITION_VOCABULARY: metadata does not match")
+    novelty_rule = prior_art.get("novelty_rule")
+    if (
+        not isinstance(novelty_rule, str)
+        or "NO_CLOSE_PRIOR_ART_FOUND_IN_SEARCH does not mean NOVEL"
+        not in novelty_rule
+    ):
+        errors.append(
+            "NO_CLOSE_IS_NOT_NOVEL: register must explicitly preserve the distinction"
+        )
+
+    prior_art_value = prior_art.get("prior_art_entries")
+    prior_art_entries = (
+        [entry for entry in prior_art_value if isinstance(entry, dict)]
+        if isinstance(prior_art_value, list)
+        else []
+    )
+    if not isinstance(prior_art_value, list):
+        errors.append("PRIOR_ART_REGISTER: prior_art_entries must be a list")
+    elif len(prior_art_entries) != len(prior_art_value):
+        errors.append("PRIOR_ART_REGISTER: every entry must be an object")
+
+    prior_art_ids = [entry.get("prior_art_id") for entry in prior_art_entries]
+    string_prior_art_ids = [
+        prior_art_id
+        for prior_art_id in prior_art_ids
+        if isinstance(prior_art_id, str)
+    ]
+    duplicate_prior_art_ids = sorted(
+        {
+            prior_art_id
+            for prior_art_id in string_prior_art_ids
+            if string_prior_art_ids.count(prior_art_id) > 1
+        },
+        key=str,
+    )
+    if duplicate_prior_art_ids:
+        errors.append(
+            "DUPLICATE_PRIOR_ART_ID: "
+            + ", ".join(map(str, duplicate_prior_art_ids))
+        )
+
+    known_issue_ids = EXPECTED_ISSUE_IDS
+    prior_art_status_counts = {
+        status: 0 for status in sorted(PRIOR_ART_SOURCE_STATUSES)
+    }
+    prior_art_disposition_counts = {
+        disposition: 0 for disposition in sorted(CANDIDATE_DISPOSITIONS)
+    }
+    register_prior_art_pairs: set[tuple[str, str]] = set()
+    for entry in prior_art_entries:
+        prior_art_id = entry.get("prior_art_id")
+        if not isinstance(prior_art_id, str) or not prior_art_id:
+            errors.append(f"PRIOR_ART_ID: invalid identifier {prior_art_id!r}")
+        if set(entry) != PRIOR_ART_ENTRY_FIELDS:
+            errors.append(
+                f"PRIOR_ART_ENTRY_SCHEMA: {prior_art_id}: fields do not match"
+            )
+        required_content_fields = PRIOR_ART_ENTRY_FIELDS - {
+            "source_date",
+            "source_reference",
+            "mechanisms",
+            "relevant_issues",
+        }
+        if any(not _has_content(entry.get(field)) for field in required_content_fields):
+            errors.append(f"PRIOR_ART_REQUIRED_CONTENT: {prior_art_id}")
+
+        source_status = entry.get("source_status")
+        if (
+            not isinstance(source_status, str)
+            or source_status not in PRIOR_ART_SOURCE_STATUSES
+        ):
+            errors.append(
+                f"PRIOR_ART_SOURCE_STATUS: {prior_art_id} is {source_status!r}"
+            )
+        else:
+            prior_art_status_counts[source_status] += 1
+
+        overlap = entry.get("overlap_classification")
+        if (
+            not isinstance(overlap, str)
+            or overlap not in PRIOR_ART_OVERLAP_CLASSIFICATIONS
+        ):
+            errors.append(
+                f"PRIOR_ART_OVERLAP_CLASSIFICATION: {prior_art_id} is {overlap!r}"
+            )
+        if (
+            isinstance(source_status, str)
+            and source_status in {"RESEARCH_LEAD", "SOURCE_TO_VERIFY"}
+            and overlap != "INSUFFICIENT_EVIDENCE"
+        ):
+            errors.append(
+                f"PRIOR_ART_EVIDENCE_CONTRADICTION: {prior_art_id}"
+            )
+        disposition = entry.get("candidate_disposition")
+        if (
+            not isinstance(disposition, str)
+            or disposition not in CANDIDATE_DISPOSITIONS
+        ):
+            errors.append(
+                f"PRIOR_ART_CANDIDATE_DISPOSITION: {prior_art_id} is {disposition!r}"
+            )
+        else:
+            prior_art_disposition_counts[disposition] += 1
+
+        mechanisms = entry.get("mechanisms")
+        if (
+            not isinstance(mechanisms, list)
+            or not mechanisms
+            or any(not _is_evidence(mechanism) for mechanism in mechanisms)
+            or len(set(mechanisms)) != len(mechanisms)
+        ):
+            errors.append(f"PRIOR_ART_MECHANISMS: {prior_art_id}")
+
+        relevant_issues = entry.get("relevant_issues")
+        if (
+            not isinstance(relevant_issues, list)
+            or not relevant_issues
+            or any(
+                not isinstance(issue_id, str)
+                or issue_id not in known_issue_ids
+                for issue_id in relevant_issues
+            )
+            or len(set(map(str, relevant_issues))) != len(relevant_issues)
+        ):
+            errors.append(f"PRIOR_ART_RELEVANT_ISSUES: {prior_art_id}")
+        else:
+            if isinstance(prior_art_id, str):
+                register_prior_art_pairs.update(
+                    (issue_id, prior_art_id) for issue_id in relevant_issues
+                )
+
+        references = _source_reference_urls(entry.get("source_reference"))
+        if references is None or any(
+            not _is_evidence(reference) for reference in references
+        ):
+            errors.append(f"PRIOR_ART_SOURCE_REFERENCE_ENCODING: {prior_art_id}")
+        elif source_status == "VERIFIED" and (
+            not references
+            or any(not _is_stable_http_reference(url) for url in references)
+        ):
+            errors.append(f"VERIFIED_PRIOR_ART_REFERENCE: {prior_art_id}")
+
+        if not _is_evidence(entry.get("provenance")) or not _is_evidence(
+            entry.get("review_status")
+        ):
+            errors.append(f"PRIOR_ART_VERIFICATION_STATE: {prior_art_id}")
+        if source_status == "VERIFIED" and (
+            entry.get("review_status") != "DESK_REVIEWED_2026-08-27"
+            or "2026-08-27" not in str(entry.get("provenance", ""))
+        ):
+            errors.append(f"VERIFIED_PRIOR_ART_PROVENANCE: {prior_art_id}")
+
+    prior_art_id_set = {
+        prior_art_id
+        for prior_art_id in prior_art_ids
+        if isinstance(prior_art_id, str)
+    }
+    issue_prior_art_link_count = 0
+    issue_prior_art_pairs: set[tuple[str, str]] = set()
+    for issue in issues:
+        issue_id = issue.get("issue_id")
+        references = issue.get("known_prior_art")
+        if not isinstance(references, list):
+            errors.append(
+                f"PRIOR_ART_REFERENCES: {issue_id} must be a list"
+            )
             continue
-        for entry in collection:
-            if not isinstance(entry, dict):
-                errors.append(
-                    f"SOURCE_REGISTER: invalid entry in {collection_name}"
-                )
-                continue
-            source_entries.append(entry)
-            if not _has_provenance(entry):
-                errors.append(
-                    f"PROVENANCE_REQUIRED: source {entry.get('name')!r}"
-                )
-                continue
-            provenance = entry["provenance"]
-            if entry.get("status") not in SOURCE_LEAD_STATUSES:
-                errors.append(
-                    "RESEARCH_LEAD_STATUS: "
-                    f"{entry.get('name')!r} is {entry.get('status')!r}"
-                )
-            if entry.get("status") == "VERIFIED_SOURCE":
-                evidence_fields = (
-                    "primary_source_reference",
-                    "verified_by",
-                    "verified_on",
-                )
-                if not all(
-                    _is_evidence(provenance.get(field))
-                    for field in evidence_fields
-                ):
-                    errors.append(
-                        "VERIFIED_SOURCE_PROVENANCE: "
-                        f"{entry.get('name')!r}"
-                    )
+        issue_prior_art_link_count += len(references)
+        if not references:
+            errors.append(f"PRIOR_ART_ISSUE_COVERAGE: {issue_id} has no references")
+        if len(set(map(str, references))) != len(references):
+            errors.append(f"DUPLICATE_PRIOR_ART_REFERENCE: {issue_id}")
+        unresolved = sorted(
+            [
+                reference
+                for reference in references
+                if not isinstance(reference, str)
+                or reference not in prior_art_id_set
+            ],
+            key=str,
+        )
+        if unresolved:
+            errors.append(
+                "UNRESOLVED_PRIOR_ART_REFERENCE: "
+                f"{issue_id}: {', '.join(map(str, unresolved))}"
+            )
+        issue_prior_art_pairs.update(
+            (issue_id, reference)
+            for reference in references
+            if isinstance(issue_id, str) and isinstance(reference, str)
+        )
+    if issue_prior_art_pairs != register_prior_art_pairs:
+        errors.append(
+            "PRIOR_ART_LINK_ASYMMETRY: issue and register mappings differ"
+        )
+    if {issue_id for issue_id, _ in register_prior_art_pairs} != known_issue_ids:
+        errors.append("PRIOR_ART_ALL_ISSUES_COVERAGE: expected all 18 issues")
+
+    adoption_map_path = (
+        root
+        / "constitutional-design"
+        / "sources"
+        / "MECHANISM_ADOPTION_MAP.yaml"
+    )
+    adoption_map = _load_record(adoption_map_path, errors) or {}
+    if not _has_provenance(adoption_map):
+        errors.append(f"PROVENANCE_REQUIRED: {adoption_map_path}")
+    if set(adoption_map) != ADOPTION_MAP_FIELDS:
+        errors.append(
+            "MECHANISM_ADOPTION_MAP_SCHEMA: top-level fields do not match"
+        )
+    if adoption_map.get("map_status") != "RESEARCH_ARTIFACT":
+        errors.append("MECHANISM_ADOPTION_MAP_STATUS: expected research artifact")
+    if not _is_evidence(adoption_map.get("evidence_boundary")):
+        errors.append("MECHANISM_ADOPTION_EVIDENCE_BOUNDARY: required")
+    if any(
+        _contains_exact_string(adoption_map, status)
+        or _contains_unqualified_conclusion(adoption_map, status)
+        for status in FORBIDDEN_FINAL_ADOPTION_STATUSES
+    ):
+        errors.append("FINAL_ADOPTION_STATUS: mechanism adoption map")
+    adoption_value = adoption_map.get("entries")
+    adoption_entries = (
+        [entry for entry in adoption_value if isinstance(entry, dict)]
+        if isinstance(adoption_value, list)
+        else []
+    )
+    if not isinstance(adoption_value, list):
+        errors.append("MECHANISM_ADOPTION_MAP: entries must be a list")
+    elif len(adoption_entries) != len(adoption_value):
+        errors.append("MECHANISM_ADOPTION_MAP: every entry must be an object")
+
+    adoption_disposition_counts = {
+        disposition: 0 for disposition in sorted(CANDIDATE_DISPOSITIONS)
+    }
+    mechanisms_seen: set[str] = set()
+    for entry in adoption_entries:
+        mechanism = entry.get("mechanism")
+        if set(entry) != ADOPTION_ENTRY_FIELDS:
+            errors.append(
+                f"MECHANISM_ADOPTION_ENTRY_SCHEMA: {mechanism!r}"
+            )
+        if not _is_evidence(mechanism) or not _is_evidence(entry.get("rationale")):
+            errors.append(f"MECHANISM_ADOPTION_CONTENT: {mechanism!r}")
+        elif mechanism in mechanisms_seen:
+            errors.append(f"DUPLICATE_ADOPTION_MECHANISM: {mechanism}")
+        else:
+            mechanisms_seen.add(mechanism)
+
+        disposition = entry.get("candidate_disposition")
+        if (
+            not isinstance(disposition, str)
+            or disposition not in CANDIDATE_DISPOSITIONS
+        ):
+            errors.append(
+                f"MECHANISM_ADOPTION_DISPOSITION: {mechanism!r} is {disposition!r}"
+            )
+        else:
+            adoption_disposition_counts[disposition] += 1
+        if entry.get("decision_required") is not True:
+            errors.append(f"MECHANISM_DECISION_REQUIRED: {mechanism!r}")
+
+        sources = entry.get("prior_art_sources")
+        if (
+            not isinstance(sources, list)
+            or not sources
+            or any(
+                not isinstance(source, str)
+                or source not in prior_art_id_set
+                for source in sources
+            )
+            or len(set(map(str, sources))) != len(sources)
+        ):
+            errors.append(f"MECHANISM_PRIOR_ART_SOURCES: {mechanism!r}")
+        relevant_issues = entry.get("relevant_issues")
+        if (
+            not isinstance(relevant_issues, list)
+            or not relevant_issues
+            or any(
+                not isinstance(issue_id, str)
+                or issue_id not in known_issue_ids
+                for issue_id in relevant_issues
+            )
+            or len(set(map(str, relevant_issues))) != len(relevant_issues)
+        ):
+            errors.append(f"MECHANISM_RELEVANT_ISSUES: {mechanism!r}")
+        known_gaps = entry.get("known_gaps")
+        if (
+            not isinstance(known_gaps, list)
+            or not known_gaps
+            or any(not _is_evidence(gap) for gap in known_gaps)
+        ):
+            errors.append(f"MECHANISM_KNOWN_GAPS: {mechanism!r}")
+        if any(
+            _contains_exact_string(entry, status)
+            or _contains_unqualified_conclusion(entry, status)
+            for status in FORBIDDEN_FINAL_ADOPTION_STATUSES
+        ):
+            errors.append(f"FINAL_ADOPTION_STATUS: {mechanism!r}")
+    if {
+        disposition
+        for disposition, count in adoption_disposition_counts.items()
+        if count
+    } != CANDIDATE_DISPOSITIONS:
+        errors.append(
+            "MECHANISM_ADOPTION_DISPOSITION_COVERAGE: "
+            "all four candidate dispositions are required"
+        )
 
     historical_path = (
         root
@@ -359,11 +809,16 @@ def validate(root: Path) -> ValidationResult:
         errors.append("HISTORICAL_EVIDENCE_REGISTER: entries must be a list")
 
     evidence_ids = [entry.get("evidence_id") for entry in historical_entries]
+    string_evidence_ids = [
+        evidence_id
+        for evidence_id in evidence_ids
+        if isinstance(evidence_id, str)
+    ]
     duplicate_evidence_ids = sorted(
         {
             evidence_id
-            for evidence_id in evidence_ids
-            if evidence_ids.count(evidence_id) > 1
+            for evidence_id in string_evidence_ids
+            if string_evidence_ids.count(evidence_id) > 1
         }
     )
     if duplicate_evidence_ids:
@@ -390,7 +845,10 @@ def validate(root: Path) -> ValidationResult:
                 f"PROVENANCE_REQUIRED: historical evidence {evidence_id!r}"
             )
         source_status = entry.get("source_status")
-        if source_status not in HISTORICAL_SOURCE_STATUSES:
+        if (
+            not isinstance(source_status, str)
+            or source_status not in HISTORICAL_SOURCE_STATUSES
+        ):
             errors.append(
                 f"HISTORICAL_SOURCE_STATUS: {evidence_id} is {source_status!r}"
             )
@@ -423,14 +881,21 @@ def validate(root: Path) -> ValidationResult:
             )
 
         relevant_issues = entry.get("relevant_issues")
-        if not isinstance(relevant_issues, list) or not relevant_issues or any(
-            issue_id not in known_issue_ids for issue_id in relevant_issues
+        if (
+            not isinstance(relevant_issues, list)
+            or not relevant_issues
+            or any(
+                not isinstance(issue_id, str)
+                or issue_id not in known_issue_ids
+                for issue_id in relevant_issues
+            )
         ):
             errors.append(
                 f"HISTORICAL_RELEVANT_ISSUES: {evidence_id} has an unknown issue"
             )
 
-        provenance = entry.get("provenance", {})
+        provenance_value = entry.get("provenance")
+        provenance = provenance_value if isinstance(provenance_value, dict) else {}
         verification_fields = (
             provenance.get("verified_by"),
             provenance.get("verified_on"),
@@ -469,12 +934,12 @@ def validate(root: Path) -> ValidationResult:
             and isinstance(reference, str)
         )
         unresolved = sorted(
-            {
+            [
                 reference
                 for reference in references
                 if not isinstance(reference, str)
                 or reference not in evidence_id_set
-            },
+            ],
             key=str,
         )
         if unresolved:
@@ -486,7 +951,11 @@ def validate(root: Path) -> ValidationResult:
         (issue_id, entry["evidence_id"])
         for entry in historical_entries
         if isinstance(entry.get("evidence_id"), str)
-        for issue_id in entry.get("relevant_issues", [])
+        for issue_id in (
+            entry.get("relevant_issues")
+            if isinstance(entry.get("relevant_issues"), list)
+            else []
+        )
         if isinstance(issue_id, str)
     }
     if issue_link_pairs != register_link_pairs:
@@ -500,10 +969,14 @@ def validate(root: Path) -> ValidationResult:
         *requirements,
         source_index,
         prior_art,
+        adoption_map,
         questions_record,
         historical_register,
     ]
-    if any(_contains_novel(record) for record in structured_records):
+    if any(_contains_novel(record) for record in structured_records) or any(
+        _contains_unqualified_conclusion(record, "NOVEL")
+        for record in structured_records
+    ):
         errors.append("AUTOMATED_NOVELTY: NOVEL is not a permitted classification")
 
     constitution_dir = root / "constitution"
@@ -540,7 +1013,15 @@ def validate(root: Path) -> ValidationResult:
         "decided_decision_count": decided_count,
         "accepted_requirement_count": accepted_count,
         "constitutional_provision_count": len(provision_files),
-        "prior_art_research_lead_count": len(source_entries),
+        "prior_art_research_lead_count": prior_art_status_counts[
+            "RESEARCH_LEAD"
+        ],
+        "prior_art_entry_count": len(prior_art_entries),
+        "prior_art_source_status_counts": prior_art_status_counts,
+        "issue_prior_art_link_count": issue_prior_art_link_count,
+        "prior_art_disposition_counts": prior_art_disposition_counts,
+        "adoption_map_entry_count": len(adoption_entries),
+        "adoption_map_disposition_counts": adoption_disposition_counts,
         "historical_evidence_entry_count": len(historical_entries),
         "issue_historical_link_count": historical_link_count,
         "historical_source_status_counts": historical_status_counts,
