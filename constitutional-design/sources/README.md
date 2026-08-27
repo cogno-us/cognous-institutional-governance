@@ -5,6 +5,11 @@ initial research-lead register. Their data uses JavaScript Object Notation
 (JSON), which is also valid YAML Ain't Markup Language (YAML), so baseline
 validation needs no external parser.
 
+`HISTORICAL_EVIDENCE_REGISTER.yaml` contains independently referenceable
+comparative evidence records. Each record separates observation,
+interpretation, and possible constitutional relevance. Those categories do not
+constitute a constitutional lesson, decision, requirement, or provision.
+
 Entries begin as research leads rather than evidence. A lead may become a
 verified source only after primary-source provenance and human-verifiable
 verification details are recorded. The register must not fabricate authors,

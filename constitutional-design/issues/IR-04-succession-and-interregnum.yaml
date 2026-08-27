@@ -5,7 +5,7 @@
   "question": "What happens during temporary incapacity, permanent loss, or unresolved succession of foundational human authority?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ROME-003", "HE-ROME-004", "HE-BRITAIN-003", "HE-US-004", "HE-DUTCH-002", "HE-SWISS-003", "HE-T04", "HE-T05"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

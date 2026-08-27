@@ -5,7 +5,7 @@
   "question": "How may the institution cease operating, and which obligations, records, restrictions, or authorities survive termination?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ROME-004", "HE-BRITAIN-004", "HE-BURKE-FRANCE-002", "HE-BURKE-FRANCE-003", "HE-US-004", "HE-T05", "HE-T08"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

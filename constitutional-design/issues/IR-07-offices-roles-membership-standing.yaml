@@ -5,7 +5,7 @@
   "question": "How should durable institutional functions be distinguished from the humans, artificial intelligence models, software systems, or instances performing them?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ATHENS-001", "HE-ATHENS-002", "HE-ROME-001", "HE-T10"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

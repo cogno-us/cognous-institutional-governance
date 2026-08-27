@@ -5,7 +5,7 @@
   "question": "How should constitutional governance respond when practical or de facto power diverges materially from formally granted authority?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ATHENS-002", "HE-ATHENS-003", "HE-ROME-002", "HE-ROME-004", "HE-BRITAIN-002", "HE-BRITAIN-003", "HE-US-001", "HE-US-003", "HE-US-004", "HE-DUTCH-001", "HE-DUTCH-002", "HE-SWISS-001", "HE-SWISS-003", "HE-T01", "HE-T03", "HE-T06"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

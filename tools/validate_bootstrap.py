@@ -35,6 +35,28 @@ PLACEHOLDERS = {
     "NOT_YET_VERIFIED",
 }
 SOURCE_LEAD_STATUSES = {"RESEARCH_LEAD", "SOURCE_TO_VERIFY"}
+HISTORICAL_SOURCE_STATUSES = {
+    "SOURCE_TO_VERIFY",
+    "PARTIALLY_VERIFIED",
+    "VERIFIED",
+}
+HISTORICAL_EVIDENCE_FIELDS = {
+    "evidence_id",
+    "polity_or_tradition",
+    "period",
+    "subject",
+    "observation",
+    "interpretation",
+    "possible_constitutional_relevance",
+    "relevant_issues",
+    "counterevidence_or_limitations",
+    "confidence",
+    "source_status",
+    "primary_source_leads",
+    "secondary_source_leads",
+    "provenance",
+    "review_status",
+}
 EXPECTED_ISSUE_FILENAMES = {
     "IR-01-human-sovereignty.yaml",
     "IR-02-constraint-of-constitutional-authority.yaml",
@@ -111,6 +133,24 @@ def _contains_novel(value: Any) -> bool:
     return isinstance(value, str) and value.strip().upper() == "NOVEL"
 
 
+def _contains_exact_string(value: Any, expected: str) -> bool:
+    if isinstance(value, dict):
+        return any(
+            _contains_exact_string(item, expected) for item in value.values()
+        )
+    if isinstance(value, list):
+        return any(_contains_exact_string(item, expected) for item in value)
+    return isinstance(value, str) and value.strip().upper() == expected
+
+
+def _has_content(value: Any) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, (list, dict)):
+        return bool(value)
+    return value is not None
+
+
 def _load_record_set(
     directory: Path, pattern: str, errors: list[str]
 ) -> list[dict[str, Any]]:
@@ -153,6 +193,10 @@ def validate(root: Path) -> ValidationResult:
             )
         if not _has_provenance(issue):
             errors.append(f"PROVENANCE_REQUIRED: {path}")
+        if issue.get("candidate_architectures") != []:
+            errors.append(
+                f"CANDIDATE_ARCHITECTURES_NOT_EMPTY: {issue.get('issue_id')}"
+            )
 
     questions_path = (
         root / "constitutional-design" / "FOUNDATIONAL_QUESTIONS.yaml"
@@ -203,6 +247,10 @@ def validate(root: Path) -> ValidationResult:
                     "DECIDED_WITHOUT_HUMAN_DECISION: "
                     f"{decision_id or decision['_record_path']}"
                 )
+    if decided_count:
+        errors.append(
+            f"HISTORICAL_BASELINE_DECISION: expected 0 DECIDED records, found {decided_count}"
+        )
 
     requirement_dir = root / "constitutional-design" / "requirements"
     requirements = _load_record_set(requirement_dir, "CR-*.yaml", errors)
@@ -232,6 +280,11 @@ def validate(root: Path) -> ValidationResult:
                 "ACCEPTED_REQUIREMENT_PROVENANCE: "
                 f"{requirement.get('requirement_id') or requirement['_record_path']}"
             )
+    if accepted_count:
+        errors.append(
+            "HISTORICAL_BASELINE_REQUIREMENT: expected 0 "
+            f"ACCEPTED_FOR_DRAFTING records, found {accepted_count}"
+        )
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -287,6 +340,160 @@ def validate(root: Path) -> ValidationResult:
                         f"{entry.get('name')!r}"
                     )
 
+    historical_path = (
+        root
+        / "constitutional-design"
+        / "sources"
+        / "HISTORICAL_EVIDENCE_REGISTER.yaml"
+    )
+    historical_register = _load_record(historical_path, errors) or {}
+    if not _has_provenance(historical_register):
+        errors.append(f"PROVENANCE_REQUIRED: {historical_path}")
+    historical_value = historical_register.get("entries")
+    historical_entries = (
+        [entry for entry in historical_value if isinstance(entry, dict)]
+        if isinstance(historical_value, list)
+        else []
+    )
+    if not isinstance(historical_value, list):
+        errors.append("HISTORICAL_EVIDENCE_REGISTER: entries must be a list")
+
+    evidence_ids = [entry.get("evidence_id") for entry in historical_entries]
+    duplicate_evidence_ids = sorted(
+        {
+            evidence_id
+            for evidence_id in evidence_ids
+            if evidence_ids.count(evidence_id) > 1
+        }
+    )
+    if duplicate_evidence_ids:
+        errors.append(
+            "DUPLICATE_HISTORICAL_EVIDENCE_ID: "
+            + ", ".join(map(str, duplicate_evidence_ids))
+        )
+    known_issue_ids = {
+        issue_id for issue_id in issue_ids if isinstance(issue_id, str)
+    }
+    historical_status_counts = {
+        status: 0 for status in sorted(HISTORICAL_SOURCE_STATUSES)
+    }
+    for entry in historical_entries:
+        evidence_id = entry.get("evidence_id")
+        missing = sorted(HISTORICAL_EVIDENCE_FIELDS - entry.keys())
+        if missing:
+            errors.append(
+                f"HISTORICAL_EVIDENCE_FIELDS: {evidence_id}: "
+                f"missing {', '.join(missing)}"
+            )
+        if not _has_provenance(entry):
+            errors.append(
+                f"PROVENANCE_REQUIRED: historical evidence {evidence_id!r}"
+            )
+        source_status = entry.get("source_status")
+        if source_status not in HISTORICAL_SOURCE_STATUSES:
+            errors.append(
+                f"HISTORICAL_SOURCE_STATUS: {evidence_id} is {source_status!r}"
+            )
+        else:
+            historical_status_counts[source_status] += 1
+        if entry.get("review_status") != "NOT_YET_REVIEWED":
+            errors.append(
+                f"HISTORICAL_REVIEW_STATUS: {evidence_id} is "
+                f"{entry.get('review_status')!r}"
+            )
+
+        epistemic_fields = (
+            entry.get("observation"),
+            entry.get("interpretation"),
+            entry.get("possible_constitutional_relevance"),
+        )
+        if not all(_has_content(value) for value in epistemic_fields):
+            errors.append(
+                f"HISTORICAL_EPISTEMIC_SEPARATION: {evidence_id} has an empty category"
+            )
+        elif len(
+            {json.dumps(value, sort_keys=True) for value in epistemic_fields}
+        ) != 3:
+            errors.append(
+                f"HISTORICAL_EPISTEMIC_SEPARATION: {evidence_id} collapses categories"
+            )
+        if not _has_content(entry.get("counterevidence_or_limitations")):
+            errors.append(
+                f"HISTORICAL_LIMITATIONS_REQUIRED: {evidence_id}"
+            )
+
+        relevant_issues = entry.get("relevant_issues")
+        if not isinstance(relevant_issues, list) or not relevant_issues or any(
+            issue_id not in known_issue_ids for issue_id in relevant_issues
+        ):
+            errors.append(
+                f"HISTORICAL_RELEVANT_ISSUES: {evidence_id} has an unknown issue"
+            )
+
+        provenance = entry.get("provenance", {})
+        verification_fields = (
+            provenance.get("verified_by"),
+            provenance.get("verified_on"),
+            provenance.get("verification_record"),
+        )
+        has_verification = all(_is_evidence(value) for value in verification_fields)
+        if source_status == "VERIFIED" and not has_verification:
+            errors.append(
+                f"VERIFIED_HISTORICAL_EVIDENCE_PROVENANCE: {evidence_id}"
+            )
+        if source_status == "SOURCE_TO_VERIFY" and (
+            any(_is_evidence(value) for value in verification_fields)
+            or _contains_exact_string(provenance, "VERIFIED")
+        ):
+            errors.append(
+                f"HISTORICAL_SOURCE_STATUS_CONFLICT: {evidence_id}"
+            )
+
+    evidence_id_set = {
+        evidence_id for evidence_id in evidence_ids if isinstance(evidence_id, str)
+    }
+    historical_link_count = 0
+    issue_link_pairs: set[tuple[str, str]] = set()
+    for issue in issues:
+        references = issue.get("historical_evidence")
+        if not isinstance(references, list):
+            errors.append(
+                f"HISTORICAL_EVIDENCE_REFERENCES: {issue.get('issue_id')} must be a list"
+            )
+            continue
+        historical_link_count += len(references)
+        issue_link_pairs.update(
+            (issue["issue_id"], reference)
+            for reference in references
+            if isinstance(issue.get("issue_id"), str)
+            and isinstance(reference, str)
+        )
+        unresolved = sorted(
+            {
+                reference
+                for reference in references
+                if not isinstance(reference, str)
+                or reference not in evidence_id_set
+            },
+            key=str,
+        )
+        if unresolved:
+            errors.append(
+                f"UNRESOLVED_HISTORICAL_EVIDENCE_REFERENCE: "
+                f"{issue.get('issue_id')}: {', '.join(map(str, unresolved))}"
+            )
+    register_link_pairs = {
+        (issue_id, entry["evidence_id"])
+        for entry in historical_entries
+        if isinstance(entry.get("evidence_id"), str)
+        for issue_id in entry.get("relevant_issues", [])
+        if isinstance(issue_id, str)
+    }
+    if issue_link_pairs != register_link_pairs:
+        errors.append(
+            "HISTORICAL_EVIDENCE_LINK_ASYMMETRY: issue and register mappings differ"
+        )
+
     structured_records: list[Any] = [
         *issues,
         *decisions,
@@ -294,6 +501,7 @@ def validate(root: Path) -> ValidationResult:
         source_index,
         prior_art,
         questions_record,
+        historical_register,
     ]
     if any(_contains_novel(record) for record in structured_records):
         errors.append("AUTOMATED_NOVELTY: NOVEL is not a permitted classification")
@@ -333,6 +541,9 @@ def validate(root: Path) -> ValidationResult:
         "accepted_requirement_count": accepted_count,
         "constitutional_provision_count": len(provision_files),
         "prior_art_research_lead_count": len(source_entries),
+        "historical_evidence_entry_count": len(historical_entries),
+        "issue_historical_link_count": historical_link_count,
+        "historical_source_status_counts": historical_status_counts,
     }
     return ValidationResult(tuple(errors), metrics)
 

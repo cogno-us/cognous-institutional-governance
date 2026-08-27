@@ -5,7 +5,7 @@
   "question": "How should governance burden scale with consequence, reversibility, uncertainty, affected interests, authority, and reliance?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ATHENS-001", "HE-ATHENS-002", "HE-ATHENS-003", "HE-ATHENS-004", "HE-ROME-001", "HE-ROME-002", "HE-ROME-003", "HE-US-002", "HE-US-004", "HE-DUTCH-001", "HE-DUTCH-002", "HE-SWISS-001", "HE-SWISS-002", "HE-T02", "HE-T04", "HE-T06", "HE-T09"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-
