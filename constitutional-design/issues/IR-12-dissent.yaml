@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "How should material dissent be preserved, overruled, restricted, sealed, superseded, or otherwise governed?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-CC-002", "PA-PROV-001", "PA-DISSENT-001", "PA-DISSENT-002", "PA-DISSENT-003"],
   "historical_evidence": ["HE-ATHENS-003", "HE-SWISS-002"],
   "experimental_evidence": [],
   "candidate_architectures": [],

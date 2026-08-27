@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "How should the institution preserve distinctions among known, unknown, incomplete, disputed, inferred, verified, and unverified states?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-AI-001", "PA-AI-003", "PA-AUTH-005", "PA-AUTH-008", "PA-AUTH-009", "PA-PROV-001", "PA-POLICY-001", "PA-POLICY-003", "PA-RELIANCE-001", "PA-EPISTEMIC-001", "PA-DISSENT-002"],
   "historical_evidence": ["HE-BRITAIN-001", "HE-BURKE-FRANCE-001", "HE-T07", "HE-T08", "HE-T10"],
   "experimental_evidence": [],
   "candidate_architectures": [],

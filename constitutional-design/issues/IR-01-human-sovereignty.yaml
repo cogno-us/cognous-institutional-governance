@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "What foundational institutional purposes and powers must remain under human authority, and what may legitimately be delegated?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-NMAS-004", "PA-AI-003", "PA-AUTH-001", "PA-AUTH-002", "PA-AUTH-003", "PA-AUTH-004", "PA-AUTH-005", "PA-AUTH-006", "PA-AUTH-007", "PA-AUTH-008", "PA-AUTH-009", "PA-POLICY-002", "PA-POLICY-003"],
   "historical_evidence": ["HE-BRITAIN-002", "HE-US-001", "HE-DUTCH-001", "HE-SWISS-001"],
   "experimental_evidence": [],
   "candidate_architectures": [],

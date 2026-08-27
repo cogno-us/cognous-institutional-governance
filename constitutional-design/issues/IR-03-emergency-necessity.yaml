@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "What, if anything, may an actor do when irreversible harm is imminent but competent authority cannot be reached?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-CC-001"],
   "historical_evidence": ["HE-ROME-003", "HE-BURKE-FRANCE-002", "HE-US-004", "HE-T04", "HE-T09"],
   "experimental_evidence": [],
   "candidate_architectures": [],

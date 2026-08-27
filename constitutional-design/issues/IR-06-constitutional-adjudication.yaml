@@ -4,7 +4,7 @@
   "status": "OPEN",
   "question": "How are constitutional disputes resolved, especially when foundational authority is itself a party to the dispute?",
   "working_context": "NOT_YET_INGESTED",
-  "known_prior_art": [],
+  "known_prior_art": ["PA-AUTH-001", "PA-DISSENT-001", "PA-DISSENT-003"],
   "historical_evidence": ["HE-ATHENS-001", "HE-ATHENS-003", "HE-ROME-002", "HE-BRITAIN-001", "HE-BRITAIN-002", "HE-US-001", "HE-US-002", "HE-US-003", "HE-US-004", "HE-SWISS-002", "HE-T01"],
   "experimental_evidence": [],
   "candidate_architectures": [],
