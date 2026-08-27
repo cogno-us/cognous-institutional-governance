@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -34,6 +33,27 @@ PLACEHOLDERS = {
     "NOT_YET_INGESTED",
     "NOT_YET_REVIEWED",
     "NOT_YET_VERIFIED",
+}
+SOURCE_LEAD_STATUSES = {"RESEARCH_LEAD", "SOURCE_TO_VERIFY"}
+EXPECTED_ISSUE_FILENAMES = {
+    "IR-01-human-sovereignty.yaml",
+    "IR-02-constraint-of-constitutional-authority.yaml",
+    "IR-03-emergency-necessity.yaml",
+    "IR-04-succession-and-interregnum.yaml",
+    "IR-05-delegation-during-interregnum.yaml",
+    "IR-06-constitutional-adjudication.yaml",
+    "IR-07-offices-roles-membership-standing.yaml",
+    "IR-08-formal-and-effective-power.yaml",
+    "IR-09-incentive-compatibility.yaml",
+    "IR-10-separation-of-functions.yaml",
+    "IR-11-threshold-of-reliance.yaml",
+    "IR-12-dissent.yaml",
+    "IR-13-epistemic-integrity.yaml",
+    "IR-14-proportional-governance.yaml",
+    "IR-15-amendment-and-refounding.yaml",
+    "IR-16-institutional-termination.yaml",
+    "IR-17-constitutional-hierarchy.yaml",
+    "IR-18-human-control-and-comprehensibility.yaml",
 }
 
 
@@ -73,6 +93,16 @@ def _has_human_decision_evidence(record: dict[str, Any]) -> bool:
     )
 
 
+def _has_provenance(record: dict[str, Any]) -> bool:
+    provenance = record.get("provenance")
+    if not isinstance(provenance, dict):
+        return False
+    return any(
+        _is_evidence(provenance.get(field))
+        for field in ("source", "supplied_by")
+    )
+
+
 def _contains_novel(value: Any) -> bool:
     if isinstance(value, dict):
         return any(_contains_novel(item) for item in value.values())
@@ -101,6 +131,9 @@ def validate(root: Path) -> ValidationResult:
     issues = _load_record_set(issue_dir, "IR-*.yaml", errors)
     if len(issues) != 18:
         errors.append(f"ISSUE_COUNT: expected 18, found {len(issues)}")
+    issue_filenames = {Path(record["_record_path"]).name for record in issues}
+    if issue_filenames != EXPECTED_ISSUE_FILENAMES:
+        errors.append("ISSUE_FILENAMES: issue filenames do not match the baseline")
 
     issue_ids = [record.get("issue_id") for record in issues]
     duplicate_ids = sorted(
@@ -118,35 +151,37 @@ def validate(root: Path) -> ValidationResult:
             errors.append(
                 f"ISSUE_STATUS: {issue.get('issue_id')} is {issue.get('status')!r}"
             )
-        if not isinstance(issue.get("provenance"), dict):
+        if not _has_provenance(issue):
             errors.append(f"PROVENANCE_REQUIRED: {path}")
 
     questions_path = (
-        root / "constitutional-design" / "FOUNDATIONAL_QUESTIONS.md"
+        root / "constitutional-design" / "FOUNDATIONAL_QUESTIONS.yaml"
     )
-    try:
-        questions_text = questions_path.read_text(encoding="utf-8")
-    except OSError as exc:
-        errors.append(f"FOUNDATIONAL_QUESTION_COUNT: cannot read file: {exc}")
-        questions_text = ""
-
-    question_blocks = re.findall(
-        r"^## (FQ-\d{2})\s*$([\s\S]*?)(?=^## FQ-\d{2}\s*$|\Z)",
-        questions_text,
-        flags=re.MULTILINE,
+    questions_record = _load_record(questions_path, errors) or {}
+    questions_value = questions_record.get("questions")
+    questions = (
+        [question for question in questions_value if isinstance(question, dict)]
+        if isinstance(questions_value, list)
+        else []
     )
-    question_ids = [question_id for question_id, _ in question_blocks]
+    if not _has_provenance(questions_record):
+        errors.append(f"PROVENANCE_REQUIRED: {questions_path}")
+    question_ids = [question.get("question_id") for question in questions]
     expected_question_ids = {f"FQ-{index:02d}" for index in range(1, 6)}
-    if len(question_blocks) != 5 or set(question_ids) != expected_question_ids:
+    if len(questions) != 5 or set(question_ids) != expected_question_ids:
         errors.append(
             "FOUNDATIONAL_QUESTION_COUNT: expected exactly FQ-01 through FQ-05"
         )
-    for question_id, block in question_blocks:
-        status_match = re.search(r"\*\*Status:\*\*\s*`([^`]+)`", block)
-        status = status_match.group(1) if status_match else None
+    for question in questions:
+        question_id = question.get("question_id")
+        status = question.get("status")
         if status != "UNRESOLVED":
             errors.append(
                 f"FOUNDATIONAL_QUESTION_STATUS: {question_id} is {status!r}"
+            )
+        if not _has_provenance(question):
+            errors.append(
+                f"PROVENANCE_REQUIRED: foundational question {question_id!r}"
             )
 
     decision_dir = root / "constitutional-design" / "decisions"
@@ -154,7 +189,7 @@ def validate(root: Path) -> ValidationResult:
     decisions_by_id: dict[str, dict[str, Any]] = {}
     decided_count = 0
     for decision in decisions:
-        if not isinstance(decision.get("provenance"), dict):
+        if not _has_provenance(decision):
             errors.append(
                 f"PROVENANCE_REQUIRED: {decision['_record_path']}"
             )
@@ -173,7 +208,7 @@ def validate(root: Path) -> ValidationResult:
     requirements = _load_record_set(requirement_dir, "CR-*.yaml", errors)
     accepted_count = 0
     for requirement in requirements:
-        if not isinstance(requirement.get("provenance"), dict):
+        if not _has_provenance(requirement):
             errors.append(
                 f"PROVENANCE_REQUIRED: {requirement['_record_path']}"
             )
@@ -198,15 +233,24 @@ def validate(root: Path) -> ValidationResult:
                 f"{requirement.get('requirement_id') or requirement['_record_path']}"
             )
 
-    source_path = (
+    source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
     )
-    source_index = _load_record(source_path, errors) or {}
-    if not isinstance(source_index.get("provenance"), dict):
-        errors.append(f"PROVENANCE_REQUIRED: {source_path}")
+    source_index = _load_record(source_index_path, errors) or {}
+    if not _has_provenance(source_index):
+        errors.append(f"PROVENANCE_REQUIRED: {source_index_path}")
+    prior_art_path = (
+        root
+        / "constitutional-design"
+        / "sources"
+        / "PRIOR_ART_REGISTER.yaml"
+    )
+    prior_art = _load_record(prior_art_path, errors) or {}
+    if not _has_provenance(prior_art):
+        errors.append(f"PROVENANCE_REQUIRED: {prior_art_path}")
     source_entries: list[dict[str, Any]] = []
     for collection_name in ("intellectual_neighborhoods", "research_leads"):
-        collection = source_index.get(collection_name)
+        collection = prior_art.get(collection_name)
         if not isinstance(collection, list):
             errors.append(f"SOURCE_REGISTER: {collection_name} must be a list")
             continue
@@ -217,12 +261,17 @@ def validate(root: Path) -> ValidationResult:
                 )
                 continue
             source_entries.append(entry)
-            provenance = entry.get("provenance")
-            if not isinstance(provenance, dict):
+            if not _has_provenance(entry):
                 errors.append(
                     f"PROVENANCE_REQUIRED: source {entry.get('name')!r}"
                 )
                 continue
+            provenance = entry["provenance"]
+            if entry.get("status") not in SOURCE_LEAD_STATUSES:
+                errors.append(
+                    "RESEARCH_LEAD_STATUS: "
+                    f"{entry.get('name')!r} is {entry.get('status')!r}"
+                )
             if entry.get("status") == "VERIFIED_SOURCE":
                 evidence_fields = (
                     "primary_source_reference",
@@ -243,6 +292,8 @@ def validate(root: Path) -> ValidationResult:
         *decisions,
         *requirements,
         source_index,
+        prior_art,
+        questions_record,
     ]
     if any(_contains_novel(record) for record in structured_records):
         errors.append("AUTOMATED_NOVELTY: NOVEL is not a permitted classification")
@@ -268,20 +319,20 @@ def validate(root: Path) -> ValidationResult:
         status = str(issue.get("status"))
         issue_status_counts[status] = issue_status_counts.get(status, 0) + 1
     question_status_counts: dict[str, int] = {}
-    for _, block in question_blocks:
-        status_match = re.search(r"\*\*Status:\*\*\s*`([^`]+)`", block)
-        status = status_match.group(1) if status_match else "MISSING"
+    for question in questions:
+        status = str(question.get("status", "MISSING"))
         question_status_counts[status] = question_status_counts.get(status, 0) + 1
 
     metrics = {
         "issue_count": len(issues),
         "issue_status_counts": issue_status_counts,
-        "foundational_question_count": len(question_blocks),
+        "foundational_question_count": len(questions),
         "foundational_question_status_counts": question_status_counts,
+        "decision_record_count": len(decisions),
         "decided_decision_count": decided_count,
         "accepted_requirement_count": accepted_count,
         "constitutional_provision_count": len(provision_files),
-        "source_entry_count": len(source_entries),
+        "prior_art_research_lead_count": len(source_entries),
     }
     return ValidationResult(tuple(errors), metrics)
 
@@ -310,4 +361,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

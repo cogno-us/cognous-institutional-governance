@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import re
 import shutil
 import tempfile
 import unittest
@@ -13,7 +12,7 @@ from tools.validate_bootstrap import validate
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 
 
-class BootstrapValidationTests(unittest.TestCase):
+class ConstitutionalResearchBaselineTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()
         self.root = Path(self.temporary_directory.name) / "repository"
@@ -54,20 +53,20 @@ class BootstrapValidationTests(unittest.TestCase):
             self.root
             / "constitutional-design"
             / "issues"
-            / "IR-18.yaml"
+            / "IR-18-human-control-and-comprehensibility.yaml"
         ).unlink()
         self.assert_error("ISSUE_COUNT")
 
     def test_duplicate_issue_identifier_fails(self) -> None:
         self.update_json(
-            "constitutional-design/issues/IR-18.yaml",
+            "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
             lambda record: record.update(issue_id="IR-17"),
         )
         self.assert_error("DUPLICATE_ISSUE_ID")
 
     def test_resolved_issue_during_bootstrap_fails(self) -> None:
         self.update_json(
-            "constitutional-design/issues/IR-01.yaml",
+            "constitutional-design/issues/IR-01-human-sovereignty.yaml",
             lambda record: record.update(status="RESOLVED"),
         )
         self.assert_error("ISSUE_STATUS")
@@ -76,26 +75,22 @@ class BootstrapValidationTests(unittest.TestCase):
         path = (
             self.root
             / "constitutional-design"
-            / "FOUNDATIONAL_QUESTIONS.md"
+            / "FOUNDATIONAL_QUESTIONS.yaml"
         )
-        text = path.read_text(encoding="utf-8")
-        path.write_text(
-            re.sub(r"^## FQ-05[\s\S]*\Z", "", text, flags=re.MULTILINE),
-            encoding="utf-8",
-        )
+        record = json.loads(path.read_text(encoding="utf-8"))
+        record["questions"].pop()
+        path.write_text(json.dumps(record), encoding="utf-8")
         self.assert_error("FOUNDATIONAL_QUESTION_COUNT")
 
     def test_resolved_foundational_question_fails(self) -> None:
         path = (
             self.root
             / "constitutional-design"
-            / "FOUNDATIONAL_QUESTIONS.md"
+            / "FOUNDATIONAL_QUESTIONS.yaml"
         )
-        text = path.read_text(encoding="utf-8")
-        path.write_text(
-            text.replace("`UNRESOLVED`", "`RESOLVED`", 1),
-            encoding="utf-8",
-        )
+        record = json.loads(path.read_text(encoding="utf-8"))
+        record["questions"][0]["status"] = "RESOLVED"
+        path.write_text(json.dumps(record), encoding="utf-8")
         self.assert_error("FOUNDATIONAL_QUESTION_STATUS")
 
     def test_decided_decision_without_human_evidence_fails(self) -> None:
@@ -123,14 +118,14 @@ class BootstrapValidationTests(unittest.TestCase):
             record["research_leads"][0]["status"] = "VERIFIED_SOURCE"
 
         self.update_json(
-            "constitutional-design/sources/SOURCE_INDEX.yaml",
+            "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
             mark_verified,
         )
         self.assert_error("VERIFIED_SOURCE_PROVENANCE")
 
     def test_automated_novel_classification_fails(self) -> None:
         self.update_json(
-            "constitutional-design/sources/SOURCE_INDEX.yaml",
+            "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
             lambda record: record.update(automated_classification="NOVEL"),
         )
         self.assert_error("AUTOMATED_NOVELTY")
@@ -151,7 +146,18 @@ class BootstrapValidationTests(unittest.TestCase):
         path.write_text(json.dumps(record), encoding="utf-8")
         self.assert_error("ACCEPTED_REQUIREMENT_PROVENANCE")
 
+    def test_missing_provenance_fails(self) -> None:
+        self.update_json(
+            "constitutional-design/issues/IR-01-human-sovereignty.yaml",
+            lambda record: record.pop("provenance"),
+        )
+        self.assert_error("PROVENANCE_REQUIRED")
+
+    def test_constitutional_provision_during_baseline_fails(self) -> None:
+        path = self.root / "constitution" / "Article-01.md"
+        path.write_text("Premature provision.", encoding="utf-8")
+        self.assert_error("CONSTITUTIONAL_PROVISIONS")
+
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,17 +1,21 @@
 # Sources and prior art
 
-`SOURCE_INDEX.yaml` is a minimal research register. Its data uses
-JavaScript Object Notation (JSON), which is also valid YAML Ain't Markup
-Language (YAML), so bootstrap validation needs no external parser.
+`SOURCE_INDEX.yaml` locates source registers. `PRIOR_ART_REGISTER.yaml` is the
+initial research-lead register. Their data uses JavaScript Object Notation
+(JSON), which is also valid YAML Ain't Markup Language (YAML), so baseline
+validation needs no external parser.
 
 Entries begin as research leads rather than evidence. A lead may become a
 verified source only after primary-source provenance and human-verifiable
 verification details are recorded. The register must not fabricate authors,
 dates, citations, Uniform Resource Locators, or findings.
 
+Capitalized research-lead labels are supplied names. Their expansions, if any,
+remain to be verified rather than inferred.
+
 ## Novelty discipline
 
-Absence of identified prior art is not evidence of novelty.
+`NO_CLOSE_PRIOR_ART_FOUND_IN_SEARCH` does not mean `NOVEL`.
 
 Permitted research classifications are:
 
@@ -33,4 +37,3 @@ Potential mechanism dispositions are:
 - `NOT_APPLICABLE`
 
 A candidate disposition is research analysis, not a constitutional decision.
-
