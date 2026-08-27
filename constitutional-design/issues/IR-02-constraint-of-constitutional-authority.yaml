@@ -5,7 +5,7 @@
   "question": "How is foundational human authority itself constrained when exercising institutional power?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ATHENS-001", "HE-ATHENS-004", "HE-ROME-002", "HE-BRITAIN-002", "HE-BURKE-FRANCE-003", "HE-US-001", "HE-US-002", "HE-SWISS-001", "HE-SWISS-002", "HE-T01"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

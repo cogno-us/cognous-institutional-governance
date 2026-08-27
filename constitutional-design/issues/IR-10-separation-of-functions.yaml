@@ -5,7 +5,7 @@
   "question": "Which institutional functions must remain distinguishable, and when must they be separated?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ATHENS-002", "HE-ATHENS-004", "HE-ROME-001", "HE-ROME-002", "HE-ROME-003", "HE-BRITAIN-003", "HE-US-002", "HE-US-004", "HE-DUTCH-001", "HE-DUTCH-002", "HE-SWISS-001", "HE-SWISS-003", "HE-T01", "HE-T02", "HE-T03", "HE-T06"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

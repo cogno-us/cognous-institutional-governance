@@ -158,6 +158,97 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         path.write_text("Premature provision.", encoding="utf-8")
         self.assert_error("CONSTITUTIONAL_PROVISIONS")
 
+    def test_duplicate_historical_evidence_identifier_fails(self) -> None:
+        def duplicate_identifier(record) -> None:
+            record["entries"][1]["evidence_id"] = record["entries"][0][
+                "evidence_id"
+            ]
+
+        self.update_json(
+            "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+            duplicate_identifier,
+        )
+        self.assert_error("DUPLICATE_HISTORICAL_EVIDENCE_ID")
+
+    def test_unresolved_historical_evidence_reference_fails(self) -> None:
+        self.update_json(
+            "constitutional-design/issues/IR-01-human-sovereignty.yaml",
+            lambda record: record["historical_evidence"].append("HE-MISSING"),
+        )
+        self.assert_error("UNRESOLVED_HISTORICAL_EVIDENCE_REFERENCE")
+
+    def test_collapsed_historical_epistemic_categories_fail(self) -> None:
+        def collapse_categories(record) -> None:
+            record["entries"][0]["interpretation"] = record["entries"][0][
+                "observation"
+            ]
+
+        self.update_json(
+            "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+            collapse_categories,
+        )
+        self.assert_error("HISTORICAL_EPISTEMIC_SEPARATION")
+
+    def test_verified_historical_evidence_without_provenance_fails(self) -> None:
+        def mark_verified(record) -> None:
+            record["entries"][0]["source_status"] = "VERIFIED"
+
+        self.update_json(
+            "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+            mark_verified,
+        )
+        self.assert_error("VERIFIED_HISTORICAL_EVIDENCE_PROVENANCE")
+
+    def test_historical_evidence_without_limitations_fails(self) -> None:
+        def remove_limitations(record) -> None:
+            record["entries"][0]["counterevidence_or_limitations"] = []
+
+        self.update_json(
+            "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+            remove_limitations,
+        )
+        self.assert_error("HISTORICAL_LIMITATIONS_REQUIRED")
+
+    def test_decided_record_is_forbidden_during_historical_ingestion(self) -> None:
+        path = (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CDR-002.yaml"
+        )
+        record = {
+            "decision_id": "CDR-002",
+            "status": "DECIDED",
+            "human_decision": {
+                "authorized_by": "test human authority",
+                "authorization_record": "test authorization",
+                "decision_date": "test date",
+            },
+            "provenance": {"source": "test fixture"},
+        }
+        path.write_text(json.dumps(record), encoding="utf-8")
+        self.assert_error("HISTORICAL_BASELINE_DECISION")
+
+    def test_asymmetric_historical_evidence_mapping_fails(self) -> None:
+        def remove_register_mapping(record) -> None:
+            record["entries"][0]["relevant_issues"].remove("IR-02")
+
+        self.update_json(
+            "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+            remove_register_mapping,
+        )
+        self.assert_error("HISTORICAL_EVIDENCE_LINK_ASYMMETRY")
+
+    def test_source_to_verify_cannot_claim_verified_provenance(self) -> None:
+        def claim_verification(record) -> None:
+            record["entries"][0]["provenance"]["verification"] = "VERIFIED"
+
+        self.update_json(
+            "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+            claim_verification,
+        )
+        self.assert_error("HISTORICAL_SOURCE_STATUS_CONFLICT")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -5,7 +5,7 @@
   "question": "How should institutional incentives make constitutional behavior more stable than circumvention, capture, or concentration of power?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-ATHENS-002", "HE-ATHENS-003", "HE-ATHENS-004", "HE-ROME-001", "HE-ROME-004", "HE-BRITAIN-004", "HE-BURKE-FRANCE-001", "HE-BURKE-FRANCE-002", "HE-US-002", "HE-DUTCH-001", "HE-SWISS-002", "HE-SWISS-003", "HE-T01", "HE-T02", "HE-T06", "HE-T08"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

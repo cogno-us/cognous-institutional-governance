@@ -5,7 +5,7 @@
   "question": "How should the institution preserve distinctions among known, unknown, incomplete, disputed, inferred, verified, and unverified states?",
   "working_context": "NOT_YET_INGESTED",
   "known_prior_art": [],
-  "historical_evidence": [],
+  "historical_evidence": ["HE-BRITAIN-001", "HE-BURKE-FRANCE-001", "HE-T07", "HE-T08", "HE-T10"],
   "experimental_evidence": [],
   "candidate_architectures": [],
   "dependencies": [],
@@ -15,4 +15,3 @@
   "provenance": {"classification": "INHERITED_RESEARCH_QUESTION", "source": "repository bootstrap brief"},
   "last_reviewed": "NOT_YET_REVIEWED"
 }
-

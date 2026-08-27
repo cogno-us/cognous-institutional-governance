@@ -9,6 +9,15 @@
         "source": "constitutional research baseline brief",
         "review_state": "NOT_YET_REVIEWED"
       }
+    },
+    {
+      "name": "Comparative constitutional history evidence register",
+      "path": "HISTORICAL_EVIDENCE_REGISTER.yaml",
+      "status": "SOURCE_TO_VERIFY_COLLECTION",
+      "provenance": {
+        "source": "historical evidence baseline brief",
+        "review_state": "NOT_YET_REVIEWED"
+      }
     }
   ],
   "verified_sources": [],
@@ -17,4 +26,3 @@
     "review_state": "NOT_YET_REVIEWED"
   }
 }
-
