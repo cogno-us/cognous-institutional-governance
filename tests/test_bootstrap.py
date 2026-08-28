@@ -53,6 +53,11 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         update(record)
         path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
 
+    def update_text(self, relative_path: str, update) -> None:
+        path = self.root / relative_path
+        text = path.read_text(encoding="utf-8")
+        path.write_text(update(text), encoding="utf-8")
+
     def test_valid_bootstrap_passes(self) -> None:
         result = validate(self.root)
         self.assertTrue(result.passed)
@@ -72,6 +77,311 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["decided_decision_count"], 0)
         self.assertEqual(result.metrics["accepted_requirement_count"], 0)
         self.assertEqual(result.metrics["constitutional_provision_count"], 0)
+        self.assertEqual(result.metrics["human_decision_packet_count"], 1)
+        self.assertEqual(result.metrics["human_decision_option_count"], 8)
+        self.assertEqual(result.metrics["human_decision_question_count"], 5)
+        self.assertEqual(
+            result.metrics["recommended_architecture"],
+            "Architecture E",
+        )
+
+    def test_fq1_human_decision_packet_is_required_at_exact_path(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "packets"
+            / "CDR-001-HUMAN-DECISION-PACKET.md"
+        ).unlink()
+        self.assert_error("FQ1_PACKET_COUNT")
+
+    def test_fq1_human_decision_packet_cannot_be_duplicated(self) -> None:
+        packet_dir = (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "packets"
+        )
+        source = packet_dir / "CDR-001-HUMAN-DECISION-PACKET.md"
+        (packet_dir / "CDR-002-HUMAN-DECISION-PACKET.md").write_text(
+            source.read_text(encoding="utf-8"),
+            encoding="utf-8",
+        )
+        self.assert_error("FQ1_PACKET_COUNT")
+
+    def test_fq1_packet_requires_exact_advisory_markers(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
+                "ADVISORY",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_ADVISORY_BOUNDARY")
+
+    def test_fq1_packet_headings_must_be_unique_and_ordered(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "## Core Decision",
+                "## Core Decision\n\n## Core Decision",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_HEADINGS")
+
+    def test_fq1_packet_missing_heading_fails_without_crashing(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "## Material Ambiguities",
+                "### Material Ambiguities",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_HEADINGS")
+
+    def test_fq1_packet_architectures_require_exact_labels(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "**Strongest argument for:** It offers",
+                "**Additional analysis:** None.\n\n"
+                "**Strongest argument for:** It offers",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_ARCHITECTURE_LABELS")
+
+    def test_fq1_packet_architecture_model_requires_two_sentences(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "A recognized human foundational sovereign controls\n"
+                "institutional ends and may issue, suspend, revise, or replace "
+                "institutional\nrules without a superior adjudicator or "
+                "entrenched limit. Restraint exists\nonly through "
+                "self-restraint, convention, transparency, resistance, or\n"
+                "practical dependence, all of which remain revocable or "
+                "nonbinding.",
+                "One sentence describes the model.",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_ARCHITECTURE_MODEL")
+
+    def test_fq1_packet_architecture_summary_must_trace_to_cdr(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "It offers the clearest human source, the simplest\n"
+                "authority chain, and the fastest final action.",
+                "Unsupported assertion.",
+            ),
+        )
+        self.assert_error("FQ1_PACKET_ARCHITECTURE_TRACEABILITY")
+
+    def test_fq1_packet_architecture_traceability_rejects_negation(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "It offers the clearest human source, the simplest\n"
+                "authority chain, and the fastest final action.",
+                "It does not offer the clearest human source, the simplest "
+                "authority chain, or the fastest final action.",
+            ),
+        )
+        self.assert_error("FQ1_PACKET_ARCHITECTURE_TRACEABILITY")
+
+    def test_fq1_packet_recommendation_must_be_architecture_e(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "**Recommendation:** Architecture E",
+                "**Recommendation:** Architecture C",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_RECOMMENDATION")
+
+    def test_fq1_packet_cannot_claim_adoption(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\nTHIS PACKET ADOPTS Architecture E.\n",
+        )
+        self.assert_error("FQ1_PACKET_AUTHORITY_EFFECT")
+
+    def test_fq1_packet_cannot_use_alternate_decision_language(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text
+            + "\nWe hereby adopt Architecture E and resolve FQ-01.\n",
+        )
+        self.assert_error("FQ1_PACKET_AUTHORITY_EFFECT")
+
+    def test_fq1_packet_cannot_approve_or_settle_the_question(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text
+            + "\nThe authorized human choice approves Architecture E "
+            "and settles FQ-01.\n",
+        )
+        self.assert_error("FQ1_PACKET_AUTHORITY_EFFECT")
+
+    def test_fq1_packet_cannot_assert_decided_status(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\n**Status:** DECIDED\n",
+        )
+        self.assert_error("FQ1_PACKET_ADVISORY_BOUNDARY")
+
+    def test_fq1_packet_cannot_contain_authorization_evidence(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\n**Authorized by:** Test authority\n",
+        )
+        self.assert_error("FQ1_PACKET_AUTHORITY_EFFECT")
+
+    def test_fq1_packet_options_require_exact_order_and_count(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace("**ADOPT_B**", "**ADOPT_A**", 1),
+        )
+        self.assert_error("FQ1_PACKET_OPTIONS")
+
+    def test_fq1_packet_missing_option_fails_without_crashing(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace("8. **DEFER**", "8. **OMITTED**", 1),
+        )
+        self.assert_error("FQ1_PACKET_OPTIONS")
+
+    def test_fq1_packet_cannot_hide_a_ninth_option(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "## Decision Questions",
+                "9. **OTHER-CHOICE** — Add another choice.\n\n"
+                "## Decision Questions",
+            ),
+        )
+        self.assert_error("FQ1_PACKET_OPTIONS")
+
+    def test_fq1_packet_cannot_add_unnumbered_option(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "## Decision Questions",
+                "- **ADOPT_F** — Add another choice.\n\n"
+                "## Decision Questions",
+            ),
+        )
+        self.assert_error("FQ1_PACKET_OPTIONS")
+
+    def test_fq1_packet_hybrid_option_requires_rejected_mechanisms(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "and every rejected mechanism; a list",
+                "and document exclusions; a list",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_HYBRID_OPTION")
+
+    def test_fq1_packet_requires_exactly_five_questions(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "\n## Consequences for Later Design",
+                "\n6. Should there be another question?\n\n"
+                "## Consequences for Later Design",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_QUESTIONS")
+
+    def test_fq1_packet_malformed_question_fails_without_crashing(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "5. During emergency",
+                "Five. During emergency",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_QUESTIONS")
+
+    def test_fq1_packet_consequences_cover_each_required_issue(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "IR-17 would retain a mutable hierarchy",
+                "the source hierarchy would remain mutable",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_CONSEQUENCE_COVERAGE")
+
+    def test_fq1_packet_consequences_cannot_resolve_issues(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "### Consequence of ADOPT_B",
+                "IR-03, IR-04, IR-06, IR-10, IR-15, and IR-17 "
+                "are now resolved.\n\n### Consequence of ADOPT_B",
+            ),
+        )
+        self.assert_error("FQ1_PACKET_CONSEQUENCE_RESOLUTION")
+
+    def test_fq1_packet_consequences_reject_prefix_resolution(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "### Consequence of ADOPT_B",
+                "Resolved and closed: IR-03, IR-04, IR-06, IR-10, "
+                "IR-15, and IR-17.\n\n### Consequence of ADOPT_B",
+            ),
+        )
+        self.assert_error("FQ1_PACKET_CONSEQUENCE_RESOLUTION")
+
+    def test_fq1_packet_provenance_links_must_resolve(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-001-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "[constitutional-design/decisions/CDR-001.yaml]"
+                "(../CDR-001.yaml)",
+                "[constitutional-design/decisions/CDR-001.yaml]"
+                "(../CDR-MISSING.yaml)",
+                1,
+            ),
+        )
+        self.assert_error("FQ1_PACKET_PROVENANCE")
 
     def test_fq1_analytical_record_cannot_masquerade_as_decided(self) -> None:
         def add_decision_evidence(record) -> None:

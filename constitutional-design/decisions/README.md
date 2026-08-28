@@ -20,3 +20,7 @@ fields. Such content remains research: candidate architectures are not
 requirements, comparative review is not selection, and an analytical record
 must not contain human-decision evidence or resulting requirements until an
 explicit human constitutional decision is made.
+
+The concise advisory packet for CDR-001 is at
+`packets/CDR-001-HUMAN-DECISION-PACKET.md`. It is recommendation-only, has no
+constitutional effect, and awaits an explicit human decision.
