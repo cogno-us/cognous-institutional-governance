@@ -23,4 +23,5 @@ explicit human constitutional decision is made.
 
 The concise advisory packet for CDR-001 is at
 `packets/CDR-001-HUMAN-DECISION-PACKET.md`. It is recommendation-only, has no
-constitutional effect, and awaits an explicit human decision.
+constitutional effect, and did not authorize the later explicit human decision
+recorded in CDR-001.

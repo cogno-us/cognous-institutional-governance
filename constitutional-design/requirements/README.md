@@ -1,7 +1,8 @@
 # Constitutional requirements
 
 Requirements translate human-authorized design decisions into traceable
-drafting constraints. No requirement is accepted for drafting at bootstrap.
+drafting constraints. CR-001 through CR-006 are accepted for drafting solely
+from the explicit human decision recorded in CDR-001.
 
 Allowed statuses are `CANDIDATE`, `ACCEPTED_FOR_DRAFTING`, `DISPUTED`,
 `REJECTED`, and `SUPERSEDED`.
@@ -12,4 +13,3 @@ human decision evidence.
 
 Future structured records should be named `CR-*.yaml` and use the template
 fields.
-

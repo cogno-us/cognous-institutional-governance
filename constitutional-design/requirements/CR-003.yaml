@@ -1,0 +1,17 @@
+{
+  "requirement_id": "CR-003",
+  "statement": "Artificial intelligence systems, software agents, validators, reviewers, or technical systems must not acquire foundational sovereignty solely through capability, execution, validation, reliance, popularity, performance, or operational indispensability.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-08", "IR-09", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-001"],
+  "rationale": "CDR-001 expressly rejects machine sovereignty and authority arising merely from capability, technical function, social approval, dependency, or operational importance.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define effective-power metrics, delegation limits, technical controls, or the detailed machine-formalization boundary.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must not convert machine capability, validity, reliance, popularity, performance, or indispensability into foundational authority.",
+  "draft_mapping": [],
+  "provenance": {
+    "source": "Explicit human decision recorded in CDR-001 on 2026-08-28"
+  }
+}

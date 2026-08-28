@@ -2,9 +2,9 @@
 
 - **Decision record:** [CDR-001](../CDR-001.yaml)
 - **Foundational question:** [FQ-01](../../FOUNDATIONAL_QUESTIONS.yaml)
-- **Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION
+- **Status:** ADVISORY — SUPERSEDED AS A DECISION AID
 - **Boundary:** RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT
-- **Decision state:** NO HUMAN DECISION HAS BEEN MADE.
+- **Decision state:** A later explicit human decision is recorded only in the linked CDR-001.
 
 ## Purpose and Decision Boundary
 
@@ -12,8 +12,9 @@ This packet compresses the existing CDR-001 analysis into a judgment aid.
 It does not replace the record, supply authorization evidence, change any
 repository status, or exercise institutional power.
 
-The labels below prepare a later explicit human action. Reading, editing,
-publishing, or selecting within this packet has no effect by itself.
+The labels below prepared the later explicit human action. Reading, editing,
+publishing, or selecting within this packet has no effect by itself; the packet
+is not the authorization source.
 
 ## Provenance and Evidence Limits
 
@@ -378,8 +379,8 @@ or repository presence has no effect by itself.
 - No architecture would be constrained yet, and no option would become a default
   through delay. IR-06, IR-03, IR-04, IR-15, IR-17, and IR-10 must remain open;
   operational work must not silently settle adjudication, emergency power,
-  succession, refounding, source hierarchy, or separation while FQ-01 awaits
-  explicit human judgment.
+  succession, refounding, source hierarchy, or separation; those questions
+  remain outside both this packet and the later FQ-01 decision.
 
 ## Material Ambiguities
 

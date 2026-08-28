@@ -1,0 +1,17 @@
+{
+  "requirement_id": "CR-001",
+  "statement": "Foundational human sovereignty over institutional ends must remain reserved to legitimate human constitutional authority.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-02", "IR-15", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-001"],
+  "rationale": "CDR-001 adopts Architecture E as the foundational architecture while preserving the unresolved definition of the legitimate foundational human constituency.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define the legitimate human constituency, its selection, succession, amendment, or refounding procedures.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve the reservation of institutional ends to legitimate human constitutional authority.",
+  "draft_mapping": [],
+  "provenance": {
+    "source": "Explicit human decision recorded in CDR-001 on 2026-08-28"
+  }
+}
