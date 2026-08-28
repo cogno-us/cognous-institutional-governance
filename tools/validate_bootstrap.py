@@ -316,6 +316,172 @@ FQ1_SYNTHESIS_FIELDS = {
     "empirical_questions",
     "underdetermined_questions",
 }
+FQ1_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/packets/"
+    "CDR-001-HUMAN-DECISION-PACKET.md"
+)
+FQ1_PACKET_HEADINGS = (
+    "Purpose and Decision Boundary",
+    "Provenance and Evidence Limits",
+    "Existing Architectures",
+    "Core Decision",
+    "Elimination Analysis",
+    "Recommended Architecture",
+    "Hybrid Question",
+    "Human Decision Options",
+    "Decision Questions",
+    "Consequences for Later Design",
+    "Material Ambiguities",
+)
+FQ1_PACKET_ARCHITECTURE_HEADINGS = tuple(
+    f"Architecture {architecture_id} — {FQ1_REQUIRED_ARCHITECTURE_NAMES[architecture_id]}"
+    for architecture_id in ("A", "B", "C", "D", "E")
+)
+FQ1_PACKET_ARCHITECTURE_LABELS = (
+    "Constitutional model",
+    "Strongest argument for",
+    "Strongest argument against",
+    "Catastrophic failure mode",
+    "Principal unresolved question",
+)
+FQ1_PACKET_ARCHITECTURE_REQUIRED_TERMS = {
+    "Architecture A — Unconstrained Foundational Sovereign": {
+        "Constitutional model": (
+            "human foundational sovereign",
+            "without a superior adjudicator",
+            "self-restraint",
+        ),
+        "Strongest argument for": ("clearest human source", "fastest final action"),
+        "Strongest argument against": (
+            "no reliable internal protection",
+            "arbitrary action",
+        ),
+        "Catastrophic failure mode": (
+            "capture or abuse of the sovereign",
+            "capture of the institution",
+        ),
+        "Principal unresolved question": ("credible", "rewrite or waive"),
+    },
+    "Architecture B — Constitution-Bound Sovereign Without External Adjudicator": {
+        "Constitutional model": (
+            "publicly binding ordinary power",
+            "same sovereign remains the final interpreter",
+        ),
+        "Strongest argument for": ("public commitment", "procedural regularity"),
+        "Strongest argument against": (
+            "final judge of its own limits",
+            "self-serving interpretation",
+        ),
+        "Catastrophic failure mode": (
+            "accumulated interpretations",
+            "discretionary permission",
+        ),
+        "Principal unresolved question": (
+            "binding law",
+            "organized self-restraint",
+        ),
+    },
+    "Architecture C — Constitution-Bound Sovereign With Independent Review": {
+        "Constitutional model": (
+            "independent human review",
+            "does not control institutional purpose or refounding",
+        ),
+        "Strongest argument for": ("contestable", "enforceable constraints"),
+        "Strongest argument against": (
+            "reviewer capture",
+            "recursive legitimacy",
+        ),
+        "Catastrophic failure mode": (
+            "effective control of constitutional meaning",
+            "human sovereign",
+        ),
+        "Principal unresolved question": (
+            "review bind",
+            "reviewer becoming sovereign",
+        ),
+    },
+    "Architecture D — Distributed Foundational Authority": {
+        "Constitutional model": (
+            "multiple constituent bodies",
+            "constrain unilateral exercise",
+        ),
+        "Strongest argument for": (
+            "single-point capture",
+            "plural human counter-power",
+        ),
+        "Strongest argument against": ("deadlock", "informal recentralization"),
+        "Catastrophic failure mode": (
+            "recentralizes effective power",
+            "obscures responsibility",
+        ),
+        "Principal unresolved question": (
+            "legitimate constituent standing",
+            "aggregation binding",
+        ),
+    },
+    "Architecture E — Reserved Human Sovereignty + Entrenched Constitutional Limits": {
+        "Constitutional model": (
+            "humans collectively retain authority",
+            "entrenched limits govern ordinary",
+        ),
+        "Strongest argument for": (
+            "human sovereignty over ends",
+            "binding limits",
+        ),
+        "Strongest argument against": (
+            "entrenchment creates rigidity",
+            "formal human control becomes nominal",
+        ),
+        "Catastrophic failure mode": (
+            "captured review and technical apparatus",
+            "human refounding",
+        ),
+        "Principal unresolved question": (
+            "legitimate human refounding act",
+            "reviewers contest",
+        ),
+    },
+}
+FQ1_PACKET_DECISION_OPTIONS = (
+    "ADOPT_A",
+    "ADOPT_B",
+    "ADOPT_C",
+    "ADOPT_D",
+    "ADOPT_E",
+    "ADOPT_HYBRID",
+    "REVISE_AND_REVIEW",
+    "DEFER",
+)
+FQ1_PACKET_CONSEQUENCE_ISSUES = {
+    "IR-03",
+    "IR-04",
+    "IR-06",
+    "IR-10",
+    "IR-15",
+    "IR-17",
+}
+FQ1_PACKET_PROVENANCE_PATHS = {
+    "constitutional-design/decisions/CDR-001.yaml",
+    "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+    "constitutional-design/issues/IR-01-human-sovereignty.yaml",
+    "constitutional-design/issues/IR-02-constraint-of-constitutional-authority.yaml",
+    "constitutional-design/issues/IR-03-emergency-necessity.yaml",
+    "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
+    "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
+    "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-12-dissent.yaml",
+    "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
+    "constitutional-design/issues/IR-17-constitutional-hierarchy.yaml",
+    "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
+    "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+    "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+    "constitutional-design/sources/MECHANISM_ADOPTION_MAP.yaml",
+    "docs/DESIGN_PRINCIPLES.md",
+    "docs/GLOSSARY.md",
+    "constitutional-design/decisions/README.md",
+}
 
 
 @dataclass(frozen=True)
@@ -880,6 +1046,645 @@ def _validate_fq1_analytical_record(
         errors.append("FQ1_REVIEWS_SCHEMA: exactly three review types are required")
 
     return 1, len(architectures), historical_ids, prior_art_ids
+
+
+def _markdown_section(text: str, heading: str, level: int) -> str | None:
+    marker = "#" * level
+    matches = list(
+        re.finditer(
+            rf"^{re.escape(marker)} {re.escape(heading)}\s*$",
+            text,
+            flags=re.MULTILINE,
+        )
+    )
+    if len(matches) != 1:
+        return None
+    start = matches[0].end()
+    next_heading = re.search(
+        rf"^#{{1,{level}}} ",
+        text[start:],
+        flags=re.MULTILINE,
+    )
+    end = start + next_heading.start() if next_heading else len(text)
+    return text[start:end].strip()
+
+
+def _markdown_subsections(text: str, level: int) -> tuple[list[str], list[str]]:
+    marker = "#" * level
+    matches = list(
+        re.finditer(
+            rf"^{re.escape(marker)} ([^\r\n]+)\s*$",
+            text,
+            flags=re.MULTILINE,
+        )
+    )
+    headings = [match.group(1).strip() for match in matches]
+    bodies: list[str] = []
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        bodies.append(text[match.end() : end].strip())
+    return headings, bodies
+
+
+def _packet_error(errors: list[str], code: str, message: str) -> None:
+    errors.append(f"{code}: {message}")
+
+
+def _contains_unnegated_phrase(value: str, phrase: str) -> bool:
+    folded_value = value.casefold()
+    folded_phrase = phrase.casefold()
+    if folded_phrase.startswith(("no ", "not ", "never ", "without ")):
+        return folded_phrase in folded_value
+    for match in re.finditer(re.escape(folded_phrase), folded_value):
+        prefix = folded_value[max(0, match.start() - 80) : match.start()]
+        if not re.search(
+            r"\b(?:no|not|never|without)\b(?:\W+\w+){0,6}\W*$",
+            prefix,
+        ):
+            return True
+    return False
+
+
+def _validate_fq1_human_decision_packet(
+    root: Path,
+    errors: list[str],
+) -> tuple[int, int, int, str]:
+    packet_path = root / FQ1_PACKET_RELATIVE_PATH
+    packet_dir = packet_path.parent
+    packet_paths = (
+        sorted(packet_dir.glob("*-HUMAN-DECISION-PACKET.md"))
+        if packet_dir.is_dir()
+        else []
+    )
+    packet_count = len(packet_paths)
+    if len(packet_paths) != 1 or packet_path not in packet_paths:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_COUNT",
+            "exactly one packet is required at the designated path",
+        )
+
+    try:
+        text = packet_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        _packet_error(errors, "FQ1_PACKET_REQUIRED", str(exc))
+        return packet_count, 0, 0, ""
+    if not text.strip():
+        _packet_error(errors, "FQ1_PACKET_REQUIRED", "packet must be nonempty")
+        return packet_count, 0, 0, ""
+
+    h1_headings = re.findall(r"^# ([^\r\n]+)\s*$", text, flags=re.MULTILINE)
+    h2_headings = re.findall(r"^## ([^\r\n]+)\s*$", text, flags=re.MULTILINE)
+    if h1_headings != ["CDR-001 Human Decision Packet"]:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_HEADINGS",
+            "the packet title must be unique and exact",
+        )
+    if h2_headings != list(FQ1_PACKET_HEADINGS):
+        _packet_error(
+            errors,
+            "FQ1_PACKET_HEADINGS",
+            "required section headings must be unique, exact, and ordered",
+        )
+
+    first_h2 = re.search(r"^## ", text, flags=re.MULTILINE)
+    header = text[: first_h2.start()] if first_h2 else text
+    header_requirements = (
+        "[CDR-001](../CDR-001.yaml)",
+        "[FQ-01](../../FOUNDATIONAL_QUESTIONS.yaml)",
+        "**Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
+        "**Boundary:** RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT",
+        "**Decision state:** NO HUMAN DECISION HAS BEEN MADE.",
+    )
+    if any(marker not in header for marker in header_requirements):
+        _packet_error(
+            errors,
+            "FQ1_PACKET_ADVISORY_BOUNDARY",
+            "header links and exact advisory markers are required",
+        )
+    status_assertions = re.findall(
+        r"^\s*(?:-\s+)?\*\*Status:\*\*\s*(.+?)\s*$",
+        text,
+        flags=re.MULTILINE,
+    )
+    if status_assertions != ["ADVISORY — AWAITING EXPLICIT HUMAN DECISION"]:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_ADVISORY_BOUNDARY",
+            "the packet may contain only the exact advisory status",
+        )
+
+    provenance = _markdown_section(text, "Provenance and Evidence Limits", 2)
+    if provenance is None:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_PROVENANCE",
+            "provenance section is missing or duplicated",
+        )
+    else:
+        links = re.findall(r"\[([^\]]+)\]\(([^)]+)\)", provenance)
+        linked_paths = {label for label, _ in links}
+        invalid_links = False
+        for label, href in links:
+            if label not in FQ1_PACKET_PROVENANCE_PATHS:
+                continue
+            expected = (root / label).resolve()
+            resolved = (packet_path.parent / href).resolve()
+            if (
+                not resolved.is_relative_to(root)
+                or resolved != expected
+                or not resolved.is_file()
+            ):
+                invalid_links = True
+        if not FQ1_PACKET_PROVENANCE_PATHS.issubset(linked_paths) or invalid_links:
+            _packet_error(
+                errors,
+                "FQ1_PACKET_PROVENANCE",
+                "required repository-relative provenance links must resolve",
+            )
+        provenance_upper = re.sub(r"\s+", " ", provenance).upper()
+        if (
+            "REPOSITORY-ONLY SYNTHESIS" not in provenance_upper
+            or "ANALOGY IS NOT PROOF" not in provenance_upper
+            or "ABSENCE OF A CLOSE ANALOGUE IS NOT NOVELTY"
+            not in provenance_upper
+            or "SOURCE-TO-VERIFY" not in provenance_upper
+        ):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_EVIDENCE_LIMITS",
+                "repository-only provenance and evidence limits are required",
+            )
+
+    architectures = _markdown_section(text, "Existing Architectures", 2)
+    if architectures is None:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_ARCHITECTURES",
+            "architecture section is missing or duplicated",
+        )
+    else:
+        headings, bodies = _markdown_subsections(architectures, 3)
+        if headings != list(FQ1_PACKET_ARCHITECTURE_HEADINGS):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_ARCHITECTURES",
+                "exactly architectures A through E are required in order",
+            )
+        for heading, body in zip(headings, bodies):
+            bold_labels = re.findall(
+                r"^\*\*([^*\r\n]+)\*\*",
+                body,
+                flags=re.MULTILINE,
+            )
+            labels = list(
+                re.finditer(
+                    r"^\*\*([^*\r\n]+):\*\*",
+                    body,
+                    flags=re.MULTILINE,
+                )
+            )
+            label_names = [match.group(1) for match in labels]
+            if (
+                bold_labels
+                != [f"{label}:" for label in FQ1_PACKET_ARCHITECTURE_LABELS]
+                or label_names != list(FQ1_PACKET_ARCHITECTURE_LABELS)
+                or re.search(r"^#{1,6} ", body, flags=re.MULTILINE)
+            ):
+                _packet_error(
+                    errors,
+                    "FQ1_PACKET_ARCHITECTURE_LABELS",
+                    f"{heading!r} must contain only the five required labels",
+                )
+                continue
+            values: dict[str, str] = {}
+            for index, match in enumerate(labels):
+                end = labels[index + 1].start() if index + 1 < len(labels) else len(body)
+                values[match.group(1)] = body[match.end() : end].strip()
+            if any(not value for value in values.values()):
+                _packet_error(
+                    errors,
+                    "FQ1_PACKET_ARCHITECTURE_LABELS",
+                    f"{heading!r} contains an empty required label",
+                )
+            expected_terms = FQ1_PACKET_ARCHITECTURE_REQUIRED_TERMS.get(
+                heading, {}
+            )
+            for label, terms in expected_terms.items():
+                normalized_value = re.sub(
+                    r"\s+", " ", values.get(label, "")
+                ).casefold()
+                if label == "Strongest argument for":
+                    terms_missing = any(
+                        not _contains_unnegated_phrase(normalized_value, term)
+                        for term in terms
+                    )
+                else:
+                    terms_missing = any(
+                        term not in normalized_value for term in terms
+                    )
+                if terms_missing:
+                    _packet_error(
+                        errors,
+                        "FQ1_PACKET_ARCHITECTURE_TRACEABILITY",
+                        f"{heading!r}/{label!r} contradicts or omits CDR-001",
+                    )
+            model = re.sub(
+                r"\s+",
+                " ",
+                values.get("Constitutional model", ""),
+            ).strip()
+            sentences = [
+                sentence
+                for sentence in re.split(r"(?<=[.!?])\s+", model)
+                if sentence.strip()
+            ]
+            if len(sentences) not in {2, 3}:
+                _packet_error(
+                    errors,
+                    "FQ1_PACKET_ARCHITECTURE_MODEL",
+                    f"{heading!r} must have a two- or three-sentence model",
+                )
+
+    core = _markdown_section(text, "Core Decision", 2)
+    normalized_core = (
+        re.sub(r"\s+", " ", core.replace("**", "")).strip()
+        if core is not None
+        else ""
+    )
+    core_distinction = (
+        "HUMAN SOVEREIGNTY OVER ENDS does not necessarily imply "
+        "UNCONSTRAINED HUMAN EXERCISE OF INSTITUTIONAL POWER."
+    )
+    if (
+        core_distinction not in normalized_core
+        or "implementation details" not in normalized_core
+        or "foundational human constituency decides" not in normalized_core
+    ):
+        _packet_error(
+            errors,
+            "FQ1_PACKET_CORE_DECISION",
+            "the exact sovereignty-versus-exercise distinction is required",
+        )
+
+    elimination = _markdown_section(text, "Elimination Analysis", 2)
+    elimination_text = (
+        re.sub(r"\s+", " ", elimination).casefold()
+        if elimination is not None
+        else ""
+    )
+    elimination_markers = (
+        "no architecture is automatically eliminated",
+        "declares none eliminated",
+        "architecture a appears constitutionally weakest and dominated",
+        "no reliable internal constraint",
+        "structured sovereign discretion rather than constitutional governance",
+        "architecture b remains coherent",
+        "self-dealing and self-interpretation",
+        "architectures c, d, and e remain materially distinct",
+        "are not dominated by current repository evidence",
+    )
+    if any(marker not in elimination_text for marker in elimination_markers):
+        _packet_error(
+            errors,
+            "FQ1_PACKET_ELIMINATION_ANALYSIS",
+            "required advisory elimination analysis is incomplete",
+        )
+
+    recommended_architecture = ""
+    recommendation = _markdown_section(text, "Recommended Architecture", 2)
+    if recommendation is None:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_RECOMMENDATION",
+            "recommendation section is missing or duplicated",
+        )
+    else:
+        recommendation_matches = re.findall(
+            r"^\*\*Recommendation:\*\* (.+?)\s*$",
+            recommendation,
+            flags=re.MULTILINE,
+        )
+        if recommendation_matches == ["Architecture E"]:
+            recommended_architecture = "Architecture E"
+        else:
+            _packet_error(
+                errors,
+                "FQ1_PACKET_RECOMMENDATION",
+                "the recommendation must be exactly Architecture E",
+            )
+        if (
+            recommendation.count(
+                "RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT"
+            )
+            != 1
+        ):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_RECOMMENDATION_BOUNDARY",
+                "the exact no-effect boundary is required in the recommendation",
+            )
+        objection_matches = re.findall(
+            r"^\*\*Strongest objection:\*\*(.*?)(?=^\*\*|\Z)",
+            recommendation,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+        objection = (
+            re.sub(r"\s+", " ", objection_matches[0]).casefold()
+            if len(objection_matches) == 1
+            else ""
+        )
+        objection_terms = (
+            "rigid",
+            "amendment",
+            "refounding",
+            "recursive",
+            "reviewers",
+            "operators",
+            "technical infrastructure",
+            "effective power",
+        )
+        if any(term not in objection for term in objection_terms):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_STRONGEST_OBJECTION",
+                "the strongest objection must cover rigidity, recursion, and transfer",
+            )
+        if len(re.findall(r"\b[\w’'-]+\b", recommendation)) > 500:
+            _packet_error(
+                errors,
+                "FQ1_PACKET_RECOMMENDATION_LENGTH",
+                "recommendation must not exceed 500 words",
+            )
+
+    hybrid = _markdown_section(text, "Hybrid Question", 2)
+    hybrid_text = re.sub(r"\s+", " ", hybrid).casefold() if hybrid else ""
+    hybrid_headings = (
+        re.findall(r"^### ([^\r\n]+)\s*$", hybrid, flags=re.MULTILINE)
+        if hybrid
+        else []
+    )
+    hybrid_markers = (
+        "recommended foundational architecture is architecture e",
+        "independent human review",
+        "review intensity",
+        "remedy still unresolved",
+        "plural or distributed counter-power",
+        "independent verification",
+        "publication",
+        "reason-giving",
+        "explicit precedent and supersession",
+        "procedural regularity",
+        "machine sovereignty or final machine adjudication",
+        "reviewer control over institutional ends or refounding",
+        "ordinary-command bypass of entrenchment",
+        "performance or popularity as a source of authority",
+    )
+    if (
+        hybrid_headings
+        != [
+            "FOUNDATIONAL ARCHITECTURE",
+            "IMPLEMENTATION / INSTITUTIONAL MECHANISMS",
+            "Rejected Mechanism Classes",
+        ]
+        or any(marker not in hybrid_text for marker in hybrid_markers)
+    ):
+        _packet_error(
+            errors,
+            "FQ1_PACKET_HYBRID",
+            "foundational allocation, incorporation candidates, and rejections are required",
+        )
+
+    option_count = 0
+    options = _markdown_section(text, "Human Decision Options", 2)
+    if options is None:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_OPTIONS",
+            "decision options section is missing or duplicated",
+        )
+    else:
+        option_lines = re.findall(
+            r"^(\d+)\. \*\*([A-Z_]+)\*\* — (.+)$",
+            options,
+            flags=re.MULTILINE,
+        )
+        numbered_option_lines = re.findall(
+            r"^(\d+)\.\s+(.+)$",
+            options,
+            flags=re.MULTILINE,
+        )
+        option_mentions = re.findall(
+            r"\b(?:ADOPT_A|ADOPT_B|ADOPT_C|ADOPT_D|ADOPT_E|"
+            r"ADOPT_HYBRID|REVISE_AND_REVIEW|DEFER)\b",
+            options,
+        )
+        bold_option_labels = re.findall(
+            r"\*\*([A-Z][A-Z0-9_-]+)\*\*",
+            options,
+        )
+        option_count = len(option_lines)
+        if (
+            [number for number, _, _ in option_lines]
+            != [str(index) for index in range(1, 9)]
+            or [code for _, code, _ in option_lines]
+            != list(FQ1_PACKET_DECISION_OPTIONS)
+            or option_mentions != list(FQ1_PACKET_DECISION_OPTIONS)
+            or bold_option_labels != list(FQ1_PACKET_DECISION_OPTIONS)
+            or any(not description.strip() for _, _, description in option_lines)
+            or len(numbered_option_lines) != len(FQ1_PACKET_DECISION_OPTIONS)
+            or [number for number, _ in numbered_option_lines]
+            != [str(index) for index in range(1, 9)]
+        ):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_OPTIONS",
+                "the eight exact option codes must appear once in required order",
+            )
+        hybrid_option_match = re.search(
+            r"^6\. \*\*ADOPT_HYBRID\*\*(.*?)(?=^7\. |\Z)",
+            options,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+        hybrid_option = (
+            re.sub(r"\s+", " ", hybrid_option_match.group(1)).casefold()
+            if hybrid_option_match
+            else ""
+        )
+        if not all(
+            term in hybrid_option
+            for term in (
+                "foundational architecture",
+                "incorporated mechanism",
+                "rejected mechanism",
+            )
+        ):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_HYBRID_OPTION",
+                "ADOPT_HYBRID must require architecture, incorporations, and rejections",
+            )
+
+    question_count = 0
+    questions = _markdown_section(text, "Decision Questions", 2)
+    if questions is None:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_QUESTIONS",
+            "decision questions section is missing or duplicated",
+        )
+    else:
+        question_matches = list(
+            re.finditer(r"^(\d+)\. ", questions, flags=re.MULTILINE)
+        )
+        question_count = len(question_matches)
+        question_bodies: list[str] = []
+        for index, match in enumerate(question_matches):
+            end = (
+                question_matches[index + 1].start()
+                if index + 1 < len(question_matches)
+                else len(questions)
+            )
+            question_bodies.append(
+                re.sub(r"\s+", " ", questions[match.end() : end]).strip()
+            )
+        if (
+            [match.group(1) for match in question_matches]
+            != ["1", "2", "3", "4", "5"]
+            or questions.count("?") != 5
+            or any(not body.endswith("?") for body in question_bodies)
+        ):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_QUESTIONS",
+                "exactly five numbered single questions are required",
+            )
+        question_topics = (
+            ("constituency", "sovereignty"),
+            ("ordinary foundational human act", "invalid", "entrenched"),
+            ("review", "remedy", "sovereign", "reviewer"),
+            ("amendment", "refounding", "entrenchment"),
+            ("emergency", "succession", "artificial intelligence", "foundational office"),
+        )
+        for body, terms in zip(question_bodies, question_topics):
+            folded = body.casefold()
+            if any(term not in folded for term in terms):
+                _packet_error(
+                    errors,
+                    "FQ1_PACKET_QUESTION_TOPICS",
+                    "the five questions must cover the required normative choices",
+                )
+                break
+
+    consequences = _markdown_section(text, "Consequences for Later Design", 2)
+    if consequences is None:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_CONSEQUENCES",
+            "consequences section is missing or duplicated",
+        )
+    else:
+        headings, bodies = _markdown_subsections(consequences, 3)
+        expected_headings = [
+            f"Consequence of {code}" for code in FQ1_PACKET_DECISION_OPTIONS
+        ]
+        if headings != expected_headings:
+            _packet_error(
+                errors,
+                "FQ1_PACKET_CONSEQUENCES",
+                "all eight option consequences are required in order",
+            )
+        for heading, body in zip(headings, bodies):
+            issue_ids = set(re.findall(r"\bIR-\d{2}\b", body))
+            if (
+                not body.strip()
+                or not FQ1_PACKET_CONSEQUENCE_ISSUES.issubset(issue_ids)
+            ):
+                _packet_error(
+                    errors,
+                    "FQ1_PACKET_CONSEQUENCE_COVERAGE",
+                    f"{heading!r} must address all six linked issue registers",
+                )
+        if re.search(
+            r"\bIR-\d{2}\b.{0,300}\b"
+            r"(?:IS|ARE|BECOMES?|BECAME|HAS BEEN|HAVE BEEN)\s+"
+            r"(?:NOW\s+)?(?:RESOLVED|CLOSED|DECIDED)\b",
+            consequences,
+            flags=re.IGNORECASE | re.DOTALL,
+        ):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_CONSEQUENCE_RESOLUTION",
+                "consequences cannot resolve linked constitutional issues",
+            )
+        if re.search(
+            r"\b(?:RESOLVED|CLOSED|DECIDED)\b.{0,300}\bIR-\d{2}\b",
+            consequences,
+            flags=re.IGNORECASE | re.DOTALL,
+        ):
+            _packet_error(
+                errors,
+                "FQ1_PACKET_CONSEQUENCE_RESOLUTION",
+                "consequences cannot resolve linked constitutional issues",
+            )
+
+    ambiguities = _markdown_section(text, "Material Ambiguities", 2)
+    ambiguity_labels = (
+        re.findall(r"^- \*\*([^*:]+):\*\*", ambiguities, flags=re.MULTILINE)
+        if ambiguities
+        else []
+    )
+    if ambiguity_labels != [
+        "Constituency",
+        "Review force",
+        "Emergency and succession",
+        "Amendment-refounding boundary",
+        "Effective power",
+        "Machine formalization and legitimacy",
+    ]:
+        _packet_error(
+            errors,
+            "FQ1_PACKET_AMBIGUITIES",
+            "all six material ambiguity classes are required",
+        )
+
+    prohibited_claims = (
+        r"\bTHIS PACKET (?:ADOPTS|DECIDES|AUTHORIZES|ENACTS)\b",
+        r"\b(?:WE|THIS PACKET|THE PACKET)\s+(?:HEREBY\s+)?"
+        r"(?:ADOPT|DECIDE|AUTHORIZE|ENACT|RESOLVE|SELECT)\b",
+        r"\b(?:ADOPT|AUTHORIZE|ENACT|SELECT)(?:S|ED)?\s+"
+        r"ARCHITECTURE [A-E]\b",
+        r"\b(?:APPROVE|APPROVES|APPROVED|RATIFY|RATIFIES|RATIFIED|"
+        r"CONFIRM|CONFIRMS|CONFIRMED)\s+ARCHITECTURE [A-E]\b",
+        r"\bRESOLVE(?:S|D)?\s+FQ-01\b",
+        r"\b(?:SETTLE|SETTLES|SETTLED)\s+FQ-01\b",
+        r"\bARCHITECTURE [A-E] (?:IS|WAS|HAS BEEN) "
+        r"(?:ADOPTED|SELECTED|DECIDED)\b",
+        r"\bCDR-001 IS DECIDED\b",
+        r"\bFQ-01 IS RESOLVED\b",
+        r"(?im)^\s*(?:\*\*)?(?:AUTHORIZED BY|AUTHORIZED_BY|"
+        r"AUTHORIZATION RECORD|AUTHORIZATION_RECORD|DECISION DATE|"
+        r"DECISION_DATE)(?:\*\*)?\s*:",
+        r"(?im)^#{1,6}\s+ARTICLE\b",
+        r"\bACCEPTED REQUIREMENT\b",
+        r"\bCONSTITUTIONAL PROVISION\b",
+        r"\bCR-\d{3}\b",
+        r"```",
+    )
+    if any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in prohibited_claims):
+        _packet_error(
+            errors,
+            "FQ1_PACKET_AUTHORITY_EFFECT",
+            "packet cannot contain authorization, adoption, or executable effect",
+        )
+
+    return (
+        packet_count,
+        option_count,
+        question_count,
+        recommended_architecture,
+    )
 
 
 def validate(root: Path) -> ValidationResult:
@@ -1632,6 +2437,13 @@ def validate(root: Path) -> ValidationResult:
                 "CDR-001 must use every prior-art record linked by its issues"
             )
 
+    (
+        human_decision_packet_count,
+        human_decision_option_count,
+        human_decision_question_count,
+        recommended_architecture,
+    ) = _validate_fq1_human_decision_packet(root, errors)
+
     structured_records: list[Any] = [
         *issues,
         *decisions,
@@ -1699,6 +2511,10 @@ def validate(root: Path) -> ValidationResult:
         "historical_source_status_counts": historical_status_counts,
         "fq1_historical_evidence_reference_count": len(fq1_historical_ids),
         "fq1_prior_art_reference_count": len(fq1_prior_art_ids),
+        "human_decision_packet_count": human_decision_packet_count,
+        "human_decision_option_count": human_decision_option_count,
+        "human_decision_question_count": human_decision_question_count,
+        "recommended_architecture": recommended_architecture,
     }
     return ValidationResult(tuple(errors), metrics)
 
