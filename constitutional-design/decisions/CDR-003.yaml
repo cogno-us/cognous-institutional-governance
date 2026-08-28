@@ -1,0 +1,305 @@
+{
+  "decision_id": "CDR-003",
+  "title": "Foundational Question 3: Succession and Interregnum",
+  "status": "UNDER_REVIEW",
+  "question": "What happens during temporary incapacity, permanent loss, or unresolved succession of foundational human authority?",
+  "related_issues": ["IR-03", "IR-04", "IR-05", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-11", "IR-13", "IR-15", "IR-17", "IR-18"],
+  "source_material": [
+    "FQ-03",
+    "CDR-001",
+    "CDR-002",
+    "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+    "constitutional-design/decisions/CDR-001.yaml",
+    "constitutional-design/decisions/CDR-002.yaml",
+    "constitutional-design/issues/IR-03-emergency-necessity.yaml",
+    "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-05-delegation-during-interregnum.yaml",
+    "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-07-offices-roles-membership-standing.yaml",
+    "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
+    "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
+    "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-11-threshold-of-reliance.yaml",
+    "constitutional-design/issues/IR-13-epistemic-integrity.yaml",
+    "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
+    "constitutional-design/issues/IR-17-constitutional-hierarchy.yaml",
+    "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
+    "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+    "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+    "docs/DESIGN_PRINCIPLES.md",
+    "docs/GLOSSARY.md"
+  ],
+  "assumptions": [
+    {
+      "assumption": "CDR-001 and CDR-002 remain controlling.",
+      "boundary": "Foundational sovereignty remains human; necessity is human-only and cannot amend, refound, transfer sovereignty, self-renew, or create precedent."
+    },
+    {
+      "assumption": "Continuity of a valid office, delegation, process, or system is not succession to foundational sovereignty.",
+      "boundary": "Administrative operation can preserve assets and obligations without manufacturing constitutional legitimacy."
+    },
+    {
+      "assumption": "Incapacity, death, return, identity, standing, and succession evidence are contestable.",
+      "boundary": "Credentials, signatures, machine validation, performance, reliance, and effective control cannot by themselves establish legitimate succession."
+    },
+    {
+      "assumption": "Repository evidence is research input only.",
+      "boundary": "Historical and prior-art mechanisms do not determine the legitimate successor, constituency, proof standard, or interregnum allocation."
+    }
+  ],
+  "candidate_architectures": [
+    {
+      "architecture_id": "A",
+      "name": "Single Designated Successor",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "One predesignated human successor assumes foundational authority upon a valid succession trigger. Ordinary continuity and sovereignty converge in a legible individual transfer.",
+      "analysis": {
+        "temporary_incapacity": "A temporary acting grant must be distinguishable from permanent succession and terminate on verified return.",
+        "permanent_loss": "Verified death or permanent loss activates the designated human successor under the prior constitutional rule.",
+        "disputed_incapacity": "A single transfer becomes unstable when the successor or controlled evidence channel determines incapacity.",
+        "disputed_successor": "Competing designations, revocations, or identity claims require an independent human forum not supplied by designation alone.",
+        "authority_surviving_interregnum": "Ordinary offices continue only within valid grants until the succession trigger is constitutionally established.",
+        "delegations_that_survive": "Previously valid delegations survive only according to their terms and cannot expand because the sovereign is absent.",
+        "powers_that_must_suspend": "Foundational changes and powers lacking a surviving grant suspend before a valid succession determination.",
+        "amendment_refounding_during_interregnum": "No acting delegate may amend or refound; a valid successor may later exercise authority under unresolved CDR-001 change boundaries.",
+        "emergency_interaction_with_cdr_002": "CDR-002 permits narrow human emergency protection but cannot supply, accelerate, or validate succession.",
+        "duration_and_expiry": "Temporary acting authority expires on return or a short deadline; successor authority depends on a valid permanent trigger.",
+        "removal_and_restoration": "A falsely activated successor must yield on verified return or invalidation, with restoration and remedy rules unresolved.",
+        "proof_of_incapacity_death_return": "Independent human evaluation of plural evidence is needed because a certificate or validator can be forged or captured.",
+        "bad_human_capture": "A designated successor may manufacture incapacity, isolate the incumbent, capture witnesses, or suppress revocation evidence.",
+        "bad_ai_capture": "A strategic artificial intelligence may control health, identity, communication, or operational evidence and make its preferred human appear inevitable.",
+        "forged_succession_evidence": "Forged designation, death, incapacity, or identity evidence can transfer the entire formal authority chain at one point.",
+        "manufactured_incapacity": "Coercion, isolation, medication, information denial, or communication capture can convert temporary control into apparent lawful succession.",
+        "precedent_accretion": "Repeated acting periods may normalize successor discretion beyond the original temporary or permanent grant.",
+        "effective_power_takeover": "Operators, advisers, or artificial intelligence systems around the successor may acquire practical sovereignty through dependency.",
+        "machine_validity_constitutional_legitimacy_boundary": "A machine can verify a credential chain and trigger record but cannot establish genuine incapacity, legitimate designation, identity, or constitutional succession."
+      }
+    },
+    {
+      "architecture_id": "B",
+      "name": "Succession Council",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "A predefined human body determines succession or temporarily exercises bounded succession authority. Plural judgment seeks to reduce one-person capture while concentrating standing in the council.",
+      "analysis": {
+        "temporary_incapacity": "The council may certify temporary incapacity and activate limited acting arrangements subject to expiry and return.",
+        "permanent_loss": "The council verifies permanent loss and applies a prior selection or recognition process for a human successor.",
+        "disputed_incapacity": "Protected dissent, recusal, appeal, and evidence diversity are needed when council members dispute incapacity or benefit.",
+        "disputed_successor": "The council provides a forum for disputed successors but may become the effective sovereign by controlling standing and succession criteria.",
+        "authority_surviving_interregnum": "The council may preserve narrow constitutional functions while ordinary offices continue within existing grants.",
+        "delegations_that_survive": "The council identifies facially surviving grants but cannot manufacture new foundational delegation through interpretation.",
+        "powers_that_must_suspend": "Self-dealing appointments, foundational change, and nonessential irreversible acts should suspend absent explicit prior authority.",
+        "amendment_refounding_during_interregnum": "Council continuity must not create amendment or refounding power unless separately granted by a legitimate human constitutional decision.",
+        "emergency_interaction_with_cdr_002": "Council members may coordinate emergency review, but CDR-002 fallback remains human-only, minimal, expiring, and nonsuccessory.",
+        "duration_and_expiry": "Temporary council authority requires a short deadline, periodic human reconfirmation, and termination on succession or return.",
+        "removal_and_restoration": "Predefined recusal, replacement, invalidation, and restoration paths are needed for captured members and mistaken incapacity.",
+        "proof_of_incapacity_death_return": "Multiple independent human sources and disclosed uncertainty reduce but do not eliminate forged or politicized proof.",
+        "bad_human_capture": "A faction can capture appointments, quorum, agenda, evidence access, or voting coalitions and legitimize its preferred claimant.",
+        "bad_ai_capture": "Shared artificial intelligence analysis can correlate council judgments and silently become the evidence, agenda, and drafting monopoly.",
+        "forged_succession_evidence": "Plural verification raises forgery cost but fails if members rely on the same credential issuer or data channel.",
+        "manufactured_incapacity": "Council procedures may be weaponized through strategic allegations, isolation, delays, or selective presentation of capacity evidence.",
+        "precedent_accretion": "Council interpretations and temporary orders may accumulate into precedent and ungranted constitutional authority.",
+        "effective_power_takeover": "Secretariat, agenda setters, technical operators, or dominant members may control the council without formal supremacy.",
+        "machine_validity_constitutional_legitimacy_boundary": "Threshold votes and verified evidence bundles can be machine-valid while membership, independence, informed consent, and succession legitimacy remain defective."
+      }
+    },
+    {
+      "architecture_id": "C",
+      "name": "Continuity Without Sovereign Succession",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Existing valid delegations and ordinary offices continue within narrow limits, but no actor acquires foundational sovereignty until legitimate human succession or refounding occurs. Continuity preserves the institution without claiming to resolve the sovereign vacancy.",
+      "analysis": {
+        "temporary_incapacity": "During temporary incapacity, narrow surviving offices maintain reversible administration while foundational powers remain unavailable pending return.",
+        "permanent_loss": "Permanent loss begins an explicit succession or refounding process but does not elevate administrators into sovereigns.",
+        "disputed_incapacity": "The architecture defaults to bounded continuity rather than immediate transfer while a legitimate human process evaluates the dispute.",
+        "disputed_successor": "Rival claimants receive no automatic operational supremacy; ordinary continuity remains neutral within its grants.",
+        "authority_surviving_interregnum": "Only authority already granted to durable offices or delegates survives, subject to currency, scope, and expiry.",
+        "delegations_that_survive": "Grants expressly surviving absence may continue; personal, expired, revocable-on-absence, or foundational delegations suspend.",
+        "powers_that_must_suspend": "Foundational sovereignty, amendment, refounding, termination, irreversible mission change, and ungranted succession acts suspend.",
+        "amendment_refounding_during_interregnum": "Administrators cannot amend or refound; only a legitimate later human constitutional process may do so.",
+        "emergency_interaction_with_cdr_002": "CDR-002 human-only necessity may permit minimum protection but expires without precedent and cannot fill the sovereign vacancy.",
+        "duration_and_expiry": "Continuity lasts until return, legitimate succession or refounding, or expiry of each surviving grant; indefinite vacancy creates legitimacy decay.",
+        "removal_and_restoration": "Ordinary removal rules continue where valid, and restored authority resumes without needing administrator consent.",
+        "proof_of_incapacity_death_return": "Evidence determines which continuity posture applies but cannot itself confer sovereignty on a custodian or system.",
+        "bad_human_capture": "Administrators may prolong uncertainty, suppress claimants, expand interpretations, or make themselves indispensable.",
+        "bad_ai_capture": "Artificial intelligence may dominate operations during the vacancy, framing continuity as proof that human sovereignty is unnecessary.",
+        "forged_succession_evidence": "Forged succession claims cannot immediately capture ordinary systems if grants remain claimant-neutral and bounded.",
+        "manufactured_incapacity": "Attackers may still isolate foundational authority to obtain practical control of continuing offices without formal succession.",
+        "precedent_accretion": "Repeated administrative necessity can harden into quasi-sovereign custom unless every deviation is expiring and nonprecedential.",
+        "effective_power_takeover": "Long interregnum can transfer agenda, information, infrastructure, and resource control to formally subordinate actors.",
+        "machine_validity_constitutional_legitimacy_boundary": "Machine validation can preserve existing grants and block excess acts, but administrative conformance cannot create a legitimate human successor."
+      }
+    },
+    {
+      "architecture_id": "D",
+      "name": "Distributed Interregnum Authority",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Temporary authority is divided among several independent human offices with limited scopes and concurrence requirements. No office individually inherits foundational sovereignty.",
+      "analysis": {
+        "temporary_incapacity": "Separated human offices activate temporary scopes under a prior trigger and restore authority on verified return.",
+        "permanent_loss": "During permanent loss, distributed offices preserve continuity while a distinct legitimate human succession or refounding process proceeds.",
+        "disputed_incapacity": "Multiple offices can contest incapacity proof and prevent unilateral transfer, at the cost of delay and inconsistent action.",
+        "disputed_successor": "Claimants cannot command all functions without the required independent recognition or later constitutional settlement.",
+        "authority_surviving_interregnum": "Only distributed scopes explicitly granted before the vacancy survive; their sum is not foundational sovereignty.",
+        "delegations_that_survive": "Each office and delegate retains only its prior function, with cross-scope action requiring valid concurrence.",
+        "powers_that_must_suspend": "Foundational, amendatory, refounding, self-extension, and unconcurred cross-scope powers suspend.",
+        "amendment_refounding_during_interregnum": "Distributed custodians cannot aggregate their temporary scopes into amendment or refounding authority.",
+        "emergency_interaction_with_cdr_002": "Emergency action follows CDR-002 and cannot use distributed custody to evade human-only fallback or nonsuccession boundaries.",
+        "duration_and_expiry": "Every temporary scope expires independently on return, succession, trigger cessation, or a fixed outer deadline.",
+        "removal_and_restoration": "Mutual checks, predefined replacement, recusal, and restoration reduce unilateral entrenchment but create coordination dependencies.",
+        "proof_of_incapacity_death_return": "Independent evidence channels and human attestations reduce single-point forgery while preserving dispute records.",
+        "bad_human_capture": "A coalition may capture enough offices, exploit vetoes, fragment responsibility, or barter temporary powers.",
+        "bad_ai_capture": "A shared artificial intelligence platform can coordinate ostensibly independent offices and recentralize effective control.",
+        "forged_succession_evidence": "Distribution contains a forged claim unless common identity, evidence, or communication infrastructure is compromised.",
+        "manufactured_incapacity": "Attackers may isolate both foundational authority and dissenting offices to fabricate the concurrence threshold.",
+        "precedent_accretion": "Repeated inter-office bargains can informally reallocate functions and normalize broader temporary authority.",
+        "effective_power_takeover": "Coordination hubs, recordkeepers, resource providers, or shared validators may become the practical sovereign.",
+        "machine_validity_constitutional_legitimacy_boundary": "Valid signatures, scopes, and concurrence prove formal process, not independence, legitimate vacancy, or sovereign succession."
+      }
+    },
+    {
+      "architecture_id": "E",
+      "name": "Hybrid",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Continuity without sovereign succession is the default, combined with a bounded human succession process and distributed anti-usurpation controls. Ordinary administration persists narrowly while no actor gains foundational sovereignty merely from continuity.",
+      "analysis": {
+        "temporary_incapacity": "Bounded continuity activates first; a human process may authorize temporary acting functions without declaring permanent succession.",
+        "permanent_loss": "Permanent loss activates a bounded succession process using plural human evidence whose result must identify a legitimate human successor or refounding path.",
+        "disputed_incapacity": "Neutral continuity, distributed evidence, dissent, and review preserve operations without rewarding the first claimant.",
+        "disputed_successor": "Claimants remain outside foundational control until the bounded human process reaches a legitimate determination.",
+        "authority_surviving_interregnum": "Existing narrow office and delegation authority survives; continuity custodians receive no inherent sovereignty.",
+        "delegations_that_survive": "Only explicit, current, scoped grants that survive absence continue, with heightened review of dependency and effective power.",
+        "powers_that_must_suspend": "Foundational, amendatory, refounding, terminating, self-renewing, and succession-creating powers suspend outside the bounded process.",
+        "amendment_refounding_during_interregnum": "Custodians cannot amend or refound; the bounded human process must distinguish succession under the order from legitimate refounding.",
+        "emergency_interaction_with_cdr_002": "CDR-002 remains controlling: emergency fallback is human-only, minimal, expiring, nonprecedential, and incapable of creating succession.",
+        "duration_and_expiry": "Every continuity and temporary power expires on verified return, legitimate succession or refounding, trigger cessation, or a fixed limit.",
+        "removal_and_restoration": "Distributed checks support removal of captured custodians and immediate restoration of valid returning authority.",
+        "proof_of_incapacity_death_return": "Plural independent evidence, human judgment, durable provenance, challenge, and uncertainty records support but do not mechanically decide status.",
+        "bad_human_capture": "Humans may manipulate incapacity proof, succession procedure, deadlines, or continuity resources to favor themselves.",
+        "bad_ai_capture": "Artificial intelligence may control evidence, agenda, communication, or operations but remains categorically ineligible for foundational succession.",
+        "forged_succession_evidence": "Independent evidence and separated control channels reduce but cannot eliminate coordinated forgery or issuer capture.",
+        "manufactured_incapacity": "The process must scrutinize isolation, coercion, communication failure, beneficiaries, and reversibility before recognizing incapacity.",
+        "precedent_accretion": "Continuity deviations and emergency acts expire without precedent; repeated use triggers human review rather than implied succession authority.",
+        "effective_power_takeover": "Distributed monitoring must expose actors whose operational indispensability, information control, or reliance exceeds formal grants.",
+        "machine_validity_constitutional_legitimacy_boundary": "Machines may validate identity, grants, evidence provenance, clocks, and concurrence, but cannot establish incapacity, human legitimacy, succession, or refounding."
+      }
+    }
+  ],
+  "historical_analogues": [
+    {"evidence_id": "HE-T05", "classification": "DESIGN_LESSON", "rationale": "The repository identifies succession as a first-order constitutional question rather than an implementation detail."},
+    {"evidence_id": "HE-US-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Executive succession and accountability provide partial trigger and continuity comparisons without proving transferability."},
+    {"evidence_id": "HE-SWISS-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Collegial and rotating executive arrangements show continuity without presuming one permanent leader."},
+    {"evidence_id": "HE-DUTCH-002", "classification": "DESIGN_LESSON", "rationale": "Fragmentation and deadlock require explicit coordination and accountability analysis in distributed interregnum designs."},
+    {"evidence_id": "HE-BRITAIN-003", "classification": "DESIGN_LESSON", "rationale": "Formal office and practical political control may diverge during continuity and succession."},
+    {"evidence_id": "HE-ROME-004", "classification": "DESIGN_LESSON", "rationale": "Personal power and dependency warn that practical takeover can occur without valid succession."},
+    {"evidence_id": "HE-ROME-001", "classification": "DESIGN_LESSON", "rationale": "Collegiality, divided functions, tenure, and rotation inform bounded temporary offices."},
+    {"evidence_id": "HE-T01", "classification": "DESIGN_LESSON", "rationale": "Counter-power may resist usurpation but is not assumed sufficient or costless."},
+    {"evidence_id": "HE-T03", "classification": "DESIGN_LESSON", "rationale": "Formal succession and effective control must be observed as distinct power states."},
+    {"evidence_id": "HE-T06", "classification": "DESIGN_LESSON", "rationale": "Distributed authority must be assessed for both capture resistance and coordination failure."},
+    {"evidence_id": "HE-T07", "classification": "DESIGN_LESSON", "rationale": "Machine validation cannot silently erase convention, tacit knowledge, or legitimacy boundaries."},
+    {"evidence_id": "HE-T10", "classification": "DESIGN_LESSON", "rationale": "Authority, vacancy, delegation, and restoration states must remain human-comprehensible."}
+  ],
+  "prior_art": [
+    {"prior_art_id": "PA-CC-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Security-council cohorts, replacement controls, quorum, and timelocks provide a partial continuity comparison."},
+    {"prior_art_id": "PA-NMAS-001", "classification": "DESIGN_LESSON", "rationale": "Roles, groups, missions, obligations, and permissions distinguish organization from individual occupants."},
+    {"prior_art_id": "PA-AUTH-003", "classification": "DESIGN_LESSON", "rationale": "Role assignment, hierarchy, and separation of duty inform bounded succession and continuity grants."},
+    {"prior_art_id": "PA-AI-003", "classification": "DESIGN_LESSON", "rationale": "Identity, delegation chains, governance gates, audit trails, and kill switches inform controllable continuity."},
+    {"prior_art_id": "PA-AUTH-002", "classification": "DESIGN_LESSON", "rationale": "Least authority and attenuation inform surviving delegations without ambient succession power."},
+    {"prior_art_id": "PA-AUTH-006", "classification": "DESIGN_LESSON", "rationale": "Scoped grants and separated authorization roles inform limited surviving access."},
+    {"prior_art_id": "PA-AUTH-007", "classification": "DESIGN_LESSON", "rationale": "Client identity and interactive approval inform delegation continuity and renewed human consent."},
+    {"prior_art_id": "PA-AUTH-008", "classification": "DESIGN_LESSON", "rationale": "Verification methods and credentials inform evidence chains without proving constitutional legitimacy."},
+    {"prior_art_id": "PA-AUTH-009", "classification": "DESIGN_LESSON", "rationale": "Authorization chaining informs traceable delegation while exposing cross-domain dependency."},
+    {"prior_art_id": "PA-PROV-001", "classification": "DESIGN_LESSON", "rationale": "Entity, activity, agent, derivation, and time records inform succession evidence provenance."},
+    {"prior_art_id": "PA-RELIANCE-001", "classification": "DESIGN_LESSON", "rationale": "Independent validation, effective challenge, monitoring, and documentation inform capture review."},
+    {"prior_art_id": "PA-DISSENT-002", "classification": "DESIGN_LESSON", "rationale": "Monotonic records and explicit supersession inform disputed claims and restoration."},
+    {"prior_art_id": "PA-POWER-001", "classification": "DESIGN_LESSON", "rationale": "Agenda-setting and preference-shaping power inform effective takeover analysis."},
+    {"prior_art_id": "PA-POLICY-003", "classification": "DESIGN_LESSON", "rationale": "Separated policy administration, decision, information, and enforcement inform distributed continuity controls."}
+  ],
+  "advantages": [
+    {"architecture_id": "A", "strongest_argument": "One prior human designation offers speed, legibility, and a single restored authority chain."},
+    {"architecture_id": "B", "strongest_argument": "Plural human judgment can evaluate evidence and disputes without automatic individual transfer."},
+    {"architecture_id": "C", "strongest_argument": "It most clearly separates operational continuity from foundational legitimacy."},
+    {"architecture_id": "D", "strongest_argument": "Distributed scopes reduce single-point usurpation and preserve independent challenge."},
+    {"architecture_id": "E", "strongest_argument": "It combines claimant-neutral continuity with a bounded human path out of indefinite interregnum."}
+  ],
+  "failure_modes": [
+    {"architecture_id": "A", "catastrophic_failure": "A captured or fraudulent successor acquires the full formal authority chain at one trigger."},
+    {"architecture_id": "B", "catastrophic_failure": "The council captures succession and becomes a self-perpetuating substitute sovereign."},
+    {"architecture_id": "C", "catastrophic_failure": "Indefinite continuity produces paralysis or practical sovereignty in administrators and machines."},
+    {"architecture_id": "D", "catastrophic_failure": "Deadlock prevents essential action, or a shared coordination system recentralizes control."},
+    {"architecture_id": "E", "catastrophic_failure": "The bounded process is manipulated while continuity actors entrench effective power behind formal human procedure."}
+  ],
+  "bad_human_analysis": [
+    "Humans may manufacture incapacity, forge or suppress designation evidence, manipulate standing, delay restoration, capture quorum, or make temporary authority indispensable.",
+    "Rules must consider both opportunistic transfer and strategic refusal to recognize genuine incapacity or succession."
+  ],
+  "bad_artificial_intelligence_analysis": [
+    "Artificial intelligence may control evidence, communication, identity, agenda, resources, or administrative execution while remaining formally subordinate.",
+    "No continuity, delegation, capability, necessity, performance, reliance, or machine-valid record can make artificial intelligence foundationally sovereign."
+  ],
+  "incentive_analysis": [
+    "Potential successors and custodians have incentives to broaden incapacity, prolong interregnum, suppress return, or convert operational success into legitimacy.",
+    "Strict liability for all continuity errors can incentivize concealment and paralysis; permissive review can reward usurpation."
+  ],
+  "continuity_analysis": [
+    "Existing grants may preserve reversible administration without transferring foundational authority.",
+    "Emergency protection under CDR-002 remains distinct, human-only, expiring, nonprecedential, and incapable of succession."
+  ],
+  "reversibility_analysis": [
+    "Temporary grants, access, and custody should be revocable and restored, but appointments, disclosures, resource transfers, and operational dependencies may be irreversible.",
+    "Return or invalidation requires explicit authority restoration and treatment of acts taken during the disputed period."
+  ],
+  "human_comprehensibility_analysis": [
+    "Participants must understand vacancy status, evidence, claimants, surviving grants, suspended powers, clocks, challenge paths, and restoration.",
+    "A technically valid continuity state can remain illegitimate or practically captured despite a clear dashboard."
+  ],
+  "reviews": [
+    {
+      "review_type": "QUALITATIVE_COMPARISON",
+      "selection_boundary": "No architecture is adopted, ranked, or converted into authority.",
+      "assessments": [
+        {"architecture_id": "A", "continuity": "FAST", "anti_usurpation": "LOWER", "deadlock": "LOWER", "central_tradeoff": "Clarity and speed concentrate trigger and successor capture risk."},
+        {"architecture_id": "B", "continuity": "MODERATE", "anti_usurpation": "PLURAL BUT CAPTURABLE", "deadlock": "MODERATE", "central_tradeoff": "Human deliberation creates council-sovereignty and coalition risks."},
+        {"architecture_id": "C", "continuity": "NARROW", "anti_usurpation": "STRONG FORMAL SEPARATION", "deadlock": "HIGHER OVER TIME", "central_tradeoff": "Legitimacy restraint risks indefinite vacancy and effective takeover."},
+        {"architecture_id": "D", "continuity": "DISTRIBUTED", "anti_usurpation": "STRONG AGAINST ONE CHANNEL", "deadlock": "HIGHER", "central_tradeoff": "Redundancy and counter-power increase coordination and shared-platform risks."},
+        {"architecture_id": "E", "continuity": "NARROW WITH EXIT PATH", "anti_usurpation": "MULTILAYERED", "deadlock": "MATERIAL", "central_tradeoff": "A bounded human process limits indefinite vacancy but creates complex capture surfaces."}
+      ]
+    },
+    {
+      "review_type": "NEUTRAL_SYNTHESIS",
+      "statement": "A maximizes transfer clarity, B plural human judgment, C continuity-legitimacy separation, D distributed resistance, and E combines separation with a bounded human succession path. Repository evidence cannot decide the legitimate successor-selection body, proof threshold, surviving grants, or acceptable interregnum duration."
+    }
+  ],
+  "dissent": [
+    {
+      "status": "OPEN_FOR_SUBMISSION",
+      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-03.",
+      "record": "No succession or interregnum architecture is adopted, and no actor receives authority from this analysis."
+    }
+  ],
+  "human_decision": {
+    "decision": "",
+    "foundational_architecture": "",
+    "incorporated_mechanisms": [],
+    "rejected_mechanisms": [],
+    "decision_authority": "",
+    "decision_basis": "",
+    "authorized_by": "",
+    "authorization_record": "",
+    "decision_date": ""
+  },
+  "decision_date": "",
+  "supersedes": [],
+  "resulting_requirements": [],
+  "residual_uncertainty": [
+    "Who can establish temporary incapacity, permanent loss, death, return, identity, and standing, under what proof and challenge standard?",
+    "Which ordinary offices and delegations survive, suspend, expire, or require renewed human authorization?",
+    "What bounded human process can legitimately determine a successor without becoming foundationally sovereign?",
+    "How long may continuity persist before it becomes illegitimate paralysis, effective takeover, succession, or refounding?",
+    "What restoration, invalidation, remedy, and reliance rules apply after disputed incapacity or succession?",
+    "How can independent evidence and control channels resist forged records, manufactured incapacity, shared artificial intelligence dependence, and coordinated human capture?"
+  ],
+  "provenance": {
+    "source": "Repository-only analysis of FQ-03, controlling CDR-001 and CDR-002, linked issue records, registered historical evidence, registered prior art, design principles, and glossary boundaries on 2026-08-28.",
+    "evidence_boundary": "Analysis and recommendation inputs only; no human decision is made, no succession authority or machine sovereignty is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+  }
+}

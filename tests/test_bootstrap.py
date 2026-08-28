@@ -68,7 +68,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["candidate_architecture_count"], 5)
         self.assertEqual(
             result.metrics["decision_record_status_counts"],
-            {"DECIDED": 2},
+            {"DECIDED": 2, "UNDER_REVIEW": 1},
         )
         self.assertEqual(
             result.metrics["fq1_historical_evidence_reference_count"], 32
@@ -81,7 +81,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             {"RESOLVED": 2, "UNRESOLVED": 3},
         )
         self.assertEqual(result.metrics["constitutional_provision_count"], 0)
-        self.assertEqual(result.metrics["human_decision_packet_count"], 2)
+        self.assertEqual(result.metrics["human_decision_packet_count"], 3)
         self.assertEqual(result.metrics["human_decision_option_count"], 8)
         self.assertEqual(result.metrics["human_decision_question_count"], 5)
         self.assertEqual(
@@ -98,6 +98,235 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             result.metrics["fq2_recommended_architecture"],
             "Architecture E",
         )
+        self.assertEqual(result.metrics["fq3_candidate_architecture_count"], 5)
+        self.assertEqual(
+            result.metrics["fq3_historical_evidence_reference_count"], 12
+        )
+        self.assertEqual(result.metrics["fq3_prior_art_reference_count"], 14)
+        self.assertEqual(result.metrics["fq3_human_decision_option_count"], 7)
+        self.assertEqual(
+            result.metrics["fq3_recommended_architecture"],
+            "Architecture E",
+        )
+
+    def test_fq3_analytical_record_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CDR-003.yaml"
+        ).unlink()
+        self.assert_error("FQ3_ANALYTICAL_RECORD_REQUIRED")
+
+    def test_fq3_must_remain_under_review(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record.update(status="DECIDED"),
+        )
+        self.assert_error("FQ3_ANALYTICAL_STATUS")
+
+    def test_fq3_cannot_contain_human_decision(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["human_decision"].update(
+                authorized_by="AI recommendation"
+            ),
+        )
+        self.assert_error("FQ3_ANALYTICAL_BOUNDARY")
+
+    def test_fq3_cannot_create_requirements(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["resulting_requirements"].append("CR-014"),
+        )
+        self.assert_error("FQ3_ANALYTICAL_BOUNDARY")
+
+    def test_fq3_requires_five_architectures(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["candidate_architectures"].pop(),
+        )
+        self.assert_error("FQ3_CANDIDATE_ARCHITECTURES")
+
+    def test_fq3_requires_all_nineteen_dimensions(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["candidate_architectures"][0][
+                "analysis"
+            ].pop("effective_power_takeover"),
+        )
+        self.assert_error("FQ3_CANDIDATE_ARCHITECTURES")
+
+    def test_fq3_dimensions_must_be_substantive(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["candidate_architectures"][0][
+                "analysis"
+            ].update(
+                temporary_incapacity=(
+                    "Unrelated filler words remain present but have no topic."
+                )
+            ),
+        )
+        self.assert_error("FQ3_CANDIDATE_ARCHITECTURES")
+
+    def test_fq3_compound_dimensions_require_both_concepts(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["candidate_architectures"][0][
+                "analysis"
+            ].update(
+                machine_validity_constitutional_legitimacy_boundary=(
+                    "A machine processed eight unrelated accounting entries "
+                    "yesterday without error."
+                )
+            ),
+        )
+        self.assert_error("FQ3_CANDIDATE_ARCHITECTURES")
+
+    def test_fq3_analysis_cannot_select_architecture(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["candidate_architectures"][0].update(
+                model="Architecture E is selected as the winner."
+            ),
+        )
+        self.assert_error("FQ3_ARCHITECTURE_SELECTION_CLAIM")
+
+    def test_fq3_source_material_must_resolve(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["source_material"].append(
+                "constitutional-design/issues/IR-99-missing.yaml"
+            ),
+        )
+        self.assert_error("FQ3_SOURCE_MATERIAL")
+
+    def test_fq3_evidence_must_resolve(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["historical_analogues"][0].update(
+                evidence_id="HE-MISSING"
+            ),
+        )
+        self.assert_error("FQ3_HISTORICAL_EVIDENCE")
+
+    def test_fq3_preserves_controlling_boundaries(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["continuity_analysis"].pop(),
+        )
+        self.assert_error("FQ3_CONTROLLING_BOUNDARIES")
+
+    def test_fq3_rejects_machine_succession_claim(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["assumptions"].append(
+                {
+                    "assumption": (
+                        "Artificial intelligence may acquire foundational "
+                        "sovereignty."
+                    ),
+                    "boundary": "Contradictory claim.",
+                }
+            ),
+        )
+        self.assert_error("FQ3_CONTRADICTORY_AUTHORITY_CLAIM")
+
+    def test_fq3_rejects_modal_emergency_succession_claim(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-003.yaml",
+            lambda record: record["assumptions"].append(
+                {
+                    "assumption": (
+                        "CDR-002 emergency authority may be used as "
+                        "succession authority."
+                    ),
+                    "boundary": "Contradictory claim.",
+                }
+            ),
+        )
+        self.assert_error("FQ3_CONTRADICTORY_AUTHORITY_CLAIM")
+
+    def test_fq3_packet_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "packets"
+            / "CDR-003-HUMAN-DECISION-PACKET.md"
+        ).unlink()
+        self.assert_error("FQ3_PACKET_REQUIRED")
+
+    def test_fq3_packet_has_one_no_effect_recommendation(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-003-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "## Human Decision Options",
+                "**Recommendation:** Architecture A — Single Designated "
+                "Successor\n\n## Human Decision Options",
+            ),
+        )
+        self.assert_error("FQ3_PACKET_RECOMMENDATION")
+
+    def test_fq3_packet_options_are_exact(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-003-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "7. **DEFER**",
+                "7. **DEFER**\n8. **ADOPT_HYBRID** — Extra option.",
+            ),
+        )
+        self.assert_error("FQ3_PACKET_OPTIONS")
+
+    def test_fq3_packet_preserves_controlling_boundaries(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-003-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "No option converts CDR-002 emergency authority",
+                "One option converts CDR-002 emergency authority",
+            ),
+        )
+        self.assert_error("FQ3_PACKET_CONTROLLING_BOUNDARIES")
+
+    def test_fq3_packet_cannot_claim_authority(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-003-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\nThis packet authorizes succession.\n",
+        )
+        self.assert_error("FQ3_PACKET_CONSTITUTIONAL_EFFECT")
+
+    def test_fq3_packet_rejects_architecture_effect_claim(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-003-HUMAN-DECISION-PACKET.md",
+            lambda text: text
+            + "\nArchitecture E now has constitutional effect.\n",
+        )
+        self.assert_error("FQ3_PACKET_CONSTITUTIONAL_EFFECT")
+
+    def test_unresolved_fq3_cannot_carry_resolution_fields(self) -> None:
+        def add_false_resolution(record) -> None:
+            question = next(
+                item
+                for item in record["questions"]
+                if item["question_id"] == "FQ-03"
+            )
+            question["source_decisions"] = ["CDR-003"]
+            question["resolution"] = "Architecture E is adopted."
+            question["provenance"]["decision_authority"] = (
+                "Human Constitutional Authority"
+            )
+
+        self.update_json(
+            "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+            add_false_resolution,
+        )
+        self.assert_error("UNRESOLVED_FOUNDATIONAL_QUESTION_STATE")
 
     def test_fq2_analytical_record_is_required(self) -> None:
         (
@@ -1505,10 +1734,10 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             self.root
             / "constitutional-design"
             / "decisions"
-            / "CDR-003.yaml"
+            / "CDR-004.yaml"
         )
         record = {
-            "decision_id": "CDR-003",
+            "decision_id": "CDR-004",
             "status": "DECIDED",
             "human_decision": {
                 "authorized_by": "test human authority",

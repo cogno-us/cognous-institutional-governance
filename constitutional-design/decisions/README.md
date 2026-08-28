@@ -31,3 +31,7 @@ Its concise advisory packet is retained at
 `packets/CDR-002-HUMAN-DECISION-PACKET.md`; the packet's recommendation has no
 constitutional effect, created no emergency authority, and did not authorize
 the human decision recorded in CDR-002.
+
+CDR-003 analyzes FQ-03 succession and interregnum without deciding it. Its
+advisory packet is retained at `packets/CDR-003-HUMAN-DECISION-PACKET.md`; the
+recommendation has no constitutional effect and creates no succession authority.
