@@ -670,7 +670,291 @@ FQ2_REQUIREMENTS = {
         ),
     },
 }
-ALL_REQUIREMENTS = {**FQ1_REQUIREMENTS, **FQ2_REQUIREMENTS}
+FQ3_DECISION_DATE = "2026-08-28"
+FQ3_DECISION = "ADOPT_E"
+FQ3_SELECTED_ARCHITECTURE = "E — Hybrid"
+FQ3_INCORPORATED_MECHANISMS = [
+    "continuity without sovereign succession as the default",
+    (
+        "continuation of valid current scoped delegations and ordinary offices "
+        "only within existing authority"
+    ),
+    "suspension of foundational powers during unresolved interregnum",
+    "bounded human succession process",
+    (
+        "explicit refounding when succession under the existing constitutional "
+        "order is impossible"
+    ),
+    "plural independent evidence",
+    "distributed anti-usurpation controls",
+    "durable provenance",
+    "challenge and dissent",
+    "explicit treatment of uncertainty",
+    "separation between evidence validation and constitutional judgment",
+    "monitoring of formal versus effective power",
+    "automatic expiry of temporary continuity authority",
+    "restoration without continuity-custodian consent",
+]
+FQ3_REJECTED_MECHANISMS = [
+    "new authority created by continuity",
+    "foundational sovereignty acquired through continuity",
+    "foundational sovereignty acquired through capability",
+    "foundational sovereignty acquired through reliance",
+    "foundational sovereignty acquired through necessity",
+    "foundational sovereignty acquired through effective control",
+    "artificial intelligence inheritance of foundational sovereignty",
+    "exercise of suspended foundational powers during unresolved interregnum",
+    "emergency authority becoming succession authority",
+    "continuity-custodian consent as a condition of restoration",
+]
+FQ3_RESULTING_REQUIREMENTS = [
+    "CR-014",
+    "CR-015",
+    "CR-016",
+    "CR-017",
+    "CR-018",
+    "CR-019",
+    "CR-020",
+]
+FQ3_RESOLUTION = (
+    "ADOPT_E: continuity without sovereign succession is the default; existing "
+    "valid scoped authority may continue without expansion while foundational "
+    "powers suspend, and a bounded human process with distributed safeguards "
+    "provides the path to legitimate succession or explicit refounding."
+)
+FQ3_REQUIREMENT_PROVENANCE = (
+    "Explicit human decision recorded in CDR-003 on 2026-08-28"
+)
+FQ3_REQUIRED_RESIDUAL_UNCERTAINTY = [
+    (
+        "Proof standards for incapacity, death, loss, return, identity, and "
+        "standing remain unresolved under IR-04, IR-06, IR-07, and IR-13."
+    ),
+    (
+        "Composition and selection of the bounded human succession process "
+        "remain unresolved under IR-04, IR-06, IR-07, and IR-10."
+    ),
+    (
+        "The exact delegations and ordinary-office grants that survive "
+        "interregnum remain unresolved under IR-05 and IR-17."
+    ),
+    (
+        "The maximum permissible duration of interregnum continuity remains "
+        "unresolved under IR-04, IR-05, and IR-11."
+    ),
+    (
+        "The threshold separating succession under the existing constitutional "
+        "order from explicit refounding remains unresolved under IR-04, IR-15, "
+        "and IR-17."
+    ),
+    (
+        "Restoration and remedies following invalid succession remain unresolved "
+        "under IR-04 and IR-06."
+    ),
+    (
+        "Adjudication of disputed succession remains unresolved under IR-04, "
+        "IR-06, and FQ-04."
+    ),
+    (
+        "Detailed controls for monitoring and constraining formal versus "
+        "effective power remain unresolved under IR-08, IR-09, IR-10, and IR-11."
+    ),
+    (
+        "Implementation and machine-formalization details remain unresolved "
+        "under IR-10, IR-13, IR-17, and IR-18."
+    ),
+]
+FQ3_REQUIREMENTS = {
+    "CR-014": {
+        "statement": (
+            "Continuity without sovereign succession must be the default during "
+            "incapacity, loss, or unresolved succession; existing valid, current, "
+            "scoped delegations and ordinary offices may continue only within "
+            "their existing authority, and continuity must create no new authority."
+        ),
+        "source_issues": {"IR-04", "IR-05", "IR-07", "IR-17"},
+        "rationale": (
+            "CDR-003 separates narrow administrative continuity from succession "
+            "and prohibits absence from expanding existing grants."
+        ),
+        "implementation_boundary": (
+            "Does not identify exact surviving grants, offices, triggers, proof "
+            "standards, maximum duration, or technical enforcement."
+        ),
+        "verification_method": (
+            "Drafting traceability must make continuity the default, limit "
+            "continuation to valid current scoped authority, and deny any "
+            "authority expansion."
+        ),
+    },
+    "CR-015": {
+        "statement": (
+            "No human custodian, administrator, artificial-intelligence system, "
+            "delegate, emergency actor, or operationally indispensable system "
+            "may acquire foundational sovereignty merely through continuity, "
+            "capability, reliance, necessity, or effective control; artificial "
+            "intelligence is categorically ineligible to inherit foundational "
+            "sovereignty."
+        ),
+        "source_issues": {
+            "IR-01",
+            "IR-04",
+            "IR-08",
+            "IR-09",
+            "IR-11",
+            "IR-18",
+        },
+        "rationale": (
+            "CDR-003 rejects formal and effective paths by which continuity or "
+            "dependency could manufacture foundational sovereignty and expressly "
+            "bars artificial-intelligence succession."
+        ),
+        "implementation_boundary": (
+            "Does not define the legitimate human constituency, effective-power "
+            "metrics, monitoring systems, remedies, or anti-accretion enforcement."
+        ),
+        "verification_method": (
+            "Drafting traceability must cover every named actor and rejected "
+            "source of sovereignty and contain an unconditional "
+            "artificial-intelligence succession prohibition."
+        ),
+    },
+    "CR-016": {
+        "statement": (
+            "During unresolved interregnum, foundational powers must suspend, "
+            "including amendment, refounding, institutional termination, creation "
+            "of foundational sovereignty, self-extension of temporary authority, "
+            "and creation of succession authority outside the legitimate "
+            "succession process."
+        ),
+        "source_issues": {"IR-04", "IR-05", "IR-15", "IR-16", "IR-17"},
+        "rationale": (
+            "CDR-003 prevents temporary continuity from changing the foundational "
+            "order or manufacturing its own permanence or successor."
+        ),
+        "implementation_boundary": (
+            "Does not determine detailed power classifications, succession-process "
+            "composition, the succession-refounding threshold, or enforcement "
+            "remedies."
+        ),
+        "verification_method": (
+            "Drafting traceability must enumerate all six suspended foundational "
+            "powers and must not imply an interregnum exception."
+        ),
+    },
+    "CR-017": {
+        "statement": (
+            "A bounded human succession process must provide the path from "
+            "interregnum to legitimate succession or, when succession under the "
+            "existing constitutional order is impossible, explicit refounding."
+        ),
+        "source_issues": {
+            "IR-04",
+            "IR-06",
+            "IR-07",
+            "IR-10",
+            "IR-15",
+            "IR-17",
+        },
+        "rationale": (
+            "CDR-003 requires a human path out of interregnum while distinguishing "
+            "succession under the existing order from explicit refounding."
+        ),
+        "implementation_boundary": (
+            "Does not define process composition, selection, standing, "
+            "adjudication, proof standards, thresholds, or the boundary between "
+            "succession and refounding."
+        ),
+        "verification_method": (
+            "Drafting traceability must require a bounded human process and "
+            "preserve both legitimate succession and explicit refounding as "
+            "distinct possible outcomes."
+        ),
+    },
+    "CR-018": {
+        "statement": (
+            "The human succession process must incorporate plural independent "
+            "evidence, distributed anti-usurpation controls, durable provenance, "
+            "challenge and dissent, explicit treatment of uncertainty, separation "
+            "between evidence validation and constitutional judgment, and "
+            "monitoring of formal versus effective power."
+        ),
+        "source_issues": {
+            "IR-04",
+            "IR-06",
+            "IR-08",
+            "IR-09",
+            "IR-10",
+            "IR-12",
+            "IR-13",
+            "IR-18",
+        },
+        "rationale": (
+            "CDR-003 adopts plural epistemic, procedural, and power-monitoring "
+            "safeguards against forged evidence, capture, hidden dependence, and "
+            "machine substitution for constitutional judgment."
+        ),
+        "implementation_boundary": (
+            "Does not define evidence thresholds, process membership, adjudicator "
+            "powers, dissent effects, monitoring metrics, technical architecture, "
+            "or remedies."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve all seven safeguards and must not "
+            "equate machine validation of evidence with constitutional judgment."
+        ),
+    },
+    "CR-019": {
+        "statement": (
+            "Emergency authority under CDR-002 must remain separate from "
+            "succession authority, temporary, human-only where necessity fallback "
+            "is invoked, nonprecedential, and incapable of creating succession "
+            "authority."
+        ),
+        "source_issues": {"IR-03", "IR-04", "IR-05", "IR-17"},
+        "rationale": (
+            "CDR-003 preserves CDR-002's emergency boundaries and prohibits "
+            "emergency action from becoming a route to succession."
+        ),
+        "implementation_boundary": (
+            "Does not change CDR-002, define emergency actors or triggers, resolve "
+            "prolonged emergencies, or specify enforcement mechanisms."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve separation, temporariness, "
+            "human-only necessity eligibility, nonprecedence, and the "
+            "succession-authority prohibition."
+        ),
+    },
+    "CR-020": {
+        "statement": (
+            "Temporary continuity authority must expire upon verified return, "
+            "legitimate succession or refounding, expiration of its underlying "
+            "grant, or another constitutionally specified termination condition; "
+            "restoration of legitimate returning authority must not depend upon "
+            "consent of continuity custodians."
+        ),
+        "source_issues": {"IR-04", "IR-05", "IR-06", "IR-07", "IR-17"},
+        "rationale": (
+            "CDR-003 makes continuity temporary and denies custodians a veto over "
+            "restoration of legitimate returning authority."
+        ),
+        "implementation_boundary": (
+            "Does not establish proof standards for return, maximum interregnum "
+            "duration, invalidation remedies, reliance treatment, clocks, or "
+            "technical revocation."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve all four expiry conditions and "
+            "prohibit continuity-custodian consent as a restoration condition."
+        ),
+    },
+}
+ALL_REQUIREMENTS = {
+    **FQ1_REQUIREMENTS,
+    **FQ2_REQUIREMENTS,
+    **FQ3_REQUIREMENTS,
+}
 FQ3_REQUIRED_ISSUES = {
     "IR-03",
     "IR-04",
@@ -2164,32 +2448,83 @@ def _validate_fq3_analytical_record(
     if decision.get("decision_id") != "CDR-003":
         return 0, set(), set()
 
-    if decision.get("status") != "UNDER_REVIEW":
-        errors.append("FQ3_ANALYTICAL_STATUS: CDR-003 must be UNDER_REVIEW")
-    if (
-        not _is_empty_human_decision(decision)
-        or _has_human_decision_evidence(decision)
-        or decision.get("resulting_requirements") != []
-    ):
+    if decision.get("status") != "DECIDED":
+        errors.append("FQ3_DECISION_STATUS: CDR-003 must be DECIDED")
+    human_decision = decision.get("human_decision")
+    valid_human_decision = (
+        isinstance(human_decision, dict)
+        and set(human_decision) == HUMAN_DECISION_FIELDS
+        and human_decision.get("decision") == FQ3_DECISION
+        and human_decision.get("foundational_architecture")
+        == FQ3_SELECTED_ARCHITECTURE
+        and human_decision.get("incorporated_mechanisms")
+        == FQ3_INCORPORATED_MECHANISMS
+        and human_decision.get("rejected_mechanisms")
+        == FQ3_REJECTED_MECHANISMS
+        and human_decision.get("decision_authority")
+        == "Human Constitutional Authority"
+        and human_decision.get("decision_basis")
+        == (
+            "Explicit human instruction following review of CDR-003 and its "
+            "human decision packet."
+        )
+        and human_decision.get("authorized_by")
+        == "Human Constitutional Authority"
+        and human_decision.get("authorization_record")
+        == (
+            "Explicit human instruction received on 2026-08-28 directing this "
+            "repository to record ADOPT_E for CDR-003."
+        )
+        and human_decision.get("decision_date") == FQ3_DECISION_DATE
+        and decision.get("decision_date") == FQ3_DECISION_DATE
+        and _has_human_decision_evidence(decision)
+    )
+    if not valid_human_decision:
         errors.append(
-            "FQ3_ANALYTICAL_BOUNDARY: CDR-003 cannot contain human decision "
-            "evidence or resulting requirements"
+            "FQ3_HUMAN_DECISION_PROVENANCE: exact explicit human decision "
+            "provenance is required"
+        )
+    if decision.get("resulting_requirements") != FQ3_RESULTING_REQUIREMENTS:
+        errors.append(
+            "FQ3_RESULTING_REQUIREMENTS: CR-014 through CR-020 are required"
         )
     if decision.get("dissent") != [
         {
             "status": "OPEN_FOR_SUBMISSION",
-            "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-03.",
+            "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-03.",
             "record": (
-                "No succession or interregnum architecture is adopted, and no "
-                "actor receives authority from this analysis."
+                "The absence of recorded dissent does not imply unanimity or close "
+                "future dissent. Dissent concerning succession and interregnum "
+                "must remain attributable and durable."
             ),
         }
     ]:
-        errors.append("FQ3_NO_DECISION_STATEMENT: exact boundary is required")
-    if _contains_architecture_selection_claim(decision):
         errors.append(
-            "FQ3_ARCHITECTURE_SELECTION_CLAIM: CDR-003 cannot select an "
-            "architecture"
+            "FQ3_DISSENT_PRESERVATION: open durable dissent channel is required"
+        )
+    analysis_only = {
+        key: value
+        for key, value in decision.items()
+        if key
+        not in {
+            "_record_path",
+            "status",
+            "human_decision",
+            "decision_date",
+            "resulting_requirements",
+            "dissent",
+            "provenance",
+        }
+    }
+    if _contains_architecture_selection_claim(analysis_only):
+        errors.append(
+            "FQ3_ARCHITECTURE_SELECTION_CLAIM: analytical material cannot "
+            "masquerade as the human decision"
+        )
+    if decision.get("residual_uncertainty") != FQ3_REQUIRED_RESIDUAL_UNCERTAINTY:
+        errors.append(
+            "FQ3_RESIDUAL_UNCERTAINTY: all preserved questions must remain "
+            "explicit and traceable"
         )
     if (
         not isinstance(decision.get("related_issues"), list)
@@ -2344,7 +2679,7 @@ def _validate_fq3_analytical_record(
             "FQ3_CONTROLLING_BOUNDARIES: machine succession, emergency "
             "succession, and manufactured legitimacy must be prohibited"
         )
-    if _contains_fq3_authority_effect_claim(decision):
+    if _contains_fq3_authority_effect_claim(analysis_only):
         errors.append(
             "FQ3_CONTRADICTORY_AUTHORITY_CLAIM: analysis cannot adopt an "
             "architecture or create machine, emergency, or continuity legitimacy"
@@ -2353,17 +2688,19 @@ def _validate_fq3_analytical_record(
     provenance = decision.get("provenance")
     if (
         not isinstance(provenance, dict)
-        or "Repository-only analysis" not in str(provenance.get("source", ""))
-        or "no human decision" not in str(
+        or "Explicit human instruction from the Human Constitutional Authority" not in str(
+            provenance.get("source", "")
+        )
+        or "authorizes constitutional drafting requirements only" not in str(
             provenance.get("evidence_boundary", "")
         ).casefold()
-        or "no succession authority" not in str(
+        or "does not itself appoint a successor" not in str(
             provenance.get("evidence_boundary", "")
         ).casefold()
     ):
         errors.append(
-            "FQ3_PROVENANCE_BOUNDARY: repository-only analysis and "
-            "no-authority boundary are required"
+            "FQ3_PROVENANCE_BOUNDARY: explicit human provenance and "
+            "drafting-only boundary are required"
         )
 
     return len(architectures or []), historical_ids, prior_art_ids
@@ -3316,14 +3653,14 @@ def validate(root: Path) -> ValidationResult:
         status = question.get("status")
         expected_status = (
             "RESOLVED"
-            if question_id in {"FQ-01", "FQ-02"}
+            if question_id in {"FQ-01", "FQ-02", "FQ-03"}
             else "UNRESOLVED"
         )
         if status != expected_status:
             errors.append(
                 f"FOUNDATIONAL_QUESTION_STATUS: {question_id} is {status!r}"
             )
-        if question_id in {"FQ-03", "FQ-04", "FQ-05"} and (
+        if question_id in {"FQ-04", "FQ-05"} and (
             "source_decisions" in question
             or "resolution" in question
             or (
@@ -3362,6 +3699,21 @@ def validate(root: Path) -> ValidationResult:
         ):
             errors.append(
                 "FQ2_RESOLUTION_PROVENANCE: FQ-02 must link to the explicit "
+                "human decision"
+            )
+        if question_id == "FQ-03" and (
+            question.get("source_decisions") != ["CDR-003"]
+            or question.get("resolution") != FQ3_RESOLUTION
+            or not isinstance(question.get("provenance"), dict)
+            or question["provenance"].get("source")
+            != "Explicit human decision recorded in CDR-003"
+            or question["provenance"].get("decision_authority")
+            != "Human Constitutional Authority"
+            or question["provenance"].get("decision_date")
+            != FQ3_DECISION_DATE
+        ):
+            errors.append(
+                "FQ3_RESOLUTION_PROVENANCE: FQ-03 must link to the explicit "
                 "human decision"
             )
         if not _has_provenance(question):
@@ -3430,9 +3782,9 @@ def validate(root: Path) -> ValidationResult:
         for decision_id, decision in decisions_by_id.items()
         if decision.get("status") == "DECIDED"
     }
-    if decided_count != 2 or decided_ids != {"CDR-001", "CDR-002"}:
+    if decided_count != 3 or decided_ids != {"CDR-001", "CDR-002", "CDR-003"}:
         errors.append(
-            "DECISION_COUNT: expected exactly CDR-001 and CDR-002 DECIDED, "
+            "DECISION_COUNT: expected exactly CDR-001 through CDR-003 DECIDED, "
             f"found {decided_count}"
         )
     if "CDR-001" not in decisions_by_id:
@@ -3481,6 +3833,28 @@ def validate(root: Path) -> ValidationResult:
             "FQ2_RESOLUTION_DECISION_LINK: resolved FQ-02 requires decided "
             "CDR-002 with human provenance"
         )
+    fq3 = next(
+        (
+            question
+            for question in questions
+            if question.get("question_id") == "FQ-03"
+        ),
+        {},
+    )
+    if (
+        fq3.get("status") == "RESOLVED"
+        and (
+            fq3.get("source_decisions") != ["CDR-003"]
+            or decisions_by_id.get("CDR-003", {}).get("status") != "DECIDED"
+            or not _has_human_decision_evidence(
+                decisions_by_id.get("CDR-003", {})
+            )
+        )
+    ):
+        errors.append(
+            "FQ3_RESOLUTION_DECISION_LINK: resolved FQ-03 requires decided "
+            "CDR-003 with human provenance"
+        )
 
     requirement_dir = root / "constitutional-design" / "requirements"
     requirements = _load_record_set(requirement_dir, "CR-*.yaml", errors)
@@ -3500,7 +3874,7 @@ def validate(root: Path) -> ValidationResult:
         or len(set(map(str, requirement_ids))) != len(requirement_ids)
     ):
         errors.append(
-            "REQUIREMENT_SET: exactly CR-001 through CR-013 are required"
+            "REQUIREMENT_SET: exactly CR-001 through CR-020 are required"
         )
     accepted_count = 0
     for requirement in requirements:
@@ -3511,16 +3885,15 @@ def validate(root: Path) -> ValidationResult:
         requirement_id = requirement.get("requirement_id")
         requirement_key = str(requirement_id)
         expected_requirement = ALL_REQUIREMENTS.get(requirement_key)
-        expected_decision = (
-            "CDR-001"
-            if requirement_key in FQ1_REQUIREMENTS
-            else "CDR-002"
-        )
-        expected_provenance = (
-            FQ1_REQUIREMENT_PROVENANCE
-            if requirement_key in FQ1_REQUIREMENTS
-            else FQ2_REQUIREMENT_PROVENANCE
-        )
+        if requirement_key in FQ1_REQUIREMENTS:
+            expected_decision = "CDR-001"
+            expected_provenance = FQ1_REQUIREMENT_PROVENANCE
+        elif requirement_key in FQ2_REQUIREMENTS:
+            expected_decision = "CDR-002"
+            expected_provenance = FQ2_REQUIREMENT_PROVENANCE
+        else:
+            expected_decision = "CDR-003"
+            expected_provenance = FQ3_REQUIREMENT_PROVENANCE
         if set(requirement) - {"_record_path"} != REQUIREMENT_FIELDS:
             errors.append(
                 f"REQUIREMENT_RECORD_SCHEMA: {requirement_id or requirement['_record_path']}"
@@ -3561,7 +3934,7 @@ def validate(root: Path) -> ValidationResult:
             != expected_provenance
             or requirement.get("constitutional_level") != "FOUNDATIONAL"
             or (
-                expected_decision == "CDR-002"
+                expected_decision in {"CDR-002", "CDR-003"}
                 and (
                     requirement.get("rationale")
                     != expected_requirement["rationale"]
@@ -3588,7 +3961,7 @@ def validate(root: Path) -> ValidationResult:
             )
     if accepted_count != len(ALL_REQUIREMENTS):
         errors.append(
-            "ACCEPTED_REQUIREMENT_COUNT: expected 13 "
+            "ACCEPTED_REQUIREMENT_COUNT: expected 20 "
             f"ACCEPTED_FOR_DRAFTING records, found {accepted_count}"
         )
 
@@ -4269,6 +4642,23 @@ def validate(root: Path) -> ValidationResult:
         errors.append(
             "CONSTITUTIONAL_PROVISIONS: expected none, found "
             + ", ".join(str(path.relative_to(root)) for path in provision_files)
+        )
+    governance_engineering_dir = root / "governance-engineering"
+    governance_runtime_files = (
+        [
+            path
+            for path in governance_engineering_dir.rglob("*")
+            if path.is_file() and path.name != "README.md"
+        ]
+        if governance_engineering_dir.exists()
+        else []
+    )
+    if governance_runtime_files:
+        errors.append(
+            "GOVERNANCE_RUNTIME: governance engineering remains deferred; found "
+            + ", ".join(
+                str(path.relative_to(root)) for path in governance_runtime_files
+            )
         )
 
     issue_status_counts: dict[str, int] = {}

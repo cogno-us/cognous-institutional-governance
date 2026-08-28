@@ -26,9 +26,15 @@
     },
     {
       "question_id": "FQ-03",
-      "status": "UNRESOLVED",
+      "status": "RESOLVED",
       "question": "What happens during temporary or permanent loss of foundational human authority?",
-      "provenance": {"source": "constitutional research baseline brief"}
+      "source_decisions": ["CDR-003"],
+      "resolution": "ADOPT_E: continuity without sovereign succession is the default; existing valid scoped authority may continue without expansion while foundational powers suspend, and a bounded human process with distributed safeguards provides the path to legitimate succession or explicit refounding.",
+      "provenance": {
+        "source": "Explicit human decision recorded in CDR-003",
+        "decision_authority": "Human Constitutional Authority",
+        "decision_date": "2026-08-28"
+      }
     },
     {
       "question_id": "FQ-04",

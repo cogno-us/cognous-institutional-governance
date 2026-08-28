@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-019",
+  "statement": "Emergency authority under CDR-002 must remain separate from succession authority, temporary, human-only where necessity fallback is invoked, nonprecedential, and incapable of creating succession authority.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-03", "IR-04", "IR-05", "IR-17"],
+  "source_decisions": ["CDR-003"],
+  "rationale": "CDR-003 preserves CDR-002's emergency boundaries and prohibits emergency action from becoming a route to succession.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not change CDR-002, define emergency actors or triggers, resolve prolonged emergencies, or specify enforcement mechanisms.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve separation, temporariness, human-only necessity eligibility, nonprecedence, and the succession-authority prohibition.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-003 on 2026-08-28"}
+}

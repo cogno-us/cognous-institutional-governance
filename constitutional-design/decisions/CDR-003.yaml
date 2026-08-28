@@ -1,7 +1,7 @@
 {
   "decision_id": "CDR-003",
   "title": "Foundational Question 3: Succession and Interregnum",
-  "status": "UNDER_REVIEW",
+  "status": "DECIDED",
   "question": "What happens during temporary incapacity, permanent loss, or unresolved succession of foundational human authority?",
   "related_issues": ["IR-03", "IR-04", "IR-05", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-11", "IR-13", "IR-15", "IR-17", "IR-18"],
   "source_material": [
@@ -272,34 +272,63 @@
   "dissent": [
     {
       "status": "OPEN_FOR_SUBMISSION",
-      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-03.",
-      "record": "No succession or interregnum architecture is adopted, and no actor receives authority from this analysis."
+      "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-03.",
+      "record": "The absence of recorded dissent does not imply unanimity or close future dissent. Dissent concerning succession and interregnum must remain attributable and durable."
     }
   ],
   "human_decision": {
-    "decision": "",
-    "foundational_architecture": "",
-    "incorporated_mechanisms": [],
-    "rejected_mechanisms": [],
-    "decision_authority": "",
-    "decision_basis": "",
-    "authorized_by": "",
-    "authorization_record": "",
-    "decision_date": ""
+    "decision": "ADOPT_E",
+    "foundational_architecture": "E — Hybrid",
+    "incorporated_mechanisms": [
+      "continuity without sovereign succession as the default",
+      "continuation of valid current scoped delegations and ordinary offices only within existing authority",
+      "suspension of foundational powers during unresolved interregnum",
+      "bounded human succession process",
+      "explicit refounding when succession under the existing constitutional order is impossible",
+      "plural independent evidence",
+      "distributed anti-usurpation controls",
+      "durable provenance",
+      "challenge and dissent",
+      "explicit treatment of uncertainty",
+      "separation between evidence validation and constitutional judgment",
+      "monitoring of formal versus effective power",
+      "automatic expiry of temporary continuity authority",
+      "restoration without continuity-custodian consent"
+    ],
+    "rejected_mechanisms": [
+      "new authority created by continuity",
+      "foundational sovereignty acquired through continuity",
+      "foundational sovereignty acquired through capability",
+      "foundational sovereignty acquired through reliance",
+      "foundational sovereignty acquired through necessity",
+      "foundational sovereignty acquired through effective control",
+      "artificial intelligence inheritance of foundational sovereignty",
+      "exercise of suspended foundational powers during unresolved interregnum",
+      "emergency authority becoming succession authority",
+      "continuity-custodian consent as a condition of restoration"
+    ],
+    "decision_authority": "Human Constitutional Authority",
+    "decision_basis": "Explicit human instruction following review of CDR-003 and its human decision packet.",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-28 directing this repository to record ADOPT_E for CDR-003.",
+    "decision_date": "2026-08-28"
   },
-  "decision_date": "",
+  "decision_date": "2026-08-28",
   "supersedes": [],
-  "resulting_requirements": [],
+  "resulting_requirements": ["CR-014", "CR-015", "CR-016", "CR-017", "CR-018", "CR-019", "CR-020"],
   "residual_uncertainty": [
-    "Who can establish temporary incapacity, permanent loss, death, return, identity, and standing, under what proof and challenge standard?",
-    "Which ordinary offices and delegations survive, suspend, expire, or require renewed human authorization?",
-    "What bounded human process can legitimately determine a successor without becoming foundationally sovereign?",
-    "How long may continuity persist before it becomes illegitimate paralysis, effective takeover, succession, or refounding?",
-    "What restoration, invalidation, remedy, and reliance rules apply after disputed incapacity or succession?",
-    "How can independent evidence and control channels resist forged records, manufactured incapacity, shared artificial intelligence dependence, and coordinated human capture?"
+    "Proof standards for incapacity, death, loss, return, identity, and standing remain unresolved under IR-04, IR-06, IR-07, and IR-13.",
+    "Composition and selection of the bounded human succession process remain unresolved under IR-04, IR-06, IR-07, and IR-10.",
+    "The exact delegations and ordinary-office grants that survive interregnum remain unresolved under IR-05 and IR-17.",
+    "The maximum permissible duration of interregnum continuity remains unresolved under IR-04, IR-05, and IR-11.",
+    "The threshold separating succession under the existing constitutional order from explicit refounding remains unresolved under IR-04, IR-15, and IR-17.",
+    "Restoration and remedies following invalid succession remain unresolved under IR-04 and IR-06.",
+    "Adjudication of disputed succession remains unresolved under IR-04, IR-06, and FQ-04.",
+    "Detailed controls for monitoring and constraining formal versus effective power remain unresolved under IR-08, IR-09, IR-10, and IR-11.",
+    "Implementation and machine-formalization details remain unresolved under IR-10, IR-13, IR-17, and IR-18."
   ],
   "provenance": {
-    "source": "Repository-only analysis of FQ-03, controlling CDR-001 and CDR-002, linked issue records, registered historical evidence, registered prior art, design principles, and glossary boundaries on 2026-08-28.",
-    "evidence_boundary": "Analysis and recommendation inputs only; no human decision is made, no succession authority or machine sovereignty is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+    "source": "Explicit human instruction from the Human Constitutional Authority on 2026-08-28, following review of CDR-003 and constitutional-design/decisions/packets/CDR-003-HUMAN-DECISION-PACKET.md; analytical support remains the repository-only synthesis of controlling CDR-001 and CDR-002, linked issues, and registered evidence.",
+    "evidence_boundary": "This record authorizes constitutional drafting requirements only. It does not itself appoint a successor, determine incapacity or standing, grant operational continuity or succession authority, enact a constitutional provision, or create a runtime rule."
   }
 }

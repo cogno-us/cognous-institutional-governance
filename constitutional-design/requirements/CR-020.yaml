@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-020",
+  "statement": "Temporary continuity authority must expire upon verified return, legitimate succession or refounding, expiration of its underlying grant, or another constitutionally specified termination condition; restoration of legitimate returning authority must not depend upon consent of continuity custodians.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-04", "IR-05", "IR-06", "IR-07", "IR-17"],
+  "source_decisions": ["CDR-003"],
+  "rationale": "CDR-003 makes continuity temporary and denies custodians a veto over restoration of legitimate returning authority.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not establish proof standards for return, maximum interregnum duration, invalidation remedies, reliance treatment, clocks, or technical revocation.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve all four expiry conditions and prohibit continuity-custodian consent as a restoration condition.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-003 on 2026-08-28"}
+}

@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-018",
+  "statement": "The human succession process must incorporate plural independent evidence, distributed anti-usurpation controls, durable provenance, challenge and dissent, explicit treatment of uncertainty, separation between evidence validation and constitutional judgment, and monitoring of formal versus effective power.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-04", "IR-06", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-18"],
+  "source_decisions": ["CDR-003"],
+  "rationale": "CDR-003 adopts plural epistemic, procedural, and power-monitoring safeguards against forged evidence, capture, hidden dependence, and machine substitution for constitutional judgment.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define evidence thresholds, process membership, adjudicator powers, dissent effects, monitoring metrics, technical architecture, or remedies.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve all seven safeguards and must not equate machine validation of evidence with constitutional judgment.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-003 on 2026-08-28"}
+}
