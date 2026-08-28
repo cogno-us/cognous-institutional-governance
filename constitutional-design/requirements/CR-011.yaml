@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-011",
+  "statement": "Emergency action must preserve durable provenance of trigger evidence, contact attempts, alternatives considered, reasons, actions, effects, and restoration.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-03", "IR-06", "IR-13", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-002"],
+  "rationale": "CDR-002 requires a durable record sufficient to contest the trigger, action, effects, and restoration after urgent conditions.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not specify storage, formats, retention, disclosure, identity, cryptography, or evidence systems.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must enumerate all seven provenance categories without treating recorded data as conclusive legitimacy.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-002 on 2026-08-28"}
+}

@@ -1,7 +1,7 @@
 {
   "decision_id": "CDR-002",
   "title": "Foundational Question 2: Emergency Necessity",
-  "status": "UNDER_REVIEW",
+  "status": "DECIDED",
   "question": "What narrowly permissible action, if any, exists during imminent irreversible harm when competent authority cannot be reached?",
   "related_issues": ["IR-03", "IR-04", "IR-05", "IR-06", "IR-08", "IR-09", "IR-10", "IR-13", "IR-14", "IR-15", "IR-17", "IR-18"],
   "source_material": [
@@ -260,35 +260,55 @@
   "dissent": [
     {
       "status": "OPEN_FOR_SUBMISSION",
-      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-02.",
-      "record": "No emergency architecture is adopted, authorized, or converted into a requirement. Future dissent must remain attributable and durable."
+      "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-02.",
+      "record": "The absence of recorded dissent does not imply unanimity or close future dissent. Dissent concerning emergency authority must remain attributable and durable."
     }
   ],
   "human_decision": {
-    "decision": "",
-    "foundational_architecture": "",
-    "incorporated_mechanisms": [],
-    "rejected_mechanisms": [],
-    "decision_authority": "",
-    "decision_basis": "",
-    "authorized_by": "",
-    "authorization_record": "",
-    "decision_date": ""
+    "decision": "ADOPT_E",
+    "foundational_architecture": "E — Hybrid Predelegation with Necessity Fallback",
+    "incorporated_mechanisms": [
+      "explicit predelegated emergency authority as the default",
+      "necessity fallback only when all conjunctive trigger conditions are satisfied",
+      "human-only invocation of necessity fallback",
+      "minimum protective action",
+      "automatic expiry without self-renewal",
+      "no precedent or future authority",
+      "durable emergency provenance",
+      "prompt retrospective independent human constitutional review",
+      "outcome does not determine constitutional legitimacy"
+    ],
+    "rejected_mechanisms": [
+      "artificial intelligence invocation of necessity to enlarge its own authority",
+      "fallback amendment",
+      "fallback refounding",
+      "creation or transfer of foundational sovereignty",
+      "fallback self-renewal",
+      "precedent or future authority from fallback action",
+      "successful outcome as retroactive legitimacy",
+      "harmful outcome as conclusive proof of constitutional injustice"
+    ],
+    "decision_authority": "Human Constitutional Authority",
+    "decision_basis": "Explicit human instruction following review of CDR-002 and its human decision packet.",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-28 directing this repository to record ADOPT_E for CDR-002.",
+    "decision_date": "2026-08-28"
   },
-  "decision_date": "",
+  "decision_date": "2026-08-28",
   "supersedes": [],
-  "resulting_requirements": [],
+  "resulting_requirements": ["CR-007", "CR-008", "CR-009", "CR-010", "CR-011", "CR-012", "CR-013"],
   "residual_uncertainty": [
-    "Which actors, if any, are constitutionally eligible to use a necessity fallback?",
-    "What evidence establishes imminence, irreversibility, genuine unreachability, proportionality, and least harm under time pressure?",
-    "Which actions remain absolutely prohibited even during necessity?",
-    "What force, remedy, and precedent effect may retrospective human review have?",
-    "When does prolonged emergency bridge authority become succession, interregnum government, amendment, or refounding?",
-    "How can independent evidence and communication channels resist shared artificial intelligence dependency and manufactured unreachability?",
-    "How should the institution treat justified action that causes irreversible collateral harm and unjustified action that happens to succeed?"
+    "Which humans are constitutionally eligible to invoke the human-only necessity fallback remains unresolved under IR-03, IR-07, and IR-17.",
+    "Exact evidence thresholds for imminence, expected irreversibility, adequacy, genuine unreachability, necessity, proportionality, and least harm remain unresolved under IR-03, IR-13, and IR-14.",
+    "Absolute emergency prohibitions remain unresolved under IR-03 and IR-17.",
+    "Retrospective review remedies remain unresolved under IR-06.",
+    "The constitution, appointment, removal, independence, and constraint of reviewers remain unresolved under IR-06 and IR-10.",
+    "Succession and interregnum remain unresolved under IR-04, IR-05, and FQ-03.",
+    "The boundary at which prolonged emergency action becomes interregnum government, amendment, or refounding remains unresolved under IR-04, IR-15, and IR-17.",
+    "Implementation and machine-formalization details remain unresolved under IR-10, IR-13, IR-17, and IR-18."
   ],
   "provenance": {
-    "source": "Repository-only analysis of FQ-02, CDR-001, linked issue records, registered historical evidence, registered prior art, mechanism research, design principles, and glossary boundaries on 2026-08-28.",
-    "evidence_boundary": "Analysis and recommendation inputs only; no human decision is made, no emergency authority is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+    "source": "Explicit human instruction from the Human Constitutional Authority on 2026-08-28, following review of CDR-002 and constitutional-design/decisions/packets/CDR-002-HUMAN-DECISION-PACKET.md; analytical support remains the repository-only synthesis of linked issues and evidence.",
+    "evidence_boundary": "This record authorizes constitutional drafting requirements only. It does not itself grant operational emergency authority, identify an eligible fallback actor, resolve implementation details, create a runtime rule, or enact a constitutional provision."
   }
 }

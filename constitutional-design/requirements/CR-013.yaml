@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-013",
+  "statement": "Successful outcomes must not retroactively legitimate unauthorized emergency action, and harmful outcomes must not by themselves prove that emergency action was constitutionally unjustified.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-03", "IR-06", "IR-09", "IR-13", "IR-14"],
+  "source_decisions": ["CDR-002"],
+  "rationale": "CDR-002 separates constitutional justification from outcome bias in both favorable and harmful directions.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not determine evidentiary burdens, standards of review, remedies, liability, or treatment of particular outcomes.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve both outcome-legitimacy distinctions and prohibit either outcome from being conclusive by itself.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-002 on 2026-08-28"}
+}

@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-009",
+  "statement": "Necessity fallback eligibility must be human-only; no artificial intelligence system may invoke necessity to enlarge its own authority unless a later explicit human constitutional decision authorizes such eligibility.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-03", "IR-08", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-002"],
+  "rationale": "CDR-002 expressly reserves fallback invocation to humans and denies machines a necessity-based path to self-expanding authority.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not identify which humans are eligible or define later decision procedures, identity systems, or enforcement mechanisms.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must explicitly prohibit machine invocation of necessity to enlarge machine authority.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-002 on 2026-08-28"}
+}
