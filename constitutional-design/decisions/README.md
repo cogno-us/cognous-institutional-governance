@@ -1,7 +1,7 @@
 # Constitutional decisions
 
 A Constitutional Decision Record captures alternatives, review, dissent, and
-explicit human authorization. CDR-001 and CDR-002 now contain substantive
+explicit human authorization. CDR-001 through CDR-003 now contain substantive
 decisions with explicit Human Constitutional Authority provenance.
 
 Allowed statuses are `PROPOSED`, `UNDER_REVIEW`, `DISPUTED`, `DECIDED`,
@@ -32,6 +32,8 @@ Its concise advisory packet is retained at
 constitutional effect, created no emergency authority, and did not authorize
 the human decision recorded in CDR-002.
 
-CDR-003 analyzes FQ-03 succession and interregnum without deciding it. Its
-advisory packet is retained at `packets/CDR-003-HUMAN-DECISION-PACKET.md`; the
-recommendation has no constitutional effect and creates no succession authority.
+CDR-003 records the later explicit human decision on FQ-03 succession and
+interregnum. Its advisory packet is retained at
+`packets/CDR-003-HUMAN-DECISION-PACKET.md`; the packet's recommendation has no
+constitutional effect and did not authorize the human decision recorded in
+CDR-003.

@@ -4,7 +4,8 @@ Requirements translate human-authorized design decisions into traceable
 drafting constraints. CR-001 through CR-006 are accepted for drafting solely
 from the explicit human decision recorded in CDR-001. CR-007 through CR-013 are
 accepted for drafting solely from the explicit human decision recorded in
-CDR-002.
+CDR-002. CR-014 through CR-020 are accepted for drafting solely from the
+explicit human decision recorded in CDR-003.
 
 Allowed statuses are `CANDIDATE`, `ACCEPTED_FOR_DRAFTING`, `DISPUTED`,
 `REJECTED`, and `SUPERSEDED`.

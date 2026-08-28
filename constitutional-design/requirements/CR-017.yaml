@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-017",
+  "statement": "A bounded human succession process must provide the path from interregnum to legitimate succession or, when succession under the existing constitutional order is impossible, explicit refounding.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-04", "IR-06", "IR-07", "IR-10", "IR-15", "IR-17"],
+  "source_decisions": ["CDR-003"],
+  "rationale": "CDR-003 requires a human path out of interregnum while distinguishing succession under the existing order from explicit refounding.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define process composition, selection, standing, adjudication, proof standards, thresholds, or the boundary between succession and refounding.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must require a bounded human process and preserve both legitimate succession and explicit refounding as distinct possible outcomes.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-003 on 2026-08-28"}
+}
