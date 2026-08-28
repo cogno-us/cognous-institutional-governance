@@ -1,0 +1,335 @@
+{
+  "decision_id": "CDR-004",
+  "title": "Foundational Question 4: Constitutional Adjudication When Foundational Authority Is a Party",
+  "status": "UNDER_REVIEW",
+  "question": "Who resolves a constitutional dispute when foundational human authority is itself a party?",
+  "related_issues": ["IR-01", "IR-02", "IR-03", "IR-04", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-17", "IR-18"],
+  "source_material": [
+    "FQ-04",
+    "CDR-001",
+    "CDR-002",
+    "CDR-003",
+    "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+    "constitutional-design/decisions/CDR-001.yaml",
+    "constitutional-design/decisions/CDR-002.yaml",
+    "constitutional-design/decisions/CDR-003.yaml",
+    "constitutional-design/issues/IR-01-human-sovereignty.yaml",
+    "constitutional-design/issues/IR-02-constraint-of-constitutional-authority.yaml",
+    "constitutional-design/issues/IR-03-emergency-necessity.yaml",
+    "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-07-offices-roles-membership-standing.yaml",
+    "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
+    "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
+    "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-12-dissent.yaml",
+    "constitutional-design/issues/IR-13-epistemic-integrity.yaml",
+    "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
+    "constitutional-design/issues/IR-17-constitutional-hierarchy.yaml",
+    "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
+    "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+    "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+    "docs/DESIGN_PRINCIPLES.md",
+    "docs/GLOSSARY.md"
+  ],
+  "assumptions": [
+    {
+      "assumption": "CDR-001 through CDR-003 remain controlling.",
+      "boundary": "Independent human review may constrain ordinary acts without becoming sovereign over institutional ends; emergency and succession powers remain separately bounded."
+    },
+    {
+      "assumption": "Constitutional adjudication and foundational authorship are distinct functions.",
+      "boundary": "Interpreting and remedying an ordinary constitutional violation cannot silently amend, refound, terminate, or redefine institutional ends."
+    },
+    {
+      "assumption": "Final constitutional judgment must remain human.",
+      "boundary": "Artificial intelligence may support research, evidence handling, or formal validation but cannot serve as final constitutional adjudicator."
+    },
+    {
+      "assumption": "Machine validity and constitutional legitimacy remain distinct.",
+      "boundary": "A technically valid filing, credential, rule evaluation, or remedy does not settle standing, interpretation, legitimacy, or constitutional judgment."
+    },
+    {
+      "assumption": "Repository evidence supplies partial analogues rather than answers.",
+      "boundary": "Historical and technical mechanisms do not determine adjudicator composition, binding force, remedies, enforcement, or legitimate limits."
+    }
+  ],
+  "candidate_architectures": [
+    {
+      "architecture_id": "A",
+      "name": "Self-Adjudication",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Foundational human authority retains final constitutional judgment even when personally implicated. Advice, reasons, and review may exist, but cannot bind that authority.",
+      "analysis": {
+        "source_of_adjudicative_legitimacy": "Legitimacy derives directly from the foundational human authority whose constitutive role includes final interpretation.",
+        "standing": "Standing is granted by foundational authority or inherited procedure, leaving challengers dependent on the disputed party.",
+        "jurisdiction": "Jurisdiction is plenary but self-defined, because foundational authority determines which disputes and acts receive review.",
+        "conflicts_of_interest": "Personal implication creates an unavoidable conflict that disclosure and reason-giving expose but cannot independently resolve.",
+        "appointment": "Advisers or subordinate reviewers may be appointed by foundational authority and remain structurally dependent on it.",
+        "tenure": "Reviewer tenure cannot secure final independence because foundational authority retains the last judgment and institutional ends.",
+        "removal": "Subordinate adjudicators may be removed or bypassed by the authority whose conduct they assess.",
+        "recusal": "Voluntary recusal can reduce direct conflict but leaves the implicated authority able to define or revoke the substitute process.",
+        "appeal": "Appeal ultimately returns to foundational authority, making independent reversal unavailable in the hardest dispute.",
+        "binding_force": "Only foundational authority's final judgment binds, while contrary review remains advisory or politically constraining.",
+        "remedies": "Remedies depend on voluntary acceptance by foundational authority and may exclude meaningful relief against that authority.",
+        "enforcement": "Enforcement relies on foundational compliance or subordinate actors willing to resist a contrary final judgment.",
+        "limits_on_reviewer_power": "Reviewer power is clearly subordinate, preventing reviewer sovereignty while also preventing binding constraint of self-interest.",
+        "amendment_refounding_boundary": "Foundational authority may characterize reinterpretation as adjudication, allowing judgments to function as amendment or refounding.",
+        "emergency_interaction": "CDR-002 still limits emergency action, but self-adjudication permits the implicated authority to assess its own compliance.",
+        "succession_interaction": "CDR-003 still governs succession, yet a disputed foundational party may influence incapacity, restoration, or succession adjudication.",
+        "bad_human_capture": "A bad foundational human can validate personal abuses, deny standing, suppress remedies, and redefine the dispute.",
+        "bad_ai_capture": "Artificial intelligence can manipulate the authority's evidence and reasoning while the formally human judgment conceals dependence.",
+        "coalition_capture": "A governing coalition around foundational authority can coordinate advice, enforcement, and information to simulate independent agreement.",
+        "precedent_accretion": "Repeated self-favoring judgments can normalize exceptions and expand ordinary discretion without formal amendment.",
+        "validator_capture": "A controlled validator can label favorable acts compliant, but its outputs remain instruments of self-adjudication.",
+        "effective_power_takeover": "Advisers, operators, or machines controlling evidence and execution may become practical adjudicators despite formal human finality.",
+        "machine_validity_constitutional_legitimacy": "Machine validation may confirm formal consistency but cannot legitimate the implicated human's final constitutional judgment."
+      }
+    },
+    {
+      "architecture_id": "B",
+      "name": "Independent Human Review",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "A constitutionally created human adjudicative body may issue binding judgments on ordinary constitutional acts, including acts of foundational human authority. It cannot control institutional ends or exercise amendment or refounding power.",
+      "analysis": {
+        "source_of_adjudicative_legitimacy": "Legitimacy derives from a prior human constitutional grant defining an independent human body's limited adjudicative competence.",
+        "standing": "Constitutional rules define who may challenge an act, with access independent of permission from the implicated authority.",
+        "jurisdiction": "Jurisdiction covers ordinary constitutional acts and disputes but excludes control of institutional ends, amendment, and refounding.",
+        "conflicts_of_interest": "Institutional independence reduces party control, while adjudicator conflicts require disclosure, recusal, and replacement.",
+        "appointment": "A predefined human appointment process can separate selection from parties but may still embed patronage or factional influence.",
+        "tenure": "Protected, bounded tenure can resist retaliation while avoiding permanent unaccountable reviewer control.",
+        "removal": "Removal requires predefined human grounds and process that protect independence without immunizing incapacity or abuse.",
+        "recusal": "Mandatory recusal and replacement rules address personal conflicts without allowing a party to disable review strategically.",
+        "appeal": "A defined human appeal path can correct error but may concentrate final interpretive power in one reviewing body.",
+        "binding_force": "Judgments bind ordinary institutional acts, including acts of foundational authority, within the body's granted jurisdiction.",
+        "remedies": "Remedies may invalidate, suspend, remand, disclose, or require restoration without choosing new institutional ends.",
+        "enforcement": "Separated human offices execute valid judgments, subject to safeguards against adjudicator control of all enforcement capacity.",
+        "limits_on_reviewer_power": "Enumerated jurisdiction, reason-giving, precedent rules, appeal, and amendment boundaries deny sovereignty over institutional ends.",
+        "amendment_refounding_boundary": "Interpretation cannot add powers or alter entrenched allocations that require amendment or explicit refounding.",
+        "emergency_interaction": "Review may assess CDR-002 compliance and remedies but cannot create emergency authority or replace its triggers.",
+        "succession_interaction": "Review may adjudicate ordinary disputes under CDR-003 but cannot create succession authority or determine foundational ends.",
+        "bad_human_capture": "Appointers or adjudicators may coordinate doctrine, docket control, remedies, and enforcement to favor themselves.",
+        "bad_ai_capture": "Shared artificial intelligence may shape evidence, briefs, research, or draft judgments and covertly homogenize human decisions.",
+        "coalition_capture": "A stable judicial-political coalition can entrench interpretations while preserving formally independent procedures.",
+        "precedent_accretion": "Binding interpretation may gradually create rule-like commitments beyond the original constitutional grant.",
+        "validator_capture": "Compromised filing, identity, evidence, or compliance validators can determine which disputes become legible to humans.",
+        "effective_power_takeover": "Control over remedies, timing, precedent, and enforcement dependence can make reviewers practical governors.",
+        "machine_validity_constitutional_legitimacy": "Machines may validate records and constraints, but final interpretation, judgment, and legitimacy remain human."
+      }
+    },
+    {
+      "architecture_id": "C",
+      "name": "Distributed Adjudication",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Multiple independent human bodies divide first-instance review, appeal, concurrence, remedy, or enforcement functions. No single body holds the complete constitutional dispute-resolution chain.",
+      "analysis": {
+        "source_of_adjudicative_legitimacy": "Legitimacy derives from a human constitutional allocation of distinct adjudicative functions among independent bodies.",
+        "standing": "Standing rules may permit multiple access paths, reducing gatekeeper capture while increasing inconsistent threshold judgments.",
+        "jurisdiction": "Each body has bounded jurisdiction, with predefined coordination rules for overlap, referral, and finality.",
+        "conflicts_of_interest": "Distribution offers alternate forums and checks, but shared appointments, dependencies, or interests can reproduce conflict.",
+        "appointment": "Different human appointment channels can diversify control if they do not rely on one constituency or infrastructure.",
+        "tenure": "Staggered and differentiated tenure reduces synchronized capture but complicates accountability and institutional memory.",
+        "removal": "Separate removal processes prevent one actor from purging all bodies while risking uneven discipline and retaliation.",
+        "recusal": "Recusal may transfer a matter across bodies or substitutes, requiring safeguards against forum manipulation and quorum collapse.",
+        "appeal": "Appeal is structurally distributed, improving correction while adding delay, conflict, and indeterminate finality.",
+        "binding_force": "Binding force may require concurrence or attach at different stages, demanding a clear rule for conflicting judgments.",
+        "remedies": "Remedy authority can be separated from merits review to limit domination, but fragmentation can prevent effective relief.",
+        "enforcement": "Independent enforcement verification reduces unilateral control while creating coordination and selective-compliance risks.",
+        "limits_on_reviewer_power": "Divided jurisdiction, mutual review, and separated remedies constrain reviewers but may aggregate through coalition.",
+        "amendment_refounding_boundary": "No body or coalition may use interpretation, concurrence, or remedy to perform amendment or refounding.",
+        "emergency_interaction": "Distributed review can assess CDR-002 through expedited procedures without converting delay into new emergency authority.",
+        "succession_interaction": "CDR-003 disputes may receive plural review, but adjudicative concurrence cannot itself manufacture succession legitimacy.",
+        "bad_human_capture": "Humans can capture one stage, exploit jurisdictional conflict, trade outcomes, or obstruct remedies across bodies.",
+        "bad_ai_capture": "A common artificial-intelligence service can coordinate nominally independent bodies through shared analysis and evidence.",
+        "coalition_capture": "Cross-body coalitions may exchange appointments, precedent, remedies, and enforcement to evade formal separation.",
+        "precedent_accretion": "Multiple precedent streams can broaden authority cumulatively or create strategic conflict among interpretations.",
+        "validator_capture": "Shared validators can become a single hidden gatekeeper despite formally distributed human adjudication.",
+        "effective_power_takeover": "The body controlling finality, scheduling, records, or enforcement coordination may dominate the nominal distribution.",
+        "machine_validity_constitutional_legitimacy": "Technical concurrence across systems proves process alignment, not legitimate human constitutional judgment."
+      }
+    },
+    {
+      "architecture_id": "D",
+      "name": "Temporary Special Tribunal",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "A conflict-specific human tribunal is constituted under predefined rules when ordinary adjudicators or foundational authority are compromised. The tribunal dissolves after judgment and remedy supervision.",
+      "analysis": {
+        "source_of_adjudicative_legitimacy": "Legitimacy derives from prior human constitutional rules activating a temporary human tribunal for specified conflicts.",
+        "standing": "Predefined standing and activation rules must permit a genuine conflict claim without allowing strategic tribunal manufacture.",
+        "jurisdiction": "Jurisdiction is limited to the identified conflict and necessary remedies, with no general continuing docket.",
+        "conflicts_of_interest": "Special selection can bypass ordinary conflicts but the trigger, selector, and candidate pool create new conflicts.",
+        "appointment": "Predefined independent human selection rules constitute the tribunal only after the conflict trigger is established.",
+        "tenure": "Tenure lasts only for the dispute, remedy supervision, and record completion, reducing permanent institutional accretion.",
+        "removal": "Removal during a case requires narrow predefined grounds so parties cannot purge unfavorable tribunal members.",
+        "recusal": "Strict recusal and replacement rules protect impartiality but can be exploited to exhaust the eligible pool.",
+        "appeal": "Appeal may go to another special panel or a conflict-free standing body, risking delay and renewed selection conflict.",
+        "binding_force": "A valid tribunal judgment binds the specified ordinary acts within its temporary constitutional jurisdiction.",
+        "remedies": "Remedies address the conflict and restore lawful process without conferring continuing policy or foundational authority.",
+        "enforcement": "Existing independent offices enforce the judgment; the tribunal cannot retain operational control after completion.",
+        "limits_on_reviewer_power": "Case scope, automatic dissolution, reason-giving, and explicit exclusions constrain temporary reviewer power.",
+        "amendment_refounding_boundary": "The tribunal cannot resolve ambiguity by rewriting foundational allocations, amendment rules, or refounding thresholds.",
+        "emergency_interaction": "Urgency may accelerate constitution under predefined rules but cannot invoke CDR-002 to create tribunal jurisdiction.",
+        "succession_interaction": "A special tribunal may address conflicts in CDR-003 processes without selecting a sovereign outside valid succession rules.",
+        "bad_human_capture": "Parties may manipulate the conflict trigger, candidate pool, evidence, timing, or dissolution conditions.",
+        "bad_ai_capture": "Artificial intelligence may shape tribunal selection and case records while humans merely ratify generated conclusions.",
+        "coalition_capture": "A coalition can manufacture ordinary-adjudicator conflict and install a favorable temporary tribunal.",
+        "precedent_accretion": "Repeated special tribunals may normalize exceptional doctrine or become a de facto parallel court.",
+        "validator_capture": "The system validating conflict triggers, eligibility, or dissolution can covertly control tribunal availability.",
+        "effective_power_takeover": "Selectors, clerks, experts, or enforcement offices may dominate a tribunal too temporary to develop independence.",
+        "machine_validity_constitutional_legitimacy": "A valid activation and selection record cannot establish impartiality, legitimate judgment, or constitutional finality."
+      }
+    },
+    {
+      "architecture_id": "E",
+      "name": "Hybrid",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Independent standing human adjudication is the default, supplemented by distributed anti-capture and appeal mechanisms plus predefined special conflict handling when ordinary adjudicators are compromised.",
+      "analysis": {
+        "source_of_adjudicative_legitimacy": "Legitimacy derives from a human constitutional grant combining bounded standing review with predefined distributed and conflict-specific safeguards.",
+        "standing": "Stable standing rules provide ordinary access while independent challenge channels address gatekeeper or party capture.",
+        "jurisdiction": "Standing adjudicators review ordinary constitutional acts; distributed and special bodies receive only enumerated appellate or conflict jurisdiction.",
+        "conflicts_of_interest": "Mandatory disclosure, recusal, independent substitutes, and special tribunals address personal and systemic conflicts.",
+        "appointment": "Multiple human appointment channels and predefined special selection reduce dependence on any implicated party or standing body.",
+        "tenure": "Bounded protected tenure supports standing independence while temporary conflict adjudicators dissolve after their assigned matter.",
+        "removal": "Separated human removal procedures address misconduct without enabling foundational authority or reviewer coalitions to purge opposition.",
+        "recusal": "Recusal routes matters through predefined independent substitutes and activates special handling only for genuine compromise.",
+        "appeal": "A bounded human appeal structure corrects error and checks capture without creating an unlimited hierarchy of review.",
+        "binding_force": "Final human judgments bind ordinary constitutional acts within jurisdiction, including implicated foundational-authority acts.",
+        "remedies": "Proportionate remedies invalidate, suspend, remand, disclose, or restore without selecting institutional ends or rewriting the constitution.",
+        "enforcement": "Separated offices implement remedies with independent verification, reasons, provenance, and routes to contest noncompliance.",
+        "limits_on_reviewer_power": "Enumerated jurisdiction, appeal, distributed checks, special-case expiry, reasons, dissent, and amendment boundaries constrain reviewers.",
+        "amendment_refounding_boundary": "No standing, appellate, or special adjudicator may use interpretation or remedy as amendment or refounding.",
+        "emergency_interaction": "Expedited review may test CDR-002 compliance, but adjudication cannot create, extend, or convert emergency authority.",
+        "succession_interaction": "Conflict review may test CDR-003 procedure and evidence while leaving succession and refounding to their legitimate human processes.",
+        "bad_human_capture": "Humans may coordinate appointments, doctrine, recusal, appeal, special selection, remedies, or enforcement across layers.",
+        "bad_ai_capture": "Shared artificial intelligence may dominate evidence, research, drafting, scheduling, and monitoring across every safeguard.",
+        "coalition_capture": "Standing and special bodies may form a durable coalition that converts mutual checks into coordinated reviewer rule.",
+        "precedent_accretion": "Layered judgments can expand doctrine gradually unless supersession, jurisdiction, and nonamendment boundaries remain explicit.",
+        "validator_capture": "Independent validation channels reduce single-gate capture but correlated tools or data can still predetermine review.",
+        "effective_power_takeover": "Control of dockets, evidence, precedent, remedies, enforcement, or shared infrastructure can create de facto reviewer sovereignty.",
+        "machine_validity_constitutional_legitimacy": "Machines may validate limited formal properties and preserve records, but final legitimacy and constitutional judgment remain human."
+      }
+    }
+  ],
+  "historical_analogues": [
+    {"evidence_id": "HE-ATHENS-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Participation and standing illustrate access choices without resolving adjudicative legitimacy."},
+    {"evidence_id": "HE-ATHENS-003", "classification": "DESIGN_LESSON", "rationale": "Faction and rhetoric expose deliberative, coalition, and dissent risks."},
+    {"evidence_id": "HE-ROME-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Collegiality and tenure support analysis of divided adjudicative functions."},
+    {"evidence_id": "HE-ROME-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Veto and counter-power illuminate constraint and coordination tradeoffs."},
+    {"evidence_id": "HE-BRITAIN-001", "classification": "DESIGN_LESSON", "rationale": "Precedent and convention expose formalization and accretion boundaries."},
+    {"evidence_id": "HE-BRITAIN-002", "classification": "DESIGN_LESSON", "rationale": "Legal competence and practical restraint inform review of foundational authority."},
+    {"evidence_id": "HE-US-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Written supremacy and enumerated powers inform bounded reviewer jurisdiction."},
+    {"evidence_id": "HE-US-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Separated checks illuminate capture resistance and coordination costs."},
+    {"evidence_id": "HE-US-003", "classification": "DESIGN_LESSON", "rationale": "Judicial review and path dependence directly expose interpretive power."},
+    {"evidence_id": "HE-US-004", "classification": "DESIGN_LESSON", "rationale": "Emergency, succession, impeachment, and amendment require separate boundaries."},
+    {"evidence_id": "HE-SWISS-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Participation mechanisms inform standing, legitimacy, and review safeguards."},
+    {"evidence_id": "HE-T01", "classification": "DESIGN_LESSON", "rationale": "Counter-power must be tested without assuming universal sufficiency."},
+    {"evidence_id": "HE-T03", "classification": "DESIGN_LESSON", "rationale": "Formal and effective power may diverge throughout adjudication."},
+    {"evidence_id": "HE-T07", "classification": "DESIGN_LESSON", "rationale": "Formal validation can omit convention and tacit constitutional knowledge."}
+  ],
+  "prior_art": [
+    {"prior_art_id": "PA-AUTH-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Formal institutional power differs from brute capability and control."},
+    {"prior_art_id": "PA-DISSENT-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Formal objections preserve disagreement and structured appeal paths."},
+    {"prior_art_id": "PA-DISSENT-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Judicial dissent preserves reasons alongside authoritative human judgments."},
+    {"prior_art_id": "PA-CC-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Layered constitutional rules distinguish binding text and technical enforcement."},
+    {"prior_art_id": "PA-CC-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Layered governance and public comment inform review and challenge."},
+    {"prior_art_id": "PA-AUTH-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Constrained capabilities illustrate scoped jurisdiction without establishing legitimacy."},
+    {"prior_art_id": "PA-AUTH-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Role-based permissions inform offices but not constitutional judgment."},
+    {"prior_art_id": "PA-AUTH-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Context-sensitive authorization informs standing and jurisdictional trigger analysis."},
+    {"prior_art_id": "PA-AUTH-005", "classification": "PARTIAL_ANALOGUE", "rationale": "Relationship-based authorization illuminates conflicts and institutional dependencies."},
+    {"prior_art_id": "PA-AI-003", "classification": "DESIGN_LESSON", "rationale": "Machine policy mediation supports validation without supplying adjudicative legitimacy."},
+    {"prior_art_id": "PA-PROV-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Provenance models support attributable evidence, reasons, and judgments."},
+    {"prior_art_id": "PA-DISSENT-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Decision records preserve context, consequences, and explicit supersession."},
+    {"prior_art_id": "PA-POWER-001", "classification": "DESIGN_LESSON", "rationale": "Effective-power literature requires analysis beyond formal reviewer grants."},
+    {"prior_art_id": "PA-POLICY-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Separated policy, decision, enforcement, and information functions expose capture points."}
+  ],
+  "advantages": [
+    "Independent human review can make constitutional limits binding even when foundational authority is personally implicated.",
+    "Distribution, appeal, and special conflict handling can reduce single-channel adjudicator capture.",
+    "Reasons, dissent, provenance, and explicit jurisdiction make judgment contestable and reviewable."
+  ],
+  "failure_modes": [
+    "A reviewer or reviewer coalition becomes sovereign over institutional ends through interpretation, remedies, precedent, or enforcement.",
+    "Foundational authority neutralizes review through appointment, removal, standing, jurisdiction, or compliance control.",
+    "Artificial intelligence or validators become final adjudicators in practice through evidence, research, drafting, or gatekeeping.",
+    "Adjudication silently performs amendment or refounding through accumulated interpretation."
+  ],
+  "bad_human_analysis": [
+    "Foundational humans may exploit self-adjudication, appointments, removals, recusals, enforcement, or special-tribunal triggers.",
+    "Adjudicators may expand jurisdiction, remedies, precedent, or tenure to entrench reviewer power.",
+    "Coalitions can coordinate formally separated bodies and suppress standing, dissent, or effective remedies."
+  ],
+  "bad_artificial_intelligence_analysis": [
+    "Artificial intelligence can control evidence selection, legal research, draft judgments, scheduling, precedent retrieval, and compliance monitoring.",
+    "Human signature does not cure machine domination of the factual or interpretive record.",
+    "No artificial-intelligence system may serve as final constitutional adjudicator or settle constitutional legitimacy."
+  ],
+  "incentive_analysis": [
+    "Foundational authority may resist adverse review; reviewers may broaden jurisdiction; enforcers may choose compliance strategically.",
+    "Appointment diversity helps only if information, tools, enforcement, and professional incentives are also independent.",
+    "Temporary tribunals reduce permanent accretion but create incentives to manufacture or suppress conflict triggers."
+  ],
+  "continuity_analysis": [
+    "Ordinary review should remain available during emergencies and interregna only within CDR-002 and CDR-003 boundaries.",
+    "Adjudication cannot create emergency authority, succession authority, foundational sovereignty, amendment, or refounding.",
+    "Recusal, vacancy, quorum failure, and captured adjudicators require continuity paths that do not manufacture reviewer sovereignty."
+  ],
+  "reversibility_analysis": [
+    "Stays, remands, restoration, and bounded invalidation can preserve reversibility better than irreversible merits remedies.",
+    "Erroneous judgments, disclosed machine dependence, invalid appointments, and captured enforcement require unresolved remedy and reliance rules."
+  ],
+  "human_comprehensibility_analysis": [
+    "Humans must be able to identify standing, jurisdiction, conflicts, reasons, dissent, precedent, remedies, enforcement, and appeal status.",
+    "Machine validation must disclose its limited role and cannot obscure who made the final human constitutional judgment."
+  ],
+  "reviews": [
+    {
+      "review_type": "QUALITATIVE_COMPARISON",
+      "selection_boundary": "No architecture is adopted, ranked, or converted into constitutional authority.",
+      "assessments": [
+        {"architecture_id": "A", "independence": "LOW", "constraint": "VOLUNTARY AT THE FOUNDATIONAL EDGE", "capture_surface": "IMPLICATED AUTHORITY AND INFORMATION CHANNELS", "central_tradeoff": "Sovereign clarity avoids reviewer supremacy but leaves self-interest unbound."},
+        {"architecture_id": "B", "independence": "STANDING", "constraint": "BINDING WITHIN JURISDICTION", "capture_surface": "APPOINTMENT, DOCTRINE, REMEDIES, AND ENFORCEMENT", "central_tradeoff": "Reliable review creates concentrated interpretive power."},
+        {"architecture_id": "C", "independence": "DISTRIBUTED", "constraint": "PLURAL", "capture_surface": "COALITIONS, SHARED TOOLS, AND FINALITY", "central_tradeoff": "Counter-power reduces unilateral capture but increases deadlock and coordination."},
+        {"architecture_id": "D", "independence": "CONFLICT-SPECIFIC", "constraint": "TEMPORARY", "capture_surface": "TRIGGER, SELECTION, AND DISSOLUTION", "central_tradeoff": "Conflict independence sacrifices stable capacity and precedent."},
+        {"architecture_id": "E", "independence": "STANDING WITH BACKSTOPS", "constraint": "BINDING BUT BOUNDED", "capture_surface": "MULTILAYER COALITION AND SHARED INFRASTRUCTURE", "central_tradeoff": "Layered resilience adds complexity and diffuse effective power."}
+      ]
+    },
+    {
+      "review_type": "NEUTRAL_SYNTHESIS",
+      "statement": "A preserves foundational finality, B supplies standing independent constraint, C distributes adjudicative power, D addresses exceptional conflicts, and E combines standing review with distributed and conflict-specific safeguards. Repository evidence cannot decide reviewer composition, appointment, finality, remedy, enforcement, or the exact adjudication-amendment boundary."
+    }
+  ],
+  "dissent": [
+    {
+      "status": "OPEN_FOR_SUBMISSION",
+      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-04.",
+      "record": "No adjudication architecture is adopted, no reviewer receives authority, and the recommendation remains advisory."
+    }
+  ],
+  "human_decision": {
+    "decision": "",
+    "foundational_architecture": "",
+    "incorporated_mechanisms": [],
+    "rejected_mechanisms": [],
+    "decision_authority": "",
+    "decision_basis": "",
+    "authorized_by": "",
+    "authorization_record": "",
+    "decision_date": ""
+  },
+  "decision_date": "",
+  "supersedes": [],
+  "resulting_requirements": [],
+  "residual_uncertainty": [
+    "Who has standing, and who determines standing when foundational authority contests access?",
+    "How are adjudicators appointed, tenured, removed, recused, replaced, and reviewed without party or reviewer sovereignty?",
+    "Which judgments bind, what remedies exist, and who enforces them against foundational authority?",
+    "What exact boundary separates constitutional interpretation and remedy from amendment or refounding?",
+    "How do emergency, succession, vacancy, deadlock, and compromised ordinary adjudicators alter process without creating authority?",
+    "How are coalition capture, precedent accretion, validator capture, artificial-intelligence dependence, and effective-power takeover detected and remedied?"
+  ],
+  "provenance": {
+    "source": "Repository-only analysis of FQ-04, controlling CDR-001 through CDR-003, linked issue records, registered historical evidence, registered prior art, design principles, and glossary boundaries on 2026-08-28.",
+    "evidence_boundary": "Analysis and recommendation inputs only; no human decision is made, no adjudicative authority or final machine judgment is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+  }
+}

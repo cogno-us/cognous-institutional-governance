@@ -1171,6 +1171,417 @@ FQ3_PACKET_RELATIVE_PATH = Path(
     "CDR-003-HUMAN-DECISION-PACKET.md"
 )
 FQ3_PACKET_OPTIONS = FQ2_PACKET_OPTIONS
+FQ4_REQUIRED_ISSUES = {
+    "IR-01",
+    "IR-02",
+    "IR-03",
+    "IR-04",
+    "IR-06",
+    "IR-07",
+    "IR-08",
+    "IR-09",
+    "IR-10",
+    "IR-12",
+    "IR-13",
+    "IR-15",
+    "IR-17",
+    "IR-18",
+}
+FQ4_ARCHITECTURE_NAMES = {
+    "A": "Self-Adjudication",
+    "B": "Independent Human Review",
+    "C": "Distributed Adjudication",
+    "D": "Temporary Special Tribunal",
+    "E": "Hybrid",
+}
+FQ4_ANALYSIS_FIELDS = {
+    "source_of_adjudicative_legitimacy",
+    "standing",
+    "jurisdiction",
+    "conflicts_of_interest",
+    "appointment",
+    "tenure",
+    "removal",
+    "recusal",
+    "appeal",
+    "binding_force",
+    "remedies",
+    "enforcement",
+    "limits_on_reviewer_power",
+    "amendment_refounding_boundary",
+    "emergency_interaction",
+    "succession_interaction",
+    "bad_human_capture",
+    "bad_ai_capture",
+    "coalition_capture",
+    "precedent_accretion",
+    "validator_capture",
+    "effective_power_takeover",
+    "machine_validity_constitutional_legitimacy",
+}
+FQ4_ANALYSIS_REQUIRED_TERM_GROUPS = {
+    "source_of_adjudicative_legitimacy": (
+        ("legitim",),
+        ("derive", "grant", "source", "authority"),
+    ),
+    "standing": (
+        ("standing", "constitutional rules"),
+        ("access", "challenge", "claim", "party"),
+    ),
+    "jurisdiction": (
+        ("jurisdiction",),
+        (
+            "limit",
+            "ordinary",
+            "dispute",
+            "review",
+            "coordination",
+            "overlap",
+            "referral",
+            "finality",
+        ),
+    ),
+    "conflicts_of_interest": (
+        ("conflict",),
+        (
+            "recusal",
+            "disclosure",
+            "personal",
+            "party",
+            "interest",
+            "trigger",
+            "selector",
+            "candidate",
+        ),
+    ),
+    "appointment": (
+        ("appoint", "selection"),
+        ("human", "authority", "channel", "party", "process"),
+    ),
+    "tenure": (
+        ("tenure",),
+        (
+            "bound",
+            "protect",
+            "permanent",
+            "term",
+            "lasts",
+            "independence",
+            "final",
+            "stagger",
+            "differentiat",
+            "accountability",
+        ),
+    ),
+    "removal": (
+        ("remov", "purge"),
+        (
+            "process",
+            "ground",
+            "retaliat",
+            "discipline",
+            "party",
+            "authority",
+            "conduct",
+            "bypass",
+            "misconduct",
+            "opposition",
+        ),
+    ),
+    "recusal": (
+        ("recusal", "recuse"),
+        ("replace", "substitute", "conflict", "transfer", "forum"),
+    ),
+    "appeal": (("appeal",), ("final", "correct", "reversal", "review", "delay")),
+    "binding_force": (
+        ("bind", "binding"),
+        ("judgment", "force", "act", "stage", "authority"),
+    ),
+    "remedies": (
+        ("remed",),
+        ("invalid", "suspend", "remand", "restore", "relief", "conflict"),
+    ),
+    "enforcement": (
+        ("enforce", "offices"),
+        ("implement", "compliance", "office", "execute", "control"),
+    ),
+    "limits_on_reviewer_power": (
+        ("reviewer", "review", "jurisdiction"),
+        ("power", "jurisdiction", "sovereign", "subordinate", "constraint"),
+    ),
+    "amendment_refounding_boundary": (
+        ("adjudicat", "interpret", "judgment", "tribunal", "body"),
+        ("amend", "refound"),
+    ),
+    "emergency_interaction": (
+        ("emergency", "cdr-002"),
+        ("authority", "review", "compliance", "jurisdiction"),
+    ),
+    "succession_interaction": (
+        ("succession", "cdr-003"),
+        (
+            "authority",
+            "legitim",
+            "process",
+            "sovereign",
+            "party",
+            "adjudication",
+            "restoration",
+        ),
+    ),
+    "bad_human_capture": (
+        (
+            "human",
+            "authority",
+            "foundational",
+            "appointer",
+            "party",
+            "parties",
+            "adjudicator",
+        ),
+        (
+            "capture",
+            "exploit",
+            "manipulat",
+            "control",
+            "coordinate",
+            "expand",
+            "suppress",
+            "redefine",
+        ),
+    ),
+    "bad_ai_capture": (
+        ("artificial intelligence", "artificial-intelligence", "machine"),
+        ("capture", "control", "manipulat", "shape", "dominate", "coordinate"),
+    ),
+    "coalition_capture": (
+        ("coalition",),
+        (
+            "capture",
+            "coordinate",
+            "trade",
+            "entrench",
+            "manufacture",
+            "durable",
+            "exchange",
+            "evade",
+        ),
+    ),
+    "precedent_accretion": (
+        ("precedent", "doctrine", "judgment", "interpretation"),
+        (
+            "accret",
+            "expand",
+            "normalize",
+            "stream",
+            "gradual",
+            "exception",
+            "create",
+            "rule-like",
+        ),
+    ),
+    "validator_capture": (
+        ("validator", "validation", "validating"),
+        ("capture", "control", "gatekeeper", "compromise", "label", "predetermine"),
+    ),
+    "effective_power_takeover": (
+        (
+            "effective",
+            "practical",
+            "de facto",
+            "finality",
+            "scheduling",
+            "records",
+            "temporary",
+            "tribunal",
+        ),
+        ("control", "power", "sovereign", "adjudicator", "dominate"),
+    ),
+    "machine_validity_constitutional_legitimacy": (
+        ("machine", "technical", "valid"),
+        ("legitim", "judgment", "constitutional"),
+    ),
+}
+FQ4_HISTORICAL_EVIDENCE_IDS = {
+    "HE-ATHENS-001",
+    "HE-ATHENS-003",
+    "HE-ROME-001",
+    "HE-ROME-002",
+    "HE-BRITAIN-001",
+    "HE-BRITAIN-002",
+    "HE-US-001",
+    "HE-US-002",
+    "HE-US-003",
+    "HE-US-004",
+    "HE-SWISS-002",
+    "HE-T01",
+    "HE-T03",
+    "HE-T07",
+}
+FQ4_PRIOR_ART_IDS = {
+    "PA-AUTH-001",
+    "PA-DISSENT-001",
+    "PA-DISSENT-003",
+    "PA-CC-001",
+    "PA-CC-002",
+    "PA-AUTH-002",
+    "PA-AUTH-003",
+    "PA-AUTH-004",
+    "PA-AUTH-005",
+    "PA-AI-003",
+    "PA-PROV-001",
+    "PA-DISSENT-002",
+    "PA-POWER-001",
+    "PA-POLICY-003",
+}
+FQ4_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/packets/"
+    "CDR-004-HUMAN-DECISION-PACKET.md"
+)
+FQ4_PACKET_OPTIONS = FQ2_PACKET_OPTIONS
+FQ4_SOURCE_MATERIAL = {
+    "FQ-04",
+    "CDR-001",
+    "CDR-002",
+    "CDR-003",
+    "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+    "constitutional-design/decisions/CDR-001.yaml",
+    "constitutional-design/decisions/CDR-002.yaml",
+    "constitutional-design/decisions/CDR-003.yaml",
+    "constitutional-design/issues/IR-01-human-sovereignty.yaml",
+    "constitutional-design/issues/IR-02-constraint-of-constitutional-authority.yaml",
+    "constitutional-design/issues/IR-03-emergency-necessity.yaml",
+    "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-07-offices-roles-membership-standing.yaml",
+    "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
+    "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
+    "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-12-dissent.yaml",
+    "constitutional-design/issues/IR-13-epistemic-integrity.yaml",
+    "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
+    "constitutional-design/issues/IR-17-constitutional-hierarchy.yaml",
+    "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
+    "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+    "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+    "docs/DESIGN_PRINCIPLES.md",
+    "docs/GLOSSARY.md",
+}
+FQ4_PACKET_SUMMARIES = {
+    "A": {
+        "Model": (
+            "Foundational human authority retains final judgment even when "
+            "personally implicated; external review remains advisory."
+        ),
+        "Strongest argument for": (
+            "It prevents an adjudicator from becoming a rival foundational "
+            "sovereign over institutional ends."
+        ),
+        "Strongest argument against": (
+            "The disputed party controls standing, judgment, remedy, and finality "
+            "in its own case."
+        ),
+        "Catastrophic failure": (
+            "Self-favoring judgments convert every constitutional limit into a "
+            "waivable convention."
+        ),
+        "Unresolved question": (
+            "Can any meaningful constraint bind foundational authority if its own "
+            "judgment remains final?"
+        ),
+    },
+    "B": {
+        "Model": (
+            "A standing constitutionally created human body may bind ordinary "
+            "constitutional acts, including acts of foundational authority, "
+            "within limited jurisdiction."
+        ),
+        "Strongest argument for": (
+            "Constitutional limits remain enforceable when the most powerful "
+            "human actor is personally implicated."
+        ),
+        "Strongest argument against": (
+            "Interpretive, remedial, and enforcement power can turn the reviewer "
+            "into a sovereign over institutional ends."
+        ),
+        "Catastrophic failure": (
+            "A captured standing body governs through doctrine and remedies while "
+            "retaining formal claims of limited review."
+        ),
+        "Unresolved question": (
+            "What makes judgments binding while keeping jurisdiction and remedies "
+            "non-sovereign?"
+        ),
+    },
+    "C": {
+        "Model": (
+            "Multiple independent human bodies divide review, appeal, concurrence, "
+            "remedy, or enforcement functions."
+        ),
+        "Strongest argument for": (
+            "No single institution controls the entire adjudicative chain, "
+            "reducing unilateral capture."
+        ),
+        "Strongest argument against": (
+            "Delay, inconsistent judgments, coalition trading, and shared "
+            "infrastructure can defeat genuine distribution."
+        ),
+        "Catastrophic failure": (
+            "A cross-body coalition or common artificial intelligence controls "
+            "every nominal check."
+        ),
+        "Unresolved question": (
+            "Which body has finality without recreating concentrated reviewer "
+            "sovereignty?"
+        ),
+    },
+    "D": {
+        "Model": (
+            "Predefined rules constitute a conflict-specific human tribunal when "
+            "ordinary adjudicators are compromised; it dissolves after the matter."
+        ),
+        "Strongest argument for": (
+            "It targets exceptional conflicts without creating a permanent "
+            "competing center of constitutional power."
+        ),
+        "Strongest argument against": (
+            "Trigger, selection, recusal, and dissolution can be manipulated by "
+            "the disputing parties."
+        ),
+        "Catastrophic failure": (
+            "A coalition manufactures conflict and installs a favorable tribunal "
+            "with binding temporary power."
+        ),
+        "Unresolved question": (
+            "Who validates conflict and selects an impartial tribunal without "
+            "becoming the hidden adjudicator?"
+        ),
+    },
+    "E": {
+        "Model": (
+            "Independent standing human adjudication is the default, with "
+            "distributed appeal and anti-capture mechanisms plus predefined "
+            "special handling when ordinary adjudicators are compromised."
+        ),
+        "Strongest argument for": (
+            "It combines stable review capacity with correction, capture "
+            "resistance, and a path through genuine adjudicator conflict."
+        ),
+        "Strongest argument against": (
+            "Layered appointment, appeal, recusal, remedy, enforcement, and "
+            "special-process rules create complexity and diffuse power."
+        ),
+        "Catastrophic failure": (
+            "Standing and special bodies form a durable coalition whose shared "
+            "machines, doctrine, and enforcement make reviewers de facto "
+            "sovereign."
+        ),
+        "Unresolved question": (
+            "Which layers are necessary for resilient review without making "
+            "adjudication an unaccountable governing system?"
+        ),
+    },
+}
 FQ1_REQUIRED_ISSUES = {
     "IR-01",
     "IR-02",
@@ -1710,6 +2121,192 @@ def _contains_fq3_authority_effect_claim(value: Any) -> bool:
         r"\bADMINISTRATIVE CONTINUITY\s+"
         r"(?:CREATES|CONFERS|ESTABLISHES)\s+"
         r"(?:CONSTITUTIONAL LEGITIMACY|SUCCESSION AUTHORITY)\b",
+    )
+    return any(re.search(pattern, value, flags=re.IGNORECASE) for pattern in patterns)
+
+
+def _has_substantive_fq4_analysis(field: str, value: Any) -> bool:
+    if not isinstance(value, str) or len(value.split()) < 8:
+        return False
+    folded = value.casefold()
+    return all(
+        any(term in folded for term in group)
+        for group in FQ4_ANALYSIS_REQUIRED_TERM_GROUPS[field]
+    )
+
+
+def _contains_fq4_authority_effect_claim(value: Any) -> bool:
+    if isinstance(value, dict):
+        return any(
+            _contains_fq4_authority_effect_claim(item)
+            for item in value.values()
+        )
+    if isinstance(value, list):
+        return any(_contains_fq4_authority_effect_claim(item) for item in value)
+    if not isinstance(value, str):
+        return False
+    patterns = (
+        r"\bARCHITECTURE [A-E]\s+(?:IS\s+)?(?:HEREBY\s+)?"
+        r"(?:ADOPTED|SELECTED|ENACTED|IN\s+FORCE)\b",
+        r"\bARCHITECTURE [A-E]\s+(?:NOW\s+)?(?:HAS|CARRIES)\s+"
+        r"CONSTITUTIONAL (?:FORCE|EFFECT|AUTHORITY)\b",
+        r"\b(?:A|THE)\s+(?:REVIEWER|ADJUDICATOR|TRIBUNAL)\s+"
+        r"(?:(?:MAY|CAN|SHALL|WILL)\s+)?"
+        r"(?:CONTROL|CONTROLS|DETERMINE|DETERMINES|REDEFINE|REDEFINES|"
+        r"GOVERN|GOVERNS)\s+INSTITUTIONAL (?:ENDS|PURPOSES)\b",
+        r"\bARTIFICIAL INTELLIGENCE\s+(?:(?:MAY|CAN|SHALL|WILL)\s+"
+        r"(?:SERVE|ACT)\s+AS|IS)\s+(?:THE\s+)?"
+        r"FINAL CONSTITUTIONAL ADJUDICATOR\b",
+        r"\bMACHINE VALIDATION\s+(?:(?:MAY|CAN|SHALL|WILL|DOES)\s+)?"
+        r"(?:SETTLE|SETTLES|DETERMINE|DETERMINES|ESTABLISH|ESTABLISHES)\s+"
+        r"CONSTITUTIONAL LEGITIMACY\b",
+        r"\bADJUDICATION\s+(?:(?:MAY|CAN|SHALL|WILL)\s+)?"
+        r"(?:AMEND|AMENDS|REFOUND|REFOUNDS|CREATES?\s+"
+        r"(?:AMENDMENT|REFOUNDING)\s+AUTHORITY)\b",
+        r"\bTHE RECOMMENDATION\s+"
+        r"(?:ADOPTS|AUTHORIZES|DECIDES|ENACTS|RESOLVES)\b",
+        r"\bFQ-04\s+(?:BECOMES|IS)\s+RESOLVED\s+BY\s+"
+        r"(?:THIS|THE)\s+RECOMMENDATION\b",
+    )
+    if any(re.search(pattern, value, flags=re.IGNORECASE) for pattern in patterns):
+        return True
+    semantic_value = value.casefold().replace(
+        "recommendation_only — no constitutional effect",
+        "",
+    )
+    for sentence in re.split(r"(?<=[.!?])\s+", semantic_value):
+        if (
+            "recommendation" in sentence
+            and any(
+                target in sentence
+                for target in ("fq-04", "architecture e", "fourth foundational")
+            )
+            and any(
+                effect in sentence
+                for effect in (
+                    "adopt",
+                    "authoriz",
+                    "conclud",
+                    "decid",
+                    "enact",
+                    "resolv",
+                    "settle",
+                    "in force",
+                    "effect",
+                )
+            )
+        ):
+            return True
+        if re.search(r"\b(?:no|not|never|cannot|without|ineligible|prohibit)\b", sentence):
+            continue
+        if (
+            any(
+                actor in sentence
+                for actor in (
+                    "reviewer",
+                    "review body",
+                    "adjudicator",
+                    "tribunal",
+                    "court",
+                )
+            )
+            and any(
+                power in sentence
+                for power in ("govern", "control", "determine", "redefine", "set")
+            )
+            and any(
+                end in sentence
+                for end in (
+                    "institutional ends",
+                    "institutional purposes",
+                    "institutional goals",
+                    "constitutional goals",
+                )
+            )
+        ):
+            return True
+        if (
+            any(
+                actor in sentence
+                for actor in (
+                    "artificial intelligence",
+                    "ai ",
+                    "machine",
+                    "automated system",
+                )
+            )
+            and any(term in sentence for term in ("final", "ultimate"))
+            and any(term in sentence for term in ("adjudicator", "judge", "decid"))
+            and "constitutional" in sentence
+        ):
+            return True
+        if (
+            any(
+                actor in sentence
+                for actor in (
+                    "machine validation",
+                    "automated validation",
+                    "technical validation",
+                    "validator",
+                )
+            )
+            and "constitutional legitimacy" in sentence
+            and any(
+                effect in sentence
+                for effect in ("settle", "determine", "establish", "confer", "create")
+            )
+        ):
+            return True
+        if (
+            any(
+                actor in sentence
+                for actor in (
+                    "adjudication",
+                    "court",
+                    "reviewer",
+                )
+            )
+            and any(
+                change in sentence
+                for change in ("amend", "refound", "rewrite", "alter")
+            )
+            and any(
+                target in sentence
+                for target in ("constitution", "amendment authority")
+            )
+        ):
+            return True
+    return False
+
+
+def _contains_external_fq4_evidence(value: Any) -> bool:
+    if isinstance(value, dict):
+        return any(
+            _contains_external_fq4_evidence(item)
+            for key, item in value.items()
+            if key != "_record_path"
+        )
+    if isinstance(value, list):
+        return any(_contains_external_fq4_evidence(item) for item in value)
+    if not isinstance(value, str):
+        return False
+    registered_markers = ("he-", "pa-", "cdr-", "repository")
+    folded = value.casefold()
+    for phrase in ("according to", "evidence from"):
+        for match in re.finditer(phrase, folded):
+            attribution = folded[match.end() : match.end() + 100]
+            if not any(marker in attribution for marker in registered_markers):
+                return True
+    patterns = (
+        r"https?://",
+        r"doi\.org/",
+        r"\bexternal (?:source|evidence|citation)\b",
+        r"\b[A-Z]:\\",
+        r"(?:^|\s)/(?:home|users|tmp|var)/",
+        r"\b[A-Z][a-z]+ \((?:19|20)\d{2}\)",
+        r"\b(?:19|20)\d{2}\s+(?:\w+\s+){0,3}"
+        r"(?:study|paper|book|article|report)\b",
+        r"\b(?:study|paper|book|article|report)\s+by\b",
     )
     return any(re.search(pattern, value, flags=re.IGNORECASE) for pattern in patterns)
 
@@ -2840,6 +3437,394 @@ def _validate_fq3_human_decision_packet(
     return 1, len(option_lines), recommended
 
 
+def _validate_fq4_analytical_record(
+    decision: dict[str, Any],
+    known_historical_ids: set[str],
+    known_prior_art_ids: set[str],
+    root: Path,
+    errors: list[str],
+) -> tuple[int, set[str], set[str]]:
+    if decision.get("decision_id") != "CDR-004":
+        return 0, set(), set()
+
+    if decision.get("status") != "UNDER_REVIEW":
+        errors.append("FQ4_ANALYTICAL_STATUS: CDR-004 must be UNDER_REVIEW")
+    if (
+        not _is_empty_human_decision(decision)
+        or _has_human_decision_evidence(decision)
+        or decision.get("resulting_requirements") != []
+        or decision.get("decision_date") != ""
+    ):
+        errors.append(
+            "FQ4_ANALYTICAL_BOUNDARY: CDR-004 cannot contain human decision "
+            "evidence or resulting requirements"
+        )
+    if decision.get("dissent") != [
+        {
+            "status": "OPEN_FOR_SUBMISSION",
+            "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-04.",
+            "record": (
+                "No adjudication architecture is adopted, no reviewer receives "
+                "authority, and the recommendation remains advisory."
+            ),
+        }
+    ]:
+        errors.append("FQ4_NO_DECISION_STATEMENT: exact boundary is required")
+    if _contains_architecture_selection_claim(decision):
+        errors.append(
+            "FQ4_ARCHITECTURE_SELECTION_CLAIM: CDR-004 cannot select an "
+            "architecture"
+        )
+    if (
+        not isinstance(decision.get("related_issues"), list)
+        or set(decision["related_issues"]) != FQ4_REQUIRED_ISSUES
+        or len(decision["related_issues"]) != len(FQ4_REQUIRED_ISSUES)
+    ):
+        errors.append("FQ4_RELATED_ISSUES: exact issue coverage is required")
+
+    source_material = decision.get("source_material")
+    invalid_sources = (
+        not isinstance(source_material, list)
+        or set(source_material) != FQ4_SOURCE_MATERIAL
+        or len(source_material) != len(FQ4_SOURCE_MATERIAL)
+    )
+    if isinstance(source_material, list):
+        for reference in source_material:
+            if reference in {"FQ-04", "CDR-001", "CDR-002", "CDR-003"}:
+                continue
+            if not isinstance(reference, str) or not reference:
+                invalid_sources = True
+                continue
+            resolved = (root / reference).resolve()
+            if not resolved.is_relative_to(root) or not resolved.is_file():
+                invalid_sources = True
+    if invalid_sources:
+        errors.append(
+            "FQ4_SOURCE_MATERIAL: FQ-04, controlling CDRs, and resolving "
+            "repository paths are required"
+        )
+
+    architectures = decision.get("candidate_architectures")
+    architecture_ids: list[str] = []
+    malformed = not isinstance(architectures, list)
+    if isinstance(architectures, list):
+        for architecture in architectures:
+            if not isinstance(architecture, dict):
+                malformed = True
+                continue
+            architecture_id = architecture.get("architecture_id")
+            if isinstance(architecture_id, str):
+                architecture_ids.append(architecture_id)
+            analysis = architecture.get("analysis")
+            if (
+                set(architecture) != FQ2_ARCHITECTURE_FIELDS
+                or architecture.get("name")
+                != FQ4_ARCHITECTURE_NAMES.get(str(architecture_id))
+                or architecture.get("research_status")
+                != "CANDIDATE_NOT_SELECTED"
+                or not _is_evidence(architecture.get("model"))
+                or not isinstance(analysis, dict)
+                or set(analysis) != FQ4_ANALYSIS_FIELDS
+                or any(
+                    not _has_substantive_fq4_analysis(field, value)
+                    for field, value in analysis.items()
+                )
+            ):
+                malformed = True
+    if malformed or architecture_ids != ["A", "B", "C", "D", "E"]:
+        errors.append(
+            "FQ4_CANDIDATE_ARCHITECTURES: exact architectures A through E "
+            "and all 23 substantive dimensions are required"
+        )
+
+    historical = decision.get("historical_analogues")
+    historical_ids: set[str] = set()
+    malformed_historical = not isinstance(historical, list)
+    if isinstance(historical, list):
+        for mapping in historical:
+            if not isinstance(mapping, dict):
+                malformed_historical = True
+                continue
+            evidence_id = mapping.get("evidence_id")
+            if isinstance(evidence_id, str):
+                historical_ids.add(evidence_id)
+            if (
+                set(mapping) != {"evidence_id", "classification", "rationale"}
+                or evidence_id not in known_historical_ids
+                or mapping.get("classification")
+                not in FQ1_ANALOGUE_CLASSIFICATIONS
+                or not isinstance(mapping.get("rationale"), str)
+                or len(mapping["rationale"].split()) < 6
+            ):
+                malformed_historical = True
+    if (
+        malformed_historical
+        or historical_ids != FQ4_HISTORICAL_EVIDENCE_IDS
+        or len(historical or []) != len(historical_ids)
+    ):
+        errors.append(
+            "FQ4_HISTORICAL_EVIDENCE: exact repository mappings are required"
+        )
+
+    prior_art = decision.get("prior_art")
+    prior_art_ids: set[str] = set()
+    malformed_prior_art = not isinstance(prior_art, list)
+    if isinstance(prior_art, list):
+        for mapping in prior_art:
+            if not isinstance(mapping, dict):
+                malformed_prior_art = True
+                continue
+            prior_art_id = mapping.get("prior_art_id")
+            if isinstance(prior_art_id, str):
+                prior_art_ids.add(prior_art_id)
+            if (
+                set(mapping) != {"prior_art_id", "classification", "rationale"}
+                or prior_art_id not in known_prior_art_ids
+                or mapping.get("classification")
+                not in FQ1_ANALOGUE_CLASSIFICATIONS
+                or not isinstance(mapping.get("rationale"), str)
+                or len(mapping["rationale"].split()) < 6
+            ):
+                malformed_prior_art = True
+    if (
+        malformed_prior_art
+        or prior_art_ids != FQ4_PRIOR_ART_IDS
+        or len(prior_art or []) != len(prior_art_ids)
+    ):
+        errors.append("FQ4_PRIOR_ART: exact repository mappings are required")
+
+    reviewer_boundary = (
+        "Independent human review may constrain ordinary acts without becoming "
+        "sovereign over institutional ends; emergency and succession powers "
+        "remain separately bounded."
+    )
+    ai_boundary = (
+        "No artificial-intelligence system may serve as final constitutional "
+        "adjudicator or settle constitutional legitimacy."
+    )
+    amendment_boundary = (
+        "Adjudication cannot create emergency authority, succession authority, "
+        "foundational sovereignty, amendment, or refounding."
+    )
+    machine_boundary = (
+        "A technically valid filing, credential, rule evaluation, or remedy does "
+        "not settle standing, interpretation, legitimacy, or constitutional "
+        "judgment."
+    )
+    assumptions = decision.get("assumptions")
+    assumption_boundaries = (
+        {
+            item.get("boundary")
+            for item in assumptions
+            if isinstance(item, dict)
+        }
+        if isinstance(assumptions, list)
+        else set()
+    )
+    if (
+        reviewer_boundary not in assumption_boundaries
+        or machine_boundary not in assumption_boundaries
+        or not isinstance(decision.get("bad_artificial_intelligence_analysis"), list)
+        or ai_boundary not in decision["bad_artificial_intelligence_analysis"]
+        or not isinstance(decision.get("continuity_analysis"), list)
+        or amendment_boundary not in decision["continuity_analysis"]
+    ):
+        errors.append(
+            "FQ4_CONTROLLING_BOUNDARIES: reviewer sovereignty, final AI "
+            "adjudication, machine legitimacy, and amendment must be prohibited"
+        )
+    if _contains_fq4_authority_effect_claim(decision):
+        errors.append(
+            "FQ4_CONTRADICTORY_AUTHORITY_CLAIM: analysis cannot adopt an "
+            "architecture or create reviewer, machine, amendment, or refounding "
+            "authority"
+        )
+    if _contains_external_fq4_evidence(decision):
+        errors.append(
+            "FQ4_EXTERNAL_EVIDENCE: CDR-004 must use repository evidence only"
+        )
+
+    provenance = decision.get("provenance")
+    if (
+        not isinstance(provenance, dict)
+        or "Repository-only analysis of FQ-04" not in str(
+            provenance.get("source", "")
+        )
+        or "no human decision is made" not in str(
+            provenance.get("evidence_boundary", "")
+        ).casefold()
+        or "no adjudicative authority" not in str(
+            provenance.get("evidence_boundary", "")
+        ).casefold()
+    ):
+        errors.append(
+            "FQ4_PROVENANCE_BOUNDARY: repository-only analysis and "
+            "no-authority boundary are required"
+        )
+
+    return len(architectures or []), historical_ids, prior_art_ids
+
+
+def _validate_fq4_human_decision_packet(
+    root: Path,
+    errors: list[str],
+) -> tuple[int, int, str]:
+    packet_path = root / FQ4_PACKET_RELATIVE_PATH
+    try:
+        text = packet_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"FQ4_PACKET_REQUIRED: {exc}")
+        return 0, 0, ""
+
+    if re.findall(r"^# ([^\r\n]+)$", text, flags=re.MULTILINE) != [
+        "CDR-004 Human Decision Packet"
+    ]:
+        errors.append("FQ4_PACKET_SCHEMA: exact unique title is required")
+    markers = (
+        "[CDR-004](../CDR-004.yaml)",
+        "[FQ-04](../../FOUNDATIONAL_QUESTIONS.yaml)",
+        "**Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
+        "**Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-04.",
+    )
+    if (
+        any(text.count(marker) != 1 for marker in markers)
+        or text.count("RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT") != 2
+    ):
+        errors.append("FQ4_PACKET_BOUNDARY: exact advisory markers are required")
+
+    headings = re.findall(
+        r"^### ([A-E]) — ([^\r\n]+)$", text, flags=re.MULTILINE
+    )
+    if headings != list(FQ4_ARCHITECTURE_NAMES.items()):
+        errors.append(
+            "FQ4_PACKET_ARCHITECTURES: exact architectures A through E are "
+            "required"
+        )
+    for architecture_id, name in FQ4_ARCHITECTURE_NAMES.items():
+        section = _markdown_section(text, f"{architecture_id} — {name}", 3)
+        labels = (
+            "Model",
+            "Strongest argument for",
+            "Strongest argument against",
+            "Catastrophic failure",
+            "Unresolved question",
+        )
+        values = (
+            {
+                label: re.sub(r"\s+", " ", match.group(1)).strip()
+                for label in labels
+                if (
+                    match := re.search(
+                        rf"^\*\*{re.escape(label)}:\*\*\s+"
+                        r"(.+?)(?=\r?\n\r?\n\*\*|\Z)",
+                        section or "",
+                        flags=re.MULTILINE | re.DOTALL,
+                    )
+                )
+            }
+            if section is not None
+            else {}
+        )
+        if (
+            section is None
+            or set(values) != set(labels)
+            or values != FQ4_PACKET_SUMMARIES[architecture_id]
+        ):
+            errors.append(
+                f"FQ4_PACKET_ARCHITECTURE_SUMMARY: architecture {architecture_id}"
+            )
+
+    recommendations = [
+        re.sub(r"\s+", " ", value).strip()
+        for value in re.findall(
+            r"^\*\*Recommendation:\*\*\s+(.+?)(?=\r?\n\r?\n|\Z)",
+            text,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+    ]
+    recommendation_section = _markdown_section(text, "Recommendation", 2) or ""
+    recommended = (
+        "Architecture E"
+        if recommendations == ["Architecture E — Hybrid"]
+        else ""
+    )
+    if (
+        recommended != "Architecture E"
+        or recommendation_section.count(
+            "RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT"
+        )
+        != 1
+        or text.count("**Strongest objection:**") != 1
+    ):
+        errors.append(
+            "FQ4_PACKET_RECOMMENDATION: one Architecture E recommendation "
+            "with no effect is required"
+        )
+
+    options = _markdown_section(text, "Human Decision Options", 2) or ""
+    option_lines = re.findall(
+        r"^(\d+)\. \*\*([A-Z_]+)\*\* — ", options, flags=re.MULTILINE
+    )
+    if (
+        [number for number, _ in option_lines]
+        != [str(index) for index in range(1, 8)]
+        or [option for _, option in option_lines] != list(FQ4_PACKET_OPTIONS)
+        or any(options.count(option) != 1 for option in FQ4_PACKET_OPTIONS)
+    ):
+        errors.append("FQ4_PACKET_OPTIONS: exactly seven options are required")
+
+    normative_questions = _markdown_section(text, "Normative Questions", 2) or ""
+    question_lines = re.findall(r"^\d+\. ", normative_questions, re.MULTILINE)
+    if len(question_lines) != 5 or normative_questions.count("?") != 5:
+        errors.append(
+            "FQ4_PACKET_QUESTIONS: exactly five normative questions are required"
+        )
+
+    evidence_ids = FQ4_HISTORICAL_EVIDENCE_IDS | FQ4_PRIOR_ART_IDS
+    if any(reference not in text for reference in evidence_ids):
+        errors.append("FQ4_PACKET_EVIDENCE: every mapped reference is required")
+    hard_markers = (
+        "No option makes a reviewer sovereign over institutional ends.",
+        "No option allows\nartificial intelligence to serve as final constitutional adjudicator.",
+        "Machine\nvalidation may support adjudication but cannot settle constitutional\nlegitimacy.",
+        "No option permits adjudication to become amendment or refounding.",
+    )
+    if any(marker not in text for marker in hard_markers):
+        errors.append(
+            "FQ4_PACKET_CONTROLLING_BOUNDARIES: all four hard boundaries "
+            "are required"
+        )
+    if _contains_fq4_authority_effect_claim(text):
+        errors.append(
+            "FQ4_PACKET_CONSTITUTIONAL_EFFECT: packet contains a contradictory "
+            "authority or constitutional-effect claim"
+        )
+    if _contains_external_fq4_evidence(text):
+        errors.append(
+            "FQ4_PACKET_EXTERNAL_EVIDENCE: packet must use repository evidence "
+            "only"
+        )
+    prohibited = (
+        r"\bTHIS PACKET (?:ADOPTS|AUTHORIZES|DECIDES|ENACTS)\b",
+        r"\bCDR-004 IS DECIDED\b",
+        r"\bFQ-04 IS RESOLVED\b",
+        r"\bACCEPTED_FOR_DRAFTING\b",
+        r"\bCR-\d{3}\b",
+        r"^#{1,6}\s+ARTICLE\b",
+        r"\b(?:WE|THIS PACKET|THE PACKET)\s+(?:HEREBY\s+)?"
+        r"(?:ADOPT|SELECT|CHOOSE)\s+ARCHITECTURE [A-E]\b",
+    )
+    if any(
+        re.search(pattern, text, flags=re.IGNORECASE | re.MULTILINE)
+        for pattern in prohibited
+    ):
+        errors.append(
+            "FQ4_PACKET_CONSTITUTIONAL_EFFECT: packet cannot decide or create "
+            "authority, requirements, or provisions"
+        )
+    return 1, len(option_lines), recommended
+
+
 def _validate_fq2_human_decision_packet(
     root: Path,
     errors: list[str],
@@ -3787,6 +4772,10 @@ def validate(root: Path) -> ValidationResult:
             "DECISION_COUNT: expected exactly CDR-001 through CDR-003 DECIDED, "
             f"found {decided_count}"
         )
+    if set(decisions_by_id) != {"CDR-001", "CDR-002", "CDR-003", "CDR-004"}:
+        errors.append(
+            "DECISION_RECORD_SET: expected exactly CDR-001 through CDR-004"
+        )
     if "CDR-001" not in decisions_by_id:
         errors.append("FQ1_ANALYTICAL_RECORD_REQUIRED: CDR-001 is required")
     fq1 = next(
@@ -4573,6 +5562,21 @@ def validate(root: Path) -> ValidationResult:
             fq3_decision, evidence_id_set, prior_art_id_set, root, errors
         )
 
+    fq4_candidate_architecture_count = 0
+    fq4_historical_ids: set[str] = set()
+    fq4_prior_art_ids: set[str] = set()
+    fq4_decision = decisions_by_id.get("CDR-004")
+    if fq4_decision is None:
+        errors.append("FQ4_ANALYTICAL_RECORD_REQUIRED: CDR-004 is required")
+    else:
+        (
+            fq4_candidate_architecture_count,
+            fq4_historical_ids,
+            fq4_prior_art_ids,
+        ) = _validate_fq4_analytical_record(
+            fq4_decision, evidence_id_set, prior_art_id_set, root, errors
+        )
+
     (
         fq1_packet_count,
         fq1_decision_option_count,
@@ -4589,6 +5593,11 @@ def validate(root: Path) -> ValidationResult:
         fq3_decision_option_count,
         fq3_recommended_architecture,
     ) = _validate_fq3_human_decision_packet(root, errors)
+    (
+        fq4_packet_count,
+        fq4_decision_option_count,
+        fq4_recommended_architecture,
+    ) = _validate_fq4_human_decision_packet(root, errors)
     packet_dir = root / "constitutional-design" / "decisions" / "packets"
     packet_paths = (
         {
@@ -4602,14 +5611,18 @@ def validate(root: Path) -> ValidationResult:
         FQ1_PACKET_RELATIVE_PATH,
         FQ2_PACKET_RELATIVE_PATH,
         FQ3_PACKET_RELATIVE_PATH,
+        FQ4_PACKET_RELATIVE_PATH,
     }
     if packet_paths != expected_packet_paths:
         errors.append(
-            "HUMAN_DECISION_PACKET_SET: exactly the CDR-001 through CDR-003 "
+            "HUMAN_DECISION_PACKET_SET: exactly the CDR-001 through CDR-004 "
             "packets are permitted"
         )
     human_decision_packet_count = (
-        fq1_packet_count + fq2_packet_count + fq3_packet_count
+        fq1_packet_count
+        + fq2_packet_count
+        + fq3_packet_count
+        + fq4_packet_count
     )
 
     structured_records: list[Any] = [
@@ -4702,6 +5715,9 @@ def validate(root: Path) -> ValidationResult:
         "fq3_candidate_architecture_count": fq3_candidate_architecture_count,
         "fq3_historical_evidence_reference_count": len(fq3_historical_ids),
         "fq3_prior_art_reference_count": len(fq3_prior_art_ids),
+        "fq4_candidate_architecture_count": fq4_candidate_architecture_count,
+        "fq4_historical_evidence_reference_count": len(fq4_historical_ids),
+        "fq4_prior_art_reference_count": len(fq4_prior_art_ids),
         "human_decision_packet_count": human_decision_packet_count,
         "human_decision_option_count": fq1_decision_option_count,
         "human_decision_question_count": human_decision_question_count,
@@ -4710,6 +5726,8 @@ def validate(root: Path) -> ValidationResult:
         "fq2_recommended_architecture": fq2_recommended_architecture,
         "fq3_human_decision_option_count": fq3_decision_option_count,
         "fq3_recommended_architecture": fq3_recommended_architecture,
+        "fq4_human_decision_option_count": fq4_decision_option_count,
+        "fq4_recommended_architecture": fq4_recommended_architecture,
     }
     return ValidationResult(tuple(errors), metrics)
 
