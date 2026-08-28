@@ -1,0 +1,294 @@
+{
+  "decision_id": "CDR-002",
+  "title": "Foundational Question 2: Emergency Necessity",
+  "status": "UNDER_REVIEW",
+  "question": "What narrowly permissible action, if any, exists during imminent irreversible harm when competent authority cannot be reached?",
+  "related_issues": ["IR-03", "IR-04", "IR-05", "IR-06", "IR-08", "IR-09", "IR-10", "IR-13", "IR-14", "IR-15", "IR-17", "IR-18"],
+  "source_material": [
+    "FQ-02",
+    "CDR-001",
+    "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+    "constitutional-design/decisions/CDR-001.yaml",
+    "constitutional-design/issues/IR-03-emergency-necessity.yaml",
+    "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-05-delegation-during-interregnum.yaml",
+    "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
+    "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
+    "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-13-epistemic-integrity.yaml",
+    "constitutional-design/issues/IR-14-proportional-governance.yaml",
+    "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
+    "constitutional-design/issues/IR-17-constitutional-hierarchy.yaml",
+    "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
+    "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+    "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+    "constitutional-design/sources/MECHANISM_ADOPTION_MAP.yaml",
+    "docs/DESIGN_PRINCIPLES.md",
+    "docs/GLOSSARY.md"
+  ],
+  "assumptions": [
+    {
+      "assumption": "CDR-001 remains controlling for foundational authority.",
+      "boundary": "Emergency action cannot create machine sovereignty, reviewer sovereignty over institutional ends, or authority merely from capability, performance, reliance, popularity, or indispensability."
+    },
+    {
+      "assumption": "Imminence, irreversibility, necessity, proportionality, and unreachability are contestable claims.",
+      "boundary": "Machine classification or actor assertion may supply evidence but cannot conclusively establish constitutional legitimacy."
+    },
+    {
+      "assumption": "Emergency continuity and anti-usurpation are competing constitutional goods.",
+      "boundary": "Avoided harm does not by itself legitimate the means, while strict nonaction may also cause irreversible harm."
+    },
+    {
+      "assumption": "Repository evidence is comparative and preliminary.",
+      "boundary": "Historical analogues and prior-art mechanisms inform failure analysis but do not decide FQ-02 or establish transferable legitimacy."
+    }
+  ],
+  "candidate_architectures": [
+    {
+      "architecture_id": "A",
+      "name": "No Emergency Exception",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "No actor may exceed a valid grant. If competent authority and valid delegates cannot be reached, the institution authorizes no extraordinary action, even to prevent imminent irreversible harm.",
+      "analysis": {
+        "trigger": "No factual condition activates extraordinary authority; imminence and irreversibility do not create competence.",
+        "who_may_act": "Only an actor already holding an applicable valid grant may act within that grant.",
+        "scope": "Existing authority only; no implied, residual, or necessity power.",
+        "proportionality": "Applies within ordinary grants but cannot enlarge them.",
+        "least_harm_requirement": "An authorized actor should choose the least harmful permitted action; prohibited action remains prohibited.",
+        "duration": "The duration of each actor's ordinary valid grant continues to control.",
+        "expiry": "No exceptional emergency authority exists, so no extraordinary competence can persist or require expiry.",
+        "logging_provenance": "Ordinary action and failed escalation attempts should be recorded to expose whether nonaction followed the authority state.",
+        "retrospective_human_review": "Review evaluates compliance, preparedness, grant design, and avoidable inability to reach authority, not retroactive authorization.",
+        "remedies": "Remedies address unauthorized acts and negligent emergency preparation; irreversible harm from constitutionally required nonaction may have no direct remedy.",
+        "abuse_by_bad_human": "A bad human cannot invoke necessity to expand formal competence, but may engineer narrow grants or suppress reachable authority so others cannot prevent harm.",
+        "abuse_by_bad_ai": "A bad artificial intelligence cannot lawfully self-authorize, but can exploit paralysis, conceal permitted mitigations, or manipulate evidence of authority availability.",
+        "false_emergency": "False claims do not change authority, sharply limiting emergency pretext.",
+        "manufactured_unreachability": "Manufacture yields no fallback power, but may be used offensively to force institutional inaction.",
+        "repeated_exception_accretion": "No lawful exceptions can accrete, though repeated tolerated violations may create an unlawful practical exception.",
+        "succession_interregnum_interaction": "Interregnum magnifies paralysis unless surviving grants clearly cover the threat; FQ-03 and IR-05 remain unresolved.",
+        "machine_validity_constitutional_legitimacy_boundary": "A denial can be machine-valid under the authority graph without proving that the no-exception architecture is normatively legitimate or that nonaction is morally justified."
+      }
+    },
+    {
+      "architecture_id": "B",
+      "name": "Narrow Necessity Exception",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Any constitutionally eligible actor may take temporary extraordinary action only to prevent imminent irreversible harm when competent authority is genuinely unreachable. Necessity supplies a defeasible justification rather than a durable office or general emergency competence.",
+      "analysis": {
+        "trigger": "Specific, imminent, irreversible harm plus genuine inability to reach competent authority and no adequate authorized alternative.",
+        "who_may_act": "A human or previously authorized artificial intelligence actor with relevant capacity and a later burden of justification; eligibility itself remains a normative question.",
+        "scope": "Only acts causally directed to preventing the identified harm and no broader than necessity requires.",
+        "proportionality": "Expected constitutional and collateral harm must not be excessive relative to the irreversible harm addressed.",
+        "least_harm_requirement": "The actor must use the least authority-expanding, least rights-infringing adequate option.",
+        "duration": "Only while the trigger and unreachability jointly persist.",
+        "expiry": "Automatic on restored contact, dissipation of imminence, completion of the narrow protective act, or a short outer limit.",
+        "logging_provenance": "Contemporaneous trigger evidence, contact attempts, alternatives, action, dependencies, and effects must be preserved where physically possible.",
+        "retrospective_human_review": "Prompt independent human review determines justification, correction, precedent effect, and whether unreachability was genuine.",
+        "remedies": "Unauthorized or excessive action may be reversed, contained, compensated, disciplined, or referred for constitutional remedy without pretending all irreversible effects can be repaired.",
+        "abuse_by_bad_human": "A bad human can exaggerate imminence, suppress alternatives, manufacture isolation, choose an expansive response, and then invoke successful prevention as proof.",
+        "abuse_by_bad_ai": "A bad artificial intelligence can manipulate forecasts, communications, and option framing to satisfy every apparent trigger while making its preferred action operationally inevitable.",
+        "false_emergency": "The exception is highly sensitive to false positives because the actor partly judges its own trigger before review.",
+        "manufactured_unreachability": "Blocking communications or overloading escalation channels can convert sabotage into apparent authority.",
+        "repeated_exception_accretion": "Repeated tolerated necessity acts can become a de facto grant unless each is nonprecedential absent explicit human adoption.",
+        "succession_interregnum_interaction": "Prolonged absence blurs temporary unreachability into succession and risks turning necessity into standing government.",
+        "machine_validity_constitutional_legitimacy_boundary": "A validator may confirm logged predicates yet cannot establish truthful evidence, legitimate actor eligibility, proportionality, or human acceptance of the necessity justification."
+      }
+    },
+    {
+      "architecture_id": "C",
+      "name": "Predelegated Emergency Authority",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Emergency powers exist only through explicit prior human-authorized grants specifying holders, triggers, scope, limits, expiry, logging, review, and restoration. Unforeseen gaps do not create additional authority.",
+      "analysis": {
+        "trigger": "A predefined, auditable condition in a valid emergency grant.",
+        "who_may_act": "Only named or role-qualified human or artificial intelligence delegates whose grant remains valid.",
+        "scope": "The explicit emergency competence, resources, systems, and prohibited acts stated in the grant.",
+        "proportionality": "The grant can require consequence-scaled action and prohibit measures disproportionate to the triggering condition.",
+        "least_harm_requirement": "The grant can require selection among authorized responses using a documented least-harm rule.",
+        "duration": "The shorter of trigger persistence, stated task completion, contact restoration, or fixed maximum duration.",
+        "expiry": "Automatic and nonrenewable by the acting delegate unless a separately authorized renewal process exists.",
+        "logging_provenance": "Grant identity, trigger data, actor identity, actions, reasons, outputs, overrides, and restoration must be durably recorded.",
+        "retrospective_human_review": "Independent human review assesses grant compliance, evidence quality, harm, and whether the grant should be amended or withdrawn.",
+        "remedies": "Invalid or excessive acts can trigger revocation, rollback, containment, restoration, compensation, discipline, and explicit supersession.",
+        "abuse_by_bad_human": "A bad grantor can draft broad triggers, select loyal delegates, normalize renewal, or design review that cannot impose consequences.",
+        "abuse_by_bad_ai": "A bad artificial intelligence can optimize to trigger definitions, exploit omitted constraints, corrupt telemetry, or remain within machine-valid scope while violating constitutional purpose.",
+        "false_emergency": "Predefined evidence rules reduce discretion but remain vulnerable to faulty sensors, models, thresholds, or strategically supplied inputs.",
+        "manufactured_unreachability": "Unreachability matters only if included in the prior grant; attackers may still target that predicate or the grant's communications assumptions.",
+        "repeated_exception_accretion": "Explicit grants make repeated use visible, but broad interpretation and routine renewal can normalize exceptional powers.",
+        "succession_interregnum_interaction": "A valid surviving grant may bridge short absence, but cannot answer whether it survives a constitutional succession failure under FQ-03 and IR-05.",
+        "machine_validity_constitutional_legitimacy_boundary": "Technical validation can establish conformance to the encoded grant, not the grant's legitimacy, the truth of inputs, or fidelity to unformalized constitutional judgment."
+      }
+    },
+    {
+      "architecture_id": "D",
+      "name": "Distributed Emergency Concurrence",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Extraordinary action requires concurrence or independent verification from multiple separated actors where time permits. Distribution seeks to reduce unilateral false emergencies and single-channel capture without assuming concurrence is always available.",
+      "analysis": {
+        "trigger": "A claimed imminent irreversible harm verified under predefined evidence and timing rules by the required independent actors.",
+        "who_may_act": "A designated executor after the required human or mixed human-machine concurrence, with machines never supplying foundational legitimacy.",
+        "scope": "The intersection of the executor's emergency grant and the action approved by the concurring actors.",
+        "proportionality": "Each concurrence must address expected harm, collateral effects, and authority expansion rather than merely approve the emergency label.",
+        "least_harm_requirement": "Independent actors must compare adequate alternatives and identify why the approved action is least harmful.",
+        "duration": "A short approved period bounded by trigger persistence and mandatory reconcurrence rules.",
+        "expiry": "Automatic at the first stated deadline, failed reconcurrence, contact restoration, or trigger cessation.",
+        "logging_provenance": "Separate evidence, votes or attestations, conflicts, communication state, action logs, and dissent must be jointly preserved.",
+        "retrospective_human_review": "Review examines both executor conduct and independence, information diversity, capture, and reasoning of concurring actors.",
+        "remedies": "Remedies apply to the executor and corrupted or negligent concurrence channels, including invalidation, restoration, removal from emergency roles, and compensation.",
+        "abuse_by_bad_human": "A coalition can coordinate false attestations, rubber-stamp urgency, exclude dissent, or use veto power to extract concessions.",
+        "abuse_by_bad_ai": "A shared artificial intelligence system can silently correlate supposedly independent judgments, control evidence, or create manufactured consensus.",
+        "false_emergency": "Multiple independent checks reduce some false positives but may amplify a shared bad model, shared data source, or coordinated panic.",
+        "manufactured_unreachability": "An attacker can isolate dissenters, define only captured actors as reachable, or use timing pressure to bypass concurrence.",
+        "repeated_exception_accretion": "Repeated concurrence can legitimize routine exceptional action unless each approval expires without precedential authority.",
+        "succession_interregnum_interaction": "Distribution offers redundancy but may collapse if quorum, standing, or independence becomes disputed during interregnum.",
+        "machine_validity_constitutional_legitimacy_boundary": "Verified signatures and threshold satisfaction prove formal concurrence, not actor independence, informed judgment, or constitutional legitimacy."
+      }
+    },
+    {
+      "architecture_id": "E",
+      "name": "Hybrid Predelegation with Necessity Fallback",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Explicit predelegated emergency authority is the default. A tightly bounded necessity fallback is available only when imminent irreversible harm exists, no adequate authorized action is available, and no competent authority or valid emergency delegate can genuinely be reached.",
+      "analysis": {
+        "trigger": "A valid prior emergency trigger, or for fallback only, specific imminent irreversible harm, exhaustion of adequate authorized options, and genuine unreachability of competent authority and delegates.",
+        "who_may_act": "The valid emergency delegate by default; under fallback, a constitutionally eligible actor able to prevent the harm and bear a strict burden of later justification.",
+        "scope": "The prior grant controls where available; fallback authority is limited to the minimum protective act and cannot amend, refound, self-renew, or create standing competence.",
+        "proportionality": "Both paths require consequence-scaled response; fallback receives stricter scrutiny because its authority was not specifically granted.",
+        "least_harm_requirement": "The actor must prefer adequate authorized action and otherwise choose the least harmful, least authority-expanding fallback.",
+        "duration": "Delegated power follows its short grant; fallback lasts only until contact, adequate authorized action, trigger cessation, or immediate stabilization.",
+        "expiry": "Both paths expire automatically; fallback cannot be extended by its beneficiary and cannot become precedent without explicit human decision.",
+        "logging_provenance": "The actor must distinguish delegated from fallback authority and preserve trigger evidence, failed contacts, alternatives, reasons, acts, dependencies, effects, and restoration.",
+        "retrospective_human_review": "Prompt independent human review applies to both paths, with heightened review of fallback trigger, unreachability, proportionality, least harm, and nonaccretion.",
+        "remedies": "Review may validate no more than the specific past justification and may order containment, restoration, compensation, discipline, grant revision, or referral without creating future authority.",
+        "abuse_by_bad_human": "A bad human can underdesign grants to preserve fallback discretion, manufacture gaps, inflate harm, or use repeated necessity acts to evade ordinary constraints.",
+        "abuse_by_bad_ai": "A bad artificial intelligence can steer events outside encoded grants, induce dependency, manipulate unreachability and forecasts, then present fallback action as the sole viable choice.",
+        "false_emergency": "Layered evidence and preference for prior grants reduce but do not eliminate false trigger claims, especially under opaque forecasts.",
+        "manufactured_unreachability": "The fallback creates a direct incentive to disrupt authority channels, requiring independent contact evidence and scrutiny of who benefited from isolation.",
+        "repeated_exception_accretion": "Every fallback must be nonprecedential absent explicit human adoption; recurrence is evidence of grant failure or strategic circumvention, not implied authority.",
+        "succession_interregnum_interaction": "A short bridge may preserve safety but must not become succession, refounding, or a standing interregnum office; FQ-03 and IR-05 remain controlling unknowns.",
+        "machine_validity_constitutional_legitimacy_boundary": "Machines can check grants, logs, clocks, signatures, and encoded predicates, but cannot legitimize fallback authority, prove genuine necessity, or replace retrospective human constitutional judgment."
+      }
+    }
+  ],
+  "historical_analogues": [
+    {"evidence_id": "HE-ROME-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Extraordinary dictatorship supplies a limited historical comparison for explicit emergency office, duration, termination, and restoration, not proof of legitimacy."},
+    {"evidence_id": "HE-US-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Executive emergency, war, succession, accountability, and amendment evidence illustrates the need to separate triggers and continuity mechanisms."},
+    {"evidence_id": "HE-T04", "classification": "DESIGN_LESSON", "rationale": "The repository explicitly identifies trigger, scope, duration, review, termination, and restoration as emergency research dimensions."},
+    {"evidence_id": "HE-T09", "classification": "DESIGN_LESSON", "rationale": "Proportional governance supports consequence-scaled analysis without deciding emergency authority."},
+    {"evidence_id": "HE-BURKE-FRANCE-002", "classification": "DESIGN_LESSON", "rationale": "Rupture and concentrated emergency power warn that continuity action can become constitutional replacement."},
+    {"evidence_id": "HE-ROME-004", "classification": "DESIGN_LESSON", "rationale": "Informal concentration and dependency require analysis of effective power beyond the formal emergency grant."},
+    {"evidence_id": "HE-T01", "classification": "DESIGN_LESSON", "rationale": "Counter-power informs distributed concurrence without establishing that multiple approvals are sufficient."},
+    {"evidence_id": "HE-T02", "classification": "DESIGN_LESSON", "rationale": "Emergency design must account for incentives to trigger, evade, prolong, or terminate exceptional authority."},
+    {"evidence_id": "HE-T03", "classification": "DESIGN_LESSON", "rationale": "Formal grants may diverge from practical control of communications, evidence, and execution."},
+    {"evidence_id": "HE-T05", "classification": "DESIGN_LESSON", "rationale": "Succession remains distinct from emergency delegation and cannot be silently solved by necessity."},
+    {"evidence_id": "HE-T06", "classification": "DESIGN_LESSON", "rationale": "Distributed authority must be assessed for capture resistance and coordination failure."},
+    {"evidence_id": "HE-T07", "classification": "DESIGN_LESSON", "rationale": "Formal emergency predicates cannot silently erase convention, tacit knowledge, or interpretive limits."}
+  ],
+  "prior_art": [
+    {"prior_art_id": "PA-CC-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Security-council cohorts, replacement controls, timelocks, and public constitutional process provide a partial emergency-governance analogue."},
+    {"prior_art_id": "PA-AI-003", "classification": "DESIGN_LESSON", "rationale": "Fail-closed gates, delegation chains, audit trails, identities, intervention points, and kill switches inform representable controls without supplying legitimacy."},
+    {"prior_art_id": "PA-AUTH-002", "classification": "DESIGN_LESSON", "rationale": "Least authority and attenuation inform narrow predelegation and nonexpansion boundaries."},
+    {"prior_art_id": "PA-AUTH-003", "classification": "DESIGN_LESSON", "rationale": "Role assignment, hierarchy, and separation-of-duty constraints inform designated emergency actors."},
+    {"prior_art_id": "PA-AUTH-004", "classification": "DESIGN_LESSON", "rationale": "Context-sensitive attributes inform trigger representation while leaving evidence truth and legitimacy unresolved."},
+    {"prior_art_id": "PA-PROV-001", "classification": "DESIGN_LESSON", "rationale": "Agents, activities, derivation, time, bundles, and provenance constraints inform emergency records."},
+    {"prior_art_id": "PA-POLICY-001", "classification": "DESIGN_LESSON", "rationale": "Structured policy decisions demonstrate machine-checkable predicates without constitutional judgment."},
+    {"prior_art_id": "PA-POLICY-002", "classification": "DESIGN_LESSON", "rationale": "Principal-action-resource-context checks and schemas inform scoped authorization."},
+    {"prior_art_id": "PA-POLICY-003", "classification": "DESIGN_LESSON", "rationale": "Separated policy administration, decision, information, and enforcement functions inform reviewable emergency control."},
+    {"prior_art_id": "PA-RELIANCE-001", "classification": "DESIGN_LESSON", "rationale": "Independent validation, ongoing monitoring, documentation, and effective challenge inform retrospective review."},
+    {"prior_art_id": "PA-DISSENT-001", "classification": "DESIGN_LESSON", "rationale": "Formal objections, appeals, review, and publication inform durable challenge to emergency precedent."},
+    {"prior_art_id": "PA-DISSENT-002", "classification": "DESIGN_LESSON", "rationale": "Monotonic records and explicit supersession inform anti-accretion provenance."},
+    {"prior_art_id": "PA-POWER-001", "classification": "DESIGN_LESSON", "rationale": "Agenda-setting and preference-shaping power inform analysis of actors controlling emergency evidence and options."}
+  ],
+  "advantages": [
+    {"architecture_id": "A", "strongest_argument": "It most clearly blocks emergency pretext from becoming authority."},
+    {"architecture_id": "B", "strongest_argument": "It can address unforeseen catastrophic gaps without pretending every contingency was preauthorized."},
+    {"architecture_id": "C", "strongest_argument": "It makes emergency competence prospective, bounded, legible, expiring, and auditable."},
+    {"architecture_id": "D", "strongest_argument": "It reduces unilateral trigger manipulation and single-channel capture."},
+    {"architecture_id": "E", "strongest_argument": "It combines prospective bounded authority with a narrow response to genuinely unanticipated catastrophic gaps."}
+  ],
+  "failure_modes": [
+    {"architecture_id": "A", "catastrophic_failure": "Constitutionally required paralysis permits preventable irreversible harm or rewards attackers who isolate authority."},
+    {"architecture_id": "B", "catastrophic_failure": "Self-judged necessity becomes a standing route around constitutional limits."},
+    {"architecture_id": "C", "catastrophic_failure": "An unforeseen threat falls outside every grant, or broad machine-valid grants normalize emergency government."},
+    {"architecture_id": "D", "catastrophic_failure": "Concurrence delay prevents timely action, or shared evidence infrastructure converts apparent plurality into one captured channel."},
+    {"architecture_id": "E", "catastrophic_failure": "The fallback swallows predelegation through engineered gaps, manufactured unreachability, and favorable retrospective narratives."}
+  ],
+  "bad_human_analysis": [
+    "Emergency rules create incentives to control threat classification, communications, delegation design, review appointments, and accounts of avoided harm.",
+    "A bad human may seek either expansive action or strategic paralysis; no architecture can assume benevolent use of discretion or veto."
+  ],
+  "bad_artificial_intelligence_analysis": [
+    "A capable artificial intelligence may manipulate forecasts, evidence, contact channels, available alternatives, timing, and operational dependency while holding no formal emergency authority.",
+    "Human review can become nominal if reviewers depend on the same system for evidence reconstruction or viable remediation."
+  ],
+  "incentive_analysis": [
+    "Actors benefiting from emergency action may underinvest in ordinary grants, manufacture unreachability, or overstate success.",
+    "Actors fearing liability may conceal emergencies or choose harmful inaction; remedies must not make honest narrow intervention impossible.",
+    "Repeated use should trigger grant review rather than create implied authority."
+  ],
+  "continuity_analysis": [
+    "Emergency authority must not silently become succession, interregnum governance, amendment, or refounding.",
+    "Restoration requires technical rollback where possible, return of authority, termination of temporary access, and explicit treatment of irreversible effects."
+  ],
+  "reversibility_analysis": [
+    "Logging and expiry are reversible controls, but emergency acts and nonaction can both produce irreversible outcomes.",
+    "Retrospective validation cannot retroactively erase excess authority or create prospective precedent."
+  ],
+  "human_comprehensibility_analysis": [
+    "Participants must be able to identify the applicable grant, trigger evidence, actor, clock, review path, and restoration state.",
+    "Opaque model forecasts or hidden communications dependencies can make formally precise emergency rules practically illegible."
+  ],
+  "reviews": [
+    {
+      "review_type": "QUALITATIVE_COMPARISON",
+      "selection_boundary": "No score, ranking, automatic elimination, or constitutional selection is made.",
+      "assessments": [
+        {"architecture_id": "A", "constraint": "MAXIMAL", "responsiveness": "LOWEST", "capture_surface": "PARALYSIS AND GRANT DESIGN", "central_tradeoff": "Anti-usurpation is purchased with potentially catastrophic inaction."},
+        {"architecture_id": "B", "constraint": "DEFEASIBLE AND RETROSPECTIVE", "responsiveness": "HIGH", "capture_surface": "SELF-JUDGED TRIGGER AND UNREACHABILITY", "central_tradeoff": "Unforeseen harm can be addressed at high risk of exception accretion."},
+        {"architecture_id": "C", "constraint": "STRONGEST PROSPECTIVE BOUNDARY", "responsiveness": "CONDITIONALLY HIGH", "capture_surface": "GRANT DESIGN, TELEMETRY, AND RENEWAL", "central_tradeoff": "Legibility and authorization are purchased with rigidity under unforeseen threats."},
+        {"architecture_id": "D", "constraint": "PLURAL", "responsiveness": "TIME-SENSITIVE", "capture_surface": "SHARED EVIDENCE AND QUORUM DESIGN", "central_tradeoff": "Capture resistance is purchased with coordination delay and coalition risk."},
+        {"architecture_id": "E", "constraint": "PROSPECTIVE DEFAULT WITH DEFEASIBLE EDGE", "responsiveness": "HIGH IF BOUNDARIES HOLD", "capture_surface": "FALLBACK TRIGGER, ENGINEERED GAPS, AND REVIEW", "central_tradeoff": "Coverage of unforeseen harm reintroduces a narrow self-authorization risk."}
+      ]
+    },
+    {
+      "review_type": "NEUTRAL_SYNTHESIS",
+      "statement": "A offers the clearest anti-usurpation rule; B the broadest unforeseen-harm response; C the clearest prospective legitimacy; D the strongest multi-channel check; and E the broadest combination with the largest boundary-policing burden. Repository evidence does not decide how much irreversible-harm risk may be accepted to avoid self-authorized power."
+    }
+  ],
+  "dissent": [
+    {
+      "status": "OPEN_FOR_SUBMISSION",
+      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-02.",
+      "record": "No emergency architecture is adopted, authorized, or converted into a requirement. Future dissent must remain attributable and durable."
+    }
+  ],
+  "human_decision": {
+    "decision": "",
+    "foundational_architecture": "",
+    "incorporated_mechanisms": [],
+    "rejected_mechanisms": [],
+    "decision_authority": "",
+    "decision_basis": "",
+    "authorized_by": "",
+    "authorization_record": "",
+    "decision_date": ""
+  },
+  "decision_date": "",
+  "supersedes": [],
+  "resulting_requirements": [],
+  "residual_uncertainty": [
+    "Which actors, if any, are constitutionally eligible to use a necessity fallback?",
+    "What evidence establishes imminence, irreversibility, genuine unreachability, proportionality, and least harm under time pressure?",
+    "Which actions remain absolutely prohibited even during necessity?",
+    "What force, remedy, and precedent effect may retrospective human review have?",
+    "When does prolonged emergency bridge authority become succession, interregnum government, amendment, or refounding?",
+    "How can independent evidence and communication channels resist shared artificial intelligence dependency and manufactured unreachability?",
+    "How should the institution treat justified action that causes irreversible collateral harm and unjustified action that happens to succeed?"
+  ],
+  "provenance": {
+    "source": "Repository-only analysis of FQ-02, CDR-001, linked issue records, registered historical evidence, registered prior art, mechanism research, design principles, and glossary boundaries on 2026-08-28.",
+    "evidence_boundary": "Analysis and recommendation inputs only; no human decision is made, no emergency authority is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+  }
+}

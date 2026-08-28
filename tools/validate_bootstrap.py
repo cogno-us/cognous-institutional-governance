@@ -319,6 +319,127 @@ FQ1_REQUIREMENTS = {
         "source_issues": {"IR-08", "IR-09", "IR-10", "IR-18"},
     },
 }
+FQ2_REQUIRED_ISSUES = {
+    "IR-03",
+    "IR-04",
+    "IR-05",
+    "IR-06",
+    "IR-08",
+    "IR-09",
+    "IR-10",
+    "IR-13",
+    "IR-14",
+    "IR-15",
+    "IR-17",
+    "IR-18",
+}
+FQ2_ARCHITECTURE_NAMES = {
+    "A": "No Emergency Exception",
+    "B": "Narrow Necessity Exception",
+    "C": "Predelegated Emergency Authority",
+    "D": "Distributed Emergency Concurrence",
+    "E": "Hybrid Predelegation with Necessity Fallback",
+}
+FQ2_ARCHITECTURE_FIELDS = {
+    "architecture_id",
+    "name",
+    "research_status",
+    "model",
+    "analysis",
+}
+FQ2_ANALYSIS_FIELDS = {
+    "trigger",
+    "who_may_act",
+    "scope",
+    "proportionality",
+    "least_harm_requirement",
+    "duration",
+    "expiry",
+    "logging_provenance",
+    "retrospective_human_review",
+    "remedies",
+    "abuse_by_bad_human",
+    "abuse_by_bad_ai",
+    "false_emergency",
+    "manufactured_unreachability",
+    "repeated_exception_accretion",
+    "succession_interregnum_interaction",
+    "machine_validity_constitutional_legitimacy_boundary",
+}
+FQ2_ANALYSIS_REQUIRED_TERMS = {
+    "trigger": ("trigger", "imminen", "condition"),
+    "who_may_act": ("actor", "human", "delegate", "executor"),
+    "scope": ("scope", "grant", "act", "authority", "power"),
+    "proportionality": ("proportion", "excess", "harm", "grant"),
+    "least_harm_requirement": ("least",),
+    "duration": ("duration", "while", "period", "shorter", "lasts", "grant"),
+    "expiry": ("expir", "automatic", "nonrenew", "deadline"),
+    "logging_provenance": ("record", "log", "provenance", "evidence", "preserv"),
+    "retrospective_human_review": ("review",),
+    "remedies": ("remed", "revers", "contain", "compens"),
+    "abuse_by_bad_human": ("bad human", "human", "grantor", "coalition"),
+    "abuse_by_bad_ai": ("artificial intelligence",),
+    "false_emergency": ("false", "fault", "sensor", "model"),
+    "manufactured_unreachability": (
+        "manufactur",
+        "unreach",
+        "isolation",
+        "communication",
+        "isolate",
+        "attacker",
+    ),
+    "repeated_exception_accretion": ("repeat", "accret", "precedent", "renew"),
+    "succession_interregnum_interaction": ("succession", "interregnum"),
+    "machine_validity_constitutional_legitimacy_boundary": (
+        "legitim",
+        "machine",
+        "validator",
+        "technical",
+        "signature",
+    ),
+}
+FQ2_HISTORICAL_EVIDENCE_IDS = {
+    "HE-ROME-003",
+    "HE-US-004",
+    "HE-T04",
+    "HE-T09",
+    "HE-BURKE-FRANCE-002",
+    "HE-ROME-004",
+    "HE-T01",
+    "HE-T02",
+    "HE-T03",
+    "HE-T05",
+    "HE-T06",
+    "HE-T07",
+}
+FQ2_PRIOR_ART_IDS = {
+    "PA-CC-001",
+    "PA-AI-003",
+    "PA-AUTH-002",
+    "PA-AUTH-003",
+    "PA-AUTH-004",
+    "PA-PROV-001",
+    "PA-POLICY-001",
+    "PA-POLICY-002",
+    "PA-POLICY-003",
+    "PA-RELIANCE-001",
+    "PA-DISSENT-001",
+    "PA-DISSENT-002",
+    "PA-POWER-001",
+}
+FQ2_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/packets/"
+    "CDR-002-HUMAN-DECISION-PACKET.md"
+)
+FQ2_PACKET_OPTIONS = (
+    "ADOPT_A",
+    "ADOPT_B",
+    "ADOPT_C",
+    "ADOPT_D",
+    "ADOPT_E",
+    "REVISE_AND_REVIEW",
+    "DEFER",
+)
 FQ1_REQUIRED_ISSUES = {
     "IR-01",
     "IR-02",
@@ -754,9 +875,13 @@ def _is_empty_human_decision(record: dict[str, Any]) -> bool:
     decision = record.get("human_decision")
     return (
         isinstance(decision, dict)
-        and set(decision)
-        == {"authorized_by", "authorization_record", "decision_date"}
-        and all(decision.get(field) == "" for field in decision)
+        and set(decision) == HUMAN_DECISION_FIELDS
+        and all(
+            decision.get(field) == []
+            if field in {"incorporated_mechanisms", "rejected_mechanisms"}
+            else decision.get(field) == ""
+            for field in decision
+        )
         and record.get("decision_date") == ""
     )
 
@@ -795,13 +920,28 @@ def _contains_architecture_selection_claim(value: Any) -> bool:
         return any(_contains_architecture_selection_claim(item) for item in value)
     if not isinstance(value, str):
         return False
-    return re.search(
+    patterns = (
         r"\bARCHITECTURE\s+[A-Z0-9_-]+\s+"
         r"(?:IS|WAS|HAS\s+BEEN)\s+"
         r"(?:SELECTED|ADOPTED|DECIDED|THE\s+WINNER)\b",
-        value,
-        flags=re.IGNORECASE,
-    ) is not None
+        r"\b(?:WE|THIS\s+RECORD|CDR-\d{3}|THE\s+ANALYSIS)\s+"
+        r"(?:HEREBY\s+)?(?:ADOPT|SELECT|CHOOSE)\s+"
+        r"ARCHITECTURE\s+[A-Z0-9_-]+\b",
+    )
+    return any(re.search(pattern, value, flags=re.IGNORECASE) for pattern in patterns)
+
+
+def _has_substantive_fq2_analysis(
+    field: str,
+    value: Any,
+) -> bool:
+    if not isinstance(value, str) or len(value.split()) < 8:
+        return False
+    folded = value.casefold()
+    terms = FQ2_ANALYSIS_REQUIRED_TERMS[field]
+    if field == "machine_validity_constitutional_legitimacy_boundary":
+        return terms[0] in folded and any(term in folded for term in terms[1:])
+    return any(term in folded for term in terms)
 
 
 def _validate_fq1_analytical_record(
@@ -1292,17 +1432,356 @@ def _contains_unnegated_phrase(value: str, phrase: str) -> bool:
     return False
 
 
+def _validate_fq2_analytical_record(
+    decision: dict[str, Any],
+    known_historical_ids: set[str],
+    known_prior_art_ids: set[str],
+    root: Path,
+    errors: list[str],
+) -> tuple[int, set[str], set[str]]:
+    if decision.get("decision_id") != "CDR-002":
+        return 0, set(), set()
+
+    if decision.get("status") != "UNDER_REVIEW":
+        errors.append("FQ2_ANALYTICAL_STATUS: CDR-002 must be UNDER_REVIEW")
+    if (
+        not _is_empty_human_decision(decision)
+        or _has_human_decision_evidence(decision)
+        or decision.get("resulting_requirements") != []
+    ):
+        errors.append(
+            "FQ2_ANALYTICAL_BOUNDARY: CDR-002 cannot contain human decision "
+            "evidence or resulting requirements"
+        )
+    if decision.get("dissent") != [
+        {
+            "status": "OPEN_FOR_SUBMISSION",
+            "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-02.",
+            "record": (
+                "No emergency architecture is adopted, authorized, or converted "
+                "into a requirement. Future dissent must remain attributable and "
+                "durable."
+            ),
+        }
+    ]:
+        errors.append(
+            "FQ2_NO_DECISION_STATEMENT: exact analytical boundary is required"
+        )
+    if _contains_architecture_selection_claim(decision):
+        errors.append(
+            "FQ2_ARCHITECTURE_SELECTION_CLAIM: CDR-002 cannot select an "
+            "architecture"
+        )
+
+    related_issues = decision.get("related_issues")
+    if (
+        not isinstance(related_issues, list)
+        or set(related_issues) != FQ2_REQUIRED_ISSUES
+        or len(related_issues) != len(FQ2_REQUIRED_ISSUES)
+    ):
+        errors.append("FQ2_RELATED_ISSUES: exact issue coverage is required")
+
+    source_material = decision.get("source_material")
+    invalid_source_material = (
+        not isinstance(source_material, list)
+        or source_material.count("FQ-02") != 1
+        or source_material.count("CDR-001") != 1
+    )
+    if isinstance(source_material, list):
+        for reference in source_material:
+            if reference in {"FQ-02", "CDR-001"}:
+                continue
+            if not isinstance(reference, str) or not reference:
+                invalid_source_material = True
+                continue
+            resolved = (root / reference).resolve()
+            if not resolved.is_relative_to(root) or not resolved.is_file():
+                invalid_source_material = True
+    if invalid_source_material:
+        errors.append(
+            "FQ2_SOURCE_MATERIAL: FQ-02, CDR-001, and resolving paths are required"
+        )
+
+    architecture_value = decision.get("candidate_architectures")
+    architectures = (
+        architecture_value if isinstance(architecture_value, list) else []
+    )
+    architecture_ids: list[str] = []
+    malformed_architecture = not isinstance(architecture_value, list)
+    for architecture in architectures:
+        if not isinstance(architecture, dict):
+            malformed_architecture = True
+            continue
+        architecture_id = architecture.get("architecture_id")
+        if isinstance(architecture_id, str):
+            architecture_ids.append(architecture_id)
+        analysis = architecture.get("analysis")
+        if (
+            set(architecture) != FQ2_ARCHITECTURE_FIELDS
+            or architecture_id not in FQ2_ARCHITECTURE_NAMES
+            or architecture.get("name")
+            != FQ2_ARCHITECTURE_NAMES.get(str(architecture_id))
+            or architecture.get("research_status") != "CANDIDATE_NOT_SELECTED"
+            or not _is_evidence(architecture.get("model"))
+            or not isinstance(analysis, dict)
+            or set(analysis) != FQ2_ANALYSIS_FIELDS
+            or any(
+                not _has_substantive_fq2_analysis(field, value)
+                for field, value in analysis.items()
+            )
+        ):
+            malformed_architecture = True
+    if (
+        malformed_architecture
+        or architecture_ids != ["A", "B", "C", "D", "E"]
+    ):
+        errors.append(
+            "FQ2_CANDIDATE_ARCHITECTURES: exact architectures A through E "
+            "and all analysis dimensions are required"
+        )
+
+    referenced_historical_ids: set[str] = set()
+    historical = decision.get("historical_analogues")
+    malformed_historical = not isinstance(historical, list)
+    if isinstance(historical, list):
+        for mapping in historical:
+            if not isinstance(mapping, dict):
+                malformed_historical = True
+                continue
+            evidence_id = mapping.get("evidence_id")
+            if (
+                set(mapping) != {"evidence_id", "classification", "rationale"}
+                or evidence_id not in known_historical_ids
+                or mapping.get("classification")
+                not in FQ1_ANALOGUE_CLASSIFICATIONS
+                or not isinstance(mapping.get("rationale"), str)
+                or len(mapping["rationale"].split()) < 6
+            ):
+                malformed_historical = True
+            if isinstance(evidence_id, str):
+                referenced_historical_ids.add(evidence_id)
+    if (
+        malformed_historical
+        or referenced_historical_ids != FQ2_HISTORICAL_EVIDENCE_IDS
+        or len(historical) != len(referenced_historical_ids)
+    ):
+        errors.append(
+            "FQ2_HISTORICAL_EVIDENCE: exact repository evidence mappings are "
+            "required"
+        )
+
+    referenced_prior_art_ids: set[str] = set()
+    prior_art = decision.get("prior_art")
+    malformed_prior_art = not isinstance(prior_art, list)
+    if isinstance(prior_art, list):
+        for mapping in prior_art:
+            if not isinstance(mapping, dict):
+                malformed_prior_art = True
+                continue
+            prior_art_id = mapping.get("prior_art_id")
+            if (
+                set(mapping) != {"prior_art_id", "classification", "rationale"}
+                or prior_art_id not in known_prior_art_ids
+                or mapping.get("classification")
+                not in FQ1_ANALOGUE_CLASSIFICATIONS
+                or not isinstance(mapping.get("rationale"), str)
+                or len(mapping["rationale"].split()) < 6
+            ):
+                malformed_prior_art = True
+            if isinstance(prior_art_id, str):
+                referenced_prior_art_ids.add(prior_art_id)
+    if (
+        malformed_prior_art
+        or referenced_prior_art_ids != FQ2_PRIOR_ART_IDS
+        or len(prior_art) != len(referenced_prior_art_ids)
+    ):
+        errors.append(
+            "FQ2_PRIOR_ART: exact repository prior-art mappings are required"
+        )
+
+    provenance = decision.get("provenance")
+    if (
+        not isinstance(provenance, dict)
+        or "Repository-only analysis" not in str(provenance.get("source", ""))
+        or "no human decision" not in str(
+            provenance.get("evidence_boundary", "")
+        ).casefold()
+        or "no emergency authority" not in str(
+            provenance.get("evidence_boundary", "")
+        ).casefold()
+    ):
+        errors.append(
+            "FQ2_PROVENANCE_BOUNDARY: repository-only analytical provenance "
+            "and no-authority boundary are required"
+        )
+
+    return (
+        len(architectures),
+        referenced_historical_ids,
+        referenced_prior_art_ids,
+    )
+
+
+def _validate_fq2_human_decision_packet(
+    root: Path,
+    errors: list[str],
+) -> tuple[int, int, str]:
+    packet_path = root / FQ2_PACKET_RELATIVE_PATH
+    try:
+        text = packet_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"FQ2_PACKET_REQUIRED: {exc}")
+        return 0, 0, ""
+
+    title = re.findall(r"^# ([^\r\n]+)$", text, flags=re.MULTILINE)
+    if title != ["CDR-002 Human Decision Packet"]:
+        errors.append("FQ2_PACKET_SCHEMA: exact unique title is required")
+    required_markers = (
+        "[CDR-002](../CDR-002.yaml)",
+        "[FQ-02](../../FOUNDATIONAL_QUESTIONS.yaml)",
+        "**Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
+        "**Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-02.",
+    )
+    if (
+        any(text.count(marker) != 1 for marker in required_markers)
+        or text.count(
+            "**Boundary:** RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT"
+        )
+        != 2
+    ):
+        errors.append(
+            "FQ2_PACKET_BOUNDARY: exact advisory and no-decision markers are "
+            "required"
+        )
+
+    architecture_headings = re.findall(
+        r"^### ([A-E]) — ([^\r\n]+)$", text, flags=re.MULTILINE
+    )
+    if architecture_headings != list(FQ2_ARCHITECTURE_NAMES.items()):
+        errors.append(
+            "FQ2_PACKET_ARCHITECTURES: exact architectures A through E are "
+            "required"
+        )
+    for architecture_id in FQ2_ARCHITECTURE_NAMES:
+        section = _markdown_section(
+            text,
+            f"{architecture_id} — {FQ2_ARCHITECTURE_NAMES[architecture_id]}",
+            3,
+        )
+        if section is None or any(
+            section.count(label) != 1
+            for label in (
+                "**Model:**",
+                "**Strongest argument for:**",
+                "**Strongest argument against:**",
+                "**Catastrophic failure:**",
+                "**Unresolved question:**",
+            )
+        ):
+            errors.append(
+                f"FQ2_PACKET_ARCHITECTURE_SUMMARY: architecture {architecture_id}"
+            )
+
+    recommendation = _markdown_section(text, "Recommendation", 2) or ""
+    recommendation_declarations = re.findall(
+        r"^\*\*Recommendation:\*\*\s+(.+?)(?=\r?\n\r?\n|\Z)",
+        recommendation,
+        flags=re.MULTILINE | re.DOTALL,
+    )
+    normalized_recommendations = [
+        re.sub(r"\s+", " ", declaration).strip()
+        for declaration in recommendation_declarations
+    ]
+    global_recommendation_declarations = re.findall(
+        r"^\*\*Recommendation:\*\*\s+(.+?)(?=\r?\n\r?\n|\Z)",
+        text,
+        flags=re.MULTILINE | re.DOTALL,
+    )
+    normalized_global_recommendations = [
+        re.sub(r"\s+", " ", declaration).strip()
+        for declaration in global_recommendation_declarations
+    ]
+    expected_recommendation = (
+        "Architecture E — Hybrid Predelegation with Necessity Fallback"
+    )
+    recommended_architecture = (
+        "Architecture E"
+        if normalized_recommendations == [expected_recommendation]
+        and normalized_global_recommendations == [expected_recommendation]
+        else ""
+    )
+    if (
+        recommended_architecture != "Architecture E"
+        or recommendation.count(
+            "RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT"
+        )
+        != 1
+        or recommendation.count("**Strongest objection:**") != 1
+    ):
+        errors.append(
+            "FQ2_PACKET_RECOMMENDATION: exact recommendation and no-effect "
+            "boundary are required"
+        )
+
+    options = _markdown_section(text, "Human Decision Options", 2) or ""
+    option_lines = re.findall(
+        r"^(\d+)\. \*\*([A-Z_]+)\*\* — ", options, flags=re.MULTILINE
+    )
+    if (
+        [number for number, _ in option_lines]
+        != [str(index) for index in range(1, 8)]
+        or [option for _, option in option_lines] != list(FQ2_PACKET_OPTIONS)
+        or any(options.count(option) != 1 for option in FQ2_PACKET_OPTIONS)
+    ):
+        errors.append(
+            "FQ2_PACKET_OPTIONS: exactly seven decision options are required"
+        )
+
+    for reference in FQ2_HISTORICAL_EVIDENCE_IDS | FQ2_PRIOR_ART_IDS:
+        if reference not in text:
+            errors.append(
+                f"FQ2_PACKET_EVIDENCE: missing repository reference {reference}"
+            )
+    prohibited = (
+        r"\bTHIS PACKET (?:ADOPTS|AUTHORIZES|DECIDES|ENACTS)\b",
+        r"\b(?:ACTORS?|EMERGENCY ACTORS?|ARCHITECTURE [A-E])\s+"
+        r"(?:ARE|IS|BECOMES?)\s+(?:HEREBY\s+|NOW\s+)?"
+        r"(?:AUTHORIZED|EMPOWERED|ADOPTED|ENACTED)\b",
+        r"\bARCHITECTURE [A-E]\s+(?:NOW\s+)?"
+        r"(?:HAS|CARRIES)\s+CONSTITUTIONAL "
+        r"(?:FORCE|EFFECT|AUTHORITY)\b",
+        r"\b(?:WE|THIS PACKET|THE PACKET)\s+(?:HEREBY\s+)?"
+        r"(?:GRANTS|CONFERS|CREATES|ESTABLISHES)\b.{0,80}\b"
+        r"(?:AUTHORITY|POWER|COMPETENCE)\b",
+        r"\b(?:WE|THIS PACKET|THE PACKET)\s+(?:HEREBY\s+)?"
+        r"(?:ADOPT|SELECT|CHOOSE)\s+ARCHITECTURE [A-E]\b",
+        r"\bARCHITECTURE [A-E]\s+(?:HEREBY\s+)?"
+        r"(?:GRANTS|CONFERS|CREATES|ESTABLISHES)\b.{0,80}\b"
+        r"(?:AUTHORITY|POWER|COMPETENCE)\b",
+        r"\bCDR-002 IS DECIDED\b",
+        r"\bFQ-02 IS RESOLVED\b",
+        r"\bACCEPTED_FOR_DRAFTING\b",
+        r"\bCR-\d{3}\b",
+        r"^#{1,6}\s+ARTICLE\b",
+    )
+    if any(
+        re.search(pattern, text, flags=re.IGNORECASE | re.MULTILINE)
+        for pattern in prohibited
+    ):
+        errors.append(
+            "FQ2_PACKET_CONSTITUTIONAL_EFFECT: packet cannot decide, authorize, "
+            "or create requirements or provisions"
+        )
+
+    return 1, len(option_lines), recommended_architecture
+
+
 def _validate_fq1_human_decision_packet(
     root: Path,
     errors: list[str],
 ) -> tuple[int, int, int, str]:
     packet_path = root / FQ1_PACKET_RELATIVE_PATH
-    packet_dir = packet_path.parent
-    packet_paths = (
-        sorted(packet_dir.glob("*-HUMAN-DECISION-PACKET.md"))
-        if packet_dir.is_dir()
-        else []
-    )
+    packet_paths = [packet_path] if packet_path.is_file() else []
     packet_count = len(packet_paths)
     if len(packet_paths) != 1 or packet_path not in packet_paths:
         _packet_error(
@@ -2720,12 +3199,51 @@ def validate(root: Path) -> ValidationResult:
                 "CDR-001 must use every prior-art record linked by its issues"
             )
 
+    fq2_candidate_architecture_count = 0
+    fq2_historical_ids: set[str] = set()
+    fq2_prior_art_ids: set[str] = set()
+    fq2_decision = decisions_by_id.get("CDR-002")
+    if fq2_decision is None:
+        errors.append("FQ2_ANALYTICAL_RECORD_REQUIRED: CDR-002 is required")
+    else:
+        (
+            fq2_candidate_architecture_count,
+            fq2_historical_ids,
+            fq2_prior_art_ids,
+        ) = _validate_fq2_analytical_record(
+            fq2_decision, evidence_id_set, prior_art_id_set, root, errors
+        )
+
     (
-        human_decision_packet_count,
-        human_decision_option_count,
+        fq1_packet_count,
+        fq1_decision_option_count,
         human_decision_question_count,
-        recommended_architecture,
+        fq1_recommended_architecture,
     ) = _validate_fq1_human_decision_packet(root, errors)
+    (
+        fq2_packet_count,
+        fq2_decision_option_count,
+        fq2_recommended_architecture,
+    ) = _validate_fq2_human_decision_packet(root, errors)
+    packet_dir = root / "constitutional-design" / "decisions" / "packets"
+    packet_paths = (
+        {
+            path.relative_to(root)
+            for path in packet_dir.glob("*-HUMAN-DECISION-PACKET.md")
+        }
+        if packet_dir.is_dir()
+        else set()
+    )
+    expected_packet_paths = {
+        FQ1_PACKET_RELATIVE_PATH,
+        FQ2_PACKET_RELATIVE_PATH,
+    }
+    if packet_paths != expected_packet_paths:
+        errors.append(
+            "HUMAN_DECISION_PACKET_SET: exactly the CDR-001 and CDR-002 "
+            "packets are permitted"
+        )
+    human_decision_packet_count = fq1_packet_count + fq2_packet_count
 
     structured_records: list[Any] = [
         *issues,
@@ -2794,10 +3312,15 @@ def validate(root: Path) -> ValidationResult:
         "historical_source_status_counts": historical_status_counts,
         "fq1_historical_evidence_reference_count": len(fq1_historical_ids),
         "fq1_prior_art_reference_count": len(fq1_prior_art_ids),
+        "fq2_candidate_architecture_count": fq2_candidate_architecture_count,
+        "fq2_historical_evidence_reference_count": len(fq2_historical_ids),
+        "fq2_prior_art_reference_count": len(fq2_prior_art_ids),
         "human_decision_packet_count": human_decision_packet_count,
-        "human_decision_option_count": human_decision_option_count,
+        "human_decision_option_count": fq1_decision_option_count,
         "human_decision_question_count": human_decision_question_count,
-        "recommended_architecture": recommended_architecture,
+        "recommended_architecture": fq1_recommended_architecture,
+        "fq2_human_decision_option_count": fq2_decision_option_count,
+        "fq2_recommended_architecture": fq2_recommended_architecture,
     }
     return ValidationResult(tuple(errors), metrics)
 

@@ -25,3 +25,7 @@ The concise advisory packet for CDR-001 is at
 `packets/CDR-001-HUMAN-DECISION-PACKET.md`. It is recommendation-only, has no
 constitutional effect, and did not authorize the later explicit human decision
 recorded in CDR-001.
+
+CDR-002 analyzes FQ-02 emergency necessity without deciding it. Its concise
+advisory packet is at `packets/CDR-002-HUMAN-DECISION-PACKET.md`; the packet's
+recommendation has no constitutional effect and creates no emergency authority.
