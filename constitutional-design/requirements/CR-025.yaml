@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-025",
+  "statement": "Adjudicative independence must include constitutionally bounded mechanisms for appointment, tenure, removal, recusal, replacement, challenge, dissent, reason-giving, and provenance.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-06", "IR-07", "IR-10", "IR-12", "IR-13", "IR-17"],
+  "source_decisions": ["CDR-004"],
+  "rationale": "CDR-004 requires institutional independence to be both protected and constitutionally bounded through nine specified mechanisms.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define adjudicator composition or the detailed design, thresholds, procedures, effects, or records for any listed mechanism.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must enumerate all nine independence mechanisms and preserve their constitutional bounds.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-004 on 2026-08-28"}
+}

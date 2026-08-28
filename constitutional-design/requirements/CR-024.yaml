@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-024",
+  "statement": "Constitutional adjudication must include distributed anti-capture mechanisms, bounded human appeal, and predefined special conflict handling when ordinary adjudicators are compromised.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-06", "IR-08", "IR-09", "IR-10"],
+  "source_decisions": ["CDR-004"],
+  "rationale": "CDR-004 combines standing review with distributed safeguards, human appeal, and a predefined path through adjudicator conflict.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define the appeal structure, finality, conflict trigger, substitute composition, selection, jurisdiction, or dissolution.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must require all three safeguards and keep appeal human and bounded.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-004 on 2026-08-28"}
+}

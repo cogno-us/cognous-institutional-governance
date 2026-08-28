@@ -2,16 +2,17 @@
 
 - **Decision record:** [CDR-004](../CDR-004.yaml)
 - **Foundational question:** [FQ-04](../../FOUNDATIONAL_QUESTIONS.yaml)
-- **Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION
+- **Status:** ADVISORY — SUPERSEDED AS A DECISION AID
 - **Boundary:** RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT
-- **Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-04.
+- **Decision state:** A later explicit human decision is recorded only in the
+  linked CDR-004.
 
 ## Core Decision
 
-The human Constitutional Authority must decide who may issue a final
-constitutional judgment when foundational authority is itself a party, and how
-that judgment can bind ordinary acts without transferring sovereignty over
-institutional ends to reviewers.
+At packet preparation, the human Constitutional Authority had to decide who
+may issue a final constitutional judgment when foundational authority is itself
+a party, and how that judgment can bind ordinary acts without transferring
+sovereignty over institutional ends to reviewers.
 
 CDR-001 admits independent human review but rejects reviewer sovereignty.
 CDR-002 prevents adjudication from creating emergency authority. CDR-003
@@ -136,8 +137,8 @@ independent human bodies.
 
 ## Human Decision Options
 
-Selection here has no effect; only a separately recorded explicit human
-constitutional decision can change FQ-04.
+Selection in this retained packet has no effect. The later explicit human
+constitutional decision is recorded only in CDR-004.
 
 1. **ADOPT_A** — Self-adjudication.
 2. **ADOPT_B** — Independent human review.

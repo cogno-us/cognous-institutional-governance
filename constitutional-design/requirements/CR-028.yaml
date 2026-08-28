@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-028",
+  "statement": "Formal machine validity must not establish constitutional legitimacy, and human signature must not cure substantive machine domination of adjudication.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-06", "IR-08", "IR-13", "IR-18"],
+  "source_decisions": ["CDR-004"],
+  "rationale": "CDR-004 rejects both technical-validity substitution and nominal human ratification of substantively machine-controlled adjudication.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define machine-support limits, domination metrics, disclosure standards, evidence systems, or formal validation architecture.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve both the machine-validity distinction and the substantive-domination rule.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-004 on 2026-08-28"}
+}
