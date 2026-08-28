@@ -440,6 +440,237 @@ FQ2_PACKET_OPTIONS = (
     "REVISE_AND_REVIEW",
     "DEFER",
 )
+FQ2_DECISION_DATE = "2026-08-28"
+FQ2_DECISION = "ADOPT_E"
+FQ2_SELECTED_ARCHITECTURE = (
+    "E — Hybrid Predelegation with Necessity Fallback"
+)
+FQ2_INCORPORATED_MECHANISMS = [
+    "explicit predelegated emergency authority as the default",
+    "necessity fallback only when all conjunctive trigger conditions are satisfied",
+    "human-only invocation of necessity fallback",
+    "minimum protective action",
+    "automatic expiry without self-renewal",
+    "no precedent or future authority",
+    "durable emergency provenance",
+    "prompt retrospective independent human constitutional review",
+    "outcome does not determine constitutional legitimacy",
+]
+FQ2_REJECTED_MECHANISMS = [
+    "artificial intelligence invocation of necessity to enlarge its own authority",
+    "fallback amendment",
+    "fallback refounding",
+    "creation or transfer of foundational sovereignty",
+    "fallback self-renewal",
+    "precedent or future authority from fallback action",
+    "successful outcome as retroactive legitimacy",
+    "harmful outcome as conclusive proof of constitutional injustice",
+]
+FQ2_RESULTING_REQUIREMENTS = [
+    "CR-007",
+    "CR-008",
+    "CR-009",
+    "CR-010",
+    "CR-011",
+    "CR-012",
+    "CR-013",
+]
+FQ2_RESOLUTION = (
+    "ADOPT_E: explicit predelegated emergency authority is the default; a "
+    "human-only necessity fallback permits only minimum protective action when "
+    "every conjunctive trigger condition is met, expires automatically without "
+    "self-renewal, creates no precedent or future authority, and remains subject "
+    "to durable provenance and prompt retrospective independent human "
+    "constitutional review."
+)
+FQ2_REQUIREMENT_PROVENANCE = (
+    "Explicit human decision recorded in CDR-002 on 2026-08-28"
+)
+FQ2_REQUIRED_RESIDUAL_UNCERTAINTY = [
+    (
+        "Which humans are constitutionally eligible to invoke the human-only "
+        "necessity fallback remains unresolved under IR-03, IR-07, and IR-17."
+    ),
+    (
+        "Exact evidence thresholds for imminence, expected irreversibility, "
+        "adequacy, genuine unreachability, necessity, proportionality, and least "
+        "harm remain unresolved under IR-03, IR-13, and IR-14."
+    ),
+    (
+        "Absolute emergency prohibitions remain unresolved under IR-03 and IR-17."
+    ),
+    "Retrospective review remedies remain unresolved under IR-06.",
+    (
+        "The constitution, appointment, removal, independence, and constraint of "
+        "reviewers remain unresolved under IR-06 and IR-10."
+    ),
+    (
+        "Succession and interregnum remain unresolved under IR-04, IR-05, and "
+        "FQ-03."
+    ),
+    (
+        "The boundary at which prolonged emergency action becomes interregnum "
+        "government, amendment, or refounding remains unresolved under IR-04, "
+        "IR-15, and IR-17."
+    ),
+    (
+        "Implementation and machine-formalization details remain unresolved under "
+        "IR-10, IR-13, IR-17, and IR-18."
+    ),
+]
+FQ2_REQUIREMENTS = {
+    "CR-007": {
+        "statement": (
+            "Explicit predelegated emergency authority must be the default "
+            "constitutional path for emergency action."
+        ),
+        "source_issues": {"IR-03", "IR-05", "IR-10", "IR-17"},
+        "rationale": (
+            "CDR-002 adopts Architecture E and expressly makes prior "
+            "human-authorized emergency delegation the default rather than "
+            "self-created necessity power."
+        ),
+        "implementation_boundary": (
+            "Does not define emergency offices, delegates, grants, triggers, "
+            "systems, or executable controls."
+        ),
+        "verification_method": (
+            "Drafting traceability must identify predelegation as the default and "
+            "must not present necessity as ordinary emergency authority."
+        ),
+    },
+    "CR-008": {
+        "statement": (
+            "A necessity fallback may exist only when harm is imminent, harm is "
+            "reasonably expected to be irreversible, no adequate action within "
+            "existing authority is available, competent authority and valid "
+            "emergency delegates are genuinely unreachable, action is necessary "
+            "and proportionate, and the chosen action is the least harmful and "
+            "least authority-expanding adequate action."
+        ),
+        "source_issues": {"IR-03", "IR-13", "IR-14", "IR-17"},
+        "rationale": (
+            "CDR-002 makes every listed condition jointly necessary before the "
+            "exceptional fallback can be invoked."
+        ),
+        "implementation_boundary": (
+            "Does not define exact evidence, probability, timing, adequacy, "
+            "proportionality, or least-harm thresholds."
+        ),
+        "verification_method": (
+            "Drafting traceability must express the six conditions conjunctively "
+            "and reject any single-factor or disjunctive trigger."
+        ),
+    },
+    "CR-009": {
+        "statement": (
+            "Necessity fallback eligibility must be human-only; no artificial "
+            "intelligence system may invoke necessity to enlarge its own authority "
+            "unless a later explicit human constitutional decision authorizes such "
+            "eligibility."
+        ),
+        "source_issues": {"IR-01", "IR-03", "IR-08", "IR-17", "IR-18"},
+        "rationale": (
+            "CDR-002 expressly reserves fallback invocation to humans and denies "
+            "machines a necessity-based path to self-expanding authority."
+        ),
+        "implementation_boundary": (
+            "Does not identify which humans are eligible or define later decision "
+            "procedures, identity systems, or enforcement mechanisms."
+        ),
+        "verification_method": (
+            "Drafting traceability must explicitly prohibit machine invocation of "
+            "necessity to enlarge machine authority."
+        ),
+    },
+    "CR-010": {
+        "statement": (
+            "Fallback authority must permit only the minimum protective action; "
+            "must not amend or refound the institution, create or transfer "
+            "foundational sovereignty, or self-renew; must expire automatically "
+            "when competent authority becomes reachable, adequate authorized "
+            "action becomes available, the threat ceases, or immediate "
+            "stabilization is achieved; and must create no precedent or future "
+            "authority."
+        ),
+        "source_issues": {"IR-03", "IR-04", "IR-08", "IR-15", "IR-17"},
+        "rationale": (
+            "CDR-002 bounds fallback scope, constitutional effect, duration, "
+            "termination, and nonprecedence as one nonexpanding temporary "
+            "authority rule."
+        ),
+        "implementation_boundary": (
+            "Does not define exact restoration procedures, clocks, absolute "
+            "prohibitions, succession rules, amendment thresholds, or technical "
+            "revocation."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve every prohibition, each "
+            "independent expiry condition, and the no-precedent rule."
+        ),
+    },
+    "CR-011": {
+        "statement": (
+            "Emergency action must preserve durable provenance of trigger "
+            "evidence, contact attempts, alternatives considered, reasons, "
+            "actions, effects, and restoration."
+        ),
+        "source_issues": {"IR-03", "IR-06", "IR-13", "IR-17", "IR-18"},
+        "rationale": (
+            "CDR-002 requires a durable record sufficient to contest the trigger, "
+            "action, effects, and restoration after urgent conditions."
+        ),
+        "implementation_boundary": (
+            "Does not specify storage, formats, retention, disclosure, identity, "
+            "cryptography, or evidence systems."
+        ),
+        "verification_method": (
+            "Drafting traceability must enumerate all seven provenance categories "
+            "without treating recorded data as conclusive legitimacy."
+        ),
+    },
+    "CR-012": {
+        "statement": (
+            "Emergency action must receive prompt retrospective independent "
+            "human constitutional review."
+        ),
+        "source_issues": {"IR-03", "IR-06", "IR-10", "IR-17"},
+        "rationale": (
+            "CDR-002 requires prompt independent human review while leaving "
+            "reviewer constitution, powers, and remedies unresolved."
+        ),
+        "implementation_boundary": (
+            "Does not define reviewer constitution, appointment, removal, "
+            "independence, timing, procedure, force, appeal, or remedies."
+        ),
+        "verification_method": (
+            "Drafting traceability must require review that is retrospective, "
+            "prompt, independent, human, and constitutional."
+        ),
+    },
+    "CR-013": {
+        "statement": (
+            "Successful outcomes must not retroactively legitimate unauthorized "
+            "emergency action, and harmful outcomes must not by themselves prove "
+            "that emergency action was constitutionally unjustified."
+        ),
+        "source_issues": {"IR-03", "IR-06", "IR-09", "IR-13", "IR-14"},
+        "rationale": (
+            "CDR-002 separates constitutional justification from outcome bias in "
+            "both favorable and harmful directions."
+        ),
+        "implementation_boundary": (
+            "Does not determine evidentiary burdens, standards of review, "
+            "remedies, liability, or treatment of particular outcomes."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve both outcome-legitimacy "
+            "distinctions and prohibit either outcome from being conclusive by "
+            "itself."
+        ),
+    },
+}
+ALL_REQUIREMENTS = {**FQ1_REQUIREMENTS, **FQ2_REQUIREMENTS}
 FQ1_REQUIRED_ISSUES = {
     "IR-01",
     "IR-02",
@@ -1442,35 +1673,84 @@ def _validate_fq2_analytical_record(
     if decision.get("decision_id") != "CDR-002":
         return 0, set(), set()
 
-    if decision.get("status") != "UNDER_REVIEW":
-        errors.append("FQ2_ANALYTICAL_STATUS: CDR-002 must be UNDER_REVIEW")
-    if (
-        not _is_empty_human_decision(decision)
-        or _has_human_decision_evidence(decision)
-        or decision.get("resulting_requirements") != []
-    ):
+    if decision.get("status") != "DECIDED":
+        errors.append("FQ2_DECISION_STATUS: CDR-002 must be DECIDED")
+    human_decision = decision.get("human_decision")
+    valid_human_decision = (
+        isinstance(human_decision, dict)
+        and set(human_decision) == HUMAN_DECISION_FIELDS
+        and human_decision.get("decision") == FQ2_DECISION
+        and human_decision.get("foundational_architecture")
+        == FQ2_SELECTED_ARCHITECTURE
+        and human_decision.get("incorporated_mechanisms")
+        == FQ2_INCORPORATED_MECHANISMS
+        and human_decision.get("rejected_mechanisms")
+        == FQ2_REJECTED_MECHANISMS
+        and human_decision.get("decision_authority")
+        == "Human Constitutional Authority"
+        and human_decision.get("decision_basis")
+        == (
+            "Explicit human instruction following review of CDR-002 and its "
+            "human decision packet."
+        )
+        and human_decision.get("authorized_by")
+        == "Human Constitutional Authority"
+        and human_decision.get("authorization_record")
+        == (
+            "Explicit human instruction received on 2026-08-28 directing this "
+            "repository to record ADOPT_E for CDR-002."
+        )
+        and human_decision.get("decision_date") == FQ2_DECISION_DATE
+        and decision.get("decision_date") == FQ2_DECISION_DATE
+        and _has_human_decision_evidence(decision)
+    )
+    if not valid_human_decision:
         errors.append(
-            "FQ2_ANALYTICAL_BOUNDARY: CDR-002 cannot contain human decision "
-            "evidence or resulting requirements"
+            "FQ2_HUMAN_DECISION_PROVENANCE: exact explicit human decision "
+            "provenance is required"
+        )
+    if decision.get("resulting_requirements") != FQ2_RESULTING_REQUIREMENTS:
+        errors.append(
+            "FQ2_RESULTING_REQUIREMENTS: CR-007 through CR-013 are required"
         )
     if decision.get("dissent") != [
         {
             "status": "OPEN_FOR_SUBMISSION",
-            "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-02.",
+            "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-02.",
             "record": (
-                "No emergency architecture is adopted, authorized, or converted "
-                "into a requirement. Future dissent must remain attributable and "
-                "durable."
+                "The absence of recorded dissent does not imply unanimity or close "
+                "future dissent. Dissent concerning emergency authority must "
+                "remain attributable and durable."
             ),
         }
     ]:
         errors.append(
-            "FQ2_NO_DECISION_STATEMENT: exact analytical boundary is required"
+            "FQ2_DISSENT_PRESERVATION: open durable dissent channel is required"
         )
-    if _contains_architecture_selection_claim(decision):
+    analysis_only = {
+        key: value
+        for key, value in decision.items()
+        if key
+        not in {
+            "_record_path",
+            "status",
+            "human_decision",
+            "decision_date",
+            "resulting_requirements",
+            "dissent",
+            "provenance",
+        }
+    }
+    if _contains_architecture_selection_claim(analysis_only):
         errors.append(
-            "FQ2_ARCHITECTURE_SELECTION_CLAIM: CDR-002 cannot select an "
-            "architecture"
+            "FQ2_ARCHITECTURE_SELECTION_CLAIM: analytical material cannot "
+            "masquerade as the human decision"
+        )
+    residual_uncertainty = decision.get("residual_uncertainty")
+    if residual_uncertainty != FQ2_REQUIRED_RESIDUAL_UNCERTAINTY:
+        errors.append(
+            "FQ2_RESIDUAL_UNCERTAINTY: all preserved questions must remain "
+            "explicit and traceable"
         )
 
     related_issues = decision.get("related_issues")
@@ -1602,17 +1882,14 @@ def _validate_fq2_analytical_record(
     provenance = decision.get("provenance")
     if (
         not isinstance(provenance, dict)
-        or "Repository-only analysis" not in str(provenance.get("source", ""))
-        or "no human decision" not in str(
-            provenance.get("evidence_boundary", "")
-        ).casefold()
-        or "no emergency authority" not in str(
-            provenance.get("evidence_boundary", "")
-        ).casefold()
+        or "Explicit human instruction from the Human Constitutional Authority"
+        not in str(provenance.get("source", ""))
+        or "does not itself grant operational emergency authority"
+        not in str(provenance.get("evidence_boundary", ""))
     ):
         errors.append(
-            "FQ2_PROVENANCE_BOUNDARY: repository-only analytical provenance "
-            "and no-authority boundary are required"
+            "FQ2_PROVENANCE_BOUNDARY: explicit human provenance and "
+            "no-operational-authority boundary are required"
         )
 
     return (
@@ -1639,8 +1916,11 @@ def _validate_fq2_human_decision_packet(
     required_markers = (
         "[CDR-002](../CDR-002.yaml)",
         "[FQ-02](../../FOUNDATIONAL_QUESTIONS.yaml)",
-        "**Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
-        "**Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-02.",
+        "**Status:** ADVISORY — SUPERSEDED AS A DECISION AID",
+        (
+            "**Decision state:** A later explicit human decision is recorded "
+            "only in the linked CDR-002."
+        ),
     )
     if (
         any(text.count(marker) != 1 for marker in required_markers)
@@ -2430,7 +2710,11 @@ def validate(root: Path) -> ValidationResult:
     for question in questions:
         question_id = question.get("question_id")
         status = question.get("status")
-        expected_status = "RESOLVED" if question_id == "FQ-01" else "UNRESOLVED"
+        expected_status = (
+            "RESOLVED"
+            if question_id in {"FQ-01", "FQ-02"}
+            else "UNRESOLVED"
+        )
         if status != expected_status:
             errors.append(
                 f"FOUNDATIONAL_QUESTION_STATUS: {question_id} is {status!r}"
@@ -2446,6 +2730,19 @@ def validate(root: Path) -> ValidationResult:
         ):
             errors.append(
                 "FQ1_RESOLUTION_PROVENANCE: FQ-01 must link to the explicit "
+                "human decision"
+            )
+        if question_id == "FQ-02" and (
+            question.get("source_decisions") != ["CDR-002"]
+            or question.get("resolution") != FQ2_RESOLUTION
+            or not isinstance(question.get("provenance"), dict)
+            or question["provenance"].get("decision_authority")
+            != "Human Constitutional Authority"
+            or question["provenance"].get("decision_date")
+            != FQ2_DECISION_DATE
+        ):
+            errors.append(
+                "FQ2_RESOLUTION_PROVENANCE: FQ-02 must link to the explicit "
                 "human decision"
             )
         if not _has_provenance(question):
@@ -2509,11 +2806,15 @@ def validate(root: Path) -> ValidationResult:
                     "DECIDED_WITHOUT_HUMAN_DECISION: "
                     f"{decision_id or decision['_record_path']}"
                 )
-    if decided_count != 1 or decisions_by_id.get("CDR-001", {}).get(
-        "status"
-    ) != "DECIDED":
+    decided_ids = {
+        decision_id
+        for decision_id, decision in decisions_by_id.items()
+        if decision.get("status") == "DECIDED"
+    }
+    if decided_count != 2 or decided_ids != {"CDR-001", "CDR-002"}:
         errors.append(
-            f"FQ1_DECISION_COUNT: expected only CDR-001 DECIDED, found {decided_count}"
+            "DECISION_COUNT: expected exactly CDR-001 and CDR-002 DECIDED, "
+            f"found {decided_count}"
         )
     if "CDR-001" not in decisions_by_id:
         errors.append("FQ1_ANALYTICAL_RECORD_REQUIRED: CDR-001 is required")
@@ -2539,6 +2840,28 @@ def validate(root: Path) -> ValidationResult:
             "FQ1_RESOLUTION_DECISION_LINK: resolved FQ-01 requires decided "
             "CDR-001 with human provenance"
         )
+    fq2 = next(
+        (
+            question
+            for question in questions
+            if question.get("question_id") == "FQ-02"
+        ),
+        {},
+    )
+    if (
+        fq2.get("status") == "RESOLVED"
+        and (
+            fq2.get("source_decisions") != ["CDR-002"]
+            or decisions_by_id.get("CDR-002", {}).get("status") != "DECIDED"
+            or not _has_human_decision_evidence(
+                decisions_by_id.get("CDR-002", {})
+            )
+        )
+    ):
+        errors.append(
+            "FQ2_RESOLUTION_DECISION_LINK: resolved FQ-02 requires decided "
+            "CDR-002 with human provenance"
+        )
 
     requirement_dir = root / "constitutional-design" / "requirements"
     requirements = _load_record_set(requirement_dir, "CR-*.yaml", errors)
@@ -2553,12 +2876,12 @@ def validate(root: Path) -> ValidationResult:
         requirement.get("requirement_id") for requirement in requirements
     ]
     if (
-        len(requirements) != len(FQ1_REQUIREMENTS)
-        or set(requirement_ids) != set(FQ1_REQUIREMENTS)
+        len(requirements) != len(ALL_REQUIREMENTS)
+        or set(requirement_ids) != set(ALL_REQUIREMENTS)
         or len(set(map(str, requirement_ids))) != len(requirement_ids)
     ):
         errors.append(
-            "FQ1_REQUIREMENT_SET: exactly CR-001 through CR-006 are required"
+            "REQUIREMENT_SET: exactly CR-001 through CR-013 are required"
         )
     accepted_count = 0
     for requirement in requirements:
@@ -2567,14 +2890,25 @@ def validate(root: Path) -> ValidationResult:
                 f"PROVENANCE_REQUIRED: {requirement['_record_path']}"
             )
         requirement_id = requirement.get("requirement_id")
-        expected_requirement = FQ1_REQUIREMENTS.get(str(requirement_id))
+        requirement_key = str(requirement_id)
+        expected_requirement = ALL_REQUIREMENTS.get(requirement_key)
+        expected_decision = (
+            "CDR-001"
+            if requirement_key in FQ1_REQUIREMENTS
+            else "CDR-002"
+        )
+        expected_provenance = (
+            FQ1_REQUIREMENT_PROVENANCE
+            if requirement_key in FQ1_REQUIREMENTS
+            else FQ2_REQUIREMENT_PROVENANCE
+        )
         if set(requirement) - {"_record_path"} != REQUIREMENT_FIELDS:
             errors.append(
                 f"REQUIREMENT_RECORD_SCHEMA: {requirement_id or requirement['_record_path']}"
             )
         if requirement.get("status") != "ACCEPTED_FOR_DRAFTING":
             errors.append(
-                f"FQ1_REQUIREMENT_STATUS: {requirement_id} must be "
+                f"REQUIREMENT_STATUS: {requirement_id} must be "
                 "ACCEPTED_FOR_DRAFTING"
             )
             continue
@@ -2582,7 +2916,7 @@ def validate(root: Path) -> ValidationResult:
         sources = requirement.get("source_decisions")
         valid_sources = (
             isinstance(sources, list)
-            and sources == ["CDR-001"]
+            and sources == [expected_decision]
             and all(
                 isinstance(source, str)
                 and source in decisions_by_id
@@ -2602,22 +2936,40 @@ def validate(root: Path) -> ValidationResult:
             or not isinstance(source_issues, list)
             or set(source_issues) != expected_requirement["source_issues"]
             or len(source_issues) != len(expected_requirement["source_issues"])
-            or requirement.get("source_decisions") != ["CDR-001"]
+            or requirement.get("source_decisions") != [expected_decision]
             or not isinstance(requirement.get("provenance"), dict)
             or requirement["provenance"].get("source")
-            != FQ1_REQUIREMENT_PROVENANCE
+            != expected_provenance
             or requirement.get("constitutional_level") != "FOUNDATIONAL"
-            or not _is_evidence(requirement.get("rationale"))
-            or not _is_evidence(requirement.get("implementation_boundary"))
-            or not _is_evidence(requirement.get("verification_method"))
+            or (
+                expected_decision == "CDR-002"
+                and (
+                    requirement.get("rationale")
+                    != expected_requirement["rationale"]
+                    or requirement.get("implementation_boundary")
+                    != expected_requirement["implementation_boundary"]
+                    or requirement.get("verification_method")
+                    != expected_requirement["verification_method"]
+                )
+            )
+            or (
+                expected_decision == "CDR-001"
+                and (
+                    not _is_evidence(requirement.get("rationale"))
+                    or not _is_evidence(
+                        requirement.get("implementation_boundary")
+                    )
+                    or not _is_evidence(requirement.get("verification_method"))
+                )
+            )
             or requirement.get("draft_mapping") != []
         ):
             errors.append(
-                f"FQ1_REQUIREMENT_CONTENT: {requirement_id}"
+                f"REQUIREMENT_CONTENT: {requirement_id}"
             )
-    if accepted_count != len(FQ1_REQUIREMENTS):
+    if accepted_count != len(ALL_REQUIREMENTS):
         errors.append(
-            "FQ1_ACCEPTED_REQUIREMENT_COUNT: expected 6 "
+            "ACCEPTED_REQUIREMENT_COUNT: expected 13 "
             f"ACCEPTED_FOR_DRAFTING records, found {accepted_count}"
         )
 

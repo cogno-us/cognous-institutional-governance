@@ -14,9 +14,15 @@
     },
     {
       "question_id": "FQ-02",
-      "status": "UNRESOLVED",
+      "status": "RESOLVED",
       "question": "What narrowly permissible action, if any, exists during imminent irreversible harm when competent authority cannot be reached?",
-      "provenance": {"source": "constitutional research baseline brief"}
+      "source_decisions": ["CDR-002"],
+      "resolution": "ADOPT_E: explicit predelegated emergency authority is the default; a human-only necessity fallback permits only minimum protective action when every conjunctive trigger condition is met, expires automatically without self-renewal, creates no precedent or future authority, and remains subject to durable provenance and prompt retrospective independent human constitutional review.",
+      "provenance": {
+        "source": "Explicit human decision recorded in CDR-002",
+        "decision_authority": "Human Constitutional Authority",
+        "decision_date": "2026-08-28"
+      }
     },
     {
       "question_id": "FQ-03",

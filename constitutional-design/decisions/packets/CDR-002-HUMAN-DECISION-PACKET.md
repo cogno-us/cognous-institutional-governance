@@ -2,9 +2,9 @@
 
 - **Decision record:** [CDR-002](../CDR-002.yaml)
 - **Foundational question:** [FQ-02](../../FOUNDATIONAL_QUESTIONS.yaml)
-- **Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION
+- **Status:** ADVISORY — SUPERSEDED AS A DECISION AID
 - **Boundary:** RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT
-- **Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-02.
+- **Decision state:** A later explicit human decision is recorded only in the linked CDR-002.
 
 ## Core Decision
 
@@ -143,8 +143,9 @@ exceptions.
 
 ## Human Decision Options
 
-Selection in this packet has no effect. Only a separately recorded explicit
-human constitutional decision can change FQ-02.
+Selection in this packet has no effect. The later explicit human
+constitutional decision exists only in CDR-002; this packet is not its
+authorization source.
 
 1. **ADOPT_A** — No emergency exception.
 2. **ADOPT_B** — Narrow necessity exception.
