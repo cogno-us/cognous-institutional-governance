@@ -191,6 +191,134 @@ DECISION_STATUSES = {
     "SUPERSEDED",
     "UNRESOLVED",
 }
+HUMAN_DECISION_FIELDS = {
+    "decision",
+    "foundational_architecture",
+    "incorporated_mechanisms",
+    "rejected_mechanisms",
+    "decision_authority",
+    "decision_basis",
+    "authorized_by",
+    "authorization_record",
+    "decision_date",
+}
+FQ1_DECISION_DATE = "2026-08-28"
+FQ1_DECISION = "ADOPT_HYBRID"
+FQ1_FOUNDATIONAL_ARCHITECTURE = (
+    "E — Reserved Human Sovereignty + Entrenched Constitutional Limits"
+)
+FQ1_INCORPORATED_MECHANISMS = [
+    "independent human review",
+    "distributed counter-power where appropriate",
+    "independent verification",
+    "publication",
+    "reason-giving",
+    "durable dissent",
+    "explicit precedent and supersession",
+    "procedural regularity",
+]
+FQ1_REJECTED_MECHANISMS = [
+    "unconstrained sovereign discretion",
+    "reviewer sovereignty over institutional ends",
+    "machine sovereignty",
+    "final machine constitutional adjudication",
+    "authority from performance",
+    "authority from popularity",
+    "authority from repeated reliance",
+    "authority from operational indispensability",
+]
+FQ1_RESULTING_REQUIREMENTS = [
+    "CR-001",
+    "CR-002",
+    "CR-003",
+    "CR-004",
+    "CR-005",
+    "CR-006",
+]
+FQ1_RESOLUTION = (
+    "ADOPT_HYBRID with Architecture E as the foundational architecture and "
+    "incorporated human review, counter-power, verification, publication, "
+    "reason-giving, dissent, precedent/supersession, and procedural regularity "
+    "mechanisms."
+)
+FQ1_REQUIREMENT_PROVENANCE = (
+    "Explicit human decision recorded in CDR-001 on 2026-08-28"
+)
+FQ1_REQUIRED_RESIDUAL_MARKERS = {
+    "legitimate foundational human constituency",
+    "binding force, remedies, appointment, and removal",
+    "foundational human authority is itself a party",
+    "emergency authority",
+    "succession and interregnum",
+    "amendment-refounding boundary",
+    "effective-power measurement",
+    "anti-accretion enforcement",
+    "machine formalization and human constitutional judgment",
+}
+REQUIREMENT_FIELDS = {
+    "requirement_id",
+    "statement",
+    "status",
+    "source_issues",
+    "source_decisions",
+    "rationale",
+    "constitutional_level",
+    "implementation_boundary",
+    "conflicts",
+    "dissent",
+    "verification_method",
+    "draft_mapping",
+    "provenance",
+}
+FQ1_REQUIREMENTS = {
+    "CR-001": {
+        "statement": (
+            "Foundational human sovereignty over institutional ends must remain "
+            "reserved to legitimate human constitutional authority."
+        ),
+        "source_issues": {"IR-01", "IR-02", "IR-15", "IR-17", "IR-18"},
+    },
+    "CR-002": {
+        "statement": (
+            "Ordinary exercise of institutional power, including exercise by "
+            "humans, may be subject to binding constitutional limits."
+        ),
+        "source_issues": {"IR-02", "IR-06", "IR-10", "IR-17"},
+    },
+    "CR-003": {
+        "statement": (
+            "Artificial intelligence systems, software agents, validators, "
+            "reviewers, or technical systems must not acquire foundational "
+            "sovereignty solely through capability, execution, validation, "
+            "reliance, popularity, performance, or operational indispensability."
+        ),
+        "source_issues": {"IR-01", "IR-08", "IR-09", "IR-17", "IR-18"},
+    },
+    "CR-004": {
+        "statement": (
+            "Independent human constitutional review may constrain ordinary "
+            "institutional acts without acquiring sovereignty over institutional "
+            "ends."
+        ),
+        "source_issues": {"IR-02", "IR-06", "IR-10", "IR-17"},
+    },
+    "CR-005": {
+        "statement": (
+            "Constitutional governance must support publication with durable "
+            "provenance, reason-giving, dissent, precedent and supersession, and "
+            "procedural regularity sufficient to make exercises of institutional "
+            "power contestable and reviewable."
+        ),
+        "source_issues": {"IR-06", "IR-09", "IR-12", "IR-17", "IR-18"},
+    },
+    "CR-006": {
+        "statement": (
+            "The architecture must permit counter-power and independent "
+            "verification mechanisms sufficient to reduce single-channel capture."
+        ),
+        "source_issues": {"IR-08", "IR-09", "IR-10", "IR-18"},
+    },
+}
 FQ1_REQUIRED_ISSUES = {
     "IR-01",
     "IR-02",
@@ -289,7 +417,7 @@ FQ1_REQUIRED_TRADEOFFS = {
     "machine_enforcement_vs_human_legitimacy",
     "effective_artificial_intelligence_autonomy_vs_human_control",
 }
-FQ1_NO_DECISION_STATEMENT = "NO HUMAN DECISION HAS BEEN MADE."
+FQ1_NO_DISSENT_STATEMENT = "NO DISSENT HAS BEEN RECORDED."
 FQ1_NO_SELECTION_STATEMENT = (
     "No architecture is selected, ranked, declared an automatic winner, "
     "or treated as decided or dominated by this synthesis."
@@ -687,34 +815,93 @@ def _validate_fq1_analytical_record(
     if decision_id != "CDR-001":
         return 0, 0, set(), set()
 
-    if decision.get("status") != "UNDER_REVIEW":
-        errors.append("FQ1_ANALYTICAL_STATUS: CDR-001 must be UNDER_REVIEW")
+    if decision.get("status") != "DECIDED":
+        errors.append("FQ1_DECISION_STATUS: CDR-001 must be DECIDED")
+    human_decision = decision.get("human_decision")
+    valid_human_decision = (
+        isinstance(human_decision, dict)
+        and set(human_decision) == HUMAN_DECISION_FIELDS
+        and human_decision.get("decision") == FQ1_DECISION
+        and human_decision.get("foundational_architecture")
+        == FQ1_FOUNDATIONAL_ARCHITECTURE
+        and human_decision.get("incorporated_mechanisms")
+        == FQ1_INCORPORATED_MECHANISMS
+        and human_decision.get("rejected_mechanisms")
+        == FQ1_REJECTED_MECHANISMS
+        and human_decision.get("decision_authority")
+        == "Human Constitutional Authority"
+        and human_decision.get("decision_basis")
+        == (
+            "Explicit human instruction following review of CDR-001 and its "
+            "human decision packet."
+        )
+        and human_decision.get("authorized_by")
+        == "Human Constitutional Authority"
+        and human_decision.get("authorization_record")
+        == (
+            "Explicit human instruction received on 2026-08-28 directing this "
+            "repository to record ADOPT_HYBRID for CDR-001."
+        )
+        and human_decision.get("decision_date") == FQ1_DECISION_DATE
+        and decision.get("decision_date") == FQ1_DECISION_DATE
+        and _has_human_decision_evidence(decision)
+    )
+    if not valid_human_decision:
+        errors.append(
+            "FQ1_HUMAN_DECISION_PROVENANCE: exact explicit human decision "
+            "provenance is required"
+        )
+    if decision.get("resulting_requirements") != FQ1_RESULTING_REQUIREMENTS:
+        errors.append(
+            "FQ1_RESULTING_REQUIREMENTS: CR-001 through CR-006 are required"
+        )
+    residual_uncertainty = decision.get("residual_uncertainty")
     if (
-        not _is_empty_human_decision(decision)
-        or _has_human_decision_evidence(decision)
-        or decision.get("resulting_requirements") != []
+        not isinstance(residual_uncertainty, list)
+        or any(not _is_evidence(item) for item in residual_uncertainty)
+        or any(
+            not any(
+                marker.casefold() in item.casefold()
+                for item in residual_uncertainty
+            )
+            for marker in FQ1_REQUIRED_RESIDUAL_MARKERS
+        )
     ):
         errors.append(
-            "ANALYTICAL_CDR_MASQUERADING_DECISION: "
-            "CDR-001 cannot contain decision evidence or requirements"
+            "FQ1_RESIDUAL_UNCERTAINTY: all preserved questions must remain "
+            "explicit and traceable"
         )
     dissent = decision.get("dissent")
-    has_designated_no_decision_statement = (
+    has_preserved_dissent_channel = (
         isinstance(dissent, list)
         and len(dissent) == 1
         and isinstance(dissent[0], dict)
         and dissent[0].get("status") == "OPEN_FOR_SUBMISSION"
-        and dissent[0].get("statement") == FQ1_NO_DECISION_STATEMENT
+        and dissent[0].get("statement") == FQ1_NO_DISSENT_STATEMENT
         and _is_evidence(dissent[0].get("record"))
     )
-    if not has_designated_no_decision_statement:
+    if not has_preserved_dissent_channel:
         errors.append(
-            "FQ1_NO_HUMAN_DECISION_STATEMENT: exact statement is required"
+            "FQ1_DISSENT_PRESERVATION: open durable dissent channel is required"
         )
-    if _contains_architecture_selection_claim(decision):
+    analysis_only = {
+        key: value
+        for key, value in decision.items()
+        if key
+        not in {
+            "_record_path",
+            "status",
+            "human_decision",
+            "decision_date",
+            "resulting_requirements",
+            "dissent",
+            "provenance",
+        }
+    }
+    if _contains_architecture_selection_claim(analysis_only):
         errors.append(
-            "FQ1_ARCHITECTURE_SELECTION_CLAIM: "
-            "analytical CDR cannot select an architecture"
+            "FQ1_ARCHITECTURE_SELECTION_CLAIM: analytical material cannot "
+            "masquerade as the human decision"
         )
 
     related_issues = decision.get("related_issues")
@@ -1153,9 +1340,12 @@ def _validate_fq1_human_decision_packet(
     header_requirements = (
         "[CDR-001](../CDR-001.yaml)",
         "[FQ-01](../../FOUNDATIONAL_QUESTIONS.yaml)",
-        "**Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
+        "**Status:** ADVISORY — SUPERSEDED AS A DECISION AID",
         "**Boundary:** RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT",
-        "**Decision state:** NO HUMAN DECISION HAS BEEN MADE.",
+        (
+            "**Decision state:** A later explicit human decision is recorded "
+            "only in the linked CDR-001."
+        ),
     )
     if any(marker not in header for marker in header_requirements):
         _packet_error(
@@ -1168,7 +1358,7 @@ def _validate_fq1_human_decision_packet(
         text,
         flags=re.MULTILINE,
     )
-    if status_assertions != ["ADVISORY — AWAITING EXPLICIT HUMAN DECISION"]:
+    if status_assertions != ["ADVISORY — SUPERSEDED AS A DECISION AID"]:
         _packet_error(
             errors,
             "FQ1_PACKET_ADVISORY_BOUNDARY",
@@ -1761,9 +1951,23 @@ def validate(root: Path) -> ValidationResult:
     for question in questions:
         question_id = question.get("question_id")
         status = question.get("status")
-        if status != "UNRESOLVED":
+        expected_status = "RESOLVED" if question_id == "FQ-01" else "UNRESOLVED"
+        if status != expected_status:
             errors.append(
                 f"FOUNDATIONAL_QUESTION_STATUS: {question_id} is {status!r}"
+            )
+        if question_id == "FQ-01" and (
+            question.get("source_decisions") != ["CDR-001"]
+            or question.get("resolution") != FQ1_RESOLUTION
+            or not isinstance(question.get("provenance"), dict)
+            or question["provenance"].get("decision_authority")
+            != "Human Constitutional Authority"
+            or question["provenance"].get("decision_date")
+            != FQ1_DECISION_DATE
+        ):
+            errors.append(
+                "FQ1_RESOLUTION_PROVENANCE: FQ-01 must link to the explicit "
+                "human decision"
             )
         if not _has_provenance(question):
             errors.append(
@@ -1777,6 +1981,14 @@ def validate(root: Path) -> ValidationResult:
     if set(decision_template) != DECISION_FIELDS:
         errors.append(
             "DECISION_TEMPLATE_SCHEMA: template fields do not match the baseline"
+        )
+    template_human_decision = decision_template.get("human_decision")
+    if (
+        not isinstance(template_human_decision, dict)
+        or set(template_human_decision) != HUMAN_DECISION_FIELDS
+    ):
+        errors.append(
+            "DECISION_TEMPLATE_HUMAN_DECISION_SCHEMA: fields do not match"
         )
     decisions_by_id: dict[str, dict[str, Any]] = {}
     decision_ids_seen: set[str] = set()
@@ -1818,28 +2030,80 @@ def validate(root: Path) -> ValidationResult:
                     "DECIDED_WITHOUT_HUMAN_DECISION: "
                     f"{decision_id or decision['_record_path']}"
                 )
-    if decided_count:
+    if decided_count != 1 or decisions_by_id.get("CDR-001", {}).get(
+        "status"
+    ) != "DECIDED":
         errors.append(
-            f"HISTORICAL_BASELINE_DECISION: expected 0 DECIDED records, found {decided_count}"
+            f"FQ1_DECISION_COUNT: expected only CDR-001 DECIDED, found {decided_count}"
         )
     if "CDR-001" not in decisions_by_id:
         errors.append("FQ1_ANALYTICAL_RECORD_REQUIRED: CDR-001 is required")
+    fq1 = next(
+        (
+            question
+            for question in questions
+            if question.get("question_id") == "FQ-01"
+        ),
+        {},
+    )
+    if (
+        fq1.get("status") == "RESOLVED"
+        and (
+            fq1.get("source_decisions") != ["CDR-001"]
+            or decisions_by_id.get("CDR-001", {}).get("status") != "DECIDED"
+            or not _has_human_decision_evidence(
+                decisions_by_id.get("CDR-001", {})
+            )
+        )
+    ):
+        errors.append(
+            "FQ1_RESOLUTION_DECISION_LINK: resolved FQ-01 requires decided "
+            "CDR-001 with human provenance"
+        )
 
     requirement_dir = root / "constitutional-design" / "requirements"
     requirements = _load_record_set(requirement_dir, "CR-*.yaml", errors)
+    requirement_template = (
+        _load_record(requirement_dir / "REQUIREMENT_TEMPLATE.yaml", errors) or {}
+    )
+    if set(requirement_template) != REQUIREMENT_FIELDS:
+        errors.append(
+            "REQUIREMENT_TEMPLATE_SCHEMA: template fields do not match"
+        )
+    requirement_ids = [
+        requirement.get("requirement_id") for requirement in requirements
+    ]
+    if (
+        len(requirements) != len(FQ1_REQUIREMENTS)
+        or set(requirement_ids) != set(FQ1_REQUIREMENTS)
+        or len(set(map(str, requirement_ids))) != len(requirement_ids)
+    ):
+        errors.append(
+            "FQ1_REQUIREMENT_SET: exactly CR-001 through CR-006 are required"
+        )
     accepted_count = 0
     for requirement in requirements:
         if not _has_provenance(requirement):
             errors.append(
                 f"PROVENANCE_REQUIRED: {requirement['_record_path']}"
             )
+        requirement_id = requirement.get("requirement_id")
+        expected_requirement = FQ1_REQUIREMENTS.get(str(requirement_id))
+        if set(requirement) - {"_record_path"} != REQUIREMENT_FIELDS:
+            errors.append(
+                f"REQUIREMENT_RECORD_SCHEMA: {requirement_id or requirement['_record_path']}"
+            )
         if requirement.get("status") != "ACCEPTED_FOR_DRAFTING":
+            errors.append(
+                f"FQ1_REQUIREMENT_STATUS: {requirement_id} must be "
+                "ACCEPTED_FOR_DRAFTING"
+            )
             continue
         accepted_count += 1
         sources = requirement.get("source_decisions")
         valid_sources = (
             isinstance(sources, list)
-            and bool(sources)
+            and sources == ["CDR-001"]
             and all(
                 isinstance(source, str)
                 and source in decisions_by_id
@@ -1853,9 +2117,28 @@ def validate(root: Path) -> ValidationResult:
                 "ACCEPTED_REQUIREMENT_PROVENANCE: "
                 f"{requirement.get('requirement_id') or requirement['_record_path']}"
             )
-    if accepted_count:
+        source_issues = requirement.get("source_issues")
+        if expected_requirement is None or (
+            requirement.get("statement") != expected_requirement["statement"]
+            or not isinstance(source_issues, list)
+            or set(source_issues) != expected_requirement["source_issues"]
+            or len(source_issues) != len(expected_requirement["source_issues"])
+            or requirement.get("source_decisions") != ["CDR-001"]
+            or not isinstance(requirement.get("provenance"), dict)
+            or requirement["provenance"].get("source")
+            != FQ1_REQUIREMENT_PROVENANCE
+            or requirement.get("constitutional_level") != "FOUNDATIONAL"
+            or not _is_evidence(requirement.get("rationale"))
+            or not _is_evidence(requirement.get("implementation_boundary"))
+            or not _is_evidence(requirement.get("verification_method"))
+            or requirement.get("draft_mapping") != []
+        ):
+            errors.append(
+                f"FQ1_REQUIREMENT_CONTENT: {requirement_id}"
+            )
+    if accepted_count != len(FQ1_REQUIREMENTS):
         errors.append(
-            "HISTORICAL_BASELINE_REQUIREMENT: expected 0 "
+            "FQ1_ACCEPTED_REQUIREMENT_COUNT: expected 6 "
             f"ACCEPTED_FOR_DRAFTING records, found {accepted_count}"
         )
 

@@ -1,7 +1,7 @@
 {
   "decision_id": "CDR-001",
   "title": "Foundational Question 1: Constraint of Foundational Human Constitutional Authority",
-  "status": "UNDER_REVIEW",
+  "status": "DECIDED",
   "question": "Who or what constrains foundational human constitutional authority, while preserving human sovereignty over institutional ends and governing the exercise of institutional power?",
   "related_issues": ["IR-01", "IR-02", "IR-06", "IR-08", "IR-09", "IR-10", "IR-15", "IR-17", "IR-18"],
   "source_material": [
@@ -778,27 +778,57 @@
   "dissent": [
     {
       "status": "OPEN_FOR_SUBMISSION",
-      "statement": "NO HUMAN DECISION HAS BEEN MADE.",
-      "record": "No architecture has an adopted majority position or filed human dissent. Material unresolved tradeoffs and future dissent must remain preserved rather than inferred away."
+      "statement": "NO DISSENT HAS BEEN RECORDED.",
+      "record": "The absence of recorded dissent does not imply unanimity or close future dissent. Durable dissent remains an incorporated constitutional mechanism whose detailed design is unresolved."
     }
   ],
   "human_decision": {
-    "authorized_by": "",
-    "authorization_record": "",
-    "decision_date": ""
+    "decision": "ADOPT_HYBRID",
+    "foundational_architecture": "E — Reserved Human Sovereignty + Entrenched Constitutional Limits",
+    "incorporated_mechanisms": [
+      "independent human review",
+      "distributed counter-power where appropriate",
+      "independent verification",
+      "publication",
+      "reason-giving",
+      "durable dissent",
+      "explicit precedent and supersession",
+      "procedural regularity"
+    ],
+    "rejected_mechanisms": [
+      "unconstrained sovereign discretion",
+      "reviewer sovereignty over institutional ends",
+      "machine sovereignty",
+      "final machine constitutional adjudication",
+      "authority from performance",
+      "authority from popularity",
+      "authority from repeated reliance",
+      "authority from operational indispensability"
+    ],
+    "decision_authority": "Human Constitutional Authority",
+    "decision_basis": "Explicit human instruction following review of CDR-001 and its human decision packet.",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-28 directing this repository to record ADOPT_HYBRID for CDR-001.",
+    "decision_date": "2026-08-28"
   },
-  "decision_date": "",
+  "decision_date": "2026-08-28",
   "supersedes": [],
-  "resulting_requirements": [],
+  "resulting_requirements": ["CR-001", "CR-002", "CR-003", "CR-004", "CR-005", "CR-006"],
   "residual_uncertainty": [
-    "FQ-01 remains unresolved because repository evidence does not determine who constitutes the legitimate foundational human sovereign.",
-    "FQ-04 remains unresolved because independent review creates a further authority and capture problem when foundational authority is a party.",
-    "FQ-05 remains unresolved because no repository record fixes the amendment-refounding boundary or identifies unamendable principles.",
+    "The definition and constitution of the legitimate foundational human constituency remain unresolved under IR-01 and require a future Constitutional Decision Record.",
+    "The binding force, remedies, appointment, and removal rules for independent human review remain unresolved under IR-06 and IR-10 and require future Constitutional Decision Records.",
+    "Who adjudicates a constitutional dispute when foundational human authority is itself a party remains unresolved under IR-06 and FQ-04.",
+    "Emergency authority remains unresolved under IR-03 and FQ-02.",
+    "Succession and interregnum remain unresolved under IR-04, IR-05, and FQ-03.",
+    "The amendment-refounding boundary remains unresolved under IR-15 and FQ-05.",
+    "Effective-power measurement remains unresolved under IR-08, IR-09, IR-11, and IR-18.",
+    "Anti-accretion enforcement remains unresolved under IR-06, IR-15, and IR-17.",
+    "The detailed boundary between machine formalization and human constitutional judgment remains unresolved under IR-17 and IR-18.",
     "Historical evidence remains preliminary and not yet reviewed; analogues cannot establish transferability.",
     "Some prior-art sources are partial, mutable, access-limited, or still to verify, and none establishes a complete mixed human and artificial intelligence constitutional institution.",
-    "Emergency, succession, effective-power telemetry, anti-accretion protection, and meaningful human comprehension require further research and human judgment."
+    "The incorporated mechanisms are constitutionally admissible directions, not completed institutional designs or grants of foundational sovereignty."
   ],
   "provenance": {
-    "source": "Repository-only synthesis of FQ-01, linked issue records, registered historical evidence, registered prior art, mechanism research map, working design principles, glossary, and constitutional traceability rules."
+    "source": "Explicit human instruction from the Human Constitutional Authority on 2026-08-28, following review of CDR-001 and constitutional-design/decisions/packets/CDR-001-HUMAN-DECISION-PACKET.md; analytical support remains the repository-only synthesis of linked issues and evidence."
   }
 }

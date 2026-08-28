@@ -20,6 +20,12 @@
   "reviews": [],
   "dissent": [],
   "human_decision": {
+    "decision": "",
+    "foundational_architecture": "",
+    "incorporated_mechanisms": [],
+    "rejected_mechanisms": [],
+    "decision_authority": "",
+    "decision_basis": "",
     "authorized_by": "",
     "authorization_record": "",
     "decision_date": ""

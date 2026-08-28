@@ -1,0 +1,17 @@
+{
+  "requirement_id": "CR-004",
+  "statement": "Independent human constitutional review may constrain ordinary institutional acts without acquiring sovereignty over institutional ends.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-02", "IR-06", "IR-10", "IR-17"],
+  "source_decisions": ["CDR-001"],
+  "rationale": "CDR-001 incorporates independent human review while rejecting reviewer sovereignty over institutional ends.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not decide reviewer powers, binding force, remedies, appointment, removal, appeal, capture controls, or emergency operation.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve both the admissibility of independent human review and its non-sovereign boundary.",
+  "draft_mapping": [],
+  "provenance": {
+    "source": "Explicit human decision recorded in CDR-001 on 2026-08-28"
+  }
+}

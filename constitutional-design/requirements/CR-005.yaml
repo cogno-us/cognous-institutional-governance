@@ -1,0 +1,17 @@
+{
+  "requirement_id": "CR-005",
+  "statement": "Constitutional governance must support publication with durable provenance, reason-giving, dissent, precedent and supersession, and procedural regularity sufficient to make exercises of institutional power contestable and reviewable.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-06", "IR-09", "IR-12", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-001"],
+  "rationale": "CDR-001 incorporates publication, reason-giving, durable dissent, explicit precedent and supersession, and procedural regularity as constitutional mechanisms.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not prescribe publication infrastructure, record formats, review procedures, remedies, or final constitutional prose.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must make each listed mechanism explicit and preserve contestability without treating procedure alone as legitimacy.",
+  "draft_mapping": [],
+  "provenance": {
+    "source": "Explicit human decision recorded in CDR-001 on 2026-08-28"
+  }
+}

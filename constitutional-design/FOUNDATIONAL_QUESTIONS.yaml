@@ -2,9 +2,15 @@
   "questions": [
     {
       "question_id": "FQ-01",
-      "status": "UNRESOLVED",
+      "status": "RESOLVED",
       "question": "Who or what constrains foundational human constitutional authority?",
-      "provenance": {"source": "constitutional research baseline brief"}
+      "source_decisions": ["CDR-001"],
+      "resolution": "ADOPT_HYBRID with Architecture E as the foundational architecture and incorporated human review, counter-power, verification, publication, reason-giving, dissent, precedent/supersession, and procedural regularity mechanisms.",
+      "provenance": {
+        "source": "Explicit human decision recorded in CDR-001",
+        "decision_authority": "Human Constitutional Authority",
+        "decision_date": "2026-08-28"
+      }
     },
     {
       "question_id": "FQ-02",
