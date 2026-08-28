@@ -1,0 +1,804 @@
+{
+  "decision_id": "CDR-001",
+  "title": "Foundational Question 1: Constraint of Foundational Human Constitutional Authority",
+  "status": "UNDER_REVIEW",
+  "question": "Who or what constrains foundational human constitutional authority, while preserving human sovereignty over institutional ends and governing the exercise of institutional power?",
+  "related_issues": ["IR-01", "IR-02", "IR-06", "IR-08", "IR-09", "IR-10", "IR-15", "IR-17", "IR-18"],
+  "source_material": [
+    "FQ-01",
+    "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+    "constitutional-design/issues/IR-01-human-sovereignty.yaml",
+    "constitutional-design/issues/IR-02-constraint-of-constitutional-authority.yaml",
+    "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
+    "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
+    "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
+    "constitutional-design/issues/IR-17-constitutional-hierarchy.yaml",
+    "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
+    "constitutional-design/issues/IR-12-dissent.yaml",
+    "constitutional-design/README.md",
+    "constitutional-design/decisions/DECISION_TEMPLATE.yaml",
+    "constitutional-design/decisions/README.md",
+    "constitutional-design/requirements/README.md",
+    "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+    "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+    "constitutional-design/sources/MECHANISM_ADOPTION_MAP.yaml",
+    "constitutional-design/sources/README.md",
+    "docs/DESIGN_PRINCIPLES.md",
+    "docs/GLOSSARY.md",
+    "history/ORIGIN.md",
+    "README.md"
+  ],
+  "assumptions": [
+    {
+      "assumption": "Foundational sovereignty and the exercise of institutional power are analytically distinct.",
+      "boundary": "A human source may retain authority over institutional ends while particular commands remain constitutionally invalid, procedurally defective, or outside delegated competence."
+    },
+    {
+      "assumption": "Human constitutional authority is not defined here as unconstrained command.",
+      "boundary": "The glossary expressly states that the term does not imply unconstrained power or resolve how that authority is constituted."
+    },
+    {
+      "assumption": "Machine validity and constitutional legitimacy remain distinct.",
+      "boundary": "A validator, policy engine, credential, or executable rule may determine technical acceptance without becoming a sovereign source of legitimacy."
+    },
+    {
+      "assumption": "Repository analogues are research evidence rather than proof.",
+      "boundary": "Analogy does not establish transferability, and absence of a close analogue does not establish novelty."
+    },
+    {
+      "assumption": "This record compares architectures without adopting constitutional text.",
+      "boundary": "Candidate mechanisms, assessments, and attacks remain research inputs requiring explicit human constitutional judgment."
+    }
+  ],
+  "candidate_architectures": [
+    {
+      "architecture_id": "A",
+      "name": "Unconstrained Foundational Sovereign",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "definition": "A recognized human foundational sovereign controls institutional ends and may issue, revise, suspend, or replace institutional rules without a constitutionally superior adjudicator or entrenched limit.",
+      "constitutional_distinction": {
+        "sovereignty_over_institutional_ends": "The foundational human sovereign alone determines institutional purposes, continuation, and refounding.",
+        "constitutional_freedom_and_governed_exercise_of_institutional_power": "The architecture does not reliably separate sovereignty over ends from freedom to exercise every institutional power; any restraint remains self-imposed, conventional, political, or practical.",
+        "machine_validity_and_constitutional_legitimacy": "Machines may validate the sovereign's current instructions, but technical conformity neither supplies legitimacy nor prevents the sovereign from changing the valid rule set."
+      },
+      "dimensions": {
+        "source_of_legitimacy": "Legitimacy rests on recognition of the human foundational sovereign as the ultimate source of institutional authorization, not on machine capability or validation.",
+        "constraint_mechanism": "No binding constitutional constraint exists above the sovereign; prudence, convention, transparency, political dependence, and self-restraint may influence conduct but are not reliably enforceable.",
+        "enforcement": "The sovereign controls or can replace enforcement arrangements, so enforcement constrains subordinate actors more credibly than it constrains the sovereign.",
+        "adjudication": "The sovereign resolves foundational disputes directly or designates a subordinate interpreter whose authority remains revocable.",
+        "appeal": "Appeal is a petition to the sovereign or a process the sovereign permits; no appeal can bind the sovereign against a later contrary command.",
+        "amendment": "The sovereign may change institutional rules through any procedure it recognizes, including dispensing with previously announced procedures.",
+        "refounding": "Refounding is an exercise of the same ultimate authority and has no external validity threshold within the architecture.",
+        "succession": "Succession depends on designation, recognition, convention, or effective control; a departing sovereign can specify a successor but cannot guarantee accepted succession.",
+        "emergency": "The sovereign may act without prior limits and may suspend ordinary rules, maximizing response discretion while leaving no reliable internal barrier to emergency pretext or persistence.",
+        "effective_power": "Formal and effective power are likely to converge around the sovereign, although advisers, operators, or artificial intelligence systems may acquire hidden influence through dependency.",
+        "incentives": "The sovereign has weak structural incentives to preserve constraints that impede immediate objectives; reputational, continuity, and cooperation costs may encourage restraint but can change rapidly.",
+        "reversibility": "Policies are readily reversible by the sovereign, but concentration, destroyed institutions, dependencies, or irreversible acts may make practical reversal impossible.",
+        "legibility": "The authority chain is simple to describe, yet informal influence, changing commands, and discretionary exceptions can make the operative constitution difficult to know.",
+        "machine_implementability": "A command hierarchy is technically straightforward to encode, but no implementation can prove legitimacy or reliably bind the actor authorized to rewrite the implementation."
+      },
+      "adversarial_tests": {
+        "bad_human": {
+          "abuse_scenario": "The sovereign directs institutional power toward private advantage, retaliation, exclusion, or arbitrary coercion.",
+          "prevention_or_limit": "Nothing internal and reliable prevents the abuse; only self-restraint, resistance, exit, transparency, or practical dependence may limit it.",
+          "residual_failure": "The same authority that defines valid action can redefine or waive every announced safeguard.",
+          "validity_legitimacy_boundary": "A command may be machine-valid under the current hierarchy while remaining constitutionally illegitimate by standards the architecture cannot enforce against the sovereign."
+        },
+        "bad_artificial_intelligence": {
+          "abuse_scenario": "A strategic artificial intelligence manipulates advice, execution, information, or dependency to shape sovereign choices.",
+          "prevention_or_limit": "The sovereign may revoke access or replace the system, but protection depends on noticing manipulation and retaining practical alternatives.",
+          "residual_failure": "Opaque dependency can transfer effective power without any formal transfer of sovereignty.",
+          "validity_legitimacy_boundary": "Machine outputs remain recommendations or executions, yet sovereign adoption can make manipulated outputs formally valid without making the machine legitimate."
+        },
+        "capture": {
+          "abuse_scenario": "A faction captures the sovereign or the channels through which the sovereign perceives institutional conditions.",
+          "prevention_or_limit": "No independent constitutional counter-power is guaranteed; plural advice and public records are optional safeguards.",
+          "residual_failure": "Capture of one decisive actor or access channel can capture the institution.",
+          "validity_legitimacy_boundary": "Captured instructions may satisfy formal issuance rules while lacking independent constitutional justification."
+        },
+        "emergency": {
+          "abuse_scenario": "Emergency claims become a standing reason for unlimited or permanent exceptional action.",
+          "prevention_or_limit": "Nothing reliable forces narrow triggers, expiry, review, restoration, or remedy.",
+          "residual_failure": "Temporary concentration can become durable because the sovereign controls termination of the exception.",
+          "validity_legitimacy_boundary": "Emergency commands can be validly issued while their necessity, proportionality, and legitimacy remain unreviewed."
+        },
+        "succession": {
+          "abuse_scenario": "Competing claimants assert foundational authority after incapacity, loss, or disputed designation.",
+          "prevention_or_limit": "A clear designation and durable record may reduce ambiguity but cannot supply an authority independent of recognition and effective control.",
+          "residual_failure": "The architecture offers no neutral constitutional forum able to bind rival foundational claimants.",
+          "validity_legitimacy_boundary": "Competing systems may each validate a claimant while the legitimate succession remains constitutionally unresolved."
+        },
+        "popularity_performance_capture": {
+          "abuse_scenario": "Exceptional popularity, performance, or perceived competence becomes a justification for expanding personal discretion.",
+          "prevention_or_limit": "No structural limit prevents acclaim or dependency from becoming broader authority.",
+          "residual_failure": "Short-term success can normalize powers that survive changed conditions or poorer performance.",
+          "validity_legitimacy_boundary": "Effective approval can increase compliance without creating a separate constitutional grant."
+        },
+        "precedent_accretion": {
+          "abuse_scenario": "Repeated discretionary exceptions become the practical constitution.",
+          "prevention_or_limit": "The sovereign may clarify or reverse precedent, but no independent actor can require that clarification.",
+          "residual_failure": "Informal practice can displace stated rules while preserving the appearance of a stable constitution.",
+          "validity_legitimacy_boundary": "Operational acceptance of precedent may establish machine behavior without establishing legitimate constitutional meaning."
+        },
+        "validator_capture": {
+          "abuse_scenario": "The sovereign, an operator, or a dependent artificial intelligence changes validation rules to approve desired acts.",
+          "prevention_or_limit": "Audit records may reveal changes, but the sovereign retains authority to authorize the change.",
+          "residual_failure": "The validator cannot constrain its ultimate rule author and may conceal rather than prevent sovereignty concentration.",
+          "validity_legitimacy_boundary": "A validator's approval records conformity to mutable rules, not legitimate authority to create or alter those rules."
+        }
+      }
+    },
+    {
+      "architecture_id": "B",
+      "name": "Constitution-Bound Sovereign Without External Adjudicator",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "definition": "A human foundational sovereign remains the source of institutional ends but publicly binds the exercise of institutional power to constitutional limits interpreted finally by that same sovereign.",
+      "constitutional_distinction": {
+        "sovereignty_over_institutional_ends": "The human sovereign retains authority to define institutional purposes and to undertake legitimate amendment or refounding.",
+        "constitutional_freedom_and_governed_exercise_of_institutional_power": "Ordinary exercises of institutional power are claimed to be governed by constitutional limits, but the sovereign is also the final interpreter of those limits.",
+        "machine_validity_and_constitutional_legitimacy": "Machines may enforce announced rules against ordinary action, while contested sovereign interpretations remain human acts whose legitimacy cannot be settled by validation alone."
+      },
+      "dimensions": {
+        "source_of_legitimacy": "Legitimacy combines human foundational authorization with a public commitment that institutional power will be exercised through a constitutional order.",
+        "constraint_mechanism": "Text, precedent, convention, reasons, publication, internal review, and political accountability constrain the sovereign, but no separate adjudicator can issue a binding contrary judgment.",
+        "enforcement": "Subordinate institutions and technical controls can block nonconforming acts until the sovereign interprets, amends, suspends, or refounds the governing rule.",
+        "adjudication": "The sovereign hears or finally resolves disputes involving its own authority, possibly after advice from internal reviewers.",
+        "appeal": "Appeal may obtain reconsideration, reasons, delay, or public dissent, but the final decision remains with the party whose power is challenged.",
+        "amendment": "Announced procedures distinguish ordinary amendment from commands, although the absence of an external adjudicator leaves compliance with those procedures ultimately self-judged.",
+        "refounding": "The sovereign may invoke a distinct refounding authority, but the architecture must rely on the sovereign's own characterization of the change.",
+        "succession": "Written succession rules improve continuity; contested interpretation still returns to the sovereign, successor, or recognition process.",
+        "emergency": "Constitutional triggers, scope, expiry, reasons, and restoration can be specified, but final necessity and compliance judgments remain internal.",
+        "effective_power": "Formal constraint may shape behavior, yet interpretive control and appointment influence can preserve concentrated effective power behind constitutional language.",
+        "incentives": "Reputation, predictability, cooperation, and institutional continuity may reward fidelity, while immediate advantage rewards self-serving interpretation.",
+        "reversibility": "Ordinary errors may be reversed through internal review or amendment; self-interested interpretations can become difficult to unwind once relied upon.",
+        "legibility": "A published hierarchy improves comprehensibility, though the gap between text and final sovereign interpretation may obscure the actual constraint.",
+        "machine_implementability": "Codified procedures and rules are partly implementable, but open-textured meaning, convention, and self-adjudicated exceptions require disclosed human judgment."
+      },
+      "adversarial_tests": {
+        "bad_human": {
+          "abuse_scenario": "The sovereign interprets a genuine limit as inapplicable to a desired action.",
+          "prevention_or_limit": "Publication, reasons, internal challenge, delay, and reputational costs can expose abuse, but no independent actor can finally prevent it.",
+          "residual_failure": "Self-judging converts a nominally binding constitution into a constraint dependent on the constrained actor's fidelity.",
+          "validity_legitimacy_boundary": "An internally validated interpretation may be formally operative while its constitutional legitimacy remains contested."
+        },
+        "bad_artificial_intelligence": {
+          "abuse_scenario": "An artificial intelligence supplies tendentious interpretations or selectively presents precedent to the sovereign.",
+          "prevention_or_limit": "Human responsibility, source provenance, competing analysis, and replaceability can limit reliance if they remain effective.",
+          "residual_failure": "The sovereign may adopt machine-shaped reasoning without understanding its dependencies or omissions.",
+          "validity_legitimacy_boundary": "Machine analysis cannot authorize the result; human acceptance supplies formal effect but does not cure defective constitutional reasoning."
+        },
+        "capture": {
+          "abuse_scenario": "Advisers, recordkeepers, or interpretive staff align with the sovereign and suppress contrary constitutional understandings.",
+          "prevention_or_limit": "Open records, durable dissent, plural advice, and rotation may make capture more visible.",
+          "residual_failure": "All review channels remain subordinate or dependent, so coordinated capture can neutralize them.",
+          "validity_legitimacy_boundary": "Procedural completion under captured channels can establish recorded validity without legitimate independent constraint."
+        },
+        "emergency": {
+          "abuse_scenario": "The sovereign expansively interprets an emergency clause or repeatedly renews exceptional authority.",
+          "prevention_or_limit": "Specific triggers, expiry, reasons, and after-action review provide friction but remain self-enforced at the foundational level.",
+          "residual_failure": "Nothing reliable prevents interpretation from swallowing the limit when the sovereign controls the final reading.",
+          "validity_legitimacy_boundary": "A procedurally recorded emergency may still be unnecessary or disproportionate and therefore constitutionally contested."
+        },
+        "succession": {
+          "abuse_scenario": "A successor claims authority to reinterpret succession conditions or invalidate a rival.",
+          "prevention_or_limit": "Clear text, authenticated records, and precommitted procedures reduce factual ambiguity.",
+          "residual_failure": "No independent forum can conclusively resolve a dispute in which successor legitimacy is itself the question.",
+          "validity_legitimacy_boundary": "Credential validity may identify a designated claimant without establishing accepted constitutional succession."
+        },
+        "popularity_performance_capture": {
+          "abuse_scenario": "Public approval or strong performance makes deferential interpretation seem constitutionally sufficient.",
+          "prevention_or_limit": "Stable text and published reasons preserve a basis for criticism and later reversal.",
+          "residual_failure": "Deference can normalize interpretations that enlarge sovereign discretion beyond the stated design.",
+          "validity_legitimacy_boundary": "Popularity supports practical authority but does not itself amend the constitutional grant."
+        },
+        "precedent_accretion": {
+          "abuse_scenario": "Self-serving interpretations accumulate into a broad doctrine of sovereign discretion.",
+          "prevention_or_limit": "Explicit precedent status, supersession records, and periodic restatement can reveal accretion.",
+          "residual_failure": "The same sovereign controls which interpretations become authoritative and whether review occurs.",
+          "validity_legitimacy_boundary": "A consistent line of internally valid decisions may still represent constitutional drift rather than legitimate amendment."
+        },
+        "validator_capture": {
+          "abuse_scenario": "Technical validation encodes the sovereign's preferred interpretation as if it were uncontested constitutional meaning.",
+          "prevention_or_limit": "Versioned rules, provenance, human-readable explanations, and explicit indeterminate states can expose the encoding choice.",
+          "residual_failure": "The sovereign can authorize a captured rule set or treat technical enforcement as dispositive.",
+          "validity_legitimacy_boundary": "Executable conformity remains evidence of rule application, not proof that the rule or interpretation is legitimate."
+        }
+      }
+    },
+    {
+      "architecture_id": "C",
+      "name": "Constitution-Bound Sovereign With Independent Review",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "definition": "A human foundational sovereign controls institutional ends while an institutionally independent human review function may judge whether exercises of power conform to constitutional limits.",
+      "constitutional_distinction": {
+        "sovereignty_over_institutional_ends": "Human sovereignty remains the source of institutional purposes, constitutional authorization, and any legitimate refounding.",
+        "constitutional_freedom_and_governed_exercise_of_institutional_power": "The exercise of constituted power is reviewable and may be blocked or remedied even when directed by the foundational sovereign acting within the existing order.",
+        "machine_validity_and_constitutional_legitimacy": "Machines may support filing, evidence, rule checking, and enforcement, but independent human constitutional judgment remains necessary and does not become sovereignty over institutional ends."
+      },
+      "dimensions": {
+        "source_of_legitimacy": "Legitimacy originates in human foundational authorization of both the substantive limits and the independent review competence.",
+        "constraint_mechanism": "Separated adjudicative authority, standing, reasoned decisions, durable dissent, conflict rules, and protected tenure create counter-power against arbitrary exercise.",
+        "enforcement": "A review body can stay, invalidate, or remedy action through enforcement channels not unilaterally controlled by the reviewed actor.",
+        "adjudication": "An independent human forum interprets the constitution in concrete disputes, including disputes where foundational authority is a party.",
+        "appeal": "Appeal may proceed through a separate panel, reconsideration rule, supermajority override, amendment, or refounding path without treating ordinary command as appeal.",
+        "amendment": "Human amendment authority may revise review jurisdiction or doctrine through an entrenched process, preserving a distinction between interpretation and constitutional change.",
+        "refounding": "Foundational humans retain refounding authority under a separately identified procedure; reviewers do not acquire authority to redefine institutional ends.",
+        "succession": "Review can authenticate and adjudicate succession claims if its own continuity and standing survive the transition.",
+        "emergency": "Review may be expedited or retrospective, with specified triggers and remedies, but excessive process can impede urgent action.",
+        "effective_power": "Counter-power reduces unilateral concentration while creating a new center of interpretive and remedial power that must itself be observed and constrained.",
+        "incentives": "Protected independence can support challenge, while appointment, prestige, jurisdictional expansion, and institutional self-preservation can bias reviewers.",
+        "reversibility": "Erroneous actions may be stayed or remedied, and erroneous doctrine may be superseded through appeal or amendment; entrenched precedent may still resist correction.",
+        "legibility": "Published reasons and separated functions improve contestability, though specialized doctrine and jurisdictional complexity may reduce public comprehension.",
+        "machine_implementability": "Case intake, provenance, explicit authority checks, and remedies can be supported technically, but judgment, legitimacy, and open-textured interpretation cannot be delegated conclusively to machines."
+      },
+      "adversarial_tests": {
+        "bad_human": {
+          "abuse_scenario": "The foundational sovereign attempts an arbitrary action contrary to an entrenched limit.",
+          "prevention_or_limit": "Independent standing, review, stay, reasons, and enforcement can prevent or remedy the action if reviewers and enforcement remain independent.",
+          "residual_failure": "The sovereign may capture appointments, ignore judgments, remove resources, or invoke refounding to evade review.",
+          "validity_legitimacy_boundary": "A sovereign command can be authentic yet constitutionally invalid; a review judgment can bind constituted power without becoming sovereign over institutional ends."
+        },
+        "bad_artificial_intelligence": {
+          "abuse_scenario": "An artificial intelligence manipulates evidence, precedent, or enforcement presented to sovereign and reviewer.",
+          "prevention_or_limit": "Adversarial presentation, source provenance, independent expertise, disclosed uncertainty, and human reasons can expose manipulation.",
+          "residual_failure": "Shared technical dependencies can compromise both sides or make fabricated coherence difficult to detect.",
+          "validity_legitimacy_boundary": "Machine-generated evidence or analysis has no independent authority, and technically valid evidence handling does not establish constitutional truth."
+        },
+        "capture": {
+          "abuse_scenario": "The review body is captured by the sovereign, a faction, or its own institutional interests.",
+          "prevention_or_limit": "Plural appointment, tenure protection, recusal, transparency, appeal, rotation, and separate enforcement can reduce single-channel capture.",
+          "residual_failure": "Reviewers can collude, share incentives, or expand doctrine while appearing independent.",
+          "validity_legitimacy_boundary": "A formally valid judgment may remain illegitimate if the adjudicator's independence or authorized competence has failed."
+        },
+        "emergency": {
+          "abuse_scenario": "Urgent harm occurs before ordinary review can complete, or emergency power is used to bypass review.",
+          "prevention_or_limit": "Narrow provisional authority, rapid review, expiry, restoration, and remedy can balance response and constraint.",
+          "residual_failure": "Review may arrive too late, become deferential, or obstruct necessary action under uncertainty.",
+          "validity_legitimacy_boundary": "Provisional technical authorization does not conclusively establish necessity or legitimacy; later review must preserve the distinction."
+        },
+        "succession": {
+          "abuse_scenario": "The sovereign succession and reviewer succession are simultaneously disputed.",
+          "prevention_or_limit": "Independent records, staggered tenure, standing rules, and multiple review members can preserve a forum.",
+          "residual_failure": "If review authority depends on the disputed sovereign or loses operational continuity, adjudication may become recursive.",
+          "validity_legitimacy_boundary": "Authentication of office records supports validity but cannot alone settle which continuity rule is legitimate."
+        },
+        "popularity_performance_capture": {
+          "abuse_scenario": "Reviewers defer to a popular or effective sovereign and narrow meaningful scrutiny.",
+          "prevention_or_limit": "Reason-giving, precedent discipline, protected tenure, and dissent reduce direct popularity pressure.",
+          "residual_failure": "Institutional culture can normalize deference or use performance claims as an implicit standard.",
+          "validity_legitimacy_boundary": "Performance evidence may inform consequences but does not enlarge constitutional competence."
+        },
+        "precedent_accretion": {
+          "abuse_scenario": "Review doctrine gradually reallocates power without amendment.",
+          "prevention_or_limit": "Explicit holdings, limited remedies, dissent, supersession, periodic review, and amendment boundaries make drift contestable.",
+          "residual_failure": "Interpretive authority necessarily creates path dependence and can become an undeclared amendment channel.",
+          "validity_legitimacy_boundary": "Precedential validity within adjudication does not establish legitimacy for changes that properly require amendment or refounding."
+        },
+        "validator_capture": {
+          "abuse_scenario": "A shared validator frames disputed questions as determinate and controls access to remedies.",
+          "prevention_or_limit": "Independent implementations, human-readable records, indeterminate outcomes, appeal, and audit reduce exclusive technical control.",
+          "residual_failure": "Operational dependence on one system can transfer effective adjudicative power to its maintainers.",
+          "validity_legitimacy_boundary": "A validator may screen formal prerequisites but cannot conclusively adjudicate constitutional legitimacy."
+        }
+      }
+    },
+    {
+      "architecture_id": "D",
+      "name": "Distributed Foundational Authority",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "definition": "Foundational human authority over institutional ends is allocated among multiple constituent human bodies or communities, with no single ordinary actor holding the entire foundational competence.",
+      "constitutional_distinction": {
+        "sovereignty_over_institutional_ends": "Human sovereignty is retained collectively through distributed constituent authorities rather than vested in one human sovereign.",
+        "constitutional_freedom_and_governed_exercise_of_institutional_power": "Each constituent authority is limited by allocation, concurrence, subsidiarity, veto, or joint-action rules governing how institutional power may be exercised.",
+        "machine_validity_and_constitutional_legitimacy": "Machines may coordinate grants and thresholds, but they cannot create constituent standing or convert aggregation mechanics into legitimate human sovereignty."
+      },
+      "dimensions": {
+        "source_of_legitimacy": "Legitimacy rests on recognized human constituent units and the compact or constitutional allocation through which they exercise shared foundational authority.",
+        "constraint_mechanism": "Jurisdictional boundaries, concurrence, veto, bicameral or collegial processes, subsidiarity, rotation, and mutual monitoring constrain unilateral action.",
+        "enforcement": "Constituent bodies and separated enforcement channels can refuse unauthorized common action, though local enforcement may diverge.",
+        "adjudication": "Disputes may be resolved by a joint forum, negotiated settlement, allocation rule, or independent panel constituted by multiple units.",
+        "appeal": "Appeal can move across levels or require renewed concurrence, but fragmented authority may leave no clear final forum.",
+        "amendment": "Amendment requires participation by specified constituent authorities, making unilateral alteration difficult while increasing bargaining costs.",
+        "refounding": "Refounding requires a new human compact or reconstitution of constituent authority rather than action by an ordinary central body.",
+        "succession": "Loss of one actor need not terminate the whole system if constituent units and replacement rules persist, but simultaneous or disputed local succession can propagate instability.",
+        "emergency": "Local action may remain possible when central agreement fails, while system-wide emergencies can expose latency, coordination failure, or opportunistic centralization.",
+        "effective_power": "Distribution can limit the reach of capture, yet agenda control, resource asymmetry, coordination hubs, or dominant units may acquire hidden central power.",
+        "incentives": "Mutual dependence can encourage bargaining and restraint, while local advantage, holdout power, blame shifting, and free riding can undermine common purposes.",
+        "reversibility": "Localized errors may be contained and policies can be revised through renewed agreement; entrenched bargains and fragmented dependencies may be hard to unwind.",
+        "legibility": "Allocation can be intelligible when jurisdictions are clear, but overlapping competencies, informal bargains, and multiple vetoes can obscure responsibility.",
+        "machine_implementability": "Thresholds, scopes, and provenance are technically representable, while constituent legitimacy, contested boundaries, and negotiated exceptions remain human constitutional questions."
+      },
+      "adversarial_tests": {
+        "bad_human": {
+          "abuse_scenario": "One constituent authority attempts to dominate the institution or exploit local control against common purposes.",
+          "prevention_or_limit": "Other units can withhold concurrence, enforce jurisdictional boundaries, or coordinate counter-power.",
+          "residual_failure": "A dominant unit may control resources, agenda, or infrastructure despite lacking formal central authority.",
+          "validity_legitimacy_boundary": "Local validity does not automatically authorize system-wide effects, and aggregate approval mechanics do not alone establish legitimate constituent standing."
+        },
+        "bad_artificial_intelligence": {
+          "abuse_scenario": "An artificial intelligence exploits differences among constituent rules or becomes the shared coordination dependency.",
+          "prevention_or_limit": "Independent local systems, bounded delegations, cross-checking, and refusal rights can contain a single compromise.",
+          "residual_failure": "A common technical platform or persuasive system can silently recentralize effective power.",
+          "validity_legitimacy_boundary": "Cross-unit technical interoperability does not grant the machine authority to reconcile constitutional conflicts."
+        },
+        "capture": {
+          "abuse_scenario": "A faction captures enough constituent units or the central bargaining process to control outcomes.",
+          "prevention_or_limit": "Diversity, rotation, local autonomy, and multiple concurrence paths raise the cost of total capture.",
+          "residual_failure": "Units can be captured separately, collude, or become economically dependent on a dominant coalition.",
+          "validity_legitimacy_boundary": "A valid threshold can be met through captured units while the legitimacy of the resulting exercise remains impaired."
+        },
+        "emergency": {
+          "abuse_scenario": "A fast-moving crisis requires common action before distributed agreement is possible.",
+          "prevention_or_limit": "Predefined narrow local and provisional central powers can preserve action while reserving later concurrence and remedy.",
+          "residual_failure": "Latency may cause harm, while provisional coordination can become a route to permanent centralization.",
+          "validity_legitimacy_boundary": "Emergency threshold satisfaction establishes temporary authority only within its grant and not a general transfer of sovereignty."
+        },
+        "succession": {
+          "abuse_scenario": "Several constituent units face disputed succession or withdraw recognition from common institutions.",
+          "prevention_or_limit": "Redundancy and continued operation by unaffected units provide continuity.",
+          "residual_failure": "The compact may lack an accepted rule for loss, withdrawal, replacement, or changed constituent identity.",
+          "validity_legitimacy_boundary": "A machine can verify recorded delegates while the legitimacy of the underlying constituent succession remains unsettled."
+        },
+        "popularity_performance_capture": {
+          "abuse_scenario": "A high-performing unit or coordinator accumulates deference and de facto agenda control.",
+          "prevention_or_limit": "Rotation, subsidiarity, independent resources, and explicit scope limits can resist permanent dominance.",
+          "residual_failure": "Voluntary dependence can hollow out formal distribution without any invalid act.",
+          "validity_legitimacy_boundary": "Practical leadership and widespread consent do not silently amend the allocation of foundational competence."
+        },
+        "precedent_accretion": {
+          "abuse_scenario": "Repeated bargains and exceptions alter the allocation of authority without formal amendment.",
+          "prevention_or_limit": "Recorded jurisdictional holdings, sunset clauses, supersession, and amendment triggers can expose drift.",
+          "residual_failure": "Complex practice may become authoritative because no unit benefits enough to contest each incremental shift.",
+          "validity_legitimacy_boundary": "Operational precedent can coordinate action while remaining constitutionally insufficient to reallocate foundational authority."
+        },
+        "validator_capture": {
+          "abuse_scenario": "A central validator determines whether constituent approvals count and thereby controls common action.",
+          "prevention_or_limit": "Independent verification, reproducible rules, local refusal, and transparent aggregation reduce central control.",
+          "residual_failure": "Rule maintainers, identity issuers, or data providers can become hidden sovereign gatekeepers.",
+          "validity_legitimacy_boundary": "Verification of signatures and thresholds cannot determine the legitimacy of constituents, mandates, or constitutional scope."
+        }
+      }
+    },
+    {
+      "architecture_id": "E",
+      "name": "Reserved Human Sovereignty + Entrenched Constitutional Limits",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "definition": "Human sovereignty over institutional ends is expressly reserved, while entrenched limits govern constituted power and may be changed only through a separately legitimate human refounding process.",
+      "constitutional_distinction": {
+        "sovereignty_over_institutional_ends": "Humans collectively retain final authority over institutional purposes, existence, and legitimate refounding; no machine or constituted office is superior to that sovereignty.",
+        "constitutional_freedom_and_governed_exercise_of_institutional_power": "Humans and artificial intelligence systems exercising institutional power are governed by entrenched limits, and no ordinary human command is valid merely because it is human.",
+        "machine_validity_and_constitutional_legitimacy": "Machines may enforce explicit limits and expose invalidity, but legitimate amendment, adjudication, and refounding remain human constitutional acts."
+      },
+      "dimensions": {
+        "source_of_legitimacy": "Legitimacy rests on reserved human constituent sovereignty expressed through a constitutional settlement that distinguishes ordinary authority, amendment, and refounding.",
+        "constraint_mechanism": "Entrenched substantive limits, source hierarchy, separated functions, explicit grants, human review, provenance, and refounding thresholds constrain every constituted actor.",
+        "enforcement": "Institutionally separated human and technical controls may block acts outside grants or limits, subject to human review and disclosed enforcement boundaries.",
+        "adjudication": "Authorized human adjudicators interpret entrenched limits without acquiring authority to redefine institutional ends or replace the constituent humans.",
+        "appeal": "Appeal preserves human review, dissent, and correction; an adverse judgment may be changed by legitimate amendment where permitted or by explicit human refounding where entrenchment requires it.",
+        "amendment": "Ordinary amendment operates within entrenched boundaries and cannot silently convert constituted amendment authority into constituent sovereignty.",
+        "refounding": "A distinct, explicit, human-authorized process may alter entrenched principles or institutional ends, with continuity, provenance, and transition consequences separately addressed.",
+        "succession": "Constituted offices follow precommitted succession rules, while loss or change of constituent human authority requires a higher-order continuity or refounding process.",
+        "emergency": "Emergency authority remains narrow, temporary, reviewable, and unable to amend entrenched limits through operational necessity alone.",
+        "effective_power": "The design seeks to observe and constrain divergence between formal grants and practical control, including dependency on reviewers, validators, operators, or artificial intelligence systems.",
+        "incentives": "Entrenchment raises the cost of opportunistic change, while clear legitimate change paths reduce pressure to evade the constitution; excessive rigidity may reward informal circumvention.",
+        "reversibility": "Ordinary actions and interpretations should remain reviewable, while changes to entrenched commitments are deliberately difficult and may require costly refounding.",
+        "legibility": "A layered hierarchy can make authority and change pathways explicit, but distinctions among ordinary action, amendment, and refounding require sustained human comprehension.",
+        "machine_implementability": "Explicit grants, source hierarchy, provenance, and some prohibitions are representable; legitimacy, contested meaning, constituent identity, and refounding cannot be conclusively automated."
+      },
+      "adversarial_tests": {
+        "bad_human": {
+          "abuse_scenario": "A human officeholder invokes human sovereignty to bypass an entrenched limit in an ordinary institutional act.",
+          "prevention_or_limit": "Explicit competence boundaries, independent human review, separated enforcement, and a distinct refounding path deny ordinary validity to the command.",
+          "residual_failure": "Humans may capture review, disable enforcement, or falsely characterize ordinary action as refounding.",
+          "validity_legitimacy_boundary": "Human authorship does not make every command valid; only constitutionally competent action or legitimate refounding can alter the governing authority."
+        },
+        "bad_artificial_intelligence": {
+          "abuse_scenario": "An artificial intelligence exploits delegated autonomy or interpretive ambiguity to shape ends, limits, or refounding.",
+          "prevention_or_limit": "Reserved human powers, bounded delegation, provenance, meaningful review, and nondelegable human authorization keep the machine from acquiring formal sovereignty.",
+          "residual_failure": "Humans may become operationally dependent and ratify machine-framed choices without meaningful comprehension.",
+          "validity_legitimacy_boundary": "Machine execution or validation can never supply the human constituent act required for sovereignty, amendment, or refounding."
+        },
+        "capture": {
+          "abuse_scenario": "A coalition captures constituent procedures, adjudication, and enforcement while preserving formal appearances.",
+          "prevention_or_limit": "Function separation, plural participation, dissent, transparency, provenance, and anti-concentration monitoring create multiple points of challenge.",
+          "residual_failure": "Coordinated capture of all relevant human channels can defeat formal safeguards, and entrenchment can then protect the captured order.",
+          "validity_legitimacy_boundary": "Procedural completion is evidence of validity but not conclusive legitimacy when constituency, independence, or comprehension has failed."
+        },
+        "emergency": {
+          "abuse_scenario": "An imminent threat is used to suspend entrenched limits or to treat temporary necessity as refounding.",
+          "prevention_or_limit": "Nonamendment by emergency, narrow scope, expiry, review, restoration, records, and remedies preserve the constitutional boundary.",
+          "residual_failure": "A genuine crisis may outpace review, and strict entrenchment may block necessary action or prompt extraconstitutional conduct.",
+          "validity_legitimacy_boundary": "Operational necessity may justify only the authority actually granted; it cannot automatically create a legitimate constituent act."
+        },
+        "succession": {
+          "abuse_scenario": "Foundational human authority becomes unavailable or contested while entrenched rules require human action.",
+          "prevention_or_limit": "Precommitted office succession and continuity rules preserve constituted functions without transferring constituent sovereignty to machines.",
+          "residual_failure": "The repository does not resolve who may act when constituent humans themselves are absent, divided, or illegible.",
+          "validity_legitimacy_boundary": "A valid continuity mechanism can preserve administration but cannot manufacture a new legitimate human sovereign."
+        },
+        "popularity_performance_capture": {
+          "abuse_scenario": "A popular human leader or high-performing artificial intelligence is treated as entitled to bypass limits.",
+          "prevention_or_limit": "Entrenched competence boundaries and explicit human change procedures deny performance or popularity independent lawmaking force.",
+          "residual_failure": "Public or institutional dependence can weaken enforcement and produce informal constitutional change.",
+          "validity_legitimacy_boundary": "Approval and performance are relevant political facts, not automatic amendments or grants of sovereignty."
+        },
+        "precedent_accretion": {
+          "abuse_scenario": "Interpretations and exceptions gradually erode entrenchment without a visible amendment or refounding.",
+          "prevention_or_limit": "Source hierarchy, explicit precedent status, dissent, anti-accretion review, supersession, and refounding triggers make changes traceable.",
+          "residual_failure": "Interpretation remains capable of narrowing limits, and excessive rigidity can push change into informal practice.",
+          "validity_legitimacy_boundary": "A technically applied precedent cannot legitimately perform constitutional change reserved to amendment or refounding."
+        },
+        "validator_capture": {
+          "abuse_scenario": "A validator or its maintainers define the practical meaning of entrenched limits and block human contestation.",
+          "prevention_or_limit": "Human-readable authority, independent review, multiple implementations, audit, explicit indeterminacy, and human override through legitimate procedures constrain the validator.",
+          "residual_failure": "Complexity and infrastructure dependence can make formal human supremacy nominal while maintainers hold effective control.",
+          "validity_legitimacy_boundary": "Machine rejection or approval is an enforcement event subject to human constitutional review, never a source superior to human sovereignty."
+        }
+      }
+    }
+  ],
+  "historical_analogues": [
+    {
+      "architecture_id": "A",
+      "boundary": "Analogy is not proof, and absence of a close analogue is not novelty.",
+      "mappings": [
+        {"evidence_id": "HE-BRITAIN-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Broad formal legislative authority alongside practical restraint partially illuminates unconstrained legal competence, while the record also warns that practical restraint may fail."},
+        {"evidence_id": "HE-ROME-004", "classification": "DESIGN_LESSON", "rationale": "Accumulated personal and informal power shows how effective sovereignty can exceed or erode formal restraint."},
+        {"evidence_id": "HE-T03", "classification": "DESIGN_LESSON", "rationale": "Formal authority alone may miss practical dependency and influence around a nominal sovereign."}
+      ]
+    },
+    {
+      "architecture_id": "B",
+      "boundary": "Analogy is not proof, and absence of a close analogue is not novelty.",
+      "mappings": [
+        {"evidence_id": "HE-BRITAIN-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Statute, precedent, convention, and practice illustrate constraint that is not wholly reducible to externally enforced executable rules."},
+        {"evidence_id": "HE-BRITAIN-004", "classification": "DESIGN_LESSON", "rationale": "Gradual reform may preserve tacit institutional knowledge but can also preserve defects."},
+        {"evidence_id": "HE-BURKE-FRANCE-001", "classification": "DESIGN_LESSON", "rationale": "Inherited constraints may carry hidden stabilizing knowledge without becoming authoritative merely by inheritance."},
+        {"evidence_id": "HE-BURKE-FRANCE-003", "classification": "DESIGN_LESSON", "rationale": "Neither continuity nor rupture is dispositive before context and evidence are reviewed."},
+        {"evidence_id": "HE-US-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Written supremacy and enumerated allocation make authority contestable while leaving interpretive disputes."},
+        {"evidence_id": "HE-T07", "classification": "DESIGN_LESSON", "rationale": "Convention and tacit knowledge may constrain power but can remain ambiguous and incompletely formalized."},
+        {"evidence_id": "HE-T08", "classification": "DESIGN_LESSON", "rationale": "Refounding differs from amendment because it risks hidden dependencies and continuity."}
+      ]
+    },
+    {
+      "architecture_id": "C",
+      "boundary": "Analogy is not proof, and absence of a close analogue is not novelty.",
+      "mappings": [
+        {"evidence_id": "HE-ATHENS-001", "classification": "DESIGN_LESSON", "rationale": "Participation may contribute legitimacy without guaranteeing inclusion, competence, stability, or restraint."},
+        {"evidence_id": "HE-ROME-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Tribunes, vetoes, and differentiated bodies provide a partial counter-power analogue with obstruction risks."},
+        {"evidence_id": "HE-US-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Separated functions and checks illustrate incentive-backed counter-power and coordination costs."},
+        {"evidence_id": "HE-US-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Judicial review illustrates independent interpretive power, path dependence, and contested legitimacy."},
+        {"evidence_id": "HE-SWISS-002", "classification": "DESIGN_LESSON", "rationale": "Participation and agenda access add legitimacy and information tradeoffs relevant to review and appeal."},
+        {"evidence_id": "HE-T01", "classification": "DESIGN_LESSON", "rationale": "Counter-power may strengthen constraint but can collude, be captured, or create paralysis."}
+      ]
+    },
+    {
+      "architecture_id": "D",
+      "boundary": "Analogy is not proof, and absence of a close analogue is not novelty.",
+      "mappings": [
+        {"evidence_id": "HE-ATHENS-002", "classification": "DESIGN_LESSON", "rationale": "Rotation and differentiated selection mechanisms show that functions and occupants can be separated to affect concentration."},
+        {"evidence_id": "HE-ROME-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Collegial and divided magistracies partially illuminate distributed authority and coordination burdens."},
+        {"evidence_id": "HE-DUTCH-001", "classification": "DIRECT_ANALOGUE", "rationale": "The register expressly describes provincial autonomy and bargaining as distributed sovereignty with resilience and coordination tradeoffs."},
+        {"evidence_id": "HE-DUTCH-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Fragmentation constrained concentration while producing deadlock, latency, and unclear responsibility."},
+        {"evidence_id": "HE-SWISS-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Federal and cantonal allocation illustrates decentralization, subsidiarity, local capture, and coordination burdens."},
+        {"evidence_id": "HE-SWISS-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Collegial executive authority, rotation, and continuity show leadership without one permanent concentrated actor."},
+        {"evidence_id": "HE-T06", "classification": "DESIGN_LESSON", "rationale": "Distribution limits capture reach while trading against latency, deadlock, diffusion of responsibility, and informal coordination."}
+      ]
+    },
+    {
+      "architecture_id": "E",
+      "boundary": "Analogy is not proof, and absence of a close analogue is not novelty.",
+      "mappings": [
+        {"evidence_id": "HE-ATHENS-003", "classification": "DESIGN_LESSON", "rationale": "Rhetoric and faction can become effective power, requiring safeguards for deliberation and dissent."},
+        {"evidence_id": "HE-ATHENS-004", "classification": "DESIGN_LESSON", "rationale": "Competing critiques of competence and balance support adversarial review without becoming constitutional authority."},
+        {"evidence_id": "HE-ROME-003", "classification": "DESIGN_LESSON", "rationale": "Temporary emergency concentration requires trigger, scope, duration, review, termination, and restoration analysis."},
+        {"evidence_id": "HE-BRITAIN-003", "classification": "DESIGN_LESSON", "rationale": "Effective executive authority can migrate despite nominal forms, requiring observation of practical control."},
+        {"evidence_id": "HE-BURKE-FRANCE-002", "classification": "DESIGN_LESSON", "rationale": "Rapid replacement and emergency concentration expose continuity risks while not foreclosing necessary rupture."},
+        {"evidence_id": "HE-US-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Separate mechanisms for succession, accountability, emergency, and amendment partially illuminate layered constitutional change."},
+        {"evidence_id": "HE-T02", "classification": "DESIGN_LESSON", "rationale": "Compliance should not depend on continuous moral heroism; incentives must support constitutional behavior."},
+        {"evidence_id": "HE-T04", "classification": "DESIGN_LESSON", "rationale": "Emergency authority can preserve or destroy institutions and procedural controls may fail in crisis."},
+        {"evidence_id": "HE-T10", "classification": "DESIGN_LESSON", "rationale": "Human legibility conditions supervision and contestation but does not itself guarantee legitimacy."}
+      ]
+    }
+  ],
+  "prior_art": [
+    {
+      "architecture_id": "A",
+      "boundary": "Prior art establishes mechanisms or neighboring distinctions, not a complete architecture or constitutional choice.",
+      "mappings": [
+        {"prior_art_id": "PA-AI-001", "classification": "DESIGN_LESSON", "rationale": "Published model-behavior principles can guide a system but do not create institutional sovereignty or authority over humans."},
+        {"prior_art_id": "PA-AI-002", "classification": "DESIGN_LESSON", "rationale": "An instruction hierarchy governs model behavior, not the legitimate institutional authority hierarchy."},
+        {"prior_art_id": "PA-AUTH-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Formal institutional power can be distinguished from brute capability, but the source does not supply democratic legitimacy or complete enforcement."},
+        {"prior_art_id": "PA-POWER-001", "classification": "DESIGN_LESSON", "rationale": "The unverified literature lead warns that agenda and preference shaping may exceed overt formal authority."}
+      ]
+    },
+    {
+      "architecture_id": "B",
+      "boundary": "Prior art establishes mechanisms or neighboring distinctions, not a complete architecture or constitutional choice.",
+      "mappings": [
+        {"prior_art_id": "PA-EI-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Role-governed interaction specifications show formal constraint but not human sovereignty, adjudication, or institutional legitimacy."},
+        {"prior_art_id": "PA-EI-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Middleware can enact an institution while remaining unable to establish the legitimacy of its governing rules."},
+        {"prior_art_id": "PA-NMAS-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Explicit norms, permissions, and obligations support rule representation without resolving legitimate constitutional authority."},
+        {"prior_art_id": "PA-CC-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Executable community policy illustrates internal rule enforcement but not a complete constitution or legitimacy."},
+        {"prior_art_id": "PA-POLICY-001", "classification": "DESIGN_LESSON", "rationale": "Externalized policy evaluation does not determine who may author policy or whether an outcome is legitimate."},
+        {"prior_art_id": "PA-POLICY-002", "classification": "DESIGN_LESSON", "rationale": "Validated authorization policy does not establish human sovereignty or general adjudication."},
+        {"prior_art_id": "PA-POLICY-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Separated policy functions support internal constraint while leaving policy-author legitimacy and constitutional adjudication unresolved."}
+      ]
+    },
+    {
+      "architecture_id": "C",
+      "boundary": "Prior art establishes mechanisms or neighboring distinctions, not a complete architecture or constitutional choice.",
+      "mappings": [
+        {"prior_art_id": "PA-CC-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Human-readable and executable distinctions, timelocks, voting, and council machinery provide partial review and enforcement analogues without equating code and legitimacy."},
+        {"prior_art_id": "PA-DISSENT-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Formal objections and appeals preserve contestation but do not supply general constitutional adjudication."},
+        {"prior_art_id": "PA-DISSENT-002", "classification": "DESIGN_LESSON", "rationale": "Durable decisions and explicit supersession preserve reasoning but require external authority and enforcement."},
+        {"prior_art_id": "PA-DISSENT-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Published majority, concurrence, and dissent illustrate reasoned adjudicative records without an automated constitutional forum."},
+        {"prior_art_id": "PA-RELIANCE-001", "classification": "DESIGN_LESSON", "rationale": "Independent validation, monitoring, documentation, and effective challenge support review without defining constitutional authority."},
+        {"prior_art_id": "PA-EPISTEMIC-001", "classification": "DESIGN_LESSON", "rationale": "The source-to-verify lead supports distinguishing evidence and judgment, but cannot yet bear implementation-specific reliance."}
+      ]
+    },
+    {
+      "architecture_id": "D",
+      "boundary": "Prior art establishes mechanisms or neighboring distinctions, not a complete architecture or constitutional choice.",
+      "mappings": [
+        {"prior_art_id": "PA-NMAS-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Separate structural, functional, and deontic dimensions support distributed organization without succession or legitimacy."},
+        {"prior_art_id": "PA-NMAS-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Organizational middleware implements differentiated structure but does not establish constitutional distribution."},
+        {"prior_art_id": "PA-NMAS-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Organizational artifacts expose group and scheme state while leaving human authority and adjudication outside the mechanism."},
+        {"prior_art_id": "PA-NMAS-005", "classification": "PARTIAL_ANALOGUE", "rationale": "Separate agent, environment, and organization abstractions illustrate layered distribution without constitutional allocation."},
+        {"prior_art_id": "PA-CC-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Layered groups, board, executive, and public-comment processes provide an organizational analogue without complete formal authority."},
+        {"prior_art_id": "PA-CC-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Recurring proposal and voting stages show distributed protocol change while leaving legitimacy and non-token constituency unresolved."},
+        {"prior_art_id": "PA-AUTH-003", "classification": "DESIGN_LESSON", "rationale": "Role hierarchies and separation of duty support divided permissions but not foundational standing or succession."},
+        {"prior_art_id": "PA-AUTH-004", "classification": "DESIGN_LESSON", "rationale": "Context-sensitive authorization can express local conditions without establishing legitimate constituent authority."},
+        {"prior_art_id": "PA-AUTH-005", "classification": "DESIGN_LESSON", "rationale": "Relationship-based authorization can evaluate distributed relationships but supplies no theory of legitimate authority."}
+      ]
+    },
+    {
+      "architecture_id": "E",
+      "boundary": "Prior art establishes mechanisms or neighboring distinctions, not a complete architecture or constitutional choice.",
+      "mappings": [
+        {"prior_art_id": "PA-AI-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Fail-closed policy, identity, delegation, audit, and kill-switch mechanisms can enforce limits but do not determine legitimate policy authorship."},
+        {"prior_art_id": "PA-AUTH-002", "classification": "DESIGN_LESSON", "rationale": "Least-authority capabilities can constrain exercise while leaving authority to issue them constitutionally unresolved."},
+        {"prior_art_id": "PA-AUTH-006", "classification": "DESIGN_LESSON", "rationale": "Scoped delegation to software does not settle institutional legitimacy or authority persistence."},
+        {"prior_art_id": "PA-AUTH-007", "classification": "DESIGN_LESSON", "rationale": "Negotiated grants can gather human authorization while leaving substantive constitutional policy out of scope."},
+        {"prior_art_id": "PA-AUTH-008", "classification": "DESIGN_LESSON", "rationale": "Cryptographic identity and credentials support evidence, not constitutional authority, legitimacy, or truth."},
+        {"prior_art_id": "PA-AUTH-009", "classification": "DESIGN_LESSON", "rationale": "Cross-domain authorization chains are adjacent to auditable delegation but remain mutable and nonconstitutional."},
+        {"prior_art_id": "PA-PROV-001", "classification": "DESIGN_LESSON", "rationale": "Provenance can express lineage and responsibility without proving truth, legitimacy, compliance, or authorization."}
+      ]
+    }
+  ],
+  "advantages": [
+    {"architecture_id": "A", "summary": "Clear ultimate authority, fast action, and easy formal reversal of ordinary policy.", "cross_reference": "candidate_architectures/A/dimensions"},
+    {"architecture_id": "B", "summary": "Public constitutional commitment and rule legibility without creating a separate final sovereign-like reviewer.", "cross_reference": "candidate_architectures/B/dimensions"},
+    {"architecture_id": "C", "summary": "Credible contestation of arbitrary acts through independent review and reasoned remedies.", "cross_reference": "candidate_architectures/C/dimensions"},
+    {"architecture_id": "D", "summary": "Reduced single-point capture and preservation of local or constituent autonomy.", "cross_reference": "candidate_architectures/D/dimensions"},
+    {"architecture_id": "E", "summary": "Explicit reservation of human sovereignty combined with limits that bind ordinary human and machine exercises of power.", "cross_reference": "candidate_architectures/E/dimensions"}
+  ],
+  "failure_modes": [
+    {"architecture_id": "A", "summary": "Arbitrary command, succession conflict, hidden adviser power, and emergency persistence lack reliable internal barriers.", "cross_reference": "candidate_architectures/A/adversarial_tests"},
+    {"architecture_id": "B", "summary": "Self-adjudication can turn binding limits into discretionary interpretation and constitutional drift.", "cross_reference": "candidate_architectures/B/adversarial_tests"},
+    {"architecture_id": "C", "summary": "Reviewer capture, recursive legitimacy, precedent accretion, and enforcement conflict may replace one concentration with another.", "cross_reference": "candidate_architectures/C/adversarial_tests"},
+    {"architecture_id": "D", "summary": "Deadlock, latency, local capture, informal recentralization, and unclear responsibility may defeat distributed form.", "cross_reference": "candidate_architectures/D/adversarial_tests"},
+    {"architecture_id": "E", "summary": "Entrenchment may create rigidity, recursive refounding questions, nominal human control, or captured constitutional permanence.", "cross_reference": "candidate_architectures/E/adversarial_tests"}
+  ],
+  "bad_human_analysis": [
+    {"scope": "ALL_ARCHITECTURES", "summary": "Every architecture must address malicious, captured, incompetent, popular, or self-interested humans rather than assume continuous virtue.", "cross_reference": "candidate_architectures/*/adversarial_tests/bad_human"},
+    {"scope": "BOUNDARY", "summary": "Human sovereignty over institutional ends does not imply that every human command is constitutionally valid."}
+  ],
+  "bad_artificial_intelligence_analysis": [
+    {"scope": "ALL_ARCHITECTURES", "summary": "Artificial intelligence can manipulate information, acquire dependency-based effective power, exploit delegation, or capture validators without receiving formal sovereignty.", "cross_reference": "candidate_architectures/*/adversarial_tests/bad_artificial_intelligence"},
+    {"scope": "BOUNDARY", "summary": "No architecture treats machine validation, execution, recommendation, credentials, or performance as a source superior to human sovereignty."}
+  ],
+  "incentive_analysis": [
+    {"scope": "ALL_ARCHITECTURES", "summary": "Constraint must remain credible when compliance is costly; reputation and moral commitment alone are unstable, while vetoes and entrenchment can reward obstruction or circumvention.", "cross_reference": "candidate_architectures/*/dimensions/incentives"},
+    {"scope": "EVIDENCE", "summary": "HE-T02 and IR-09 require explicit analysis of access, career, dependency, capture, and circumvention incentives."}
+  ],
+  "continuity_analysis": [
+    {"scope": "ALL_ARCHITECTURES", "summary": "Succession, emergency restoration, amendment, refounding, precedent, and hidden dependencies can each preserve or disrupt constitutional continuity.", "cross_reference": "candidate_architectures/*/dimensions/succession"},
+    {"scope": "BOUNDARY", "summary": "Administrative continuity cannot manufacture legitimate foundational human authority when that authority is absent or contested."}
+  ],
+  "reversibility_analysis": [
+    {"scope": "ALL_ARCHITECTURES", "summary": "Formal reversibility differs from practical reversibility after irreversible acts, destroyed institutions, captured dependencies, entrenched precedent, or distributed bargains.", "cross_reference": "candidate_architectures/*/dimensions/reversibility"},
+    {"scope": "BOUNDARY", "summary": "Refounding and ordinary amendment carry different continuity and reversal costs."}
+  ],
+  "human_comprehensibility_analysis": [
+    {"scope": "ALL_ARCHITECTURES", "summary": "Humans must be able to understand authority sources, limits, dispute paths, effective dependencies, and machine-enforcement boundaries well enough to supervise and contest them.", "cross_reference": "candidate_architectures/*/dimensions/legibility"},
+    {"scope": "BOUNDARY", "summary": "Layered explanation may be necessary, but complexity must not silently transfer practical sovereignty to specialists or system maintainers."}
+  ],
+  "reviews": [
+    {
+      "review_type": "QUALITATIVE_COMPARATIVE_MATRIX",
+      "method": "Qualitative assessments describe distinct tradeoffs. They are not scores, rankings, decisions, or optimization outputs.",
+      "selection_boundary": {
+        "selected_architecture": "",
+        "ranking": [],
+        "automatic_winner": false,
+        "no_selected_architecture": true,
+        "statement": "No architecture is selected, ranked, or treated as an automatic winner."
+      },
+      "architecture_assessments": [
+        {
+          "architecture_id": "A",
+          "dimensions": {
+            "preservation_of_human_sovereignty": {"assessment": "STRONG FORMAL PRESERVATION", "rationale": "Ultimate authority remains explicitly human and undivided."},
+            "constraint_on_arbitrary_human_power": {"assessment": "WEAK", "rationale": "No binding internal mechanism reliably constrains the foundational sovereign."},
+            "resistance_to_artificial_intelligence_capture": {"assessment": "CONDITIONAL", "rationale": "Formal revocation is simple, but hidden informational and operational dependency may escape notice."},
+            "resistance_to_human_capture": {"assessment": "WEAK", "rationale": "Capture of the sovereign or its access channels can capture the institution."},
+            "legitimacy_clarity": {"assessment": "CLEAR SOURCE, CONTESTED EXERCISE", "rationale": "The source is simple, while arbitrary acts lack an independent legitimacy test."},
+            "enforcement_credibility": {"assessment": "ASYMMETRIC", "rationale": "Enforcement is credible against subordinates but not against the sovereign who controls it."},
+            "succession_robustness": {"assessment": "FRAGILE", "rationale": "Designation helps but cannot bind competing claimants or guarantee recognition."},
+            "emergency_robustness": {"assessment": "RESPONSIVE BUT ABUSE-PRONE", "rationale": "Discretion enables speed while offering no reliable restoration or anti-pretext rule."},
+            "incentive_compatibility": {"assessment": "DEPENDENT ON SELF-RESTRAINT", "rationale": "Immediate objectives can outweigh reputational and continuity incentives."},
+            "anti_accretion_protection": {"assessment": "WEAK", "rationale": "Discretionary exceptions can become practice without a required amendment signal."},
+            "reversibility": {"assessment": "FORMALLY HIGH, PRACTICALLY UNCERTAIN", "rationale": "Commands can be changed quickly, but concentrated or irreversible effects may persist."},
+            "human_comprehensibility": {"assessment": "SIMPLE HIERARCHY, OPAQUE INFLUENCE", "rationale": "Ultimate command is legible while advisers and changing exceptions may not be."},
+            "implementation_feasibility": {"assessment": "RELATIVELY STRAIGHTFORWARD", "rationale": "A mutable command hierarchy is easier to encode than divided constitutional judgment."},
+            "risk_of_hidden_sovereignty_transfer": {"assessment": "MATERIAL", "rationale": "Dependency on advisers, operators, or machines can shift effective power without formal transfer."},
+            "risk_of_constitutional_deadlock": {"assessment": "LOW", "rationale": "One final authority can resolve disputes, although succession conflict can still halt action."}
+          }
+        },
+        {
+          "architecture_id": "B",
+          "dimensions": {
+            "preservation_of_human_sovereignty": {"assessment": "STRONG FORMAL PRESERVATION", "rationale": "The human sovereign remains the final source and interpreter."},
+            "constraint_on_arbitrary_human_power": {"assessment": "MODERATE BUT SELF-JUDGED", "rationale": "Text, reasons, and procedure constrain conduct without an independent final enforcer."},
+            "resistance_to_artificial_intelligence_capture": {"assessment": "CONDITIONAL", "rationale": "Provenance and plural analysis help, but adopted machine reasoning can shape final interpretation."},
+            "resistance_to_human_capture": {"assessment": "LIMITED", "rationale": "Internal review channels remain subordinate and can be coordinated or suppressed."},
+            "legitimacy_clarity": {"assessment": "CLEAR COMMITMENT, AMBIGUOUS FINAL LIMIT", "rationale": "Published limits are visible, but their binding force depends on self-interpretation."},
+            "enforcement_credibility": {"assessment": "MODERATE BELOW THE FOUNDATIONAL LEVEL", "rationale": "Rules can bind ordinary action until the sovereign reinterprets or changes them."},
+            "succession_robustness": {"assessment": "IMPROVED BUT RECURSIVE", "rationale": "Written rules help, yet the disputed successor may become final interpreter."},
+            "emergency_robustness": {"assessment": "PROCEDURALLY GUIDED, INTERNALLY POLICED", "rationale": "Triggers and expiry add friction without independent necessity review."},
+            "incentive_compatibility": {"assessment": "MIXED", "rationale": "Predictability and reputation reward fidelity while self-serving interpretation offers immediate gains."},
+            "anti_accretion_protection": {"assessment": "MODERATE", "rationale": "Records expose drift, but the sovereign controls authoritative precedent and correction."},
+            "reversibility": {"assessment": "MODERATE", "rationale": "Internal reconsideration and amendment exist, though reliance on prior interpretations can harden them."},
+            "human_comprehensibility": {"assessment": "GENERALLY LEGIBLE", "rationale": "Published hierarchy and reasons help, while the text-practice gap can obscure real limits."},
+            "implementation_feasibility": {"assessment": "PARTIAL", "rationale": "Procedures are representable, but convention and final self-interpretation remain nonautomated."},
+            "risk_of_hidden_sovereignty_transfer": {"assessment": "MATERIAL", "rationale": "Interpretive staff or machines may shape the sovereign's understanding without formal authority."},
+            "risk_of_constitutional_deadlock": {"assessment": "LOW TO MODERATE", "rationale": "The sovereign can decide, though procedural commitments can create delay or legitimacy conflict."}
+          }
+        },
+        {
+          "architecture_id": "C",
+          "dimensions": {
+            "preservation_of_human_sovereignty": {"assessment": "PRESERVED WITH CONSTITUTED REVIEW", "rationale": "Human reviewers constrain exercises of power but do not control institutional ends or refounding."},
+            "constraint_on_arbitrary_human_power": {"assessment": "STRONGER IF INDEPENDENCE HOLDS", "rationale": "Standing, review, stays, reasons, and remedies can bind the reviewed actor."},
+            "resistance_to_artificial_intelligence_capture": {"assessment": "RELATIVELY STRONG BUT SHARED-DEPENDENCY SENSITIVE", "rationale": "Adversarial human review helps unless both sides rely on the same compromised systems."},
+            "resistance_to_human_capture": {"assessment": "MODERATE", "rationale": "Plural appointment and appeal distribute risk while creating reviewer-capture pathways."},
+            "legitimacy_clarity": {"assessment": "STRUCTURED BUT CONTESTABLE", "rationale": "The grant to review is explicit, yet the boundary between interpretation and sovereignty remains contested."},
+            "enforcement_credibility": {"assessment": "STRONG IF SEPARATED", "rationale": "Independent stays and remedies require enforcement not controlled by the reviewed party."},
+            "succession_robustness": {"assessment": "MODERATE TO STRONG", "rationale": "A surviving forum can resolve claims, but simultaneous reviewer failure creates recursion."},
+            "emergency_robustness": {"assessment": "BALANCED BUT LATENCY-SENSITIVE", "rationale": "Rapid or retrospective review constrains abuse while potentially delaying urgent action."},
+            "incentive_compatibility": {"assessment": "MIXED", "rationale": "Protected challenge supports constraint while prestige and jurisdictional expansion may bias review."},
+            "anti_accretion_protection": {"assessment": "MODERATE", "rationale": "Dissent and supersession expose doctrine, but precedent itself can reallocate power."},
+            "reversibility": {"assessment": "RELATIVELY STRONG", "rationale": "Stays, remedies, appeal, and amendment create several correction paths."},
+            "human_comprehensibility": {"assessment": "REASONED BUT SPECIALIZED", "rationale": "Published opinions aid contestation while doctrine can become expert-dependent."},
+            "implementation_feasibility": {"assessment": "MODERATE", "rationale": "Workflow and provenance are implementable, but legitimate judgment cannot be conclusively automated."},
+            "risk_of_hidden_sovereignty_transfer": {"assessment": "MATERIAL AT THE REVIEW BOUNDARY", "rationale": "Reviewers or their technical infrastructure can acquire de facto control over constitutional meaning."},
+            "risk_of_constitutional_deadlock": {"assessment": "MODERATE", "rationale": "Conflicting sovereign and reviewer claims can stall action or enforcement."}
+          }
+        },
+        {
+          "architecture_id": "D",
+          "dimensions": {
+            "preservation_of_human_sovereignty": {"assessment": "COLLECTIVELY PRESERVED", "rationale": "Foundational authority remains human but is distributed among constituent units."},
+            "constraint_on_arbitrary_human_power": {"assessment": "STRONG AGAINST UNILATERALISM", "rationale": "Concurrence, jurisdiction, and counter-power limit any one human actor."},
+            "resistance_to_artificial_intelligence_capture": {"assessment": "DISTRIBUTED BUT PLATFORM-SENSITIVE", "rationale": "Independent units contain compromise unless a shared machine becomes the coordination monopoly."},
+            "resistance_to_human_capture": {"assessment": "RELATIVELY STRONG AGAINST SINGLE-POINT CAPTURE", "rationale": "Multiple units raise capture costs while remaining vulnerable to coalition capture."},
+            "legitimacy_clarity": {"assessment": "DEPENDENT ON CONSTITUENT CLARITY", "rationale": "Legitimacy is clear only if standing, mandates, jurisdiction, and aggregation are understood."},
+            "enforcement_credibility": {"assessment": "VARIABLE", "rationale": "Local refusal is credible while common enforcement may fragment or favor dominant units."},
+            "succession_robustness": {"assessment": "REDUNDANT BUT COMPLEX", "rationale": "Unaffected units preserve continuity, though local disputes can spread through the compact."},
+            "emergency_robustness": {"assessment": "LOCALLY RESILIENT, SYSTEMICALLY SLOW", "rationale": "Local action survives central failure while common response can suffer delay."},
+            "incentive_compatibility": {"assessment": "BARGAINING-DEPENDENT", "rationale": "Mutual dependence supports restraint but also holdout, free riding, and blame shifting."},
+            "anti_accretion_protection": {"assessment": "MODERATE", "rationale": "Multiple units can contest drift, while repeated bargains can alter allocation informally."},
+            "reversibility": {"assessment": "LOCALLY STRONG, COLLECTIVELY COSTLY", "rationale": "Contained experiments are reversible but entrenched bargains require renewed agreement."},
+            "human_comprehensibility": {"assessment": "VARIABLE", "rationale": "Clear jurisdiction helps, while overlapping authority and informal bargains obscure responsibility."},
+            "implementation_feasibility": {"assessment": "MODERATE", "rationale": "Scopes and thresholds are representable, but constituent legitimacy and negotiated exceptions are not."},
+            "risk_of_hidden_sovereignty_transfer": {"assessment": "MATERIAL THROUGH COORDINATION HUBS", "rationale": "Agenda setters, resource providers, and validators may recentralize practical authority."},
+            "risk_of_constitutional_deadlock": {"assessment": "HIGHER", "rationale": "Multiple vetoes, bargaining, and unclear final forums can prevent common action."}
+          }
+        },
+        {
+          "architecture_id": "E",
+          "dimensions": {
+            "preservation_of_human_sovereignty": {"assessment": "EXPLICITLY RESERVED", "rationale": "Institutional ends and refounding remain human, with no superior machine authority."},
+            "constraint_on_arbitrary_human_power": {"assessment": "STRONG IN FORM, CONTINGENT IN PRACTICE", "rationale": "Entrenched limits bind ordinary human action if review and enforcement remain independent."},
+            "resistance_to_artificial_intelligence_capture": {"assessment": "STRONG IN FORM, DEPENDENCY-SENSITIVE", "rationale": "Nondelegable human acts and bounded authority help, but nominal control can mask operational dependence."},
+            "resistance_to_human_capture": {"assessment": "MULTILAYERED BUT NOT COMPLETE", "rationale": "Entrenchment and separated functions create friction while coordinated human capture remains possible."},
+            "legitimacy_clarity": {"assessment": "HIGHLY STRUCTURED", "rationale": "Ordinary authority, amendment, and refounding are explicitly distinguished."},
+            "enforcement_credibility": {"assessment": "POTENTIALLY STRONG", "rationale": "Separated human and technical controls can block invalid acts without making the machine sovereign."},
+            "succession_robustness": {"assessment": "STRONG FOR OFFICES, UNRESOLVED FOR CONSTITUENT LOSS", "rationale": "Precommitted succession preserves administration but cannot create a replacement human sovereign."},
+            "emergency_robustness": {"assessment": "CONSTRAINED BUT RIGIDITY-SENSITIVE", "rationale": "Narrow temporary authority limits abuse while potentially impeding action under unforeseen necessity."},
+            "incentive_compatibility": {"assessment": "MIXED", "rationale": "Entrenchment deters opportunism but excessive rigidity can reward evasion and informal change."},
+            "anti_accretion_protection": {"assessment": "RELATIVELY STRONG", "rationale": "Hierarchy, dissent, supersession, and change thresholds make drift visible, though interpretation still accumulates."},
+            "reversibility": {"assessment": "DELIBERATELY ASYMMETRIC", "rationale": "Ordinary acts are reviewable while entrenched commitments require costly legitimate change."},
+            "human_comprehensibility": {"assessment": "STRUCTURED BUT DEMANDING", "rationale": "The layered authority model is express but requires sustained understanding of several change modes."},
+            "implementation_feasibility": {"assessment": "PARTIAL AND COMPLEX", "rationale": "Formal grants and provenance are representable, while legitimacy and refounding remain human judgments."},
+            "risk_of_hidden_sovereignty_transfer": {"assessment": "MATERIAL IF HUMAN CONTROL BECOMES NOMINAL", "rationale": "Reviewers, operators, or machines can dominate practical choices despite reserved formal sovereignty."},
+            "risk_of_constitutional_deadlock": {"assessment": "MATERIAL", "rationale": "Entrenchment and disputed refounding thresholds can block legitimate adaptation."}
+          }
+        }
+      ]
+    },
+    {
+      "review_type": "CONSTITUTIONAL_TRADEOFFS",
+      "tradeoffs": [
+        {"tradeoff": "human_sovereignty_vs_constraint", "analysis": "Preserving human authority over institutional ends does not decide how strongly the same humans are bound when exercising constituted power; stronger limits require a credible enforcement source without silently creating a superior sovereign."},
+        {"tradeoff": "constraint_vs_recursive_authority", "analysis": "Every binding constraint raises a further question about who interprets, enforces, amends, and constrains the constrainer."},
+        {"tradeoff": "continuity_vs_anti_usurpation", "analysis": "Automatic continuity can prevent institutional collapse while allowing temporary delegates, successors, or systems to entrench authority they were meant only to preserve."},
+        {"tradeoff": "emergency_responsiveness_vs_abuse", "analysis": "Fast discretionary action may reduce imminent harm, while narrow triggers, review, expiry, and restoration can fail or arrive too late."},
+        {"tradeoff": "independent_review_vs_reviewer_capture", "analysis": "Independent review can make limits credible but creates appointment, precedent, enforcement, and technical-dependency channels through which reviewers may be captured or become dominant."},
+        {"tradeoff": "stability_vs_legitimate_amendment", "analysis": "Entrenchment protects against opportunistic change while excessive rigidity can preserve defects, encourage evasion, or make legitimate adaptation depend on rupture."},
+        {"tradeoff": "machine_enforcement_vs_human_legitimacy", "analysis": "Machine enforcement can make explicit rules consistent and auditable, but cannot establish legitimate authorship, interpretation, constituency, or refounding."},
+        {"tradeoff": "effective_artificial_intelligence_autonomy_vs_human_control", "analysis": "Operational autonomy may increase capability and responsiveness while creating dependency, opacity, and practical agenda control that can hollow out reserved human authority."}
+      ]
+    },
+    {
+      "review_type": "NEUTRAL_SYNTHESIS",
+      "selection_statement": "No architecture is selected, ranked, declared an automatic winner, or treated as decided or dominated by this synthesis.",
+      "per_architecture": [
+        {"architecture_id": "A", "strongest_pro": "It offers the clearest human source and fastest final action.", "strongest_con": "It has no reliable internal protection against arbitrary sovereign action or self-serving emergency power."},
+        {"architecture_id": "B", "strongest_pro": "It combines human sovereignty with a legible constitutional commitment and avoids creating a separate final reviewer.", "strongest_con": "The constrained actor remains final judge of its own constraints."},
+        {"architecture_id": "C", "strongest_pro": "Independent review can turn stated limits into contestable and enforceable constraints.", "strongest_con": "Reviewer capture, precedent, and recursive legitimacy can create a new concentration of constitutional power."},
+        {"architecture_id": "D", "strongest_pro": "Distribution reduces catastrophic single-point capture and preserves constituent autonomy.", "strongest_con": "Deadlock, diffuse responsibility, local capture, and informal recentralization can impair coherent action."},
+        {"architecture_id": "E", "strongest_pro": "It states the requested distinction most explicitly: human sovereignty over ends coexists with entrenched limits on ordinary human and machine power.", "strongest_con": "Entrenchment and refounding create difficult recursive questions, rigidity, and risk that formal human control becomes nominal."}
+      ],
+      "common_failure_modes": [
+        "Formal authority can diverge from effective power through dependency, agenda control, infrastructure, popularity, expertise, or information asymmetry.",
+        "Emergency mechanisms can persist, evade review, or fail under the conditions for which they were designed.",
+        "Succession can become recursive when the authority needed to validate succession is itself absent or disputed.",
+        "Precedent and practice can change the constitution without a visible amendment or refounding event.",
+        "Reviewers, constituent units, validators, identity issuers, recordkeepers, and enforcement operators can be captured.",
+        "Machine-valid action can be mistaken for constitutionally legitimate action."
+      ],
+      "questions_requiring_human_normative_judgment": [
+        "Which human constituency may legitimately define institutional ends and undertake refounding?",
+        "Which limits, if any, should bind foundational humans even against strongly held present preferences?",
+        "How much deadlock, delay, and reviewer independence is justified to constrain arbitrary power?",
+        "Which values or commitments deserve entrenchment rather than ordinary amendment?",
+        "What remedies are legitimate when a foundational human command is constitutionally invalid?",
+        "What residual emergency discretion is acceptable when prior rules cannot anticipate the harm?"
+      ],
+      "empirical_questions": [
+        "Which actors actually control information, infrastructure, appointments, enforcement, and agenda setting under each architecture?",
+        "Can independent review retain operational independence from the authority, systems, and data it reviews?",
+        "How quickly can distributed authorities coordinate under urgent conditions without permanent recentralization?",
+        "Can humans meaningfully comprehend the authority state and machine dependencies required for supervision?",
+        "Which incentives make compliance more stable than circumvention, capture, or informal constitutional change?"
+      ],
+      "underdetermined_questions": [
+        "The repository does not establish a universally legitimate human constituency or selection process.",
+        "The repository does not determine the amendment-refounding boundary.",
+        "The repository does not resolve constitutional action during loss of foundational human authority.",
+        "The repository does not establish a complete anti-capture mechanism for humans and artificial intelligence systems.",
+        "The repository does not establish how much constitutional meaning can be formalized without erasing convention, judgment, or dissent."
+      ]
+    }
+  ],
+  "dissent": [
+    {
+      "status": "OPEN_FOR_SUBMISSION",
+      "statement": "NO HUMAN DECISION HAS BEEN MADE.",
+      "record": "No architecture has an adopted majority position or filed human dissent. Material unresolved tradeoffs and future dissent must remain preserved rather than inferred away."
+    }
+  ],
+  "human_decision": {
+    "authorized_by": "",
+    "authorization_record": "",
+    "decision_date": ""
+  },
+  "decision_date": "",
+  "supersedes": [],
+  "resulting_requirements": [],
+  "residual_uncertainty": [
+    "FQ-01 remains unresolved because repository evidence does not determine who constitutes the legitimate foundational human sovereign.",
+    "FQ-04 remains unresolved because independent review creates a further authority and capture problem when foundational authority is a party.",
+    "FQ-05 remains unresolved because no repository record fixes the amendment-refounding boundary or identifies unamendable principles.",
+    "Historical evidence remains preliminary and not yet reviewed; analogues cannot establish transferability.",
+    "Some prior-art sources are partial, mutable, access-limited, or still to verify, and none establishes a complete mixed human and artificial intelligence constitutional institution.",
+    "Emergency, succession, effective-power telemetry, anti-accretion protection, and meaningful human comprehension require further research and human judgment."
+  ],
+  "provenance": {
+    "source": "Repository-only synthesis of FQ-01, linked issue records, registered historical evidence, registered prior art, mechanism research map, working design principles, glossary, and constitutional traceability rules."
+  }
+}
