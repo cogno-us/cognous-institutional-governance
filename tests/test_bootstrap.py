@@ -59,6 +59,227 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["prior_art_entry_count"], 33)
         self.assertEqual(result.metrics["issue_prior_art_link_count"], 164)
         self.assertEqual(result.metrics["adoption_map_entry_count"], 18)
+        self.assertEqual(result.metrics["analytical_decision_record_count"], 1)
+        self.assertEqual(result.metrics["candidate_architecture_count"], 5)
+        self.assertEqual(
+            result.metrics["decision_record_status_counts"],
+            {"UNDER_REVIEW": 1},
+        )
+        self.assertEqual(
+            result.metrics["fq1_historical_evidence_reference_count"], 32
+        )
+        self.assertEqual(result.metrics["fq1_prior_art_reference_count"], 33)
+        self.assertEqual(result.metrics["decided_decision_count"], 0)
+        self.assertEqual(result.metrics["accepted_requirement_count"], 0)
+        self.assertEqual(result.metrics["constitutional_provision_count"], 0)
+
+    def test_fq1_analytical_record_cannot_masquerade_as_decided(self) -> None:
+        def add_decision_evidence(record) -> None:
+            record["status"] = "DECIDED"
+            record["human_decision"] = {
+                "authorized_by": "test authority",
+                "authorization_record": "test record",
+                "decision_date": "test date",
+            }
+            record["decision_date"] = "test date"
+
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            add_decision_evidence,
+        )
+        self.assert_error("ANALYTICAL_CDR_MASQUERADING_DECISION")
+
+    def test_fq1_analytical_record_cannot_create_requirements(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["resulting_requirements"].append("CR-001"),
+        )
+        self.assert_error("ANALYTICAL_CDR_MASQUERADING_DECISION")
+
+    def test_fq1_decision_record_schema_is_exact(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record.update(extra_top_level_field=True),
+        )
+        self.assert_error("DECISION_RECORD_SCHEMA")
+
+    def test_fq1_requires_explicit_no_human_decision_statement(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["dissent"][0].update(
+                statement="No decision yet."
+            ),
+        )
+        self.assert_error("FQ1_NO_HUMAN_DECISION_STATEMENT")
+
+    def test_fq1_no_decision_statement_cannot_be_moved_elsewhere(self) -> None:
+        def move_statement(record) -> None:
+            statement = record["dissent"][0]["statement"]
+            record["dissent"][0]["statement"] = "A decision was made."
+            record["assumptions"].append(
+                {"assumption": statement, "boundary": "Moved statement."}
+            )
+
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            move_statement,
+        )
+        self.assert_error("FQ1_NO_HUMAN_DECISION_STATEMENT")
+
+    def test_fq1_source_material_paths_must_resolve(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["source_material"].append(
+                "constitutional-design/sources/DOES-NOT-EXIST.yaml"
+            ),
+        )
+        self.assert_error("FQ1_SOURCE_MATERIAL")
+
+    def test_fq1_historical_reference_must_resolve(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["historical_analogues"][0]["mappings"][
+                0
+            ].update(evidence_id="HE-MISSING"),
+        )
+        self.assert_error("FQ1_HISTORICAL_ANALOGUES_REFERENCES")
+
+    def test_fq1_prior_art_reference_must_resolve(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["prior_art"][0]["mappings"][0].update(
+                prior_art_id="PA-MISSING"
+            ),
+        )
+        self.assert_error("FQ1_PRIOR_ART_REFERENCES")
+
+    def test_fq1_matrix_cannot_select_automatic_winner(self) -> None:
+        def select_winner(record) -> None:
+            matrix = record["reviews"][0]
+            matrix["selection_boundary"]["selected_architecture"] = "E"
+            matrix["selection_boundary"]["automatic_winner"] = True
+
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            select_winner,
+        )
+        self.assert_error("FQ1_COMPARATIVE_MATRIX_SELECTION")
+
+    def test_fq1_synthesis_cannot_select_a_winner(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["reviews"][2].update(
+                selection_statement="Architecture E is selected as the winner."
+            ),
+        )
+        self.assert_error("FQ1_NEUTRAL_SYNTHESIS")
+
+    def test_fq1_architecture_cannot_add_selection_marker(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["candidate_architectures"][4].update(
+                selected=True,
+                decision_status="ADOPTED",
+            ),
+        )
+        self.assert_error("FQ1_ARCHITECTURE_SCHEMA")
+
+    def test_fq1_cannot_select_architecture_in_analysis_prose(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["candidate_architectures"][0].update(
+                definition="Architecture E is selected as the winner."
+            ),
+        )
+        self.assert_error("FQ1_ARCHITECTURE_SELECTION_CLAIM")
+
+    def test_additional_fq1_architecture_requires_substantive_identity(self) -> None:
+        def add_empty_architecture(record) -> None:
+            architecture = dict(record["candidate_architectures"][0])
+            architecture["architecture_id"] = ""
+            architecture["name"] = ""
+            architecture["definition"] = ""
+            record["candidate_architectures"].append(architecture)
+
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            add_empty_architecture,
+        )
+        result = validate(self.root)
+        self.assertFalse(result.passed)
+        codes = {error.split(":", 1)[0] for error in result.errors}
+        self.assertIn("FQ1_ARCHITECTURE_IDS", codes)
+        self.assertIn("FQ1_ARCHITECTURE_SCHEMA", codes)
+
+    def test_fq1_matrix_cannot_use_numeric_scores(self) -> None:
+        def add_score(record) -> None:
+            matrix = record["reviews"][0]
+            first = matrix["architecture_assessments"][0]
+            first["dimensions"]["preservation_of_human_sovereignty"][
+                "assessment"
+            ] = 10
+
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            add_score,
+        )
+        result = validate(self.root)
+        self.assertFalse(result.passed)
+        codes = {error.split(":", 1)[0] for error in result.errors}
+        self.assertIn("FQ1_COMPARATIVE_MATRIX_SCORES", codes)
+        self.assertIn("FQ1_COMPARATIVE_MATRIX_COVERAGE", codes)
+
+    def test_fq1_architecture_dimension_is_required(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["candidate_architectures"][0][
+                "dimensions"
+            ].pop("appeal"),
+        )
+        self.assert_error("FQ1_ARCHITECTURE_DIMENSIONS")
+
+    def test_fq1_architecture_attack_is_required(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["candidate_architectures"][0][
+                "adversarial_tests"
+            ].pop("validator_capture"),
+        )
+        self.assert_error("FQ1_ADVERSARIAL_TESTS")
+
+    def test_fq1_core_distinction_is_required(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            lambda record: record["candidate_architectures"][0][
+                "constitutional_distinction"
+            ].pop("sovereignty_over_institutional_ends"),
+        )
+        self.assert_error("FQ1_CORE_DISTINCTION")
+
+    def test_malformed_fq1_structures_fail_without_crashing(self) -> None:
+        def malform_record(record) -> None:
+            record["candidate_architectures"] = [None]
+            record["historical_analogues"][0]["architecture_id"] = {}
+            record["historical_analogues"][0]["mappings"][0][
+                "classification"
+            ] = {}
+            record["prior_art"][0]["mappings"][0]["prior_art_id"] = {}
+            record["reviews"][0]["architecture_assessments"][0][
+                "architecture_id"
+            ] = {}
+
+        self.update_json(
+            "constitutional-design/decisions/CDR-001.yaml",
+            malform_record,
+        )
+        result = validate(self.root)
+        self.assertFalse(result.passed)
+        self.assertTrue(
+            any(
+                error.startswith("FQ1_CANDIDATE_ARCHITECTURES:")
+                for error in result.errors
+            )
+        )
 
     def test_missing_issue_fails(self) -> None:
         (

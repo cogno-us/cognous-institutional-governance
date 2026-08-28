@@ -154,6 +154,168 @@ EXPECTED_ISSUE_FILENAMES = {
     "IR-18-human-control-and-comprehensibility.yaml",
 }
 EXPECTED_ISSUE_IDS = {f"IR-{index:02d}" for index in range(1, 19)}
+DECISION_FIELDS = {
+    "decision_id",
+    "title",
+    "status",
+    "question",
+    "related_issues",
+    "source_material",
+    "assumptions",
+    "candidate_architectures",
+    "historical_analogues",
+    "prior_art",
+    "advantages",
+    "failure_modes",
+    "bad_human_analysis",
+    "bad_artificial_intelligence_analysis",
+    "incentive_analysis",
+    "continuity_analysis",
+    "reversibility_analysis",
+    "human_comprehensibility_analysis",
+    "reviews",
+    "dissent",
+    "human_decision",
+    "decision_date",
+    "supersedes",
+    "resulting_requirements",
+    "residual_uncertainty",
+    "provenance",
+}
+DECISION_STATUSES = {
+    "PROPOSED",
+    "UNDER_REVIEW",
+    "DISPUTED",
+    "DECIDED",
+    "DEFERRED",
+    "SUPERSEDED",
+    "UNRESOLVED",
+}
+FQ1_REQUIRED_ISSUES = {
+    "IR-01",
+    "IR-02",
+    "IR-06",
+    "IR-08",
+    "IR-09",
+    "IR-10",
+    "IR-15",
+    "IR-17",
+    "IR-18",
+}
+FQ1_REQUIRED_ARCHITECTURES = {"A", "B", "C", "D", "E"}
+FQ1_REQUIRED_ARCHITECTURE_NAMES = {
+    "A": "Unconstrained Foundational Sovereign",
+    "B": "Constitution-Bound Sovereign Without External Adjudicator",
+    "C": "Constitution-Bound Sovereign With Independent Review",
+    "D": "Distributed Foundational Authority",
+    "E": "Reserved Human Sovereignty + Entrenched Constitutional Limits",
+}
+FQ1_ARCHITECTURE_FIELDS = {
+    "architecture_id",
+    "name",
+    "research_status",
+    "definition",
+    "constitutional_distinction",
+    "dimensions",
+    "adversarial_tests",
+}
+FQ1_ARCHITECTURE_DIMENSIONS = {
+    "source_of_legitimacy",
+    "constraint_mechanism",
+    "enforcement",
+    "adjudication",
+    "appeal",
+    "amendment",
+    "refounding",
+    "succession",
+    "emergency",
+    "effective_power",
+    "incentives",
+    "reversibility",
+    "legibility",
+    "machine_implementability",
+}
+FQ1_ADVERSARIAL_TESTS = {
+    "bad_human",
+    "bad_artificial_intelligence",
+    "capture",
+    "emergency",
+    "succession",
+    "popularity_performance_capture",
+    "precedent_accretion",
+    "validator_capture",
+}
+FQ1_CORE_DISTINCTION_FIELDS = {
+    "sovereignty_over_institutional_ends",
+    "constitutional_freedom_and_governed_exercise_of_institutional_power",
+    "machine_validity_and_constitutional_legitimacy",
+}
+FQ1_ATTACK_FIELDS = {
+    "abuse_scenario",
+    "prevention_or_limit",
+    "residual_failure",
+    "validity_legitimacy_boundary",
+}
+FQ1_MATRIX_DIMENSIONS = {
+    "preservation_of_human_sovereignty",
+    "constraint_on_arbitrary_human_power",
+    "resistance_to_artificial_intelligence_capture",
+    "resistance_to_human_capture",
+    "legitimacy_clarity",
+    "enforcement_credibility",
+    "succession_robustness",
+    "emergency_robustness",
+    "incentive_compatibility",
+    "anti_accretion_protection",
+    "reversibility",
+    "human_comprehensibility",
+    "implementation_feasibility",
+    "risk_of_hidden_sovereignty_transfer",
+    "risk_of_constitutional_deadlock",
+}
+FQ1_ANALOGUE_CLASSIFICATIONS = {
+    "DIRECT_ANALOGUE",
+    "PARTIAL_ANALOGUE",
+    "DESIGN_LESSON",
+    "NO_CLOSE_ANALOGUE_IDENTIFIED",
+}
+FQ1_REQUIRED_TRADEOFFS = {
+    "human_sovereignty_vs_constraint",
+    "constraint_vs_recursive_authority",
+    "continuity_vs_anti_usurpation",
+    "emergency_responsiveness_vs_abuse",
+    "independent_review_vs_reviewer_capture",
+    "stability_vs_legitimate_amendment",
+    "machine_enforcement_vs_human_legitimacy",
+    "effective_artificial_intelligence_autonomy_vs_human_control",
+}
+FQ1_NO_DECISION_STATEMENT = "NO HUMAN DECISION HAS BEEN MADE."
+FQ1_NO_SELECTION_STATEMENT = (
+    "No architecture is selected, ranked, declared an automatic winner, "
+    "or treated as decided or dominated by this synthesis."
+)
+FQ1_MATRIX_REVIEW_FIELDS = {
+    "review_type",
+    "method",
+    "selection_boundary",
+    "architecture_assessments",
+}
+FQ1_MATRIX_BOUNDARY_FIELDS = {
+    "selected_architecture",
+    "ranking",
+    "automatic_winner",
+    "no_selected_architecture",
+    "statement",
+}
+FQ1_SYNTHESIS_FIELDS = {
+    "review_type",
+    "selection_statement",
+    "per_architecture",
+    "common_failure_modes",
+    "questions_requiring_human_normative_judgment",
+    "empirical_questions",
+    "underdetermined_questions",
+}
 
 
 @dataclass(frozen=True)
@@ -169,7 +331,7 @@ class ValidationResult:
 def _load_record(path: Path, errors: list[str]) -> dict[str, Any] | None:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError) as exc:
         errors.append(f"INVALID_RECORD: {path}: {exc}")
         return None
     if not isinstance(value, dict):
@@ -294,6 +456,432 @@ def _load_record_set(
     return records
 
 
+def _is_empty_human_decision(record: dict[str, Any]) -> bool:
+    decision = record.get("human_decision")
+    return (
+        isinstance(decision, dict)
+        and set(decision)
+        == {"authorized_by", "authorization_record", "decision_date"}
+        and all(decision.get(field) == "" for field in decision)
+        and record.get("decision_date") == ""
+    )
+
+
+def _contains_number(value: Any) -> bool:
+    if isinstance(value, bool):
+        return False
+    if isinstance(value, (int, float)):
+        return True
+    if isinstance(value, dict):
+        return any(_contains_number(item) for item in value.values())
+    if isinstance(value, list):
+        return any(_contains_number(item) for item in value)
+    return False
+
+
+def _contains_key_fragment(value: Any, fragment: str) -> bool:
+    if isinstance(value, dict):
+        return any(
+            fragment in str(key).lower()
+            or _contains_key_fragment(item, fragment)
+            for key, item in value.items()
+        )
+    if isinstance(value, list):
+        return any(_contains_key_fragment(item, fragment) for item in value)
+    return False
+
+
+def _contains_architecture_selection_claim(value: Any) -> bool:
+    if isinstance(value, dict):
+        return any(
+            _contains_architecture_selection_claim(item)
+            for item in value.values()
+        )
+    if isinstance(value, list):
+        return any(_contains_architecture_selection_claim(item) for item in value)
+    if not isinstance(value, str):
+        return False
+    return re.search(
+        r"\bARCHITECTURE\s+[A-Z0-9_-]+\s+"
+        r"(?:IS|WAS|HAS\s+BEEN)\s+"
+        r"(?:SELECTED|ADOPTED|DECIDED|THE\s+WINNER)\b",
+        value,
+        flags=re.IGNORECASE,
+    ) is not None
+
+
+def _validate_fq1_analytical_record(
+    decision: dict[str, Any],
+    known_historical_ids: set[str],
+    known_prior_art_ids: set[str],
+    root: Path,
+    errors: list[str],
+) -> tuple[int, int, set[str], set[str]]:
+    decision_id = decision.get("decision_id")
+    if decision_id != "CDR-001":
+        return 0, 0, set(), set()
+
+    if decision.get("status") != "UNDER_REVIEW":
+        errors.append("FQ1_ANALYTICAL_STATUS: CDR-001 must be UNDER_REVIEW")
+    if (
+        not _is_empty_human_decision(decision)
+        or _has_human_decision_evidence(decision)
+        or decision.get("resulting_requirements") != []
+    ):
+        errors.append(
+            "ANALYTICAL_CDR_MASQUERADING_DECISION: "
+            "CDR-001 cannot contain decision evidence or requirements"
+        )
+    dissent = decision.get("dissent")
+    has_designated_no_decision_statement = (
+        isinstance(dissent, list)
+        and len(dissent) == 1
+        and isinstance(dissent[0], dict)
+        and dissent[0].get("status") == "OPEN_FOR_SUBMISSION"
+        and dissent[0].get("statement") == FQ1_NO_DECISION_STATEMENT
+        and _is_evidence(dissent[0].get("record"))
+    )
+    if not has_designated_no_decision_statement:
+        errors.append(
+            "FQ1_NO_HUMAN_DECISION_STATEMENT: exact statement is required"
+        )
+    if _contains_architecture_selection_claim(decision):
+        errors.append(
+            "FQ1_ARCHITECTURE_SELECTION_CLAIM: "
+            "analytical CDR cannot select an architecture"
+        )
+
+    related_issues = decision.get("related_issues")
+    if (
+        not isinstance(related_issues, list)
+        or any(not isinstance(item, str) for item in related_issues)
+        or set(related_issues) != FQ1_REQUIRED_ISSUES
+        or len(related_issues) != len(FQ1_REQUIRED_ISSUES)
+    ):
+        errors.append(
+            "FQ1_RELATED_ISSUES: exactly the nine required issue IDs are required"
+        )
+    source_material = decision.get("source_material")
+    invalid_source_material = (
+        not isinstance(source_material, list)
+        or source_material.count("FQ-01") != 1
+    )
+    if isinstance(source_material, list):
+        for reference in source_material:
+            if reference == "FQ-01":
+                continue
+            if not isinstance(reference, str) or not reference:
+                invalid_source_material = True
+                continue
+            resolved_reference = (root / reference).resolve()
+            if (
+                not resolved_reference.is_relative_to(root)
+                or not resolved_reference.is_file()
+            ):
+                invalid_source_material = True
+    if invalid_source_material:
+        errors.append("FQ1_SOURCE_MATERIAL: FQ-01 must be linked")
+
+    architecture_value = decision.get("candidate_architectures")
+    architectures = (
+        [item for item in architecture_value if isinstance(item, dict)]
+        if isinstance(architecture_value, list)
+        else []
+    )
+    if (
+        not isinstance(architecture_value, list)
+        or len(architectures) != len(architecture_value)
+    ):
+        errors.append(
+            "FQ1_CANDIDATE_ARCHITECTURES: architectures must be objects"
+        )
+    architecture_ids = [
+        item.get("architecture_id")
+        for item in architectures
+        if _is_evidence(item.get("architecture_id"))
+    ]
+    architecture_id_set = set(architecture_ids)
+    if len(architecture_ids) != len(architectures) or len(
+        architecture_id_set
+    ) != len(architecture_ids):
+        errors.append(
+            "FQ1_ARCHITECTURE_IDS: architecture IDs must be nonempty and unique"
+        )
+    if not FQ1_REQUIRED_ARCHITECTURES.issubset(architecture_id_set):
+        errors.append("FQ1_ARCHITECTURE_IDS: architectures A through E are required")
+
+    for architecture in architectures:
+        architecture_id = architecture.get("architecture_id")
+        if (
+            set(architecture) != FQ1_ARCHITECTURE_FIELDS
+            or not _is_evidence(architecture_id)
+            or not _is_evidence(architecture.get("name"))
+            or not _is_evidence(architecture.get("definition"))
+        ):
+            errors.append(f"FQ1_ARCHITECTURE_SCHEMA: {architecture_id!r}")
+        expected_name = FQ1_REQUIRED_ARCHITECTURE_NAMES.get(
+            str(architecture_id)
+        )
+        if (
+            expected_name is not None
+            and architecture.get("name") != expected_name
+        ):
+            errors.append(f"FQ1_ARCHITECTURE_NAME: {architecture_id}")
+        if architecture.get("research_status") != "CANDIDATE_NOT_SELECTED":
+            errors.append(
+                f"FQ1_ARCHITECTURE_RESEARCH_STATUS: {architecture_id}"
+            )
+        distinction = architecture.get("constitutional_distinction")
+        if (
+            not isinstance(distinction, dict)
+            or set(distinction) != FQ1_CORE_DISTINCTION_FIELDS
+            or any(not _is_evidence(value) for value in distinction.values())
+        ):
+            errors.append(f"FQ1_CORE_DISTINCTION: {architecture_id}")
+        dimensions = architecture.get("dimensions")
+        if (
+            not isinstance(dimensions, dict)
+            or set(dimensions) != FQ1_ARCHITECTURE_DIMENSIONS
+            or any(not _is_evidence(value) for value in dimensions.values())
+        ):
+            errors.append(f"FQ1_ARCHITECTURE_DIMENSIONS: {architecture_id}")
+        attacks = architecture.get("adversarial_tests")
+        if (
+            not isinstance(attacks, dict)
+            or set(attacks) != FQ1_ADVERSARIAL_TESTS
+        ):
+            errors.append(f"FQ1_ADVERSARIAL_TESTS: {architecture_id}")
+            continue
+        for attack_name, attack in attacks.items():
+            if (
+                not isinstance(attack, dict)
+                or set(attack) != FQ1_ATTACK_FIELDS
+                or any(not _is_evidence(value) for value in attack.values())
+            ):
+                errors.append(
+                    f"FQ1_ADVERSARIAL_TEST_STRUCTURE: "
+                    f"{architecture_id}/{attack_name}"
+                )
+
+    historical_ids: set[str] = set()
+    prior_art_ids: set[str] = set()
+    for field, id_field, known_ids, collected_ids in (
+        (
+            "historical_analogues",
+            "evidence_id",
+            known_historical_ids,
+            historical_ids,
+        ),
+        ("prior_art", "prior_art_id", known_prior_art_ids, prior_art_ids),
+    ):
+        sections = decision.get(field)
+        section_architecture_ids: set[str] = set()
+        malformed = not isinstance(sections, list)
+        if isinstance(sections, list):
+            for section in sections:
+                if not isinstance(section, dict):
+                    malformed = True
+                    continue
+                architecture_id = section.get("architecture_id")
+                if (
+                    not isinstance(architecture_id, str)
+                    or architecture_id not in architecture_id_set
+                ):
+                    malformed = True
+                else:
+                    section_architecture_ids.add(architecture_id)
+                mappings = section.get("mappings")
+                if not isinstance(mappings, list) or not mappings:
+                    malformed = True
+                    continue
+                for mapping in mappings:
+                    if not isinstance(mapping, dict):
+                        malformed = True
+                        continue
+                    reference = mapping.get(id_field)
+                    classification = mapping.get("classification")
+                    rationale = mapping.get("rationale")
+                    if (
+                        not isinstance(reference, str)
+                        or reference not in known_ids
+                        or not isinstance(classification, str)
+                        or classification not in FQ1_ANALOGUE_CLASSIFICATIONS
+                        or not _is_evidence(rationale)
+                    ):
+                        malformed = True
+                    elif isinstance(reference, str):
+                        collected_ids.add(reference)
+        if section_architecture_ids != architecture_id_set:
+            malformed = True
+        if malformed:
+            errors.append(f"FQ1_{field.upper()}_REFERENCES: malformed or unresolved")
+
+    reviews_value = decision.get("reviews")
+    reviews = reviews_value if isinstance(reviews_value, list) else []
+    matrix_reviews = [
+        review
+        for review in reviews
+        if isinstance(review, dict)
+        and review.get("review_type") == "QUALITATIVE_COMPARATIVE_MATRIX"
+    ]
+    if len(matrix_reviews) != 1:
+        errors.append("FQ1_COMPARATIVE_MATRIX: exactly one matrix is required")
+    else:
+        matrix = matrix_reviews[0]
+        boundary = matrix.get("selection_boundary")
+        if (
+            set(matrix) != FQ1_MATRIX_REVIEW_FIELDS
+            or not isinstance(boundary, dict)
+            or set(boundary) != FQ1_MATRIX_BOUNDARY_FIELDS
+            or boundary.get("selected_architecture") != ""
+            or boundary.get("ranking") != []
+            or boundary.get("automatic_winner") is not False
+            or boundary.get("no_selected_architecture") is not True
+        ):
+            errors.append(
+                "FQ1_COMPARATIVE_MATRIX_SELECTION: "
+                "matrix must not select, rank, or name an automatic winner"
+            )
+        assessments = matrix.get("architecture_assessments")
+        assessment_ids: set[str] = set()
+        malformed = not isinstance(assessments, list)
+        if isinstance(assessments, list):
+            for architecture_assessment in assessments:
+                if not isinstance(architecture_assessment, dict):
+                    malformed = True
+                    continue
+                architecture_id = architecture_assessment.get("architecture_id")
+                if isinstance(architecture_id, str):
+                    assessment_ids.add(architecture_id)
+                dimensions = architecture_assessment.get("dimensions")
+                if (
+                    set(architecture_assessment)
+                    != {"architecture_id", "dimensions"}
+                    or not isinstance(architecture_id, str)
+                    or architecture_id not in architecture_id_set
+                    or not isinstance(dimensions, dict)
+                    or set(dimensions) != FQ1_MATRIX_DIMENSIONS
+                ):
+                    malformed = True
+                    continue
+                for assessment in dimensions.values():
+                    if (
+                        not isinstance(assessment, dict)
+                        or set(assessment) != {"assessment", "rationale"}
+                        or not _is_evidence(assessment.get("assessment"))
+                        or not _is_evidence(assessment.get("rationale"))
+                    ):
+                        malformed = True
+        if assessment_ids != architecture_id_set:
+            malformed = True
+        if malformed:
+            errors.append("FQ1_COMPARATIVE_MATRIX_COVERAGE: incomplete matrix")
+        if _contains_number(matrix) or _contains_key_fragment(matrix, "score"):
+            errors.append(
+                "FQ1_COMPARATIVE_MATRIX_SCORES: numeric scores are forbidden"
+            )
+
+    tradeoff_reviews = [
+        review
+        for review in reviews
+        if isinstance(review, dict)
+        and review.get("review_type") == "CONSTITUTIONAL_TRADEOFFS"
+    ]
+    if len(tradeoff_reviews) != 1:
+        errors.append("FQ1_CONSTITUTIONAL_TRADEOFFS: exactly one review is required")
+    else:
+        tradeoff_review = tradeoff_reviews[0]
+        tradeoffs_value = tradeoff_review.get("tradeoffs")
+        tradeoffs = (
+            [item for item in tradeoffs_value if isinstance(item, dict)]
+            if isinstance(tradeoffs_value, list)
+            else []
+        )
+        tradeoff_ids = {
+            item.get("tradeoff")
+            for item in tradeoffs
+            if isinstance(item.get("tradeoff"), str)
+            and _is_evidence(item.get("analysis"))
+        }
+        if (
+            set(tradeoff_review) != {"review_type", "tradeoffs"}
+            or len(tradeoffs) != len(FQ1_REQUIRED_TRADEOFFS)
+            or tradeoff_ids != FQ1_REQUIRED_TRADEOFFS
+            or any(
+                set(item) != {"tradeoff", "analysis"}
+                for item in tradeoffs
+            )
+        ):
+            errors.append(
+                "FQ1_CONSTITUTIONAL_TRADEOFFS: required tradeoffs are incomplete"
+            )
+
+    synthesis_reviews = [
+        review
+        for review in reviews
+        if isinstance(review, dict)
+        and review.get("review_type") == "NEUTRAL_SYNTHESIS"
+    ]
+    if len(synthesis_reviews) != 1:
+        errors.append("FQ1_NEUTRAL_SYNTHESIS: exactly one synthesis is required")
+    else:
+        synthesis = synthesis_reviews[0]
+        per_architecture = synthesis.get("per_architecture")
+        synthesis_ids = (
+            {
+                item.get("architecture_id")
+                for item in per_architecture
+                if isinstance(item, dict)
+                and set(item)
+                == {"architecture_id", "strongest_pro", "strongest_con"}
+                and isinstance(item.get("architecture_id"), str)
+                and _is_evidence(item.get("strongest_pro"))
+                and _is_evidence(item.get("strongest_con"))
+            }
+            if isinstance(per_architecture, list)
+            else set()
+        )
+        required_lists = (
+            "common_failure_modes",
+            "questions_requiring_human_normative_judgment",
+            "empirical_questions",
+            "underdetermined_questions",
+        )
+        if (
+            set(synthesis) != FQ1_SYNTHESIS_FIELDS
+            or synthesis_ids != architecture_id_set
+            or synthesis.get("selection_statement")
+            != FQ1_NO_SELECTION_STATEMENT
+            or any(
+                not isinstance(synthesis.get(field), list)
+                or not synthesis.get(field)
+                or any(
+                    not _is_evidence(item)
+                    for item in synthesis.get(field, [])
+                )
+                for field in required_lists
+            )
+        ):
+            errors.append("FQ1_NEUTRAL_SYNTHESIS: incomplete synthesis")
+    recognized_review_types = {
+        "QUALITATIVE_COMPARATIVE_MATRIX",
+        "CONSTITUTIONAL_TRADEOFFS",
+        "NEUTRAL_SYNTHESIS",
+    }
+    if (
+        len(reviews) != len(recognized_review_types)
+        or {
+            review.get("review_type")
+            for review in reviews
+            if isinstance(review, dict)
+        }
+        != recognized_review_types
+    ):
+        errors.append("FQ1_REVIEWS_SCHEMA: exactly three review types are required")
+
+    return 1, len(architectures), historical_ids, prior_art_ids
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -379,7 +967,15 @@ def validate(root: Path) -> ValidationResult:
 
     decision_dir = root / "constitutional-design" / "decisions"
     decisions = _load_record_set(decision_dir, "CDR-*.yaml", errors)
+    decision_template_path = decision_dir / "DECISION_TEMPLATE.yaml"
+    decision_template = _load_record(decision_template_path, errors) or {}
+    if set(decision_template) != DECISION_FIELDS:
+        errors.append(
+            "DECISION_TEMPLATE_SCHEMA: template fields do not match the baseline"
+        )
     decisions_by_id: dict[str, dict[str, Any]] = {}
+    decision_ids_seen: set[str] = set()
+    decision_status_counts: dict[str, int] = {}
     decided_count = 0
     for decision in decisions:
         if not _has_provenance(decision):
@@ -387,9 +983,30 @@ def validate(root: Path) -> ValidationResult:
                 f"PROVENANCE_REQUIRED: {decision['_record_path']}"
             )
         decision_id = decision.get("decision_id")
-        if isinstance(decision_id, str):
+        if not isinstance(decision_id, str) or not decision_id:
+            errors.append(
+                f"DECISION_ID: invalid identifier in {decision['_record_path']}"
+            )
+        elif decision_id in decision_ids_seen:
+            errors.append(f"DUPLICATE_DECISION_ID: {decision_id}")
+        else:
+            decision_ids_seen.add(decision_id)
             decisions_by_id[decision_id] = decision
-        if decision.get("status") == "DECIDED":
+        if set(decision) - {"_record_path"} != DECISION_FIELDS:
+            errors.append(
+                f"DECISION_RECORD_SCHEMA: {decision_id or decision['_record_path']}"
+            )
+        status = decision.get("status")
+        if not isinstance(status, str) or status not in DECISION_STATUSES:
+            errors.append(
+                f"DECISION_STATUS: {decision_id or decision['_record_path']} "
+                f"is {status!r}"
+            )
+        else:
+            decision_status_counts[status] = (
+                decision_status_counts.get(status, 0) + 1
+            )
+        if status == "DECIDED":
             decided_count += 1
             if not _has_human_decision_evidence(decision):
                 errors.append(
@@ -400,6 +1017,8 @@ def validate(root: Path) -> ValidationResult:
         errors.append(
             f"HISTORICAL_BASELINE_DECISION: expected 0 DECIDED records, found {decided_count}"
         )
+    if "CDR-001" not in decisions_by_id:
+        errors.append("FQ1_ANALYTICAL_RECORD_REQUIRED: CDR-001 is required")
 
     requirement_dir = root / "constitutional-design" / "requirements"
     requirements = _load_record_set(requirement_dir, "CR-*.yaml", errors)
@@ -963,6 +1582,56 @@ def validate(root: Path) -> ValidationResult:
             "HISTORICAL_EVIDENCE_LINK_ASYMMETRY: issue and register mappings differ"
         )
 
+    fq1_issue_records = [
+        issue
+        for issue in issues
+        if issue.get("issue_id") in FQ1_REQUIRED_ISSUES
+    ]
+    expected_fq1_historical_ids = {
+        reference
+        for issue in fq1_issue_records
+        for reference in (
+            issue.get("historical_evidence")
+            if isinstance(issue.get("historical_evidence"), list)
+            else []
+        )
+        if isinstance(reference, str)
+    }
+    expected_fq1_prior_art_ids = {
+        reference
+        for issue in fq1_issue_records
+        for reference in (
+            issue.get("known_prior_art")
+            if isinstance(issue.get("known_prior_art"), list)
+            else []
+        )
+        if isinstance(reference, str)
+    }
+    analytical_decision_record_count = 0
+    candidate_architecture_count = 0
+    fq1_historical_ids: set[str] = set()
+    fq1_prior_art_ids: set[str] = set()
+    fq1_decision = decisions_by_id.get("CDR-001")
+    if fq1_decision is not None:
+        (
+            analytical_decision_record_count,
+            candidate_architecture_count,
+            fq1_historical_ids,
+            fq1_prior_art_ids,
+        ) = _validate_fq1_analytical_record(
+            fq1_decision, evidence_id_set, prior_art_id_set, root, errors
+        )
+        if fq1_historical_ids != expected_fq1_historical_ids:
+            errors.append(
+                "FQ1_HISTORICAL_EVIDENCE_COVERAGE: "
+                "CDR-001 must use every historical record linked by its issues"
+            )
+        if fq1_prior_art_ids != expected_fq1_prior_art_ids:
+            errors.append(
+                "FQ1_PRIOR_ART_COVERAGE: "
+                "CDR-001 must use every prior-art record linked by its issues"
+            )
+
     structured_records: list[Any] = [
         *issues,
         *decisions,
@@ -1010,6 +1679,9 @@ def validate(root: Path) -> ValidationResult:
         "foundational_question_count": len(questions),
         "foundational_question_status_counts": question_status_counts,
         "decision_record_count": len(decisions),
+        "analytical_decision_record_count": analytical_decision_record_count,
+        "candidate_architecture_count": candidate_architecture_count,
+        "decision_record_status_counts": decision_status_counts,
         "decided_decision_count": decided_count,
         "accepted_requirement_count": accepted_count,
         "constitutional_provision_count": len(provision_files),
@@ -1025,6 +1697,8 @@ def validate(root: Path) -> ValidationResult:
         "historical_evidence_entry_count": len(historical_entries),
         "issue_historical_link_count": historical_link_count,
         "historical_source_status_counts": historical_status_counts,
+        "fq1_historical_evidence_reference_count": len(fq1_historical_ids),
+        "fq1_prior_art_reference_count": len(fq1_prior_art_ids),
     }
     return ValidationResult(tuple(errors), metrics)
 

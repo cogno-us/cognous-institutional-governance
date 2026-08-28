@@ -14,3 +14,9 @@ Artificial intelligence consensus cannot satisfy this requirement.
 Future structured records should be named `CDR-*.yaml` and use the template
 fields.
 
+An analytical CDR may place structured architecture definitions, adversarial
+tests, evidence mappings, and qualitative reviews inside the existing template
+fields. Such content remains research: candidate architectures are not
+requirements, comparative review is not selection, and an analytical record
+must not contain human-decision evidence or resulting requirements until an
+explicit human constitutional decision is made.
