@@ -38,9 +38,15 @@
     },
     {
       "question_id": "FQ-04",
-      "status": "UNRESOLVED",
+      "status": "RESOLVED",
       "question": "Who resolves a constitutional dispute when foundational human authority is itself a party?",
-      "provenance": {"source": "constitutional research baseline brief"}
+      "source_decisions": ["CDR-004"],
+      "resolution": "ADOPT_E: independent standing human constitutional adjudication is the default, with bounded jurisdiction over ordinary constitutional acts, distributed appeal and anti-capture safeguards, and predefined conflict handling; final judgment remains human and adjudicators do not acquire sovereignty over institutional ends.",
+      "provenance": {
+        "source": "Explicit human decision recorded in CDR-004",
+        "decision_authority": "Human Constitutional Authority",
+        "decision_date": "2026-08-28"
+      }
     },
     {
       "question_id": "FQ-05",

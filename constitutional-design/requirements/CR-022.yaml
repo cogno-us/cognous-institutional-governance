@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-022",
+  "statement": "Valid adjudicative judgments may bind ordinary constitutional acts of foundational human authority only within explicitly granted jurisdiction, and adjudicators must not acquire sovereignty over institutional ends.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-02", "IR-06", "IR-17"],
+  "source_decisions": ["CDR-004"],
+  "rationale": "CDR-004 permits binding constraint of ordinary acts while preserving the distinction between adjudicative authority and sovereignty over ends.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define exact standing, jurisdiction, binding force, appeal finality, or enforcement against noncompliance.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must require validity, ordinary-act scope, explicit jurisdiction, and reviewer non-sovereignty together.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-004 on 2026-08-28"}
+}

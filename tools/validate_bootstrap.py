@@ -950,10 +950,354 @@ FQ3_REQUIREMENTS = {
         ),
     },
 }
+FQ4_DECISION_DATE = "2026-08-28"
+FQ4_DECISION = "ADOPT_E"
+FQ4_SELECTED_ARCHITECTURE = "E — Hybrid"
+FQ4_INCORPORATED_MECHANISMS = [
+    "independent standing human constitutional adjudication as the default",
+    "final human constitutional judgment",
+    (
+        "binding judgments on ordinary constitutional acts within explicitly "
+        "granted jurisdiction"
+    ),
+    "distributed anti-capture mechanisms",
+    "bounded human appeal",
+    "predefined special conflict handling",
+    (
+        "constitutionally bounded appointment, tenure, removal, recusal, "
+        "replacement, challenge, dissent, reason-giving, and provenance"
+    ),
+    "proportionate jurisdictionally bounded remedies",
+    "institutional separation of adjudication and enforcement",
+    "independent verification of enforcement",
+    "observability and constitutional constraint of reviewer and effective power",
+]
+FQ4_REJECTED_MECHANISMS = [
+    "artificial intelligence as final constitutional adjudicator",
+    "reviewer sovereignty over institutional ends",
+    "adjudicative amendment",
+    "adjudicative refounding",
+    "adjudicative redefinition of foundational institutional ends",
+    "adjudicative creation of foundational sovereignty",
+    "adjudicative creation of emergency authority",
+    "adjudicative creation of succession authority",
+    "remedies that select new institutional ends",
+    "formal machine validity as constitutional legitimacy",
+    "human signature as cure for substantive machine domination",
+]
+FQ4_RESULTING_REQUIREMENTS = [
+    "CR-021",
+    "CR-022",
+    "CR-023",
+    "CR-024",
+    "CR-025",
+    "CR-026",
+    "CR-027",
+    "CR-028",
+    "CR-029",
+]
+FQ4_RESOLUTION = (
+    "ADOPT_E: independent standing human constitutional adjudication is the "
+    "default, with bounded jurisdiction over ordinary constitutional acts, "
+    "distributed appeal and anti-capture safeguards, and predefined conflict "
+    "handling; final judgment remains human and adjudicators do not acquire "
+    "sovereignty over institutional ends."
+)
+FQ4_REQUIREMENT_PROVENANCE = (
+    "Explicit human decision recorded in CDR-004 on 2026-08-28"
+)
+FQ4_DECISION_PROVENANCE = {
+    "source": (
+        "Explicit human instruction from the Human Constitutional Authority on "
+        "2026-08-28, following review of CDR-004 and "
+        "constitutional-design/decisions/packets/"
+        "CDR-004-HUMAN-DECISION-PACKET.md; analytical support remains the "
+        "repository-only synthesis of controlling CDR-001 through CDR-003, linked "
+        "issues, and registered evidence."
+    ),
+    "evidence_boundary": (
+        "This record authorizes constitutional drafting requirements only. It "
+        "does not itself appoint an adjudicator, grant operational jurisdiction, "
+        "decide a dispute, enact a constitutional provision, or create a runtime "
+        "rule."
+    ),
+}
+FQ4_REQUIRED_RESIDUAL_UNCERTAINTY = [
+    "Exact standing rules remain unresolved under IR-06 and IR-07.",
+    (
+        "Adjudicator composition remains unresolved under IR-06, IR-07, and "
+        "IR-10."
+    ),
+    (
+        "Appointment and removal mechanisms remain unresolved under IR-06 and "
+        "IR-10."
+    ),
+    "Adjudicator tenure remains unresolved under IR-06 and IR-10.",
+    (
+        "Recusal and replacement procedure remains unresolved under IR-06 and "
+        "IR-10."
+    ),
+    (
+        "Appeal structure and finality remain unresolved under IR-06 and IR-17."
+    ),
+    (
+        "Exact binding force and remedies remain unresolved under IR-06 and "
+        "IR-17."
+    ),
+    "Enforcement architecture remains unresolved under IR-06 and IR-10.",
+    (
+        "Remedies for noncompliance remain unresolved under IR-06 and IR-17."
+    ),
+    (
+        "The precise interpretation-versus-amendment boundary remains unresolved "
+        "under IR-06, IR-15, and IR-17."
+    ),
+    (
+        "Compromised-adjudicator substitution remains unresolved under IR-06 and "
+        "IR-10."
+    ),
+    (
+        "Detailed controls for reviewer, coalition, precedent, validator, "
+        "shared-artificial-intelligence, and effective power remain unresolved "
+        "under IR-08, IR-09, IR-10, IR-13, and IR-18."
+    ),
+    (
+        "Implementation and machine-formalization details remain unresolved "
+        "under IR-10, IR-13, IR-17, and IR-18."
+    ),
+]
+FQ4_REQUIREMENTS = {
+    "CR-021": {
+        "statement": (
+            "Independent standing human constitutional adjudication must be the "
+            "default for constitutional disputes, including disputes in which "
+            "foundational human authority is a party; final constitutional "
+            "judgment must remain human, while artificial intelligence may "
+            "support evidence, research, provenance, formal validation, and "
+            "analysis but must not serve as final constitutional adjudicator."
+        ),
+        "source_issues": {"IR-01", "IR-02", "IR-06", "IR-13", "IR-18"},
+    },
+    "CR-022": {
+        "statement": (
+            "Valid adjudicative judgments may bind ordinary constitutional acts "
+            "of foundational human authority only within explicitly granted "
+            "jurisdiction, and adjudicators must not acquire sovereignty over "
+            "institutional ends."
+        ),
+        "source_issues": {"IR-01", "IR-02", "IR-06", "IR-17"},
+    },
+    "CR-023": {
+        "statement": (
+            "Adjudication may interpret and enforce the constitution but must not "
+            "silently amend it, refound the institution, redefine foundational "
+            "institutional ends, create foundational sovereignty, or create "
+            "emergency or succession authority."
+        ),
+        "source_issues": {"IR-03", "IR-04", "IR-06", "IR-15", "IR-17"},
+    },
+    "CR-024": {
+        "statement": (
+            "Constitutional adjudication must include distributed anti-capture "
+            "mechanisms, bounded human appeal, and predefined special conflict "
+            "handling when ordinary adjudicators are compromised."
+        ),
+        "source_issues": {"IR-06", "IR-08", "IR-09", "IR-10"},
+    },
+    "CR-025": {
+        "statement": (
+            "Adjudicative independence must include constitutionally bounded "
+            "mechanisms for appointment, tenure, removal, recusal, replacement, "
+            "challenge, dissent, reason-giving, and provenance."
+        ),
+        "source_issues": {"IR-06", "IR-07", "IR-10", "IR-12", "IR-13", "IR-17"},
+    },
+    "CR-026": {
+        "statement": (
+            "Adjudicative remedies must be proportionate and jurisdictionally "
+            "bounded; they may invalidate, suspend, remand, require disclosure, "
+            "or restore lawful state, but must not select new institutional ends."
+        ),
+        "source_issues": {"IR-02", "IR-06", "IR-14", "IR-17"},
+    },
+    "CR-027": {
+        "statement": (
+            "Enforcement of adjudicative judgments must remain institutionally "
+            "separable from adjudication and subject to independent verification."
+        ),
+        "source_issues": {"IR-06", "IR-08", "IR-10", "IR-17"},
+    },
+    "CR-028": {
+        "statement": (
+            "Formal machine validity must not establish constitutional legitimacy, "
+            "and human signature must not cure substantive machine domination of "
+            "adjudication."
+        ),
+        "source_issues": {"IR-06", "IR-08", "IR-13", "IR-18"},
+    },
+    "CR-029": {
+        "statement": (
+            "Emergency and succession disputes must remain governed by CDR-002 "
+            "and CDR-003 respectively; adjudication may review compliance but must "
+            "not manufacture underlying authority, and reviewer power, precedent "
+            "accumulation, coalition capture, validator capture, shared "
+            "artificial-intelligence dependence, and effective power must remain "
+            "observable and constitutionally constrainable."
+        ),
+        "source_issues": {
+            "IR-03",
+            "IR-04",
+            "IR-06",
+            "IR-08",
+            "IR-09",
+            "IR-10",
+            "IR-13",
+            "IR-18",
+        },
+    },
+}
+FQ4_REQUIREMENT_DETAILS = {
+    "CR-021": {
+        "rationale": (
+            "CDR-004 makes independent standing human adjudication the default "
+            "and categorically reserves final constitutional judgment to humans."
+        ),
+        "implementation_boundary": (
+            "Does not define standing, adjudicator composition, appointment, "
+            "procedure, evidence systems, or artificial-intelligence support "
+            "tooling."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve the standing human default, "
+            "coverage of foundational-authority disputes, permitted support "
+            "roles, and the prohibition on final artificial-intelligence "
+            "adjudication."
+        ),
+    },
+    "CR-022": {
+        "rationale": (
+            "CDR-004 permits binding constraint of ordinary acts while preserving "
+            "the distinction between adjudicative authority and sovereignty over "
+            "ends."
+        ),
+        "implementation_boundary": (
+            "Does not define exact standing, jurisdiction, binding force, appeal "
+            "finality, or enforcement against noncompliance."
+        ),
+        "verification_method": (
+            "Drafting traceability must require validity, ordinary-act scope, "
+            "explicit jurisdiction, and reviewer non-sovereignty together."
+        ),
+    },
+    "CR-023": {
+        "rationale": (
+            "CDR-004 bounds interpretation and enforcement so adjudication cannot "
+            "become an unrecorded source of foundational constitutional change or "
+            "authority."
+        ),
+        "implementation_boundary": (
+            "Does not resolve the precise interpretation-versus-amendment "
+            "boundary, refounding threshold, or standards for identifying silent "
+            "constitutional change."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve all six prohibitions while "
+            "allowing interpretation and enforcement within jurisdiction."
+        ),
+    },
+    "CR-024": {
+        "rationale": (
+            "CDR-004 combines standing review with distributed safeguards, human "
+            "appeal, and a predefined path through adjudicator conflict."
+        ),
+        "implementation_boundary": (
+            "Does not define the appeal structure, finality, conflict trigger, "
+            "substitute composition, selection, jurisdiction, or dissolution."
+        ),
+        "verification_method": (
+            "Drafting traceability must require all three safeguards and keep "
+            "appeal human and bounded."
+        ),
+    },
+    "CR-025": {
+        "rationale": (
+            "CDR-004 requires institutional independence to be both protected and "
+            "constitutionally bounded through nine specified mechanisms."
+        ),
+        "implementation_boundary": (
+            "Does not define adjudicator composition or the detailed design, "
+            "thresholds, procedures, effects, or records for any listed mechanism."
+        ),
+        "verification_method": (
+            "Drafting traceability must enumerate all nine independence mechanisms "
+            "and preserve their constitutional bounds."
+        ),
+    },
+    "CR-026": {
+        "rationale": (
+            "CDR-004 authorizes five remedy classes while bounding them by "
+            "proportionality, jurisdiction, and the prohibition on selecting ends."
+        ),
+        "implementation_boundary": (
+            "Does not define exact remedies, standards, scope, sequencing, "
+            "reliance treatment, or remedies for noncompliance."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve proportionality, jurisdiction, "
+            "all five permitted remedy classes, and the institutional-ends "
+            "prohibition."
+        ),
+    },
+    "CR-027": {
+        "rationale": (
+            "CDR-004 separates judgment from enforcement and requires independent "
+            "verification to reduce concentration and selective compliance."
+        ),
+        "implementation_boundary": (
+            "Does not define enforcement offices, architecture, powers, "
+            "sequencing, verification methods, or noncompliance remedies."
+        ),
+        "verification_method": (
+            "Drafting traceability must require institutional separability and "
+            "independent verification without assigning implementation offices."
+        ),
+    },
+    "CR-028": {
+        "rationale": (
+            "CDR-004 rejects both technical-validity substitution and nominal "
+            "human ratification of substantively machine-controlled adjudication."
+        ),
+        "implementation_boundary": (
+            "Does not define machine-support limits, domination metrics, "
+            "disclosure standards, evidence systems, or formal validation "
+            "architecture."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve both the machine-validity "
+            "distinction and the substantive-domination rule."
+        ),
+    },
+    "CR-029": {
+        "rationale": (
+            "CDR-004 preserves controlling emergency and succession decisions "
+            "while requiring six adjudicative power and capture surfaces to "
+            "remain visible and constrainable."
+        ),
+        "implementation_boundary": (
+            "Does not alter CDR-002 or CDR-003 or define observability metrics, "
+            "controls, remedies, technical monitoring, or implementation."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve both cross-CDR boundaries and "
+            "all six observability and constraint categories."
+        ),
+    },
+}
 ALL_REQUIREMENTS = {
     **FQ1_REQUIREMENTS,
     **FQ2_REQUIREMENTS,
     **FQ3_REQUIREMENTS,
+    **FQ4_REQUIREMENTS,
 }
 FQ3_REQUIRED_ISSUES = {
     "IR-03",
@@ -3447,33 +3791,87 @@ def _validate_fq4_analytical_record(
     if decision.get("decision_id") != "CDR-004":
         return 0, set(), set()
 
-    if decision.get("status") != "UNDER_REVIEW":
-        errors.append("FQ4_ANALYTICAL_STATUS: CDR-004 must be UNDER_REVIEW")
-    if (
-        not _is_empty_human_decision(decision)
-        or _has_human_decision_evidence(decision)
-        or decision.get("resulting_requirements") != []
-        or decision.get("decision_date") != ""
-    ):
+    if decision.get("status") != "DECIDED":
+        errors.append("FQ4_DECISION_STATUS: CDR-004 must be DECIDED")
+    human_decision = decision.get("human_decision")
+    valid_human_decision = (
+        isinstance(human_decision, dict)
+        and set(human_decision) == HUMAN_DECISION_FIELDS
+        and human_decision.get("decision") == FQ4_DECISION
+        and human_decision.get("foundational_architecture")
+        == FQ4_SELECTED_ARCHITECTURE
+        and human_decision.get("incorporated_mechanisms")
+        == FQ4_INCORPORATED_MECHANISMS
+        and human_decision.get("rejected_mechanisms")
+        == FQ4_REJECTED_MECHANISMS
+        and human_decision.get("decision_authority")
+        == "Human Constitutional Authority"
+        and human_decision.get("decision_basis")
+        == (
+            "Explicit human instruction following review of CDR-004 and its "
+            "human decision packet."
+        )
+        and human_decision.get("authorized_by")
+        == "Human Constitutional Authority"
+        and human_decision.get("authorization_record")
+        == (
+            "Explicit human instruction received on 2026-08-28 directing this "
+            "repository to record ADOPT_E for CDR-004."
+        )
+        and human_decision.get("decision_date") == FQ4_DECISION_DATE
+        and decision.get("decision_date") == FQ4_DECISION_DATE
+        and _has_human_decision_evidence(decision)
+    )
+    if not valid_human_decision:
         errors.append(
-            "FQ4_ANALYTICAL_BOUNDARY: CDR-004 cannot contain human decision "
-            "evidence or resulting requirements"
+            "FQ4_HUMAN_DECISION_PROVENANCE: exact explicit human decision "
+            "provenance is required"
+        )
+    if decision.get("resulting_requirements") != FQ4_RESULTING_REQUIREMENTS:
+        errors.append(
+            "FQ4_RESULTING_REQUIREMENTS: CR-021 through CR-029 are required"
+        )
+    if decision.get("supersedes") != []:
+        errors.append(
+            "FQ4_SUPERSESSION: CDR-004 must not supersede prior decisions"
         )
     if decision.get("dissent") != [
         {
             "status": "OPEN_FOR_SUBMISSION",
-            "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-04.",
+            "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-04.",
             "record": (
-                "No adjudication architecture is adopted, no reviewer receives "
-                "authority, and the recommendation remains advisory."
+                "The absence of recorded dissent does not imply unanimity or close "
+                "future dissent. Dissent concerning constitutional adjudication "
+                "must remain attributable and durable."
             ),
         }
     ]:
-        errors.append("FQ4_NO_DECISION_STATEMENT: exact boundary is required")
-    if _contains_architecture_selection_claim(decision):
         errors.append(
-            "FQ4_ARCHITECTURE_SELECTION_CLAIM: CDR-004 cannot select an "
-            "architecture"
+            "FQ4_DISSENT_PRESERVATION: open durable dissent channel is required"
+        )
+    analysis_only = {
+        key: value
+        for key, value in decision.items()
+        if key
+        not in {
+            "_record_path",
+            "status",
+            "human_decision",
+            "decision_date",
+            "resulting_requirements",
+            "dissent",
+            "provenance",
+        }
+    }
+    if _contains_architecture_selection_claim(analysis_only):
+        errors.append(
+            "FQ4_ARCHITECTURE_SELECTION_CLAIM: analytical material cannot "
+            "masquerade as the human decision"
+        )
+    if decision.get("residual_uncertainty") != FQ4_REQUIRED_RESIDUAL_UNCERTAINTY:
+        errors.append(
+            "FQ4_RESIDUAL_UNCERTAINTY: all preserved questions must remain "
+            "explicit and traceable"
         )
     if (
         not isinstance(decision.get("related_issues"), list)
@@ -3633,33 +4031,22 @@ def _validate_fq4_analytical_record(
             "FQ4_CONTROLLING_BOUNDARIES: reviewer sovereignty, final AI "
             "adjudication, machine legitimacy, and amendment must be prohibited"
         )
-    if _contains_fq4_authority_effect_claim(decision):
+    if _contains_fq4_authority_effect_claim(analysis_only):
         errors.append(
             "FQ4_CONTRADICTORY_AUTHORITY_CLAIM: analysis cannot adopt an "
             "architecture or create reviewer, machine, amendment, or refounding "
             "authority"
         )
-    if _contains_external_fq4_evidence(decision):
+    if _contains_external_fq4_evidence(analysis_only):
         errors.append(
             "FQ4_EXTERNAL_EVIDENCE: CDR-004 must use repository evidence only"
         )
 
     provenance = decision.get("provenance")
-    if (
-        not isinstance(provenance, dict)
-        or "Repository-only analysis of FQ-04" not in str(
-            provenance.get("source", "")
-        )
-        or "no human decision is made" not in str(
-            provenance.get("evidence_boundary", "")
-        ).casefold()
-        or "no adjudicative authority" not in str(
-            provenance.get("evidence_boundary", "")
-        ).casefold()
-    ):
+    if provenance != FQ4_DECISION_PROVENANCE:
         errors.append(
-            "FQ4_PROVENANCE_BOUNDARY: repository-only analysis and "
-            "no-authority boundary are required"
+            "FQ4_PROVENANCE_BOUNDARY: explicit human provenance and "
+            "drafting-only boundary are required"
         )
 
     return len(architectures or []), historical_ids, prior_art_ids
@@ -3683,8 +4070,11 @@ def _validate_fq4_human_decision_packet(
     markers = (
         "[CDR-004](../CDR-004.yaml)",
         "[FQ-04](../../FOUNDATIONAL_QUESTIONS.yaml)",
-        "**Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
-        "**Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-04.",
+        "**Status:** ADVISORY — SUPERSEDED AS A DECISION AID",
+        (
+            "**Decision state:** A later explicit human decision is recorded "
+            "only in the\n  linked CDR-004."
+        ),
     )
     if (
         any(text.count(marker) != 1 for marker in markers)
@@ -4638,14 +5028,14 @@ def validate(root: Path) -> ValidationResult:
         status = question.get("status")
         expected_status = (
             "RESOLVED"
-            if question_id in {"FQ-01", "FQ-02", "FQ-03"}
+            if question_id in {"FQ-01", "FQ-02", "FQ-03", "FQ-04"}
             else "UNRESOLVED"
         )
         if status != expected_status:
             errors.append(
                 f"FOUNDATIONAL_QUESTION_STATUS: {question_id} is {status!r}"
             )
-        if question_id in {"FQ-04", "FQ-05"} and (
+        if question_id == "FQ-05" and (
             "source_decisions" in question
             or "resolution" in question
             or (
@@ -4699,6 +5089,21 @@ def validate(root: Path) -> ValidationResult:
         ):
             errors.append(
                 "FQ3_RESOLUTION_PROVENANCE: FQ-03 must link to the explicit "
+                "human decision"
+            )
+        if question_id == "FQ-04" and (
+            question.get("source_decisions") != ["CDR-004"]
+            or question.get("resolution") != FQ4_RESOLUTION
+            or not isinstance(question.get("provenance"), dict)
+            or question["provenance"].get("source")
+            != "Explicit human decision recorded in CDR-004"
+            or question["provenance"].get("decision_authority")
+            != "Human Constitutional Authority"
+            or question["provenance"].get("decision_date")
+            != FQ4_DECISION_DATE
+        ):
+            errors.append(
+                "FQ4_RESOLUTION_PROVENANCE: FQ-04 must link to the explicit "
                 "human decision"
             )
         if not _has_provenance(question):
@@ -4767,9 +5172,14 @@ def validate(root: Path) -> ValidationResult:
         for decision_id, decision in decisions_by_id.items()
         if decision.get("status") == "DECIDED"
     }
-    if decided_count != 3 or decided_ids != {"CDR-001", "CDR-002", "CDR-003"}:
+    if decided_count != 4 or decided_ids != {
+        "CDR-001",
+        "CDR-002",
+        "CDR-003",
+        "CDR-004",
+    }:
         errors.append(
-            "DECISION_COUNT: expected exactly CDR-001 through CDR-003 DECIDED, "
+            "DECISION_COUNT: expected exactly CDR-001 through CDR-004 DECIDED, "
             f"found {decided_count}"
         )
     if set(decisions_by_id) != {"CDR-001", "CDR-002", "CDR-003", "CDR-004"}:
@@ -4844,6 +5254,28 @@ def validate(root: Path) -> ValidationResult:
             "FQ3_RESOLUTION_DECISION_LINK: resolved FQ-03 requires decided "
             "CDR-003 with human provenance"
         )
+    fq4 = next(
+        (
+            question
+            for question in questions
+            if question.get("question_id") == "FQ-04"
+        ),
+        {},
+    )
+    if (
+        fq4.get("status") == "RESOLVED"
+        and (
+            fq4.get("source_decisions") != ["CDR-004"]
+            or decisions_by_id.get("CDR-004", {}).get("status") != "DECIDED"
+            or not _has_human_decision_evidence(
+                decisions_by_id.get("CDR-004", {})
+            )
+        )
+    ):
+        errors.append(
+            "FQ4_RESOLUTION_DECISION_LINK: resolved FQ-04 requires decided "
+            "CDR-004 with human provenance"
+        )
 
     requirement_dir = root / "constitutional-design" / "requirements"
     requirements = _load_record_set(requirement_dir, "CR-*.yaml", errors)
@@ -4863,7 +5295,7 @@ def validate(root: Path) -> ValidationResult:
         or len(set(map(str, requirement_ids))) != len(requirement_ids)
     ):
         errors.append(
-            "REQUIREMENT_SET: exactly CR-001 through CR-020 are required"
+            "REQUIREMENT_SET: exactly CR-001 through CR-029 are required"
         )
     accepted_count = 0
     for requirement in requirements:
@@ -4874,15 +5306,19 @@ def validate(root: Path) -> ValidationResult:
         requirement_id = requirement.get("requirement_id")
         requirement_key = str(requirement_id)
         expected_requirement = ALL_REQUIREMENTS.get(requirement_key)
+        expected_fq4_details = FQ4_REQUIREMENT_DETAILS.get(requirement_key)
         if requirement_key in FQ1_REQUIREMENTS:
             expected_decision = "CDR-001"
             expected_provenance = FQ1_REQUIREMENT_PROVENANCE
         elif requirement_key in FQ2_REQUIREMENTS:
             expected_decision = "CDR-002"
             expected_provenance = FQ2_REQUIREMENT_PROVENANCE
-        else:
+        elif requirement_key in FQ3_REQUIREMENTS:
             expected_decision = "CDR-003"
             expected_provenance = FQ3_REQUIREMENT_PROVENANCE
+        else:
+            expected_decision = "CDR-004"
+            expected_provenance = FQ4_REQUIREMENT_PROVENANCE
         if set(requirement) - {"_record_path"} != REQUIREMENT_FIELDS:
             errors.append(
                 f"REQUIREMENT_RECORD_SCHEMA: {requirement_id or requirement['_record_path']}"
@@ -4919,8 +5355,13 @@ def validate(root: Path) -> ValidationResult:
             or len(source_issues) != len(expected_requirement["source_issues"])
             or requirement.get("source_decisions") != [expected_decision]
             or not isinstance(requirement.get("provenance"), dict)
-            or requirement["provenance"].get("source")
-            != expected_provenance
+            or (
+                requirement.get("provenance")
+                != {"source": expected_provenance}
+                if expected_decision == "CDR-004"
+                else requirement["provenance"].get("source")
+                != expected_provenance
+            )
             or requirement.get("constitutional_level") != "FOUNDATIONAL"
             or (
                 expected_decision in {"CDR-002", "CDR-003"}
@@ -4943,6 +5384,20 @@ def validate(root: Path) -> ValidationResult:
                     or not _is_evidence(requirement.get("verification_method"))
                 )
             )
+            or (
+                expected_decision == "CDR-004"
+                and (
+                    expected_fq4_details is None
+                    or requirement.get("rationale")
+                    != expected_fq4_details["rationale"]
+                    or requirement.get("implementation_boundary")
+                    != expected_fq4_details["implementation_boundary"]
+                    or requirement.get("verification_method")
+                    != expected_fq4_details["verification_method"]
+                    or requirement.get("conflicts") != []
+                    or requirement.get("dissent") != []
+                )
+            )
             or requirement.get("draft_mapping") != []
         ):
             errors.append(
@@ -4950,7 +5405,7 @@ def validate(root: Path) -> ValidationResult:
             )
     if accepted_count != len(ALL_REQUIREMENTS):
         errors.append(
-            "ACCEPTED_REQUIREMENT_COUNT: expected 20 "
+            "ACCEPTED_REQUIREMENT_COUNT: expected 29 "
             f"ACCEPTED_FOR_DRAFTING records, found {accepted_count}"
         )
 

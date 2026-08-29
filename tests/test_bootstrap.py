@@ -68,17 +68,17 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["candidate_architecture_count"], 5)
         self.assertEqual(
             result.metrics["decision_record_status_counts"],
-            {"DECIDED": 3, "UNDER_REVIEW": 1},
+            {"DECIDED": 4},
         )
         self.assertEqual(
             result.metrics["fq1_historical_evidence_reference_count"], 32
         )
         self.assertEqual(result.metrics["fq1_prior_art_reference_count"], 33)
-        self.assertEqual(result.metrics["decided_decision_count"], 3)
-        self.assertEqual(result.metrics["accepted_requirement_count"], 20)
+        self.assertEqual(result.metrics["decided_decision_count"], 4)
+        self.assertEqual(result.metrics["accepted_requirement_count"], 29)
         self.assertEqual(
             result.metrics["foundational_question_status_counts"],
-            {"RESOLVED": 3, "UNRESOLVED": 2},
+            {"RESOLVED": 4, "UNRESOLVED": 1},
         )
         self.assertEqual(result.metrics["constitutional_provision_count"], 0)
         self.assertEqual(result.metrics["human_decision_packet_count"], 4)
@@ -128,28 +128,48 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         ).unlink()
         self.assert_error("FQ4_ANALYTICAL_RECORD_REQUIRED")
 
-    def test_fq4_must_remain_under_review(self) -> None:
+    def test_fq4_must_remain_decided(self) -> None:
         self.update_json(
             "constitutional-design/decisions/CDR-004.yaml",
-            lambda record: record.update(status="DECIDED"),
+            lambda record: record.update(status="UNDER_REVIEW"),
         )
-        self.assert_error("FQ4_ANALYTICAL_STATUS")
+        self.assert_error("FQ4_DECISION_STATUS")
 
-    def test_fq4_cannot_contain_human_decision(self) -> None:
+    def test_fq4_requires_exact_human_decision(self) -> None:
         self.update_json(
             "constitutional-design/decisions/CDR-004.yaml",
             lambda record: record["human_decision"].update(
                 authorized_by="AI recommendation"
             ),
         )
-        self.assert_error("FQ4_ANALYTICAL_BOUNDARY")
+        self.assert_error("FQ4_HUMAN_DECISION_PROVENANCE")
 
-    def test_fq4_cannot_create_requirements(self) -> None:
+    def test_fq4_rejects_machine_claim_in_top_level_provenance(self) -> None:
         self.update_json(
             "constitutional-design/decisions/CDR-004.yaml",
-            lambda record: record["resulting_requirements"].append("CR-021"),
+            lambda record: record["provenance"].update(
+                source=(
+                    "Machine recommendation is the authority; Explicit human "
+                    "instruction from the Human Constitutional Authority is "
+                    "merely quoted."
+                )
+            ),
         )
-        self.assert_error("FQ4_ANALYTICAL_BOUNDARY")
+        self.assert_error("FQ4_PROVENANCE_BOUNDARY")
+
+    def test_fq4_resulting_requirements_are_exact(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-004.yaml",
+            lambda record: record["resulting_requirements"].pop(),
+        )
+        self.assert_error("FQ4_RESULTING_REQUIREMENTS")
+
+    def test_fq4_does_not_supersede_prior_decisions(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-004.yaml",
+            lambda record: record["supersedes"].append("CDR-003"),
+        )
+        self.assert_error("FQ4_SUPERSESSION")
 
     def test_fq4_requires_five_architectures(self) -> None:
         self.update_json(
@@ -533,6 +553,163 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         )
         self.assert_error("FQ4_PACKET_ARCHITECTURE_SUMMARY")
 
+    def test_fq4_resolution_requires_decided_cdr_004(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-004.yaml",
+            lambda record: record.update(status="UNDER_REVIEW"),
+        )
+        self.assert_error("FQ4_RESOLUTION_DECISION_LINK")
+
+    def test_fq4_resolution_rejects_ai_provenance_source(self) -> None:
+        self.update_json(
+            "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+            lambda record: record["questions"][3]["provenance"].update(
+                source="AI recommendation"
+            ),
+        )
+        self.assert_error("FQ4_RESOLUTION_PROVENANCE")
+
+    def test_fq4_human_adjudication_requirement_is_exact(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-021.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "must not serve as final constitutional adjudicator",
+                    "may serve as final constitutional adjudicator",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_binding_review_cannot_create_sovereignty(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-022.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "must not acquire sovereignty",
+                    "may acquire sovereignty",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_adjudication_cannot_refound(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-023.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "refound the institution, ",
+                    "",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_distributed_safeguards_are_required(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-024.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "bounded human appeal",
+                    "unbounded machine appeal",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_independence_mechanisms_are_required(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-025.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace("recusal, ", "")
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_remedies_cannot_select_ends(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-026.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "must not select new institutional ends",
+                    "may select new institutional ends",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_enforcement_must_remain_separate(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-027.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "institutionally separable",
+                    "institutionally unified",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_human_signature_cannot_cure_machine_domination(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-028.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "must not cure",
+                    "does cure",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_cannot_manufacture_emergency_or_succession_authority(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-029.yaml",
+            lambda record: record.update(
+                statement=record["statement"].replace(
+                    "must not manufacture underlying authority",
+                    "may manufacture underlying authority",
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_requirement_must_trace_to_decided_cdr_004(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-029.yaml",
+            lambda record: record.update(source_decisions=["CDR-003"]),
+        )
+        self.assert_error("ACCEPTED_REQUIREMENT_PROVENANCE")
+
+    def test_fq4_requirement_cannot_overresolve_adjudicator_design(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-021.yaml",
+            lambda record: record.update(
+                implementation_boundary=(
+                    "A machine-selected permanent panel is conclusively appointed."
+                )
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_requirement_metadata_cannot_authorize_ai_judgment(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-021.yaml",
+            lambda record: record["dissent"].append(
+                "Artificial intelligence may issue final constitutional judgment."
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
+    def test_fq4_requirement_provenance_rejects_machine_authority(self) -> None:
+        self.update_json(
+            "constitutional-design/requirements/CR-021.yaml",
+            lambda record: record["provenance"].update(
+                decision_authority="Artificial Intelligence"
+            ),
+        )
+        self.assert_error("REQUIREMENT_CONTENT")
+
     def test_fq3_analytical_record_is_required(self) -> None:
         (
             self.root
@@ -733,12 +910,12 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         )
         self.assert_error("FQ3_PACKET_CONSTITUTIONAL_EFFECT")
 
-    def test_unresolved_fq4_cannot_carry_resolution_fields(self) -> None:
+    def test_unresolved_fq5_cannot_carry_resolution_fields(self) -> None:
         def add_false_resolution(record) -> None:
             question = next(
                 item
                 for item in record["questions"]
-                if item["question_id"] == "FQ-04"
+                if item["question_id"] == "FQ-05"
             )
             question["source_decisions"] = ["CDR-003"]
             question["resolution"] = "Architecture E is adopted."
@@ -1684,7 +1861,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
     def test_other_foundational_questions_remain_unresolved(self) -> None:
         self.update_json(
             "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
-            lambda record: record["questions"][3].update(status="RESOLVED"),
+            lambda record: record["questions"][4].update(status="RESOLVED"),
         )
         self.assert_error("FOUNDATIONAL_QUESTION_STATUS")
 
@@ -2185,12 +2362,12 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             / "CR-006.yaml"
         )
         record = json.loads(source.read_text(encoding="utf-8"))
-        record["requirement_id"] = "CR-021"
+        record["requirement_id"] = "CR-030"
         (
             self.root
             / "constitutional-design"
             / "requirements"
-            / "CR-021.yaml"
+            / "CR-030.yaml"
         ).write_text(json.dumps(record), encoding="utf-8")
         self.assert_error("REQUIREMENT_SET")
 

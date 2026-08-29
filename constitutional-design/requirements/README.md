@@ -6,6 +6,8 @@ from the explicit human decision recorded in CDR-001. CR-007 through CR-013 are
 accepted for drafting solely from the explicit human decision recorded in
 CDR-002. CR-014 through CR-020 are accepted for drafting solely from the
 explicit human decision recorded in CDR-003.
+CR-021 through CR-029 are accepted for drafting solely from the explicit human
+decision recorded in CDR-004.
 
 Allowed statuses are `CANDIDATE`, `ACCEPTED_FOR_DRAFTING`, `DISPUTED`,
 `REJECTED`, and `SUPERSEDED`.

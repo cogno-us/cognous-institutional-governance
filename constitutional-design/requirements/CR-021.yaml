@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-021",
+  "statement": "Independent standing human constitutional adjudication must be the default for constitutional disputes, including disputes in which foundational human authority is a party; final constitutional judgment must remain human, while artificial intelligence may support evidence, research, provenance, formal validation, and analysis but must not serve as final constitutional adjudicator.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-02", "IR-06", "IR-13", "IR-18"],
+  "source_decisions": ["CDR-004"],
+  "rationale": "CDR-004 makes independent standing human adjudication the default and categorically reserves final constitutional judgment to humans.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define standing, adjudicator composition, appointment, procedure, evidence systems, or artificial-intelligence support tooling.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve the standing human default, coverage of foundational-authority disputes, permitted support roles, and the prohibition on final artificial-intelligence adjudication.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-004 on 2026-08-28"}
+}

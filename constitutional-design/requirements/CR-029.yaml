@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-029",
+  "statement": "Emergency and succession disputes must remain governed by CDR-002 and CDR-003 respectively; adjudication may review compliance but must not manufacture underlying authority, and reviewer power, precedent accumulation, coalition capture, validator capture, shared artificial-intelligence dependence, and effective power must remain observable and constitutionally constrainable.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-03", "IR-04", "IR-06", "IR-08", "IR-09", "IR-10", "IR-13", "IR-18"],
+  "source_decisions": ["CDR-004"],
+  "rationale": "CDR-004 preserves controlling emergency and succession decisions while requiring six adjudicative power and capture surfaces to remain visible and constrainable.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not alter CDR-002 or CDR-003 or define observability metrics, controls, remedies, technical monitoring, or implementation.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve both cross-CDR boundaries and all six observability and constraint categories.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-004 on 2026-08-28"}
+}

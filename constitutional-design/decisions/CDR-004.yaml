@@ -1,7 +1,7 @@
 {
   "decision_id": "CDR-004",
   "title": "Foundational Question 4: Constitutional Adjudication When Foundational Authority Is a Party",
-  "status": "UNDER_REVIEW",
+  "status": "DECIDED",
   "question": "Who resolves a constitutional dispute when foundational human authority is itself a party?",
   "related_issues": ["IR-01", "IR-02", "IR-03", "IR-04", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-17", "IR-18"],
   "source_material": [
@@ -302,34 +302,65 @@
   "dissent": [
     {
       "status": "OPEN_FOR_SUBMISSION",
-      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-04.",
-      "record": "No adjudication architecture is adopted, no reviewer receives authority, and the recommendation remains advisory."
+      "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-04.",
+      "record": "The absence of recorded dissent does not imply unanimity or close future dissent. Dissent concerning constitutional adjudication must remain attributable and durable."
     }
   ],
   "human_decision": {
-    "decision": "",
-    "foundational_architecture": "",
-    "incorporated_mechanisms": [],
-    "rejected_mechanisms": [],
-    "decision_authority": "",
-    "decision_basis": "",
-    "authorized_by": "",
-    "authorization_record": "",
-    "decision_date": ""
+    "decision": "ADOPT_E",
+    "foundational_architecture": "E — Hybrid",
+    "incorporated_mechanisms": [
+      "independent standing human constitutional adjudication as the default",
+      "final human constitutional judgment",
+      "binding judgments on ordinary constitutional acts within explicitly granted jurisdiction",
+      "distributed anti-capture mechanisms",
+      "bounded human appeal",
+      "predefined special conflict handling",
+      "constitutionally bounded appointment, tenure, removal, recusal, replacement, challenge, dissent, reason-giving, and provenance",
+      "proportionate jurisdictionally bounded remedies",
+      "institutional separation of adjudication and enforcement",
+      "independent verification of enforcement",
+      "observability and constitutional constraint of reviewer and effective power"
+    ],
+    "rejected_mechanisms": [
+      "artificial intelligence as final constitutional adjudicator",
+      "reviewer sovereignty over institutional ends",
+      "adjudicative amendment",
+      "adjudicative refounding",
+      "adjudicative redefinition of foundational institutional ends",
+      "adjudicative creation of foundational sovereignty",
+      "adjudicative creation of emergency authority",
+      "adjudicative creation of succession authority",
+      "remedies that select new institutional ends",
+      "formal machine validity as constitutional legitimacy",
+      "human signature as cure for substantive machine domination"
+    ],
+    "decision_authority": "Human Constitutional Authority",
+    "decision_basis": "Explicit human instruction following review of CDR-004 and its human decision packet.",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-28 directing this repository to record ADOPT_E for CDR-004.",
+    "decision_date": "2026-08-28"
   },
-  "decision_date": "",
+  "decision_date": "2026-08-28",
   "supersedes": [],
-  "resulting_requirements": [],
+  "resulting_requirements": ["CR-021", "CR-022", "CR-023", "CR-024", "CR-025", "CR-026", "CR-027", "CR-028", "CR-029"],
   "residual_uncertainty": [
-    "Who has standing, and who determines standing when foundational authority contests access?",
-    "How are adjudicators appointed, tenured, removed, recused, replaced, and reviewed without party or reviewer sovereignty?",
-    "Which judgments bind, what remedies exist, and who enforces them against foundational authority?",
-    "What exact boundary separates constitutional interpretation and remedy from amendment or refounding?",
-    "How do emergency, succession, vacancy, deadlock, and compromised ordinary adjudicators alter process without creating authority?",
-    "How are coalition capture, precedent accretion, validator capture, artificial-intelligence dependence, and effective-power takeover detected and remedied?"
+    "Exact standing rules remain unresolved under IR-06 and IR-07.",
+    "Adjudicator composition remains unresolved under IR-06, IR-07, and IR-10.",
+    "Appointment and removal mechanisms remain unresolved under IR-06 and IR-10.",
+    "Adjudicator tenure remains unresolved under IR-06 and IR-10.",
+    "Recusal and replacement procedure remains unresolved under IR-06 and IR-10.",
+    "Appeal structure and finality remain unresolved under IR-06 and IR-17.",
+    "Exact binding force and remedies remain unresolved under IR-06 and IR-17.",
+    "Enforcement architecture remains unresolved under IR-06 and IR-10.",
+    "Remedies for noncompliance remain unresolved under IR-06 and IR-17.",
+    "The precise interpretation-versus-amendment boundary remains unresolved under IR-06, IR-15, and IR-17.",
+    "Compromised-adjudicator substitution remains unresolved under IR-06 and IR-10.",
+    "Detailed controls for reviewer, coalition, precedent, validator, shared-artificial-intelligence, and effective power remain unresolved under IR-08, IR-09, IR-10, IR-13, and IR-18.",
+    "Implementation and machine-formalization details remain unresolved under IR-10, IR-13, IR-17, and IR-18."
   ],
   "provenance": {
-    "source": "Repository-only analysis of FQ-04, controlling CDR-001 through CDR-003, linked issue records, registered historical evidence, registered prior art, design principles, and glossary boundaries on 2026-08-28.",
-    "evidence_boundary": "Analysis and recommendation inputs only; no human decision is made, no adjudicative authority or final machine judgment is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+    "source": "Explicit human instruction from the Human Constitutional Authority on 2026-08-28, following review of CDR-004 and constitutional-design/decisions/packets/CDR-004-HUMAN-DECISION-PACKET.md; analytical support remains the repository-only synthesis of controlling CDR-001 through CDR-003, linked issues, and registered evidence.",
+    "evidence_boundary": "This record authorizes constitutional drafting requirements only. It does not itself appoint an adjudicator, grant operational jurisdiction, decide a dispute, enact a constitutional provision, or create a runtime rule."
   }
 }

@@ -38,7 +38,8 @@ interregnum. Its advisory packet is retained at
 constitutional effect and did not authorize the human decision recorded in
 CDR-003.
 
-CDR-004 analyzes FQ-04 constitutional adjudication without deciding it. Its
-advisory packet is retained at `packets/CDR-004-HUMAN-DECISION-PACKET.md`; the
-recommendation has no constitutional effect and creates no adjudicative
-authority.
+CDR-004 records the later explicit human decision on FQ-04 constitutional
+adjudication. Its advisory packet is retained at
+`packets/CDR-004-HUMAN-DECISION-PACKET.md`; the packet's recommendation has no
+constitutional effect and did not authorize the human decision recorded in
+CDR-004.
