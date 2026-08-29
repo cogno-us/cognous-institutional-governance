@@ -50,9 +50,15 @@
     },
     {
       "question_id": "FQ-05",
-      "status": "UNRESOLVED",
+      "status": "RESOLVED",
       "question": "Which constitutional principles, if any, cannot be changed through ordinary amendment and instead require explicit refounding?",
-      "provenance": {"source": "constitutional research baseline brief"}
+      "source_decisions": ["CDR-005"],
+      "resolution": "ADOPT_E: ordinary and structural amendments preserve foundational institutional identity at different levels of human authorization and scrutiny; changes to ten enumerated identity principles require explicit human refounding, acknowledged constitutional discontinuity, cumulative-effect review, and durable non-erasing provenance.",
+      "provenance": {
+        "source": "Explicit human decision recorded in CDR-005",
+        "decision_authority": "Human Constitutional Authority",
+        "decision_date": "2026-08-29"
+      }
     }
   ],
   "provenance": {

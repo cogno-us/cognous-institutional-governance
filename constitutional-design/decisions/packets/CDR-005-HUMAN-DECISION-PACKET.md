@@ -2,18 +2,19 @@
 
 - **Decision record:** [CDR-005](../CDR-005.yaml)
 - **Foundational question:** [FQ-05](../../FOUNDATIONAL_QUESTIONS.yaml)
-- **Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION
+- **Status:** ADVISORY — SUPERSEDED AS A DECISION AID
 - **Boundary:** RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT
-- **Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-05.
+- **Decision state:** A later explicit human decision is recorded only in the
+  linked CDR-005.
 
 ## Core Decision
 
-The human Constitutional Authority must decide which changes remain exercises
+The human Constitutional Authority was asked to decide which changes remain exercises
 of an existing constitution and which changes replace the institution's
 identity and therefore require explicit refounding.
 
-Earlier CDR commitments are controlling current law but are not automatically
-immutable. The decision must preserve a meaningful amendment/refounding
+Earlier CDR commitments were controlling current law but were not automatically
+immutable. The decision packet presented a meaningful amendment/refounding
 distinction while determining whether current commitments define constitutional
 identity, receive only heightened procedure, or remain ordinarily amendable.
 
@@ -152,8 +153,8 @@ These classifications are advisory only and have no constitutional effect:
 
 ## Human Decision Options
 
-Selection here has no effect; only a separately recorded explicit human
-constitutional decision can change FQ-05.
+Selection in this packet had no effect. Only the separately recorded explicit
+human constitutional decision in CDR-005 changed FQ-05.
 
 1. **ADOPT_A** — Full amendability.
 2. **ADOPT_B** — Entrenched core.

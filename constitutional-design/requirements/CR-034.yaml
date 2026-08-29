@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-034",
+  "statement": "Amendment laundering must be prohibited, and separately valid constitutional changes must be evaluated for cumulative effect whenever their combination may cross a structural-amendment or refounding boundary.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-08", "IR-09", "IR-13", "IR-15", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-005"],
+  "rationale": "CDR-005 rejects fragmentation of identity-changing or structural change into individually lower-tier acts.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define cumulative-effect methodology, time windows, aggregation, classifiers, evidence standards, challenge, appeal, or remedies.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must prohibit amendment laundering and require cumulative review for both structural and refounding boundary crossings.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-005 on 2026-08-29"}
+}

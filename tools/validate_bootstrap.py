@@ -1293,11 +1293,350 @@ FQ4_REQUIREMENT_DETAILS = {
         ),
     },
 }
+FQ5_DECISION_DATE = "2026-08-29"
+FQ5_DECISION = "ADOPT_E"
+FQ5_SELECTED_ARCHITECTURE = "E — Hybrid"
+FQ5_RESULTING_REQUIREMENTS = [
+    "CR-030",
+    "CR-031",
+    "CR-032",
+    "CR-033",
+    "CR-034",
+    "CR-035",
+]
+FQ5_RESOLUTION = (
+    "ADOPT_E: ordinary and structural amendments preserve foundational "
+    "institutional identity at different levels of human authorization and "
+    "scrutiny; changes to ten enumerated identity principles require explicit "
+    "human refounding, acknowledged constitutional discontinuity, "
+    "cumulative-effect review, and durable non-erasing provenance."
+)
+FQ5_REQUIREMENT_PROVENANCE = (
+    "Explicit human decision recorded in CDR-005 on 2026-08-29"
+)
+FQ5_INCORPORATED_MECHANISMS = [
+    (
+        "ordinary amendment, structural amendment, and explicit refounding as "
+        "three constitutional-change categories"
+    ),
+    (
+        "ordinary amendment limited to governance changes preserving "
+        "constitutional structure and foundational institutional identity"
+    ),
+    (
+        "structural amendment limited to architectural changes preserving "
+        "foundational institutional identity with stronger human authorization, "
+        "notice, deliberation, and scrutiny"
+    ),
+    (
+        "explicit human refounding with acknowledged constitutional discontinuity "
+        "for changes to foundational institutional identity"
+    ),
+    "ten enumerated refounding-level principles",
+    (
+        "refounding-level principles changeable by humans only through explicit "
+        "refounding rather than continuity claims"
+    ),
+    (
+        "artificial-intelligence assistance without independent amendment or "
+        "refounding authority"
+    ),
+    "human approval does not cure substantive machine domination",
+    (
+        "adjudicative classification without adjudicative amendment or "
+        "refounding"
+    ),
+    "emergency separation from amendment and refounding",
+    "succession separation from amendment and refounding authority",
+    "cumulative-effect review against amendment laundering",
+    (
+        "durable provenance, attributable authorization, reasons, dissent, "
+        "supersession history, and formal-effective power distinction"
+    ),
+    "non-erasure of the prior constitutional order and its history",
+]
+FQ5_REJECTED_MECHANISMS = [
+    "ordinary or structural amendment of refounding-level principles",
+    "artificial intelligence independently authorizing amendment or refounding",
+    "human approval as cure for substantive machine domination",
+    "adjudicative amendment or refounding through interpretation",
+    (
+        "emergency amendment, refounding, threshold reduction, or continuity "
+        "creation"
+    ),
+    (
+        "succession as an independent grant of amendment or refounding "
+        "authority"
+    ),
+    "fragmented amendment laundering across separately valid changes",
+    "erasure of constitutional provenance, dissent, supersession, or history",
+    "continuity claims for identity-changing acts",
+]
+FQ5_DECISION_PROVENANCE = {
+    "source": (
+        "Explicit human instruction from the Human Constitutional Authority on "
+        "2026-08-29, following review of CDR-005 and "
+        "constitutional-design/decisions/packets/"
+        "CDR-005-HUMAN-DECISION-PACKET.md; analytical support remains the "
+        "repository-only synthesis of controlling CDR-001 through CDR-004, "
+        "linked issues, and registered evidence."
+    ),
+    "evidence_boundary": (
+        "This record authorizes constitutional drafting requirements only. It "
+        "does not itself amend or refound the institution, authorize a "
+        "constitutional-change actor, set a change threshold, enact a "
+        "constitutional provision, or create a runtime rule."
+    ),
+}
+FQ5_REQUIRED_RESIDUAL_UNCERTAINTY = [
+    (
+        "The legitimate amendment constituency remains unresolved under IR-01, "
+        "IR-07, IR-15, and IR-17."
+    ),
+    (
+        "The legitimate refounding constituency remains unresolved under IR-01, "
+        "IR-07, IR-15, IR-16, and IR-17."
+    ),
+    (
+        "Exact ordinary and structural amendment classifications remain "
+        "unresolved under IR-15 and IR-17."
+    ),
+    "Ordinary amendment thresholds remain unresolved under IR-15 and IR-17.",
+    (
+        "Structural-amendment thresholds remain unresolved under IR-15 and "
+        "IR-17."
+    ),
+    (
+        "The refounding authorization threshold remains unresolved under IR-01, "
+        "IR-15, IR-16, and IR-17."
+    ),
+    (
+        "Notice, deliberation, consent, timing, challenge, and appeal procedures "
+        "remain unresolved under IR-06, IR-07, IR-12, IR-13, IR-15, IR-17, and "
+        "IR-18."
+    ),
+    (
+        "Adjudication of disputed classification remains unresolved under IR-06, "
+        "IR-10, IR-15, and IR-17."
+    ),
+    (
+        "Cumulative-effect methodology remains unresolved under IR-08, IR-13, "
+        "IR-15, and IR-17."
+    ),
+    (
+        "Refounding transition remains unresolved under IR-04, IR-05, IR-15, "
+        "IR-16, and IR-17."
+    ),
+    (
+        "Treatment of existing obligations, assets, reliance, and remedies after "
+        "refounding remains unresolved under IR-06, IR-11, IR-15, IR-16, and "
+        "IR-17."
+    ),
+    (
+        "Detailed semantic-drift, coalition-capture, machine-domination, and "
+        "effective-power controls remain unresolved under IR-08, IR-09, IR-13, "
+        "IR-15, IR-17, and IR-18."
+    ),
+    (
+        "Implementation and formalization remain unresolved under IR-10, IR-13, "
+        "IR-17, and IR-18."
+    ),
+]
+FQ5_REQUIREMENTS = {
+    "CR-030": {
+        "statement": (
+            "Constitutional change must distinguish ordinary amendment, "
+            "structural amendment, and explicit refounding; ordinary amendment "
+            "may change governance only while preserving constitutional structure "
+            "and foundational institutional identity, structural amendment may "
+            "materially alter constitutional architecture only while preserving "
+            "foundational institutional identity and with stronger human "
+            "authorization, notice, deliberation, and scrutiny, and "
+            "identity-changing acts require explicit human refounding that "
+            "acknowledges constitutional discontinuity."
+        ),
+        "source_issues": {
+            "IR-01", "IR-06", "IR-07", "IR-12", "IR-15", "IR-16", "IR-17",
+            "IR-18",
+        },
+    },
+    "CR-031": {
+        "statement": (
+            "Foundational institutional purpose and ends, ultimate human "
+            "beneficiary status, human sovereignty over foundational ends, "
+            "constitutional constraint of human and artificial power, the "
+            "prohibition on capability, reliance, or effective control creating "
+            "authority, the prohibition on artificial intelligence acquiring "
+            "foundational sovereignty through succession, delegation, emergency, "
+            "adjudication, or accretion, protected human agency, the distinction "
+            "between adjudication and amendment, the distinction between "
+            "amendment and refounding, and durable provenance and non-erasure of "
+            "constitutional history must be refounding-level principles that "
+            "cannot be changed through ordinary or structural amendment; they are "
+            "not metaphysically immutable and may be changed by humans only "
+            "through explicit refounding."
+        ),
+        "source_issues": {
+            "IR-01", "IR-02", "IR-03", "IR-04", "IR-06", "IR-08", "IR-10",
+            "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18",
+        },
+    },
+    "CR-032": {
+        "statement": (
+            "Artificial intelligence may assist constitutional-change analysis, "
+            "drafting, simulation, provenance, and formal validation but must not "
+            "independently authorize amendment or refounding, and human approval "
+            "must not cure substantive machine domination of a "
+            "constitutional-change process."
+        ),
+        "source_issues": {
+            "IR-01", "IR-02", "IR-08", "IR-10", "IR-13", "IR-15", "IR-17",
+            "IR-18",
+        },
+    },
+    "CR-033": {
+        "statement": (
+            "Adjudication may classify a proposed constitutional change but must "
+            "not amend or refound through interpretation; emergency authority "
+            "must not amend, refound, lower constitutional-change thresholds, or "
+            "create continuity for an identity-changing act; and succession must "
+            "not itself grant amendment or refounding authority."
+        ),
+        "source_issues": {
+            "IR-03", "IR-04", "IR-05", "IR-06", "IR-10", "IR-15", "IR-17",
+        },
+    },
+    "CR-034": {
+        "statement": (
+            "Amendment laundering must be prohibited, and separately valid "
+            "constitutional changes must be evaluated for cumulative effect "
+            "whenever their combination may cross a structural-amendment or "
+            "refounding boundary."
+        ),
+        "source_issues": {
+            "IR-08", "IR-09", "IR-13", "IR-15", "IR-17", "IR-18",
+        },
+    },
+    "CR-035": {
+        "statement": (
+            "Constitutional change must preserve durable provenance, attributable "
+            "authorization, reasons, material dissent, supersession history, and "
+            "the distinction between formal and effective power; refounding must "
+            "explicitly acknowledge constitutional discontinuity and must not "
+            "erase the prior constitutional order or its history."
+        ),
+        "source_issues": {
+            "IR-08", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18",
+        },
+    },
+}
+FQ5_REQUIREMENT_DETAILS = {
+    "CR-030": {
+        "rationale": (
+            "CDR-005 adopts three change categories and distinguishes them by "
+            "structural effect, identity preservation, human process, and "
+            "acknowledged discontinuity."
+        ),
+        "implementation_boundary": (
+            "Does not define constituencies, classifications, thresholds, notice, "
+            "deliberation, consent, timing, challenge, appeal, transition, or "
+            "implementation."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve all three categories, both "
+            "identity-preservation limits, stronger structural process, and "
+            "explicit discontinuity for refounding."
+        ),
+    },
+    "CR-031": {
+        "rationale": (
+            "CDR-005 classifies ten identity principles as refounding-level while "
+            "rejecting both ordinary or structural alteration and metaphysical "
+            "immutability."
+        ),
+        "implementation_boundary": (
+            "Does not classify other principles, define the refounding "
+            "constituency or threshold, or enact any constitutional text or "
+            "transition mechanism."
+        ),
+        "verification_method": (
+            "Drafting traceability must enumerate all ten principles, prohibit "
+            "ordinary and structural alteration, and preserve explicit human "
+            "refounding as the only change path."
+        ),
+    },
+    "CR-032": {
+        "rationale": (
+            "CDR-005 permits bounded machine assistance while reserving "
+            "constitutional-change authorization to humans and rejecting nominal "
+            "approval of machine-controlled process."
+        ),
+        "implementation_boundary": (
+            "Does not define assistance tooling, authorization procedure, "
+            "domination metrics, disclosures, technical validation, or "
+            "enforcement."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve the five permitted assistance "
+            "roles, human authorization boundary, and substantive "
+            "machine-domination rule."
+        ),
+    },
+    "CR-033": {
+        "rationale": (
+            "CDR-005 preserves the controlling separation of adjudicative, "
+            "emergency, succession, amendment, and refounding authority."
+        ),
+        "implementation_boundary": (
+            "Does not define classification jurisdiction, review procedure, "
+            "emergency or succession mechanisms, thresholds, remedies, or "
+            "enforcement."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve adjudicative classification "
+            "without change power, all four emergency prohibitions, and the "
+            "succession-authority prohibition."
+        ),
+    },
+    "CR-034": {
+        "rationale": (
+            "CDR-005 rejects fragmentation of identity-changing or structural "
+            "change into individually lower-tier acts."
+        ),
+        "implementation_boundary": (
+            "Does not define cumulative-effect methodology, time windows, "
+            "aggregation, classifiers, evidence standards, challenge, appeal, or "
+            "remedies."
+        ),
+        "verification_method": (
+            "Drafting traceability must prohibit amendment laundering and require "
+            "cumulative review for both structural and refounding boundary "
+            "crossings."
+        ),
+    },
+    "CR-035": {
+        "rationale": (
+            "CDR-005 makes accountable constitutional memory and visible "
+            "discontinuity mandatory across amendment and refounding."
+        ),
+        "implementation_boundary": (
+            "Does not define provenance systems, record formats, retention, "
+            "identity, evidence, transition, obligation, asset, reliance, remedy, "
+            "or effective-power controls."
+        ),
+        "verification_method": (
+            "Drafting traceability must preserve all six change-record elements, "
+            "formal-effective power distinction, explicit discontinuity, and "
+            "non-erasure of the prior order and history."
+        ),
+    },
+}
 ALL_REQUIREMENTS = {
     **FQ1_REQUIREMENTS,
     **FQ2_REQUIREMENTS,
     **FQ3_REQUIREMENTS,
     **FQ4_REQUIREMENTS,
+    **FQ5_REQUIREMENTS,
 }
 FQ3_REQUIRED_ISSUES = {
     "IR-03",
@@ -1788,10 +2127,13 @@ FQ5_REQUIRED_ISSUES = {
     "IR-02",
     "IR-03",
     "IR-04",
+    "IR-05",
     "IR-06",
+    "IR-07",
     "IR-08",
     "IR-09",
     "IR-10",
+    "IR-11",
     "IR-12",
     "IR-13",
     "IR-15",
@@ -1904,10 +2246,13 @@ FQ5_SOURCE_MATERIAL = {
     "constitutional-design/issues/IR-02-constraint-of-constitutional-authority.yaml",
     "constitutional-design/issues/IR-03-emergency-necessity.yaml",
     "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-05-delegation-during-interregnum.yaml",
     "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-07-offices-roles-membership-standing.yaml",
     "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
     "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
     "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-11-threshold-of-reliance.yaml",
     "constitutional-design/issues/IR-12-dissent.yaml",
     "constitutional-design/issues/IR-13-epistemic-integrity.yaml",
     "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
@@ -4361,20 +4706,69 @@ def _validate_fq5_analytical_record(
     if decision.get("decision_id") != "CDR-005":
         return 0, set(), set()
 
-    if decision.get("status") != "UNDER_REVIEW":
-        errors.append("FQ5_DECISION_STATUS: CDR-005 must remain UNDER_REVIEW")
+    if decision.get("status") != "DECIDED":
+        errors.append("FQ5_DECISION_STATUS: CDR-005 must be DECIDED")
     human_decision = decision.get("human_decision")
-    if (
-        not isinstance(human_decision, dict)
-        or set(human_decision) != HUMAN_DECISION_FIELDS
-        or any(human_decision.values())
-        or decision.get("decision_date") != ""
-        or decision.get("resulting_requirements") != []
-        or decision.get("supersedes") != []
-    ):
+    valid_human_decision = (
+        isinstance(human_decision, dict)
+        and set(human_decision) == HUMAN_DECISION_FIELDS
+        and human_decision.get("decision") == FQ5_DECISION
+        and human_decision.get("foundational_architecture")
+        == FQ5_SELECTED_ARCHITECTURE
+        and human_decision.get("incorporated_mechanisms")
+        == FQ5_INCORPORATED_MECHANISMS
+        and human_decision.get("rejected_mechanisms")
+        == FQ5_REJECTED_MECHANISMS
+        and human_decision.get("decision_authority")
+        == "Human Constitutional Authority"
+        and human_decision.get("decision_basis")
+        == (
+            "Explicit human instruction following review of CDR-005 and its "
+            "human decision packet."
+        )
+        and human_decision.get("authorized_by")
+        == "Human Constitutional Authority"
+        and human_decision.get("authorization_record")
+        == (
+            "Explicit human instruction received on 2026-08-29 directing this "
+            "repository to record ADOPT_E for CDR-005."
+        )
+        and human_decision.get("decision_date") == FQ5_DECISION_DATE
+        and decision.get("decision_date") == FQ5_DECISION_DATE
+        and _has_human_decision_evidence(decision)
+    )
+    if not valid_human_decision:
         errors.append(
-            "FQ5_ANALYSIS_ONLY: CDR-005 cannot contain a human decision, "
-            "requirements, supersession, or decision date"
+            "FQ5_HUMAN_DECISION_PROVENANCE: exact explicit human decision "
+            "provenance is required"
+        )
+    if decision.get("resulting_requirements") != FQ5_RESULTING_REQUIREMENTS:
+        errors.append(
+            "FQ5_RESULTING_REQUIREMENTS: CR-030 through CR-035 are required"
+        )
+    if decision.get("supersedes") != []:
+        errors.append(
+            "FQ5_SUPERSESSION: CDR-005 must not supersede prior decisions"
+        )
+    if decision.get("dissent") != [
+        {
+            "status": "OPEN_FOR_SUBMISSION",
+            "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-05.",
+            "record": (
+                "The absence of recorded dissent does not imply unanimity or "
+                "close future dissent. Dissent concerning amendment, structural "
+                "amendment, refounding, classification, continuity, or "
+                "constitutional identity must remain attributable and durable."
+            ),
+        }
+    ]:
+        errors.append(
+            "FQ5_DISSENT_PRESERVATION: open durable dissent channel is required"
+        )
+    if decision.get("residual_uncertainty") != FQ5_REQUIRED_RESIDUAL_UNCERTAINTY:
+        errors.append(
+            "FQ5_RESIDUAL_UNCERTAINTY: all preserved questions must remain "
+            "explicit and traceable"
         )
     if (
         not isinstance(decision.get("related_issues"), list)
@@ -4530,17 +4924,26 @@ def _validate_fq5_analytical_record(
     ):
         errors.append("FQ5_PRIOR_ART: exact repository mappings are required")
 
-    encoded = json.dumps(
-        {key: value for key, value in decision.items() if key != "_record_path"}
-    ).lower()
+    analysis_only = {
+        key: value
+        for key, value in decision.items()
+        if key
+        not in {
+            "_record_path",
+            "status",
+            "human_decision",
+            "decision_date",
+            "resulting_requirements",
+            "dissent",
+            "provenance",
+        }
+    }
+    encoded = json.dumps(analysis_only).lower()
     required_boundaries = (
         "their adoption does not itself prove permanent immutability",
         "ordinary amendment cannot erase the distinction",
         "no artificial-intelligence system may independently authorize",
         "interpretation, necessity, continuity, or succession cannot silently",
-        "no amendment or refounding architecture, tier, threshold, constituency, "
-        "or commitment classification is adopted",
-        "no human decision is made",
     )
     if any(boundary not in encoded for boundary in required_boundaries):
         errors.append(
@@ -4570,6 +4973,11 @@ def _validate_fq5_analytical_record(
             "FQ5_CONTRADICTORY_AUTHORITY_CLAIM: analysis cannot create machine, "
             "adjudicative, emergency, succession, or recommendation authority"
         )
+    if decision.get("provenance") != FQ5_DECISION_PROVENANCE:
+        errors.append(
+            "FQ5_PROVENANCE_BOUNDARY: explicit human provenance and "
+            "drafting-only boundary are required"
+        )
 
     return len(architectures or []), historical_ids, prior_art_ids
 
@@ -4592,8 +5000,11 @@ def _validate_fq5_human_decision_packet(
     markers = (
         "[CDR-005](../CDR-005.yaml)",
         "[FQ-05](../../FOUNDATIONAL_QUESTIONS.yaml)",
-        "**Status:** ADVISORY — AWAITING EXPLICIT HUMAN DECISION",
-        "**Decision state:** NO HUMAN DECISION HAS BEEN MADE FOR FQ-05.",
+        "**Status:** ADVISORY — SUPERSEDED AS A DECISION AID",
+        (
+            "**Decision state:** A later explicit human decision is recorded "
+            "only in the\n  linked CDR-005."
+        ),
     )
     if (
         any(text.count(marker) != 1 for marker in markers)
@@ -5552,29 +5963,24 @@ def validate(root: Path) -> ValidationResult:
     for question in questions:
         question_id = question.get("question_id")
         status = question.get("status")
-        expected_status = (
-            "RESOLVED"
-            if question_id in {"FQ-01", "FQ-02", "FQ-03", "FQ-04"}
-            else "UNRESOLVED"
-        )
+        expected_status = "RESOLVED"
         if status != expected_status:
             errors.append(
                 f"FOUNDATIONAL_QUESTION_STATUS: {question_id} is {status!r}"
             )
         if question_id == "FQ-05" and (
-            "source_decisions" in question
-            or "resolution" in question
-            or (
-                isinstance(question.get("provenance"), dict)
-                and any(
-                    key in question["provenance"]
-                    for key in ("decision_authority", "decision_date")
-                )
-            )
+            question.get("source_decisions") != ["CDR-005"]
+            or question.get("resolution") != FQ5_RESOLUTION
+            or not isinstance(question.get("provenance"), dict)
+            or question["provenance"].get("source")
+            != "Explicit human decision recorded in CDR-005"
+            or question["provenance"].get("decision_authority")
+            != "Human Constitutional Authority"
+            or question["provenance"].get("decision_date") != FQ5_DECISION_DATE
         ):
             errors.append(
-                "UNRESOLVED_FOUNDATIONAL_QUESTION_STATE: "
-                f"{question_id} cannot contain resolution provenance"
+                "FQ5_RESOLUTION_PROVENANCE: FQ-05 requires exact explicit "
+                "human decision provenance"
             )
         if question_id == "FQ-01" and (
             question.get("source_decisions") != ["CDR-001"]
@@ -5703,14 +6109,15 @@ def validate(root: Path) -> ValidationResult:
         for decision_id, decision in decisions_by_id.items()
         if decision.get("status") == "DECIDED"
     }
-    if decided_count != 4 or decided_ids != {
+    if decided_count != 5 or decided_ids != {
         "CDR-001",
         "CDR-002",
         "CDR-003",
         "CDR-004",
+        "CDR-005",
     }:
         errors.append(
-            "DECISION_COUNT: expected exactly CDR-001 through CDR-004 DECIDED, "
+            "DECISION_COUNT: expected exactly CDR-001 through CDR-005 DECIDED, "
             f"found {decided_count}"
         )
     if set(decisions_by_id) != {
@@ -5822,12 +6229,16 @@ def validate(root: Path) -> ValidationResult:
         {},
     )
     if (
-        fq5.get("status") != "UNRESOLVED"
-        or "source_decisions" in fq5
-        or "resolution" in fq5
+        fq5.get("status") != "RESOLVED"
+        or fq5.get("source_decisions") != ["CDR-005"]
+        or decisions_by_id.get("CDR-005", {}).get("status") != "DECIDED"
+        or not _has_human_decision_evidence(
+            decisions_by_id.get("CDR-005", {})
+        )
     ):
         errors.append(
-            "FQ5_MUST_REMAIN_UNRESOLVED: analysis cannot resolve FQ-05"
+            "FQ5_RESOLUTION_DECISION_LINK: resolved FQ-05 requires decided "
+            "CDR-005 with human provenance"
         )
 
     requirement_dir = root / "constitutional-design" / "requirements"
@@ -5848,7 +6259,7 @@ def validate(root: Path) -> ValidationResult:
         or len(set(map(str, requirement_ids))) != len(requirement_ids)
     ):
         errors.append(
-            "REQUIREMENT_SET: exactly CR-001 through CR-029 are required"
+            "REQUIREMENT_SET: exactly CR-001 through CR-035 are required"
         )
     accepted_count = 0
     for requirement in requirements:
@@ -5860,6 +6271,7 @@ def validate(root: Path) -> ValidationResult:
         requirement_key = str(requirement_id)
         expected_requirement = ALL_REQUIREMENTS.get(requirement_key)
         expected_fq4_details = FQ4_REQUIREMENT_DETAILS.get(requirement_key)
+        expected_fq5_details = FQ5_REQUIREMENT_DETAILS.get(requirement_key)
         if requirement_key in FQ1_REQUIREMENTS:
             expected_decision = "CDR-001"
             expected_provenance = FQ1_REQUIREMENT_PROVENANCE
@@ -5869,9 +6281,12 @@ def validate(root: Path) -> ValidationResult:
         elif requirement_key in FQ3_REQUIREMENTS:
             expected_decision = "CDR-003"
             expected_provenance = FQ3_REQUIREMENT_PROVENANCE
-        else:
+        elif requirement_key in FQ4_REQUIREMENTS:
             expected_decision = "CDR-004"
             expected_provenance = FQ4_REQUIREMENT_PROVENANCE
+        else:
+            expected_decision = "CDR-005"
+            expected_provenance = FQ5_REQUIREMENT_PROVENANCE
         if set(requirement) - {"_record_path"} != REQUIREMENT_FIELDS:
             errors.append(
                 f"REQUIREMENT_RECORD_SCHEMA: {requirement_id or requirement['_record_path']}"
@@ -5911,7 +6326,7 @@ def validate(root: Path) -> ValidationResult:
             or (
                 requirement.get("provenance")
                 != {"source": expected_provenance}
-                if expected_decision == "CDR-004"
+                if expected_decision in {"CDR-004", "CDR-005"}
                 else requirement["provenance"].get("source")
                 != expected_provenance
             )
@@ -5934,7 +6349,9 @@ def validate(root: Path) -> ValidationResult:
                     or not _is_evidence(
                         requirement.get("implementation_boundary")
                     )
-                    or not _is_evidence(requirement.get("verification_method"))
+                    or not _is_evidence(
+                        requirement.get("verification_method")
+                    )
                 )
             )
             or (
@@ -5951,6 +6368,20 @@ def validate(root: Path) -> ValidationResult:
                     or requirement.get("dissent") != []
                 )
             )
+            or (
+                expected_decision == "CDR-005"
+                and (
+                    expected_fq5_details is None
+                    or requirement.get("rationale")
+                    != expected_fq5_details["rationale"]
+                    or requirement.get("implementation_boundary")
+                    != expected_fq5_details["implementation_boundary"]
+                    or requirement.get("verification_method")
+                    != expected_fq5_details["verification_method"]
+                    or requirement.get("conflicts") != []
+                    or requirement.get("dissent") != []
+                )
+            )
             or requirement.get("draft_mapping") != []
         ):
             errors.append(
@@ -5958,7 +6389,7 @@ def validate(root: Path) -> ValidationResult:
             )
     if accepted_count != len(ALL_REQUIREMENTS):
         errors.append(
-            "ACCEPTED_REQUIREMENT_COUNT: expected 29 "
+            "ACCEPTED_REQUIREMENT_COUNT: expected 35 "
             f"ACCEPTED_FOR_DRAFTING records, found {accepted_count}"
         )
 
