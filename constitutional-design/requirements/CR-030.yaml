@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-030",
+  "statement": "Constitutional change must distinguish ordinary amendment, structural amendment, and explicit refounding; ordinary amendment may change governance only while preserving constitutional structure and foundational institutional identity, structural amendment may materially alter constitutional architecture only while preserving foundational institutional identity and with stronger human authorization, notice, deliberation, and scrutiny, and identity-changing acts require explicit human refounding that acknowledges constitutional discontinuity.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-06", "IR-07", "IR-12", "IR-15", "IR-16", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-005"],
+  "rationale": "CDR-005 adopts three change categories and distinguishes them by structural effect, identity preservation, human process, and acknowledged discontinuity.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define constituencies, classifications, thresholds, notice, deliberation, consent, timing, challenge, appeal, transition, or implementation.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve all three categories, both identity-preservation limits, stronger structural process, and explicit discontinuity for refounding.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-005 on 2026-08-29"}
+}

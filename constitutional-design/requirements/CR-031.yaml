@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-031",
+  "statement": "Foundational institutional purpose and ends, ultimate human beneficiary status, human sovereignty over foundational ends, constitutional constraint of human and artificial power, the prohibition on capability, reliance, or effective control creating authority, the prohibition on artificial intelligence acquiring foundational sovereignty through succession, delegation, emergency, adjudication, or accretion, protected human agency, the distinction between adjudication and amendment, the distinction between amendment and refounding, and durable provenance and non-erasure of constitutional history must be refounding-level principles that cannot be changed through ordinary or structural amendment; they are not metaphysically immutable and may be changed by humans only through explicit refounding.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-02", "IR-03", "IR-04", "IR-06", "IR-08", "IR-10", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-005"],
+  "rationale": "CDR-005 classifies ten identity principles as refounding-level while rejecting both ordinary or structural alteration and metaphysical immutability.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not classify other principles, define the refounding constituency or threshold, or enact any constitutional text or transition mechanism.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must enumerate all ten principles, prohibit ordinary and structural alteration, and preserve explicit human refounding as the only change path.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-005 on 2026-08-29"}
+}

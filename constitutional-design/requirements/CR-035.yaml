@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-035",
+  "statement": "Constitutional change must preserve durable provenance, attributable authorization, reasons, material dissent, supersession history, and the distinction between formal and effective power; refounding must explicitly acknowledge constitutional discontinuity and must not erase the prior constitutional order or its history.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-08", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-005"],
+  "rationale": "CDR-005 makes accountable constitutional memory and visible discontinuity mandatory across amendment and refounding.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define provenance systems, record formats, retention, identity, evidence, transition, obligation, asset, reliance, remedy, or effective-power controls.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve all six change-record elements, formal-effective power distinction, explicit discontinuity, and non-erasure of the prior order and history.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-005 on 2026-08-29"}
+}

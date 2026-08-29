@@ -1,0 +1,15 @@
+{
+  "requirement_id": "CR-032",
+  "statement": "Artificial intelligence may assist constitutional-change analysis, drafting, simulation, provenance, and formal validation but must not independently authorize amendment or refounding, and human approval must not cure substantive machine domination of a constitutional-change process.",
+  "status": "ACCEPTED_FOR_DRAFTING",
+  "source_issues": ["IR-01", "IR-02", "IR-08", "IR-10", "IR-13", "IR-15", "IR-17", "IR-18"],
+  "source_decisions": ["CDR-005"],
+  "rationale": "CDR-005 permits bounded machine assistance while reserving constitutional-change authorization to humans and rejecting nominal approval of machine-controlled process.",
+  "constitutional_level": "FOUNDATIONAL",
+  "implementation_boundary": "Does not define assistance tooling, authorization procedure, domination metrics, disclosures, technical validation, or enforcement.",
+  "conflicts": [],
+  "dissent": [],
+  "verification_method": "Drafting traceability must preserve the five permitted assistance roles, human authorization boundary, and substantive machine-domination rule.",
+  "draft_mapping": [],
+  "provenance": {"source": "Explicit human decision recorded in CDR-005 on 2026-08-29"}
+}

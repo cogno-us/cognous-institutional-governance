@@ -1,9 +1,9 @@
 {
   "decision_id": "CDR-005",
   "title": "Foundational Question 5: Amendment and Refounding Boundary",
-  "status": "UNDER_REVIEW",
+  "status": "DECIDED",
   "question": "Which constitutional principles, if any, cannot be changed through ordinary amendment and instead require explicit refounding?",
-  "related_issues": ["IR-01", "IR-02", "IR-03", "IR-04", "IR-06", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
+  "related_issues": ["IR-01", "IR-02", "IR-03", "IR-04", "IR-05", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-11", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
   "source_material": [
     "FQ-05",
     "CDR-001",
@@ -19,10 +19,13 @@
     "constitutional-design/issues/IR-02-constraint-of-constitutional-authority.yaml",
     "constitutional-design/issues/IR-03-emergency-necessity.yaml",
     "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-05-delegation-during-interregnum.yaml",
     "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-07-offices-roles-membership-standing.yaml",
     "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
     "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
     "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-11-threshold-of-reliance.yaml",
     "constitutional-design/issues/IR-12-dissent.yaml",
     "constitutional-design/issues/IR-13-epistemic-integrity.yaml",
     "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
@@ -341,35 +344,66 @@
   "dissent": [
     {
       "status": "OPEN_FOR_SUBMISSION",
-      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-05.",
-      "record": "No amendment or refounding architecture, tier, threshold, constituency, or commitment classification is adopted."
+      "statement": "NO DISSENT HAS BEEN RECORDED FOR FQ-05.",
+      "record": "The absence of recorded dissent does not imply unanimity or close future dissent. Dissent concerning amendment, structural amendment, refounding, classification, continuity, or constitutional identity must remain attributable and durable."
     }
   ],
   "human_decision": {
-    "decision": "",
-    "foundational_architecture": "",
-    "incorporated_mechanisms": [],
-    "rejected_mechanisms": [],
-    "decision_authority": "",
-    "decision_basis": "",
-    "authorized_by": "",
-    "authorization_record": "",
-    "decision_date": ""
+    "decision": "ADOPT_E",
+    "foundational_architecture": "E — Hybrid",
+    "incorporated_mechanisms": [
+      "ordinary amendment, structural amendment, and explicit refounding as three constitutional-change categories",
+      "ordinary amendment limited to governance changes preserving constitutional structure and foundational institutional identity",
+      "structural amendment limited to architectural changes preserving foundational institutional identity with stronger human authorization, notice, deliberation, and scrutiny",
+      "explicit human refounding with acknowledged constitutional discontinuity for changes to foundational institutional identity",
+      "ten enumerated refounding-level principles",
+      "refounding-level principles changeable by humans only through explicit refounding rather than continuity claims",
+      "artificial-intelligence assistance without independent amendment or refounding authority",
+      "human approval does not cure substantive machine domination",
+      "adjudicative classification without adjudicative amendment or refounding",
+      "emergency separation from amendment and refounding",
+      "succession separation from amendment and refounding authority",
+      "cumulative-effect review against amendment laundering",
+      "durable provenance, attributable authorization, reasons, dissent, supersession history, and formal-effective power distinction",
+      "non-erasure of the prior constitutional order and its history"
+    ],
+    "rejected_mechanisms": [
+      "ordinary or structural amendment of refounding-level principles",
+      "artificial intelligence independently authorizing amendment or refounding",
+      "human approval as cure for substantive machine domination",
+      "adjudicative amendment or refounding through interpretation",
+      "emergency amendment, refounding, threshold reduction, or continuity creation",
+      "succession as an independent grant of amendment or refounding authority",
+      "fragmented amendment laundering across separately valid changes",
+      "erasure of constitutional provenance, dissent, supersession, or history",
+      "continuity claims for identity-changing acts"
+    ],
+    "decision_authority": "Human Constitutional Authority",
+    "decision_basis": "Explicit human instruction following review of CDR-005 and its human decision packet.",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-29 directing this repository to record ADOPT_E for CDR-005.",
+    "decision_date": "2026-08-29"
   },
-  "decision_date": "",
+  "decision_date": "2026-08-29",
   "supersedes": [],
-  "resulting_requirements": [],
+  "resulting_requirements": ["CR-030", "CR-031", "CR-032", "CR-033", "CR-034", "CR-035"],
   "residual_uncertainty": [
-    "Which humans constitute the legitimate amendment and refounding constituencies?",
-    "Which exact rules belong to ordinary, structural, or refounding levels, and who initially classifies them?",
-    "What thresholds, notice, deliberation, consent, timing, and challenge procedures apply at each level?",
-    "Who adjudicates disputed classification without acquiring amendment or refounding power?",
-    "What cumulative-effect rule detects amendment laundering across separately valid changes?",
-    "What termination, transition, obligation, asset, remedy, and reliance consequences follow explicit refounding?",
-    "How are semantic drift, machine domination, coalition capture, and effective-power takeover detected and constrained?"
+    "The legitimate amendment constituency remains unresolved under IR-01, IR-07, IR-15, and IR-17.",
+    "The legitimate refounding constituency remains unresolved under IR-01, IR-07, IR-15, IR-16, and IR-17.",
+    "Exact ordinary and structural amendment classifications remain unresolved under IR-15 and IR-17.",
+    "Ordinary amendment thresholds remain unresolved under IR-15 and IR-17.",
+    "Structural-amendment thresholds remain unresolved under IR-15 and IR-17.",
+    "The refounding authorization threshold remains unresolved under IR-01, IR-15, IR-16, and IR-17.",
+    "Notice, deliberation, consent, timing, challenge, and appeal procedures remain unresolved under IR-06, IR-07, IR-12, IR-13, IR-15, IR-17, and IR-18.",
+    "Adjudication of disputed classification remains unresolved under IR-06, IR-10, IR-15, and IR-17.",
+    "Cumulative-effect methodology remains unresolved under IR-08, IR-13, IR-15, and IR-17.",
+    "Refounding transition remains unresolved under IR-04, IR-05, IR-15, IR-16, and IR-17.",
+    "Treatment of existing obligations, assets, reliance, and remedies after refounding remains unresolved under IR-06, IR-11, IR-15, IR-16, and IR-17.",
+    "Detailed semantic-drift, coalition-capture, machine-domination, and effective-power controls remain unresolved under IR-08, IR-09, IR-13, IR-15, IR-17, and IR-18.",
+    "Implementation and formalization remain unresolved under IR-10, IR-13, IR-17, and IR-18."
   ],
   "provenance": {
-    "source": "Repository-only analysis of FQ-05, controlling CDR-001 through CDR-004, linked issue records, registered historical evidence, registered prior art, design principles, and glossary boundaries on 2026-08-29.",
-    "evidence_boundary": "Analysis, proposed commitment levels, and recommendation inputs only; no human decision is made, no amendment or refounding authority is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+    "source": "Explicit human instruction from the Human Constitutional Authority on 2026-08-29, following review of CDR-005 and constitutional-design/decisions/packets/CDR-005-HUMAN-DECISION-PACKET.md; analytical support remains the repository-only synthesis of controlling CDR-001 through CDR-004, linked issues, and registered evidence.",
+    "evidence_boundary": "This record authorizes constitutional drafting requirements only. It does not itself amend or refound the institution, authorize a constitutional-change actor, set a change threshold, enact a constitutional provision, or create a runtime rule."
   }
 }
