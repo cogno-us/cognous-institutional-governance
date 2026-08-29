@@ -43,3 +43,8 @@ adjudication. Its advisory packet is retained at
 `packets/CDR-004-HUMAN-DECISION-PACKET.md`; the packet's recommendation has no
 constitutional effect and did not authorize the human decision recorded in
 CDR-004.
+
+CDR-005 analyzes FQ-05 amendment and refounding without deciding it. Its
+advisory packet is retained at `packets/CDR-005-HUMAN-DECISION-PACKET.md`; the
+recommendation and proposed commitment levels have no constitutional effect and
+create no amendment or refounding authority.
