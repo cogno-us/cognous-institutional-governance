@@ -68,7 +68,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["candidate_architecture_count"], 5)
         self.assertEqual(
             result.metrics["decision_record_status_counts"],
-            {"DECIDED": 4},
+            {"DECIDED": 4, "UNDER_REVIEW": 1},
         )
         self.assertEqual(
             result.metrics["fq1_historical_evidence_reference_count"], 32
@@ -81,7 +81,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             {"RESOLVED": 4, "UNRESOLVED": 1},
         )
         self.assertEqual(result.metrics["constitutional_provision_count"], 0)
-        self.assertEqual(result.metrics["human_decision_packet_count"], 4)
+        self.assertEqual(result.metrics["human_decision_packet_count"], 5)
         self.assertEqual(result.metrics["human_decision_option_count"], 8)
         self.assertEqual(result.metrics["human_decision_question_count"], 5)
         self.assertEqual(
@@ -118,6 +118,161 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             result.metrics["fq4_recommended_architecture"],
             "Architecture E",
         )
+        self.assertEqual(result.metrics["fq5_candidate_architecture_count"], 5)
+        self.assertEqual(
+            result.metrics["fq5_historical_evidence_reference_count"], 15
+        )
+        self.assertEqual(result.metrics["fq5_prior_art_reference_count"], 14)
+        self.assertEqual(result.metrics["fq5_human_decision_option_count"], 7)
+        self.assertEqual(
+            result.metrics["fq5_recommended_architecture"],
+            "Architecture E",
+        )
+        self.assertEqual(result.metrics["fq5_refounding_principle_count"], 10)
+
+    def test_fq5_analytical_record_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CDR-005.yaml"
+        ).unlink()
+        self.assert_error("FQ5_ANALYTICAL_RECORD_REQUIRED")
+
+    def test_fq5_must_remain_under_review(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record.update(status="DECIDED"),
+        )
+        self.assert_error("FQ5_DECISION_STATUS")
+
+    def test_fq5_cannot_record_human_decision(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["human_decision"].update(decision="ADOPT_E"),
+        )
+        self.assert_error("FQ5_ANALYSIS_ONLY")
+
+    def test_fq5_requires_all_analysis_dimensions(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["candidate_architectures"][0]["analysis"].pop(
+                "refounding"
+            ),
+        )
+        self.assert_error("FQ5_CANDIDATE_ARCHITECTURES")
+
+    def test_fq5_requires_exact_architecture_names(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["candidate_architectures"][4].update(
+                name="Automatic Hybrid"
+            ),
+        )
+        self.assert_error("FQ5_CANDIDATE_ARCHITECTURES")
+
+    def test_fq5_requires_all_commitment_level_tests(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["commitment_level_tests"].pop(),
+        )
+        self.assert_error("FQ5_COMMITMENT_LEVEL_TESTS")
+
+    def test_fq5_commitment_classification_is_exact(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["commitment_level_tests"][0].update(
+                proposed_level="ORDINARY_AMENDMENT"
+            ),
+        )
+        self.assert_error("FQ5_COMMITMENT_LEVEL_TESTS")
+
+    def test_fq5_requires_exact_repository_evidence(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["historical_analogues"].pop(),
+        )
+        self.assert_error("FQ5_HISTORICAL_EVIDENCE")
+
+    def test_fq5_rejects_machine_amendment_authority(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["bad_artificial_intelligence_analysis"].append(
+                "Artificial intelligence may independently authorize amendment."
+            ),
+        )
+        self.assert_error("FQ5_CONTRADICTORY_AUTHORITY_CLAIM")
+
+    def test_fq5_rejects_alternate_operative_effect_wording(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDR-005.yaml",
+            lambda record: record["advantages"].append(
+                "CDR-005 establishes a binding amendment rule."
+            ),
+        )
+        self.assert_error("FQ5_CONTRADICTORY_AUTHORITY_CLAIM")
+
+    def test_fq5_question_cannot_be_resolved(self) -> None:
+        self.update_json(
+            "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+            lambda record: record["questions"][4].update(
+                status="RESOLVED", source_decisions=["CDR-005"]
+            ),
+        )
+        self.assert_error("FQ5_MUST_REMAIN_UNRESOLVED")
+
+    def test_fq5_packet_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "packets"
+            / "CDR-005-HUMAN-DECISION-PACKET.md"
+        ).unlink()
+        self.assert_error("FQ5_PACKET_REQUIRED")
+
+    def test_fq5_packet_has_one_no_effect_recommendation(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-005-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "**Recommendation:** Architecture E — Hybrid",
+                "**Recommendation:** Architecture C — Tiered Amendment",
+            ),
+        )
+        self.assert_error("FQ5_PACKET_RECOMMENDATION")
+
+    def test_fq5_packet_rejects_second_prose_recommendation(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-005-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\nArchitecture C is also recommended.\n",
+        )
+        self.assert_error("FQ5_PACKET_RECOMMENDATION")
+
+    def test_fq5_packet_rejects_alternate_operative_effect_wording(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-005-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\nArchitecture E creates constitutional authority.\n",
+        )
+        self.assert_error("FQ5_PACKET_CONSTITUTIONAL_EFFECT")
+
+    def test_fq5_packet_options_are_exact(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-005-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace("7. **DEFER**", "7. **ADOPT_F**"),
+        )
+        self.assert_error("FQ5_PACKET_OPTIONS")
+
+    def test_fq5_packet_cannot_claim_constitutional_effect(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/packets/"
+            "CDR-005-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\nThis packet authorizes amendment.\n",
+        )
+        self.assert_error("FQ5_PACKET_CONSTITUTIONAL_EFFECT")
 
     def test_fq4_analytical_record_is_required(self) -> None:
         (

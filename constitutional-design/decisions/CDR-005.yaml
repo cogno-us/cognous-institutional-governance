@@ -1,0 +1,375 @@
+{
+  "decision_id": "CDR-005",
+  "title": "Foundational Question 5: Amendment and Refounding Boundary",
+  "status": "UNDER_REVIEW",
+  "question": "Which constitutional principles, if any, cannot be changed through ordinary amendment and instead require explicit refounding?",
+  "related_issues": ["IR-01", "IR-02", "IR-03", "IR-04", "IR-06", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
+  "source_material": [
+    "FQ-05",
+    "CDR-001",
+    "CDR-002",
+    "CDR-003",
+    "CDR-004",
+    "constitutional-design/FOUNDATIONAL_QUESTIONS.yaml",
+    "constitutional-design/decisions/CDR-001.yaml",
+    "constitutional-design/decisions/CDR-002.yaml",
+    "constitutional-design/decisions/CDR-003.yaml",
+    "constitutional-design/decisions/CDR-004.yaml",
+    "constitutional-design/issues/IR-01-human-sovereignty.yaml",
+    "constitutional-design/issues/IR-02-constraint-of-constitutional-authority.yaml",
+    "constitutional-design/issues/IR-03-emergency-necessity.yaml",
+    "constitutional-design/issues/IR-04-succession-and-interregnum.yaml",
+    "constitutional-design/issues/IR-06-constitutional-adjudication.yaml",
+    "constitutional-design/issues/IR-08-formal-and-effective-power.yaml",
+    "constitutional-design/issues/IR-09-incentive-compatibility.yaml",
+    "constitutional-design/issues/IR-10-separation-of-functions.yaml",
+    "constitutional-design/issues/IR-12-dissent.yaml",
+    "constitutional-design/issues/IR-13-epistemic-integrity.yaml",
+    "constitutional-design/issues/IR-15-amendment-and-refounding.yaml",
+    "constitutional-design/issues/IR-16-institutional-termination.yaml",
+    "constitutional-design/issues/IR-17-constitutional-hierarchy.yaml",
+    "constitutional-design/issues/IR-18-human-control-and-comprehensibility.yaml",
+    "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+    "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+    "docs/DESIGN_PRINCIPLES.md",
+    "docs/GLOSSARY.md"
+  ],
+  "assumptions": [
+    {
+      "assumption": "CDR-001 through CDR-004 remain controlling commitments for this analysis.",
+      "boundary": "Their adoption does not itself prove permanent immutability or predetermine which changes require amendment or refounding."
+    },
+    {
+      "assumption": "Amendment and refounding are distinct constitutional acts.",
+      "boundary": "Ordinary amendment cannot erase the distinction or declare identity-changing alteration to be continuous governance merely by following ordinary procedure."
+    },
+    {
+      "assumption": "Artificial intelligence may assist but cannot authorize foundational change.",
+      "boundary": "No artificial-intelligence system may independently authorize amendment or refounding, regardless of capability, validation, reliance, or effective control."
+    },
+    {
+      "assumption": "Adjudication, emergency action, and succession remain bounded by their controlling CDRs.",
+      "boundary": "Interpretation, necessity, continuity, or succession cannot silently perform amendment or refounding."
+    },
+    {
+      "assumption": "Repository evidence is advisory and incomplete.",
+      "boundary": "Historical persistence, prior adoption, popularity, or technical implementation does not determine constitutional entrenchment."
+    }
+  ],
+  "candidate_architectures": [
+    {
+      "architecture_id": "A",
+      "name": "Full Amendability",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Every constitutional principle may be changed through one ordinary amendment process. Refounding is political description rather than a separate validity category.",
+      "analysis": {
+        "source_of_amendment_legitimacy": "Legitimacy comes from compliance with the current ordinary human-authorized amendment procedure.",
+        "ordinary_amendment": "Ordinary amendment can alter any rule, allocation, beneficiary, purpose, or constraint through the same procedure.",
+        "structural_amendment": "Structural change has no distinct legal tier even when it reorganizes offices, adjudication, sovereignty, or termination.",
+        "refounding": "Refounding is not constitutionally required because every identity change can be processed as amendment.",
+        "institutional_identity": "Identity persists formally whenever the ordinary amendment chain remains valid, despite radical substantive transformation.",
+        "constitutional_continuity": "Continuity is procedural and may survive replacement of every substantive commitment.",
+        "entrenched_principles": "No principle is entrenched against ordinary amendment, including the amendment procedure itself.",
+        "sovereignty": "Ordinary amendment may reallocate foundational sovereignty or redefine its legitimate human source.",
+        "beneficiaries": "Ultimate beneficiary status may be replaced through ordinary amendment without explicit institutional discontinuity.",
+        "human_agency": "Protected human agency may be narrowed or removed by the ordinary amendment constituency.",
+        "artificial_intelligence_eligibility_for_foundational_authority": "Ordinary amendment could make artificial intelligence eligible for foundational authority despite current prohibitions.",
+        "adjudication_boundary": "Adjudicators cannot amend directly, but broad interpretation may be ratified later through ordinary amendment.",
+        "emergency_boundary": "Emergency authority cannot amend, though the ordinary process could retroactively validate emergency-driven transformation.",
+        "succession_boundary": "Succession alone cannot amend, but a valid successor may invoke the same unrestricted ordinary procedure.",
+        "termination": "Ordinary amendment may terminate or replace the institution while claiming uninterrupted constitutional continuity.",
+        "procedural_thresholds": "One threshold applies to ordinary, structural, identity-changing, and self-referential amendments.",
+        "consent": "The ordinary amendment constituency supplies all legally required consent regardless of affected beneficiary or identity change.",
+        "notice_and_deliberation": "Uniform notice and deliberation rules apply even when consequences are irreversible or identity-changing.",
+        "dissent": "Dissent may be recorded but cannot require a higher process or explicit refounding.",
+        "reversibility": "Formal reversal remains possible until amendment changes the procedure, constituency, records, or practical power irreversibly.",
+        "precedent_and_semantic_drift": "Accumulated amendments and interpretations can normalize identity change without a visible discontinuity event.",
+        "bad_human_capture": "A captured ordinary majority can lawfully remove every constraint, beneficiary protection, and anti-capture rule.",
+        "bad_artificial_intelligence_capture": "Artificial intelligence can shape one amendable process until humans authorize machine sovereignty or eliminate safeguards.",
+        "coalition_capture": "A durable coalition can sequence individually ordinary amendments into comprehensive constitutional replacement.",
+        "amendment_laundering": "Identity-changing acts can be labeled ordinary amendments because the architecture recognizes no substantive boundary.",
+        "effective_power_takeover": "Effective controllers can capture the single process and convert practical dominance into formal foundational authority.",
+        "machine_validation_constitutional_legitimacy": "A machine may validate procedure, but procedural validity cannot establish legitimacy of erased human authority or identity.",
+        "human_comprehensibility": "One procedure is legible, but substantive continuity becomes difficult for humans to recognize after cumulative change."
+      }
+    },
+    {
+      "architecture_id": "B",
+      "name": "Entrenched Core",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Specified foundational principles are permanently unamendable within the institution. Any valid institutional act must preserve them, while attempted alteration is void rather than refounding.",
+      "analysis": {
+        "source_of_amendment_legitimacy": "Legitimacy derives from human constitutional authorization bounded permanently by a specified core.",
+        "ordinary_amendment": "Ordinary amendment changes only noncore rules and cannot waive, suspend, or replace entrenched principles.",
+        "structural_amendment": "Structural amendment may reorganize governance but remains invalid if it conflicts with the permanent core.",
+        "refounding": "The architecture does not recognize core alteration as an institutional act, leaving external rupture conceptually separate.",
+        "institutional_identity": "Identity is defined by continued fidelity to the enumerated entrenched core.",
+        "constitutional_continuity": "Continuity ends in fact when the core is displaced, although the architecture supplies no internal refounding procedure.",
+        "entrenched_principles": "An enumerated core is permanently unamendable and enforced against every institutional process.",
+        "sovereignty": "Even foundational human sovereignty cannot validly remove the entrenched core from within the institution.",
+        "beneficiaries": "Core beneficiary commitments can be permanent, protecting humans against captured amendment constituencies.",
+        "human_agency": "Protected human agency may be entrenched but its interpretation can migrate to reviewers.",
+        "artificial_intelligence_eligibility_for_foundational_authority": "Machine foundational sovereignty can be permanently prohibited within the existing institution.",
+        "adjudication_boundary": "Human adjudicators enforce the core but risk becoming final definers of unamendable meaning.",
+        "emergency_boundary": "No emergency may suspend or alter the core, even when strict preservation threatens institutional survival.",
+        "succession_boundary": "No successor may alter the core, and succession validity depends on continued core compliance.",
+        "termination": "Termination cannot validly erase the core, creating uncertainty about whether human founders may end and replace the institution.",
+        "procedural_thresholds": "Noncore amendments use defined thresholds while core change has no valid threshold.",
+        "consent": "No level of ordinary institutional consent can authorize alteration of entrenched principles.",
+        "notice_and_deliberation": "Notice can expose attempted core change but cannot make it valid.",
+        "dissent": "Dissent preserves objections about core interpretation but cannot authorize a different institutional identity.",
+        "reversibility": "Entrenchment resists destructive change but may lock errors, ambiguity, and captured interpretations beyond internal correction.",
+        "precedent_and_semantic_drift": "Interpretive precedent can alter practical core meaning while formal text remains unchanged.",
+        "bad_human_capture": "Reviewers or guardians may weaponize core interpretation to block legitimate governance or entrench themselves.",
+        "bad_artificial_intelligence_capture": "Artificial intelligence can dominate core interpretation, evidence, or enforcement while humans retain nominal judgment.",
+        "coalition_capture": "A guardian coalition can control amendment boundaries and convert permanence into factional veto.",
+        "amendment_laundering": "Actors may relabel core alteration as interpretation or noncore implementation to evade invalidity.",
+        "effective_power_takeover": "Practical rulers may ignore the core while captured validators continue declaring formal compliance.",
+        "machine_validation_constitutional_legitimacy": "Machine detection of textual conflict cannot settle core meaning, legitimacy, or whether rupture has occurred.",
+        "human_comprehensibility": "A short core can be legible, but permanent meaning and external rupture remain difficult to explain."
+      }
+    },
+    {
+      "architecture_id": "C",
+      "name": "Tiered Amendment",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Different constitutional provisions require different human amendment thresholds. A highest tier protects foundational principles but still treats their alteration as amendment within constitutional continuity.",
+      "analysis": {
+        "source_of_amendment_legitimacy": "Legitimacy derives from satisfying the human-authorized threshold assigned to each constitutional tier.",
+        "ordinary_amendment": "Ordinary provisions change through a lower threshold suited to routine constitutional maintenance.",
+        "structural_amendment": "Structural allocations require higher consent, notice, deliberation, and possibly temporal separation.",
+        "refounding": "Refounding remains underdefined because even highest-tier identity change can be classified as continuous amendment.",
+        "institutional_identity": "Identity is protected by higher thresholds but is not a categorical limit on amendment.",
+        "constitutional_continuity": "Continuity follows correct tier classification and procedure even after foundational transformation.",
+        "entrenched_principles": "Foundational principles are strongly entrenched procedurally rather than substantively unamendable.",
+        "sovereignty": "Foundational sovereignty may be reallocated through the highest amendment tier.",
+        "beneficiaries": "Beneficiary status may change if the highest human consent threshold is satisfied.",
+        "human_agency": "Human agency receives heightened process but remains amendable within the constitutional order.",
+        "artificial_intelligence_eligibility_for_foundational_authority": "Highest-tier human amendment could authorize machine eligibility without declaring refounding.",
+        "adjudication_boundary": "Human adjudicators classify tiers and procedure but cannot perform the amendment through interpretation.",
+        "emergency_boundary": "Emergency authority cannot amend or lower thresholds, though emergencies may pressure expedited deliberation.",
+        "succession_boundary": "A successor gains no amendment authority beyond the existing tiered grants and procedures.",
+        "termination": "Termination requires the highest tier but may still be described as amendment rather than discontinuity.",
+        "procedural_thresholds": "Multiple thresholds calibrate consent to consequence, structure, and foundational importance.",
+        "consent": "Higher tiers require broader human consent but the legitimate constituency remains unresolved.",
+        "notice_and_deliberation": "Structural and highest-tier changes receive enhanced notice, reasons, deliberation, and waiting periods.",
+        "dissent": "Recorded dissent informs higher-tier judgment and preserves objections without creating a veto unless specified.",
+        "reversibility": "Higher thresholds slow irreversible change but do not distinguish reversible redesign from identity replacement.",
+        "precedent_and_semantic_drift": "Tier classification precedent may drift, moving foundational changes into lower procedures.",
+        "bad_human_capture": "Humans may manipulate classification, constituency, timing, bundling, or thresholds to authorize self-entrenchment.",
+        "bad_artificial_intelligence_capture": "Artificial intelligence may optimize proposal framing and coalition formation while humans formally approve each tier.",
+        "coalition_capture": "A supermajority coalition can satisfy the highest threshold and eliminate future opposition.",
+        "amendment_laundering": "Foundational change can be fragmented or mislabeled to pass through lower amendment tiers.",
+        "effective_power_takeover": "Effective controllers may dominate agenda and classification before formal tier voting begins.",
+        "machine_validation_constitutional_legitimacy": "Machines can validate tier procedure but cannot determine legitimate classification, constituency, consent, or continuity.",
+        "human_comprehensibility": "Tiers clarify consequence only if humans can understand classification, cumulative effects, and threshold interactions."
+      }
+    },
+    {
+      "architecture_id": "D",
+      "name": "Refounding Boundary",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Ordinary amendment changes governance within the existing constitutional identity. Alteration of specified foundational principles terminates continuity and requires explicit human refounding.",
+      "analysis": {
+        "source_of_amendment_legitimacy": "Amendment legitimacy derives from current constitutional authority; refounding legitimacy requires an explicit human constituent act.",
+        "ordinary_amendment": "Ordinary amendment governs changes that preserve specified institutional identity conditions.",
+        "structural_amendment": "Structural changes may use an enhanced process if they preserve identity and foundational boundaries.",
+        "refounding": "Changing an identity condition requires explicit refounding and cannot claim ordinary constitutional continuity.",
+        "institutional_identity": "Identity is defined by specified purposes, beneficiaries, sovereignty, agency, power constraints, and change boundaries.",
+        "constitutional_continuity": "Continuity persists only while amendments remain inside those identity conditions.",
+        "entrenched_principles": "Identity principles are protected from amendment but remain changeable through explicit human refounding.",
+        "sovereignty": "Reallocating foundational human sovereignty triggers refounding rather than ordinary amendment.",
+        "beneficiaries": "Changing ultimate human beneficiary status requires explicit refounding and a new legitimacy claim.",
+        "human_agency": "Removing protected human agency changes institutional identity and requires refounding.",
+        "artificial_intelligence_eligibility_for_foundational_authority": "Making artificial intelligence eligible for foundational authority requires explicit human refounding.",
+        "adjudication_boundary": "Adjudicators identify the boundary and review compliance but cannot themselves amend or refound.",
+        "emergency_boundary": "Emergency authority cannot cross the refounding boundary or preserve continuity after identity replacement.",
+        "succession_boundary": "Succession continues existing human authority and cannot itself authorize amendment or refounding.",
+        "termination": "Explicit refounding acknowledges termination of the prior constitutional identity while preserving historical provenance.",
+        "procedural_thresholds": "Ordinary and structural amendments use internal thresholds; refounding uses a distinct constituent process.",
+        "consent": "Refounding requires explicit human consent attributable to a legitimate foundational constituency.",
+        "notice_and_deliberation": "Boundary-crossing proposals require explicit notice of discontinuity, alternatives, reasons, and consequences.",
+        "dissent": "Refounding records durable dissent and cannot erase objections or prior constitutional history.",
+        "reversibility": "Explicit discontinuity prevents false reversal claims, though a new founding may later restore prior commitments.",
+        "precedent_and_semantic_drift": "Boundary doctrine can drift through interpretation, requiring visible classification and challenge.",
+        "bad_human_capture": "Humans may define identity narrowly, suppress refounding notice, or claim continuity after capture.",
+        "bad_artificial_intelligence_capture": "Artificial intelligence may manipulate boundary classification or constituent consent while lacking authorization.",
+        "coalition_capture": "A coalition may control the refounding process and exploit discontinuity to extinguish obligations.",
+        "amendment_laundering": "Actors may disguise identity alteration as structural governance to avoid explicit refounding.",
+        "effective_power_takeover": "Effective power may replace identity in practice before any formal refounding acknowledgment.",
+        "machine_validation_constitutional_legitimacy": "Machine validation can identify formal triggers but cannot establish constituent legitimacy or a valid new founding.",
+        "human_comprehensibility": "Explicit discontinuity is legible if identity conditions and refounding consequences are concrete and understandable."
+      }
+    },
+    {
+      "architecture_id": "E",
+      "name": "Hybrid",
+      "research_status": "CANDIDATE_NOT_SELECTED",
+      "model": "Tiered amendment governs ordinary and structural change. An explicit refounding boundary applies when change alters foundational identity, sovereignty, beneficiaries, protected human agency, or constitutional constraints on power.",
+      "analysis": {
+        "source_of_amendment_legitimacy": "Legitimacy derives from the human-authorized tier for continuity-preserving change or an explicit human constituent act for refounding.",
+        "ordinary_amendment": "Ordinary amendment updates governance without altering structural allocations or foundational identity.",
+        "structural_amendment": "Enhanced human thresholds govern major structural change that remains consistent with foundational identity.",
+        "refounding": "Identity-changing proposals require explicit refounding and cannot borrow continuity from amendment procedure.",
+        "institutional_identity": "Identity includes purpose, human beneficiaries, human foundational sovereignty, protected agency, and constraints preventing power accretion.",
+        "constitutional_continuity": "Continuity depends on both correct tier procedure and preservation of identity conditions.",
+        "entrenched_principles": "Foundational identity principles are unamendable within continuity but alterable through explicit human refounding.",
+        "sovereignty": "Changing human sovereignty over foundational ends requires explicit refounding rather than highest-tier amendment.",
+        "beneficiaries": "Changing ultimate human beneficiary status crosses the refounding boundary.",
+        "human_agency": "Eliminating protected human agency crosses the refounding boundary, while structural protections may change through enhanced amendment.",
+        "artificial_intelligence_eligibility_for_foundational_authority": "Artificial intelligence cannot authorize change, and making it eligible for foundational sovereignty requires explicit human refounding.",
+        "adjudication_boundary": "Human adjudicators review classification and compliance but cannot create amendment or refounding through interpretation.",
+        "emergency_boundary": "CDR-002 emergency authority cannot amend, refound, lower thresholds, or create continuity for identity change.",
+        "succession_boundary": "CDR-003 succession preserves existing authority and cannot itself authorize amendment or refounding.",
+        "termination": "Refounding explicitly terminates prior identity while preserving obligations and history according to unresolved transition rules.",
+        "procedural_thresholds": "Ordinary, structural, and refounding procedures use distinct human thresholds proportionate to constitutional consequence.",
+        "consent": "Each tier requires attributable human consent, with refounding requiring the legitimate foundational constituency.",
+        "notice_and_deliberation": "Higher tiers require stronger notice, reasons, alternatives, deliberation, waiting, and consequence disclosure.",
+        "dissent": "Material dissent remains durable across amendment, refounding, supersession, and termination.",
+        "reversibility": "Tiering supports correction while explicit refounding prevents identity replacement from masquerading as reversible amendment.",
+        "precedent_and_semantic_drift": "Published classification, reasons, dissent, precedent, and supersession expose attempts to erode tier boundaries.",
+        "bad_human_capture": "Humans may manipulate classification, constituency, bundling, timing, or transition rules to launder captured change.",
+        "bad_artificial_intelligence_capture": "Artificial intelligence may dominate drafting, simulation, persuasion, validation, or agenda while humans nominally authorize change.",
+        "coalition_capture": "A coalition may control all tiers, requiring independent challenge, verification, and effective-power observation.",
+        "amendment_laundering": "Cumulative-effect review must detect fragmented structural or identity change routed through lower tiers.",
+        "effective_power_takeover": "Formal thresholds remain insufficient if agenda, information, infrastructure, or dependency gives one actor practical control.",
+        "machine_validation_constitutional_legitimacy": "Machines may validate formal steps and preserve provenance but cannot authorize amendment, refounding, consent, or legitimacy.",
+        "human_comprehensibility": "Humans need a legible map of tiers, identity conditions, cumulative effects, continuity, and refounding consequences."
+      }
+    }
+  ],
+  "commitment_level_tests": [
+    {"commitment": "foundational institutional purpose and ends", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Changing the institution's foundational purpose replaces the identity whose governance amendment presupposes."},
+    {"commitment": "ultimate human beneficiary status", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Replacing the ultimate beneficiary changes whose institution it is rather than merely how it is governed."},
+    {"commitment": "human sovereignty over foundational ends", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Transferring foundational sovereignty changes the source of constitutional authorization."},
+    {"commitment": "constitutional constraint of human and artificial power", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Removing binding constitutional constraint changes the institution from constitutional governance to unconstrained power."},
+    {"commitment": "prohibition on capability, reliance, or effective control creating authority", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Permitting effective power to create authority replaces the institution's legitimacy rule."},
+    {"commitment": "prohibition on artificial intelligence acquiring foundational sovereignty through succession, delegation, emergency, adjudication, or accretion", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Machine eligibility would reverse the adopted human source of foundational sovereignty."},
+    {"commitment": "protected human agency", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Eliminating meaningful human agency changes both beneficiary protection and legitimate constitutional authorship."},
+    {"commitment": "distinction between adjudication and amendment", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Erasing this distinction allows reviewers to replace the constitution without constituent authorization."},
+    {"commitment": "distinction between amendment and refounding", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Ordinary amendment cannot coherently abolish the boundary that determines its own continuity-limited competence."},
+    {"commitment": "durable provenance and non-erasure of constitutional history", "levels_considered": ["ORDINARY_AMENDMENT", "STRUCTURAL_AMENDMENT", "REFOUNDING"], "proposed_level": "REFOUNDING", "rationale": "Erasing lineage would conceal discontinuity and prevent accountable comparison of old and new constitutional orders."}
+  ],
+  "historical_analogues": [
+    {"evidence_id": "HE-ROME-003", "classification": "DESIGN_LESSON", "rationale": "Emergency concentration illustrates why necessity cannot perform constitutional replacement."},
+    {"evidence_id": "HE-ROME-004", "classification": "DESIGN_LESSON", "rationale": "Constitutional transformation and effective takeover expose disputed continuity claims."},
+    {"evidence_id": "HE-BRITAIN-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Gradual constitutional change illustrates continuity, convention, and semantic drift."},
+    {"evidence_id": "HE-BURKE-FRANCE-001", "classification": "DESIGN_LESSON", "rationale": "Inheritance and prescription expose continuity claims and accumulated legitimacy."},
+    {"evidence_id": "HE-BURKE-FRANCE-002", "classification": "DESIGN_LESSON", "rationale": "Revolutionary rupture exposes the difference between amendment and refounding."},
+    {"evidence_id": "HE-BURKE-FRANCE-003", "classification": "DESIGN_LESSON", "rationale": "Constituent authority and inherited constraint illuminate refounding legitimacy disputes."},
+    {"evidence_id": "HE-US-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Written supremacy and enumerated power support constitutional tier analysis."},
+    {"evidence_id": "HE-US-003", "classification": "DESIGN_LESSON", "rationale": "Judicial interpretation and path dependence expose informal constitutional change."},
+    {"evidence_id": "HE-US-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Separate amendment, emergency, succession, and accountability mechanisms support boundary analysis."},
+    {"evidence_id": "HE-SWISS-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Federal and direct-democratic change procedures illuminate consent and threshold design."},
+    {"evidence_id": "HE-T03", "classification": "DESIGN_LESSON", "rationale": "Formal continuity may conceal practical identity and power transformation."},
+    {"evidence_id": "HE-T04", "classification": "DESIGN_LESSON", "rationale": "Emergency persistence demonstrates risks of bypassing change procedures."},
+    {"evidence_id": "HE-T07", "classification": "DESIGN_LESSON", "rationale": "Convention and tacit knowledge complicate machine-valid constitutional continuity."},
+    {"evidence_id": "HE-T08", "classification": "DESIGN_LESSON", "rationale": "Institutional memory decay supports durable provenance and non-erasure."},
+    {"evidence_id": "HE-T10", "classification": "DESIGN_LESSON", "rationale": "Human legibility conditions meaningful consent to foundational change."}
+  ],
+  "prior_art": [
+    {"prior_art_id": "PA-CC-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Constitutional action classes, votes, timelocks, and councils illustrate procedural tiers."},
+    {"prior_art_id": "PA-CC-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Layered governance and public comment inform deliberative change processes."},
+    {"prior_art_id": "PA-CC-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Executable policy change illustrates enforcement without constitutional legitimacy."},
+    {"prior_art_id": "PA-CC-004", "classification": "PARTIAL_ANALOGUE", "rationale": "Recurring proposal stages illustrate protocol change and coalition risk."},
+    {"prior_art_id": "PA-PROV-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Provenance models support durable lineage without proving legitimacy."},
+    {"prior_art_id": "PA-DISSENT-001", "classification": "PARTIAL_ANALOGUE", "rationale": "Formal objections preserve challenge and reasons during institutional change."},
+    {"prior_art_id": "PA-DISSENT-002", "classification": "PARTIAL_ANALOGUE", "rationale": "Decision records preserve context, consequences, and explicit supersession."},
+    {"prior_art_id": "PA-AUTH-001", "classification": "DESIGN_LESSON", "rationale": "Formal authority remains distinct from practical capability and control."},
+    {"prior_art_id": "PA-AI-002", "classification": "DESIGN_LESSON", "rationale": "Instruction hierarchy governs machine behavior rather than amendment legitimacy."},
+    {"prior_art_id": "PA-AI-003", "classification": "DESIGN_LESSON", "rationale": "Machine policy enforcement cannot establish legitimate constitutional authorship."},
+    {"prior_art_id": "PA-POLICY-001", "classification": "DESIGN_LESSON", "rationale": "Policy evaluation separates decision mechanics from authority to change policy."},
+    {"prior_art_id": "PA-POLICY-003", "classification": "PARTIAL_ANALOGUE", "rationale": "Separated policy functions expose authorship, decision, and enforcement boundaries."},
+    {"prior_art_id": "PA-POWER-001", "classification": "DESIGN_LESSON", "rationale": "Effective-power literature requires observing control beyond formal amendment votes."},
+    {"prior_art_id": "PA-RELIANCE-001", "classification": "DESIGN_LESSON", "rationale": "Independent challenge and monitoring inform capture-resistant change processes."}
+  ],
+  "advantages": [
+    "Tiered procedures can calibrate human consent, notice, and deliberation to constitutional consequence.",
+    "An explicit refounding boundary can make identity-changing discontinuity visible rather than falsely continuous.",
+    "Durable provenance and dissent can preserve accountability across amendment, supersession, termination, and refounding."
+  ],
+  "failure_modes": [
+    "A captured amendment constituency removes constraints or reallocates sovereignty while claiming continuity.",
+    "Guardians or adjudicators become sovereign by controlling tier and identity classification.",
+    "Artificial intelligence dominates agenda, drafting, persuasion, validation, or records while humans nominally approve change.",
+    "Fragmented amendments launder cumulative structural or identity replacement through lower tiers."
+  ],
+  "bad_human_analysis": [
+    "Humans may manipulate constituency, thresholds, bundling, timing, classification, records, or transition rules.",
+    "Entrenchment can protect beneficiaries and constraints or preserve error, factional power, and captured interpretation."
+  ],
+  "bad_artificial_intelligence_analysis": [
+    "Artificial intelligence may assist analysis but cannot independently authorize amendment or refounding.",
+    "Machine-generated consensus, validation, drafting, or signature collection cannot establish constituent legitimacy.",
+    "Human approval does not cure substantive machine domination of the change process."
+  ],
+  "incentive_analysis": [
+    "Lower procedures invite amendment laundering; highest tiers invite coalition entrenchment; refounding invites obligation evasion.",
+    "Actors controlling classification, agenda, information, timing, or implementation may dominate formal consent."
+  ],
+  "continuity_analysis": [
+    "Adjudication under CDR-004 may review change but cannot perform amendment or refounding by interpretation.",
+    "Emergency authority under CDR-002 cannot amend or refound.",
+    "Succession under CDR-003 does not itself authorize amendment or refounding.",
+    "Ordinary amendment cannot erase the conceptual distinction between amendment and explicit refounding."
+  ],
+  "reversibility_analysis": [
+    "Ordinary and structural amendment should preserve correction paths proportionate to consequence.",
+    "Refounding acknowledges discontinuity and cannot make irreversible identity replacement retroactively continuous."
+  ],
+  "human_comprehensibility_analysis": [
+    "Humans must understand amendment tiers, identity conditions, constituency, cumulative effects, continuity claims, and refounding consequences.",
+    "Machine validation must disclose its limited role and cannot substitute procedural success for constitutional legitimacy."
+  ],
+  "reviews": [
+    {
+      "review_type": "QUALITATIVE_COMPARISON",
+      "selection_boundary": "No architecture or commitment classification is adopted, ranked, or converted into constitutional authority.",
+      "assessments": [
+        {"architecture_id": "A", "adaptability": "MAXIMUM", "identity_boundary": "NONE", "capture_surface": "SINGLE ORDINARY PROCESS", "central_tradeoff": "Easy correction permits lawful self-erasure and amendment laundering."},
+        {"architecture_id": "B", "adaptability": "LOWEST AT CORE", "identity_boundary": "PERMANENT CORE", "capture_surface": "CORE INTERPRETERS AND GUARDIANS", "central_tradeoff": "Strong protection risks rigidity and reviewer-defined permanence."},
+        {"architecture_id": "C", "adaptability": "TIERED", "identity_boundary": "PROCEDURAL ONLY", "capture_surface": "CLASSIFICATION AND HIGHEST-TIER COALITION", "central_tradeoff": "Calibrated thresholds still permit continuous identity replacement."},
+        {"architecture_id": "D", "adaptability": "BINARY", "identity_boundary": "EXPLICIT", "capture_surface": "BOUNDARY INTERPRETATION AND CONSTITUENT PROCESS", "central_tradeoff": "Visible discontinuity lacks graduated structural change."},
+        {"architecture_id": "E", "adaptability": "TIERED WITH DISCONTINUITY", "identity_boundary": "EXPLICIT", "capture_surface": "CLASSIFICATION, COALITION, AND REFOUNDING TRANSITION", "central_tradeoff": "Nuanced protection adds complexity and contested boundary power."}
+      ]
+    },
+    {
+      "review_type": "NEUTRAL_SYNTHESIS",
+      "statement": "A maximizes amendability, B permanent entrenchment, C procedural differentiation, D explicit discontinuity, and E combines differentiated amendment with refounding for identity change. Repository evidence supports the amendment-refounding distinction but cannot decide the legitimate constituency, exact thresholds, binding identity list, or transition consequences."
+    }
+  ],
+  "dissent": [
+    {
+      "status": "OPEN_FOR_SUBMISSION",
+      "statement": "NO HUMAN DECISION HAS BEEN MADE FOR FQ-05.",
+      "record": "No amendment or refounding architecture, tier, threshold, constituency, or commitment classification is adopted."
+    }
+  ],
+  "human_decision": {
+    "decision": "",
+    "foundational_architecture": "",
+    "incorporated_mechanisms": [],
+    "rejected_mechanisms": [],
+    "decision_authority": "",
+    "decision_basis": "",
+    "authorized_by": "",
+    "authorization_record": "",
+    "decision_date": ""
+  },
+  "decision_date": "",
+  "supersedes": [],
+  "resulting_requirements": [],
+  "residual_uncertainty": [
+    "Which humans constitute the legitimate amendment and refounding constituencies?",
+    "Which exact rules belong to ordinary, structural, or refounding levels, and who initially classifies them?",
+    "What thresholds, notice, deliberation, consent, timing, and challenge procedures apply at each level?",
+    "Who adjudicates disputed classification without acquiring amendment or refounding power?",
+    "What cumulative-effect rule detects amendment laundering across separately valid changes?",
+    "What termination, transition, obligation, asset, remedy, and reliance consequences follow explicit refounding?",
+    "How are semantic drift, machine domination, coalition capture, and effective-power takeover detected and constrained?"
+  ],
+  "provenance": {
+    "source": "Repository-only analysis of FQ-05, controlling CDR-001 through CDR-004, linked issue records, registered historical evidence, registered prior art, design principles, and glossary boundaries on 2026-08-29.",
+    "evidence_boundary": "Analysis, proposed commitment levels, and recommendation inputs only; no human decision is made, no amendment or refounding authority is created, and no accepted requirement, constitutional provision, runtime rule, or executable permission is created."
+  }
+}
