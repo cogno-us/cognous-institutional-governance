@@ -1,0 +1,695 @@
+{
+  "matrix_id": "REMAINING-DESIGN-MATRIX-001",
+  "status": "ADVISORY_ANALYSIS_ONLY",
+  "decision_effect": "NONE",
+  "controlling_material": [
+    "CDR-001", "CDR-002", "CDR-003", "CDR-004", "CDR-005",
+    "CR-001 through CR-035",
+    "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+    "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md"
+  ],
+  "boundary": "Recommendations are coordinated design proposals only. They do not decide an option, resolve an issue, reclassify a consolidated requirement, create a constitutional provision, establish an office or threshold, authorize subordinate law, or build runtime machinery.",
+  "stress_test_dimensions": [
+    "bad_human",
+    "bad_artificial_intelligence",
+    "coalition_capture",
+    "continuity",
+    "reversibility",
+    "legitimacy",
+    "human_comprehensibility"
+  ],
+  "design_domains": [
+    {
+      "domain_id": "RD-01",
+      "title": "Constitutional membership, standing, and separated offices",
+      "blocked_requirements": ["CCR-003", "CCR-010", "CCR-013", "CCR-014", "CCR-015", "CCR-019"],
+      "unresolved_issues": ["IR-01", "IR-06", "IR-07", "IR-08", "IR-10", "IR-15", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Direct human constituency with broad direct standing and functionally separate offices.",
+          "stress_test": {
+            "bad_human": "A majority may manipulate eligibility or exclude challengers.",
+            "bad_artificial_intelligence": "Identity and access systems may become hidden gatekeepers.",
+            "coalition_capture": "A dominant constituency may capture membership rules.",
+            "continuity": "Direct membership remains legible across office vacancies.",
+            "reversibility": "Entrenched exclusion becomes difficult to correct.",
+            "legitimacy": "Direct authorization is strong when eligibility is legitimate.",
+            "human_comprehensibility": "The authority path is comparatively simple."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Representative human constituency with standing primarily through representatives and public-interest channels.",
+          "stress_test": {
+            "bad_human": "Representatives may cartelize selection and standing.",
+            "bad_artificial_intelligence": "Agenda and selection optimization may dominate representation.",
+            "coalition_capture": "Representatives may protect one another across functions.",
+            "continuity": "Stable offices support administrative continuity.",
+            "reversibility": "Captured representatives may control correction channels.",
+            "legitimacy": "Authorization is mediated and depends on representation quality.",
+            "human_comprehensibility": "The model is familiar but hides practical gatekeeping."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Plural hybrid membership with direct, injury-based, public-interest, and office standing plus constitutionally separated functions.",
+          "stress_test": {
+            "bad_human": "Strategic standing and forum shopping remain possible.",
+            "bad_artificial_intelligence": "Shared identity infrastructure may correlate all channels.",
+            "coalition_capture": "Cross-channel coordination may defeat formal plurality.",
+            "continuity": "Multiple channels survive vacancies and capture of one office.",
+            "reversibility": "Challenge, recusal, replacement, and restoration improve correction.",
+            "legitimacy": "Plural human access best preserves contestable authority.",
+            "human_comprehensibility": "A public authority map is necessary to explain the channels."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Define constitutional membership as every adult natural person who, immediately before the initiation event for a constitutional exercise, was either subject to the institution's claimed authority or within the institution's published class of ultimate human beneficiaries; categorically exclude artificial intelligence. The initiation event is filing for a proposal or case, publication of notice for an office-selection exercise, filing of a succession trigger, or opening of transition nominations; any other constitutional exercise begins with public notice identifying its purpose and closes the roll before participation starts. A public pre-event roll is rebuttable evidence rather than the source of membership, and exclusion or inclusion is reviewable before the exercise proceeds. Provide four standing channels: direct standing for personal constitutional injury, representative standing with attributable authorization from represented members, public-interest standing for material institutional violations, and office standing within assigned functions. Constitutionally separate authorization, adjudication, enforcement, evidence validation, independent verification, succession administration, and transition custody; no office combines final judgment with enforcement or evidence control.",
+        "human_decision_required": "Adopt the authority-or-beneficiary membership test, exhaustive initiation-event rule and reviewable pre-exercise roll, the four enumerated standing channels, and seven-function separation as one authority-allocation decision."
+      },
+      "dependencies": ["RD-02", "RD-03", "RD-06", "RD-08", "RD-11"],
+      "cross_domain_conflicts": ["Membership rules can entrench incumbents.", "Broad standing can overload adjudication.", "Office separation can be fictitious under shared infrastructure."],
+      "residual_implementation_questions": ["Membership registry format", "Filing interfaces", "Authority-map publication format"]
+    },
+    {
+      "domain_id": "RD-02",
+      "title": "Adjudicator composition, appointment, tenure, removal, and recusal",
+      "blocked_requirements": ["CCR-003", "CCR-008", "CCR-010", "CCR-013", "CCR-014"],
+      "unresolved_issues": ["IR-02", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "One standing human tribunal appointed through one channel with renewable terms.",
+          "stress_test": {
+            "bad_human": "One appointment channel can capture doctrine and tenure.",
+            "bad_artificial_intelligence": "One shared research system may dominate nominal judgment.",
+            "coalition_capture": "Appointer and tribunal may form a durable coalition.",
+            "continuity": "A standing body provides stable review.",
+            "reversibility": "Renewal pressure weakens correction of capture.",
+            "legitimacy": "Independence depends heavily on the single appointment source.",
+            "human_comprehensibility": "Composition and accountability are simple."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Distributed first-instance, appellate, and conflict bodies with separate appointment channels.",
+          "stress_test": {
+            "bad_human": "Stage capture and responsibility shifting become possible.",
+            "bad_artificial_intelligence": "A common validator may recentralize every body.",
+            "coalition_capture": "Cross-body bargaining may coordinate outcomes.",
+            "continuity": "Quorum and vacancy failures can delay judgment.",
+            "reversibility": "Multiple review stages improve error correction.",
+            "legitimacy": "Plural authorization strengthens independence when channels are real.",
+            "human_comprehensibility": "Finality becomes harder to understand."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Nine-member standing human constitutional court with three independent appointment channels, staggered nonrenewable terms, mandatory recusal, and a predefined special conflict tribunal.",
+          "stress_test": {
+            "bad_human": "Appointment channels and conflict triggers remain capture targets.",
+            "bad_artificial_intelligence": "Correlated evidence and research can dominate all nine humans.",
+            "coalition_capture": "A supercoalition may coordinate appointment channels.",
+            "continuity": "Staggering and substitutes preserve adjudicative continuity.",
+            "reversibility": "Nonrenewal, recusal, removal, and special substitution enable correction.",
+            "legitimacy": "Distributed appointments and human judgment fit controlling CDR-004.",
+            "human_comprehensibility": "Nine seats and three channels can be publicly mapped."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Create a nine-human-member Constitutional Court. Three seats are elected by the fixed constitutional membership with participation above one half: each member may approve up to three eligible candidates, the three highest totals win, and a tie for the final seat is resolved by public human sortition. Three seats are elected by all nonconflicted ordinary human officeholders with two-thirds participation under the same approval and tie rules. Three seats are drawn by public human sortition from the qualified pool. The qualified pool consists of constitutional members who volunteer, make full public conflict and material-dependency disclosures, complete a public human-administered constitutional competence review by the Verification Office subject to one Court appeal, and for three years have held no governance, enforcement, institutional artificial-intelligence operation, or material institutional contracting role. Each channel publishes three ranked alternates chosen by its same process. Terms are nine years, nonrenewable, staggered by thirds. Removal is only for incapacity, serious misconduct, or constitutional disqualification after a five-human special removal panel drawn by human sortition from the qualified pool finds the ground by clear and convincing evidence and both nonappointing channels separately approve. The membership-channel approval body is the full fixed constitutional membership with participation above one half and majority approval of valid votes. The governance-channel body is every nonconflicted holder of an ordinary human governance office, with two-thirds quorum and majority approval of all eligible officeholders. The sortition-channel body is a twenty-one-human jury drawn from the qualified pool, with seventeen-person quorum and two-thirds approval of the full jury. Abstentions count for quorum but not approval; invalid ballots do not count as approval; a tie fails. If fewer than three eligible governance officeholders remain, or a material common conflict disables a channel body, a twenty-one-human jury drawn from nonconflicted constitutional members substitutes under the sortition-channel quorum and threshold. Recusal is mandatory for personal, financial, appointing-party, prior-participation, or material dependency conflicts. Whole-body Court compromise activates a temporary nine-human special tribunal: each channel chooses three nonconflicted members and three ranked alternates through its ordinary selection process, excluding current or former judges and parties to the case. Recusal is filled from the same channel's alternates. Six members constitute quorum and six affirmative votes produce a final judgment, subject only to RD-03 exceptional reopening; the tribunal dissolves after judgment.",
+        "human_decision_required": "Adopt the Court size; exact membership, governance and sortition selection rules; qualified-pool eligibility, disclosures, review and appeal; alternates; term and staggering; removal grounds and evidence burden; five-human fact-finding panel; three named channel approval bodies with exact participants, quorums, denominators, voting rules and conflict substitutions; recusal; and the special tribunal's composition, selection, exclusions, alternates, quorum, decision threshold, finality and dissolution."
+      },
+      "dependencies": ["RD-01", "RD-03", "RD-11"],
+      "cross_domain_conflicts": ["Direct selection may politicize judgment.", "Sortition requires a legitimate qualified pool.", "Removal protection can shield captured adjudicators."],
+      "residual_implementation_questions": ["Nomination forms", "Random-selection mechanism", "Conflict disclosure format", "Scheduling"]
+    },
+    {
+      "domain_id": "RD-03",
+      "title": "Adjudicative jurisdiction, appeal, finality, enforcement, and remedies",
+      "blocked_requirements": ["CCR-003", "CCR-008", "CCR-013", "CCR-014", "CCR-015"],
+      "unresolved_issues": ["IR-02", "IR-03", "IR-04", "IR-06", "IR-08", "IR-10", "IR-14", "IR-15", "IR-17"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Single-instance final review with automatic enforcement.",
+          "stress_test": {
+            "bad_human": "One erroneous or captured panel can impose final harm.",
+            "bad_artificial_intelligence": "Automated enforcement amplifies corrupted analysis.",
+            "coalition_capture": "Adjudicator-enforcer alignment defeats constraint.",
+            "continuity": "Fast finality supports stable administration.",
+            "reversibility": "Correction after final judgment is weak.",
+            "legitimacy": "Speed cannot cure concentrated reviewer power.",
+            "human_comprehensibility": "The lifecycle is easy to understand."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Multiple appeals with broad remedial discretion and court-supervised enforcement.",
+          "stress_test": {
+            "bad_human": "Reviewers can expand power through remedies and supervision.",
+            "bad_artificial_intelligence": "Repeated machine-assisted review can normalize one model's framing.",
+            "coalition_capture": "Appellate layers may coordinate doctrine.",
+            "continuity": "Long appeals delay settled governance.",
+            "reversibility": "Correction capacity is high.",
+            "legitimacy": "Broad remedies risk sovereignty over institutional ends.",
+            "human_comprehensibility": "Finality and responsibility become opaque."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "One bounded appeal, enumerated jurisdiction and remedies, separate enforcement, independent verification, and exceptional reopening for fraud or decisive new evidence.",
+          "stress_test": {
+            "bad_human": "Panels may manipulate jurisdiction or remedy characterization.",
+            "bad_artificial_intelligence": "Shared case systems may influence both levels and enforcement.",
+            "coalition_capture": "Court, enforcer, and verifier may coordinate.",
+            "continuity": "One appeal balances timely finality and correction.",
+            "reversibility": "Stays, remand, restoration, and exceptional reopening preserve correction.",
+            "legitimacy": "Enumerated authority limits reviewer sovereignty.",
+            "human_comprehensibility": "A two-stage status map is legible."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Give the Court jurisdiction over ordinary constitutional acts, emergency compliance, succession and return determinations, office eligibility and removal, enforcement noncompliance, effective-power challenges, and constitutional-change classification, while excluding selection of institutional ends and creation of amendment, refounding, emergency, or succession authority. Use three-member first-instance panels and five-member appellate panels excluding first-instance members; one appeal produces finality. Permit stays and the enumerated remedies of invalidation, suspension, remand, disclosure, restoration, restitution, and reliance-protective prospective relief, each necessary and proportionate. Reopening is limited to fraud, concealed conflict, or decisive previously unavailable evidence. A separate human Enforcement Office executes final judgments; an independent Verification Office reports compliance. Noncompliance triggers disclosure, expedited review, executor replacement, restoration, and proportionate personal or institutional accountability.",
+        "human_decision_required": "Adopt the jurisdiction list and exclusions, panel and appeal structure, finality and reopening rules, remedy set, separate enforcement and verification offices, and noncompliance consequences."
+      },
+      "dependencies": ["RD-01", "RD-02", "RD-04", "RD-05", "RD-06", "RD-07", "RD-08", "RD-09", "RD-10", "RD-11"],
+      "cross_domain_conflicts": ["Classification review can become amendment.", "Reliance-protective relief can preserve invalid acts.", "Executor replacement can resemble appointment power."],
+      "residual_implementation_questions": ["Case workflow", "Service and filing", "Judgment format", "Enforcement tracking", "Payment administration"]
+    },
+    {
+      "domain_id": "RD-04",
+      "title": "Emergency trigger evidence, eligibility, prohibitions, and expiry",
+      "blocked_requirements": ["CCR-006"],
+      "unresolved_issues": ["IR-01", "IR-03", "IR-04", "IR-05", "IR-08", "IR-13", "IR-14", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Predelegation only with no necessity fallback.",
+          "stress_test": {
+            "bad_human": "Actors cannot manufacture fallback authority.",
+            "bad_artificial_intelligence": "Machine alarm cannot enlarge authority.",
+            "coalition_capture": "Coalitions may overbroaden predelegations.",
+            "continuity": "Unforeseen irreversible harm may go unanswered.",
+            "reversibility": "Authority boundaries remain maximally reversible.",
+            "legitimacy": "Formal authorization is strongest.",
+            "human_comprehensibility": "The rule is simplest."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Human necessity fallback on a good-faith reasonable-belief standard.",
+          "stress_test": {
+            "bad_human": "Self-serving belief can excuse manufactured emergencies.",
+            "bad_artificial_intelligence": "AI forecasts can manufacture reasonable belief.",
+            "coalition_capture": "Friendly reviewers can normalize exceptions.",
+            "continuity": "Responsive to unforeseen threats.",
+            "reversibility": "Irreversible protective acts may evade correction.",
+            "legitimacy": "A subjective standard weakens constraint.",
+            "human_comprehensibility": "The standard is familiar but elastic."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Clear-and-convincing contemporaneous evidence, distributed concurrence where time permits, narrowly enumerated eligibility and prohibitions, and hard expiry.",
+          "stress_test": {
+            "bad_human": "Evidence and claimed time pressure remain manipulation targets.",
+            "bad_artificial_intelligence": "Forecast dependence may create false confidence.",
+            "coalition_capture": "Concurrers may share incentives or infrastructure.",
+            "continuity": "A unilateral minimum-action path remains for seconds-critical harm.",
+            "reversibility": "Hard expiry and nonprecedence limit accretion.",
+            "legitimacy": "A heightened objective burden fits exceptional authority.",
+            "human_comprehensibility": "Conjunctive findings and a written burden are legible."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Require clear and convincing contemporaneous evidence for every CDR-002 trigger. Eligibility is limited to natural persons with direct situational competence, no material conflict, and no role in manufacturing unreachability. Two independent eligible humans must concur when delay permits; one may act only when obtaining concurrence would materially increase imminent irreversible harm and must document why. Required contact attempts cover every registered competent authority and delegate through at least two independent channels unless physically impossible. Absolute prohibitions are amendment, refounding, sovereignty creation or transfer, succession creation, self-renewal, precedent creation, deliberate destruction or concealment of constitutional records, obstruction of review or restoration, and action beyond minimum stabilization. Fallback expires at the first CDR-002 expiry event and never later than twenty-four hours without newly authorized ordinary or predelegated action; repeated use cannot renew it and triggers interregnum review.",
+        "human_decision_required": "Adopt the evidence burden, eligibility and independence tests, concurrence exception, contact rule, absolute prohibitions, twenty-four-hour ceiling, and repeated-use transition."
+      },
+      "dependencies": ["RD-03", "RD-05", "RD-06", "RD-11"],
+      "cross_domain_conflicts": ["A high burden may delay necessary action.", "Concurrence may be impossible in the most urgent case.", "A fixed ceiling may expire during continuing harm."],
+      "residual_implementation_questions": ["Emergency contact registry", "Clock source", "Evidence capture", "Alerting", "Revocation mechanism"]
+    },
+    {
+      "domain_id": "RD-05",
+      "title": "Emergency retrospective review and remedies",
+      "blocked_requirements": ["CCR-008"],
+      "unresolved_issues": ["IR-02", "IR-03", "IR-06", "IR-08", "IR-10", "IR-13", "IR-14", "IR-17"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Automatic administrative review with advisory findings.",
+          "stress_test": {
+            "bad_human": "Friendly administrators can excuse abuse.",
+            "bad_artificial_intelligence": "Automated review may substitute technical validity for legitimacy.",
+            "coalition_capture": "Emergency actors and reviewers may coordinate.",
+            "continuity": "Advisory review does not disrupt operations.",
+            "reversibility": "Weak remedies cannot restore constitutional state.",
+            "legitimacy": "Nonbinding review underserves CDR-002.",
+            "human_comprehensibility": "The process is simple but ineffectual."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Full ordinary adjudication after every emergency action.",
+          "stress_test": {
+            "bad_human": "Litigation can punish good-faith stabilization.",
+            "bad_artificial_intelligence": "Case volume increases dependence on machine triage.",
+            "coalition_capture": "Court and enforcement capture affect every review.",
+            "continuity": "Heavy review may deter necessary action.",
+            "reversibility": "Full remedies maximize correction.",
+            "legitimacy": "Binding human review is strong.",
+            "human_comprehensibility": "Ordinary procedure is familiar."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Automatic expedited human constitutional review with burden on the actor, outcome neutrality, bounded remedies, and one appeal.",
+          "stress_test": {
+            "bad_human": "Actors may conceal evidence or exploit irreversible effects.",
+            "bad_artificial_intelligence": "AI-authored narratives can obscure human reasoning.",
+            "coalition_capture": "Reviewer and actor coalitions remain possible.",
+            "continuity": "Expedited review restores ordinary authority quickly.",
+            "reversibility": "Stays, restoration, restitution, and disclosure support correction.",
+            "legitimacy": "Actor burden and outcome neutrality track CDR-002.",
+            "human_comprehensibility": "A fixed review clock and findings map are legible."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Require filing immediately and no later than six hours after stabilization, with review beginning within twenty-four hours. The emergency actor bears clear-and-convincing burdens for trigger, unreachability, necessity, proportionality, least harm, scope, and expiry compliance; concealed or destroyed evidence creates a rebuttable adverse inference but not automatic merits judgment. The Court may invalidate continuing effects, suspend, remand, compel disclosure, restore lawful state, order restitution or reliance-protective relief, and refer misconduct for separate accountability. One expedited appeal is available. Success does not prove legitimacy and harm does not prove invalidity. Irreversible effects remain reviewable through disclosure, restitution, compensation, institutional correction, and nonprecedential findings.",
+        "human_decision_required": "Adopt filing and review times, burdens and adverse inference, standing, remedy set, appeal, enforcement, and irreversible-effect treatment."
+      },
+      "dependencies": ["RD-02", "RD-03", "RD-04", "RD-11"],
+      "cross_domain_conflicts": ["Actor burden may conflict with missing evidence.", "Adverse inference can become de facto strict liability.", "Compensation may imply unresolved funding authority."],
+      "residual_implementation_questions": ["Emergency case intake", "Secure evidence transfer", "Notification", "Restitution administration"]
+    },
+    {
+      "domain_id": "RD-06",
+      "title": "Succession proof, surviving grants, and human succession process",
+      "blocked_requirements": ["CCR-010"],
+      "unresolved_issues": ["IR-01", "IR-04", "IR-05", "IR-06", "IR-07", "IR-08", "IR-10", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Single designated human successor on one authoritative proof record.",
+          "stress_test": {
+            "bad_human": "Forgery or manufactured incapacity captures the chain.",
+            "bad_artificial_intelligence": "Identity and evidence systems can install a false successor.",
+            "coalition_capture": "Access to the designee or record is decisive.",
+            "continuity": "Succession is fast.",
+            "reversibility": "Invalid transfer may cause irreversible acts.",
+            "legitimacy": "Predesignation is clear but fragile.",
+            "human_comprehensibility": "The path is simple."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Human succession council determines trigger and successor using plural evidence.",
+          "stress_test": {
+            "bad_human": "Council selection, quorum, and agenda can be captured.",
+            "bad_artificial_intelligence": "Shared evidence infrastructure can manufacture plurality.",
+            "coalition_capture": "Council members may coordinate succession.",
+            "continuity": "Deliberation slows transfer but handles uncertainty.",
+            "reversibility": "Challenge and appeal can correct errors.",
+            "legitimacy": "Plural human judgment is stronger.",
+            "human_comprehensibility": "Trigger and selection roles may blur."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Claimant-neutral continuity plus separate evidence validation, a seven-human succession council, adjudicative review, and explicit refounding if lawful succession is impossible.",
+          "stress_test": {
+            "bad_human": "Council and evidence channels remain targets.",
+            "bad_artificial_intelligence": "Correlated issuers and models may create false independence.",
+            "coalition_capture": "Council, court, and administrators may coordinate.",
+            "continuity": "Scoped grants continue without sovereign transfer.",
+            "reversibility": "Separate validation, challenge, review, and restoration improve correction.",
+            "legitimacy": "The design preserves the CDR-003 continuity/succession distinction.",
+            "human_comprehensibility": "A public trigger-selection-review map is required."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Require clear and convincing proof of temporary incapacity and beyond-reasonable-doubt proof of death, permanent loss, identity, return, and successor identity, using at least three materially independent sources; shared issuer, operator, data, infrastructure, incentive, or AI dependence defeats independence. Create a seven-human Succession Council: two chosen by constitutional membership, two by ordinary human offices, two by the Constitutional Court excluding current adjudicators, and one by human sortition from a qualified pool. Five votes determine triggers or recognize a lawfully predesignated successor; six votes are required to conclude succession is impossible and refer explicit refounding. Claimants, beneficiaries, evidence operators, emergency actors, and materially dependent persons recuse. Only valid current ordinary grants not personal to the lost authority survive; foundational, emergency-fallback, expired, revocable-on-incapacity, and succession-creating grants suspend. Council decisions carry reasons, dissent, challenge, and one Court appeal.",
+        "human_decision_required": "Adopt proof burdens and independence, council composition and votes, recusal and appeal, recognition scope, surviving-grant rule, suspended powers, and succession/refounding referral."
+      },
+      "dependencies": ["RD-01", "RD-02", "RD-03", "RD-07", "RD-08", "RD-11"],
+      "cross_domain_conflicts": ["Court participation may compromise later review.", "High death proof may prolong interregnum.", "Predesignation may conflict with current membership legitimacy."],
+      "residual_implementation_questions": ["Evidence-source registry", "Identity verification tooling", "Council case records", "Credential revocation"]
+    },
+    {
+      "domain_id": "RD-07",
+      "title": "Interregnum duration, return, restoration, and invalid succession",
+      "blocked_requirements": ["CCR-012"],
+      "unresolved_issues": ["IR-04", "IR-05", "IR-06", "IR-07", "IR-08", "IR-10", "IR-11", "IR-15", "IR-16", "IR-17"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "No fixed maximum; continuity lasts until return or succession.",
+          "stress_test": {
+            "bad_human": "Custodians can prolong uncertainty and entrench control.",
+            "bad_artificial_intelligence": "Operational dependence can become permanent rule.",
+            "coalition_capture": "Continuity actors may block evidence or succession.",
+            "continuity": "Administration remains uninterrupted.",
+            "reversibility": "Long reliance makes restoration difficult.",
+            "legitimacy": "Duration erodes the no-sovereignty rule.",
+            "human_comprehensibility": "No clear endpoint exists."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "One short fixed deadline followed automatically by refounding.",
+          "stress_test": {
+            "bad_human": "Actors may manufacture delay to force refounding.",
+            "bad_artificial_intelligence": "Clock or notification control can trigger rupture.",
+            "coalition_capture": "A coalition may obstruct succession until deadline.",
+            "continuity": "Abrupt expiry can disrupt essential administration.",
+            "reversibility": "Automatic rupture is difficult to reverse.",
+            "legitimacy": "Time alone cannot create constituent authority.",
+            "human_comprehensibility": "The deadline is clear."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Ninety-day reviewed stages with a 180-day constitutional ceiling, mandatory succession or refounding decision, immediate non-veto restoration, and bounded invalid-succession remedies.",
+          "stress_test": {
+            "bad_human": "Stage reviews may rubber-stamp continuation.",
+            "bad_artificial_intelligence": "Dependency metrics may justify perpetual necessity.",
+            "coalition_capture": "Custodians and reviewers may coordinate extensions.",
+            "continuity": "Staged review avoids abrupt administrative collapse.",
+            "reversibility": "A hard ceiling and restoration preserve correction.",
+            "legitimacy": "Time triggers a decision process but does not create authority.",
+            "human_comprehensibility": "Two visible deadlines are understandable."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Review every interregnum at ninety days and impose a 180-day maximum for continuity authority; the ceiling triggers a human succession determination or explicit refounding process but never transfers sovereignty automatically. Surviving grants expire at their original expiry or the 180-day ceiling, whichever is earlier. Return uses the RD-06 identity burden and restores authority immediately upon final verification without custodian consent. Pending challenge may support only a narrowly tailored Court stay necessary to prevent conflicting irreversible acts. Invalid succession voids prospective authority; completed acts receive act-specific review for good-faith reliance, beneficiary protection, reversibility, and constitutional harm. Remedies include invalidation, restoration, restitution, disclosure, executor replacement, and reliance-protective prospective treatment, without validating the succession itself.",
+        "human_decision_required": "Adopt ninety-day review, the 180-day ceiling, grant expiry, return proof and immediate restoration, stay boundary, act-specific invalid-succession treatment, and remedies."
+      },
+      "dependencies": ["RD-03", "RD-06", "RD-08", "RD-10", "RD-11"],
+      "cross_domain_conflicts": ["A hard ceiling can arrive before proof is conclusive.", "Reliance protection may preserve effects of invalid authority.", "A stay can obstruct rightful restoration."],
+      "residual_implementation_questions": ["Deadline notifications", "Grant registry", "Restoration credential rotation", "Reliance claims administration"]
+    },
+    {
+      "domain_id": "RD-08",
+      "title": "Amendment and refounding constituencies, thresholds, and procedures",
+      "blocked_requirements": ["CCR-019"],
+      "unresolved_issues": ["IR-01", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "One human constituency and one escalating vote threshold.",
+          "stress_test": {
+            "bad_human": "A majority may redefine membership and entrench itself.",
+            "bad_artificial_intelligence": "Persuasion and agenda control can dominate one vote.",
+            "coalition_capture": "Registry and quorum capture become decisive.",
+            "continuity": "One process is operationally stable.",
+            "reversibility": "Lower tiers allow correction but risk identity laundering.",
+            "legitimacy": "A single constituency may underrepresent affected humans.",
+            "human_comprehensibility": "Escalating percentages are simple."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Separate constituent assemblies for structural amendment and refounding.",
+          "stress_test": {
+            "bad_human": "Assembly selection and agenda can be captured.",
+            "bad_artificial_intelligence": "Technical drafting can dominate temporary bodies.",
+            "coalition_capture": "A temporary majority may escape existing obligations.",
+            "continuity": "Repeated assemblies are slow.",
+            "reversibility": "Deliberation improves pre-effect correction.",
+            "legitimacy": "Distinct constituent acts visibly separate continuity and rupture.",
+            "human_comprehensibility": "Separate bodies make tier boundaries visible."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Tier-matched membership votes with escalating quorum, approval, repeated ratification, independent classification, challenge, and explicit discontinuity.",
+          "stress_test": {
+            "bad_human": "Classification and voter-roll manipulation remain risks.",
+            "bad_artificial_intelligence": "Machine framing can dominate deliberation and ratification.",
+            "coalition_capture": "A supercoalition can capture every stage.",
+            "continuity": "Ordinary and structural change remain distinct from rupture.",
+            "reversibility": "Cooling-off and repeated approval allow reconsideration.",
+            "legitimacy": "All natural-person members retain final authorization.",
+            "human_comprehensibility": "A three-tier process map is necessary."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Use the RD-01 membership, fixed before proposal initiation, as the amendment constituency and the same membership without delegation as the refounding constituency. Ordinary amendment requires participation by more than one half of members and two-thirds approval of valid votes after fourteen days' notice. Structural amendment requires two-thirds participation, three-quarters approval, and two votes at least thirty days apart; each vote must also receive majority approval in each of three equal voting cohorts assigned by publicly auditable human sortition before deliberation and administered by materially independent authorities. Refounding requires three-quarters participation, four-fifths approval, two votes at least ninety days apart, and an explicit discontinuity ballot. It also requires separate confirmation by affected human beneficiaries: natural persons outside the fixed membership whose existing legal rights, obligations, access to institutional assets, or eligibility for material institutional benefits would be directly altered by refounding. The Verification Office determines and publishes that roll from public criteria and evidence before the first vote; any member or claimed affected person may challenge it through one expedited Court appeal, and the first vote cannot begin until timely challenges are final. Confirmation requires participation above one half of the final affected-beneficiary roll and approval by more than one half of valid votes cast; abstentions count only toward participation, invalid ballots count toward neither denominator, and a tie fails. Proposals require attributable human sponsorship, public text and plain-language effects, alternatives, dissent, machine-assistance disclosure, deliberation, and Court classification before the first vote. Any member has standing to challenge classification or procedure; one expedited appeal is final. Emergency, succession, or adjudication cannot waive the process.",
+        "human_decision_required": "Adopt the fixed RD-01 constituencies, participation and approval thresholds, repeated votes and waiting periods, three randomly assigned independently administered cohort majorities, affected-beneficiary definition, final pre-vote roll and appeal, confirmation participation and valid-vote denominator, abstention, invalid-ballot and tie rules, sponsorship, notice, deliberation, classification, challenge, appeal, effectiveness, and non-waiver rules."
+      },
+      "dependencies": ["RD-01", "RD-02", "RD-03", "RD-09", "RD-10", "RD-11"],
+      "cross_domain_conflicts": ["Regional concurrence may create factional veto.", "Beneficiary confirmation requires a defined affected class.", "Court classification can become guardian sovereignty."],
+      "residual_implementation_questions": ["Ballot administration", "Membership roll snapshots", "Notice delivery", "Vote audit", "Publication format"]
+    },
+    {
+      "domain_id": "RD-09",
+      "title": "Cumulative effects, amendment laundering, and semantic drift",
+      "blocked_requirements": ["CCR-019"],
+      "unresolved_issues": ["IR-06", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Aggregate formal changes within a fixed rolling time window.",
+          "stress_test": {
+            "bad_human": "Actors can wait beyond the window.",
+            "bad_artificial_intelligence": "Optimization can sequence changes around the clock.",
+            "coalition_capture": "Distributed sponsors can conceal one plan.",
+            "continuity": "A fixed rule is predictable.",
+            "reversibility": "Late detection may follow entrenched effects.",
+            "legitimacy": "Formal timing misses substantive identity change.",
+            "human_comprehensibility": "The window is easy to understand."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Aggregate by causal lineage and formal dependency regardless of time.",
+          "stress_test": {
+            "bad_human": "Dependencies can be concealed through separate instruments.",
+            "bad_artificial_intelligence": "Complex lineage may become machine-defined.",
+            "coalition_capture": "Sponsors can distribute authorship.",
+            "continuity": "Long-term sequences remain reviewable.",
+            "reversibility": "Disputed causation delays correction.",
+            "legitimacy": "Human judgment remains necessary.",
+            "human_comprehensibility": "Causal graphs are difficult to explain."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Twenty-four-month window, lineage and dependency tracing, and effects-based escalation, with any trigger initiating human review and periodic semantic-drift audit.",
+          "stress_test": {
+            "bad_human": "Actors may manipulate effect evidence and audit agenda.",
+            "bad_artificial_intelligence": "Models may control forecasts, retrieval, and summaries.",
+            "coalition_capture": "Formal and practical changes may be coordinated.",
+            "continuity": "Multiple triggers expose gradual replacement.",
+            "reversibility": "Early suspension and reclassification improve correction.",
+            "legitimacy": "The Court reviews evidence but does not authorize change.",
+            "human_comprehensibility": "Plain-language cumulative explanations are essential."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Aggregate every amendment, interpretation, implementation act, delegation change, and material effective-power shift occurring within twenty-four months, plus any older act linked by express purpose, legal dependency, common sponsorship, financing, infrastructure, or necessary operational effect. Any time, lineage, dependency, or combined-effects trigger requires Court review before further effect. Escalate when the combination materially changes office allocation, checks and balances, amendment conditions, protected agency, beneficiary status, sovereignty, constitutional constraint, or another refounding-level principle. The proponent bears clear and convincing evidence that the lower tier remains adequate under uncertainty. Remedies are suspension, remand, consolidated reclassification, renewed tier-compliant approval, restoration, disclosure, and reliance-protective prospective relief. Conduct a human-led public semantic-drift audit every two years comparing text, precedent, practice, reliance, and effective power; material drift triggers review, not automatic amendment.",
+        "human_decision_required": "Adopt the aggregation units, twenty-four-month window, lineage/dependency and effects triggers, escalation subjects, burden, standing, review timing, remedies, and biennial semantic-drift audit."
+      },
+      "dependencies": ["RD-03", "RD-08", "RD-11"],
+      "cross_domain_conflicts": ["Broad aggregation may chill ordinary governance.", "Effects tests may transfer policy judgment to the Court.", "A two-year audit may lag rapid capture."],
+      "residual_implementation_questions": ["Change lineage representation", "Dependency data collection", "Audit tooling", "Public comparison interface"]
+    },
+    {
+      "domain_id": "RD-10",
+      "title": "Termination, refounding transition, obligations, assets, reliance, and remedies",
+      "blocked_requirements": ["CCR-012", "CCR-015"],
+      "unresolved_issues": ["IR-01", "IR-04", "IR-05", "IR-06", "IR-08", "IR-10", "IR-11", "IR-12", "IR-15", "IR-16", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Refounding automatically extinguishes the prior order and all obligations.",
+          "stress_test": {
+            "bad_human": "Refounding becomes a device to evade duties and claims.",
+            "bad_artificial_intelligence": "Machine-driven rupture can exploit asset transfers.",
+            "coalition_capture": "A coalition can externalize losses onto dissenters.",
+            "continuity": "Administrative and legal continuity collapse.",
+            "reversibility": "Extinguished claims are difficult to restore.",
+            "legitimacy": "Non-erasing history conflicts with blanket extinction.",
+            "human_comprehensibility": "The rule is clear but unjustifiably absolute."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "All obligations and institutions continue unchanged across refounding.",
+          "stress_test": {
+            "bad_human": "Incumbent power survives nominal refounding.",
+            "bad_artificial_intelligence": "Operational dependence silently carries authority forward.",
+            "coalition_capture": "Legacy offices may capture the new order.",
+            "continuity": "Operational stability is strongest.",
+            "reversibility": "Continuity can be corrected only after new decisions.",
+            "legitimacy": "Identity discontinuity becomes fictitious.",
+            "human_comprehensibility": "The meaning of refounding becomes unclear."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Refounding terminates constitutional identity while a temporary bounded human transition authority preserves records, assets, administration, and presumptively surviving obligations subject to public classification and review.",
+          "stress_test": {
+            "bad_human": "Transition custodians may become successor sovereigns.",
+            "bad_artificial_intelligence": "Indispensable systems may control asset and record continuity.",
+            "coalition_capture": "Transition actors may favor allies' claims.",
+            "continuity": "Safety and administration continue without false identity continuity.",
+            "reversibility": "Preservation and review prevent irreversible transfers.",
+            "legitimacy": "The distinction between identity and administration remains explicit.",
+            "human_comprehensibility": "A public transition ledger can explain each treatment."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "A valid RD-08 refounding act terminates the prior constitutional identity only at its declared effective time, which must follow final result certification and final disposition of every timely challenge. Before the second refounding vote, the same three materially independent channels used to select the Court each publicly select two members and two ranked alternates, and the constitutional membership selects one member and two ranked alternates, for a seven-human Transition Authority; current judges, refounding sponsors, and prior continuity custodians are ineligible. The final ballot identifies the slate and alternates. Refounding cannot take effect unless the Verification Office certifies all seven members and at least seven alternates before voting closes; a challenged certification receives one expedited Court appeal before certification of the refounding result. The Authority's mandate is created conditionally by the refounding act and activates prospectively at the effective time when the old identity terminates. Five nonrecused members constitute quorum and five affirmative votes authorize action. Recusal creates a vacancy filled immediately from the relevant channel's ranked alternates. With fewer than five members, all action is suspended except record and asset preservation approved unanimously by at least three available nonrecused members; with fewer than three, no action is authorized. The Authority expires after 180 days, is strictly nonrenewable, and cannot participate in any process that creates a later transition body. It may preserve records, safety, assets, ordinary administration, and claim processing but cannot amend, refound, select institutional ends, transfer sovereignty, make irreversible asset dispositions outside ordinary preservation, or veto new authority. Lawful obligations presumptively survive unless impossible, identity-dependent, or expressly reconsidered through the new order with reasons and affected-party review. Assets remain in custodial trust for human beneficiaries pending lawful allocation. Good-faith reliance receives prospective protection where consistent with protected agency and beneficiaries; bad-faith or capture-based reliance does not. Remedies include restoration, restitution, compensation, claim continuation, invalidation, disclosure, and custodian removal. All prior constitutional text, decisions, dissent, claims, and transition acts remain permanently attributable and non-erasing.",
+        "human_decision_required": "Adopt the post-certification identity-termination event; pre-effective selection, certification, ballot disclosure, conditional activation, alternates, recusal, five-member quorum and action threshold, sub-quorum preservation and minimum-concurrence rules; Transition Authority composition, exclusions, strictly nonrenewable duration, powers, prohibitions, review, and removal; obligation-survival rule; asset custody; reliance treatment; remedies; and permanent history rule."
+      },
+      "dependencies": ["RD-01", "RD-02", "RD-03", "RD-06", "RD-07", "RD-08", "RD-11"],
+      "cross_domain_conflicts": ["Obligation survival can constrain a genuinely new order.", "Asset custody may become effective sovereignty.", "Compensation requires lawful funding."],
+      "residual_implementation_questions": ["Asset inventory", "Claims registry", "Archival export", "Payment administration", "Transition reporting"]
+    },
+    {
+      "domain_id": "RD-11",
+      "title": "Effective power, coalition capture, machine domination, and independent channels",
+      "blocked_requirements": ["CCR-003", "CCR-006", "CCR-008", "CCR-010", "CCR-012", "CCR-013", "CCR-014", "CCR-015", "CCR-019"],
+      "unresolved_issues": ["IR-01", "IR-02", "IR-08", "IR-09", "IR-10", "IR-11", "IR-12", "IR-13", "IR-17", "IR-18"],
+      "alternatives": [
+        {
+          "alternative_id": "A",
+          "architecture": "Publication, reasons, provenance, and dissent only.",
+          "stress_test": {
+            "bad_human": "Visible capture may continue without prevention.",
+            "bad_artificial_intelligence": "Generated records can simulate accountability.",
+            "coalition_capture": "Coalitions may disclose formal facts while hiding dependencies.",
+            "continuity": "Low-cost transparency does not interrupt operations.",
+            "reversibility": "Records support later correction.",
+            "legitimacy": "Disclosure alone does not establish free human judgment.",
+            "human_comprehensibility": "Public records are accessible when concise."
+          }
+        },
+        {
+          "alternative_id": "B",
+          "architecture": "Formal functional separation and plural human concurrence.",
+          "stress_test": {
+            "bad_human": "Nominally separate actors may share control.",
+            "bad_artificial_intelligence": "One model or validator can coordinate all functions.",
+            "coalition_capture": "Plural actors can form a cartel.",
+            "continuity": "Concurrence and separation may cause delay.",
+            "reversibility": "Multiple veto and challenge points improve correction.",
+            "legitimacy": "Formal plurality is insufficient without independence.",
+            "human_comprehensibility": "An authority map explains formal roles."
+          }
+        },
+        {
+          "alternative_id": "C",
+          "architecture": "Layered provenance, material-independence tests, dependency disclosure, substitutability, human reconstruction, challenge, audits, and bounded remedies.",
+          "stress_test": {
+            "bad_human": "Dependency and substitutability claims can be gamed.",
+            "bad_artificial_intelligence": "Machine-produced audits may conceal domination.",
+            "coalition_capture": "Coalitions may coordinate across independent channels.",
+            "continuity": "Substitutable channels reduce single-point failure.",
+            "reversibility": "Audits, challenge, substitution, and remedies enable correction.",
+            "legitimacy": "Substantive human control is tested rather than presumed.",
+            "human_comprehensibility": "Plain dependency and decision reconstructions are required."
+          }
+        }
+      ],
+      "recommendation": {
+        "selected_alternative": "C",
+        "architecture": "Treat actors or channels as independent only when they lack common control and material dependence in evidence, data, models, infrastructure, identity, communications, financing, agenda, enforcement, and incentives; disclose every such dependency. No validator, model, credential, dashboard, issuer, evidence store, communication path, or operator may be the sole gatekeeper. Every material decision requires attributable human reasons, alternatives, dissent, authority scope, clock, review path, and machine-assistance disclosure. Substantive machine domination exists when responsible humans cannot independently understand the material basis, reconstruct the reasoning, reject the recommendation, choose a viable nonmachine alternative, or retain practical control over timing and effect. Human signatures do not cure domination. Require annual independent human effective-power audits plus event-triggered audits for material dependency changes, coalition evidence, repeated emergency use, prolonged interregnum, adjudicative drift, or change concentration. Remedies include disclosure, recusal, substitution, suspension, remand, restoration, diversification orders, and invalidation within adjudicative jurisdiction.",
+        "human_decision_required": "Adopt the material-independence test, sole-gatekeeper prohibition, required decision disclosures, machine-domination test, annual and event-triggered audits, standing, and bounded remedies."
+      },
+      "dependencies": ["RD-01", "RD-02", "RD-03", "RD-04", "RD-05", "RD-06", "RD-07", "RD-08", "RD-09", "RD-10"],
+      "cross_domain_conflicts": ["Independence requirements may be infeasible for small institutions.", "Diversification can add cost and complexity.", "Audit authority can become another gatekeeper."],
+      "residual_implementation_questions": ["Dependency inventory schema", "Audit evidence collection", "Model disclosure format", "Monitoring telemetry", "Substitution tooling"]
+    }
+  ],
+  "cross_domain_conflicts": [
+    {"conflict_id": "XDC-01", "conflict": "Human sovereignty versus binding review.", "resolution_in_recommendations": "RD-03 enumerates review jurisdiction and remedies while excluding institutional ends and creation of authority."},
+    {"conflict_id": "XDC-02", "conflict": "Emergency speed versus evidence, concurrence, and review.", "resolution_in_recommendations": "RD-04 permits unilateral minimum action only when concurrence delay materially increases irreversible harm, then RD-05 supplies expedited review."},
+    {"conflict_id": "XDC-03", "conflict": "Administrative continuity versus effective sovereign succession.", "resolution_in_recommendations": "RD-06 limits surviving grants and RD-07 imposes reviewed stages and a hard ceiling without automatic sovereignty."},
+    {"conflict_id": "XDC-04", "conflict": "Adjudicative classification versus amendment by interpretation.", "resolution_in_recommendations": "RD-03 bounds jurisdiction and RD-08 leaves authorization entirely with human membership."},
+    {"conflict_id": "XDC-05", "conflict": "Refounding discontinuity versus obligations, assets, reliance, and remedies.", "resolution_in_recommendations": "RD-10 terminates identity while presumptively preserving lawful obligations and custodially preserving assets subject to review."},
+    {"conflict_id": "XDC-06", "conflict": "Finality versus reversibility.", "resolution_in_recommendations": "RD-03 permits one appeal, bounded reopening, stays, remand, restoration, and reliance-sensitive relief."},
+    {"conflict_id": "XDC-07", "conflict": "Plural safeguards versus correlated coalition and machine dependence.", "resolution_in_recommendations": "RD-11 uses material-independence, sole-gatekeeper, substitutability, disclosure, and audit tests."}
+  ],
+  "human_decisions_required": [
+    "DECISION-RD-01", "DECISION-RD-02", "DECISION-RD-03", "DECISION-RD-04",
+    "DECISION-RD-05", "DECISION-RD-06", "DECISION-RD-07", "DECISION-RD-08",
+    "DECISION-RD-09", "DECISION-RD-10", "DECISION-RD-11"
+  ],
+  "projected_consolidated_requirements": [
+    {"consolidated_requirement": "CCR-001", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-002", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-003", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-004", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-005", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-006", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-007", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-008", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-009", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-010", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-011", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-012", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-013", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-014", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-015", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-016", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-017", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-018", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-019", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-020", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"}
+  ],
+  "projection": {
+    "condition": "Only if all eleven recommendations are separately adopted by explicit Human Constitutional Authority decisions with exact constitutional provenance.",
+    "ready_for_constitutional_draft": 20,
+    "blocked_by_unresolved_design": 0,
+    "current_map_is_modified": false,
+    "projection_has_constitutional_effect": false,
+    "legitimacy_assessment": "The 20/0 target is conditionally supportable because every identified constitutional choice is answered by a recommendation. It is not current closure and cannot support drafting until explicit human decisions adopt, revise, or reject the package."
+  },
+  "genuine_residual_implementation_questions": [
+    "Registry, record, filing, notice, scheduling, publication, and user-interface formats",
+    "Identity, authentication, credential, cryptographic integrity, storage, retention, export, and archival mechanisms",
+    "Random selection, vote administration, audit, recount, and regional-channel implementation",
+    "Emergency communications, evidence capture, clocks, alerts, expiry, revocation, and restoration tooling",
+    "Case management, evidence transfer, judgment publication, enforcement tracking, restitution, compensation, and claims administration",
+    "Dependency inventories, model and machine-assistance disclosure formats, telemetry, audit tooling, and substitutability operations",
+    "Change-lineage representation, cumulative-analysis support, semantic-drift comparison, and transition reporting"
+  ],
+  "state_preservation": {
+    "decided_cdr_count": 5,
+    "resolved_foundational_question_count": 5,
+    "open_issue_count": 18,
+    "accepted_requirement_count": 35,
+    "current_ready_consolidated_requirement_count": 11,
+    "current_blocked_consolidated_requirement_count": 9,
+    "constitutional_provision_count": 0,
+    "runtime_artifact_count": 0
+  },
+  "provenance": {
+    "source": "Repository-only integrated analysis of the nine blocked consolidated requirements and their cross-cutting constitutional design dependencies on 2026-08-30.",
+    "boundary": "No human decision is recorded; current CDR, FQ, issue, CR, consolidation, article, provision, and runtime states remain unchanged."
+  }
+}
