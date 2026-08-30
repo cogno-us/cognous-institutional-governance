@@ -2264,6 +2264,76 @@ FQ5_SOURCE_MATERIAL = {
     "docs/DESIGN_PRINCIPLES.md",
     "docs/GLOSSARY.md",
 }
+CONSOLIDATED_MAP_RELATIVE_PATH = Path(
+    "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml"
+)
+ARTICLE_ARCHITECTURE_RELATIVE_PATH = Path(
+    "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md"
+)
+CONSOLIDATED_MAP_FIELDS = {
+    "map_id",
+    "status",
+    "source_requirement_count",
+    "source_requirement_range",
+    "controlling_decisions",
+    "classification_vocabulary",
+    "boundary",
+    "consolidated_requirements",
+    "classification_summary",
+    "classification_note",
+    "overlap_register",
+    "apparent_conflicts",
+    "coverage_matrix",
+    "state_preservation",
+    "provenance",
+}
+CONSOLIDATED_REQUIREMENT_FIELDS = {
+    "consolidated_id",
+    "title",
+    "classification",
+    "source_requirements",
+    "primary_article",
+    "controlling_cdrs",
+    "dependencies",
+    "overlaps",
+    "consolidation_rationale",
+    "drafting_boundary",
+}
+CONSOLIDATED_CLASSIFICATIONS = {
+    "READY_FOR_CONSTITUTIONAL_DRAFT",
+    "BLOCKED_BY_UNRESOLVED_DESIGN",
+    "SUBORDINATE_GOVERNANCE_LAW",
+    "IMPLEMENTATION_STANDARD",
+}
+EXPECTED_CONSOLIDATED_CLASSIFICATION_COUNTS = {
+    "READY_FOR_CONSTITUTIONAL_DRAFT": 11,
+    "BLOCKED_BY_UNRESOLVED_DESIGN": 9,
+    "SUBORDINATE_GOVERNANCE_LAW": 0,
+    "IMPLEMENTATION_STANDARD": 0,
+}
+EXPECTED_ARTICLE_TITLES = [
+    "Constitutional Identity and Human Sovereignty",
+    "Constitutional Authority, Constraint, and Separation of Functions",
+    "Constitutional Adjudication and Enforcement",
+    "Epistemic Integrity, Provenance, Dissent, and Effective Power",
+    "Emergency Authority",
+    "Continuity, Succession, and Interregnum",
+    "Amendment and Constitutional Change",
+    (
+        "Refounding, Termination, Continuity of Obligations, and "
+        "Constitutional Memory"
+    ),
+]
+EXPECTED_ARTICLE_CONTROLLING_CDRS = {
+    "ARTICLE-I": {"CDR-001", "CDR-003"},
+    "ARTICLE-II": {"CDR-001", "CDR-004"},
+    "ARTICLE-III": {"CDR-002", "CDR-003", "CDR-004", "CDR-005"},
+    "ARTICLE-IV": {"CDR-001"},
+    "ARTICLE-V": {"CDR-002", "CDR-003", "CDR-004", "CDR-005"},
+    "ARTICLE-VI": {"CDR-002", "CDR-003", "CDR-004", "CDR-005"},
+    "ARTICLE-VII": {"CDR-002", "CDR-003", "CDR-004", "CDR-005"},
+    "ARTICLE-VIII": {"CDR-001", "CDR-002", "CDR-003", "CDR-004", "CDR-005"},
+}
 FQ4_SOURCE_MATERIAL = {
     "FQ-04",
     "CDR-001",
@@ -5889,6 +5959,440 @@ def _validate_fq1_human_decision_packet(
     )
 
 
+def _validate_article_architecture(
+    root: Path,
+    decisions_by_id: dict[str, dict[str, Any]],
+    requirements: list[dict[str, Any]],
+    errors: list[str],
+) -> dict[str, int]:
+    metrics = {
+        "source_requirement_count": 0,
+        "consolidated_requirement_count": 0,
+        "proposed_article_count": 0,
+        "ready_for_constitutional_draft_count": 0,
+        "blocked_by_unresolved_design_count": 0,
+        "subordinate_governance_law_count": 0,
+        "implementation_standard_count": 0,
+        "unmapped_requirement_count": 35,
+    }
+    map_path = root / CONSOLIDATED_MAP_RELATIVE_PATH
+    record = _load_record(map_path, errors) or {}
+    if set(record) != CONSOLIDATED_MAP_FIELDS:
+        errors.append(
+            "CONSOLIDATED_MAP_SCHEMA: exact top-level fields are required"
+        )
+    if (
+        record.get("map_id") != "CONSOLIDATED-REQUIREMENT-MAP-001"
+        or record.get("status") != "PRE_DRAFTING_ARCHITECTURE"
+        or record.get("source_requirement_count") != 35
+        or record.get("source_requirement_range") != "CR-001 through CR-035"
+        or record.get("classification_vocabulary")
+        != [
+            "READY_FOR_CONSTITUTIONAL_DRAFT",
+            "BLOCKED_BY_UNRESOLVED_DESIGN",
+            "SUBORDINATE_GOVERNANCE_LAW",
+            "IMPLEMENTATION_STANDARD",
+        ]
+        or not _is_evidence(record.get("boundary"))
+    ):
+        errors.append(
+            "CONSOLIDATED_MAP_METADATA: exact pre-drafting metadata is required"
+        )
+
+    expected_cr_ids = {f"CR-{index:03d}" for index in range(1, 36)}
+    expected_cdr_ids = {f"CDR-{index:03d}" for index in range(1, 6)}
+    expected_ccr_ids = {f"CCR-{index:03d}" for index in range(1, 21)}
+    expected_article_ids = {f"ARTICLE-{value}" for value in (
+        "I", "II", "III", "IV", "V", "VI", "VII", "VIII"
+    )}
+    if (
+        record.get("controlling_decisions")
+        != [f"CDR-{index:03d}" for index in range(1, 6)]
+        or set(decisions_by_id) != expected_cdr_ids
+        or any(
+            decisions_by_id.get(decision_id, {}).get("status") != "DECIDED"
+            for decision_id in expected_cdr_ids
+        )
+    ):
+        errors.append(
+            "CONSOLIDATED_MAP_CONTROLLING_DECISIONS: exactly five decided CDRs "
+            "are required"
+        )
+
+    consolidated = record.get("consolidated_requirements")
+    consolidated_records = (
+        [item for item in consolidated if isinstance(item, dict)]
+        if isinstance(consolidated, list)
+        else []
+    )
+    ccr_ids = [
+        item.get("consolidated_id")
+        for item in consolidated_records
+        if isinstance(item.get("consolidated_id"), str)
+    ]
+    source_membership: dict[str, tuple[str, str]] = {}
+    classification_counts = {
+        classification: 0 for classification in CONSOLIDATED_CLASSIFICATIONS
+    }
+    malformed_consolidated = (
+        not isinstance(consolidated, list)
+        or len(consolidated_records) != len(consolidated)
+    )
+    for item in consolidated_records:
+        consolidated_id = item.get("consolidated_id")
+        classification = item.get("classification")
+        source_requirements = item.get("source_requirements")
+        controlling_cdrs = item.get("controlling_cdrs")
+        dependencies = item.get("dependencies")
+        overlaps = item.get("overlaps")
+        primary_article = item.get("primary_article")
+        if (
+            set(item) != CONSOLIDATED_REQUIREMENT_FIELDS
+            or classification not in CONSOLIDATED_CLASSIFICATIONS
+            or not isinstance(source_requirements, list)
+            or not source_requirements
+            or len(source_requirements) != len(set(map(str, source_requirements)))
+            or not isinstance(controlling_cdrs, list)
+            or not controlling_cdrs
+            or not set(controlling_cdrs).issubset(expected_cdr_ids)
+            or not isinstance(dependencies, list)
+            or not isinstance(overlaps, list)
+            or primary_article not in expected_article_ids
+            or not _is_evidence(item.get("title"))
+            or not _is_evidence(item.get("consolidation_rationale"))
+            or not _is_evidence(item.get("drafting_boundary"))
+        ):
+            malformed_consolidated = True
+        if classification in classification_counts:
+            classification_counts[classification] += 1
+        if isinstance(source_requirements, list):
+            for requirement_id in source_requirements:
+                if isinstance(requirement_id, str):
+                    if requirement_id in source_membership:
+                        errors.append(
+                            "CONSOLIDATED_SOURCE_DUPLICATION: "
+                            f"{requirement_id} has multiple primary mappings"
+                        )
+                    else:
+                        source_membership[requirement_id] = (
+                            str(consolidated_id),
+                            str(primary_article),
+                        )
+    if (
+        malformed_consolidated
+        or len(consolidated_records) != 20
+        or set(ccr_ids) != expected_ccr_ids
+        or len(ccr_ids) != len(set(ccr_ids))
+    ):
+        errors.append(
+            "CONSOLIDATED_REQUIREMENTS: exact CCR-001 through CCR-020 records "
+            "are required"
+        )
+    for item in consolidated_records:
+        if (
+            not set(item.get("dependencies", [])).issubset(expected_ccr_ids)
+            or not set(item.get("overlaps", [])).issubset(expected_ccr_ids)
+            or item.get("consolidated_id") in item.get("dependencies", [])
+            or item.get("consolidated_id") in item.get("overlaps", [])
+        ):
+            errors.append(
+                "CONSOLIDATED_RELATIONSHIPS: dependencies and overlaps must "
+                "resolve to other consolidated requirements"
+            )
+            break
+
+    actual_source_ids = set(source_membership)
+    repository_requirement_ids = {
+        requirement.get("requirement_id")
+        for requirement in requirements
+        if isinstance(requirement.get("requirement_id"), str)
+    }
+    source_issues_by_requirement = {
+        str(requirement.get("requirement_id")): {
+            issue_id
+            for issue_id in requirement.get("source_issues", [])
+            if isinstance(issue_id, str)
+        }
+        for requirement in requirements
+    }
+    if (
+        actual_source_ids != expected_cr_ids
+        or repository_requirement_ids != expected_cr_ids
+    ):
+        errors.append(
+            "CONSOLIDATED_SOURCE_COVERAGE: every CR-001 through CR-035 must map "
+            "exactly once"
+        )
+    if (
+        record.get("classification_summary")
+        != EXPECTED_CONSOLIDATED_CLASSIFICATION_COUNTS
+        or classification_counts != EXPECTED_CONSOLIDATED_CLASSIFICATION_COUNTS
+    ):
+        errors.append(
+            "CONSOLIDATED_CLASSIFICATION_COUNTS: exact classification totals "
+            "are required"
+        )
+
+    coverage = record.get("coverage_matrix")
+    coverage_records = (
+        [item for item in coverage if isinstance(item, dict)]
+        if isinstance(coverage, list)
+        else []
+    )
+    coverage_sources: list[str] = []
+    malformed_coverage = (
+        not isinstance(coverage, list)
+        or len(coverage_records) != len(coverage)
+    )
+    for item in coverage_records:
+        source_requirement = item.get("source_requirement")
+        if isinstance(source_requirement, str):
+            coverage_sources.append(source_requirement)
+        expected_mapping = source_membership.get(str(source_requirement))
+        if (
+            set(item)
+            != {"source_requirement", "consolidated_requirement", "primary_article"}
+            or expected_mapping
+            != (
+                item.get("consolidated_requirement"),
+                item.get("primary_article"),
+            )
+        ):
+            malformed_coverage = True
+    if (
+        malformed_coverage
+        or len(coverage_records) != 35
+        or set(coverage_sources) != expected_cr_ids
+        or len(coverage_sources) != len(set(coverage_sources))
+    ):
+        errors.append(
+            "CONSOLIDATED_COVERAGE_MATRIX: 35 exact transparent coverage rows "
+            "are required"
+        )
+
+    overlaps = record.get("overlap_register")
+    if (
+        not isinstance(overlaps, list)
+        or len(overlaps) != 9
+        or any(
+            not isinstance(item, dict)
+            or set(item) != {"overlap_id", "requirements", "resolution"}
+            or not isinstance(item.get("requirements"), list)
+            or not set(item["requirements"]).issubset(expected_cr_ids)
+            or not _is_evidence(item.get("resolution"))
+            for item in overlaps
+        )
+    ):
+        errors.append(
+            "CONSOLIDATED_OVERLAPS: nine traceable overlap records are required"
+        )
+    conflicts = record.get("apparent_conflicts")
+    if (
+        not isinstance(conflicts, list)
+        or len(conflicts) != 5
+        or any(
+            not isinstance(item, dict)
+            or set(item) != {"conflict_id", "tension", "treatment"}
+            or not _is_evidence(item.get("tension"))
+            or not _is_evidence(item.get("treatment"))
+            for item in conflicts
+        )
+    ):
+        errors.append(
+            "CONSOLIDATED_CONFLICTS: five bounded conflict-or-gap records are "
+            "required"
+        )
+    if record.get("state_preservation") != {
+        "decision_status_counts": {"DECIDED": 5},
+        "foundational_question_status_counts": {"RESOLVED": 5},
+        "issue_status_counts": {"OPEN": 18},
+        "accepted_requirement_count": 35,
+        "constitutional_provision_count": 0,
+        "governance_runtime_artifact_count": 0,
+    }:
+        errors.append(
+            "CONSOLIDATED_STATE_PRESERVATION: exact constitutional state is "
+            "required"
+        )
+    if not _has_provenance(record):
+        errors.append("CONSOLIDATED_PROVENANCE: explicit provenance is required")
+
+    architecture_path = root / ARTICLE_ARCHITECTURE_RELATIVE_PATH
+    try:
+        architecture_text = architecture_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"ARTICLE_ARCHITECTURE_REQUIRED: {exc}")
+        architecture_text = ""
+    if (
+        architecture_text.count("# Constitutional Article Architecture") != 1
+        or architecture_text.count(
+            "**PRE-DRAFTING STRUCTURAL BLUEPRINT — NO CONSTITUTIONAL PROVISIONS**"
+        )
+        != 1
+    ):
+        errors.append(
+            "ARTICLE_ARCHITECTURE_BOUNDARY: exact title and non-provision "
+            "boundary are required"
+        )
+    article_headings = re.findall(
+        r"^## Article ([IVX]+) — ([^\r\n]+)$",
+        architecture_text,
+        flags=re.MULTILINE,
+    )
+    expected_headings = [
+        (roman, title)
+        for roman, title in zip(
+            ("I", "II", "III", "IV", "V", "VI", "VII", "VIII"),
+            EXPECTED_ARTICLE_TITLES,
+            strict=True,
+        )
+    ]
+    if article_headings != expected_headings:
+        errors.append(
+            "ARTICLE_ARCHITECTURE_ARTICLES: exact eight substantive articles "
+            "are required"
+        )
+    article_labels = (
+        "Purpose",
+        "Consolidated requirements",
+        "Source requirements",
+        "Controlling CDRs",
+        "Unresolved issues",
+        "Dependencies",
+        "Explicitly excluded from constitutional text at this stage",
+        "Anticipated subordinate-law needs",
+        "Anticipated implementation standards",
+    )
+    for roman, title in expected_headings:
+        section = _markdown_section(
+            architecture_text, f"Article {roman} — {title}", 2
+        ) or ""
+        field_values = {}
+        for label in article_labels:
+            match = re.search(
+                rf"^\*\*{re.escape(label)}:\*\*[ \t]*(.+?)"
+                r"(?=\r?\n\r?\n\*\*|\Z)",
+                section,
+                flags=re.MULTILINE | re.DOTALL,
+            )
+            if match:
+                field_values[label] = re.sub(
+                    r"\s+", " ", match.group(1)
+                ).strip()
+        if (
+            any(section.count(f"**{label}:**") != 1 for label in article_labels)
+            or set(field_values) != set(article_labels)
+            or any(not value for value in field_values.values())
+        ):
+            errors.append(
+                "ARTICLE_ARCHITECTURE_RECORD_FIELDS: "
+                f"Article {roman} lacks exact required fields"
+            )
+        article_id = f"ARTICLE-{roman}"
+        expected_article_ccrs = {
+            str(item.get("consolidated_id"))
+            for item in consolidated_records
+            if item.get("primary_article") == article_id
+        }
+        expected_article_crs = {
+            source
+            for item in consolidated_records
+            if item.get("primary_article") == article_id
+            for source in item.get("source_requirements", [])
+            if isinstance(source, str)
+        }
+        listed_ccrs = set(
+            re.findall(
+                r"\bCCR-\d{3}\b",
+                field_values.get("Consolidated requirements", ""),
+            )
+        )
+        listed_crs = set(
+            re.findall(
+                r"\bCR-\d{3}\b",
+                field_values.get("Source requirements", ""),
+            )
+        )
+        if listed_ccrs != expected_article_ccrs or listed_crs != expected_article_crs:
+            errors.append(
+                "ARTICLE_ARCHITECTURE_COVERAGE: "
+                f"Article {roman} must list its exact primary CCR and CR coverage"
+            )
+        listed_cdrs = set(
+            re.findall(
+                r"\bCDR-\d{3}\b",
+                field_values.get("Controlling CDRs", ""),
+            )
+        )
+        if listed_cdrs != EXPECTED_ARTICLE_CONTROLLING_CDRS[article_id]:
+            errors.append(
+                "ARTICLE_ARCHITECTURE_CONTROLLING_CDRS: "
+                f"Article {roman} must list its exact controlling decisions"
+            )
+        unresolved_issue_ids = set(
+            re.findall(
+                r"\bIR-\d{2}\b",
+                field_values.get("Unresolved issues", ""),
+            )
+        )
+        expected_article_issues = {
+            issue_id
+            for requirement_id in expected_article_crs
+            for issue_id in source_issues_by_requirement.get(requirement_id, set())
+        }
+        if unresolved_issue_ids != expected_article_issues:
+            errors.append(
+                "ARTICLE_ARCHITECTURE_UNRESOLVED_ISSUES: "
+                f"Article {roman} must list the exact source-issue union"
+            )
+    if (
+        "ten-article candidate should be consolidated into **eight" not in architecture_text
+        or "Constitutional provisions: **0**" not in architecture_text
+        or "Governance runtime artifacts: **0**" not in architecture_text
+    ):
+        errors.append(
+            "ARTICLE_ARCHITECTURE_ANALYSIS: candidate test and preserved state "
+            "must remain explicit"
+        )
+    prohibited_clause_patterns = (
+        r"^###?\s+(?:SECTION|CLAUSE)\b",
+        r"\bHEREBY (?:ENACTED|ESTABLISHED|ORDAINED)\b",
+        r"\bTHIS CONSTITUTION (?:GRANTS|CREATES|ESTABLISHES)\b",
+        r"\b(?:TWO-THIRDS|THREE-QUARTERS|\d+\s*%)\b",
+        r"\b(?:COUNCIL|TRIBUNAL|COMMISSION|COURT|ASSEMBLY)\s+SHALL\s+"
+        r"(?:CONSIST|COMPRISE|BE ESTABLISHED)\b",
+        r"\b(?:SHALL|MUST)\s+(?:FILE|APPEAL|DECIDE|VOTE)\s+WITHIN\s+\d+\b",
+    )
+    if any(
+        re.search(pattern, architecture_text, re.IGNORECASE | re.MULTILINE)
+        for pattern in prohibited_clause_patterns
+    ):
+        errors.append(
+            "ARTICLE_ARCHITECTURE_NO_PROVISIONS: blueprint cannot contain "
+            "constitutional clauses or enactment language"
+        )
+
+    metrics["source_requirement_count"] = len(actual_source_ids)
+    metrics["consolidated_requirement_count"] = len(consolidated_records)
+    metrics["proposed_article_count"] = len(article_headings)
+    metrics["ready_for_constitutional_draft_count"] = classification_counts[
+        "READY_FOR_CONSTITUTIONAL_DRAFT"
+    ]
+    metrics["blocked_by_unresolved_design_count"] = classification_counts[
+        "BLOCKED_BY_UNRESOLVED_DESIGN"
+    ]
+    metrics["subordinate_governance_law_count"] = classification_counts[
+        "SUBORDINATE_GOVERNANCE_LAW"
+    ]
+    metrics["implementation_standard_count"] = classification_counts[
+        "IMPLEMENTATION_STANDARD"
+    ]
+    metrics["unmapped_requirement_count"] = len(
+        expected_cr_ids - actual_source_ids
+    )
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -6392,6 +6896,9 @@ def validate(root: Path) -> ValidationResult:
             "ACCEPTED_REQUIREMENT_COUNT: expected 35 "
             f"ACCEPTED_FOR_DRAFTING records, found {accepted_count}"
         )
+    article_architecture_metrics = _validate_article_architecture(
+        root, decisions_by_id, requirements, errors
+    )
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -7196,6 +7703,7 @@ def validate(root: Path) -> ValidationResult:
         "fq5_human_decision_option_count": fq5_decision_option_count,
         "fq5_recommended_architecture": fq5_recommended_architecture,
         "fq5_refounding_principle_count": fq5_refounding_principle_count,
+        **article_architecture_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
