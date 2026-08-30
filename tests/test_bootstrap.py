@@ -158,6 +158,25 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             ],
             7,
         )
+        self.assertEqual(
+            result.metrics["coordinated_decision_status"],
+            "AWAITING_HUMAN_DECISION",
+        )
+        self.assertEqual(result.metrics["decision_component_count"], 4)
+        self.assertEqual(
+            result.metrics["blocking_contradictions_addressed"], 4
+        )
+        self.assertEqual(
+            result.metrics["projected_blocking_contradictions_remaining"], 0
+        )
+        self.assertEqual(
+            result.metrics["remaining_human_constitutional_decision_count"],
+            0,
+        )
+        self.assertEqual(
+            result.metrics["subordinate_governance_question_count"], 4
+        )
+        self.assertEqual(result.metrics["implementation_question_count"], 5)
 
     def test_consolidated_requirement_map_is_required(self) -> None:
         (
@@ -508,6 +527,144 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             ),
         )
         self.assert_error("REMAINING_DESIGN_PACKET_AGREEMENT")
+
+    def test_cross_domain_decision_packet_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md"
+        ).unlink()
+        self.assert_error("CROSS_DOMAIN_PACKET_REQUIRED")
+
+    def test_cross_domain_packet_cannot_record_adoption(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "**Status:** `AWAITING_HUMAN_DECISION`",
+                "**Status:** `ADOPTED`",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_BOUNDARY")
+        self.assert_error("CROSS_DOMAIN_PACKET_NO_EFFECT")
+
+    def test_cross_domain_packet_requires_exact_options(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "3. **DEFER**",
+                "3. **ADOPT_PARTIALLY**",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_OPTIONS")
+
+    def test_cross_domain_packet_requires_all_components(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "## Component 4 — Reviewer-Non-Sovereign Remedies",
+                "## Appendix — Reviewer Remedies",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_COMPONENTS")
+
+    def test_cross_domain_component_mapping_is_exact(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "**Affected domains:** `RD-04`, `RD-06`, `RD-07`, `RD-11`",
+                "**Affected domains:** `RD-04`, `RD-06`, `RD-11`",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_MAPPING")
+
+    def test_cross_domain_component_requires_authority_boundary(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "cannot self-renew",
+                "may seek renewal",
+                1,
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_CONTENT")
+
+    def test_cross_domain_succession_fallback_requires_decision_rule(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "ten affirmative votes determine",
+                "an unspecified vote determines",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_CONTENT")
+
+    def test_cross_domain_succession_preserves_interregnum_ceiling(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "ends at the 180-day maximum",
+                "continues beyond the ordinary maximum",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_CONTENT")
+
+    def test_cross_domain_projection_must_remain_nonoperative(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "This projection has no current effect.",
+                "This projection takes effect immediately.",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_PROJECTION")
+
+    def test_cross_domain_closure_must_remain_conditional(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "None identified that prevents constitutional\ndrafting.",
+                "One unresolved constitutional selector remains.",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_REMAINING_DECISIONS")
+
+    def test_cross_domain_subordinate_questions_are_preserved(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "- remedial evidence formats, compliance milestones, "
+                "reporting intervals,\n"
+                "  procurement alternatives, and verification methods.\n",
+                "",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_SUBORDINATE")
+
+    def test_cross_domain_packet_preserves_controlling_state(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "Constitutional provisions remain **0**",
+                "Constitutional provisions remain **1**",
+            ),
+        )
+        self.assert_error("CROSS_DOMAIN_PACKET_STATE")
 
     def test_fq5_analytical_record_is_required(self) -> None:
         (

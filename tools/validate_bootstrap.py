@@ -2277,6 +2277,10 @@ REMAINING_DESIGN_MATRIX_RELATIVE_PATH = Path(
 REMAINING_DESIGN_PACKET_RELATIVE_PATH = Path(
     "constitutional-design/decisions/REMAINING-DESIGN-DECISION-PACKET.md"
 )
+CROSS_DOMAIN_DECISION_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/"
+    "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -2377,6 +2381,69 @@ REMAINING_DESIGN_DECISION_TERMS = {
     "RD-09": ("twenty-four months", "semantic-drift audit"),
     "RD-10": ("Before the second", "cannot take effect", "activates"),
     "RD-11": ("sole gatekeeper", "substantive machine domination"),
+}
+CROSS_DOMAIN_COMPONENTS = {
+    "Human-Only Initialization and Vacancy": {
+        "domains": {"RD-01", "RD-02", "RD-03", "RD-11"},
+        "ccrs": {"CCR-003", "CCR-013", "CCR-014", "CCR-015", "CCR-016"},
+        "crs": {
+            "CR-004", "CR-006", "CR-021", "CR-022", "CR-023", "CR-024",
+            "CR-025", "CR-026", "CR-027", "CR-028", "CR-029",
+        },
+        "terms": (
+            "bootstrap authority only",
+            "No artificial-intelligence system may appoint",
+            "create no precedent or new appointment authority",
+        ),
+    },
+    "Successor Predesignation and Failure Fallback": {
+        "domains": {"RD-04", "RD-06", "RD-07", "RD-11"},
+        "ccrs": {"CCR-006", "CCR-008", "CCR-010", "CCR-012"},
+        "crs": {
+            "CR-008", "CR-009", "CR-010", "CR-012", "CR-013", "CR-017",
+            "CR-018", "CR-020",
+        },
+        "terms": (
+            "constitutionally valid successor designations",
+            "fifteen-human fallback panel",
+            "Twelve members constitute quorum",
+            "ten affirmative votes",
+            "180-day maximum",
+            "creates foundational sovereignty",
+        ),
+    },
+    "Accountable Post-Refounding Transition": {
+        "domains": {"RD-01", "RD-03", "RD-08", "RD-10", "RD-11"},
+        "ccrs": {
+            "CCR-003", "CCR-013", "CCR-015", "CCR-017", "CCR-018",
+            "CCR-019", "CCR-020",
+        },
+        "crs": {
+            "CR-004", "CR-006", "CR-021", "CR-022", "CR-026", "CR-027",
+            "CR-030", "CR-031", "CR-032", "CR-033", "CR-034", "CR-035",
+        },
+        "terms": (
+            "cannot self-renew",
+            "independently review and verify",
+            "constitutionally incomplete and cannot take effect",
+        ),
+    },
+    "Reviewer-Non-Sovereign Remedies": {
+        "domains": {"RD-01", "RD-03", "RD-09", "RD-11"},
+        "ccrs": {
+            "CCR-003", "CCR-013", "CCR-014", "CCR-015", "CCR-016",
+            "CCR-019",
+        },
+        "crs": {
+            "CR-004", "CR-006", "CR-021", "CR-022", "CR-023", "CR-024",
+            "CR-025", "CR-026", "CR-027", "CR-028", "CR-029", "CR-034",
+        },
+        "terms": (
+            "declare a vacancy",
+            "separately authorized human selector",
+            "cannot appoint personnel",
+        ),
+    },
 }
 EXPECTED_ARTICLE_TITLES = [
     "Constitutional Identity and Human Sovereignty",
@@ -6864,6 +6931,239 @@ def _validate_remaining_design_analysis(
     return metrics
 
 
+def _validate_cross_domain_decision_packet(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "coordinated_decision_status": "",
+        "decision_component_count": 0,
+        "blocking_contradictions_addressed": 0,
+        "projected_blocking_contradictions_remaining": 4,
+        "remaining_human_constitutional_decision_count": 1,
+        "subordinate_governance_question_count": 0,
+        "implementation_question_count": 0,
+    }
+    path = root / CROSS_DOMAIN_DECISION_PACKET_RELATIVE_PATH
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"CROSS_DOMAIN_PACKET_REQUIRED: {exc}")
+        return metrics
+
+    status_match = re.search(r"^\*\*Status:\*\* `([^`]+)`$", text, re.MULTILINE)
+    status = status_match.group(1) if status_match else ""
+    if (
+        text.count("# Cross-Domain Contradiction Coordinated Decision Packet")
+        != 1
+        or text.count(
+            "**PROPOSED HUMAN DECISION — NOT ADOPTED — "
+            "NO CONSTITUTIONAL EFFECT**"
+        )
+        != 1
+        or text.count("**Decision record ID:** `CDD-001`") != 1
+        or status != "AWAITING_HUMAN_DECISION"
+    ):
+        errors.append(
+            "CROSS_DOMAIN_PACKET_BOUNDARY: exact proposed, nonoperative "
+            "identity and status are required"
+        )
+
+    options = re.findall(
+        r"^\d+\. \*\*([A-Z_]+)\*\*$",
+        _markdown_section(text, "Human Decision", 2) or "",
+        flags=re.MULTILINE,
+    )
+    if options != [
+        "ADOPT_COORDINATED_CORRECTION_PACKAGE",
+        "ADOPT_WITH_SPECIFIED_REVISIONS",
+        "DEFER",
+    ]:
+        errors.append(
+            "CROSS_DOMAIN_PACKET_OPTIONS: exact coordinated human options "
+            "are required"
+        )
+
+    component_headings = re.findall(
+        r"^## Component (\d+) — ([^\r\n]+)$",
+        text,
+        flags=re.MULTILINE,
+    )
+    expected_headings = [
+        (str(index), title)
+        for index, title in enumerate(CROSS_DOMAIN_COMPONENTS, start=1)
+    ]
+    if component_headings != expected_headings:
+        errors.append(
+            "CROSS_DOMAIN_PACKET_COMPONENTS: exact four coordinated "
+            "components are required"
+        )
+
+    for index, (title, expected) in enumerate(
+        CROSS_DOMAIN_COMPONENTS.items(), start=1
+    ):
+        section = _markdown_section(
+            text, f"Component {index} — {title}", 2
+        ) or ""
+        field_patterns = {
+            "domains": r"^\*\*Affected domains:\*\* (.+?)(?=\r?\n\r?\n)",
+            "ccrs": (
+                r"^\*\*Affected consolidated requirements:\*\* "
+                r"(.+?)(?=\r?\n\r?\n)"
+            ),
+            "crs": (
+                r"^\*\*Affected source requirements:\*\* "
+                r"(.+?)(?=\r?\n\r?\n)"
+            ),
+        }
+        actual: dict[str, set[str]] = {}
+        for field, pattern in field_patterns.items():
+            match = re.search(
+                pattern,
+                section,
+                flags=re.MULTILINE | re.DOTALL,
+            )
+            prefix = {
+                "domains": r"\bRD-\d{2}\b",
+                "ccrs": r"\bCCR-\d{3}\b",
+                "crs": r"\bCR-\d{3}\b",
+            }[field]
+            actual[field] = set(re.findall(prefix, match.group(1) if match else ""))
+        if any(actual[field] != expected[field] for field in field_patterns):
+            errors.append(
+                "CROSS_DOMAIN_PACKET_MAPPING: "
+                f"Component {index} must map exact RD, CCR, and CR records"
+            )
+        normalized_section = re.sub(r"\s+", " ", section)
+        if (
+            section.count("**Decision:**") != 1
+            or section.count("**Contradiction removed on adoption:**") != 1
+            or any(
+                term.lower() not in normalized_section.lower()
+                for term in expected["terms"]
+            )
+        ):
+            errors.append(
+                "CROSS_DOMAIN_PACKET_CONTENT: "
+                f"Component {index} lacks its exact authority boundary"
+            )
+
+    effect_section = _markdown_section(text, "Coordinated Effect If Adopted", 2)
+    remaining_section = _markdown_section(text, "Remaining Decision Boundary", 2)
+    preserved_section = _markdown_section(text, "Preserved General Boundaries", 2)
+    effect_section = effect_section or ""
+    remaining_section = remaining_section or ""
+    preserved_section = preserved_section or ""
+    if (
+        effect_section.count("| Removed |") != 4
+        or "removes all four reported contradictions" not in effect_section
+        or "`READY_FOR_CONSTITUTIONAL_DRAFT`: **20**" not in effect_section
+        or "`BLOCKED_BY_UNRESOLVED_DESIGN`: **0**" not in effect_section
+        or "controlling consolidated map remains\n**11 ready / 9 blocked**"
+        not in effect_section
+        or "This projection has no current effect" not in effect_section
+    ):
+        errors.append(
+            "CROSS_DOMAIN_PACKET_PROJECTION: exact nonoperative four-closure "
+            "and conditional 20/0 projection are required"
+        )
+    if (
+        "Remaining human constitutional choices if this package and the eleven"
+        not in remaining_section
+        or "None identified that prevents constitutional\ndrafting."
+        not in remaining_section
+    ):
+        errors.append(
+            "CROSS_DOMAIN_PACKET_REMAINING_DECISIONS: projected constitutional "
+            "closure must be explicit and conditional"
+        )
+
+    subordinate_match = re.search(
+        r"The following are subordinate governance questions.+?\n\n"
+        r"((?:- .+\n(?:  .+\n)*)+)\nThe following remain implementation questions:",
+        remaining_section,
+        flags=re.DOTALL,
+    )
+    implementation_match = re.search(
+        r"The following remain implementation questions:\n\n"
+        r"((?:- .+\n(?:  .+\n)*)+)\nNone of these",
+        remaining_section,
+        flags=re.DOTALL,
+    )
+    subordinate_count = len(
+        re.findall(
+            r"^- ",
+            subordinate_match.group(1) if subordinate_match else "",
+            flags=re.MULTILINE,
+        )
+    )
+    implementation_count = len(
+        re.findall(
+            r"^- ",
+            implementation_match.group(1) if implementation_match else "",
+            flags=re.MULTILINE,
+        )
+    )
+    if subordinate_count != 4:
+        errors.append(
+            "CROSS_DOMAIN_PACKET_SUBORDINATE: exact four bounded subordinate "
+            "question groups are required"
+        )
+    if implementation_count != 5:
+        errors.append(
+            "CROSS_DOMAIN_PACKET_IMPLEMENTATION: exact five implementation "
+            "question groups are required"
+        )
+
+    required_preserved_terms = (
+        "`CDR-001` through `CDR-005` remain `DECIDED`",
+        "`FQ-01` through `FQ-05` remain `RESOLVED`",
+        "Human sovereignty over foundational ends remains intact",
+        "Binding constitutional review and reviewer non-sovereignty remain intact",
+        "Artificial intelligence remains ineligible for foundational sovereignty",
+        "Adjudication cannot become amendment or refounding",
+        "Emergency authority cannot become succession authority",
+        "Continuity cannot become sovereign succession",
+        "Refounding cannot erase constitutional history",
+        "`IR-01` through `IR-18` remain `OPEN`",
+        "`CR-001` through `CR-035` remain `ACCEPTED_FOR_DRAFTING`",
+        "Constitutional provisions remain **0**",
+        "Runtime artifacts remain **0**",
+    )
+    normalized_preserved = re.sub(r"\s+", " ", preserved_section)
+    if any(
+        term not in normalized_preserved for term in required_preserved_terms
+    ):
+        errors.append(
+            "CROSS_DOMAIN_PACKET_STATE: controlling decisions, authority "
+            "boundaries, and zero-effect state must remain explicit"
+        )
+
+    prohibited_effects = (
+        r"(?im)^\*\*Status:\*\* `(?:ADOPTED|DECIDED)`$",
+        r"(?im)^#{1,6}\s+(?:Article|Section|Clause)\b",
+        r"(?i)\bhereby (?:adopted|enacted|established)\b",
+    )
+    if any(re.search(pattern, text) for pattern in prohibited_effects):
+        errors.append(
+            "CROSS_DOMAIN_PACKET_NO_EFFECT: packet cannot adopt, enact, or "
+            "draft constitutional text"
+        )
+
+    metrics["coordinated_decision_status"] = status
+    metrics["decision_component_count"] = len(component_headings)
+    metrics["blocking_contradictions_addressed"] = effect_section.count(
+        "| Removed |"
+    )
+    metrics["projected_blocking_contradictions_remaining"] = (
+        4 - metrics["blocking_contradictions_addressed"]
+    )
+    metrics["remaining_human_constitutional_decision_count"] = 0
+    metrics["subordinate_governance_question_count"] = subordinate_count
+    metrics["implementation_question_count"] = implementation_count
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -7371,6 +7671,9 @@ def validate(root: Path) -> ValidationResult:
         root, decisions_by_id, requirements, errors
     )
     remaining_design_metrics = _validate_remaining_design_analysis(root, errors)
+    cross_domain_packet_metrics = _validate_cross_domain_decision_packet(
+        root, errors
+    )
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -8177,6 +8480,7 @@ def validate(root: Path) -> ValidationResult:
         "fq5_refounding_principle_count": fq5_refounding_principle_count,
         **article_architecture_metrics,
         **remaining_design_metrics,
+        **cross_domain_packet_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
