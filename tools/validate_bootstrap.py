@@ -2293,6 +2293,9 @@ CONSTITUTION_TRACE_RELATIVE_PATH = Path(
 CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH = Path(
     "constitutional-design/drafts/CONSTITUTION_v0.1_OPEN_QUESTIONS.md"
 )
+RATIFICATION_REVIEW_RELATIVE_PATH = Path(
+    "constitutional-design/RATIFICATION_REVIEW_v0.1.md"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -2442,6 +2445,17 @@ EXPECTED_DRAFT_SECTION_TITLES = {
     "VIII.1": "Refounding-Level Principles",
     "VIII.2": "Termination and Transition Authority",
     "VIII.3": "Transition Accountability, Obligations, and Memory",
+}
+EXPECTED_RATIFICATION_DRAFT_DIGESTS = {
+    CONSTITUTION_DRAFT_RELATIVE_PATH: (
+        "b5e39a1b2eddf02317d5b1fc3b2a90cb1850eb3e4a75a531771b3e79e0db85cd"
+    ),
+    CONSTITUTION_TRACE_RELATIVE_PATH: (
+        "f0778443eedff2f89a8cbbeaeacd8b442fe0498f049c2fcf4dc610b2f40874e0"
+    ),
+    CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH: (
+        "af292c0ce09a81700c32bd1fdfc5d6fbea1c58cc3c47fd83567b8696597a1a72"
+    ),
 }
 REMAINING_DESIGN_STRESS_DIMENSIONS = {
     "bad_human",
@@ -7849,6 +7863,250 @@ def _validate_constitution_draft(
     return metrics
 
 
+def _validate_ratification_review(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "ratification_readiness": "",
+        "constitutional_blocker_count": 0,
+        "ratification_cross_article_contradiction_count": 0,
+        "ratification_adversarial_tests_pass": "0/13",
+        "human_comprehensibility_result": "",
+        "subordinate_law_boundary_result": "",
+        "new_human_decisions_required": 0,
+        "ratification_recommendation": "",
+    }
+    review_path = root / RATIFICATION_REVIEW_RELATIVE_PATH
+    try:
+        review = review_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"RATIFICATION_REVIEW_REQUIRED: {exc}")
+        return metrics
+
+    if (
+        review.count("# Constitution v0.1 Final Pre-Ratification Review") != 1
+        or review.count(
+            "**RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT**"
+        )
+        != 1
+        or review.count(
+            "**Draft status preserved:** **DRAFT — NOT ADOPTED CONSTITUTION**"
+        )
+        != 1
+        or "does not adopt, ratify, amend, redesign, or confer effect"
+        not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_BOUNDARY: exact recommendation-only, "
+            "no-effect, and draft-status boundaries are required"
+        )
+    if (
+        review.count(
+            "**Review classification:** "
+            "`NOT_READY_FOR_HUMAN_RATIFICATION`"
+        )
+        != 1
+        or "\n`NOT_READY_FOR_HUMAN_RATIFICATION`\n" not in review
+        or "CONSTITUTION REMAINS A DRAFT AND HAS NOT\nBEEN ADOPTED OR RATIFIED"
+        not in review
+        or "`READY_FOR_HUMAN_RATIFICATION`" in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_CLASSIFICATION: exact NOT_READY "
+            "classification and non-ratification statement are required"
+        )
+
+    blocker_headings = re.findall(
+        r"^### Blocker ([1-3]) — ([^\r\n]+)$",
+        review,
+        flags=re.MULTILINE,
+    )
+    expected_blockers = [
+        ("1", "Human Constitutional Authority Is Not Constituted"),
+        (
+            "2",
+            "Verification and Enforcement Selection Chains Are Absent",
+        ),
+        ("3", "Ordinary Human Governance Offices Are Undefined Selectors"),
+    ]
+    minimum_decisions = re.findall(
+        r"^\*\*Minimum Human decision required:\*\*",
+        review,
+        flags=re.MULTILINE,
+    )
+    if blocker_headings != expected_blockers or len(minimum_decisions) != 3:
+        errors.append(
+            "RATIFICATION_REVIEW_BLOCKERS: exactly the three genuine "
+            "constitutional authority-allocation blockers are required"
+        )
+
+    expected_article_pairs = {
+        f"{left}–{right}"
+        for left_index, left in enumerate(
+            ("I", "II", "III", "IV", "V", "VI", "VII", "VIII")
+        )
+        for right in (
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VII",
+            "VIII",
+        )[left_index + 1 :]
+    }
+    reviewed_pairs = set(
+        re.findall(
+            r"^\| ([IVX]+–[IVX]+) \|",
+            review,
+            flags=re.MULTILINE,
+        )
+    )
+    if (
+        reviewed_pairs != expected_article_pairs
+        or "No direct cross-article contradiction was found." not in review
+        or "authority\nvacua or undefined selector classes" not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_CROSS_ARTICLE: all 28 Article pairs, zero "
+            "direct contradictions, and the authority-gap distinction are "
+            "required"
+        )
+
+    adversarial_rows = re.findall(
+        r"^\| ([^|\r\n]+) \| (PASS|FAIL[^|]*) \|",
+        review,
+        flags=re.MULTILINE,
+    )
+    adversarial_names = {
+        name.strip()
+        for name, _ in adversarial_rows
+        if name.strip()
+        in {
+            "Malicious foundational human authority",
+            "Captured Constitutional Court",
+            "Captured succession process",
+            "Captured emergency authority",
+            "Coordinated human coalition",
+            "Artificial-intelligence domination behind nominal human decisions",
+            "Validator or evidence-channel capture",
+            "Institutional paralysis",
+            "Noncompliance with valid judgment",
+            "Multiple compromised offices",
+            "Gradual semantic drift",
+            "Cumulative formally valid amendments",
+            "Effective-power takeover without formal authority",
+        }
+    }
+    adversarial_passes = sum(
+        result.strip() == "PASS"
+        for name, result in adversarial_rows
+        if name.strip() in adversarial_names
+    )
+    adversarial_failures = sum(
+        result.strip().startswith("FAIL")
+        for name, result in adversarial_rows
+        if name.strip() in adversarial_names
+    )
+    if (
+        len(adversarial_names) != 13
+        or adversarial_passes != 7
+        or adversarial_failures != 6
+        or "**Adversarial result:** `7/13 PASS`" not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_ADVERSARIAL: all 13 required scenarios with "
+            "the exact 7-pass, 6-fail blocker-linked result are required"
+        )
+
+    required_reader_questions = {
+        "Who holds authority?",
+        "What constrains authority?",
+        "How is authority delegated?",
+        "How are disputes resolved?",
+        "What happens in emergencies?",
+        "What happens during succession and interregnum?",
+        "What may be amended?",
+        "What requires refounding?",
+        "How does the institution terminate?",
+        "What may artificial intelligence do?",
+    }
+    reader_questions = set(
+        re.findall(
+            r"^\| ([^|\r\n]+\?) \|",
+            review,
+            flags=re.MULTILINE,
+        )
+    )
+    if (
+        reader_questions != required_reader_questions
+        or "**Human-comprehensibility result:** `FAIL`" not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_COMPREHENSIBILITY: all ten reader questions "
+            "and the justified FAIL result are required"
+        )
+    if (
+        "**Subordinate-law boundary result:** "
+        "`FAIL — THREE AUTHORITY ALLOCATIONS MUST BE\n"
+        "CONSTITUTIONAL BEFORE ADMINISTRATIVE DELEGATION IS SAFE`"
+        not in review
+        or "Subordinate law may\nadminister a constitutional selector but "
+        "cannot create that selector"
+        not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY: the exact three-gap "
+            "authority boundary and delegation distinction are required"
+        )
+
+    required_coverage = (
+        "| Source requirements covered | 35/35 |",
+        "| Consolidated requirement groups covered | 20/20 |",
+        "| Foundational decisions covered | 5/5 |",
+        "| Adopted design recommendations covered | 11/11 |",
+        "| Coordinated corrections covered | 4/4 |",
+        "| Remainder-sortition decision covered | 1/1 |",
+        "| Refounding-level principles protected | 10/10 |",
+        "| Untraced normative propositions | 0 |",
+        "| New Human Constitutional Authority decisions required | 3 |",
+    )
+    if any(item not in review for item in required_coverage):
+        errors.append(
+            "RATIFICATION_REVIEW_COVERAGE: exact complete traceability and "
+            "three-decision metrics are required"
+        )
+
+    for relative_path, expected_digest in EXPECTED_RATIFICATION_DRAFT_DIGESTS.items():
+        path = root / relative_path
+        try:
+            actual_digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        except OSError as exc:
+            errors.append(f"RATIFICATION_DRAFT_IMMUTABILITY: {path}: {exc}")
+            continue
+        if actual_digest != expected_digest:
+            errors.append(
+                "RATIFICATION_DRAFT_IMMUTABILITY: pre-ratification review "
+                f"must not modify {relative_path}"
+            )
+
+    metrics.update(
+        {
+            "ratification_readiness": "NOT_READY_FOR_HUMAN_RATIFICATION",
+            "constitutional_blocker_count": len(blocker_headings),
+            "ratification_cross_article_contradiction_count": 0,
+            "ratification_adversarial_tests_pass": "7/13",
+            "human_comprehensibility_result": "FAIL",
+            "subordinate_law_boundary_result": "FAIL",
+            "new_human_decisions_required": 3,
+            "ratification_recommendation": "DO_NOT_RATIFY_UNTIL_3_BLOCKERS_RESOLVED",
+        }
+    )
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -8361,6 +8619,7 @@ def validate(root: Path) -> ValidationResult:
     )
     coordinated_decision_metrics = _validate_coordinated_decision(root, errors)
     constitution_draft_metrics = _validate_constitution_draft(root, errors)
+    ratification_review_metrics = _validate_ratification_review(root, errors)
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -9170,6 +9429,7 @@ def validate(root: Path) -> ValidationResult:
         **cross_domain_packet_metrics,
         **coordinated_decision_metrics,
         **constitution_draft_metrics,
+        **ratification_review_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
