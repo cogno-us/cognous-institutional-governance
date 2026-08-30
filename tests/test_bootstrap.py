@@ -180,6 +180,250 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["design_recommendations_adopted"], 11)
         self.assertEqual(result.metrics["decision_components_adopted"], 4)
         self.assertEqual(result.metrics["blocking_contradictions_remaining"], 0)
+        self.assertEqual(result.metrics["draft_status"], "DRAFT_NOT_ADOPTED")
+        self.assertEqual(result.metrics["article_count"], 8)
+        self.assertEqual(result.metrics["section_count"], 24)
+        self.assertEqual(result.metrics["source_requirements_covered"], 35)
+        self.assertEqual(result.metrics["consolidated_groups_covered"], 20)
+        self.assertEqual(result.metrics["foundational_decisions_covered"], 5)
+        self.assertEqual(result.metrics["design_recommendations_covered"], 11)
+        self.assertEqual(result.metrics["coordinated_corrections_covered"], 4)
+        self.assertEqual(
+            result.metrics["refounding_level_principles_covered"], 10
+        )
+        self.assertEqual(
+            result.metrics["untraced_normative_proposition_count"], 0
+        )
+        self.assertEqual(result.metrics["new_human_decisions_required"], 1)
+        self.assertEqual(result.metrics["cross_article_contradictions"], 1)
+        self.assertEqual(result.metrics["open_questions_count"], 1)
+
+    def test_constitution_draft_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "drafts"
+            / "CONSTITUTION_v0.1.md"
+        ).unlink()
+        self.assert_error("CONSTITUTION_DRAFT_REQUIRED")
+
+    def test_constitution_must_remain_not_adopted(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "**DRAFT — NOT ADOPTED CONSTITUTION**",
+                "**ADOPTED CONSTITUTION**",
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_STATUS")
+
+    def test_constitution_requires_exact_article_architecture(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "## Article VIII — Refounding",
+                "## Article IX — Refounding",
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_ARTICLES")
+
+    def test_constitution_requires_every_section(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "### Section IV.2 — Independence",
+                "### Omitted Section IV.2 — Independence",
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_SECTIONS")
+
+    def test_constitution_trace_requires_every_section(self) -> None:
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            lambda record: record["sections"].pop(),
+        )
+        self.assert_error("CONSTITUTION_TRACE_SECTIONS")
+
+    def test_constitution_trace_rejects_duplicate_section(self) -> None:
+        def duplicate_section(record) -> None:
+            record["sections"].append(dict(record["sections"][0]))
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            duplicate_section,
+        )
+        self.assert_error("CONSTITUTION_TRACE_SECTIONS")
+
+    def test_constitution_trace_requires_all_source_requirements(self) -> None:
+        def remove_requirement(record) -> None:
+            for section in record["sections"]:
+                if "CR-035" in section["source_requirements"]:
+                    section["source_requirements"].remove("CR-035")
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            remove_requirement,
+        )
+        self.assert_error("CONSTITUTION_TRACE_CR_COVERAGE")
+
+    def test_constitution_trace_requires_all_consolidated_groups(self) -> None:
+        def remove_group(record) -> None:
+            for section in record["sections"]:
+                if "CCR-020" in section["consolidated_requirements"]:
+                    section["consolidated_requirements"].remove("CCR-020")
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            remove_group,
+        )
+        self.assert_error("CONSTITUTION_TRACE_CCR_COVERAGE")
+
+    def test_constitution_trace_rejects_cr_ccr_mismatch(self) -> None:
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            lambda record: record["sections"][0][
+                "source_requirements"
+            ].append("CR-002"),
+        )
+        self.assert_error("CONSTITUTION_TRACE_SECTIONS")
+
+    def test_constitution_trace_requires_all_foundational_decisions(
+        self,
+    ) -> None:
+        def remove_decision(record) -> None:
+            for section in record["sections"]:
+                section["controlling_cdrs"] = [
+                    item
+                    for item in section["controlling_cdrs"]
+                    if item != "CDR-005"
+                ]
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            remove_decision,
+        )
+        self.assert_error("CONSTITUTION_TRACE_DECISION_COVERAGE")
+
+    def test_constitution_trace_requires_all_design_domains(self) -> None:
+        def remove_domain(record) -> None:
+            for section in record["sections"]:
+                section["adopted_design_domains"] = [
+                    item
+                    for item in section["adopted_design_domains"]
+                    if item != "RD-11"
+                ]
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            remove_domain,
+        )
+        self.assert_error("CONSTITUTION_TRACE_DECISION_COVERAGE")
+
+    def test_constitution_trace_requires_all_coordinated_corrections(
+        self,
+    ) -> None:
+        def remove_correction(record) -> None:
+            for section in record["sections"]:
+                section["coordinated_corrections"] = [
+                    item
+                    for item in section["coordinated_corrections"]
+                    if item != "CDC-04"
+                ]
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            remove_correction,
+        )
+        self.assert_error("CONSTITUTION_TRACE_CORRECTION_COVERAGE")
+
+    def test_constitution_requires_all_refounding_principles(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "protected human agency", "optional human agency"
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_REFOUNDING")
+
+    def test_constitution_prohibits_machine_sovereignty(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "Artificial intelligence SHALL NOT acquire",
+                "Artificial intelligence MAY acquire",
+                1,
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_SAFEGUARDS")
+
+    def test_constitution_prohibits_reviewer_sovereignty(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "Review SHALL NOT\n   become sovereignty",
+                "Review MAY\n   become sovereignty",
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_SAFEGUARDS")
+
+    def test_constitution_prohibits_emergency_to_succession(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "Emergency authority SHALL NOT become succession authority",
+                "Emergency authority MAY become succession authority",
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_SAFEGUARDS")
+
+    def test_constitution_prohibits_adjudicative_refounding(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "It SHALL NOT\n   amend or refound by interpretation",
+                "It MAY\n   amend or refound by interpretation",
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_SAFEGUARDS")
+
+    def test_constitution_preserves_constitutional_history(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "SHALL NOT erase,\n    falsify, or obscure",
+                "MAY erase,\n    falsify, or obscure",
+            ),
+        )
+        self.assert_error("CONSTITUTION_DRAFT_SAFEGUARDS")
+
+    def test_constitution_trace_rejects_untraced_normative_claim(self) -> None:
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            lambda record: record["coverage_summary"].update(
+                untraced_normative_proposition_count=1
+            ),
+        )
+        self.assert_error("CONSTITUTION_TRACE_SUMMARY")
+
+    def test_constitution_open_questions_must_remain_exact(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_OPEN_QUESTIONS.md",
+            lambda text: text.replace(
+                "`OPEN_QUESTIONS_COUNT: 1`",
+                "`OPEN_QUESTIONS_COUNT: 0`",
+            ),
+        )
+        self.assert_error("CONSTITUTION_OPEN_QUESTIONS")
 
     def test_consolidated_requirement_map_is_required(self) -> None:
         (

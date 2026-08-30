@@ -2284,6 +2284,15 @@ CROSS_DOMAIN_DECISION_PACKET_RELATIVE_PATH = Path(
 COORDINATED_DECISION_RELATIVE_PATH = Path(
     "constitutional-design/decisions/CDD-001.yaml"
 )
+CONSTITUTION_DRAFT_RELATIVE_PATH = Path(
+    "constitutional-design/drafts/CONSTITUTION_v0.1.md"
+)
+CONSTITUTION_TRACE_RELATIVE_PATH = Path(
+    "constitutional-design/drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml"
+)
+CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH = Path(
+    "constitutional-design/drafts/CONSTITUTION_v0.1_OPEN_QUESTIONS.md"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -2383,6 +2392,55 @@ EXPECTED_CORRECTION_COMPONENT_DIGESTS = {
     "CDC-02": "dcd78dc10b675fb6e96e9395e063db59868fd50bdadfa74a6bccee79c71cbeb2",
     "CDC-03": "b55d35e1ca27fafc9ec70e3ed386b4708117960e1963bd00abfef9631de6b5e9",
     "CDC-04": "5579dd8f73d6226b1a7bdbae52e59bf952d57a92e7d1c61329172df993b00598",
+}
+CONSTITUTION_TRACE_FIELDS = {
+    "traceability_id",
+    "draft_status",
+    "constitutional_effect",
+    "article_count",
+    "section_count",
+    "authority_basis",
+    "sections",
+    "coverage_summary",
+    "provenance",
+}
+CONSTITUTION_TRACE_SECTION_FIELDS = {
+    "section_id",
+    "title",
+    "article",
+    "consolidated_requirements",
+    "source_requirements",
+    "controlling_cdrs",
+    "controlling_cdd",
+    "adopted_design_domains",
+    "coordinated_corrections",
+    "authority_summary",
+}
+EXPECTED_DRAFT_SECTION_TITLES = {
+    "I.1": "Reserved Human Sovereignty and Non-Accretion",
+    "II.1": "Binding Constitutional Constraint",
+    "II.2": "Constitutional Membership and Standing",
+    "II.3": "Separated Functions, Initialization, and Vacancies",
+    "III.1": "Constitutional Court and Jurisdiction",
+    "III.2": "Selection, Qualification, Terms, and Removal",
+    "III.3": "Recusal, Panels, Appeal, and Conflict Tribunal",
+    "III.4": "Remedies, Enforcement, Verification, and Reviewer Limits",
+    "IV.1": "Attributable Constitutional Records",
+    "IV.2": "Independence, Machine Domination, and Effective-Power Review",
+    "V.1": "Predelegated Emergency Authority",
+    "V.2": "Necessity Fallback",
+    "V.3": "Scope, Absolute Prohibitions, and Expiry",
+    "V.4": "Emergency Record, Review, and Remedies",
+    "VI.1": "Claimant-Neutral Continuity",
+    "VI.2": "Predesignation, Proof, and Succession Council",
+    "VI.3": "Non-Quorum Human Fallback",
+    "VI.4": "Interregnum Limit, Return, and Invalid Succession",
+    "VII.1": "Categories and Non-Waiver",
+    "VII.2": "Amendment and Refounding Procedures",
+    "VII.3": "Cumulative Effect and Semantic Drift",
+    "VIII.1": "Refounding-Level Principles",
+    "VIII.2": "Termination and Transition Authority",
+    "VIII.3": "Transition Accountability, Obligations, and Memory",
 }
 REMAINING_DESIGN_STRESS_DIMENSIONS = {
     "bad_human",
@@ -7398,6 +7456,328 @@ def _validate_coordinated_decision(
     return metrics
 
 
+def _validate_constitution_draft(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "draft_status": "",
+        "article_count": 0,
+        "section_count": 0,
+        "source_requirements_covered": 0,
+        "consolidated_groups_covered": 0,
+        "foundational_decisions_covered": 0,
+        "design_recommendations_covered": 0,
+        "coordinated_corrections_covered": 0,
+        "refounding_level_principles_covered": 0,
+        "untraced_normative_proposition_count": 0,
+        "new_human_decisions_required": 1,
+        "cross_article_contradictions": 1,
+        "open_questions_count": 1,
+    }
+    try:
+        draft_text = (root / CONSTITUTION_DRAFT_RELATIVE_PATH).read_text(
+            encoding="utf-8"
+        )
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"CONSTITUTION_DRAFT_REQUIRED: {exc}")
+        draft_text = ""
+    if (
+        draft_text.count("# Constitution of Alvorada — Draft v0.1") != 1
+        or draft_text.count("**DRAFT — NOT ADOPTED CONSTITUTION**") != 1
+        or not re.search(
+            r"has no constitutional\s+effect unless adopted", draft_text
+        )
+    ):
+        errors.append(
+            "CONSTITUTION_DRAFT_STATUS: exact draft and non-adoption boundary "
+            "are required"
+        )
+
+    article_headings = re.findall(
+        r"^## Article ([IVX]+) — ([^\r\n]+)$",
+        draft_text,
+        flags=re.MULTILINE,
+    )
+    expected_articles = [
+        (roman, title)
+        for roman, title in zip(
+            ("I", "II", "III", "IV", "V", "VI", "VII", "VIII"),
+            EXPECTED_ARTICLE_TITLES,
+            strict=True,
+        )
+    ]
+    if article_headings != expected_articles:
+        errors.append(
+            "CONSTITUTION_DRAFT_ARTICLES: exact adopted eight-article "
+            "architecture is required"
+        )
+    section_headings = re.findall(
+        r"^### Section ([IVX]+\.\d+) — ([^\r\n]+)$",
+        draft_text,
+        flags=re.MULTILINE,
+    )
+    if (
+        len(section_headings) != 24
+        or dict(section_headings) != EXPECTED_DRAFT_SECTION_TITLES
+        or len(section_headings) != len(set(section_headings))
+    ):
+        errors.append(
+            "CONSTITUTION_DRAFT_SECTIONS: exact 24 substantive sections are "
+            "required"
+        )
+
+    trace = _load_record(root / CONSTITUTION_TRACE_RELATIVE_PATH, errors) or {}
+    if set(trace) != CONSTITUTION_TRACE_FIELDS:
+        errors.append(
+            "CONSTITUTION_TRACE_SCHEMA: exact traceability fields are required"
+        )
+    if (
+        trace.get("traceability_id") != "CONSTITUTION-v0.1-TRACEABILITY"
+        or trace.get("draft_status") != "DRAFT_NOT_ADOPTED"
+        or trace.get("constitutional_effect") != "NONE"
+        or trace.get("article_count") != 8
+        or trace.get("section_count") != 24
+    ):
+        errors.append(
+            "CONSTITUTION_TRACE_STATUS: exact draft metadata and zero effect "
+            "are required"
+        )
+
+    map_record = _load_record(
+        root / CONSOLIDATED_MAP_RELATIVE_PATH, errors
+    ) or {}
+    source_by_ccr = {
+        item.get("consolidated_id"): set(item.get("source_requirements", []))
+        for item in map_record.get("consolidated_requirements", [])
+        if isinstance(item, dict)
+    }
+    expected_crs = {f"CR-{index:03d}" for index in range(1, 36)}
+    expected_ccrs = {f"CCR-{index:03d}" for index in range(1, 21)}
+    expected_cdrs = {f"CDR-{index:03d}" for index in range(1, 6)}
+    expected_rds = {f"RD-{index:02d}" for index in range(1, 12)}
+    expected_cdcs = {f"CDC-{index:02d}" for index in range(1, 5)}
+    trace_sections = trace.get("sections")
+    section_records = (
+        [item for item in trace_sections if isinstance(item, dict)]
+        if isinstance(trace_sections, list)
+        else []
+    )
+    traced_crs: set[str] = set()
+    traced_ccrs: set[str] = set()
+    traced_cdrs: set[str] = set()
+    traced_rds: set[str] = set()
+    traced_cdcs: set[str] = set()
+    malformed_trace = (
+        not isinstance(trace_sections, list)
+        or len(section_records) != len(trace_sections)
+    )
+    for item in section_records:
+        section_id = item.get("section_id")
+        ccrs = item.get("consolidated_requirements")
+        crs = item.get("source_requirements")
+        cdrs = item.get("controlling_cdrs")
+        rds = item.get("adopted_design_domains")
+        cdcs = item.get("coordinated_corrections")
+        source_union = {
+            requirement
+            for ccr in ccrs or []
+            for requirement in source_by_ccr.get(ccr, set())
+        }
+        if (
+            set(item) != CONSTITUTION_TRACE_SECTION_FIELDS
+            or item.get("title")
+            != EXPECTED_DRAFT_SECTION_TITLES.get(str(section_id))
+            or item.get("article")
+            != f"ARTICLE-{str(section_id).split('.', 1)[0]}"
+            or not isinstance(ccrs, list)
+            or not ccrs
+            or not set(ccrs).issubset(expected_ccrs)
+            or not isinstance(crs, list)
+            or not crs
+            or not set(crs).issubset(source_union)
+            or not isinstance(cdrs, list)
+            or not cdrs
+            or not set(cdrs).issubset(expected_cdrs)
+            or item.get("controlling_cdd") != ["CDD-001"]
+            or not isinstance(rds, list)
+            or not rds
+            or not set(rds).issubset(expected_rds)
+            or not isinstance(cdcs, list)
+            or not set(cdcs).issubset(expected_cdcs)
+            or not _is_evidence(item.get("authority_summary"))
+        ):
+            malformed_trace = True
+        traced_crs.update(map(str, crs or []))
+        traced_ccrs.update(map(str, ccrs or []))
+        traced_cdrs.update(map(str, cdrs or []))
+        traced_rds.update(map(str, rds or []))
+        traced_cdcs.update(map(str, cdcs or []))
+    if (
+        malformed_trace
+        or len(section_records) != 24
+        or [
+            (str(item.get("section_id")), str(item.get("title")))
+            for item in section_records
+        ]
+        != section_headings
+    ):
+        errors.append(
+            "CONSTITUTION_TRACE_SECTIONS: every draft section must have one "
+            "exact, valid authority mapping"
+        )
+    if traced_crs != expected_crs:
+        errors.append(
+            "CONSTITUTION_TRACE_CR_COVERAGE: exact CR-001 through CR-035 "
+            "coverage is required"
+        )
+    if traced_ccrs != expected_ccrs:
+        errors.append(
+            "CONSTITUTION_TRACE_CCR_COVERAGE: exact CCR-001 through CCR-020 "
+            "coverage is required"
+        )
+    if traced_cdrs != expected_cdrs or traced_rds != expected_rds:
+        errors.append(
+            "CONSTITUTION_TRACE_DECISION_COVERAGE: all five CDRs and all "
+            "eleven adopted RD domains are required"
+        )
+    if traced_cdcs != expected_cdcs:
+        errors.append(
+            "CONSTITUTION_TRACE_CORRECTION_COVERAGE: all four coordinated "
+            "corrections are required"
+        )
+
+    normative_section_ids = {
+        section_id
+        for section_id, _ in section_headings
+        if re.search(
+            r"\b(?:SHALL|MAY|ONLY IF)\b",
+            _markdown_section(
+                draft_text,
+                f"Section {section_id} — "
+                f"{EXPECTED_DRAFT_SECTION_TITLES.get(section_id, '')}",
+                3,
+            )
+            or "",
+        )
+    }
+    traced_section_ids = {
+        str(item.get("section_id")) for item in section_records
+    }
+    untraced_normative = len(normative_section_ids - traced_section_ids)
+    if (
+        normative_section_ids != set(EXPECTED_DRAFT_SECTION_TITLES)
+        or untraced_normative != 0
+    ):
+        errors.append(
+            "CONSTITUTION_TRACE_NORMATIVE: every normative section must be "
+            "traced and every traced section must contain operative law"
+        )
+
+    refounding_principles = (
+        "foundational institutional purpose and ends",
+        "ultimate human beneficiary status",
+        "human sovereignty over foundational ends",
+        "constitutional constraint of human and artificial power",
+        "prohibition on capability, reliance, or effective control creating",
+        "prohibition on artificial intelligence acquiring foundational",
+        "protected human agency",
+        "distinction between adjudication and amendment",
+        "distinction between amendment and refounding",
+        "durable provenance and non-erasure of constitutional history",
+    )
+    represented_principles = sum(
+        principle in draft_text for principle in refounding_principles
+    )
+    required_safeguards = (
+        "Artificial intelligence SHALL NOT acquire\n"
+        "   foundational sovereignty",
+        "Review SHALL NOT\n   become sovereignty over foundational ends",
+        "Emergency authority SHALL NOT become succession authority",
+        "It SHALL NOT\n   amend or refound by interpretation",
+        "SHALL NOT erase,\n    falsify, or obscure the prior constitutional order",
+        "Amendment laundering is prohibited",
+        "Substantive machine domination exists",
+        "No validator, model, credential, dashboard, issuer, evidence store",
+    )
+    if represented_principles != 10:
+        errors.append(
+            "CONSTITUTION_DRAFT_REFOUNDING: all ten refounding-level "
+            "principles must be represented exactly in substance"
+        )
+    if any(term not in draft_text for term in required_safeguards):
+        errors.append(
+            "CONSTITUTION_DRAFT_SAFEGUARDS: machine sovereignty, reviewer "
+            "sovereignty, emergency conversion, adjudicative change, "
+            "laundering, capture, and history erasure must be prohibited"
+        )
+
+    expected_summary = {
+        "source_requirements_covered": 35,
+        "consolidated_groups_covered": 20,
+        "foundational_decisions_covered": 5,
+        "coordinated_decisions_covered": 1,
+        "design_recommendations_covered": 11,
+        "coordinated_corrections_covered": 4,
+        "refounding_level_principles_covered": 10,
+        "untraced_normative_proposition_count": 0,
+        "new_human_decisions_required": 1,
+        "cross_article_contradictions": 1,
+        "open_questions_count": 1,
+    }
+    if trace.get("coverage_summary") != expected_summary:
+        errors.append(
+            "CONSTITUTION_TRACE_SUMMARY: exact complete coverage and zero-gap "
+            "summary is required"
+        )
+    if not _has_provenance(trace):
+        errors.append(
+            "CONSTITUTION_TRACE_PROVENANCE: explicit human-source and "
+            "non-adoption provenance are required"
+        )
+
+    try:
+        open_text = (
+            root / CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH
+        ).read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"CONSTITUTION_OPEN_QUESTIONS_REQUIRED: {exc}")
+        open_text = ""
+    if (
+        open_text.count("# Constitution v0.1 Open Questions") != 1
+        or "### OQ-001 — Structural-Amendment Cohort Remainders"
+        not in open_text
+        or "`OPEN_QUESTIONS_COUNT: 1`" not in open_text
+        or not re.search(
+            r"cannot\s+both be applied literally to every member", open_text
+        )
+        or "exact all-member allocation rule" not in open_text
+        or "cannot\nbe delegated to subordinate governance law"
+        not in open_text
+        or "subordinate governance law" not in open_text
+        or "implementation questions" not in open_text
+    ):
+        errors.append(
+            "CONSTITUTION_OPEN_QUESTIONS: exact unresolved cohort question "
+            "with preserved authority boundaries is required"
+        )
+
+    metrics["draft_status"] = str(trace.get("draft_status", ""))
+    metrics["article_count"] = len(article_headings)
+    metrics["section_count"] = len(section_headings)
+    metrics["source_requirements_covered"] = len(traced_crs)
+    metrics["consolidated_groups_covered"] = len(traced_ccrs)
+    metrics["foundational_decisions_covered"] = len(traced_cdrs)
+    metrics["design_recommendations_covered"] = len(traced_rds)
+    metrics["coordinated_corrections_covered"] = len(traced_cdcs)
+    metrics["refounding_level_principles_covered"] = represented_principles
+    metrics["untraced_normative_proposition_count"] = untraced_normative
+    metrics["new_human_decisions_required"] = 1
+    metrics["cross_article_contradictions"] = 1
+    metrics["open_questions_count"] = 1
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -7909,6 +8289,7 @@ def validate(root: Path) -> ValidationResult:
         root, errors
     )
     coordinated_decision_metrics = _validate_coordinated_decision(root, errors)
+    constitution_draft_metrics = _validate_constitution_draft(root, errors)
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -8717,6 +9098,7 @@ def validate(root: Path) -> ValidationResult:
         **remaining_design_metrics,
         **cross_domain_packet_metrics,
         **coordinated_decision_metrics,
+        **constitution_draft_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
