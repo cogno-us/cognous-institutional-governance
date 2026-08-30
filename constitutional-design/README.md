@@ -66,3 +66,8 @@ engines, or runtime enforcement be designed.
 - `requirements/` defines traceable constitutional requirements.
 - `FOUNDATIONAL_QUESTIONS.yaml` preserves the unresolved questions that prevent
   premature closure.
+- `CONSOLIDATED_REQUIREMENT_MAP.yaml` maps every accepted requirement exactly
+  once into pre-drafting consolidated requirements and proposed articles.
+- `CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md` records the structural blueprint,
+  unresolved drafting blockers, exclusions, and anticipated subordinate-law and
+  implementation needs without creating constitutional provisions.

@@ -129,6 +129,195 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             "Architecture E",
         )
         self.assertEqual(result.metrics["fq5_refounding_principle_count"], 10)
+        self.assertEqual(result.metrics["source_requirement_count"], 35)
+        self.assertEqual(result.metrics["consolidated_requirement_count"], 20)
+        self.assertEqual(result.metrics["proposed_article_count"], 8)
+        self.assertEqual(
+            result.metrics["ready_for_constitutional_draft_count"], 11
+        )
+        self.assertEqual(
+            result.metrics["blocked_by_unresolved_design_count"], 9
+        )
+        self.assertEqual(result.metrics["subordinate_governance_law_count"], 0)
+        self.assertEqual(result.metrics["implementation_standard_count"], 0)
+        self.assertEqual(result.metrics["unmapped_requirement_count"], 0)
+
+    def test_consolidated_requirement_map_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "CONSOLIDATED_REQUIREMENT_MAP.yaml"
+        ).unlink()
+        self.assert_error("CONSOLIDATED_MAP_SCHEMA")
+
+    def test_consolidated_requirements_are_exact(self) -> None:
+        self.update_json(
+            "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+            lambda record: record["consolidated_requirements"].pop(),
+        )
+        self.assert_error("CONSOLIDATED_REQUIREMENTS")
+
+    def test_every_source_requirement_maps_exactly_once(self) -> None:
+        self.update_json(
+            "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+            lambda record: record["consolidated_requirements"][0][
+                "source_requirements"
+            ].append("CR-002"),
+        )
+        self.assert_error("CONSOLIDATED_SOURCE_DUPLICATION")
+
+    def test_unmapped_source_requirement_is_rejected(self) -> None:
+        self.update_json(
+            "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+            lambda record: record["consolidated_requirements"][0][
+                "source_requirements"
+            ].remove("CR-001"),
+        )
+        self.assert_error("CONSOLIDATED_SOURCE_COVERAGE")
+
+    def test_coverage_matrix_must_match_primary_mapping(self) -> None:
+        self.update_json(
+            "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+            lambda record: record["coverage_matrix"][0].update(
+                primary_article="ARTICLE-VIII"
+            ),
+        )
+        self.assert_error("CONSOLIDATED_COVERAGE_MATRIX")
+
+    def test_consolidated_classification_counts_are_exact(self) -> None:
+        self.update_json(
+            "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+            lambda record: record["consolidated_requirements"][0].update(
+                classification="SUBORDINATE_GOVERNANCE_LAW"
+            ),
+        )
+        self.assert_error("CONSOLIDATED_CLASSIFICATION_COUNTS")
+
+    def test_consolidated_relationships_must_resolve(self) -> None:
+        self.update_json(
+            "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+            lambda record: record["consolidated_requirements"][0][
+                "dependencies"
+            ].append("CCR-999"),
+        )
+        self.assert_error("CONSOLIDATED_RELATIONSHIPS")
+
+    def test_consolidated_map_preserves_constitutional_state(self) -> None:
+        self.update_json(
+            "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+            lambda record: record["state_preservation"].update(
+                constitutional_provision_count=1
+            ),
+        )
+        self.assert_error("CONSOLIDATED_STATE_PRESERVATION")
+
+    def test_article_architecture_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md"
+        ).unlink()
+        self.assert_error("ARTICLE_ARCHITECTURE_REQUIRED")
+
+    def test_article_architecture_requires_eight_substantive_articles(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace(
+                "## Article VIII — Refounding, Termination, Continuity of "
+                "Obligations, and Constitutional Memory",
+                "## Appendix — Refounding",
+            ),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_ARTICLES")
+
+    def test_each_article_requires_complete_record_fields(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace("**Purpose:**", "**Intent:**", 1),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_RECORD_FIELDS")
+
+    def test_each_article_requires_implementation_needs(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace(
+                "**Anticipated implementation standards:** Identity, authorization,",
+                "**Implementation outlook:** Identity, authorization,",
+            ),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_RECORD_FIELDS")
+
+    def test_article_record_fields_cannot_be_blank(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace(
+                "**Dependencies:** None; this article supplies identity premises "
+                "used throughout\nthe architecture.",
+                "**Dependencies:**\n\n",
+            ),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_RECORD_FIELDS")
+
+    def test_article_coverage_must_match_consolidated_map(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace(
+                "**Source requirements:** `CR-001`, `CR-003`, `CR-015`",
+                "**Source requirements:** `CR-001`, `CR-003`",
+            ),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_COVERAGE")
+
+    def test_article_ids_cannot_be_relocated_into_prose(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace(
+                "**Source requirements:** `CR-001`, `CR-003`, `CR-015`",
+                "**Source requirements:** `CR-003`, `CR-015`",
+            ).replace(
+                "**Purpose:** State whose institution this is",
+                "**Purpose:** `CR-001` states whose institution this is",
+            ),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_COVERAGE")
+
+    def test_article_controlling_decisions_are_exact(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace(
+                "**Controlling CDRs:** `CDR-001`, `CDR-003`",
+                "**Controlling CDRs:** `CDR-001`",
+            ),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_CONTROLLING_CDRS")
+
+    def test_article_unresolved_issues_cover_source_union(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text.replace("`IR-15`, `IR-17`, `IR-18`", "`IR-17`, `IR-18`", 1),
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_UNRESOLVED_ISSUES")
+
+    def test_article_architecture_cannot_enact_provisions(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text + "\n### Section 1\nThis Constitution grants power.\n",
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_NO_PROVISIONS")
+
+    def test_article_architecture_cannot_invent_threshold(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text + "\nRefounding requires a two-thirds vote.\n",
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_NO_PROVISIONS")
+
+    def test_article_architecture_cannot_invent_office(self) -> None:
+        self.update_text(
+            "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+            lambda text: text + "\nA Council shall consist of nine members.\n",
+        )
+        self.assert_error("ARTICLE_ARCHITECTURE_NO_PROVISIONS")
 
     def test_fq5_analytical_record_is_required(self) -> None:
         (
