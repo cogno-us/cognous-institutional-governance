@@ -1,16 +1,16 @@
 {
   "map_id": "CONSOLIDATED-REQUIREMENT-MAP-001",
-  "status": "PRE_DRAFTING_ARCHITECTURE",
+  "status": "READY_FOR_CONSTITUTIONAL_DRAFTING",
   "source_requirement_count": 35,
   "source_requirement_range": "CR-001 through CR-035",
-  "controlling_decisions": ["CDR-001", "CDR-002", "CDR-003", "CDR-004", "CDR-005"],
+  "controlling_decisions": ["CDR-001", "CDR-002", "CDR-003", "CDR-004", "CDR-005", "CDD-001"],
   "classification_vocabulary": [
     "READY_FOR_CONSTITUTIONAL_DRAFT",
     "BLOCKED_BY_UNRESOLVED_DESIGN",
     "SUBORDINATE_GOVERNANCE_LAW",
     "IMPLEMENTATION_STANDARD"
   ],
-  "boundary": "This map consolidates and classifies accepted requirements without deleting, rewriting, resolving, or enacting them. It creates no constitutional provision, governance rule, office, threshold, constituency, procedure, implementation standard, or runtime authority.",
+  "boundary": "This map consolidates and classifies accepted requirements under CDR-001 through CDR-005 and CDD-001 without deleting, rewriting, or enacting them. CDD-001 resolves the design blockers and makes all groups draft-ready but creates no constitutional provision, implemented office, subordinate law, implementation standard, or runtime authority.",
   "consolidated_requirements": [
     {
       "consolidated_id": "CCR-001",
@@ -39,14 +39,14 @@
     {
       "consolidated_id": "CCR-003",
       "title": "Independent review and distributed counter-power",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-004", "CR-006"],
       "primary_article": "ARTICLE-II",
       "controlling_cdrs": ["CDR-001", "CDR-004"],
       "dependencies": ["CCR-002", "CCR-013", "CCR-014", "CCR-015"],
       "overlaps": ["CCR-013", "CCR-014", "CCR-015", "CCR-016"],
       "consolidation_rationale": "Independent human review and distributed counter-power are mutually reinforcing constraints, but their institutions and operative relationships remain unresolved.",
-      "drafting_boundary": "Reviewer authority, standing, composition, appointment, removal, jurisdiction, remedies, enforcement, appeal, and counter-power allocation materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts reviewer authority, standing, composition, appointment, removal, jurisdiction, remedies, enforcement, appeal, counter-power allocation, and bounded initialization. Administrative forms, schedules, identity, and implementation remain subordinate."
     },
     {
       "consolidated_id": "CCR-004",
@@ -75,14 +75,14 @@
     {
       "consolidated_id": "CCR-006",
       "title": "Human-only necessity fallback and substantive limits",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-008", "CR-009", "CR-010"],
       "primary_article": "ARTICLE-V",
       "controlling_cdrs": ["CDR-002"],
       "dependencies": ["CCR-005", "CCR-008"],
       "overlaps": ["CCR-005", "CCR-011", "CCR-017"],
       "consolidation_rationale": "The conjunctive trigger, human-only eligibility, minimum protective scope, prohibitions, expiry, nonrenewal, and nonprecedence form one necessity-fallback rule.",
-      "drafting_boundary": "Exact evidence thresholds, absolute prohibitions, eligible humans, adequate-action tests, contact standards, prolonged-emergency boundary, and restoration mechanics materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts evidence thresholds, prohibitions, eligible humans, contact, concurrence, expiry, review, and restoration architecture. Communications, evidence capture, clocks, alerts, and implementation remain subordinate."
     },
     {
       "consolidated_id": "CCR-007",
@@ -99,14 +99,14 @@
     {
       "consolidated_id": "CCR-008",
       "title": "Retrospective emergency review and outcome neutrality",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-012", "CR-013"],
       "primary_article": "ARTICLE-V",
       "controlling_cdrs": ["CDR-002", "CDR-004"],
       "dependencies": ["CCR-006", "CCR-007", "CCR-013", "CCR-015"],
       "overlaps": ["CCR-003", "CCR-013", "CCR-015"],
       "consolidation_rationale": "Prompt independent human review and the rule that outcomes do not determine legitimacy belong together as the accountability consequence of necessity action.",
-      "drafting_boundary": "Reviewer constitution, standing, timing, evidence standards, remedies, appeal, enforcement, and noncompliance consequences materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts reviewer constitution, standing, timing, evidence burdens, remedies, appeal, enforcement, and noncompliance boundaries. Filing, case-management, and evidence-transfer mechanics remain subordinate."
     },
     {
       "consolidated_id": "CCR-009",
@@ -123,14 +123,14 @@
     {
       "consolidated_id": "CCR-010",
       "title": "Bounded human succession process and anti-usurpation evidence",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-017", "CR-018"],
       "primary_article": "ARTICLE-VI",
       "controlling_cdrs": ["CDR-003"],
       "dependencies": ["CCR-004", "CCR-009", "CCR-013", "CCR-018"],
       "overlaps": ["CCR-003", "CCR-004", "CCR-013", "CCR-018"],
       "consolidation_rationale": "The human succession path and its plural evidence, challenge, dissent, provenance, uncertainty, judgment separation, and effective-power monitoring safeguards are one design complex.",
-      "drafting_boundary": "Process composition, selection, standing, proof, identity, disputed succession adjudication, succession-versus-refounding threshold, and remedies materially block drafting."
+      "drafting_boundary": "CDD-001 adopts proof, predesignation, ordinary and fallback human process, appeal, refounding access, outer expiry, and invalid-succession remedies. Registers, evidence intake, sortition, and scheduling remain subordinate."
     },
     {
       "consolidated_id": "CCR-011",
@@ -147,50 +147,50 @@
     {
       "consolidated_id": "CCR-012",
       "title": "Expiry and restoration of continuity authority",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-020"],
       "primary_article": "ARTICLE-VI",
       "controlling_cdrs": ["CDR-003"],
       "dependencies": ["CCR-009", "CCR-010"],
       "overlaps": ["CCR-009", "CCR-020"],
       "consolidation_rationale": "Expiry and non-veto restoration are the termination conditions for temporary continuity authority.",
-      "drafting_boundary": "Proof of return, invalid succession, maximum duration, reliance treatment, clocks, restoration process, remedies, and technical revocation materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts proof of return, invalid-succession treatment, the maximum duration, reliance, restoration, and remedies. Clocks, notices, records, and technical revocation remain subordinate."
     },
     {
       "consolidated_id": "CCR-013",
       "title": "Human constitutional adjudication and bounded jurisdiction",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-021", "CR-022"],
       "primary_article": "ARTICLE-III",
       "controlling_cdrs": ["CDR-004"],
       "dependencies": ["CCR-001", "CCR-002", "CCR-003"],
       "overlaps": ["CCR-003", "CCR-008", "CCR-014", "CCR-015"],
       "consolidation_rationale": "Human final judgment, standing review, ordinary-act binding force, explicit jurisdiction, and reviewer non-sovereignty define the adjudicative institution's constitutional position.",
-      "drafting_boundary": "Standing, composition, appointment, tenure, removal, recusal, jurisdiction, binding force, appeal, and finality materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts standing, composition, appointment, tenure, removal, recusal, jurisdiction, binding force, appeal, finality, and bounded initialization. Administrative mechanics remain subordinate."
     },
     {
       "consolidated_id": "CCR-014",
       "title": "Adjudicative non-amendment, anti-capture, appeal, and independence",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-023", "CR-024", "CR-025"],
       "primary_article": "ARTICLE-III",
       "controlling_cdrs": ["CDR-004", "CDR-005"],
       "dependencies": ["CCR-003", "CCR-004", "CCR-013", "CCR-017", "CCR-018"],
       "overlaps": ["CCR-003", "CCR-004", "CCR-013", "CCR-017"],
       "consolidation_rationale": "The non-amendment boundary, distributed anti-capture, bounded human appeal, conflict handling, and nine independence safeguards jointly constrain adjudicative power.",
-      "drafting_boundary": "Appointment, tenure, removal, recusal, replacement, challenge, appeal, conflict substitution, finality, and interpretation-versus-amendment standards materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts appointment, tenure, removal, recusal, replacement, challenge, appeal, conflict substitution, finality, and non-amendment boundaries. Administrative mechanics remain subordinate."
     },
     {
       "consolidated_id": "CCR-015",
       "title": "Adjudicative remedies and separate enforcement",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-026", "CR-027"],
       "primary_article": "ARTICLE-III",
       "controlling_cdrs": ["CDR-004"],
       "dependencies": ["CCR-013", "CCR-014"],
       "overlaps": ["CCR-003", "CCR-008"],
       "consolidation_rationale": "Bounded remedies and institutionally separate, independently verified enforcement are one accountability chain.",
-      "drafting_boundary": "Exact remedies, standards, sequencing, enforcement institutions, powers, verification, appeal effects, reliance treatment, and noncompliance consequences materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts bounded remedies, standards, separate enforcement and verification, appeal effects, reliance treatment, vacancy declaration, separate human replacement, and nonmanagerial diversification. Administration remains subordinate."
     },
     {
       "consolidated_id": "CCR-016",
@@ -231,14 +231,14 @@
     {
       "consolidated_id": "CCR-019",
       "title": "Cumulative-effect review and amendment-laundering prohibition",
-      "classification": "BLOCKED_BY_UNRESOLVED_DESIGN",
+      "classification": "READY_FOR_CONSTITUTIONAL_DRAFT",
       "source_requirements": ["CR-034"],
       "primary_article": "ARTICLE-VII",
       "controlling_cdrs": ["CDR-005"],
       "dependencies": ["CCR-017", "CCR-018"],
       "overlaps": ["CCR-017", "CCR-018"],
       "consolidation_rationale": "Separately valid changes must be assessed together when their cumulative effect may cross a structural or refounding boundary.",
-      "drafting_boundary": "Aggregation, time windows, cumulative-effect methodology, classifiers, evidence, standing, challenge, appeal, and remedies materially block complete drafting."
+      "drafting_boundary": "CDD-001 adopts aggregation, the time window, cumulative-effect methodology, classification, evidence burden, standing, challenge, appeal, remedies, and semantic-drift controls. Analysis tooling remains subordinate."
     },
     {
       "consolidated_id": "CCR-020",
@@ -254,12 +254,12 @@
     }
   ],
   "classification_summary": {
-    "READY_FOR_CONSTITUTIONAL_DRAFT": 11,
-    "BLOCKED_BY_UNRESOLVED_DESIGN": 9,
+    "READY_FOR_CONSTITUTIONAL_DRAFT": 20,
+    "BLOCKED_BY_UNRESOLVED_DESIGN": 0,
     "SUBORDINATE_GOVERNANCE_LAW": 0,
     "IMPLEMENTATION_STANDARD": 0
   },
-  "classification_note": "No accepted source requirement belongs wholly in subordinate law or implementation standards because every CR-001 through CR-035 is an accepted foundational requirement. Subordinate-law and implementation needs are recorded as exclusions and anticipated needs rather than reclassifying a constitutional principle.",
+  "classification_note": "CDD-001 resolves the constitutional design choices that blocked nine groups. No accepted source requirement belongs wholly in subordinate law or implementation standards; subordinate and implementation questions remain explicit boundaries rather than new constitutional requirements.",
   "overlap_register": [
     {"overlap_id": "OV-001", "requirements": ["CR-001", "CR-003", "CR-015", "CR-031"], "resolution": "Use one human-sovereignty vocabulary; CR-031 supplies refounding-level protection rather than a new authority grant."},
     {"overlap_id": "OV-002", "requirements": ["CR-002", "CR-004", "CR-006", "CR-021", "CR-022"], "resolution": "State the general constraint once and assign institutional review mechanics to the adjudication architecture."},
@@ -272,11 +272,11 @@
     {"overlap_id": "OV-009", "requirements": ["CR-030", "CR-031", "CR-034", "CR-035"], "resolution": "Sequence category, identity boundary, anti-laundering, and discontinuity/history rules across Amendment and Refounding articles."}
   ],
   "apparent_conflicts": [
-    {"conflict_id": "AC-001", "tension": "Human sovereignty over foundational ends versus binding constitutional constraints on human power.", "treatment": "CDR-001 resolves the conceptual tension by reserving foundational ends while permitting constitutional constraint of ordinary acts; institutional enforcement remains partly unresolved."},
-    {"conflict_id": "AC-002", "tension": "Predelegated emergency authority as default versus a necessity fallback outside existing authority.", "treatment": "CDR-002 makes fallback conjunctive, human-only, minimal, expiring, nonrenewing, nonprecedential, and reviewable; evidence and remedy design remain unresolved."},
-    {"conflict_id": "AC-003", "tension": "Administrative continuity versus legitimate sovereign succession.", "treatment": "CDR-003 permits only existing scoped authority and suspends foundational powers; proof, process, duration, and remedies remain unresolved."},
-    {"conflict_id": "AC-004", "tension": "Binding adjudication versus reviewer non-sovereignty and the amendment boundary.", "treatment": "CDR-004 permits bounded review of ordinary acts but prohibits adjudicative amendment, refounding, or control of institutional ends; jurisdiction and remedies remain unresolved."},
-    {"conflict_id": "AC-005", "tension": "Refounding discontinuity versus continuity of obligations, assets, reliance, and remedies.", "treatment": "CDR-005 requires acknowledged discontinuity and non-erasing history but expressly leaves transition consequences unresolved; no drafting assumption may fill the gap."}
+    {"conflict_id": "AC-001", "tension": "Human sovereignty over foundational ends versus binding constitutional constraints on human power.", "treatment": "CDR-001 resolves the conceptual tension; CDD-001 adopts separated human review and enforcement while preserving reviewer non-sovereignty."},
+    {"conflict_id": "AC-002", "tension": "Predelegated emergency authority as default versus a necessity fallback outside existing authority.", "treatment": "CDR-002 bounds fallback authority; CDD-001 adopts evidence, eligibility, concurrence, expiry, review, and remedies without an emergency-to-sovereignty path."},
+    {"conflict_id": "AC-003", "tension": "Administrative continuity versus legitimate sovereign succession.", "treatment": "CDR-003 denies sovereign accretion; CDD-001 adopts proof, predesignation, ordinary and fallback human processes, restoration, remedies, and the RD-07 outer limit."},
+    {"conflict_id": "AC-004", "tension": "Binding adjudication versus reviewer non-sovereignty and the amendment boundary.", "treatment": "CDR-004 preserves bounded review; CDD-001 separates vacancy declaration from human replacement and prohibits judicial appointment, office creation, institutional-end control, amendment, refounding, and continuing management."},
+    {"conflict_id": "AC-005", "tension": "Refounding discontinuity versus continuity of obligations, assets, reliance, and remedies.", "treatment": "CDR-005 requires acknowledged discontinuity and non-erasing history; CDD-001 adopts bounded transition, accountability, obligations, assets, reliance, remedies, and nonrenewable expiry."}
   ],
   "coverage_matrix": [
     {"source_requirement": "CR-001", "consolidated_requirement": "CCR-001", "primary_article": "ARTICLE-I"},
@@ -317,6 +317,7 @@
   ],
   "state_preservation": {
     "decision_status_counts": {"DECIDED": 5},
+    "coordinated_decision_status": {"CDD-001": "DECIDED"},
     "foundational_question_status_counts": {"RESOLVED": 5},
     "issue_status_counts": {"OPEN": 18},
     "accepted_requirement_count": 35,
@@ -324,7 +325,7 @@
     "governance_runtime_artifact_count": 0
   },
   "provenance": {
-    "source": "Consolidation of CR-001 through CR-035 under controlling CDR-001 through CDR-005 on 2026-08-30.",
-    "boundary": "Pre-drafting structural analysis only; source requirements and constitutional state remain authoritative and unchanged."
+    "source": "Consolidation of CR-001 through CR-035 under controlling CDR-001 through CDR-005 and explicit Human Constitutional Authority decision CDD-001 on 2026-08-30.",
+    "boundary": "All groups are ready for drafting. Source requirements remain authoritative; no constitutional provision, subordinate law, implementation standard, or runtime authority is created."
   }
 }

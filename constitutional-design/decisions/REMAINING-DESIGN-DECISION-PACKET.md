@@ -2,12 +2,14 @@
 
 ## Status and Authority Boundary
 
-**ADVISORY ANALYSIS ONLY — NO CONSTITUTIONAL EFFECT**
+**RECOMMENDATIONS ADOPTED BY HUMAN CONSTITUTIONAL AUTHORITY — CDD-001**
 
-No recommendation in this packet is adopted. This packet does not decide an
-issue, modify `CDR-001` through `CDR-005`, reclassify a consolidated
-requirement, establish an office or threshold, create a constitutional
-provision, authorize subordinate law, or build runtime machinery.
+The eleven recommendations in this packet were adopted without
+reinterpretation, expansion, or optimization by the explicit Human
+Constitutional Authority decision recorded in [`CDD-001.yaml`](CDD-001.yaml),
+subject to the four coordinated corrections. The adoption does not modify
+`CDR-001` through `CDR-005`, create constitutional prose, authorize subordinate
+law, or build runtime machinery.
 
 The complete alternatives, seven-mode stress tests, dependencies, conflicts,
 and implementation residuals are recorded in
@@ -22,15 +24,17 @@ currently classified `BLOCKED_BY_UNRESOLVED_DESIGN`: `CCR-003`, `CCR-006`,
 `CCR-008`, `CCR-010`, `CCR-012`, `CCR-013`, `CCR-014`, `CCR-015`, and
 `CCR-019`.
 
-For each decision the Human Constitutional Authority may:
+For each decision the Human Constitutional Authority was presented with:
 
 1. **ADOPT_RECOMMENDATION**
 2. **ADOPT_WITH_SPECIFIED_REVISIONS**
 3. **REVISE_AND_REVIEW**
 4. **DEFER**
 
-Partial adoption does not imply closure. Each decision must be recorded later
-with explicit Human Constitutional Authority provenance.
+**Recorded coordinated choice:** `ADOPT_ALL`
+
+All eleven recommendations are adopted together with explicit Human
+Constitutional Authority provenance in `CDD-001`.
 
 ## DECISION-RD-01 — Constitutional Membership, Standing, and Separated Offices
 
@@ -383,17 +387,16 @@ remedies.
 
 ## Conditional Draftability Projection
 
-If, and only if, the Human Constitutional Authority separately adopts all
-eleven recommendations with explicit provenance, the current twenty
-consolidated requirement groups can legitimately be projected as:
+The Human Constitutional Authority adopted all eleven recommendations and the
+four coordinated corrections with explicit provenance. The twenty consolidated
+requirement groups are:
 
 - `READY_FOR_CONSTITUTIONAL_DRAFT`: **20**
 - `BLOCKED_BY_UNRESOLVED_DESIGN`: **0**
 
-This is a counterfactual projection, not current closure. The current
-`CONSOLIDATED_REQUIREMENT_MAP.yaml` remains **11 ready / 9 blocked**. Drafting
-must not rely on the 20/0 projection until later decision records adopt, revise,
-or reject every required choice and the map is formally recomputed.
+This is current draft readiness, not constitutional enactment. The
+`CONSOLIDATED_REQUIREMENT_MAP.yaml` is **20 ready / 0 blocked**. Drafting remains
+a separate future act and must preserve all adopted authority boundaries.
 
 ## Genuine Residual Implementation Questions
 
@@ -421,6 +424,7 @@ eligibility, or the substantive machine-domination test.
 - `FQ-01` through `FQ-05`: `RESOLVED`
 - `IR-01` through `IR-18`: unchanged and `OPEN`
 - `CR-001` through `CR-035`: unchanged and `ACCEPTED_FOR_DRAFTING`
-- Current consolidated classification: **11 ready / 9 blocked**
+- `CDD-001`: `DECIDED` with decision `ADOPT_ALL`
+- Current consolidated classification: **20 ready / 0 blocked**
 - Constitutional provisions: **0**
 - Runtime artifacts: **0**

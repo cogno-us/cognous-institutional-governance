@@ -133,16 +133,16 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["consolidated_requirement_count"], 20)
         self.assertEqual(result.metrics["proposed_article_count"], 8)
         self.assertEqual(
-            result.metrics["ready_for_constitutional_draft_count"], 11
+            result.metrics["ready_for_constitutional_draft_count"], 20
         )
         self.assertEqual(
-            result.metrics["blocked_by_unresolved_design_count"], 9
+            result.metrics["blocked_by_unresolved_design_count"], 0
         )
         self.assertEqual(result.metrics["subordinate_governance_law_count"], 0)
         self.assertEqual(result.metrics["implementation_standard_count"], 0)
         self.assertEqual(result.metrics["unmapped_requirement_count"], 0)
         self.assertEqual(result.metrics["design_domain_count"], 11)
-        self.assertEqual(result.metrics["human_decisions_required"], 11)
+        self.assertEqual(result.metrics["human_decisions_required"], 0)
         self.assertEqual(result.metrics["recommended_decision_count"], 11)
         self.assertEqual(result.metrics["cross_domain_conflict_count"], 7)
         self.assertEqual(
@@ -160,7 +160,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         )
         self.assertEqual(
             result.metrics["coordinated_decision_status"],
-            "AWAITING_HUMAN_DECISION",
+            "DECIDED",
         )
         self.assertEqual(result.metrics["decision_component_count"], 4)
         self.assertEqual(
@@ -177,6 +177,9 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             result.metrics["subordinate_governance_question_count"], 4
         )
         self.assertEqual(result.metrics["implementation_question_count"], 5)
+        self.assertEqual(result.metrics["design_recommendations_adopted"], 11)
+        self.assertEqual(result.metrics["decision_components_adopted"], 4)
+        self.assertEqual(result.metrics["blocking_contradictions_remaining"], 0)
 
     def test_consolidated_requirement_map_is_required(self) -> None:
         (
@@ -363,12 +366,12 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         ).unlink()
         self.assert_error("REMAINING_DESIGN_MATRIX_SCHEMA")
 
-    def test_remaining_design_analysis_cannot_record_a_decision(self) -> None:
+    def test_remaining_design_must_preserve_human_adoption(self) -> None:
         self.update_json(
             "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
             lambda record: record.update(
-                status="ADOPTED",
-                decision_effect="CONSTITUTIONAL",
+                status="ADVISORY_ANALYSIS_ONLY",
+                decision_effect="NONE",
             ),
         )
         self.assert_error("REMAINING_DESIGN_BOUNDARY")
@@ -432,7 +435,9 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
     def test_remaining_design_requires_exact_human_decisions(self) -> None:
         self.update_json(
             "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
-            lambda record: record["human_decisions_required"].pop(),
+            lambda record: record["human_decisions_required"].append(
+                "DECISION-RD-01"
+            ),
         )
         self.assert_error("REMAINING_DESIGN_HUMAN_DECISIONS")
 
@@ -465,8 +470,8 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.update_json(
             "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
             lambda record: record["projection"].update(
-                condition="The recommendations are effective immediately.",
-                projection_has_constitutional_effect=True,
+                condition="No human decision has been made.",
+                current_map_is_modified=False,
             ),
         )
         self.assert_error("REMAINING_DESIGN_PROJECTION")
@@ -537,17 +542,16 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         ).unlink()
         self.assert_error("CROSS_DOMAIN_PACKET_REQUIRED")
 
-    def test_cross_domain_packet_cannot_record_adoption(self) -> None:
+    def test_cross_domain_packet_must_preserve_human_adoption(self) -> None:
         self.update_text(
             "constitutional-design/decisions/"
             "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
             lambda text: text.replace(
+                "**Status:** `DECIDED`",
                 "**Status:** `AWAITING_HUMAN_DECISION`",
-                "**Status:** `ADOPTED`",
             ),
         )
         self.assert_error("CROSS_DOMAIN_PACKET_BOUNDARY")
-        self.assert_error("CROSS_DOMAIN_PACKET_NO_EFFECT")
 
     def test_cross_domain_packet_requires_exact_options(self) -> None:
         self.update_text(
@@ -620,13 +624,15 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         )
         self.assert_error("CROSS_DOMAIN_PACKET_CONTENT")
 
-    def test_cross_domain_projection_must_remain_nonoperative(self) -> None:
+    def test_cross_domain_projection_must_match_adopted_state(self) -> None:
         self.update_text(
             "constitutional-design/decisions/"
             "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
             lambda text: text.replace(
-                "This projection has no current effect.",
-                "This projection takes effect immediately.",
+                "The controlling consolidated map is now "
+                "**20 ready / 0 blocked**.",
+                "The controlling consolidated map remains "
+                "**11 ready / 9 blocked**.",
             ),
         )
         self.assert_error("CROSS_DOMAIN_PACKET_PROJECTION")
@@ -665,6 +671,97 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             ),
         )
         self.assert_error("CROSS_DOMAIN_PACKET_STATE")
+
+    def test_coordinated_decision_record_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CDD-001.yaml"
+        ).unlink()
+        self.assert_error("COORDINATED_DECISION_SCHEMA")
+
+    def test_coordinated_decision_requires_explicit_human_adoption(
+        self,
+    ) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record.update(
+                status="PROPOSED",
+                decision="RECOMMEND_ONLY",
+            ),
+        )
+        self.assert_error("COORDINATED_DECISION_AUTHORITY")
+
+    def test_coordinated_decision_requires_all_designs(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record["adopted_design_recommendations"].pop(),
+        )
+        self.assert_error("COORDINATED_DECISION_DESIGNS")
+
+    def test_coordinated_decision_binds_exact_design_digest(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record["adopted_design_recommendations"][0].update(
+                recommendation_sha256="0" * 64
+            ),
+        )
+        self.assert_error("COORDINATED_DECISION_DESIGNS")
+
+    def test_coordinated_decision_requires_all_corrections(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record["adopted_correction_components"].pop(),
+        )
+        self.assert_error("COORDINATED_DECISION_CORRECTIONS")
+
+    def test_coordinated_decision_binds_exact_correction_digest(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record["adopted_correction_components"][0].update(
+                component_sha256="0" * 64
+            ),
+        )
+        self.assert_error("COORDINATED_DECISION_CORRECTIONS")
+
+    def test_coordinated_decision_preserves_machine_non_authority(
+        self,
+    ) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record["authority_boundaries"].pop(1),
+        )
+        self.assert_error("COORDINATED_DECISION_BOUNDARIES")
+
+    def test_coordinated_decision_requires_zero_blocker_state(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record["resulting_state"].update(
+                blocking_cross_domain_contradictions_remaining=1,
+                blocked_by_unresolved_design=1,
+            ),
+        )
+        self.assert_error("COORDINATED_DECISION_STATE")
+
+    def test_coordinated_decision_cannot_create_redundant_requirement(
+        self,
+    ) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-001.yaml",
+            lambda record: record["resulting_requirements"].append("CR-036"),
+        )
+        self.assert_error("COORDINATED_DECISION_SCOPE")
+
+    def test_design_domain_adoption_requires_cdd_provenance(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"][0].update(
+                decision_status="PROPOSED",
+                adopted_by="MACHINE-CONSENSUS",
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_DOMAINS")
 
     def test_fq5_analytical_record_is_required(self) -> None:
         (

@@ -2,16 +2,17 @@
 
 ## Status and Authority Boundary
 
-**PROPOSED HUMAN DECISION — NOT ADOPTED — NO CONSTITUTIONAL EFFECT**
+**ADOPTED BY HUMAN CONSTITUTIONAL AUTHORITY — CDD-001**
 
 **Decision record ID:** `CDD-001`
 
-**Status:** `AWAITING_HUMAN_DECISION`
+**Status:** `DECIDED`
 
-This is one coordinated decision package. It does not record adoption, alter
-`CDR-001` through `CDR-005`, resolve an issue record, create an accepted
-requirement, reclassify a consolidated requirement, establish an office, draft
-a constitutional provision, authorize subordinate law, or build runtime
+This coordinated package was adopted without reinterpretation, expansion, or
+optimization by the explicit Human Constitutional Authority decision recorded
+in [`CDD-001.yaml`](CDD-001.yaml). It does not alter `CDR-001` through
+`CDR-005`, resolve an issue record, create a new source requirement, draft a
+constitutional provision, authorize subordinate law, or build runtime
 machinery.
 
 The package uses the recommendations in
@@ -22,15 +23,18 @@ every component.
 
 ## Human Decision
 
-The Human Constitutional Authority may choose exactly one:
+The Human Constitutional Authority was presented with:
 
 1. **ADOPT_COORDINATED_CORRECTION_PACKAGE**
 2. **ADOPT_WITH_SPECIFIED_REVISIONS**
 3. **DEFER**
 
-Adoption must be explicit, attributable, and recorded with Human Constitutional
-Authority provenance. No component is severably adopted by silence, inference,
-implementation, adjudication, emergency action, succession, or machine output.
+**Recorded choice:** `ADOPT_COORDINATED_CORRECTION_PACKAGE`
+
+Adoption is explicit, attributable, and recorded in `CDD-001`. All four
+components are adopted together; none is severably adopted by silence,
+inference, implementation, adjudication, emergency action, succession, or
+machine output.
 
 ## Component 1 — Human-Only Initialization and Vacancy
 
@@ -254,23 +258,20 @@ component creates an emergency-to-sovereignty path, succession-to-sovereignty
 path, amendment/refounding bypass, artificial-intelligence authority, reviewer
 sovereignty, or unbounded office.
 
-When combined with explicit later adoption of the eleven recommendations in
-`REMAINING-DESIGN-MATRIX.yaml`, this package restores the conditional
-projection:
+Combined with the adoption of the eleven recommendations in
+`REMAINING-DESIGN-MATRIX.yaml`, `CDD-001` produces:
 
 - `READY_FOR_CONSTITUTIONAL_DRAFT`: **20**
 - `BLOCKED_BY_UNRESOLVED_DESIGN`: **0**
 
-This projection has no current effect. The controlling consolidated map remains
-**11 ready / 9 blocked** until the Human Constitutional Authority explicitly
-adopts the coordinated recommendations and this correction package, creates
-only directly implied accepted requirements, and authorizes a traceable map
-update.
+The controlling consolidated map is now **20 ready / 0 blocked**. This
+draft-readiness decision does not enact constitutional text or implement any
+office, procedure, law, or runtime mechanism.
 
 ## Remaining Decision Boundary
 
-**Remaining human constitutional choices if this package and the eleven
-recommendations are adopted:** None identified that prevents constitutional
+**Remaining human constitutional choices after adoption of this package and the
+eleven recommendations:** None identified that prevents constitutional
 drafting.
 
 The following are subordinate governance questions because the constitutional
@@ -317,5 +318,9 @@ refounding, or the substantive machine-domination test.
 - Refounding cannot erase constitutional history.
 - `IR-01` through `IR-18` remain `OPEN`.
 - `CR-001` through `CR-035` remain `ACCEPTED_FOR_DRAFTING`.
+- `CDD-001` is `DECIDED` with decision `ADOPT_ALL`.
+- All eleven design recommendations and four correction components are adopted.
+- Blocking cross-domain contradictions remaining: **0**.
+- Consolidated requirements: **20 ready / 0 blocked**.
 - Constitutional provisions remain **0**.
 - Runtime artifacts remain **0**.

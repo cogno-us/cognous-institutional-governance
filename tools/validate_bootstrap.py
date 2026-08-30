@@ -2281,6 +2281,9 @@ CROSS_DOMAIN_DECISION_PACKET_RELATIVE_PATH = Path(
     "constitutional-design/decisions/"
     "CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md"
 )
+COORDINATED_DECISION_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/CDD-001.yaml"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -2317,8 +2320,8 @@ CONSOLIDATED_CLASSIFICATIONS = {
     "IMPLEMENTATION_STANDARD",
 }
 EXPECTED_CONSOLIDATED_CLASSIFICATION_COUNTS = {
-    "READY_FOR_CONSTITUTIONAL_DRAFT": 11,
-    "BLOCKED_BY_UNRESOLVED_DESIGN": 9,
+    "READY_FOR_CONSTITUTIONAL_DRAFT": 20,
+    "BLOCKED_BY_UNRESOLVED_DESIGN": 0,
     "SUBORDINATE_GOVERNANCE_LAW": 0,
     "IMPLEMENTATION_STANDARD": 0,
 }
@@ -2328,6 +2331,7 @@ REMAINING_DESIGN_MATRIX_FIELDS = {
     "decision_effect",
     "controlling_material",
     "boundary",
+    "adoption",
     "stress_test_dimensions",
     "design_domains",
     "cross_domain_conflicts",
@@ -2340,6 +2344,8 @@ REMAINING_DESIGN_MATRIX_FIELDS = {
 }
 REMAINING_DESIGN_DOMAIN_FIELDS = {
     "domain_id",
+    "decision_status",
+    "adopted_by",
     "title",
     "blocked_requirements",
     "unresolved_issues",
@@ -2348,6 +2354,35 @@ REMAINING_DESIGN_DOMAIN_FIELDS = {
     "dependencies",
     "cross_domain_conflicts",
     "residual_implementation_questions",
+}
+COORDINATED_DECISION_FIELDS = {
+    "decision_id",
+    "title",
+    "status",
+    "decision",
+    "decision_date",
+    "decision_authority",
+    "authorized_by",
+    "authorization_record",
+    "controlling_decisions",
+    "source_material",
+    "adopted_design_recommendations",
+    "adopted_correction_components",
+    "interpretive_rule",
+    "authority_boundaries",
+    "resolved_cross_domain_contradictions",
+    "resulting_state",
+    "resulting_requirements",
+    "requirement_rationale",
+    "subordinate_governance_questions",
+    "implementation_questions",
+    "provenance",
+}
+EXPECTED_CORRECTION_COMPONENT_DIGESTS = {
+    "CDC-01": "847a4a39a7205f176cfb7b8e87c77768a1542c918bdaf58e824b2fc042933416",
+    "CDC-02": "dcd78dc10b675fb6e96e9395e063db59868fd50bdadfa74a6bccee79c71cbeb2",
+    "CDC-03": "b55d35e1ca27fafc9ec70e3ed386b4708117960e1963bd00abfef9631de6b5e9",
+    "CDC-04": "5579dd8f73d6226b1a7bdbae52e59bf952d57a92e7d1c61329172df993b00598",
 }
 REMAINING_DESIGN_STRESS_DIMENSIONS = {
     "bad_human",
@@ -6117,7 +6152,7 @@ def _validate_article_architecture(
         )
     if (
         record.get("map_id") != "CONSOLIDATED-REQUIREMENT-MAP-001"
-        or record.get("status") != "PRE_DRAFTING_ARCHITECTURE"
+        or record.get("status") != "READY_FOR_CONSTITUTIONAL_DRAFTING"
         or record.get("source_requirement_count") != 35
         or record.get("source_requirement_range") != "CR-001 through CR-035"
         or record.get("classification_vocabulary")
@@ -6141,7 +6176,10 @@ def _validate_article_architecture(
     )}
     if (
         record.get("controlling_decisions")
-        != [f"CDR-{index:03d}" for index in range(1, 6)]
+        != [
+            *[f"CDR-{index:03d}" for index in range(1, 6)],
+            "CDD-001",
+        ]
         or set(decisions_by_id) != expected_cdr_ids
         or any(
             decisions_by_id.get(decision_id, {}).get("status") != "DECIDED"
@@ -6149,8 +6187,8 @@ def _validate_article_architecture(
         )
     ):
         errors.append(
-            "CONSOLIDATED_MAP_CONTROLLING_DECISIONS: exactly five decided CDRs "
-            "are required"
+            "CONSOLIDATED_MAP_CONTROLLING_DECISIONS: five decided CDRs and "
+            "CDD-001 are required"
         )
 
     consolidated = record.get("consolidated_requirements")
@@ -6338,6 +6376,7 @@ def _validate_article_architecture(
         )
     if record.get("state_preservation") != {
         "decision_status_counts": {"DECIDED": 5},
+        "coordinated_decision_status": {"CDD-001": "DECIDED"},
         "foundational_question_status_counts": {"RESOLVED": 5},
         "issue_status_counts": {"OPEN": 18},
         "accepted_requirement_count": 35,
@@ -6548,17 +6587,32 @@ def _validate_remaining_design_analysis(
         )
     if (
         record.get("matrix_id") != "REMAINING-DESIGN-MATRIX-001"
-        or record.get("status") != "ADVISORY_ANALYSIS_ONLY"
-        or record.get("decision_effect") != "NONE"
+        or record.get("status") != "ADOPTED_COORDINATED_DESIGN"
+        or record.get("decision_effect") != "CDD-001"
         or not _is_evidence(record.get("boundary"))
-        or "do not decide" not in str(record.get("boundary", "")).lower()
-        or "create a constitutional provision" not in str(
+        or "cdd-001 adopts" not in str(record.get("boundary", "")).lower()
+        or "constitutional provision" not in str(
             record.get("boundary", "")
         ).lower()
     ):
         errors.append(
-            "REMAINING_DESIGN_BOUNDARY: analysis must remain advisory, "
-            "nonoperative, and non-provisioning"
+            "REMAINING_DESIGN_BOUNDARY: design must record CDD-001 adoption "
+            "without creating provisions or runtime effect"
+        )
+    if record.get("adoption") != {
+        "decision_id": "CDD-001",
+        "status": "DECIDED",
+        "decision": "ADOPT_ALL",
+        "decision_date": "2026-08-30",
+        "authority": "Human Constitutional Authority",
+        "authorization_record": (
+            "Explicit human instruction adopting RD-01 through RD-11 and all "
+            "four coordinated cross-domain correction components."
+        ),
+    }:
+        errors.append(
+            "REMAINING_DESIGN_ADOPTION: exact Human Constitutional Authority "
+            "adoption is required"
         )
 
     expected_domain_ids = {f"RD-{index:02d}" for index in range(1, 12)}
@@ -6599,6 +6653,8 @@ def _validate_remaining_design_analysis(
         dependencies = domain.get("dependencies")
         if (
             set(domain) != REMAINING_DESIGN_DOMAIN_FIELDS
+            or domain.get("decision_status") != "ADOPTED"
+            or domain.get("adopted_by") != "CDD-001"
             or not _is_evidence(domain.get("title"))
             or not isinstance(blocked, list)
             or not blocked
@@ -6723,14 +6779,10 @@ def _validate_remaining_design_analysis(
         )
 
     human_decisions = record.get("human_decisions_required")
-    if (
-        not isinstance(human_decisions, list)
-        or len(human_decisions) != 11
-        or set(human_decisions) != expected_decision_ids
-    ):
+    if human_decisions != []:
         errors.append(
-            "REMAINING_DESIGN_HUMAN_DECISIONS: exact DECISION-RD-01 through "
-            "DECISION-RD-11 references are required"
+            "REMAINING_DESIGN_HUMAN_DECISIONS: adopted domains must have no "
+            "remaining human decision references"
         )
 
     map_record = _load_record(
@@ -6793,16 +6845,16 @@ def _validate_remaining_design_analysis(
             "projection_has_constitutional_effect",
             "legitimacy_assessment",
         }
-        or "only if" not in str(projection.get("condition", "")).lower()
+        or "satisfied by" not in str(projection.get("condition", "")).lower()
         or projection.get("ready_for_constitutional_draft") != 20
         or projection.get("blocked_by_unresolved_design") != 0
-        or projection.get("current_map_is_modified") is not False
-        or projection.get("projection_has_constitutional_effect") is not False
+        or projection.get("current_map_is_modified") is not True
+        or projection.get("projection_has_constitutional_effect") is not True
         or not _is_evidence(projection.get("legitimacy_assessment"))
     ):
         errors.append(
-            "REMAINING_DESIGN_PROJECTION: exact conditional, nonoperative "
-            "20-ready/0-blocked projection matching the current map is required"
+            "REMAINING_DESIGN_PROJECTION: exact adopted 20-ready/0-blocked "
+            "state matching the current map is required"
         )
 
     residuals = record.get("genuine_residual_implementation_questions")
@@ -6833,8 +6885,10 @@ def _validate_remaining_design_analysis(
         "resolved_foundational_question_count": 5,
         "open_issue_count": 18,
         "accepted_requirement_count": 35,
-        "current_ready_consolidated_requirement_count": 11,
-        "current_blocked_consolidated_requirement_count": 9,
+        "current_ready_consolidated_requirement_count": 20,
+        "current_blocked_consolidated_requirement_count": 0,
+        "coordinated_decision_status": "DECIDED",
+        "blocking_cross_domain_contradiction_count": 0,
         "constitutional_provision_count": 0,
         "runtime_artifact_count": 0,
     }:
@@ -6865,7 +6919,8 @@ def _validate_remaining_design_analysis(
         packet_text.count("# Remaining Constitutional Design Decision Packet")
         != 1
         or packet_text.count(
-            "**ADVISORY ANALYSIS ONLY — NO CONSTITUTIONAL EFFECT**"
+            "**RECOMMENDATIONS ADOPTED BY HUMAN CONSTITUTIONAL AUTHORITY — "
+            "CDD-001**"
         )
         != 1
         or packet_decisions != expected_decision_ids
@@ -6873,8 +6928,8 @@ def _validate_remaining_design_analysis(
         or packet_text.count("**Decision required:**") != 11
         or "READY_FOR_CONSTITUTIONAL_DRAFT`: **20**" not in packet_text
         or "BLOCKED_BY_UNRESOLVED_DESIGN`: **0**" not in packet_text
-        or "11 ready / 9 blocked" not in packet_text
-        or "If, and only if" not in packet_text
+        or "20 ready / 0 blocked" not in packet_text
+        or "**Recorded coordinated choice:** `ADOPT_ALL`" not in packet_text
         or "Constitutional provisions: **0**" not in packet_text
         or "Runtime artifacts: **0**" not in packet_text
     ):
@@ -6957,16 +7012,15 @@ def _validate_cross_domain_decision_packet(
         text.count("# Cross-Domain Contradiction Coordinated Decision Packet")
         != 1
         or text.count(
-            "**PROPOSED HUMAN DECISION — NOT ADOPTED — "
-            "NO CONSTITUTIONAL EFFECT**"
+            "**ADOPTED BY HUMAN CONSTITUTIONAL AUTHORITY — CDD-001**"
         )
         != 1
         or text.count("**Decision record ID:** `CDD-001`") != 1
-        or status != "AWAITING_HUMAN_DECISION"
+        or status != "DECIDED"
     ):
         errors.append(
-            "CROSS_DOMAIN_PACKET_BOUNDARY: exact proposed, nonoperative "
-            "identity and status are required"
+            "CROSS_DOMAIN_PACKET_BOUNDARY: exact Human Constitutional "
+            "Authority adoption identity and status are required"
         )
 
     options = re.findall(
@@ -7059,16 +7113,16 @@ def _validate_cross_domain_decision_packet(
         or "removes all four reported contradictions" not in effect_section
         or "`READY_FOR_CONSTITUTIONAL_DRAFT`: **20**" not in effect_section
         or "`BLOCKED_BY_UNRESOLVED_DESIGN`: **0**" not in effect_section
-        or "controlling consolidated map remains\n**11 ready / 9 blocked**"
+        or "controlling consolidated map is now **20 ready / 0 blocked**"
         not in effect_section
-        or "This projection has no current effect" not in effect_section
+        or "does not enact constitutional text" not in effect_section
     ):
         errors.append(
-            "CROSS_DOMAIN_PACKET_PROJECTION: exact nonoperative four-closure "
-            "and conditional 20/0 projection are required"
+            "CROSS_DOMAIN_PACKET_PROJECTION: exact adopted four-closure and "
+            "20/0 draft-readiness state are required"
         )
     if (
-        "Remaining human constitutional choices if this package and the eleven"
+        "Remaining human constitutional choices after adoption of this package"
         not in remaining_section
         or "None identified that prevents constitutional\ndrafting."
         not in remaining_section
@@ -7127,6 +7181,10 @@ def _validate_cross_domain_decision_packet(
         "Refounding cannot erase constitutional history",
         "`IR-01` through `IR-18` remain `OPEN`",
         "`CR-001` through `CR-035` remain `ACCEPTED_FOR_DRAFTING`",
+        "`CDD-001` is `DECIDED` with decision `ADOPT_ALL`",
+        "All eleven design recommendations and four correction components are adopted",
+        "Blocking cross-domain contradictions remaining: **0**",
+        "Consolidated requirements: **20 ready / 0 blocked**",
         "Constitutional provisions remain **0**",
         "Runtime artifacts remain **0**",
     )
@@ -7140,13 +7198,12 @@ def _validate_cross_domain_decision_packet(
         )
 
     prohibited_effects = (
-        r"(?im)^\*\*Status:\*\* `(?:ADOPTED|DECIDED)`$",
         r"(?im)^#{1,6}\s+(?:Article|Section|Clause)\b",
         r"(?i)\bhereby (?:adopted|enacted|established)\b",
     )
     if any(re.search(pattern, text) for pattern in prohibited_effects):
         errors.append(
-            "CROSS_DOMAIN_PACKET_NO_EFFECT: packet cannot adopt, enact, or "
+            "CROSS_DOMAIN_PACKET_NO_EFFECT: decision packet cannot enact or "
             "draft constitutional text"
         )
 
@@ -7161,6 +7218,183 @@ def _validate_cross_domain_decision_packet(
     metrics["remaining_human_constitutional_decision_count"] = 0
     metrics["subordinate_governance_question_count"] = subordinate_count
     metrics["implementation_question_count"] = implementation_count
+    return metrics
+
+
+def _validate_coordinated_decision(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "design_recommendations_adopted": 0,
+        "decision_components_adopted": 0,
+        "blocking_contradictions_remaining": 4,
+    }
+    decision = _load_record(root / COORDINATED_DECISION_RELATIVE_PATH, errors) or {}
+    if set(decision) != COORDINATED_DECISION_FIELDS:
+        errors.append(
+            "COORDINATED_DECISION_SCHEMA: exact CDD-001 fields are required"
+        )
+    if (
+        decision.get("decision_id") != "CDD-001"
+        or decision.get("status") != "DECIDED"
+        or decision.get("decision") != "ADOPT_ALL"
+        or decision.get("decision_date") != "2026-08-30"
+        or decision.get("decision_authority") != "Human Constitutional Authority"
+        or decision.get("authorized_by") != "Explicit human instruction"
+        or "HUMAN CONSTITUTIONAL DECISION: ADOPT_ALL"
+        not in str(decision.get("authorization_record", ""))
+        or decision.get("controlling_decisions")
+        != [f"CDR-{index:03d}" for index in range(1, 6)]
+    ):
+        errors.append(
+            "COORDINATED_DECISION_AUTHORITY: exact explicit human ADOPT_ALL "
+            "decision and controlling CDR chain are required"
+        )
+
+    matrix = _load_record(root / REMAINING_DESIGN_MATRIX_RELATIVE_PATH, errors) or {}
+    expected_rd_digests: dict[str, str] = {}
+    for domain in matrix.get("design_domains", []):
+        if not isinstance(domain, dict) or not isinstance(
+            domain.get("domain_id"), str
+        ):
+            continue
+        canonical = json.dumps(
+            domain.get("recommendation"),
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=True,
+        )
+        expected_rd_digests[domain["domain_id"]] = hashlib.sha256(
+            canonical.encode()
+        ).hexdigest()
+    adopted_rd = decision.get("adopted_design_recommendations")
+    adopted_rd_records = (
+        [item for item in adopted_rd if isinstance(item, dict)]
+        if isinstance(adopted_rd, list)
+        else []
+    )
+    actual_rd_digests = {
+        item.get("domain_id"): item.get("recommendation_sha256")
+        for item in adopted_rd_records
+    }
+    if (
+        len(adopted_rd_records) != 11
+        or actual_rd_digests != expected_rd_digests
+    ):
+        errors.append(
+            "COORDINATED_DECISION_DESIGNS: CDD-001 must adopt the exact "
+            "canonical RD-01 through RD-11 recommendations"
+        )
+
+    correction_text = ""
+    try:
+        correction_text = (
+            root / CROSS_DOMAIN_DECISION_PACKET_RELATIVE_PATH
+        ).read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        pass
+    actual_component_digests: dict[str, str] = {}
+    for part in correction_text.split("## Component ")[1:]:
+        section_body = part.split("\n## ", 1)[0]
+        first_line = section_body.splitlines()[0] if section_body else ""
+        number = first_line.split(" ", 1)[0]
+        if number.isdigit():
+            section = f"## Component {section_body.strip()}\n"
+            actual_component_digests[f"CDC-{int(number):02d}"] = (
+                hashlib.sha256(section.encode()).hexdigest()
+            )
+    adopted_components = decision.get("adopted_correction_components")
+    component_records = (
+        [item for item in adopted_components if isinstance(item, dict)]
+        if isinstance(adopted_components, list)
+        else []
+    )
+    recorded_component_digests = {
+        item.get("component_id"): item.get("component_sha256")
+        for item in component_records
+    }
+    if (
+        len(component_records) != 4
+        or actual_component_digests != EXPECTED_CORRECTION_COMPONENT_DIGESTS
+        or recorded_component_digests
+        != EXPECTED_CORRECTION_COMPONENT_DIGESTS
+    ):
+        errors.append(
+            "COORDINATED_DECISION_CORRECTIONS: CDD-001 must adopt the exact "
+            "four canonical correction components"
+        )
+
+    required_boundaries = (
+        "Artificial intelligence cannot independently create",
+        "Capability, reliance, operational necessity, emergency, vacancy",
+        "reviewer non-sovereignty",
+        "Adjudication cannot become appointment",
+        "Emergency authority cannot become succession",
+        "Continuity cannot become sovereign succession",
+        "Refounding cannot erase constitutional history",
+    )
+    boundary_text = " ".join(map(str, decision.get("authority_boundaries", [])))
+    if (
+        not isinstance(decision.get("authority_boundaries"), list)
+        or any(term not in boundary_text for term in required_boundaries)
+        or len(decision.get("resolved_cross_domain_contradictions", [])) != 4
+        or "without reinterpretation, expansion, optimization, or severance"
+        not in str(decision.get("interpretive_rule", ""))
+    ):
+        errors.append(
+            "COORDINATED_DECISION_BOUNDARIES: human authority, machine "
+            "non-authority, reviewer limits, and exact adoption are required"
+        )
+
+    if decision.get("resulting_state") != {
+        "design_recommendations_adopted": 11,
+        "decision_components_adopted": 4,
+        "blocking_cross_domain_contradictions_remaining": 0,
+        "ready_for_constitutional_draft": 20,
+        "blocked_by_unresolved_design": 0,
+        "constitutional_provision_count": 0,
+        "runtime_artifact_count": 0,
+    }:
+        errors.append(
+            "COORDINATED_DECISION_STATE: exact adopted 11/4, zero-blocker, "
+            "20/0 draft-ready, zero-provision state is required"
+        )
+    if (
+        decision.get("resulting_requirements") != []
+        or "No new source requirement is necessary"
+        not in str(decision.get("requirement_rationale", ""))
+        or len(decision.get("subordinate_governance_questions", [])) != 4
+        or len(decision.get("implementation_questions", [])) != 5
+    ):
+        errors.append(
+            "COORDINATED_DECISION_SCOPE: no redundant requirement may be "
+            "created and subordinate questions must remain subordinate"
+        )
+    provenance = decision.get("provenance")
+    if (
+        not isinstance(provenance, dict)
+        or provenance.get("source")
+        != (
+            "Explicit Human Constitutional Authority instruction in this "
+            "repository session on 2026-08-30"
+        )
+        or "Artificial-intelligence analysis" not in str(
+            provenance.get("authority_boundary", "")
+        )
+    ):
+        errors.append(
+            "COORDINATED_DECISION_PROVENANCE: explicit human authority and "
+            "machine non-authority provenance are required"
+        )
+
+    metrics["design_recommendations_adopted"] = len(adopted_rd_records)
+    metrics["decision_components_adopted"] = len(component_records)
+    metrics["blocking_contradictions_remaining"] = int(
+        decision.get("resulting_state", {}).get(
+            "blocking_cross_domain_contradictions_remaining", 4
+        )
+    )
     return metrics
 
 
@@ -7674,6 +7908,7 @@ def validate(root: Path) -> ValidationResult:
     cross_domain_packet_metrics = _validate_cross_domain_decision_packet(
         root, errors
     )
+    coordinated_decision_metrics = _validate_coordinated_decision(root, errors)
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -8481,6 +8716,7 @@ def validate(root: Path) -> ValidationResult:
         **article_architecture_metrics,
         **remaining_design_metrics,
         **cross_domain_packet_metrics,
+        **coordinated_decision_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 

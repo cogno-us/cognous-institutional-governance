@@ -49,3 +49,8 @@ refounding. Its advisory packet is retained at
 `packets/CDR-005-HUMAN-DECISION-PACKET.md`; the packet's recommendation and
 proposed commitment levels have no constitutional effect and did not authorize
 the human decision recorded in CDR-005.
+
+`CDD-001.yaml` records the explicit Human Constitutional Authority decision
+`ADOPT_ALL` for the eleven remaining-design recommendations and four coordinated
+cross-domain corrections. It preserves CDR-001 through CDR-005 as controlling
+and creates no constitutional provision or runtime mechanism.
