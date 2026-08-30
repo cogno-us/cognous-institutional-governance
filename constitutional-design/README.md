@@ -76,3 +76,6 @@ engines, or runtime enforcement be designed.
   draftability projection without making a decision.
 - `decisions/REMAINING-DESIGN-DECISION-PACKET.md` presents the compact human
   decision package; its recommendations have no constitutional effect.
+- `decisions/CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md` presents one
+  proposed human correction package for the four authority-chain contradictions;
+  it is not adopted and has no constitutional effect.
