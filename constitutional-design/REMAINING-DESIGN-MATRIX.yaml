@@ -1,14 +1,22 @@
 {
   "matrix_id": "REMAINING-DESIGN-MATRIX-001",
-  "status": "ADVISORY_ANALYSIS_ONLY",
-  "decision_effect": "NONE",
+  "status": "ADOPTED_COORDINATED_DESIGN",
+  "decision_effect": "CDD-001",
   "controlling_material": [
     "CDR-001", "CDR-002", "CDR-003", "CDR-004", "CDR-005",
     "CR-001 through CR-035",
     "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
     "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md"
   ],
-  "boundary": "Recommendations are coordinated design proposals only. They do not decide an option, resolve an issue, reclassify a consolidated requirement, create a constitutional provision, establish an office or threshold, authorize subordinate law, or build runtime machinery.",
+  "boundary": "CDD-001 adopts the eleven recommendations exactly as analyzed, subject to CDR-001 through CDR-005 and the four adopted cross-domain corrections. The decision makes the design draft-ready but creates no constitutional provision, implemented office, subordinate law, or runtime machinery.",
+  "adoption": {
+    "decision_id": "CDD-001",
+    "status": "DECIDED",
+    "decision": "ADOPT_ALL",
+    "decision_date": "2026-08-30",
+    "authority": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction adopting RD-01 through RD-11 and all four coordinated cross-domain correction components."
+  },
   "stress_test_dimensions": [
     "bad_human",
     "bad_artificial_intelligence",
@@ -21,6 +29,8 @@
   "design_domains": [
     {
       "domain_id": "RD-01",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Constitutional membership, standing, and separated offices",
       "blocked_requirements": ["CCR-003", "CCR-010", "CCR-013", "CCR-014", "CCR-015", "CCR-019"],
       "unresolved_issues": ["IR-01", "IR-06", "IR-07", "IR-08", "IR-10", "IR-15", "IR-17", "IR-18"],
@@ -76,6 +86,8 @@
     },
     {
       "domain_id": "RD-02",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Adjudicator composition, appointment, tenure, removal, and recusal",
       "blocked_requirements": ["CCR-003", "CCR-008", "CCR-010", "CCR-013", "CCR-014"],
       "unresolved_issues": ["IR-02", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-17", "IR-18"],
@@ -131,6 +143,8 @@
     },
     {
       "domain_id": "RD-03",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Adjudicative jurisdiction, appeal, finality, enforcement, and remedies",
       "blocked_requirements": ["CCR-003", "CCR-008", "CCR-013", "CCR-014", "CCR-015"],
       "unresolved_issues": ["IR-02", "IR-03", "IR-04", "IR-06", "IR-08", "IR-10", "IR-14", "IR-15", "IR-17"],
@@ -186,6 +200,8 @@
     },
     {
       "domain_id": "RD-04",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Emergency trigger evidence, eligibility, prohibitions, and expiry",
       "blocked_requirements": ["CCR-006"],
       "unresolved_issues": ["IR-01", "IR-03", "IR-04", "IR-05", "IR-08", "IR-13", "IR-14", "IR-17", "IR-18"],
@@ -241,6 +257,8 @@
     },
     {
       "domain_id": "RD-05",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Emergency retrospective review and remedies",
       "blocked_requirements": ["CCR-008"],
       "unresolved_issues": ["IR-02", "IR-03", "IR-06", "IR-08", "IR-10", "IR-13", "IR-14", "IR-17"],
@@ -296,6 +314,8 @@
     },
     {
       "domain_id": "RD-06",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Succession proof, surviving grants, and human succession process",
       "blocked_requirements": ["CCR-010"],
       "unresolved_issues": ["IR-01", "IR-04", "IR-05", "IR-06", "IR-07", "IR-08", "IR-10", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
@@ -351,6 +371,8 @@
     },
     {
       "domain_id": "RD-07",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Interregnum duration, return, restoration, and invalid succession",
       "blocked_requirements": ["CCR-012"],
       "unresolved_issues": ["IR-04", "IR-05", "IR-06", "IR-07", "IR-08", "IR-10", "IR-11", "IR-15", "IR-16", "IR-17"],
@@ -406,6 +428,8 @@
     },
     {
       "domain_id": "RD-08",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Amendment and refounding constituencies, thresholds, and procedures",
       "blocked_requirements": ["CCR-019"],
       "unresolved_issues": ["IR-01", "IR-06", "IR-07", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-16", "IR-17", "IR-18"],
@@ -461,6 +485,8 @@
     },
     {
       "domain_id": "RD-09",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Cumulative effects, amendment laundering, and semantic drift",
       "blocked_requirements": ["CCR-019"],
       "unresolved_issues": ["IR-06", "IR-08", "IR-09", "IR-10", "IR-12", "IR-13", "IR-15", "IR-17", "IR-18"],
@@ -516,6 +542,8 @@
     },
     {
       "domain_id": "RD-10",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Termination, refounding transition, obligations, assets, reliance, and remedies",
       "blocked_requirements": ["CCR-012", "CCR-015"],
       "unresolved_issues": ["IR-01", "IR-04", "IR-05", "IR-06", "IR-08", "IR-10", "IR-11", "IR-12", "IR-15", "IR-16", "IR-17", "IR-18"],
@@ -571,6 +599,8 @@
     },
     {
       "domain_id": "RD-11",
+      "decision_status": "ADOPTED",
+      "adopted_by": "CDD-001",
       "title": "Effective power, coalition capture, machine domination, and independent channels",
       "blocked_requirements": ["CCR-003", "CCR-006", "CCR-008", "CCR-010", "CCR-012", "CCR-013", "CCR-014", "CCR-015", "CCR-019"],
       "unresolved_issues": ["IR-01", "IR-02", "IR-08", "IR-09", "IR-10", "IR-11", "IR-12", "IR-13", "IR-17", "IR-18"],
@@ -634,40 +664,36 @@
     {"conflict_id": "XDC-06", "conflict": "Finality versus reversibility.", "resolution_in_recommendations": "RD-03 permits one appeal, bounded reopening, stays, remand, restoration, and reliance-sensitive relief."},
     {"conflict_id": "XDC-07", "conflict": "Plural safeguards versus correlated coalition and machine dependence.", "resolution_in_recommendations": "RD-11 uses material-independence, sole-gatekeeper, substitutability, disclosure, and audit tests."}
   ],
-  "human_decisions_required": [
-    "DECISION-RD-01", "DECISION-RD-02", "DECISION-RD-03", "DECISION-RD-04",
-    "DECISION-RD-05", "DECISION-RD-06", "DECISION-RD-07", "DECISION-RD-08",
-    "DECISION-RD-09", "DECISION-RD-10", "DECISION-RD-11"
-  ],
+  "human_decisions_required": [],
   "projected_consolidated_requirements": [
     {"consolidated_requirement": "CCR-001", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-002", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-003", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-003", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-004", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-005", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-006", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-006", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-007", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-008", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-008", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-009", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-010", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-010", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-011", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-012", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-013", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-014", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-015", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-012", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-013", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-014", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-015", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-016", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-017", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-018", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
-    {"consolidated_requirement": "CCR-019", "current_classification": "BLOCKED_BY_UNRESOLVED_DESIGN", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
+    {"consolidated_requirement": "CCR-019", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"},
     {"consolidated_requirement": "CCR-020", "current_classification": "READY_FOR_CONSTITUTIONAL_DRAFT", "projected_classification_if_all_recommendations_adopted": "READY_FOR_CONSTITUTIONAL_DRAFT"}
   ],
   "projection": {
-    "condition": "Only if all eleven recommendations are separately adopted by explicit Human Constitutional Authority decisions with exact constitutional provenance.",
+    "condition": "Satisfied by the explicit Human Constitutional Authority decision CDD-001 adopting all eleven recommendations and all four coordinated corrections.",
     "ready_for_constitutional_draft": 20,
     "blocked_by_unresolved_design": 0,
-    "current_map_is_modified": false,
-    "projection_has_constitutional_effect": false,
-    "legitimacy_assessment": "The 20/0 target is conditionally supportable because every identified constitutional choice is answered by a recommendation. It is not current closure and cannot support drafting until explicit human decisions adopt, revise, or reject the package."
+    "current_map_is_modified": true,
+    "projection_has_constitutional_effect": true,
+    "legitimacy_assessment": "CDD-001 supplies explicit human authority and exact provenance for the coordinated architecture. All twenty consolidated requirements are now ready for constitutional drafting; drafting itself remains a separate future act."
   },
   "genuine_residual_implementation_questions": [
     "Registry, record, filing, notice, scheduling, publication, and user-interface formats",
@@ -683,13 +709,15 @@
     "resolved_foundational_question_count": 5,
     "open_issue_count": 18,
     "accepted_requirement_count": 35,
-    "current_ready_consolidated_requirement_count": 11,
-    "current_blocked_consolidated_requirement_count": 9,
+    "current_ready_consolidated_requirement_count": 20,
+    "current_blocked_consolidated_requirement_count": 0,
+    "coordinated_decision_status": "DECIDED",
+    "blocking_cross_domain_contradiction_count": 0,
     "constitutional_provision_count": 0,
     "runtime_artifact_count": 0
   },
   "provenance": {
-    "source": "Repository-only integrated analysis of the nine blocked consolidated requirements and their cross-cutting constitutional design dependencies on 2026-08-30.",
-    "boundary": "No human decision is recorded; current CDR, FQ, issue, CR, consolidation, article, provision, and runtime states remain unchanged."
+    "source": "Repository analysis adopted by explicit Human Constitutional Authority decision CDD-001 on 2026-08-30.",
+    "boundary": "CDD-001 changes design status and consolidated draft readiness only. CDR, FQ, issue, CR, provision, and runtime states remain unchanged."
   }
 }

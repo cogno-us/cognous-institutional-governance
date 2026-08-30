@@ -5,8 +5,9 @@
 **PRE-DRAFTING STRUCTURAL BLUEPRINT — NO CONSTITUTIONAL PROVISIONS**
 
 This architecture consolidates `CR-001` through `CR-035` under decided
-`CDR-001` through `CDR-005`. It does not enact constitutional text, resolve an
-open issue, create an office or constituency, select a threshold or procedure,
+`CDR-001` through `CDR-005` and coordinated Human Constitutional Authority
+decision `CDD-001`. It records the adopted structure but does not enact
+constitutional text, resolve an issue record, implement an office or procedure,
 authorize subordinate law, define an implementation standard, or create runtime
 authority.
 
@@ -30,16 +31,15 @@ substantive articles**:
 8. **Article VIII — Refounding, Termination, Continuity of Obligations, and
    Constitutional Memory**
 
-The candidate's separate powers-and-offices article is not yet supported:
-accepted requirements establish counter-power and separation boundaries but do
-not establish particular offices or allocate a complete set of powers. Those
-principles therefore belong with constitutional authority and constraint.
+The candidate's separate powers-and-offices article remains unnecessary:
+`CDD-001` adopts the minimum offices and separated functions needed by the
+requirements, and those allocations remain substantively integrated with
+constitutional authority, adjudication, emergency, succession, amendment, and
+refounding rather than forming an independent general-powers article.
 
-Refounding and termination are combined because accepted requirements establish
-identity discontinuity and non-erasing history, but do not yet establish a
-complete termination authority or the treatment of obligations, assets,
-reliance, and remedies. Splitting them would imply a resolved termination design
-that does not exist.
+Refounding and termination remain combined because `CDD-001` adopts transition,
+termination, obligation, asset, reliance, remedy, accountability, and
+constitutional-memory boundaries as one discontinuity architecture.
 
 ## Article I — Constitutional Identity and Human Sovereignty
 
@@ -327,15 +327,15 @@ material overlaps that should share vocabulary and cross-references:
 
 | Classification | Consolidated count | Meaning here |
 |---|---:|---|
-| `READY_FOR_CONSTITUTIONAL_DRAFT` | 11 | The adopted principle can be drafted without inventing unresolved mechanics. |
-| `BLOCKED_BY_UNRESOLVED_DESIGN` | 9 | Material constitutional choices must be decided before complete drafting. |
+| `READY_FOR_CONSTITUTIONAL_DRAFT` | 20 | CDD-001 supplies the coordinated constitutional design choices needed for drafting. |
+| `BLOCKED_BY_UNRESOLVED_DESIGN` | 0 | No material constitutional design blocker remains. |
 | `SUBORDINATE_GOVERNANCE_LAW` | 0 | No source CR belongs wholly here; anticipated procedures are listed per article. |
 | `IMPLEMENTATION_STANDARD` | 0 | No source CR belongs wholly here; anticipated technical standards are listed per article. |
 
 ### Material Conflicts or Gaps
 
-No source CR records an express conflict. Five material tensions remain bounded
-but incompletely designed:
+No source CR records an express conflict. `CDD-001` resolves the design of five
+material tensions while preserving their controlling boundaries:
 
 1. Human sovereignty versus binding constitutional limits on ordinary human
    power.
@@ -347,11 +347,10 @@ but incompletely designed:
 5. Refounding discontinuity versus continuity of obligations, assets, reliance,
    and remedies.
 
-The largest drafting gaps are legitimate constituencies; offices and allocation
-of powers; adjudicator and reviewer design; emergency evidence and remedy
-standards; succession proof and process; amendment/refounding thresholds and
-procedures; cumulative-effect methodology; termination authority; and
-post-refounding obligations, assets, reliance, and remedies.
+No constitutional-design gap remains that prevents drafting. Eligibility
+administration, nomination, sortition, scheduling, records, evidence handling,
+transition administration, remedial reporting, and technical mechanisms remain
+subordinate governance or implementation questions.
 
 ## Coverage Proof
 
@@ -366,5 +365,9 @@ overlap without duplicating primary coverage.
 - `FQ-01` through `FQ-05`: `RESOLVED`
 - `IR-01` through `IR-18`: `OPEN`
 - `CR-001` through `CR-035`: `ACCEPTED_FOR_DRAFTING`
+- `CDD-001`: `DECIDED` (`ADOPT_ALL`)
+- Design recommendations: **11 adopted**
+- Coordinated correction components: **4 adopted**
+- Consolidated requirements: **20 ready / 0 blocked**
 - Constitutional provisions: **0**
 - Governance runtime artifacts: **0**

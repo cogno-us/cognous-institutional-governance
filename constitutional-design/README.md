@@ -72,10 +72,10 @@ engines, or runtime enforcement be designed.
   unresolved drafting blockers, exclusions, and anticipated subordinate-law and
   implementation needs without creating constitutional provisions.
 - `REMAINING-DESIGN-MATRIX.yaml` analyzes the remaining blocker domains,
-  alternatives, stress tests, coordinated recommendations, and conditional
-  draftability projection without making a decision.
+  alternatives, stress tests, coordinated recommendations, and the Human
+  Constitutional Authority adoption recorded in `CDD-001`.
 - `decisions/REMAINING-DESIGN-DECISION-PACKET.md` presents the compact human
-  decision package; its recommendations have no constitutional effect.
+  decision package whose eleven recommendations were adopted by `CDD-001`.
 - `decisions/CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md` presents one
-  proposed human correction package for the four authority-chain contradictions;
-  it is not adopted and has no constitutional effect.
+  human correction package for the four authority-chain contradictions; all
+  four components were adopted by `CDD-001`.

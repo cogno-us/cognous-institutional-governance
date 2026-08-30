@@ -1,0 +1,85 @@
+{
+  "decision_id": "CDD-001",
+  "title": "Coordinated Remaining Constitutional Design Adoption",
+  "status": "DECIDED",
+  "decision": "ADOPT_ALL",
+  "decision_date": "2026-08-30",
+  "decision_authority": "Human Constitutional Authority",
+  "authorized_by": "Explicit human instruction",
+  "authorization_record": "HUMAN CONSTITUTIONAL DECISION: ADOPT_ALL. Explicitly adopt RD-01 through RD-11 recommendations in the coordinated design package and all four components of the coordinated cross-domain decision package from PR #21.",
+  "controlling_decisions": ["CDR-001", "CDR-002", "CDR-003", "CDR-004", "CDR-005"],
+  "source_material": [
+    "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+    "constitutional-design/decisions/REMAINING-DESIGN-DECISION-PACKET.md",
+    "constitutional-design/decisions/CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+    "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
+    "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
+    "PR-20",
+    "PR-21"
+  ],
+  "adopted_design_recommendations": [
+    {"domain_id": "RD-01", "recommendation_sha256": "8ae3601414b50c1f98c44eed3be348862dfa0d8f1c0ac1f27ccddec9c9eed86d"},
+    {"domain_id": "RD-02", "recommendation_sha256": "3e9b721a4021a2e6b83f747eb5394eea183b766b4c928f09ab78f608c9e020eb"},
+    {"domain_id": "RD-03", "recommendation_sha256": "5377a2df3ca277341fc4b6d89335899254f632b44dfe18fc0ddcb6c44703bd0c"},
+    {"domain_id": "RD-04", "recommendation_sha256": "a1ac01ddd31bac8c0f98a0b28a12ed8465395a5c4e4bb9beb023b21c7b9162a3"},
+    {"domain_id": "RD-05", "recommendation_sha256": "714b26396210987c61e160f32c0a684d9bb089d7fd0ccb89491a269f31e6bfc5"},
+    {"domain_id": "RD-06", "recommendation_sha256": "e7a1af84f9bf5df96c56969cf15277255d4674b62034863dace19035e5205a02"},
+    {"domain_id": "RD-07", "recommendation_sha256": "77c069d5ca7f8df5ac38b90a1362bf1b44abfbd560343cde0bb626c83d45692e"},
+    {"domain_id": "RD-08", "recommendation_sha256": "29666bcf9ee8ed33a19a1f8949c4eddceec89f746a9237deb15c449672d4ef9b"},
+    {"domain_id": "RD-09", "recommendation_sha256": "357862d23e316e6fe9274afe1744753932071e76c66ae1a800b34a2d35c6ff24"},
+    {"domain_id": "RD-10", "recommendation_sha256": "3afe29ca1971592119b9edb2dcd4ee5b3da97ba04663c38ab45c798e1d7fb0c3"},
+    {"domain_id": "RD-11", "recommendation_sha256": "5f33b14236b8cdb3d6d9450dae8e8ed63854f324d53a4022bd215c03f19c753c"}
+  ],
+  "adopted_correction_components": [
+    {"component_id": "CDC-01", "title": "Human-Only Initialization and Vacancy", "component_sha256": "847a4a39a7205f176cfb7b8e87c77768a1542c918bdaf58e824b2fc042933416"},
+    {"component_id": "CDC-02", "title": "Successor Predesignation and Failure Fallback", "component_sha256": "dcd78dc10b675fb6e96e9395e063db59868fd50bdadfa74a6bccee79c71cbeb2"},
+    {"component_id": "CDC-03", "title": "Accountable Post-Refounding Transition", "component_sha256": "b55d35e1ca27fafc9ec70e3ed386b4708117960e1963bd00abfef9631de6b5e9"},
+    {"component_id": "CDC-04", "title": "Reviewer-Non-Sovereign Remedies", "component_sha256": "5579dd8f73d6226b1a7bdbae52e59bf952d57a92e7d1c61329172df993b00598"}
+  ],
+  "interpretive_rule": "The referenced recommendations and correction components are adopted as one coordinated package without reinterpretation, expansion, optimization, or severance. CDR-001 through CDR-005 control any ambiguity.",
+  "authority_boundaries": [
+    "Human sovereignty over foundational ends remains intact.",
+    "Artificial intelligence cannot independently create, acquire, appoint, remove, replace, adjudicate finally, amend, refound, succeed to, or otherwise exercise foundational constitutional authority.",
+    "Capability, reliance, operational necessity, emergency, vacancy, performance, and effective control create no authority.",
+    "Binding constitutional review remains subject to reviewer non-sovereignty.",
+    "Adjudication cannot become appointment, office creation, institutional-end selection, amendment, refounding, or continuing managerial control.",
+    "Emergency authority cannot become succession or foundational authority.",
+    "Continuity cannot become sovereign succession.",
+    "Refounding cannot erase constitutional history."
+  ],
+  "resolved_cross_domain_contradictions": [
+    "Bootstrap circularity is removed by bounded Human Constitutional Authority initialization followed by separated human appointment and vacancy processes.",
+    "Succession dead end is removed by valid successor predesignation, ordinary human succession, a predefined human non-quorum fallback, and the RD-07 outer limit.",
+    "Transition-accountability failure is removed by requiring independent human review, verification, enforcement, removal, and replacement to be operative when refounding takes effect.",
+    "Reviewer-sovereignty risk is removed by separating vacancy declaration from human replacement selection and bounding diversification remedies against appointment, office creation, institutional ends, amendment, refounding, and continuing management."
+  ],
+  "resulting_state": {
+    "design_recommendations_adopted": 11,
+    "decision_components_adopted": 4,
+    "blocking_cross_domain_contradictions_remaining": 0,
+    "ready_for_constitutional_draft": 20,
+    "blocked_by_unresolved_design": 0,
+    "constitutional_provision_count": 0,
+    "runtime_artifact_count": 0
+  },
+  "resulting_requirements": [],
+  "requirement_rationale": "No new source requirement is necessary. CR-001 through CR-035 already state the controlling constitutional obligations; this decision supplies the coordinated architecture, selectors, thresholds, boundaries, and provenance needed to draft those accepted requirements.",
+  "subordinate_governance_questions": [
+    "Eligibility administration, nomination, human sortition, scheduling, and ordinary vacancy processing",
+    "Successor-designation registration, periodic confirmation, revocation administration, evidence intake, alternate-pool management, and recounts",
+    "Transition reporting, claims processing, asset inventory, record transfer, notice, and replacement administration",
+    "Remedial evidence formats, compliance milestones, reporting intervals, procurement alternatives, and verification methods"
+  ],
+  "implementation_questions": [
+    "Identity, authentication, credentials, and attributable-signature mechanisms",
+    "Tamper-evident storage, retention, export, archival, and non-erasure tooling",
+    "Voting, sortition, quorum, recusal, challenge, appeal, and notification interfaces",
+    "Evidence capture, dependency inventories, audit telemetry, and machine-assistance disclosures",
+    "Case, enforcement, transition, restoration, restitution, compensation, and claims-management systems"
+  ],
+  "provenance": {
+    "source": "Explicit Human Constitutional Authority instruction in this repository session on 2026-08-30",
+    "recorded_by": "GitHub Copilot as a transcription and validation assistant",
+    "authority_boundary": "The human instruction supplies constitutional authority. Artificial-intelligence analysis, hashes, transcription, tests, and validation supply no independent authority."
+  }
+}
