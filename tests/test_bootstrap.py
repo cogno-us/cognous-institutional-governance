@@ -141,6 +141,23 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["subordinate_governance_law_count"], 0)
         self.assertEqual(result.metrics["implementation_standard_count"], 0)
         self.assertEqual(result.metrics["unmapped_requirement_count"], 0)
+        self.assertEqual(result.metrics["design_domain_count"], 11)
+        self.assertEqual(result.metrics["human_decisions_required"], 11)
+        self.assertEqual(result.metrics["recommended_decision_count"], 11)
+        self.assertEqual(result.metrics["cross_domain_conflict_count"], 7)
+        self.assertEqual(
+            result.metrics[
+                "projected_ready_for_constitutional_draft_count"
+            ],
+            20,
+        )
+        self.assertEqual(result.metrics["projected_blocked_count"], 0)
+        self.assertEqual(
+            result.metrics[
+                "genuine_residual_implementation_question_count"
+            ],
+            7,
+        )
 
     def test_consolidated_requirement_map_is_required(self) -> None:
         (
@@ -318,6 +335,179 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             lambda text: text + "\nA Council shall consist of nine members.\n",
         )
         self.assert_error("ARTICLE_ARCHITECTURE_NO_PROVISIONS")
+
+    def test_remaining_design_matrix_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "REMAINING-DESIGN-MATRIX.yaml"
+        ).unlink()
+        self.assert_error("REMAINING_DESIGN_MATRIX_SCHEMA")
+
+    def test_remaining_design_analysis_cannot_record_a_decision(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record.update(
+                status="ADOPTED",
+                decision_effect="CONSTITUTIONAL",
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_BOUNDARY")
+
+    def test_remaining_design_requires_all_domains(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"].pop(),
+        )
+        self.assert_error("REMAINING_DESIGN_DOMAINS")
+
+    def test_remaining_design_requires_three_alternatives(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"][0]["alternatives"].pop(),
+        )
+        self.assert_error("REMAINING_DESIGN_ALTERNATIVES")
+
+    def test_remaining_design_requires_every_stress_dimension(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"][0]["alternatives"][0][
+                "stress_test"
+            ].pop("bad_human"),
+        )
+        self.assert_error("REMAINING_DESIGN_ALTERNATIVES")
+
+    def test_remaining_design_requires_a_recommendation(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"][0][
+                "recommendation"
+            ].pop("human_decision_required"),
+        )
+        self.assert_error("REMAINING_DESIGN_RECOMMENDATION")
+
+    def test_remaining_design_recommendation_must_close_key_choices(
+        self,
+    ) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"][9][
+                "recommendation"
+            ].update(
+                architecture=record["design_domains"][9]["recommendation"][
+                    "architecture"
+                ].replace("Before the second", "After the second")
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_DECISION_COMPLETENESS")
+
+    def test_remaining_design_references_must_resolve(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"][0][
+                "blocked_requirements"
+            ].append("CCR-999"),
+        )
+        self.assert_error("REMAINING_DESIGN_DOMAINS")
+
+    def test_remaining_design_requires_exact_human_decisions(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["human_decisions_required"].pop(),
+        )
+        self.assert_error("REMAINING_DESIGN_HUMAN_DECISIONS")
+
+    def test_remaining_design_requires_integrated_conflicts(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["cross_domain_conflicts"].pop(),
+        )
+        self.assert_error("REMAINING_DESIGN_CONFLICTS")
+
+    def test_remaining_design_projection_covers_every_ccr_once(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record[
+                "projected_consolidated_requirements"
+            ].pop(),
+        )
+        self.assert_error("REMAINING_DESIGN_PROJECTION")
+
+    def test_remaining_design_projection_matches_current_map(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["projected_consolidated_requirements"][
+                0
+            ].update(current_classification="BLOCKED_BY_UNRESOLVED_DESIGN"),
+        )
+        self.assert_error("REMAINING_DESIGN_PROJECTION")
+
+    def test_remaining_design_projection_must_be_conditional(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["projection"].update(
+                condition="The recommendations are effective immediately.",
+                projection_has_constitutional_effect=True,
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_PROJECTION")
+
+    def test_remaining_design_preserves_current_state(self) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["state_preservation"].update(
+                constitutional_provision_count=1
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_STATE")
+
+    def test_remaining_design_residuals_must_be_implementation_only(
+        self,
+    ) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record[
+                "genuine_residual_implementation_questions"
+            ].append("Decide the constitutional constituency."),
+        )
+        self.assert_error("REMAINING_DESIGN_RESIDUALS")
+
+    def test_remaining_design_packet_must_match_matrix(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "REMAINING-DESIGN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "## DECISION-RD-11", "## OMITTED-RD-11"
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_PACKET_CONTENT")
+
+    def test_remaining_design_packet_requires_same_decision_contract(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "REMAINING-DESIGN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "four standing", "three standing"
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_PACKET_AGREEMENT")
+
+    def test_remaining_design_contract_detects_substantive_matrix_change(
+        self,
+    ) -> None:
+        self.update_json(
+            "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+            lambda record: record["design_domains"][9][
+                "recommendation"
+            ].update(
+                architecture=record["design_domains"][9]["recommendation"][
+                    "architecture"
+                ].replace("180 days", "181 days")
+            ),
+        )
+        self.assert_error("REMAINING_DESIGN_PACKET_AGREEMENT")
 
     def test_fq5_analytical_record_is_required(self) -> None:
         (

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -2270,6 +2271,12 @@ CONSOLIDATED_MAP_RELATIVE_PATH = Path(
 ARTICLE_ARCHITECTURE_RELATIVE_PATH = Path(
     "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md"
 )
+REMAINING_DESIGN_MATRIX_RELATIVE_PATH = Path(
+    "constitutional-design/REMAINING-DESIGN-MATRIX.yaml"
+)
+REMAINING_DESIGN_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/REMAINING-DESIGN-DECISION-PACKET.md"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -2310,6 +2317,66 @@ EXPECTED_CONSOLIDATED_CLASSIFICATION_COUNTS = {
     "BLOCKED_BY_UNRESOLVED_DESIGN": 9,
     "SUBORDINATE_GOVERNANCE_LAW": 0,
     "IMPLEMENTATION_STANDARD": 0,
+}
+REMAINING_DESIGN_MATRIX_FIELDS = {
+    "matrix_id",
+    "status",
+    "decision_effect",
+    "controlling_material",
+    "boundary",
+    "stress_test_dimensions",
+    "design_domains",
+    "cross_domain_conflicts",
+    "human_decisions_required",
+    "projected_consolidated_requirements",
+    "projection",
+    "genuine_residual_implementation_questions",
+    "state_preservation",
+    "provenance",
+}
+REMAINING_DESIGN_DOMAIN_FIELDS = {
+    "domain_id",
+    "title",
+    "blocked_requirements",
+    "unresolved_issues",
+    "alternatives",
+    "recommendation",
+    "dependencies",
+    "cross_domain_conflicts",
+    "residual_implementation_questions",
+}
+REMAINING_DESIGN_STRESS_DIMENSIONS = {
+    "bad_human",
+    "bad_artificial_intelligence",
+    "coalition_capture",
+    "continuity",
+    "reversibility",
+    "legitimacy",
+    "human_comprehensibility",
+}
+EXPECTED_BLOCKED_CONSOLIDATED_REQUIREMENTS = {
+    "CCR-003",
+    "CCR-006",
+    "CCR-008",
+    "CCR-010",
+    "CCR-012",
+    "CCR-013",
+    "CCR-014",
+    "CCR-015",
+    "CCR-019",
+}
+REMAINING_DESIGN_DECISION_TERMS = {
+    "RD-01": ("authority-or-beneficiary", "four standing channels"),
+    "RD-02": ("five-human", "both nonappointing channels"),
+    "RD-03": ("one appeal", "Enforcement Office", "Verification Office"),
+    "RD-04": ("clear and convincing", "twenty-four hours"),
+    "RD-05": ("six hours", "twenty-four hours"),
+    "RD-06": ("three materially independent", "seven-human Succession Council"),
+    "RD-07": ("180-day", "immediate"),
+    "RD-08": ("three equal", "affected human beneficiaries", "before the first vote"),
+    "RD-09": ("twenty-four months", "semantic-drift audit"),
+    "RD-10": ("Before the second", "cannot take effect", "activates"),
+    "RD-11": ("sole gatekeeper", "substantive machine domination"),
 }
 EXPECTED_ARTICLE_TITLES = [
     "Constitutional Identity and Human Sovereignty",
@@ -6393,6 +6460,410 @@ def _validate_article_architecture(
     return metrics
 
 
+def _validate_remaining_design_analysis(
+    root: Path,
+    errors: list[str],
+) -> dict[str, int]:
+    metrics = {
+        "design_domain_count": 0,
+        "human_decisions_required": 0,
+        "recommended_decision_count": 0,
+        "cross_domain_conflict_count": 0,
+        "projected_ready_for_constitutional_draft_count": 0,
+        "projected_blocked_count": 0,
+        "genuine_residual_implementation_question_count": 0,
+    }
+    matrix_path = root / REMAINING_DESIGN_MATRIX_RELATIVE_PATH
+    record = _load_record(matrix_path, errors) or {}
+    if set(record) != REMAINING_DESIGN_MATRIX_FIELDS:
+        errors.append(
+            "REMAINING_DESIGN_MATRIX_SCHEMA: exact top-level fields are required"
+        )
+    if (
+        record.get("matrix_id") != "REMAINING-DESIGN-MATRIX-001"
+        or record.get("status") != "ADVISORY_ANALYSIS_ONLY"
+        or record.get("decision_effect") != "NONE"
+        or not _is_evidence(record.get("boundary"))
+        or "do not decide" not in str(record.get("boundary", "")).lower()
+        or "create a constitutional provision" not in str(
+            record.get("boundary", "")
+        ).lower()
+    ):
+        errors.append(
+            "REMAINING_DESIGN_BOUNDARY: analysis must remain advisory, "
+            "nonoperative, and non-provisioning"
+        )
+
+    expected_domain_ids = {f"RD-{index:02d}" for index in range(1, 12)}
+    expected_decision_ids = {
+        f"DECISION-RD-{index:02d}" for index in range(1, 12)
+    }
+    expected_ccr_ids = {f"CCR-{index:03d}" for index in range(1, 21)}
+    expected_issue_ids = {f"IR-{index:02d}" for index in range(1, 19)}
+    if set(record.get("stress_test_dimensions", [])) != (
+        REMAINING_DESIGN_STRESS_DIMENSIONS
+    ):
+        errors.append(
+            "REMAINING_DESIGN_STRESS_DIMENSIONS: exact seven failure modes "
+            "are required"
+        )
+
+    domains = record.get("design_domains")
+    domain_records = (
+        [item for item in domains if isinstance(item, dict)]
+        if isinstance(domains, list)
+        else []
+    )
+    domain_ids = {
+        item.get("domain_id")
+        for item in domain_records
+        if isinstance(item.get("domain_id"), str)
+    }
+    blocked_coverage: set[str] = set()
+    malformed_domain = (
+        not isinstance(domains, list) or len(domain_records) != len(domains)
+    )
+    for domain in domain_records:
+        domain_id = domain.get("domain_id")
+        alternatives = domain.get("alternatives")
+        recommendation = domain.get("recommendation")
+        blocked = domain.get("blocked_requirements")
+        issues = domain.get("unresolved_issues")
+        dependencies = domain.get("dependencies")
+        if (
+            set(domain) != REMAINING_DESIGN_DOMAIN_FIELDS
+            or not _is_evidence(domain.get("title"))
+            or not isinstance(blocked, list)
+            or not blocked
+            or not set(blocked).issubset(
+                EXPECTED_BLOCKED_CONSOLIDATED_REQUIREMENTS
+            )
+            or not isinstance(issues, list)
+            or not issues
+            or not set(issues).issubset(expected_issue_ids)
+            or not isinstance(dependencies, list)
+            or not set(dependencies).issubset(expected_domain_ids)
+            or domain_id in dependencies
+            or not isinstance(domain.get("cross_domain_conflicts"), list)
+            or not domain.get("cross_domain_conflicts")
+            or not isinstance(
+                domain.get("residual_implementation_questions"), list
+            )
+            or not domain.get("residual_implementation_questions")
+        ):
+            malformed_domain = True
+        if isinstance(blocked, list):
+            blocked_coverage.update(str(value) for value in blocked)
+        alternative_records = (
+            [item for item in alternatives if isinstance(item, dict)]
+            if isinstance(alternatives, list)
+            else []
+        )
+        if (
+            not 3 <= len(alternative_records) <= 5
+            or len(alternative_records) != len(alternatives or [])
+            or len(
+                {
+                    item.get("alternative_id")
+                    for item in alternative_records
+                }
+            )
+            != len(alternative_records)
+            or any(
+                set(item) != {"alternative_id", "architecture", "stress_test"}
+                or not _is_evidence(item.get("architecture"))
+                or not isinstance(item.get("stress_test"), dict)
+                or set(item["stress_test"])
+                != REMAINING_DESIGN_STRESS_DIMENSIONS
+                or any(
+                    not _is_evidence(value)
+                    for value in item["stress_test"].values()
+                )
+                for item in alternative_records
+            )
+        ):
+            errors.append(
+                "REMAINING_DESIGN_ALTERNATIVES: every domain requires three "
+                "to five alternatives with all seven stress tests"
+            )
+        alternative_ids = {
+            item.get("alternative_id") for item in alternative_records
+        }
+        if (
+            not isinstance(recommendation, dict)
+            or set(recommendation)
+            != {
+                "selected_alternative",
+                "architecture",
+                "human_decision_required",
+            }
+            or recommendation.get("selected_alternative") not in alternative_ids
+            or not _is_evidence(recommendation.get("architecture"))
+            or not _is_evidence(
+                recommendation.get("human_decision_required")
+            )
+        ):
+            errors.append(
+                "REMAINING_DESIGN_RECOMMENDATION: every domain requires one "
+                "recommendation and one explicit human decision"
+            )
+        recommendation_text = " ".join(
+            str(value) for value in (recommendation or {}).values()
+        )
+        if any(
+            term.lower() not in recommendation_text.lower()
+            for term in REMAINING_DESIGN_DECISION_TERMS.get(
+                str(domain_id), ()
+            )
+        ):
+            errors.append(
+                "REMAINING_DESIGN_DECISION_COMPLETENESS: "
+                f"{domain_id} omits a required constitutional choice"
+            )
+    if (
+        malformed_domain
+        or len(domain_records) != 11
+        or domain_ids != expected_domain_ids
+    ):
+        errors.append(
+            "REMAINING_DESIGN_DOMAINS: exact RD-01 through RD-11 records with "
+            "valid CCR, IR, dependency, conflict, and residual references are "
+            "required"
+        )
+    if blocked_coverage != EXPECTED_BLOCKED_CONSOLIDATED_REQUIREMENTS:
+        errors.append(
+            "REMAINING_DESIGN_BLOCKER_COVERAGE: all nine currently blocked "
+            "consolidated requirements must be analyzed"
+        )
+
+    conflicts = record.get("cross_domain_conflicts")
+    if (
+        not isinstance(conflicts, list)
+        or len(conflicts) != 7
+        or any(
+            not isinstance(item, dict)
+            or set(item)
+            != {"conflict_id", "conflict", "resolution_in_recommendations"}
+            or item.get("conflict_id") != f"XDC-{index:02d}"
+            or not _is_evidence(item.get("conflict"))
+            or not _is_evidence(item.get("resolution_in_recommendations"))
+            for index, item in enumerate(conflicts, start=1)
+        )
+    ):
+        errors.append(
+            "REMAINING_DESIGN_CONFLICTS: exact seven integrated conflict "
+            "records are required"
+        )
+
+    human_decisions = record.get("human_decisions_required")
+    if (
+        not isinstance(human_decisions, list)
+        or len(human_decisions) != 11
+        or set(human_decisions) != expected_decision_ids
+    ):
+        errors.append(
+            "REMAINING_DESIGN_HUMAN_DECISIONS: exact DECISION-RD-01 through "
+            "DECISION-RD-11 references are required"
+        )
+
+    map_record = _load_record(
+        root / CONSOLIDATED_MAP_RELATIVE_PATH, errors
+    ) or {}
+    current_classification = {
+        item.get("consolidated_id"): item.get("classification")
+        for item in map_record.get("consolidated_requirements", [])
+        if isinstance(item, dict)
+    }
+    projection_rows = record.get("projected_consolidated_requirements")
+    projected_records = (
+        [item for item in projection_rows if isinstance(item, dict)]
+        if isinstance(projection_rows, list)
+        else []
+    )
+    projected_ids: list[str] = []
+    projected_ready = 0
+    projected_blocked = 0
+    malformed_projection = (
+        not isinstance(projection_rows, list)
+        or len(projected_records) != len(projection_rows)
+    )
+    for item in projected_records:
+        consolidated_id = item.get("consolidated_requirement")
+        if isinstance(consolidated_id, str):
+            projected_ids.append(consolidated_id)
+        projected = item.get(
+            "projected_classification_if_all_recommendations_adopted"
+        )
+        if projected == "READY_FOR_CONSTITUTIONAL_DRAFT":
+            projected_ready += 1
+        if projected == "BLOCKED_BY_UNRESOLVED_DESIGN":
+            projected_blocked += 1
+        if (
+            set(item)
+            != {
+                "consolidated_requirement",
+                "current_classification",
+                "projected_classification_if_all_recommendations_adopted",
+            }
+            or item.get("current_classification")
+            != current_classification.get(consolidated_id)
+            or projected != "READY_FOR_CONSTITUTIONAL_DRAFT"
+        ):
+            malformed_projection = True
+    projection = record.get("projection")
+    if (
+        malformed_projection
+        or len(projected_records) != 20
+        or set(projected_ids) != expected_ccr_ids
+        or len(projected_ids) != len(set(projected_ids))
+        or not isinstance(projection, dict)
+        or set(projection)
+        != {
+            "condition",
+            "ready_for_constitutional_draft",
+            "blocked_by_unresolved_design",
+            "current_map_is_modified",
+            "projection_has_constitutional_effect",
+            "legitimacy_assessment",
+        }
+        or "only if" not in str(projection.get("condition", "")).lower()
+        or projection.get("ready_for_constitutional_draft") != 20
+        or projection.get("blocked_by_unresolved_design") != 0
+        or projection.get("current_map_is_modified") is not False
+        or projection.get("projection_has_constitutional_effect") is not False
+        or not _is_evidence(projection.get("legitimacy_assessment"))
+    ):
+        errors.append(
+            "REMAINING_DESIGN_PROJECTION: exact conditional, nonoperative "
+            "20-ready/0-blocked projection matching the current map is required"
+        )
+
+    residuals = record.get("genuine_residual_implementation_questions")
+    forbidden_residual_claims = (
+        "who may authorize",
+        "who may decide",
+        "constitutional threshold",
+        "constitutional constituency",
+        "institutional ends",
+        "foundational authority",
+    )
+    if (
+        not isinstance(residuals, list)
+        or len(residuals) != 7
+        or any(not _is_evidence(item) for item in residuals)
+        or any(
+            phrase in str(item).lower()
+            for item in residuals
+            for phrase in forbidden_residual_claims
+        )
+    ):
+        errors.append(
+            "REMAINING_DESIGN_RESIDUALS: exact genuine implementation-only "
+            "residual questions are required"
+        )
+    if record.get("state_preservation") != {
+        "decided_cdr_count": 5,
+        "resolved_foundational_question_count": 5,
+        "open_issue_count": 18,
+        "accepted_requirement_count": 35,
+        "current_ready_consolidated_requirement_count": 11,
+        "current_blocked_consolidated_requirement_count": 9,
+        "constitutional_provision_count": 0,
+        "runtime_artifact_count": 0,
+    }:
+        errors.append(
+            "REMAINING_DESIGN_STATE: exact existing constitutional state must "
+            "remain unchanged"
+        )
+    if not _has_provenance(record):
+        errors.append(
+            "REMAINING_DESIGN_PROVENANCE: explicit analytical provenance is "
+            "required"
+        )
+
+    packet_path = root / REMAINING_DESIGN_PACKET_RELATIVE_PATH
+    try:
+        packet_text = packet_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"REMAINING_DESIGN_PACKET_REQUIRED: {exc}")
+        packet_text = ""
+    packet_decisions = set(
+        re.findall(
+            r"^## (DECISION-RD-\d{2})\b",
+            packet_text,
+            flags=re.MULTILINE,
+        )
+    )
+    if (
+        packet_text.count("# Remaining Constitutional Design Decision Packet")
+        != 1
+        or packet_text.count(
+            "**ADVISORY ANALYSIS ONLY — NO CONSTITUTIONAL EFFECT**"
+        )
+        != 1
+        or packet_decisions != expected_decision_ids
+        or packet_text.count("**Recommendation:**") != 11
+        or packet_text.count("**Decision required:**") != 11
+        or "READY_FOR_CONSTITUTIONAL_DRAFT`: **20**" not in packet_text
+        or "BLOCKED_BY_UNRESOLVED_DESIGN`: **0**" not in packet_text
+        or "11 ready / 9 blocked" not in packet_text
+        or "If, and only if" not in packet_text
+        or "Constitutional provisions: **0**" not in packet_text
+        or "Runtime artifacts: **0**" not in packet_text
+    ):
+        errors.append(
+            "REMAINING_DESIGN_PACKET_CONTENT: packet must match all eleven "
+            "matrix decisions, preserve current state, and condition projection"
+        )
+    packet_headings, packet_bodies = _markdown_subsections(packet_text, 2)
+    packet_sections = {
+        heading.split(" —", 1)[0]: body
+        for heading, body in zip(packet_headings, packet_bodies, strict=True)
+    }
+    recommendations_by_domain = {
+        str(item.get("domain_id")): item.get("recommendation")
+        for item in domain_records
+    }
+    for decision_id in expected_decision_ids:
+        domain_id = decision_id.removeprefix("DECISION-")
+        section = packet_sections.get(decision_id, "")
+        normalized_section = re.sub(r"\s+", " ", section)
+        recommendation = recommendations_by_domain.get(domain_id)
+        canonical = json.dumps(
+            recommendation,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=True,
+        )
+        expected_digest = hashlib.sha256(canonical.encode()).hexdigest()
+        listed_digests = re.findall(
+            r"\*\*Canonical recommendation SHA-256:\*\* `([0-9a-f]{64})`",
+            section,
+        )
+        if any(
+            term.lower() not in normalized_section.lower()
+            for term in REMAINING_DESIGN_DECISION_TERMS[domain_id]
+        ) or listed_digests != [expected_digest]:
+            errors.append(
+                "REMAINING_DESIGN_PACKET_AGREEMENT: "
+                f"{decision_id} does not match the matrix decision contract"
+            )
+
+    metrics["design_domain_count"] = len(domain_records)
+    metrics["human_decisions_required"] = len(human_decisions or [])
+    metrics["recommended_decision_count"] = sum(
+        isinstance(item.get("recommendation"), dict)
+        for item in domain_records
+    )
+    metrics["cross_domain_conflict_count"] = len(conflicts or [])
+    metrics["projected_ready_for_constitutional_draft_count"] = projected_ready
+    metrics["projected_blocked_count"] = projected_blocked
+    metrics["genuine_residual_implementation_question_count"] = len(
+        residuals or []
+    )
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -6899,6 +7370,7 @@ def validate(root: Path) -> ValidationResult:
     article_architecture_metrics = _validate_article_architecture(
         root, decisions_by_id, requirements, errors
     )
+    remaining_design_metrics = _validate_remaining_design_analysis(root, errors)
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -7704,6 +8176,7 @@ def validate(root: Path) -> ValidationResult:
         "fq5_recommended_architecture": fq5_recommended_architecture,
         "fq5_refounding_principle_count": fq5_refounding_principle_count,
         **article_architecture_metrics,
+        **remaining_design_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
