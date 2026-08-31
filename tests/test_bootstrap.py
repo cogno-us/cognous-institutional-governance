@@ -194,9 +194,252 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(
             result.metrics["untraced_normative_proposition_count"], 0
         )
-        self.assertEqual(result.metrics["new_human_decisions_required"], 0)
+        self.assertEqual(result.metrics["new_human_decisions_required"], 3)
         self.assertEqual(result.metrics["cross_article_contradictions"], 0)
         self.assertEqual(result.metrics["open_questions_count"], 0)
+        self.assertEqual(
+            result.metrics["ratification_readiness"],
+            "NOT_READY_FOR_HUMAN_RATIFICATION",
+        )
+        self.assertEqual(result.metrics["constitutional_blocker_count"], 3)
+        self.assertEqual(
+            result.metrics["ratification_cross_article_contradiction_count"],
+            0,
+        )
+        self.assertEqual(
+            result.metrics["ratification_adversarial_tests_pass"], "7/13"
+        )
+        self.assertEqual(
+            result.metrics["human_comprehensibility_result"], "FAIL"
+        )
+        self.assertEqual(
+            result.metrics["subordinate_law_boundary_result"], "FAIL"
+        )
+        self.assertEqual(
+            result.metrics["ratification_recommendation"],
+            "DO_NOT_RATIFY_UNTIL_3_BLOCKERS_RESOLVED",
+        )
+        self.assertEqual(
+            result.metrics["final_ratification_blockers_analyzed"], 3
+        )
+        self.assertEqual(
+            result.metrics["integrated_architecture_recommended"],
+            "ALTERNATIVE_B",
+        )
+        self.assertEqual(
+            result.metrics["projected_ratification_blockers_remaining"], 0
+        )
+        self.assertEqual(
+            result.metrics["final_blocker_human_decisions_required"], 1
+        )
+        self.assertEqual(
+            result.metrics["final_blocker_subordinate_law_item_count"], 9
+        )
+
+    def test_final_blocker_analysis_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml"
+        ).unlink()
+        self.assert_error("FINAL_BLOCKER_ANALYSIS_REQUIRED")
+
+    def test_final_blocker_analysis_cannot_make_decision(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record.update(
+                status="DECIDED",
+                human_decision_made=True,
+                constitutional_effect="BINDING",
+            ),
+        )
+        self.assert_error("FINAL_BLOCKER_ANALYSIS_BOUNDARY")
+
+    def test_final_blocker_analysis_requires_all_blockers(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["blockers"].pop(),
+        )
+        self.assert_error("FINAL_BLOCKER_ANALYSIS_BLOCKERS")
+
+    def test_final_blocker_analysis_requires_all_stress_modes(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["integrated_alternatives"][0][
+                "stress_test"
+            ].pop("machine_domination"),
+        )
+        self.assert_error("FINAL_BLOCKER_ANALYSIS_ALTERNATIVE_COMPLETENESS")
+
+    def test_final_blocker_analysis_requires_four_alternatives(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["integrated_alternatives"].pop(),
+        )
+        self.assert_error("FINAL_BLOCKER_ANALYSIS_ALTERNATIVES")
+
+    def test_final_blocker_recommendation_requires_hca_root(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["recommended_integrated_architecture"][
+                "minimum_constitutional_allocations"
+            ].pop("human_constitutional_authority"),
+        )
+        self.assert_error("FINAL_BLOCKER_RECOMMENDATION")
+
+    def test_final_blocker_recommendation_requires_office_chains(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["recommended_integrated_architecture"][
+                "minimum_constitutional_allocations"
+            ]["verification_office"].pop("replacement"),
+        )
+        self.assert_error("FINAL_BLOCKER_RECOMMENDATION")
+
+    def test_final_blocker_recommendation_requires_closed_schedule(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["recommended_integrated_architecture"][
+                "minimum_constitutional_allocations"
+            ]["ordinary_human_governance_offices"].pop("anti_manipulation"),
+        )
+        self.assert_error("FINAL_BLOCKER_RECOMMENDATION")
+
+    def test_final_blocker_projection_remains_conditional(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["recommended_integrated_architecture"][
+                "projected_result_if_adopted_and_incorporated"
+            ].update(constitution_adopted=True),
+        )
+        self.assert_error("FINAL_BLOCKER_RECOMMENDATION")
+
+    def test_final_blocker_subordinate_items_are_exact(self) -> None:
+        self.update_json(
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+            lambda record: record["subordinate_law_items"].append(
+                "Subordinate law may choose HCA members."
+            ),
+        )
+        self.assert_error("FINAL_BLOCKER_SUBORDINATE_ITEMS")
+
+    def test_final_blocker_packet_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md"
+        ).unlink()
+        self.assert_error("FINAL_BLOCKER_PACKET_REQUIRED")
+
+    def test_final_blocker_packet_cannot_select_option(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "No option has been selected in this record.",
+                "Alternative B is hereby adopted.",
+            ),
+        )
+        self.assert_error("FINAL_BLOCKER_PACKET_CONTENT")
+
+    def test_ratification_review_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "RATIFICATION_REVIEW_v0.1.md"
+        ).unlink()
+        self.assert_error("RATIFICATION_REVIEW_REQUIRED")
+
+    def test_ratification_review_has_no_constitutional_effect(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "**RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT**",
+                "**CONSTITUTIONALLY BINDING REVIEW**",
+            ),
+        )
+        self.assert_error("RATIFICATION_REVIEW_BOUNDARY")
+
+    def test_ratification_review_cannot_claim_readiness(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "`NOT_READY_FOR_HUMAN_RATIFICATION`",
+                "`READY_FOR_HUMAN_RATIFICATION`",
+                1,
+            ),
+        )
+        self.assert_error("RATIFICATION_REVIEW_CLASSIFICATION")
+
+    def test_ratification_review_requires_exact_blockers(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "### Blocker 3 — Ordinary Human Governance Offices",
+                "### Observation 3 — Ordinary Human Governance Offices",
+            ),
+        )
+        self.assert_error("RATIFICATION_REVIEW_BLOCKERS")
+
+    def test_ratification_review_requires_all_article_pairs(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "| VII–VIII | Consistent |",
+                "| VII–VIII | Not reviewed |",
+            ).replace("| VII–VIII |", "| OMITTED |", 1),
+        )
+        self.assert_error("RATIFICATION_REVIEW_CROSS_ARTICLE")
+
+    def test_ratification_review_requires_all_adversarial_tests(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "| Effective-power takeover without formal authority | PASS |",
+                "| Effective-power takeover without formal authority | FAIL |",
+            ),
+        )
+        self.assert_error("RATIFICATION_REVIEW_ADVERSARIAL")
+
+    def test_ratification_review_requires_reader_questions(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "| Who holds authority? |",
+                "| Authority topic omitted |",
+            ),
+        )
+        self.assert_error("RATIFICATION_REVIEW_COMPREHENSIBILITY")
+
+    def test_ratification_review_preserves_subordinate_boundary(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "Subordinate law may\nadminister a constitutional selector",
+                "Subordinate law may create a constitutional selector",
+            ),
+        )
+        self.assert_error("RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY")
+
+    def test_ratification_review_requires_complete_coverage(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+            lambda text: text.replace(
+                "| Source requirements covered | 35/35 |",
+                "| Source requirements covered | 34/35 |",
+            ),
+        )
+        self.assert_error("RATIFICATION_REVIEW_COVERAGE")
+
+    def test_ratification_review_cannot_modify_constitution(self) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "Alvorada SHALL exist", "Alvorada MAY exist", 1
+            ),
+        )
+        self.assert_error("RATIFICATION_DRAFT_IMMUTABILITY")
 
     def test_constitution_draft_is_required(self) -> None:
         (
