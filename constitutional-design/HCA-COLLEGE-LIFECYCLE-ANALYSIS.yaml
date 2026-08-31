@@ -1,9 +1,9 @@
 {
   "analysis_id": "HCA-COLLEGE-LIFECYCLE-ANALYSIS-001",
-  "status": "AWAITING_HUMAN_DECISION",
-  "constitutional_effect": "NONE",
+  "status": "DECIDED",
+  "constitutional_effect": "DESIGN_AUTHORITY_ONLY",
   "draft_modified": false,
-  "human_decision_made": false,
+  "human_decision_made": true,
   "purpose": "Resolve the sole remaining ratification blocker through one coordinated analysis of the initial election, recurring election, removal, removal-as-succession, and constitutional-change boundaries of the seven-human Human Constitutional Authority College.",
   "authoritative_basis": [
     "constitutional-design/decisions/CDD-002.yaml",
@@ -220,12 +220,21 @@
     "Evidence, case-management, notice, and accessibility systems",
     "Storage, provenance, archival-integrity, telemetry, and recovery infrastructure"
   ],
-  "material_ambiguities": [
-    "No material internal ambiguity remains in recommended Alternative A, but it has no authority unless Human Constitutional Authority expressly adopts it.",
-    "The initial Schedule O population remains a separate required input to the eventual ratification instrument and is not decided by this lifecycle analysis."
-  ],
+  "material_ambiguities": [],
+  "adoption": {
+    "decision_id": "CDD-003",
+    "decision": "ADOPT_A",
+    "adopted_architecture": "ALTERNATIVE_A",
+    "status": "DECIDED",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-31 adopting Alternative A for the HCA College lifecycle architecture analyzed in merged PR #28.",
+    "decision_date": "2026-08-31",
+    "recommendation_sha256": "801b834cdb5d83c305c7b64b228382d1a1f275361d96a19de1de317418997549",
+    "constitution_ratified": false,
+    "operational_authority_created": false
+  },
   "provenance": {
     "source": "Repository analysis prepared on 2026-08-31 in response to an explicit request for one HCA College lifecycle decision package after PR #27 merged into origin/main.",
-    "authority_boundary": "This analysis and its recommendation create no constitutional authority, make no human decision, do not modify or ratify Constitution v0.1, and cannot authorize operation. Only a later attributable Human Constitutional Authority decision may adopt an architecture."
+    "authority_boundary": "The analysis and recommendation created no authority. CDD-003 records the later explicit Human Constitutional Authority adoption of Alternative A for direct draft incorporation only; neither record ratifies Constitution v0.1 or creates operational authority."
   }
 }

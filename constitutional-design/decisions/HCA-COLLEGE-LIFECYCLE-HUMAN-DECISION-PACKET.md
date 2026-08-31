@@ -1,8 +1,8 @@
 # Human Constitutional Authority College Lifecycle Decision Packet
 
-**AWAITING EXPLICIT HUMAN DECISION**
+**HUMAN DECISION RECORDED — ADOPT_A**
 
-**ANALYSIS AND RECOMMENDATION ONLY — NO CONSTITUTIONAL EFFECT**
+**DESIGN AUTHORITY ONLY — CONSTITUTION NOT RATIFIED**
 
 This packet addresses only the final ratification blocker recorded after
 `CDD-002`: constitution of the initial College, recurring elections, removal,
@@ -130,7 +130,8 @@ Alternative A is the minimum coherent completion of `CDD-002`.
    human-only nature of foundational authority, membership-rooted legitimacy,
    and artificial-intelligence ineligibility remain refounding-level.
 
-Projected after explicit adoption and faithful incorporation:
+The analysis projected the following state after explicit adoption and
+faithful incorporation:
 
 - constitutional blockers remaining: **0**;
 - lifecycle adversarial tests passed: **10/10**;
@@ -139,6 +140,10 @@ Projected after explicit adoption and faithful incorporation:
 - new Human Constitutional Authority decisions required: **1**;
 - Constitution adopted or ratified by this packet: **NO**;
 - operational authority created: **NO**.
+
+`CDD-003` supplies the one projected human decision. After faithful
+incorporation, the current readiness review records zero constitutional
+blockers and zero further human constitutional design decisions required.
 
 ## Preserved Subordinate Boundary
 
@@ -152,19 +157,21 @@ Five implementation categories remain: identity and credentials; voting
 software; sortition tooling; evidence, case, notice, and accessibility systems;
 and storage, provenance, archival, telemetry, and recovery infrastructure.
 
-## Human Decision Required
+## Human Decision Recorded
 
-One attributable Human Constitutional Authority decision may:
+On 2026-08-31, Human Constitutional Authority selected:
 
-- `ADOPT_A`
-- `ADOPT_B`
-- `ADOPT_C`
-- `REJECT_ALL`
-- `REQUEST_REVISION`
+**Decision:** `ADOPT_A`
 
-No option is selected in this packet.
+Alternative A and every boundary in its recommended integrated allocation are
+adopted for direct incorporation into Constitution v0.1. The nine subordinate
+governance-law categories and five implementation categories remain
+subordinate. This decision does not ratify the Constitution or create
+operational authority.
 
 Artificial-intelligence analysis, recommendation, drafting, hashing, testing,
 or validation creates no authority and cannot count as adoption.
+
+**HUMAN CONSTITUTIONAL AUTHORITY DECISION: ADOPT_A.**
 
 **CONSTITUTION v0.1 REMAINS DRAFT — NOT ADOPTED CONSTITUTION.**
