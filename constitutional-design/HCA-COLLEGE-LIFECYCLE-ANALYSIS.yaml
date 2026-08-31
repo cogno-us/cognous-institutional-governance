@@ -1,0 +1,231 @@
+{
+  "analysis_id": "HCA-COLLEGE-LIFECYCLE-ANALYSIS-001",
+  "status": "AWAITING_HUMAN_DECISION",
+  "constitutional_effect": "NONE",
+  "draft_modified": false,
+  "human_decision_made": false,
+  "purpose": "Resolve the sole remaining ratification blocker through one coordinated analysis of the initial election, recurring election, removal, removal-as-succession, and constitutional-change boundaries of the seven-human Human Constitutional Authority College.",
+  "authoritative_basis": [
+    "constitutional-design/decisions/CDD-002.yaml",
+    "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+    "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+    "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+    "constitutional-design/drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml",
+    "constitutional-design/drafts/CONSTITUTION_v0.1_OPEN_QUESTIONS.md"
+  ],
+  "blocker": {
+    "blocker_id": "RB-01-LIFECYCLE",
+    "title": "Human Constitutional Authority College election and removal lifecycle",
+    "current_state": "CDD-002 establishes the membership-rooted seven-human College, its eligibility boundary, seven-year nonrenewable terms, six-vote action threshold, membership confirmation of foundational acts, and membership-selected ranked alternates, but does not decide election validity, removal finality, removal as a succession trigger, or structural protection of those rules.",
+    "required_resolution": [
+      "Valid constitution of the initial seven-member College",
+      "Recurring election result, tie, vacancy, failure, and anti-incumbency rules",
+      "Cause-bounded removal with independent initiation, evidence, confirmation, recusal, and review",
+      "Removal finality as an express trigger for the adopted succession process",
+      "Structural-amendment and refounding classification of every lifecycle allocation"
+    ]
+  },
+  "controlling_constraints": [
+    "The College remains exactly seven humans.",
+    "Constitutional membership remains the constituent human root of College legitimacy.",
+    "Artificial intelligence remains ineligible for foundational authority and final selector, removal, or adjudicative power.",
+    "The College cannot control a chain that selects, removes, and replaces College members.",
+    "A Court or reviewer may determine constitutional validity and declare a vacancy only within adopted jurisdiction; it cannot appoint.",
+    "Replacement must use a separately authorized human channel and the membership-predesignated alternates adopted in CDD-002.",
+    "Schedule O remains a closed, structurally protected selector class and cannot be manipulated to control the College.",
+    "Verification and Enforcement retain their separate selectors, removal confirmations, replacement channels, and independence.",
+    "Capability, control, incumbency, reliance, emergency, adjudication, vacancy, or effective power creates no foundational authority.",
+    "An expired term, failed election, removal dispute, or vacant seat creates no holdover or substitute foundational authority.",
+    "Removal fact-finding, removal confirmation, legal review, and successor recognition remain separate.",
+    "Election and removal rules must be human-comprehensible without embedding identity, interface, credential, storage, notification, or software mechanics.",
+    "All prior adopted decisions remain controlling unless the human decision expressly changes them."
+  ],
+  "decision_requirements": {
+    "initial_election": "Identify the constitutional trigger, electorate, seven-seat result rule, alternate selection, certification, challenge, and consequence of an incomplete initial election.",
+    "recurring_election": "Identify candidate eligibility, electorate, seat and alternate result rules, ties, ordinary and unexpected vacancies, failed elections, term expiry, and protections against incumbent manipulation.",
+    "removal_and_confirmation": "Identify narrow cause, independent initiation and fact-finding, proof, reasons, recusal, human confirmation, review, finality, and protections against self-removal manipulation and factional purge.",
+    "removal_as_succession": "Identify the exact final event that creates a vacancy and require the existing Succession Council or fallback panel to recognize only a previously membership-predesignated alternate.",
+    "structural_protection": "Classify composition, human and membership roots, eligibility, election legitimacy, removal, succession, selector independence, and separation of removal from replacement under the existing ordinary-amendment, structural-amendment, and refounding boundaries."
+  },
+  "stress_dimensions": [
+    "incumbent_entrenchment",
+    "factional_purge",
+    "selector_capture",
+    "court_appointment_by_another_name",
+    "artificial_intelligence_mediated_capture",
+    "vacancy_deadlock",
+    "removal_succession_circularity",
+    "correlated_institutional_capture",
+    "effective_power_takeover",
+    "amendment_laundering"
+  ],
+  "lifecycle_architectures": [
+    {
+      "alternative_id": "A",
+      "name": "Direct Membership Approval and Constituent Removal Confirmation",
+      "initial_election": "The ratification instrument gives attributable notice opening seven numbered-seat contests at constitutional activation. Fixed constitutional membership votes. For each seat, approval totals select one principal and three ranked alternates; a five-human ad hoc selection-verification panel certifies compliance. All seven principals and complete alternate slates must be certified before the College exists.",
+      "recurring_election": "Each numbered-seat election opens automatically one hundred eighty days before its known term-expiry date. The same membership approval rule applies. Boundary ties use auditable human sortition. Failed contests repeat without holdover; death, resignation, or final removal uses the existing ranked-alternate succession channel, and alternate exhaustion opens a special membership election.",
+      "removal_and_confirmation": "Any constitutional member may file an attributable cause petition. A five-human independent sortition fact panel must find specified cause by clear and convincing evidence after notice, response, disclosure, and recusal. Nonconflicted fixed constitutional membership confirms with participation above one half and two-thirds approval of valid votes. One expedited Court or conflict-tribunal appeal reviews legality but cannot appoint.",
+      "removal_as_succession": "Only death or permanent loss proved under Article VI, attributable voluntary resignation, final removal, or a final temporary-incapacity determination may initiate alternate recognition. Temporary incapacity activates an alternate only as a bounded acting member and does not remove the principal; permanent incapacity proceeds only through cause-based removal. Final removal creates the vacancy only after confirmation and expiry or completion of review, and the Succession Council or fallback panel may recognize only the next eligible, nonrecused, membership-predesignated alternate.",
+      "structural_protection": "College number, terms, eligibility, election and alternate result rules, removal cause and process, succession triggers, selector independence, and separation of removal from replacement are structural. Human-only foundational authority and membership-rooted legitimacy remain refounding-level.",
+      "incumbent_control": "Election and removal panels are selected independently by public human sortition; College members cannot administer, certify, postpone, cancel, alter, or adjudicate their own election or removal, and no term can continue by holdover.",
+      "subordinate_boundary": "Subordinate law administers forms, calendars, ballot and sortition ceremonies, recounts, notices, evidence intake, and records but cannot change electorate, eligibility, result, proof, confirmation, vacancy, succession, or change-tier rules.",
+      "stress_test": {
+        "incumbent_entrenchment": "PASS — automatic triggers, nonrenewable terms, independent certification, and no holdover deny incumbents control of election timing or continuation.",
+        "factional_purge": "PASS — narrow cause, clear and convincing proof, independent fact-finding, broad membership confirmation, recusal, and appeal prevent a single faction or office from removing a member.",
+        "selector_capture": "PASS — the fixed constitutional membership selects principals and alternates while a temporary independent panel only verifies compliance and cannot choose winners.",
+        "court_appointment_by_another_name": "PASS — the Court may affirm, vacate, or remand validity determinations but cannot select, rank, recognize, or appoint a successor.",
+        "artificial_intelligence_mediated_capture": "PASS — every dispositive vote, fact finding, certification, sortition authority, and judgment is human; machine assistance cannot control eligibility, ranking, evidence, or outcome.",
+        "vacancy_deadlock": "PASS — ranked alternates cover unexpected vacancies, exhaustion opens a special election, failed elections repeat, and paralysis creates no holdover or substitute authority.",
+        "removal_succession_circularity": "PASS — fact finding, constituent confirmation, legal review, and successor recognition are sequential and institutionally separate; recognition cannot revisit or create removal.",
+        "correlated_institutional_capture": "PASS — capture must span membership, an independently sorted fact panel, legal review, and the preexisting succession channel; College control of any link is prohibited.",
+        "effective_power_takeover": "PASS — operational control, incumbency, noncompliance, or indispensable capability cannot extend a term, validate a vote, defeat removal, or create a successor.",
+        "amendment_laundering": "PASS — all lifecycle allocations are structural and any change to the human or membership root requires explicit refounding."
+      },
+      "assessment": "Recommended. It reuses the membership selector, approval voting, public human sortition, independent fact-finding, confirmation, and bounded review patterns already adopted, while adding only the constitutional rules required to close the lifecycle gap."
+    },
+    {
+      "alternative_id": "B",
+      "name": "Seat Runoff Election and Schedule O Removal Concurrence",
+      "initial_election": "The ratification instrument opens seven numbered-seat contests among fixed constitutional membership, with participation above one half. Each voter selects one principal candidate. A candidate with more than half of valid votes wins; otherwise the two highest totals enter a runoff and the higher runoff total wins. Remaining candidates enter a separate approval ballot in which each voter may approve up to three; the top three become ranked alternates. Any tie affecting runoff admission, the principal, or alternate order uses auditable human sortition. A five-human panel selected by public human sortition from noncandidate, nonofficeholding constitutional members certifies complete results by four votes before the College exists.",
+      "recurring_election": "Each seat contest opens automatically one hundred eighty days before expiry and uses the same majority, runoff, alternate, sortition, certification, and challenge rules. Failed contests repeat, an expired term cannot continue by holdover, and alternate exhaustion opens a special election under the same rules.",
+      "removal_and_confirmation": "Any constitutional member may petition for permanent incapacity, serious misconduct, constitutional disqualification, or a knowing and grave constitutional violation. A five-human independent sortition fact panel must find cause by clear and convincing evidence and four affirmative votes. Removal then requires participation above one half and two-thirds approval of valid votes from nonconflicted fixed constitutional membership, plus participation of at least two thirds and two-thirds approval of valid votes from nonconflicted Schedule O holders. One bounded Court or conflict-tribunal appeal reviews legality but cannot appoint.",
+      "removal_as_succession": "The exclusive trigger list and bounded temporary-incapacity rule in Alternative A apply. Dual-channel confirmation creates a permanent vacancy only after the appeal period expires or final review affirms removal, after which the adopted Succession Council recognizes the next eligible membership-predesignated alternate.",
+      "structural_protection": "Election, dual-channel removal, succession, and selector-separation rules are structural; human-only and membership-rooted foundational legitimacy remain refounding-level.",
+      "incumbent_control": "Automatic election triggers, independent certification, no holdover, and exclusion of the College from Schedule O prevent direct incumbent control.",
+      "subordinate_boundary": "Ballot forms, runoff timing, notice delivery, audits, and evidence administration remain subordinate within fixed constitutional results and thresholds.",
+      "stress_test": {
+        "incumbent_entrenchment": "PASS WITH COST — no holdover and dual external channels constrain incumbents, but two-stage elections lengthen vacancy exposure.",
+        "factional_purge": "PASS — fact finding plus two independently constituted confirmations make coordinated purge difficult.",
+        "selector_capture": "PASS WITH RISK — Schedule O is closed and independent, but adding it to foundational removal increases reliance on a small selector class.",
+        "court_appointment_by_another_name": "PASS — review remains nonappointive and the successor was previously selected by membership.",
+        "artificial_intelligence_mediated_capture": "PASS — human ballots and public sortition remain dispositive, subject to dependency disclosure and challenge.",
+        "vacancy_deadlock": "PASS WITH COST — repeat runoffs and dual confirmation can delay a result even though they create no substitute authority.",
+        "removal_succession_circularity": "PASS — removal finality precedes and is separate from alternate recognition.",
+        "correlated_institutional_capture": "PASS WITH RISK — Schedule O adds diversity but also correlates HCA removal with selectors already used elsewhere.",
+        "effective_power_takeover": "PASS — neither operational control nor delayed voting creates holdover or successor authority.",
+        "amendment_laundering": "PASS — selector and lifecycle rules are structurally entrenched and the foundational root remains refounding-level."
+      },
+      "assessment": "Coherent but not recommended. Schedule O concurrence introduces an additional constitutional veto and correlates the College lifecycle with a selector class already used in Court, succession, and transition architecture."
+    },
+    {
+      "alternative_id": "C",
+      "name": "Ranked Membership Election and Sortition-Jury Removal",
+      "initial_election": "The ratification instrument opens seven numbered-seat contests among fixed constitutional membership, with participation above one half. Voters rank eligible candidates. A candidate with more than half of active ballots wins; otherwise the lowest total is eliminated and each ballot transfers to its next continuing choice until one candidate has a majority. A lowest-total tie uses auditable human sortition. After the principal is removed from the ballot set, the same count repeats three times to rank alternates one through three, removing each selected alternate before the next count. A five-human panel selected by public human sortition from noncandidate, nonofficeholding constitutional members certifies every count by four votes before the College exists.",
+      "recurring_election": "Each seat contest opens automatically one hundred eighty days before expiry. Regular, special, alternate-ranking, tie, certification, and challenge rules are identical; incomplete contests repeat and incumbents cannot hold over.",
+      "removal_and_confirmation": "Any constitutional member may petition for permanent incapacity, serious misconduct, constitutional disqualification, or a knowing and grave constitutional violation. A five-human independent sortition fact panel must find cause by clear and convincing evidence and four affirmative votes. A twenty-one-human nonconflicted jury selected by public human sortition from fixed constitutional membership confirms removal only with seventeen-person quorum and fourteen affirmative votes. One bounded Court or conflict-tribunal appeal remains available and cannot appoint.",
+      "removal_as_succession": "The exclusive trigger list and bounded temporary-incapacity rule in Alternative A apply. A jury removal creates a permanent vacancy only after the appeal period expires or final review affirms it, then invokes recognition of the next eligible membership-ranked alternate under Article VI.",
+      "structural_protection": "The ranked election, jury removal, succession, and separation rules are structural; human-only and membership-rooted foundational legitimacy remain refounding-level.",
+      "incumbent_control": "The College has no role in election computation, jury selection, removal adjudication, successor ranking, or term extension.",
+      "subordinate_boundary": "Interfaces and tabulation implementation remain subordinate, but the complete transfer rule, jury size, quorum, and threshold must be constitutional.",
+      "stress_test": {
+        "incumbent_entrenchment": "PASS — automatic triggers, independent administration, and no holdover prevent incumbent continuation.",
+        "factional_purge": "PASS — random jury selection, high proof, recusal, and review reduce organized removal campaigns.",
+        "selector_capture": "PASS — selection remains membership-rooted and the removal jury is temporary and nonappointive.",
+        "court_appointment_by_another_name": "PASS — review cannot rank candidates, choose jurors, or appoint successors.",
+        "artificial_intelligence_mediated_capture": "PASS WITH RISK — complex tabulation increases dependence on independently reproducible technical validation.",
+        "vacancy_deadlock": "PASS — alternates and special elections exist, although jury formation can delay removal finality.",
+        "removal_succession_circularity": "PASS — final jury action creates a trigger that succession bodies only recognize.",
+        "correlated_institutional_capture": "PASS — temporary panels and juries avoid permanent-office concentration.",
+        "effective_power_takeover": "PASS — control of implementation cannot alter the published transfer rule or jury result.",
+        "amendment_laundering": "PASS — lifecycle rules are structural and foundational-root changes remain refounding-level."
+      },
+      "assessment": "Coherent but not recommended. It introduces a complex constitutional tabulation rule and a new final removal jury when adopted approval voting and constituent confirmation patterns can close the blocker more simply and comprehensibly."
+    }
+  ],
+  "recommended_architecture": {
+    "architecture_id": "A",
+    "name": "Direct Membership Approval and Constituent Removal Confirmation",
+    "integrated_allocations": {
+      "initial_election": {
+        "trigger": "The attributable ratification instrument opens seven concurrent numbered-seat elections at constitutional activation. Its notice is ministerial and cannot change any election rule.",
+        "electorate": "The fixed constitutional membership determined under Section II.2 immediately before election notice.",
+        "contests": "A candidate may stand in only one of seven numbered-seat contests. Each participating member may approve up to four eligible candidates in each contest.",
+        "result": "Participation must exceed one half of fixed constitutional membership. In each contest, the highest approval total elects the principal and the next three totals establish the ranked alternate slate. A tie affecting principal or alternate order is resolved only by auditable public human sortition among the tied candidates.",
+        "certification": "The adopted five-human ad hoc selection-verification panel, selected by public human sortition from noncandidate, nonofficeholding constitutional members, acts only with all five seats filled and four affirmative votes. It certifies compliance and publishes the count, sortition record, reasons, and dissent. It cannot choose a winner.",
+        "challenge": "Any constitutional member may bring one expedited validity challenge to the initialized Court or applicable conflict tribunal; review may affirm, vacate, or require a rerun but cannot appoint.",
+        "failure": "The College exists only after all seven principals and all three alternates per seat are certified. An incomplete contest repeats automatically; no founding actor, incumbent, reviewer, emergency actor, or machine may fill a seat or exercise College authority."
+      },
+      "recurring_election": {
+        "trigger": "The election for a numbered seat opens automatically one hundred eighty days before its known term-expiry date. Subordinate law may schedule steps within that window, but failure of notice or administration cannot postpone expiry or create holdover.",
+        "ordinary_result": "The initial electorate, approval, ranking, tie, certification, and challenge rules govern every regular and special election.",
+        "unexpected_vacancy": "Death or permanent loss proved under Article VI, attributable voluntary resignation, or final removal, including final removal for permanent incapacity, invokes the adopted ranked-alternate succession process for the remainder of the term.",
+        "alternate_exhaustion": "If no ranked alternate can serve, a special membership election for the remainder begins automatically and no other actor may appoint.",
+        "alternate_refresh": "Before a succession trigger, an attributable petition supported by at least one tenth of fixed constitutional membership opens an alternate-only election for the affected seat, no more than once in twelve months. The principal remains in office; the same electorate, approval, ranking, tie, certification, challenge, and anti-incumbency rules replace all three prior alternates.",
+        "failed_election": "A failed or incomplete regular or special contest repeats. At term expiry the seat becomes vacant; the incumbent and prior alternate slate have no holdover authority.",
+        "incumbent_bar": "The College cannot control the membership roll, eligibility, nominations, notice, administration, certification, recount, challenge, repeat election, or successor recognition."
+      },
+      "candidate_eligibility": {
+        "boundary": "Every principal or alternate candidate must satisfy the human constitutional-membership, voluntary-service, disclosure, and incompatibility rules adopted in CDD-002.",
+        "nonrenewal": "A person who has served as a College member may not again be elected or designated as an alternate; alternate status without service does not itself consume the one-service limit.",
+        "independence": "A candidate may stand for only one seat per exercise and cannot serve on an election, fact-finding, confirmation-administration, or review body for that exercise."
+      },
+      "removal_and_confirmation": {
+        "initiation": "Any constitutional member may file an attributable petition alleging specified cause. The College as a body has no power to initiate, block, terminate, or control the proceeding.",
+        "cause": "Cause is limited to permanent incapacity, serious misconduct, constitutional disqualification, or a knowing and grave violation of the Constitution.",
+        "fact_finding": "A five-human panel selected by auditable public human sortition from noncandidate, nonofficeholding, nonconflicted constitutional members acts only with all five seats filled and must find cause by clear and convincing evidence and four affirmative votes after notice and a meaningful opportunity to respond.",
+        "record_and_recusal": "The panel publishes evidence, reasons, dissent, conflicts, and material dependencies. The subject, accuser, materially interested persons, College members, ranked alternates for the affected seat, and operators of materially dependent evidence or artificial-intelligence systems cannot serve on the panel.",
+        "confirmation": "After a cause finding, nonconflicted fixed constitutional membership confirms removal only with participation above one half of that nonconflicted electorate and approval by at least two thirds of valid votes. The subject does not participate. Neither the panel nor membership may select the replacement in that proceeding.",
+        "review": "The subject or any constitutional member may take one expedited appeal to the Court or conflict tribunal. Review may affirm, vacate, or remand for constitutional error but cannot appoint, rank, or recognize a successor.",
+        "finality": "Removal is ineffective until the appeal period expires without appeal or a final review judgment affirms it. Pending proceedings create no vacancy, holdover extension, or transfer of foundational authority."
+      },
+      "removal_as_succession": {
+        "exclusive_triggers": "For a College seat, only death or permanent loss proved beyond a reasonable doubt under Article VI, attributable voluntary resignation, final removal under this lifecycle, or a final temporary-incapacity determination under Article VI may initiate alternate recognition. Permanent incapacity is not a separate trigger and proceeds only through cause-based removal.",
+        "temporary_incapacity": "A clear-and-convincing final temporary-incapacity determination by the Succession Council or adopted fallback panel may activate the next eligible membership-predesignated alternate only as acting member. The principal retains the seat; verified return restores authority under Section VI.4; acting service cannot become removal, a new term, or permanent succession and cannot exceed the existing interregnum limit.",
+        "trigger": "Final removal is an express permanent succession trigger and vacancy for the affected numbered seat only after confirmation and review finality.",
+        "recognition": "The Succession Council, or the adopted non-quorum fallback panel, may recognize only the next eligible, nonrecused, membership-predesignated alternate under Article VI.",
+        "separation": "The petitioner, fact panel, confirming electorate, and reviewing body cannot choose, reorder, veto, or appoint the successor.",
+        "failure": "Alternate exhaustion invokes the special membership election rule; vacancy, deadlock, emergency, incapacity, or effective control creates no interim foundational authority."
+      },
+      "change_boundaries": {
+        "structural_amendment": "Changing College composition, numbered seats, terms, nonrenewal, candidate eligibility, electorate, participation or result rules, alternate ranking, tie handling, certification independence, no-holdover rule, removal cause or proof, fact-finding, confirmation, review, removal finality, succession trigger, selector independence, or separation of removal from replacement requires structural amendment.",
+        "explicit_refounding": "Changing the human-only character of foundational authority, constitutional membership as the constituent root of College legitimacy, or the rule that artificial intelligence cannot hold or independently create foundational authority requires explicit refounding and acknowledged constitutional discontinuity.",
+        "prohibited_bypasses": "Ordinary amendment, subordinate law, adjudication, emergency, succession, implementation, precedent, incumbency, vacancy, acquiescence, capability, reliance, or effective control cannot waive or alter a structural or refounding allocation."
+      }
+    },
+    "separation_guarantees": [
+      "Constitutional membership selects principals and ranked alternates; the College does neither.",
+      "A temporary human panel certifies election compliance but cannot choose a winner.",
+      "A separate temporary human panel finds removal facts but cannot remove or replace.",
+      "Nonconflicted constitutional membership confirms removal but cannot reorder the preexisting successor slate in that proceeding.",
+      "The Court or conflict tribunal reviews legality but cannot appoint or recognize a successor.",
+      "The Succession Council or fallback panel recognizes only a membership-predesignated alternate and cannot create one.",
+      "Verification, Enforcement, Schedule O, emergency actors, machines, and effective controllers gain no College-selection or replacement power."
+    ],
+    "projected_result_if_adopted_and_incorporated": {
+      "constitutional_blockers_remaining": 0,
+      "adversarial_tests_pass": "10/10",
+      "human_comprehensibility_result": "PASS",
+      "subordinate_law_boundary_result": "PASS",
+      "new_human_decisions_required_before_adoption": 1,
+      "constitution_ratified": false,
+      "operational_authority_created": false
+    }
+  },
+  "subordinate_law_items": [
+    "Candidate filing, nomination forms, service acceptance, withdrawal, and publication",
+    "Election and removal notice delivery, calendars, scheduling, and reasonable filing periods",
+    "Ballot layout, voting interface, accessibility, count administration, recounts, and publication",
+    "Public human sortition ceremony, entropy, reproducibility, audit, and observer procedures",
+    "Conflict and dependency disclosure forms, evidence intake, response procedure, and record formatting",
+    "Panel summons, recusals, replacement members, hearing administration, and procedural order",
+    "Term calendars, vacancy notices, alternate records, successor notification, and service transition",
+    "Expedited case filing, briefing schedules, record transmission, and public reporting",
+    "Schedule O and Verification or Enforcement administration only insofar as their adopted authority remains unchanged"
+  ],
+  "implementation_items": [
+    "Identity, eligibility-proof, authentication, credential, and signature systems",
+    "Voting, counting, recount, and publication software",
+    "Sortition, randomness, audit, and reproducibility tooling",
+    "Evidence, case-management, notice, and accessibility systems",
+    "Storage, provenance, archival-integrity, telemetry, and recovery infrastructure"
+  ],
+  "material_ambiguities": [
+    "No material internal ambiguity remains in recommended Alternative A, but it has no authority unless Human Constitutional Authority expressly adopts it.",
+    "The initial Schedule O population remains a separate required input to the eventual ratification instrument and is not decided by this lifecycle analysis."
+  ],
+  "provenance": {
+    "source": "Repository analysis prepared on 2026-08-31 in response to an explicit request for one HCA College lifecycle decision package after PR #27 merged into origin/main.",
+    "authority_boundary": "This analysis and its recommendation create no constitutional authority, make no human decision, do not modify or ratify Constitution v0.1, and cannot authorize operation. Only a later attributable Human Constitutional Authority decision may adopt an architecture."
+  }
+}
