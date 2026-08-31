@@ -2303,6 +2303,19 @@ FINAL_BLOCKER_PACKET_RELATIVE_PATH = Path(
     "constitutional-design/decisions/"
     "FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md"
 )
+HCA_LIFECYCLE_ANALYSIS_RELATIVE_PATH = Path(
+    "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml"
+)
+HCA_LIFECYCLE_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/"
+    "HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md"
+)
+EXPECTED_HCA_LIFECYCLE_PACKET_DIGEST = (
+    "91cfd66a380892367f8731650af62531ee7b1cd279b719f888ebc8b7167fab52"
+)
+EXPECTED_HCA_LIFECYCLE_RECOMMENDATION_DIGEST = (
+    "801b834cdb5d83c305c7b64b228382d1a1f275361d96a19de1de317418997549"
+)
 COORDINATED_DECISION_002_RELATIVE_PATH = Path(
     "constitutional-design/decisions/CDD-002.yaml"
 )
@@ -2503,6 +2516,37 @@ FINAL_BLOCKER_STRESS_DIMENSIONS = {
     "institutional_paralysis",
     "effective_power_takeover",
     "amendment_refounding_boundary",
+}
+HCA_LIFECYCLE_ANALYSIS_FIELDS = {
+    "analysis_id",
+    "status",
+    "constitutional_effect",
+    "draft_modified",
+    "human_decision_made",
+    "purpose",
+    "authoritative_basis",
+    "blocker",
+    "controlling_constraints",
+    "decision_requirements",
+    "stress_dimensions",
+    "lifecycle_architectures",
+    "recommended_architecture",
+    "subordinate_law_items",
+    "implementation_items",
+    "material_ambiguities",
+    "provenance",
+}
+HCA_LIFECYCLE_STRESS_DIMENSIONS = {
+    "incumbent_entrenchment",
+    "factional_purge",
+    "selector_capture",
+    "court_appointment_by_another_name",
+    "artificial_intelligence_mediated_capture",
+    "vacancy_deadlock",
+    "removal_succession_circularity",
+    "correlated_institutional_capture",
+    "effective_power_takeover",
+    "amendment_laundering",
 }
 REMAINING_DESIGN_STRESS_DIMENSIONS = {
     "bad_human",
@@ -8341,7 +8385,6 @@ def _validate_final_blocker_analysis(
                 "stress dimensions"
             )
             break
-
     recommendation = record.get("recommended_integrated_architecture")
     allocations = (
         recommendation.get("minimum_constitutional_allocations", {})
@@ -8603,6 +8646,441 @@ def _validate_final_blocker_analysis(
             "blocker_decision_status": "DECIDED",
             "ratification_blockers_resolved": 2,
             "ratification_blockers_remaining": 1,
+        }
+    )
+    return metrics
+
+
+def _validate_hca_lifecycle_analysis(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "lifecycle_architectures_analyzed": 0,
+        "recommended_lifecycle_architecture": "",
+        "projected_constitutional_blockers_remaining": 1,
+        "projected_lifecycle_adversarial_tests_pass": "0/10",
+        "projected_lifecycle_human_comprehensibility_result": "FAIL",
+        "projected_lifecycle_subordinate_law_boundary_result": "FAIL",
+        "lifecycle_new_human_decisions_required": 0,
+        "lifecycle_subordinate_law_items_remaining": 0,
+        "lifecycle_implementation_items_remaining": 0,
+        "lifecycle_material_ambiguity_count": 0,
+    }
+    record = _load_record(root / HCA_LIFECYCLE_ANALYSIS_RELATIVE_PATH, errors)
+    if record is None:
+        errors.append(
+            "HCA_LIFECYCLE_ANALYSIS_REQUIRED: coordinated analysis is required"
+        )
+        return metrics
+
+    if set(record) != HCA_LIFECYCLE_ANALYSIS_FIELDS:
+        errors.append(
+            "HCA_LIFECYCLE_ANALYSIS_SCHEMA: exact lifecycle-analysis fields "
+            "are required"
+        )
+    if (
+        record.get("analysis_id") != "HCA-COLLEGE-LIFECYCLE-ANALYSIS-001"
+        or record.get("status") != "AWAITING_HUMAN_DECISION"
+        or record.get("constitutional_effect") != "NONE"
+        or record.get("draft_modified") is not False
+        or record.get("human_decision_made") is not False
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_AUTHORITY_BOUNDARY: analysis-only status, no human "
+            "decision, no draft modification, and no constitutional effect "
+            "are required"
+        )
+
+    expected_basis = {
+        "constitutional-design/decisions/CDD-002.yaml",
+        "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+        "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+        "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+        "constitutional-design/drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml",
+        "constitutional-design/drafts/CONSTITUTION_v0.1_OPEN_QUESTIONS.md",
+    }
+    if (
+        not isinstance(record.get("authoritative_basis"), list)
+        or set(record.get("authoritative_basis", [])) != expected_basis
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_AUTHORITY_BASIS: exact adopted and current draft "
+            "lineage is required"
+        )
+
+    blocker = record.get("blocker")
+    if (
+        not isinstance(blocker, dict)
+        or set(blocker)
+        != {"blocker_id", "title", "current_state", "required_resolution"}
+        or blocker.get("blocker_id") != "RB-01-LIFECYCLE"
+        or not _is_evidence(blocker.get("current_state"))
+        or not isinstance(blocker.get("required_resolution"), list)
+        or len(blocker.get("required_resolution", [])) != 5
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_BLOCKER: the one five-part College lifecycle "
+            "blocker must remain exact"
+        )
+
+    requirement_keys = {
+        "initial_election",
+        "recurring_election",
+        "removal_and_confirmation",
+        "removal_as_succession",
+        "structural_protection",
+    }
+    requirements = record.get("decision_requirements")
+    if (
+        not isinstance(requirements, dict)
+        or set(requirements) != requirement_keys
+        or not all(_is_evidence(value) for value in requirements.values())
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_DECISION_SCOPE: all five lifecycle allocations "
+            "must be analyzed together"
+        )
+    if (
+        not isinstance(record.get("controlling_constraints"), list)
+        or len(record.get("controlling_constraints", [])) != 13
+        or not all(
+            _is_evidence(item)
+            for item in record.get("controlling_constraints", [])
+        )
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_CONSTRAINTS: exact adopted anti-sovereignty and "
+            "separation boundaries are required"
+        )
+    if (
+        not isinstance(record.get("stress_dimensions"), list)
+        or set(record.get("stress_dimensions", []))
+        != HCA_LIFECYCLE_STRESS_DIMENSIONS
+        or len(record.get("stress_dimensions", [])) != 10
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_STRESS_DIMENSIONS: exact ten-mode adversarial "
+            "review is required"
+        )
+
+    alternative_fields = {
+        "alternative_id",
+        "name",
+        "initial_election",
+        "recurring_election",
+        "removal_and_confirmation",
+        "removal_as_succession",
+        "structural_protection",
+        "incumbent_control",
+        "subordinate_boundary",
+        "stress_test",
+        "assessment",
+    }
+    alternatives = record.get("lifecycle_architectures")
+    if (
+        not isinstance(alternatives, list)
+        or len(alternatives) != 3
+        or [item.get("alternative_id") for item in alternatives] != [
+            "A",
+            "B",
+            "C",
+        ]
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_ARCHITECTURES: exactly three coherent lifecycle "
+            "architectures A through C are required"
+        )
+        alternatives = []
+    for alternative in alternatives:
+        stress_test = alternative.get("stress_test")
+        narrative = {
+            key: value
+            for key, value in alternative.items()
+            if key not in {"alternative_id", "stress_test"}
+        }
+        if (
+            set(alternative) != alternative_fields
+            or not all(_is_evidence(value) for value in narrative.values())
+            or not isinstance(stress_test, dict)
+            or set(stress_test) != HCA_LIFECYCLE_STRESS_DIMENSIONS
+            or not all(_is_evidence(value) for value in stress_test.values())
+        ):
+            errors.append(
+                "HCA_LIFECYCLE_ARCHITECTURE_COMPLETENESS: each architecture "
+                "must cover all lifecycle stages and ten adversarial tests"
+            )
+            break
+    recommended_stress = (
+        alternatives[0].get("stress_test", {}) if alternatives else {}
+    )
+    recommended_pass_count = sum(
+        str(value).startswith("PASS —")
+        for value in recommended_stress.values()
+    )
+    if recommended_pass_count != 10:
+        errors.append(
+            "HCA_LIFECYCLE_ADVERSARIAL_PROJECTION: Alternative A must pass "
+            "all ten required stress tests before a 10/10 projection"
+        )
+
+    recommendation = record.get("recommended_architecture")
+    allocations = (
+        recommendation.get("integrated_allocations", {})
+        if isinstance(recommendation, dict)
+        else {}
+    )
+    allocation_fields = {
+        "initial_election": {
+            "trigger",
+            "electorate",
+            "contests",
+            "result",
+            "certification",
+            "challenge",
+            "failure",
+        },
+        "recurring_election": {
+            "trigger",
+            "ordinary_result",
+            "unexpected_vacancy",
+            "alternate_exhaustion",
+            "alternate_refresh",
+            "failed_election",
+            "incumbent_bar",
+        },
+        "candidate_eligibility": {"boundary", "nonrenewal", "independence"},
+        "removal_and_confirmation": {
+            "initiation",
+            "cause",
+            "fact_finding",
+            "record_and_recusal",
+            "confirmation",
+            "review",
+            "finality",
+        },
+        "removal_as_succession": {
+            "exclusive_triggers",
+            "temporary_incapacity",
+            "trigger",
+            "recognition",
+            "separation",
+            "failure",
+        },
+        "change_boundaries": {
+            "structural_amendment",
+            "explicit_refounding",
+            "prohibited_bypasses",
+        },
+    }
+    projection = (
+        recommendation.get("projected_result_if_adopted_and_incorporated", {})
+        if isinstance(recommendation, dict)
+        else {}
+    )
+    recommendation_text = json.dumps(recommendation, sort_keys=True)
+    recommendation_digest = hashlib.sha256(
+        json.dumps(
+            recommendation,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+    required_recommendation_terms = (
+        "one hundred eighty days",
+        "one tenth of fixed constitutional membership",
+        "no more than once in twelve months",
+        "all five seats filled",
+        "four affirmative votes",
+        "final removal for permanent incapacity",
+        "one half of that nonconflicted electorate",
+        "next eligible, nonrecused, membership-predesignated alternate",
+        "only as acting member",
+        "Permanent incapacity is not a separate trigger",
+        "cannot exceed the existing interregnum limit",
+        "requires structural amendment",
+        "requires explicit refounding",
+    )
+    if (
+        not isinstance(recommendation, dict)
+        or set(recommendation)
+        != {
+            "architecture_id",
+            "name",
+            "integrated_allocations",
+            "separation_guarantees",
+            "projected_result_if_adopted_and_incorporated",
+        }
+        or recommendation.get("architecture_id") != "A"
+        or recommendation.get("name")
+        != "Direct Membership Approval and Constituent Removal Confirmation"
+        or recommendation_digest
+        != EXPECTED_HCA_LIFECYCLE_RECOMMENDATION_DIGEST
+        or set(allocations) != set(allocation_fields)
+        or any(
+            not isinstance(allocations.get(name), dict)
+            or set(allocations.get(name, {})) != fields
+            or not all(
+                _is_evidence(value)
+                for value in allocations.get(name, {}).values()
+            )
+            for name, fields in allocation_fields.items()
+        )
+        or not isinstance(recommendation.get("separation_guarantees"), list)
+        or len(recommendation.get("separation_guarantees", [])) != 7
+        or projection
+        != {
+            "constitutional_blockers_remaining": 0,
+            "adversarial_tests_pass": "10/10",
+            "human_comprehensibility_result": "PASS",
+            "subordinate_law_boundary_result": "PASS",
+            "new_human_decisions_required_before_adoption": 1,
+            "constitution_ratified": False,
+            "operational_authority_created": False,
+        }
+        or any(
+            term not in recommendation_text
+            for term in required_recommendation_terms
+        )
+        or "Death, resignation, permanent incapacity, or final removal"
+        in recommendation_text
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_RECOMMENDATION: exact Alternative A allocation, "
+            "separation guarantees, and conditional projection are required"
+        )
+
+    subordinate_items = record.get("subordinate_law_items")
+    implementation_items = record.get("implementation_items")
+    ambiguities = record.get("material_ambiguities")
+    if (
+        not isinstance(subordinate_items, list)
+        or len(subordinate_items) != 9
+        or not all(_is_evidence(item) for item in subordinate_items)
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_SUBORDINATE_BOUNDARY: exactly nine administrative "
+            "categories must remain subordinate"
+        )
+    if (
+        not isinstance(implementation_items, list)
+        or len(implementation_items) != 5
+        or not all(_is_evidence(item) for item in implementation_items)
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_IMPLEMENTATION_BOUNDARY: exactly five technical "
+            "categories must remain implementation matters"
+        )
+    if (
+        not isinstance(ambiguities, list)
+        or len(ambiguities) != 2
+        or "no authority unless Human Constitutional Authority expressly adopts"
+        not in str(ambiguities[0])
+        or "initial Schedule O population" not in str(ambiguities[1])
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_AMBIGUITIES: only pending human adoption and "
+            "initial Schedule O supply may remain"
+        )
+
+    provenance = record.get("provenance")
+    if (
+        not isinstance(provenance, dict)
+        or set(provenance) != {"source", "authority_boundary"}
+        or "after PR #27 merged into origin/main"
+        not in str(provenance.get("source", ""))
+        or "create no constitutional authority"
+        not in str(provenance.get("authority_boundary", ""))
+        or "make no human decision"
+        not in str(provenance.get("authority_boundary", ""))
+        or "do not modify or ratify Constitution v0.1"
+        not in str(provenance.get("authority_boundary", ""))
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_PROVENANCE: merged-base, analysis non-authority, "
+            "no-decision, and non-ratification provenance are required"
+        )
+
+    try:
+        packet_path = root / HCA_LIFECYCLE_PACKET_RELATIVE_PATH
+        packet_bytes = packet_path.read_bytes()
+        packet = packet_bytes.decode("utf-8")
+        packet_digest = hashlib.sha256(packet_bytes).hexdigest()
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"HCA_LIFECYCLE_PACKET_REQUIRED: {exc}")
+        packet = ""
+        packet_digest = ""
+    required_packet_terms = (
+        "**AWAITING EXPLICIT HUMAN DECISION**",
+        "**ANALYSIS AND RECOMMENDATION ONLY — NO CONSTITUTIONAL EFFECT**",
+        "## Alternatives",
+        "### Alternative A",
+        "### Alternative B",
+        "### Alternative C",
+        "**RECOMMENDED: ALTERNATIVE A",
+        "constitutional blockers remaining: **0**",
+        "lifecycle adversarial tests passed: **10/10**",
+        "new Human Constitutional Authority decisions required: **1**",
+        "`ADOPT_A`",
+        "`ADOPT_B`",
+        "`ADOPT_C`",
+        "`REJECT_ALL`",
+        "`REQUEST_REVISION`",
+        "No option is selected in this packet.",
+        "**CONSTITUTION v0.1 REMAINS DRAFT — NOT ADOPTED CONSTITUTION.**",
+    )
+    if (
+        any(term not in packet for term in required_packet_terms)
+        or str(HCA_LIFECYCLE_ANALYSIS_RELATIVE_PATH).replace("\\", "/")
+        not in packet
+        or packet_digest != EXPECTED_HCA_LIFECYCLE_PACKET_DIGEST
+        or any(
+            forbidden in packet
+            for forbidden in (
+                "**Decision:**",
+                "HUMAN CONSTITUTIONAL AUTHORITY DECISION:",
+                "Alternative A is adopted.",
+                "STATUS: DECIDED",
+            )
+        )
+    ):
+        errors.append(
+            "HCA_LIFECYCLE_PACKET_CONTENT: concise three-option recommendation "
+            "and explicit no-decision boundary are required"
+        )
+
+    metrics.update(
+        {
+            "lifecycle_architectures_analyzed": len(alternatives),
+            "recommended_lifecycle_architecture": "ALTERNATIVE_A",
+            "projected_constitutional_blockers_remaining": int(
+                projection.get("constitutional_blockers_remaining", 1)
+            ),
+            "projected_lifecycle_adversarial_tests_pass": (
+                f"{recommended_pass_count}/10"
+            ),
+            "projected_lifecycle_human_comprehensibility_result": str(
+                projection.get("human_comprehensibility_result", "")
+            ),
+            "projected_lifecycle_subordinate_law_boundary_result": str(
+                projection.get("subordinate_law_boundary_result", "")
+            ),
+            "lifecycle_new_human_decisions_required": int(
+                projection.get(
+                    "new_human_decisions_required_before_adoption", 0
+                )
+            ),
+            "lifecycle_subordinate_law_items_remaining": len(subordinate_items)
+            if isinstance(subordinate_items, list)
+            else 0,
+            "lifecycle_implementation_items_remaining": len(
+                implementation_items
+            )
+            if isinstance(implementation_items, list)
+            else 0,
+            "lifecycle_material_ambiguity_count": len(ambiguities)
+            if isinstance(ambiguities, list)
+            else 0,
         }
     )
     return metrics
@@ -9122,6 +9600,7 @@ def validate(root: Path) -> ValidationResult:
     constitution_draft_metrics = _validate_constitution_draft(root, errors)
     ratification_review_metrics = _validate_ratification_review(root, errors)
     final_blocker_metrics = _validate_final_blocker_analysis(root, errors)
+    hca_lifecycle_metrics = _validate_hca_lifecycle_analysis(root, errors)
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -9933,6 +10412,7 @@ def validate(root: Path) -> ValidationResult:
         **constitution_draft_metrics,
         **ratification_review_metrics,
         **final_blocker_metrics,
+        **hca_lifecycle_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 

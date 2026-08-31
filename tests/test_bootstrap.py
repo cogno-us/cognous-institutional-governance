@@ -239,6 +239,208 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["blocker_decision_status"], "DECIDED")
         self.assertEqual(result.metrics["ratification_blockers_resolved"], 2)
         self.assertEqual(result.metrics["ratification_blockers_remaining"], 1)
+        self.assertEqual(
+            result.metrics["lifecycle_architectures_analyzed"], 3
+        )
+        self.assertEqual(
+            result.metrics["recommended_lifecycle_architecture"],
+            "ALTERNATIVE_A",
+        )
+        self.assertEqual(
+            result.metrics["projected_constitutional_blockers_remaining"], 0
+        )
+        self.assertEqual(
+            result.metrics["projected_lifecycle_adversarial_tests_pass"],
+            "10/10",
+        )
+        self.assertEqual(
+            result.metrics[
+                "projected_lifecycle_human_comprehensibility_result"
+            ],
+            "PASS",
+        )
+        self.assertEqual(
+            result.metrics[
+                "projected_lifecycle_subordinate_law_boundary_result"
+            ],
+            "PASS",
+        )
+        self.assertEqual(
+            result.metrics["lifecycle_new_human_decisions_required"], 1
+        )
+        self.assertEqual(
+            result.metrics["lifecycle_subordinate_law_items_remaining"], 9
+        )
+        self.assertEqual(
+            result.metrics["lifecycle_implementation_items_remaining"], 5
+        )
+        self.assertEqual(
+            result.metrics["lifecycle_material_ambiguity_count"], 2
+        )
+
+    def test_hca_lifecycle_analysis_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml"
+        ).unlink()
+        self.assert_error("HCA_LIFECYCLE_ANALYSIS_REQUIRED")
+
+    def test_hca_lifecycle_analysis_cannot_make_human_decision(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record.update(
+                status="DECIDED",
+                constitutional_effect="BINDING",
+                human_decision_made=True,
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_AUTHORITY_BOUNDARY")
+
+    def test_hca_lifecycle_requires_one_complete_blocker(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["blocker"]["required_resolution"].pop(),
+        )
+        self.assert_error("HCA_LIFECYCLE_BLOCKER")
+
+    def test_hca_lifecycle_requires_ten_stress_dimensions(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["stress_dimensions"].pop(),
+        )
+        self.assert_error("HCA_LIFECYCLE_STRESS_DIMENSIONS")
+
+    def test_hca_lifecycle_requires_three_architectures(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["lifecycle_architectures"].pop(),
+        )
+        self.assert_error("HCA_LIFECYCLE_ARCHITECTURES")
+
+    def test_hca_lifecycle_architectures_cover_every_attack(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["lifecycle_architectures"][0][
+                "stress_test"
+            ].pop("incumbent_entrenchment"),
+        )
+        self.assert_error("HCA_LIFECYCLE_ARCHITECTURE_COMPLETENESS")
+
+    def test_hca_lifecycle_projection_requires_ten_actual_passes(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["lifecycle_architectures"][0][
+                "stress_test"
+            ].update(
+                incumbent_entrenchment=(
+                    "FAIL — incumbents can postpone the election."
+                )
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_ADVERSARIAL_PROJECTION")
+
+    def test_hca_lifecycle_recommendation_is_integrated(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["recommended_architecture"][
+                "integrated_allocations"
+            ]["removal_as_succession"].pop("separation"),
+        )
+        self.assert_error("HCA_LIFECYCLE_RECOMMENDATION")
+
+    def test_hca_lifecycle_recommendation_binds_no_holdover(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["recommended_architecture"][
+                "integrated_allocations"
+            ]["recurring_election"].update(
+                failed_election=(
+                    "A failed election permits the incumbent to hold over."
+                )
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_RECOMMENDATION")
+
+    def test_hca_lifecycle_recommendation_binds_exclusive_triggers(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["recommended_architecture"][
+                "integrated_allocations"
+            ]["removal_as_succession"].update(
+                exclusive_triggers=(
+                    "Any incapacity allegation may initiate succession."
+                )
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_RECOMMENDATION")
+
+    def test_hca_lifecycle_recommendation_binds_review_finality(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["recommended_architecture"][
+                "integrated_allocations"
+            ]["removal_and_confirmation"].update(
+                finality="Removal is effective before review."
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_RECOMMENDATION")
+
+    def test_hca_lifecycle_projection_remains_conditional(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["recommended_architecture"][
+                "projected_result_if_adopted_and_incorporated"
+            ].update(
+                new_human_decisions_required_before_adoption=0,
+                constitution_ratified=True,
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_RECOMMENDATION")
+
+    def test_hca_lifecycle_preserves_subordinate_boundary(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["subordinate_law_items"].append(
+                "Subordinate law may select a College member."
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_SUBORDINATE_BOUNDARY")
+
+    def test_hca_lifecycle_preserves_implementation_boundary(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["implementation_items"].pop(),
+        )
+        self.assert_error("HCA_LIFECYCLE_IMPLEMENTATION_BOUNDARY")
+
+    def test_hca_lifecycle_packet_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md"
+        ).unlink()
+        self.assert_error("HCA_LIFECYCLE_PACKET_REQUIRED")
+
+    def test_hca_lifecycle_packet_cannot_select_an_option(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md",
+            lambda text: text.replace(
+                "No option is selected in this packet.",
+                "Alternative A is adopted.",
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_PACKET_CONTENT")
+
+    def test_hca_lifecycle_packet_rejects_conflicting_adoption(self) -> None:
+        self.update_text(
+            "constitutional-design/decisions/"
+            "HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md",
+            lambda text: text + "\nAlternative A is adopted.\n",
+        )
+        self.assert_error("HCA_LIFECYCLE_PACKET_CONTENT")
 
     def test_final_blocker_analysis_is_required(self) -> None:
         (
