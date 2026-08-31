@@ -1,0 +1,274 @@
+{
+  "analysis_id": "FINAL-RATIFICATION-BLOCKER-ANALYSIS-001",
+  "status": "ANALYSIS_ONLY",
+  "decision_effect": "NONE",
+  "constitutional_effect": "NONE",
+  "draft_modified": false,
+  "human_decision_made": false,
+  "purpose": "Analyze the three Constitution v0.1 ratification blockers as one interacting authority graph and recommend the minimum coherent constitutional allocation that would close all three.",
+  "authoritative_basis": [
+    "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
+    "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+    "constitutional-design/drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml",
+    "constitutional-design/decisions/CDR-001.yaml",
+    "constitutional-design/decisions/CDR-002.yaml",
+    "constitutional-design/decisions/CDR-003.yaml",
+    "constitutional-design/decisions/CDR-004.yaml",
+    "constitutional-design/decisions/CDR-005.yaml",
+    "constitutional-design/decisions/CDD-001.yaml",
+    "constitutional-design/REMAINING-DESIGN-MATRIX.yaml",
+    "constitutional-design/decisions/CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md",
+    "HCA-DRAFT-001"
+  ],
+  "blockers": [
+    {
+      "blocker_id": "RB-01",
+      "title": "Human Constitutional Authority and successor-designation authority",
+      "problem": "The draft reserves foundational ends to Human Constitutional Authority and requires successor predesignation without constituting the post-activation holder, its relationship to constitutional membership, or the human source that makes a designation valid."
+    },
+    {
+      "blocker_id": "RB-02",
+      "title": "Continuing Verification and Enforcement office chains",
+      "problem": "The human-only bootstrap expires, but the draft supplies no continuing selectors, removal confirmation, alternates, replacement process, or independent challenge path for the Verification and Enforcement Offices."
+    },
+    {
+      "blocker_id": "RB-03",
+      "title": "Ordinary human governance office selector class",
+      "problem": "An undefined officeholder class selects Court, Succession Council, and Transition Authority members, allowing ordinary-law creation or reclassification of offices to manipulate constitutional selectors."
+    }
+  ],
+  "controlling_constraints": [
+    "Human sovereignty over foundational ends remains subject to constitutional constraint in the exercise of institutional power.",
+    "Artificial intelligence cannot hold, create, appoint, remove, replace, recognize finally, succeed to, or exercise foundational constitutional authority.",
+    "Capability, performance, reliance, vacancy, necessity, emergency, precedent, operational indispensability, and effective control create no authority.",
+    "The Court may adjudicate legality and declare a vacancy but may not appoint a replacement, create an office, determine institutional ends, amend, refound, or exercise continuing management.",
+    "Bootstrap authority is temporary, human-only, and cannot become continuing unilateral foundational appointment.",
+    "Emergency authority cannot become succession or selector authority.",
+    "Continuity cannot become sovereign succession.",
+    "The adopted Succession Council, fallback panel, proof burdens, review, day-150 notice, and 180-day ceiling remain unchanged.",
+    "The adopted Court composition, selection channels, jurisdiction, appeal, remedies, and reviewer-non-sovereignty limits remain unchanged except for the new definition of an already adopted selector class.",
+    "Amendment, structural amendment, and explicit refounding remain distinct; adjudication, emergency, succession, and subordinate law cannot bypass them.",
+    "Administrative mechanics should remain subordinate where they cannot alter constitutional authority, eligibility, selectors, thresholds, terms, or challenge rights."
+  ],
+  "stress_dimensions": [
+    "bootstrap",
+    "ordinary_operation",
+    "vacancy",
+    "removal",
+    "replacement",
+    "conflict",
+    "succession",
+    "emergency",
+    "capture",
+    "coalition_capture",
+    "machine_domination",
+    "institutional_paralysis",
+    "effective_power_takeover",
+    "amendment_refounding_boundary"
+  ],
+  "integrated_alternatives": [
+    {
+      "alternative_id": "A",
+      "name": "Direct Membership Authority",
+      "architecture": {
+        "human_constitutional_authority": "The fixed constitutional membership acts directly as Human Constitutional Authority for every foundational act.",
+        "successor_designation": "The membership approves a ranked slate of human agents that may execute only previously authorized foundational instructions; the Succession Council recognizes the next valid agent.",
+        "verification_office": "Three members are directly elected by constitutional membership.",
+        "enforcement_office": "Three members are selected by public human sortition from a constitutionally qualified pool.",
+        "removal_replacement": "Independent sortition fact-finding, counter-channel removal confirmation, and same-channel ranked alternates.",
+        "ordinary_governance_class": "A closed constitutional schedule exhaustively identifies qualifying offices; change requires structural amendment."
+      },
+      "stress_test": {
+        "bootstrap": "Direct membership supplies a clear human root, but convening the full membership before records and institutions exist is demanding.",
+        "ordinary_operation": "Foundational acts remain legible but impose repeated high-participation burdens on the entire membership.",
+        "vacancy": "Membership itself does not vacate; agent and office vacancies use alternates.",
+        "removal": "Counter-channel confirmation prevents self-removal control.",
+        "replacement": "Same-channel alternates preserve selector identity.",
+        "conflict": "Broad membership reduces personal conflict, while candidates and materially dependent participants recuse.",
+        "succession": "A persistent collective authority fits poorly with the adopted lost-authority and successor-recognition model.",
+        "emergency": "Emergency creates no membership or selector power.",
+        "capture": "Direct participation resists small-body capture but increases agenda, identity, and communication-channel concentration risk.",
+        "coalition_capture": "A durable supermajority can control HCA and Verification simultaneously.",
+        "machine_domination": "Human comprehension and nonmachine alternatives remain required, but mass deliberation can depend heavily on machine mediation.",
+        "institutional_paralysis": "High participation requirements can prevent timely foundational action.",
+        "effective_power_takeover": "Effective controllers remain unauthorized, but communications control may obstruct direct participation.",
+        "amendment_refounding_boundary": "Direct membership makes constituent legitimacy visible but blurs ordinary HCA acts with amendment and refounding votes."
+      },
+      "assessment": "Credible but not preferred because it strains the adopted succession model and concentrates foundational, amendment, refounding, and Verification selection in the same electorate at every stage."
+    },
+    {
+      "alternative_id": "B",
+      "name": "Membership-Rooted HCA College and Split Office Selectors",
+      "architecture": {
+        "human_constitutional_authority": "After activation, a seven-human HCA College, elected by the fixed constitutional membership, exercises Human Constitutional Authority. Foundational acts require six College votes and direct membership confirmation.",
+        "successor_designation": "Membership elects public ranked alternates for every College seat through the same election. The College may maintain and revoke its record only as authorized; it cannot choose or make its own successor effective. The Succession Council recognizes the next valid alternate under the adopted proof process.",
+        "verification_office": "Three human members are elected by the fixed constitutional membership.",
+        "enforcement_office": "Three human members are selected by public human sortition from a constitutionally qualified pool independently administered without Court or Verification control.",
+        "removal_replacement": "A five-human independent fact panel selected by public human sortition finds incapacity, serious misconduct, or constitutional disqualification by clear and convincing evidence. Verification removal requires confirmation by a twenty-one-human sortition jury; Enforcement removal requires confirmation by constitutional membership. Same-channel ranked alternates fill vacancies; exhausted alternates trigger the ordinary selector again.",
+        "challenge": "Any member has standing for one expedited Court challenge; whole-Court conflict uses the adopted conflict tribunal. A Court may invalidate selection or removal, declare vacancy, and order the authorized process, but cannot appoint.",
+        "ordinary_governance_class": "A constitutional Schedule O exhaustively lists qualifying ordinary human governance offices and each office's ordinary jurisdiction, human selector, term, alternates, removal path, and incompatibilities. Initial entries must be approved with ratification; later addition, deletion, merger, division, or reclassification requires structural amendment. Ordinary law may administer a listed office but cannot change Schedule O status.",
+        "change_boundary": "Changing the human-only HCA root or human beneficiary sovereignty requires explicit refounding. Changing College composition, Verification or Enforcement selectors, or Schedule O requires structural amendment. No lower process may waive either boundary."
+      },
+      "stress_test": {
+        "bootstrap": "The preconstitutional Human Constitutional Authority ratifies the text and may perform the already adopted minimum bootstrap; membership elections and sortition then replace bootstrap appointments under predefined rules.",
+        "ordinary_operation": "A small accountable College can act, but foundational action still requires direct membership confirmation; Verification and Enforcement use distinct selectors.",
+        "vacancy": "Ranked same-channel alternates fill vacancies without creating new selector authority.",
+        "removal": "Independent fact-finding plus a nonselecting confirmation channel prevents self-removal, Court appointment, and office self-protection.",
+        "replacement": "Same-channel replacement preserves the original constitutional mandate; exhaustion restarts only that authorized process.",
+        "conflict": "Mandatory recusal, material-independence rules, substitute sortition panels, and the adopted whole-Court tribunal preserve an external human challenge path.",
+        "succession": "Membership, not the College, predesignates ranked alternates; the Succession Council recognizes rather than chooses, preserving the adopted proof, fallback, and interregnum architecture.",
+        "emergency": "Emergency actors receive no appointment, designation, recognition, Schedule O, or HCA power.",
+        "capture": "No single body controls foundational action, Verification, Enforcement, adjudication, and evidence; direct membership confirmation and split selectors expose capture.",
+        "coalition_capture": "A coalition must capture membership, College, sortition pools, and independent review across materially independent channels; common control defeats independence.",
+        "machine_domination": "Human-only eligibility, attributable reasons, substantive human comprehension, auditable sortition, and nonmachine alternatives prevent nominal human signatures from curing machine control.",
+        "institutional_paralysis": "Alternates and repeat same-channel processes preserve offices; failure creates no authority, while adopted emergency, succession, and refounding paths remain available within their existing limits.",
+        "effective_power_takeover": "Operational control confers no office or HCA status; effective-power audit, disclosure, replacement, and restoration remain available.",
+        "amendment_refounding_boundary": "Structural amendment protects office allocations and Schedule O; explicit refounding protects the human foundational root and ends."
+      },
+      "assessment": "Recommended. It supplies one clear human root, prevents HCA self-succession, separates Verification and Enforcement selectors, closes the ordinary-office class, and reuses adopted membership, sortition, Court review, and conflict safeguards without adding a sovereign reviewer."
+    },
+    {
+      "alternative_id": "C",
+      "name": "Three-Channel Concurrent Authority",
+      "architecture": {
+        "human_constitutional_authority": "A fifteen-human HCA body has five membership-selected, five Schedule O-selected, and five sortition-selected members; every foundational act requires concurrence within all three components.",
+        "successor_designation": "Each component preselects ranked alternates for its seats; the Succession Council recognizes replacements.",
+        "verification_office": "Three sortition-selected members.",
+        "enforcement_office": "Three membership-selected members.",
+        "removal_replacement": "Component-specific alternates and confirmation by both nonselecting channels.",
+        "ordinary_governance_class": "The same closed Schedule O protection as Alternative B."
+      },
+      "stress_test": {
+        "bootstrap": "All three channels must exist before HCA can operate, making Schedule O and qualification infrastructure prerequisites.",
+        "ordinary_operation": "Plural concurrence strongly checks unilateral action but is procedurally heavy.",
+        "vacancy": "Alternates preserve each component.",
+        "removal": "Two-channel confirmation is independent but slow.",
+        "replacement": "Component identity is preserved.",
+        "conflict": "Three channels reduce common conflict but multiply recusal and quorum risks.",
+        "succession": "Component alternates are clear, but simultaneous losses can require multiple recognition proceedings.",
+        "emergency": "No emergency enlargement is permitted.",
+        "capture": "Single-channel capture is contained.",
+        "coalition_capture": "Cross-channel coalition capture is harder but can paralyze the body.",
+        "machine_domination": "Multiple channels reduce correlated dependence only if infrastructure is materially independent.",
+        "institutional_paralysis": "Concurrent component thresholds create the highest veto and quorum risk.",
+        "effective_power_takeover": "Formal plurality exposes but does not eliminate shared operational control.",
+        "amendment_refounding_boundary": "Protected change tiers remain clear."
+      },
+      "assessment": "Credible but rejected as more complex than necessary and dependent on the newly constituted Schedule O at the root of foundational authority."
+    },
+    {
+      "alternative_id": "D",
+      "name": "Founding Roster with Membership Renewal",
+      "architecture": {
+        "human_constitutional_authority": "A ratification schedule names five initial human HCA members; constitutional membership elects all later members.",
+        "successor_designation": "Current HCA members nominate successors subject to membership confirmation.",
+        "verification_office": "Schedule O selects three members.",
+        "enforcement_office": "Public human sortition selects three members.",
+        "removal_replacement": "Independent fact panel, membership confirmation, and ranked alternates.",
+        "ordinary_governance_class": "The same closed Schedule O protection as Alternative B."
+      },
+      "stress_test": {
+        "bootstrap": "A named roster provides immediate clarity.",
+        "ordinary_operation": "A small body operates efficiently.",
+        "vacancy": "Ranked alternates provide continuity.",
+        "removal": "Membership confirmation limits self-protection.",
+        "replacement": "Membership confirmation checks nomination but preserves incumbent agenda control.",
+        "conflict": "Founding relationships may create shared conflicts.",
+        "succession": "Incumbent nomination approaches self-succession despite confirmation.",
+        "emergency": "Emergency does not enlarge authority.",
+        "capture": "A small founding roster is easier to capture.",
+        "coalition_capture": "Founders can coordinate nominations and Schedule O influence.",
+        "machine_domination": "A small roster is vulnerable to a shared machine dependency.",
+        "institutional_paralysis": "Small size aids operation but correlated loss is severe.",
+        "effective_power_takeover": "Founding concentration can convert practical control into durable nomination influence.",
+        "amendment_refounding_boundary": "Membership renewal helps, but a named initial roster embeds avoidable personal authority."
+      },
+      "assessment": "Rejected because it concentrates initial authority and allows incumbent nomination to approach prohibited self-succession."
+    }
+  ],
+  "recommended_integrated_architecture": {
+    "architecture_id": "B",
+    "name": "Membership-Rooted HCA College and Split Office Selectors",
+    "minimum_constitutional_allocations": {
+      "human_constitutional_authority": {
+        "holder": "A seven-human HCA College elected by constitutional membership after activation.",
+        "relationship_to_membership": "Membership is the constituent human root and elects the College; the College exercises bounded post-activation foundational authority. A foundational act requires six College votes and membership confirmation with participation of at least two thirds and approval by at least three quarters of valid votes.",
+        "eligibility": "A constitutional member who is human, voluntarily serves, discloses conflicts and material dependencies, and does not simultaneously hold Court, Verification, Enforcement, Succession Council, Transition Authority, continuity-custodian, emergency-command, or material institutional artificial-intelligence operator status.",
+        "term": "Seven years, staggered where practicable, nonrenewable.",
+        "non_accretion": "College membership, operational control, performance, emergency action, continuity, and vacancy create no additional or successor authority."
+      },
+      "successor_designation": {
+        "creator": "Constitutional membership elects three public ranked alternates for each College seat through the same human election that selects the seat.",
+        "maintenance": "The College has a ministerial duty to maintain and publish the current designation record and may not choose, reorder, veto, or make an alternate effective.",
+        "recognizer": "The adopted Succession Council, or adopted fallback panel when applicable, recognizes the next eligible nonrecused alternate under the existing plural-evidence, proof, reason, dissent, review, and appeal rules.",
+        "revocation_and_refresh": "Membership may revoke or replace an alternate through the same election process before a trigger. Every regular College election refreshes the ranked slate.",
+        "failure": "Exhaustion creates a vacancy and invokes a new membership election; it creates no interim foundational authority. Existing day-150, 180-day, and explicit-refounding boundaries remain unchanged."
+      },
+      "verification_office": {
+        "composition": "Three human members with six-year nonrenewable staggered terms.",
+        "selector": "Fixed constitutional membership using participation above one half, approval voting for up to three eligible candidates, highest totals, and auditable human sortition for a final-seat tie.",
+        "alternates": "Three ranked alternates selected by the same process.",
+        "removal": "A five-human independent sortition fact panel must find incapacity, serious misconduct, or constitutional disqualification by clear and convincing evidence; a twenty-one-human nonconflicted sortition jury then confirms removal with seventeen-person quorum and two-thirds approval of the full jury.",
+        "replacement": "The next eligible same-channel alternate serves the remainder; exhaustion triggers the ordinary membership selection process.",
+        "challenge": "Any constitutional member may bring one expedited Court challenge; whole-Court conflict invokes the adopted conflict tribunal. The Court cannot appoint."
+      },
+      "enforcement_office": {
+        "composition": "Three human members with six-year nonrenewable staggered terms.",
+        "selector": "Public auditable human sortition from a constitutionally qualified pool administered independently of the Court and Verification Office.",
+        "alternates": "Three ranked alternates produced by the same sortition.",
+        "removal": "The same five-human independent fact panel must find a ground by clear and convincing evidence; fixed constitutional membership confirms removal with participation above one half and majority approval of valid votes.",
+        "replacement": "The next eligible same-channel alternate serves the remainder; exhaustion triggers the ordinary sortition process.",
+        "challenge": "Any constitutional member may bring one expedited Court challenge; whole-Court conflict invokes the adopted conflict tribunal. The Court cannot appoint."
+      },
+      "shared_office_eligibility": "Verification and Enforcement candidates must be human constitutional members, voluntarily serve, publish conflicts and material dependencies, satisfy a public human-administered competence standard, and for three years have held no HCA College, Court, opposite-office, succession-claimant, emergency-command, continuity-custodian, institutional artificial-intelligence operation, or material institutional contracting role.",
+      "independent_selection_verification": "A five-human ad hoc panel selected by public human sortition from noncandidate, nonofficeholding constitutional members verifies selector compliance. Its decision is reviewable by the Court or conflict tribunal. Neither permanent office verifies its own selection.",
+      "ordinary_human_governance_offices": {
+        "exact_boundary": "Only human-held ordinary governance offices exhaustively identified in constitutional Schedule O qualify. Each entry must state the office identifier, ordinary nonconstitutional jurisdiction, human selector, term, alternates, removal path, and incompatibilities. Constitutional adjudication, Verification, Enforcement, HCA College, succession, transition, emergency, continuity, artificial-intelligence operation, and candidate roles cannot qualify.",
+        "initial_creation_or_recognition": "The Human Constitutional Authority adopting the Constitution approves the initial Schedule O as part of ratification. Ratification is incomplete unless Schedule O contains at least three separately held, materially independent qualifying offices.",
+        "later_creation_or_recognition": "An ordinary office may be created by governance law, but it enters or leaves Schedule O only through structural amendment. Merger, division, renaming, delegation, temporary assignment, or functional transfer does not change Schedule O status without structural amendment.",
+        "exercise_roll": "The Schedule O electorate is fixed before public notice of each constitutional exercise. Each nonconflicted human holder has one vote regardless of the number of listed offices held; one person holding multiple listed offices does not multiply voting power.",
+        "anti_manipulation": "Ordinary law, HCA action, Court interpretation, emergency, succession, vacancy, implementation, machine classification, custom, acquiescence, and effective control cannot add, remove, reclassify, repopulate, or alter the constitutional weight of a Schedule O office.",
+        "challenge": "Any constitutional member may challenge Schedule O eligibility or conflict status through one expedited Court appeal; the Court may enforce the schedule but cannot amend it."
+      },
+      "change_boundaries": {
+        "refounding": "Changing human sovereignty over foundational ends, the membership-rooted source of HCA legitimacy, or artificial-intelligence ineligibility for foundational authority requires explicit refounding.",
+        "structural_amendment": "Changing HCA College composition or confirmation, Verification or Enforcement selectors and lifecycles, or any Schedule O entry or protection requires structural amendment.",
+        "prohibited_bypasses": "Ordinary amendment, ordinary law, adjudication, emergency, succession, continuity, implementation, precedent, vacancy, and effective control cannot waive or alter these allocations."
+      }
+    },
+    "cross_domain_consistency": [
+      "The HCA College is rooted in membership rather than self-appointment and cannot make its successors effective.",
+      "The Succession Council recognizes a predesignated alternate but does not create a successor or foundational authority.",
+      "Verification and Enforcement selectors are distinct from each other and from the Court.",
+      "Removal fact-finding, removal confirmation, legal review, and replacement selection remain separate.",
+      "Schedule O cannot be manufactured through ordinary office creation and cannot control its own constitutional membership.",
+      "The Court retains binding review without appointment or amendment power.",
+      "Failure, vacancy, conflict, emergency, or paralysis never creates substitute authority."
+    ],
+    "projected_result_if_adopted_and_incorporated": {
+      "ratification_blockers_remaining": 0,
+      "new_human_decision_packages_required": 1,
+      "constitution_ready_for_revised_ratification_review": true,
+      "constitution_adopted": false
+    }
+  },
+  "subordinate_law_items": [
+    "Election and nomination forms, notice, scheduling, ballot administration, recounts, and publication",
+    "Sortition entropy, ceremony, audit, reproducibility, and interface mechanics",
+    "Conflict and dependency disclosure formats and evidence intake",
+    "Competence-assessment administration under the constitutional standard",
+    "Alternate records, term calendars, vacancy notices, and service acceptance",
+    "Schedule O office registries and incumbent-roll administration without classification power",
+    "Successor-designation registration, periodic confirmation, revocation records, and notification",
+    "Case filing, expedited-review scheduling, record retention, and public reporting",
+    "Identity, authentication, signatures, storage, archival integrity, and accessibility tooling"
+  ],
+  "residual_questions": [
+    "The initial Schedule O must be populated by the Human Constitutional Authority in the adoption decision or ratification instrument; its entries cannot be invented by analysis or subordinate law.",
+    "Staggering dates for initial HCA College, Verification, and Enforcement terms are transition administration once the constitutional term lengths and channels are adopted."
+  ],
+  "provenance": {
+    "source": "Repository analysis performed in response to explicit Human Constitutional Authority instruction on 2026-08-30.",
+    "authority_boundary": "This analysis and its recommendation have no constitutional effect. They do not decide, adopt, ratify, or modify Constitution v0.1. Only an explicit attributable Human Constitutional Authority decision can adopt the integrated architecture."
+  }
+}

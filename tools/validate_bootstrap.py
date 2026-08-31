@@ -2293,6 +2293,16 @@ CONSTITUTION_TRACE_RELATIVE_PATH = Path(
 CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH = Path(
     "constitutional-design/drafts/CONSTITUTION_v0.1_OPEN_QUESTIONS.md"
 )
+RATIFICATION_REVIEW_RELATIVE_PATH = Path(
+    "constitutional-design/RATIFICATION_REVIEW_v0.1.md"
+)
+FINAL_BLOCKER_ANALYSIS_RELATIVE_PATH = Path(
+    "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml"
+)
+FINAL_BLOCKER_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/"
+    "FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -2442,6 +2452,51 @@ EXPECTED_DRAFT_SECTION_TITLES = {
     "VIII.1": "Refounding-Level Principles",
     "VIII.2": "Termination and Transition Authority",
     "VIII.3": "Transition Accountability, Obligations, and Memory",
+}
+EXPECTED_RATIFICATION_DRAFT_DIGESTS = {
+    CONSTITUTION_DRAFT_RELATIVE_PATH: (
+        "b5e39a1b2eddf02317d5b1fc3b2a90cb1850eb3e4a75a531771b3e79e0db85cd"
+    ),
+    CONSTITUTION_TRACE_RELATIVE_PATH: (
+        "f0778443eedff2f89a8cbbeaeacd8b442fe0498f049c2fcf4dc610b2f40874e0"
+    ),
+    CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH: (
+        "af292c0ce09a81700c32bd1fdfc5d6fbea1c58cc3c47fd83567b8696597a1a72"
+    ),
+}
+FINAL_BLOCKER_ANALYSIS_FIELDS = {
+    "analysis_id",
+    "status",
+    "decision_effect",
+    "constitutional_effect",
+    "draft_modified",
+    "human_decision_made",
+    "purpose",
+    "authoritative_basis",
+    "blockers",
+    "controlling_constraints",
+    "stress_dimensions",
+    "integrated_alternatives",
+    "recommended_integrated_architecture",
+    "subordinate_law_items",
+    "residual_questions",
+    "provenance",
+}
+FINAL_BLOCKER_STRESS_DIMENSIONS = {
+    "bootstrap",
+    "ordinary_operation",
+    "vacancy",
+    "removal",
+    "replacement",
+    "conflict",
+    "succession",
+    "emergency",
+    "capture",
+    "coalition_capture",
+    "machine_domination",
+    "institutional_paralysis",
+    "effective_power_takeover",
+    "amendment_refounding_boundary",
 }
 REMAINING_DESIGN_STRESS_DIMENSIONS = {
     "bad_human",
@@ -7849,6 +7904,548 @@ def _validate_constitution_draft(
     return metrics
 
 
+def _validate_ratification_review(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "ratification_readiness": "",
+        "constitutional_blocker_count": 0,
+        "ratification_cross_article_contradiction_count": 0,
+        "ratification_adversarial_tests_pass": "0/13",
+        "human_comprehensibility_result": "",
+        "subordinate_law_boundary_result": "",
+        "new_human_decisions_required": 0,
+        "ratification_recommendation": "",
+    }
+    review_path = root / RATIFICATION_REVIEW_RELATIVE_PATH
+    try:
+        review = review_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"RATIFICATION_REVIEW_REQUIRED: {exc}")
+        return metrics
+
+    if (
+        review.count("# Constitution v0.1 Final Pre-Ratification Review") != 1
+        or review.count(
+            "**RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT**"
+        )
+        != 1
+        or review.count(
+            "**Draft status preserved:** **DRAFT — NOT ADOPTED CONSTITUTION**"
+        )
+        != 1
+        or "does not adopt, ratify, amend, redesign, or confer effect"
+        not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_BOUNDARY: exact recommendation-only, "
+            "no-effect, and draft-status boundaries are required"
+        )
+    if (
+        review.count(
+            "**Review classification:** "
+            "`NOT_READY_FOR_HUMAN_RATIFICATION`"
+        )
+        != 1
+        or "\n`NOT_READY_FOR_HUMAN_RATIFICATION`\n" not in review
+        or "CONSTITUTION REMAINS A DRAFT AND HAS NOT\nBEEN ADOPTED OR RATIFIED"
+        not in review
+        or "`READY_FOR_HUMAN_RATIFICATION`" in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_CLASSIFICATION: exact NOT_READY "
+            "classification and non-ratification statement are required"
+        )
+
+    blocker_headings = re.findall(
+        r"^### Blocker ([1-3]) — ([^\r\n]+)$",
+        review,
+        flags=re.MULTILINE,
+    )
+    expected_blockers = [
+        ("1", "Human Constitutional Authority Is Not Constituted"),
+        (
+            "2",
+            "Verification and Enforcement Selection Chains Are Absent",
+        ),
+        ("3", "Ordinary Human Governance Offices Are Undefined Selectors"),
+    ]
+    minimum_decisions = re.findall(
+        r"^\*\*Minimum Human decision required:\*\*",
+        review,
+        flags=re.MULTILINE,
+    )
+    if blocker_headings != expected_blockers or len(minimum_decisions) != 3:
+        errors.append(
+            "RATIFICATION_REVIEW_BLOCKERS: exactly the three genuine "
+            "constitutional authority-allocation blockers are required"
+        )
+
+    expected_article_pairs = {
+        f"{left}–{right}"
+        for left_index, left in enumerate(
+            ("I", "II", "III", "IV", "V", "VI", "VII", "VIII")
+        )
+        for right in (
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VII",
+            "VIII",
+        )[left_index + 1 :]
+    }
+    reviewed_pairs = set(
+        re.findall(
+            r"^\| ([IVX]+–[IVX]+) \|",
+            review,
+            flags=re.MULTILINE,
+        )
+    )
+    if (
+        reviewed_pairs != expected_article_pairs
+        or "No direct cross-article contradiction was found." not in review
+        or "authority\nvacua or undefined selector classes" not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_CROSS_ARTICLE: all 28 Article pairs, zero "
+            "direct contradictions, and the authority-gap distinction are "
+            "required"
+        )
+
+    adversarial_rows = re.findall(
+        r"^\| ([^|\r\n]+) \| (PASS|FAIL[^|]*) \|",
+        review,
+        flags=re.MULTILINE,
+    )
+    adversarial_names = {
+        name.strip()
+        for name, _ in adversarial_rows
+        if name.strip()
+        in {
+            "Malicious foundational human authority",
+            "Captured Constitutional Court",
+            "Captured succession process",
+            "Captured emergency authority",
+            "Coordinated human coalition",
+            "Artificial-intelligence domination behind nominal human decisions",
+            "Validator or evidence-channel capture",
+            "Institutional paralysis",
+            "Noncompliance with valid judgment",
+            "Multiple compromised offices",
+            "Gradual semantic drift",
+            "Cumulative formally valid amendments",
+            "Effective-power takeover without formal authority",
+        }
+    }
+    adversarial_passes = sum(
+        result.strip() == "PASS"
+        for name, result in adversarial_rows
+        if name.strip() in adversarial_names
+    )
+    adversarial_failures = sum(
+        result.strip().startswith("FAIL")
+        for name, result in adversarial_rows
+        if name.strip() in adversarial_names
+    )
+    if (
+        len(adversarial_names) != 13
+        or adversarial_passes != 7
+        or adversarial_failures != 6
+        or "**Adversarial result:** `7/13 PASS`" not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_ADVERSARIAL: all 13 required scenarios with "
+            "the exact 7-pass, 6-fail blocker-linked result are required"
+        )
+
+    required_reader_questions = {
+        "Who holds authority?",
+        "What constrains authority?",
+        "How is authority delegated?",
+        "How are disputes resolved?",
+        "What happens in emergencies?",
+        "What happens during succession and interregnum?",
+        "What may be amended?",
+        "What requires refounding?",
+        "How does the institution terminate?",
+        "What may artificial intelligence do?",
+    }
+    reader_questions = set(
+        re.findall(
+            r"^\| ([^|\r\n]+\?) \|",
+            review,
+            flags=re.MULTILINE,
+        )
+    )
+    if (
+        reader_questions != required_reader_questions
+        or "**Human-comprehensibility result:** `FAIL`" not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_COMPREHENSIBILITY: all ten reader questions "
+            "and the justified FAIL result are required"
+        )
+    if (
+        "**Subordinate-law boundary result:** "
+        "`FAIL — THREE AUTHORITY ALLOCATIONS MUST BE\n"
+        "CONSTITUTIONAL BEFORE ADMINISTRATIVE DELEGATION IS SAFE`"
+        not in review
+        or "Subordinate law may\nadminister a constitutional selector but "
+        "cannot create that selector"
+        not in review
+    ):
+        errors.append(
+            "RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY: the exact three-gap "
+            "authority boundary and delegation distinction are required"
+        )
+
+    required_coverage = (
+        "| Source requirements covered | 35/35 |",
+        "| Consolidated requirement groups covered | 20/20 |",
+        "| Foundational decisions covered | 5/5 |",
+        "| Adopted design recommendations covered | 11/11 |",
+        "| Coordinated corrections covered | 4/4 |",
+        "| Remainder-sortition decision covered | 1/1 |",
+        "| Refounding-level principles protected | 10/10 |",
+        "| Untraced normative propositions | 0 |",
+        "| New Human Constitutional Authority decisions required | 3 |",
+    )
+    if any(item not in review for item in required_coverage):
+        errors.append(
+            "RATIFICATION_REVIEW_COVERAGE: exact complete traceability and "
+            "three-decision metrics are required"
+        )
+
+    for relative_path, expected_digest in EXPECTED_RATIFICATION_DRAFT_DIGESTS.items():
+        path = root / relative_path
+        try:
+            actual_digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        except OSError as exc:
+            errors.append(f"RATIFICATION_DRAFT_IMMUTABILITY: {path}: {exc}")
+            continue
+        if actual_digest != expected_digest:
+            errors.append(
+                "RATIFICATION_DRAFT_IMMUTABILITY: pre-ratification review "
+                f"must not modify {relative_path}"
+            )
+
+    metrics.update(
+        {
+            "ratification_readiness": "NOT_READY_FOR_HUMAN_RATIFICATION",
+            "constitutional_blocker_count": len(blocker_headings),
+            "ratification_cross_article_contradiction_count": 0,
+            "ratification_adversarial_tests_pass": "7/13",
+            "human_comprehensibility_result": "FAIL",
+            "subordinate_law_boundary_result": "FAIL",
+            "new_human_decisions_required": 3,
+            "ratification_recommendation": "DO_NOT_RATIFY_UNTIL_3_BLOCKERS_RESOLVED",
+        }
+    )
+    return metrics
+
+
+def _validate_final_blocker_analysis(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "final_ratification_blockers_analyzed": 0,
+        "integrated_architecture_recommended": "",
+        "projected_ratification_blockers_remaining": 3,
+        "final_blocker_human_decisions_required": 0,
+        "final_blocker_subordinate_law_item_count": 0,
+    }
+    record = _load_record(root / FINAL_BLOCKER_ANALYSIS_RELATIVE_PATH, errors)
+    if record is None:
+        errors.append("FINAL_BLOCKER_ANALYSIS_REQUIRED: record is required")
+        return metrics
+    if set(record) != FINAL_BLOCKER_ANALYSIS_FIELDS:
+        errors.append(
+            "FINAL_BLOCKER_ANALYSIS_SCHEMA: exact integrated-analysis fields "
+            "are required"
+        )
+    if (
+        record.get("analysis_id")
+        != "FINAL-RATIFICATION-BLOCKER-ANALYSIS-001"
+        or record.get("status") != "ANALYSIS_ONLY"
+        or record.get("decision_effect") != "NONE"
+        or record.get("constitutional_effect") != "NONE"
+        or record.get("draft_modified") is not False
+        or record.get("human_decision_made") is not False
+    ):
+        errors.append(
+            "FINAL_BLOCKER_ANALYSIS_BOUNDARY: analysis-only, no-decision, "
+            "no-effect, and unchanged-draft boundaries are required"
+        )
+
+    blockers = record.get("blockers")
+    expected_blockers = {
+        "RB-01": "Human Constitutional Authority and successor-designation authority",
+        "RB-02": "Continuing Verification and Enforcement office chains",
+        "RB-03": "Ordinary human governance office selector class",
+    }
+    if (
+        not isinstance(blockers, list)
+        or len(blockers) != 3
+        or {
+            str(item.get("blocker_id")): str(item.get("title"))
+            for item in blockers
+            if isinstance(item, dict)
+        }
+        != expected_blockers
+        or any(
+            set(item) != {"blocker_id", "title", "problem"}
+            or not _is_evidence(item.get("problem"))
+            for item in blockers
+            if isinstance(item, dict)
+        )
+    ):
+        errors.append(
+            "FINAL_BLOCKER_ANALYSIS_BLOCKERS: exactly the three ratification "
+            "blockers must be analyzed jointly"
+        )
+
+    stress_dimensions = record.get("stress_dimensions")
+    if (
+        not isinstance(stress_dimensions, list)
+        or set(stress_dimensions) != FINAL_BLOCKER_STRESS_DIMENSIONS
+        or len(stress_dimensions) != 14
+    ):
+        errors.append(
+            "FINAL_BLOCKER_ANALYSIS_STRESS_DIMENSIONS: exact fourteen-mode "
+            "stress test is required"
+        )
+    alternatives = record.get("integrated_alternatives")
+    if (
+        not isinstance(alternatives, list)
+        or len(alternatives) != 4
+        or [item.get("alternative_id") for item in alternatives] != [
+            "A",
+            "B",
+            "C",
+            "D",
+        ]
+    ):
+        errors.append(
+            "FINAL_BLOCKER_ANALYSIS_ALTERNATIVES: exactly four credible "
+            "integrated alternatives A through D are required"
+        )
+        alternatives = []
+    for alternative in alternatives:
+        architecture = alternative.get("architecture")
+        stress_test = alternative.get("stress_test")
+        if (
+            set(alternative)
+            != {
+                "alternative_id",
+                "name",
+                "architecture",
+                "stress_test",
+                "assessment",
+            }
+            or not isinstance(architecture, dict)
+            or set(architecture)
+            != {
+                "human_constitutional_authority",
+                "successor_designation",
+                "verification_office",
+                "enforcement_office",
+                "removal_replacement",
+                "ordinary_governance_class",
+            }
+            and alternative.get("alternative_id") != "B"
+            or not all(_is_evidence(value) for value in architecture.values())
+            or not isinstance(stress_test, dict)
+            or set(stress_test) != FINAL_BLOCKER_STRESS_DIMENSIONS
+            or not all(_is_evidence(value) for value in stress_test.values())
+            or not _is_evidence(alternative.get("assessment"))
+        ):
+            errors.append(
+                "FINAL_BLOCKER_ANALYSIS_ALTERNATIVE_COMPLETENESS: each "
+                "alternative must close all three chains and all fourteen "
+                "stress dimensions"
+            )
+            break
+
+    recommendation = record.get("recommended_integrated_architecture")
+    allocations = (
+        recommendation.get("minimum_constitutional_allocations", {})
+        if isinstance(recommendation, dict)
+        else {}
+    )
+    expected_allocations = {
+        "human_constitutional_authority",
+        "successor_designation",
+        "verification_office",
+        "enforcement_office",
+        "shared_office_eligibility",
+        "independent_selection_verification",
+        "ordinary_human_governance_offices",
+        "change_boundaries",
+    }
+    required_hca = {
+        "holder",
+        "relationship_to_membership",
+        "eligibility",
+        "term",
+        "non_accretion",
+    }
+    required_successor = {
+        "creator",
+        "maintenance",
+        "recognizer",
+        "revocation_and_refresh",
+        "failure",
+    }
+    required_office = {
+        "composition",
+        "selector",
+        "alternates",
+        "removal",
+        "replacement",
+        "challenge",
+    }
+    required_ordinary = {
+        "exact_boundary",
+        "initial_creation_or_recognition",
+        "later_creation_or_recognition",
+        "exercise_roll",
+        "anti_manipulation",
+        "challenge",
+    }
+    projection = (
+        recommendation.get("projected_result_if_adopted_and_incorporated", {})
+        if isinstance(recommendation, dict)
+        else {}
+    )
+    if (
+        not isinstance(recommendation, dict)
+        or recommendation.get("architecture_id") != "B"
+        or recommendation.get("name")
+        != "Membership-Rooted HCA College and Split Office Selectors"
+        or set(allocations) != expected_allocations
+        or set(allocations.get("human_constitutional_authority", {}))
+        != required_hca
+        or set(allocations.get("successor_designation", {}))
+        != required_successor
+        or set(allocations.get("verification_office", {})) != required_office
+        or set(allocations.get("enforcement_office", {})) != required_office
+        or set(allocations.get("ordinary_human_governance_offices", {}))
+        != required_ordinary
+        or not isinstance(
+            recommendation.get("cross_domain_consistency"), list
+        )
+        or len(recommendation.get("cross_domain_consistency", [])) != 7
+        or projection
+        != {
+            "ratification_blockers_remaining": 0,
+            "new_human_decision_packages_required": 1,
+            "constitution_ready_for_revised_ratification_review": True,
+            "constitution_adopted": False,
+        }
+    ):
+        errors.append(
+            "FINAL_BLOCKER_RECOMMENDATION: exact minimum integrated "
+            "architecture, authority chains, change boundaries, and "
+            "conditional zero-blocker projection are required"
+        )
+
+    subordinate_items = record.get("subordinate_law_items")
+    if (
+        not isinstance(subordinate_items, list)
+        or len(subordinate_items) != 9
+        or not all(_is_evidence(item) for item in subordinate_items)
+    ):
+        errors.append(
+            "FINAL_BLOCKER_SUBORDINATE_ITEMS: exact administrative delegation "
+            "boundary is required"
+        )
+    residual_questions = record.get("residual_questions")
+    if (
+        not isinstance(residual_questions, list)
+        or len(residual_questions) != 2
+        or "initial Schedule O" not in str(residual_questions[0])
+        or "transition administration" not in str(residual_questions[1])
+    ):
+        errors.append(
+            "FINAL_BLOCKER_RESIDUALS: only Schedule O population and initial "
+            "term staggering may remain"
+        )
+    provenance = record.get("provenance")
+    if (
+        not isinstance(provenance, dict)
+        or "explicit Human Constitutional Authority instruction"
+        not in str(provenance.get("source", ""))
+        or "no constitutional effect"
+        not in str(provenance.get("authority_boundary", ""))
+        or "Only an explicit attributable Human Constitutional Authority"
+        not in str(provenance.get("authority_boundary", ""))
+    ):
+        errors.append(
+            "FINAL_BLOCKER_PROVENANCE: explicit human instruction and "
+            "machine non-authority provenance are required"
+        )
+
+    packet_path = root / FINAL_BLOCKER_PACKET_RELATIVE_PATH
+    try:
+        packet = packet_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"FINAL_BLOCKER_PACKET_REQUIRED: {exc}")
+        packet = ""
+    required_packet_terms = (
+        "**HUMAN DECISION REQUIRED — NO DECISION RECORDED**",
+        "**NO CONSTITUTIONAL EFFECT**",
+        "## Decision Scope",
+        "## Alternatives Considered",
+        "## Recommended Integrated Architecture",
+        "### 1. Human Constitutional Authority",
+        "### 2. Successor Designation",
+        "### 3. Verification Office",
+        "### 4. Enforcement Office",
+        "### 5. Eligibility, Selection Verification, and Challenge",
+        "### 6. Ordinary Human Governance Offices",
+        "### 7. Change and Non-Accretion Boundaries",
+        "## Subordinate Governance and Implementation",
+        "## Human Decision",
+        "`ADOPT_RECOMMENDED_INTEGRATED_ARCHITECTURE`",
+        "No option has been selected in this record.",
+        "ratification blockers remaining: **0**",
+        "**NO HUMAN DECISION HAS BEEN RECORDED.**",
+        "**CONSTITUTION v0.1 REMAINS DRAFT — NOT ADOPTED CONSTITUTION.**",
+    )
+    if (
+        any(term not in packet for term in required_packet_terms)
+        or len(re.findall(r"^\d+\. `", packet, flags=re.MULTILINE)) != 6
+        or "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml"
+        not in packet
+    ):
+        errors.append(
+            "FINAL_BLOCKER_PACKET_CONTENT: one complete coordinated human "
+            "decision packet with no selected option is required"
+        )
+
+    metrics.update(
+        {
+            "final_ratification_blockers_analyzed": len(blockers)
+            if isinstance(blockers, list)
+            else 0,
+            "integrated_architecture_recommended": "ALTERNATIVE_B",
+            "projected_ratification_blockers_remaining": int(
+                projection.get("ratification_blockers_remaining", 3)
+            ),
+            "final_blocker_human_decisions_required": 1,
+            "final_blocker_subordinate_law_item_count": len(subordinate_items)
+            if isinstance(subordinate_items, list)
+            else 0,
+        }
+    )
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -8361,6 +8958,8 @@ def validate(root: Path) -> ValidationResult:
     )
     coordinated_decision_metrics = _validate_coordinated_decision(root, errors)
     constitution_draft_metrics = _validate_constitution_draft(root, errors)
+    ratification_review_metrics = _validate_ratification_review(root, errors)
+    final_blocker_metrics = _validate_final_blocker_analysis(root, errors)
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -9170,6 +9769,8 @@ def validate(root: Path) -> ValidationResult:
         **cross_domain_packet_metrics,
         **coordinated_decision_metrics,
         **constitution_draft_metrics,
+        **ratification_review_metrics,
+        **final_blocker_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
