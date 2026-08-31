@@ -12,7 +12,8 @@
     "CCR-001 through CCR-020",
     "constitutional-design/CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md",
     "constitutional-design/CONSOLIDATED_REQUIREMENT_MAP.yaml",
-    "HCA-DRAFT-001"
+    "HCA-DRAFT-001",
+    "CDD-002"
   ],
   "human_drafting_decision": {
     "decision_id": "HCA-DRAFT-001",
@@ -32,6 +33,25 @@
     "constitutional_effect": "NONE",
     "adoption_boundary": "This decision authorizes drafting of the remainder rule only and does not adopt Constitution v0.1."
   },
+  "ratification_blocker_decision": {
+    "decision_id": "CDD-002",
+    "decision": "ADOPT_B",
+    "adopted_architecture": "ALTERNATIVE_B",
+    "status": "DECIDED",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-30 adopting Alternative B as the complete coordinated resolution of RB-01 through RB-03.",
+    "decision_date": "2026-08-30",
+    "source_analysis": "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+    "recommendation_sha256": "1f1dc69386fab2a755f6bc11addee99a1e2828ae93867bf048402fdf758b843b",
+    "blockers_addressed": ["RB-01", "RB-02", "RB-03"],
+    "post_incorporation_resolution": {
+      "resolved": ["RB-02", "RB-03"],
+      "partially_resolved": ["RB-01"],
+      "remaining_constitutional_blockers": 1
+    },
+    "constitutional_effect": "DRAFTING_AUTHORITY_ONLY",
+    "adoption_boundary": "CDD-002 authorizes direct incorporation of Alternative B but does not ratify Constitution v0.1; the ratification instrument must supply initial Schedule O."
+  },
   "sections": [
     {
       "section_id": "I.1",
@@ -40,10 +60,10 @@
       "consolidated_requirements": ["CCR-001"],
       "source_requirements": ["CR-001", "CR-003", "CR-015"],
       "controlling_cdrs": ["CDR-001", "CDR-003"],
-      "controlling_cdd": ["CDD-001"],
+      "controlling_cdd": ["CDD-001", "CDD-002"],
       "adopted_design_domains": ["RD-11"],
       "coordinated_corrections": [],
-      "authority_summary": "Reserves foundational ends to humans and prohibits authority by capability, reliance, delegation, continuity, necessity, succession, or effective control."
+      "authority_summary": "Reserves foundational ends to humans, constitutes the membership-rooted seven-human HCA College, and prohibits authority by capability, reliance, delegation, continuity, necessity, succession, or effective control."
     },
     {
       "section_id": "II.1",
@@ -76,10 +96,10 @@
       "consolidated_requirements": ["CCR-003"],
       "source_requirements": ["CR-004", "CR-006"],
       "controlling_cdrs": ["CDR-001", "CDR-004"],
-      "controlling_cdd": ["CDD-001"],
+      "controlling_cdd": ["CDD-001", "CDD-002"],
       "adopted_design_domains": ["RD-01", "RD-11"],
       "coordinated_corrections": ["CDC-01"],
-      "authority_summary": "Separates seven constitutional functions and adopts the bounded human-only bootstrap and vacancy chain."
+      "authority_summary": "Separates seven constitutional functions, preserves bounded human-only bootstrap and vacancy chains, and prohibits machine control of selectors or sortition."
     },
     {
       "section_id": "III.1",
@@ -100,10 +120,10 @@
       "consolidated_requirements": ["CCR-014"],
       "source_requirements": ["CR-023", "CR-024", "CR-025"],
       "controlling_cdrs": ["CDR-004"],
-      "controlling_cdd": ["CDD-001"],
+      "controlling_cdd": ["CDD-001", "CDD-002"],
       "adopted_design_domains": ["RD-02", "RD-11"],
       "coordinated_corrections": ["CDC-01", "CDC-04"],
-      "authority_summary": "Defines the three human Court-selection channels, qualifications, terms, alternates, and bounded removal."
+      "authority_summary": "Defines the three human Court-selection channels and constitutionally closes and protects their Schedule O ordinary-office selector class."
     },
     {
       "section_id": "III.3",
@@ -124,10 +144,10 @@
       "consolidated_requirements": ["CCR-015", "CCR-016"],
       "source_requirements": ["CR-026", "CR-027", "CR-028", "CR-029"],
       "controlling_cdrs": ["CDR-002", "CDR-003", "CDR-004", "CDR-005"],
-      "controlling_cdd": ["CDD-001"],
+      "controlling_cdd": ["CDD-001", "CDD-002"],
       "adopted_design_domains": ["RD-03", "RD-11"],
       "coordinated_corrections": ["CDC-01", "CDC-04"],
-      "authority_summary": "Enumerates bounded remedies, separates enforcement and verification, and prohibits judicial appointment or management."
+      "authority_summary": "Enumerates bounded remedies, supplies separate human Verification and Enforcement selection, removal, replacement, and challenge chains, and prohibits judicial appointment or management."
     },
     {
       "section_id": "IV.1",
@@ -220,10 +240,10 @@
       "consolidated_requirements": ["CCR-010"],
       "source_requirements": ["CR-017", "CR-018"],
       "controlling_cdrs": ["CDR-003"],
-      "controlling_cdd": ["CDD-001"],
+      "controlling_cdd": ["CDD-001", "CDD-002"],
       "adopted_design_domains": ["RD-06", "RD-11"],
       "coordinated_corrections": ["CDC-02"],
-      "authority_summary": "Defines human predesignation, plural evidence burdens, Council composition, votes, recusal, provenance, and appeal."
+      "authority_summary": "Defines membership-selected HCA College successor alternates, recognition without successor creation, plural evidence burdens, Council composition, recusal, provenance, and appeal."
     },
     {
       "section_id": "VI.3",
@@ -232,7 +252,7 @@
       "consolidated_requirements": ["CCR-010"],
       "source_requirements": ["CR-017", "CR-018"],
       "controlling_cdrs": ["CDR-003"],
-      "controlling_cdd": ["CDD-001"],
+      "controlling_cdd": ["CDD-001", "CDD-002"],
       "adopted_design_domains": ["RD-06", "RD-07"],
       "coordinated_corrections": ["CDC-02"],
       "authority_summary": "Defines the preselected fifteen-human fallback panel, quorum, decision rule, appeal, day-150 notice, and non-sovereignty boundary."
@@ -256,10 +276,10 @@
       "consolidated_requirements": ["CCR-017"],
       "source_requirements": ["CR-030", "CR-032", "CR-033"],
       "controlling_cdrs": ["CDR-002", "CDR-003", "CDR-004", "CDR-005"],
-      "controlling_cdd": ["CDD-001"],
+      "controlling_cdd": ["CDD-001", "CDD-002"],
       "adopted_design_domains": ["RD-08"],
       "coordinated_corrections": ["CDC-04"],
-      "authority_summary": "Defines three change categories, human authorization, machine limits, adjudicative classification, and non-waiver."
+      "authority_summary": "Defines three change categories, protects Alternative B office allocations through structural amendment and its human foundational root through refounding, and prohibits lower-process waiver."
     },
     {
       "section_id": "VII.2",
@@ -326,17 +346,18 @@
     "source_requirements_covered": 35,
     "consolidated_groups_covered": 20,
     "foundational_decisions_covered": 5,
-    "coordinated_decisions_covered": 1,
+    "coordinated_decisions_covered": 2,
+    "ratification_blocker_decisions_covered": 1,
     "design_recommendations_covered": 11,
     "coordinated_corrections_covered": 4,
     "refounding_level_principles_covered": 10,
     "untraced_normative_proposition_count": 0,
-    "new_human_decisions_required": 0,
+    "new_human_decisions_required": 1,
     "cross_article_contradictions": 0,
-    "open_questions_count": 0
+    "open_questions_count": 1
   },
   "provenance": {
-    "source": "Drafted from explicit Human Constitutional Authority decisions CDR-001 through CDR-005, CDD-001, and HCA-DRAFT-001 on 2026-08-30.",
+    "source": "Drafted from explicit Human Constitutional Authority decisions CDR-001 through CDR-005, CDD-001, HCA-DRAFT-001, and CDD-002 on 2026-08-30.",
     "authority_boundary": "This traceability record and the draft have no constitutional effect. Drafting and validation do not adopt the Constitution or create authority."
   }
 }

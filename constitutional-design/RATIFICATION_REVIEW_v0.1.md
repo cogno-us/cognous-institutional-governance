@@ -8,258 +8,206 @@
 
 **Review classification:** `NOT_READY_FOR_HUMAN_RATIFICATION`
 
-This review assesses ratification readiness against the authoritative repository
-lineage. It does not adopt, ratify, amend, redesign, or confer effect on the
-draft. It does not resolve subordinate governance or implementation questions.
+This review was rerun after the explicit Human Constitutional Authority
+adoption of Alternative B in `CDD-002` and its direct incorporation into the
+draft. It does not adopt, ratify, amend, or confer effect on Constitution v0.1.
 
 ## Executive Determination
 
-Constitution v0.1 is fully traceable and internally preserves the adopted
-boundaries against reviewer sovereignty, machine sovereignty, emergency or
-succession leakage, amendment laundering, adjudicative amendment, semantic
-drift, constitutional-history erasure, and authority by capability, reliance,
-precedent, or effective power.
+Alternative B resolves two authority-allocation blockers and supplies the human
+root, composition, term, action threshold, and successor-alternate architecture
+for `RB-01`. Post-incorporation review found one remaining constitutional
+lifecycle decision for the HCA College. The revised draft:
 
-It is not ready for ratification because three genuine constitutional authority
-allocations remain undefined:
+1. constitutes constitutional membership as the human root of a seven-human
+   post-activation HCA College and makes successor designation
+   membership-selected rather than self-effective, but the adopted package does
+   not decide the College election result rule, initial election trigger, or
+   removal lifecycle;
+2. supplies separated human selection, removal, replacement, and challenge
+   chains for Verification and Enforcement; and
+3. defines Schedule O as a closed structural selector class that subordinate
+   law and effective control cannot manipulate.
 
-1. the constitution and succession-designation process of Human Constitutional
-   Authority;
-2. the continuing human selection and replacement chains for the Verification
-   and Enforcement Offices; and
-3. the bounded meaning of the ordinary-human-governance-office selector class.
-
-These are not administrative mechanics. Supplying any of them through
-unbounded subordinate law would determine who may exercise constitutional
-authority.
+The initial Schedule O population remains a mandatory component of the later
+ratification instrument. This is an express ratification input, not an
+unresolved design choice or permission for subordinate law to populate the
+schedule. Constitution v0.1 cannot become operational without at least three
+separately held, materially independent qualifying offices.
 
 | Measure | Result |
 |---|---:|
-| Constitutional blockers | 3 |
+| Constitutional blockers | 1 |
 | Direct cross-article contradictions | 0 |
 | Untraced normative propositions | 0 |
 | Source requirements covered | 35/35 |
 | Consolidated requirement groups covered | 20/20 |
 | Foundational decisions covered | 5/5 |
+| Coordinated design decisions covered | 2/2 |
 | Adopted design recommendations covered | 11/11 |
 | Coordinated corrections covered | 4/4 |
 | Remainder-sortition decision covered | 1/1 |
+| Ratification-blocker decision covered | 1/1 |
 | Refounding-level principles protected | 10/10 |
-| New Human Constitutional Authority decisions required | 3 |
+| New Human Constitutional Authority design decisions required | 1 |
 
 ## 1. Traceability Review
 
 The draft and traceability record cover all `CR-001` through `CR-035`, all
-`CCR-001` through `CCR-020`, `CDR-001` through `CDR-005`, `CDD-001`, adopted
-`RD-01` through `RD-11`, `CDC-01` through `CDC-04`, and
+`CCR-001` through `CCR-020`, `CDR-001` through `CDR-005`, `CDD-001`,
+`CDD-002`, adopted `RD-01` through `RD-11`, `CDC-01` through `CDC-04`, and
 `HCA-DRAFT-001`. Every one of the twenty-four constitutional sections has one
 traceability entry. All ten refounding-level principles appear in Section
-VIII.1. No normative section lacks an attributed authority basis.
+VIII.1. No normative section or proposition lacks attributable authority.
 
-The draft remains explicitly **DRAFT — NOT ADOPTED CONSTITUTION**. Neither this
-review nor automated validation supplies constitutional authority.
+Constitution v0.1 remains explicitly **DRAFT — NOT ADOPTED CONSTITUTION**.
+Decision records, this review, tests, and validation do not ratify it.
 
-## 2. Genuine Constitutional Blockers
+## 2. Blocker Resolution
 
-### Blocker 1 — Human Constitutional Authority Is Not Constituted
+| Former blocker | Adopted and incorporated resolution | Result |
+|---|---|---|
+| RB-01 — Human Constitutional Authority and successor designation | Membership-rooted seven-human HCA College; six College votes plus direct membership confirmation for foundational action; membership-selected ranked seat alternates; Succession Council recognition without successor creation; election-result and removal lifecycle remain undecided | PARTIALLY RESOLVED |
+| RB-02 — Verification and Enforcement office chains | Three-member, term-bounded offices; membership selects Verification; independent public human sortition selects Enforcement; separate fact-finding and confirmation; same-channel alternates; external selection verification; expedited challenge | RESOLVED |
+| RB-03 — Ordinary human governance office selector | Exhaustive constitutional Schedule O; required entry attributes and exclusions; initial ratification supply; structural-amendment protection; fixed one-person-one-vote exercise roll; expedited challenge | RESOLVED |
 
-Article I reserves foundational sovereignty to legitimate Human Constitutional
-Authority, and Article VI requires that authority to maintain valid successor
-designations. Article II defines constitutional membership but does not state
-whether, when, or how that membership constitutes Human Constitutional
-Authority. Article VI makes a designation valid only through a human process
-authorized by the Constitution and consistent subordinate law, but no
-constitutional designation process or bounded source of that process is stated.
+No adjudicator appoints a replacement, no office selects and removes its own
+counter-power, no enforcement or verification body creates its selector, and
+no machine, vacancy, necessity, or effective controller acquires authority.
 
-The adoption clause appropriately depends on preconstitutional human authority,
-but the text must identify the constitutional holder or exercise process of
-that authority after activation. Otherwise a claimant or subordinate law could
-define the source of foundational authority that the Constitution reserves.
+### Remaining Blocker — HCA College Election and Removal Lifecycle
 
-**Affected provisions:** Sections I.1, II.2, and VI.2.
+`CDD-002` establishes that fixed constitutional membership elects the
+seven-human College, sets member eligibility and term, requires membership
+confirmation for foundational acts, and requires membership-selected ranked
+successor alternates. It does not determine:
 
-**Authoritative basis for concern:** `CDR-001` preserves human sovereignty but
-does not itself define the legitimate foundational constituency; `CDD-001`
-prohibits capability, necessity, vacancy, reliance, and effective control from
-creating authority.
+- the initial College-election trigger and constitutionally authorized issuer
+  of its notice;
+- the participation, ballot-result, tie, and validity rules by which membership
+  elects College members;
+- College-member removal grounds, independent fact-finding, human confirmation,
+  and the event that makes removal a succession trigger; or
+- structural protection of those election and removal rules.
 
-**Minimum Human decision required:** Constitute the legitimate human
-foundational authority under the Constitution, state its relationship to
-constitutional membership, and identify the constitutionally valid source or
-process for successor designation. Administrative registration, confirmation,
-revocation, evidence intake, and notification may remain subordinate.
-
-### Blocker 2 — Verification and Enforcement Selection Chains Are Absent
-
-Section II.3 creates bounded Human Constitutional Authority bootstrap
-appointments for the Court, Verification Office, Enforcement Office, and
-conflict mechanism. It requires later appointment, vacancy, removal, and
-replacement to use constitutionally separated human processes. Section III.4
-requires a separate human Enforcement Office and an independent Verification
-Office, allows the Court to declare vacancies, and forbids the Court from
-appointing replacements.
-
-The draft specifies the Court's continuing selection and removal architecture
-but specifies no continuing selector, constitutional eligibility boundary,
-decision rule, removal path, or independent challenge path for the Verification
-or Enforcement Office. Subordinate administration of nominations, eligibility,
-sortition, scheduling, and vacancies cannot create the missing constitutional
-selector without becoming the source of constitutional office authority.
-
-**Affected provisions:** Sections II.3, III.2, and III.4.
-
-**Authoritative basis for concern:** `CDC-01` requires ordinary
-constitutionally separated human appointment processes after bootstrap and
-states that subordinate law cannot change human-only selectors, separation,
-jurisdiction, expiry, or challenge boundaries. No adopted record identifies the
-continuing selectors for these two offices.
-
-**Minimum Human decision required:** Allocate continuing, separated human
-selection, removal, vacancy, and replacement authority for both offices,
-including the bounded selector, constitutional eligibility and
-disqualification conditions, decision rule, and independent challenge path.
-Forms, scheduling, evidence formats, and selection technology may remain
-subordinate.
-
-### Blocker 3 — Ordinary Human Governance Offices Are Undefined Selectors
-
-Section III.2 gives all nonconflicted holders of ordinary human governance
-offices a Court-selection channel. Section VI.2 gives ordinary human governance
-offices two selections on the Succession Council. Article VIII reuses the
-Court's three channels to select the Transition Authority. The Constitution
-does not define which offices qualify, what source may create or recognize
-them, or how ordinary law is prevented from changing this constitutional
-electorate.
-
-The phrase cannot be left wholly to subordinate law because creating,
-abolishing, or reclassifying ordinary offices would alter selectors for
-adjudication, succession, and transition.
-
-**Affected provisions:** Sections III.2, VI.2, and VIII.2.
-
-**Authoritative basis for concern:** `RD-02` and `RD-06` adopt the
-ordinary-officeholder channels and their voting rules but do not bound the
-qualifying office universe. `CDD-001` forbids filling that gap through
-reinterpretation or expansion.
-
-**Minimum Human decision required:** Define the constitutionally bounded class
-of ordinary human governance offices, the constitutional source that may create
-or recognize a qualifying office, the human officeholder and conflict boundary,
-and the protection against ordinary-law manipulation of the selector class.
+The nine subordinate-law items preserve forms, notice delivery, scheduling,
+ballot administration, recounts, and records, but they do not authorize
+subordinate law to choose the winner rule, participation threshold, removal
+authority, or removal confirmation for the holder of foundational authority.
+No exact rule can be imported from another office without expanding
+Alternative B beyond the human decision.
 
 ## 3. Cross-Article Consistency Review
 
-Every pair of Articles was compared for conflicting grants, dependencies, and
-change or continuity leakage.
+Every pair of Articles was retested after incorporation.
 
 | Article pair | Result | Principal relationship reviewed |
 |---|---|---|
-| I–II | Gap B1, no contradiction | Human sovereignty, membership, and constrained power |
-| I–III | Consistent | Review binds exercises of power without acquiring foundational ends |
-| I–IV | Consistent | Effective power and evidence cannot create authority |
-| I–V | Consistent | Necessity cannot create sovereignty |
-| I–VI | Gap B1, no contradiction | Continuity and succession cannot constitute missing foundational authority |
-| I–VII | Consistent | Human authorization remains distinct from adjudication |
-| I–VIII | Consistent | Refounding changes foundational ends only through explicit human discontinuity |
-| II–III | Gap B2, no contradiction | Separated office authority lacks two continuing selector chains |
-| II–IV | Consistent | Functional independence is tested by effective control |
-| II–V | Consistent | Emergency actors receive no office-creation authority |
-| II–VI | Gap B3, no contradiction | Undefined ordinary-office channel selects succession actors |
-| II–VII | Consistent | Fixed membership, standing, and change constituencies remain distinct |
-| II–VIII | Gap B3, no contradiction | Transition selection reuses the undefined office channel |
-| III–IV | Consistent | Court evidence and dependencies remain independently reviewable |
+| I–II | One lifecycle gap, no contradiction | Membership roots the College, but its election-result and removal rules remain undecided |
+| I–III | Consistent | Independent review and split office selectors do not acquire foundational ends |
+| I–IV | Consistent | Effective power, evidence, and nominal approval cannot create authority |
+| I–V | Consistent | Emergency necessity cannot create HCA or selector authority |
+| I–VI | One lifecycle gap, no contradiction | Membership predesignation is bounded, but College removal is not yet a defined succession trigger |
+| I–VII | Consistent | Structural and refounding protections match the authority allocated |
+| I–VIII | Consistent | Foundational-root change requires explicit discontinuity |
+| II–III | Consistent | Bootstrap, continuing selectors, removal, and replacement are separated |
+| II–IV | Consistent | Selector independence is tested substantively, not by title |
+| II–V | Consistent | Emergency actors receive no office or appointment power |
+| II–VI | One lifecycle gap, no contradiction | Schedule O and Council selectors are bounded; College removal-trigger authority remains undecided |
+| II–VII | Consistent | Membership rolls and selector changes use their proper change tiers |
+| II–VIII | Consistent | Transition channels reuse constitutionally closed selectors |
+| III–IV | Consistent | External selection verification does not become sovereign gatekeeping |
 | III–V | Consistent | Emergency review does not create or enlarge emergency power |
-| III–VI | Gap B3, no contradiction | Court and undefined office channels participate in succession |
-| III–VII | Consistent | Classification and procedure review cannot amend or refound |
-| III–VIII | Gaps B2–B3, no contradiction | Verification and channel definitions affect transition certification |
-| IV–V | Consistent | Emergency provenance and evidence plurality resist hidden control |
-| IV–VI | Consistent | Succession evidence independence resists validator capture |
-| IV–VII | Consistent | Cumulative effects and machine assistance remain attributable |
-| IV–VIII | Consistent | Constitutional history and transition records remain non-erasing |
-| V–VI | Consistent | Emergency authority cannot become succession authority |
-| V–VII | Consistent | Emergency cannot waive amendment or refounding |
+| III–VI | Consistent | Court participation in succession remains minority selection plus bounded appeal |
+| III–VII | Consistent | Classification and legality review cannot amend Schedule O or other allocations |
+| III–VIII | Consistent | Verification certification remains reviewable and separately constituted |
+| IV–V | Consistent | Emergency evidence and provenance remain plural and attributable |
+| IV–VI | Consistent | Succession evidence independence resists validator and machine capture |
+| IV–VII | Consistent | Cumulative effects and machine assistance remain reviewable |
+| IV–VIII | Consistent | Constitutional and transition history remain non-erasing |
+| V–VI | Consistent | Emergency cannot become succession or HCA authority |
+| V–VII | Consistent | Emergency cannot waive structural amendment or refounding |
 | V–VIII | Consistent | Emergency cannot terminate identity or create transition authority |
-| VI–VII | Consistent | Continuity and succession cannot amend or refound |
-| VI–VIII | Consistent | Failed succession can open refounding access without creating sovereignty |
-| VII–VIII | Consistent | Refounding thresholds, termination, and transition activate coherently |
+| VI–VII | Consistent | Succession cannot change constitutional allocations |
+| VI–VIII | Consistent | Failed succession opens access without authorizing refounding |
+| VII–VIII | Consistent | Refounding, termination, transition, and Schedule O prerequisites align |
 
-No direct cross-article contradiction was found. The three gaps are authority
-vacua or undefined selector classes, not mutually inconsistent commands.
+**Cross-article contradiction count:** `0`. The remaining issue is an omitted
+constitutional lifecycle allocation, not contradictory commands.
 
-## 4. Adversarial Institutional Testing
+## 4. Adversarial Ratification Testing
 
-An adversarial test passes only when the constitutional text itself bounds,
-detects, and supplies a legitimate response path. It does not require that
-abuse be impossible.
-
-| Adversarial test | Result | Constitutional finding |
+| Adversarial test | Result | Constitutional containment |
 |---|---|---|
-| Malicious foundational human authority | FAIL — B1 | The post-activation holder and exercise process of foundational authority are not constituted |
-| Captured Constitutional Court | PASS | Recusal, alternates, conflict tribunal, bounded remedies, and separate enforcement prevent reviewer sovereignty |
-| Captured succession process | FAIL — B1/B3 | Predesignation authority and one Council selector class remain constitutionally undefined |
-| Captured emergency authority | PASS | Trigger, evidence, scope, expiry, review, remedies, and absolute prohibitions are bounded |
-| Coordinated human coalition | FAIL — B3 | Ordinary-law manipulation of the undefined office class could alter three constitutional selector channels |
-| Artificial-intelligence domination behind nominal human decisions | PASS | Substantive machine-domination and human-comprehension tests defeat nominal authorization |
-| Validator or evidence-channel capture | PASS | No evidence or validation channel may become the sole gatekeeper of legitimacy |
-| Institutional paralysis | FAIL — B2 | Continuing selection and replacement for two indispensable offices lack constitutional authority chains |
-| Noncompliance with valid judgment | FAIL — B2 | Enforcement remedies exist, but the enforcer's continuing selection chain can fail |
-| Multiple compromised offices | FAIL — B2/B3 | Vacancy safeguards cannot fully operate where selectors are absent or undefined |
-| Gradual semantic drift | PASS | Biennial human-led review and durable records make drift reviewable, not self-ratifying |
-| Cumulative formally valid amendments | PASS | Twenty-four-month aggregation and effective-power analysis prevent amendment laundering |
-| Effective-power takeover without formal authority | PASS | Effective control remains distinct from authority and triggers audit and remedy |
+| Malicious foundational human authority | FAIL | College acts are bounded, but lower law cannot safely supply the undecided College election result and removal rules |
+| Captured Constitutional Court | PASS | Recusal, alternates, conflict tribunal, bounded remedies, and separate office selectors prevent reviewer sovereignty |
+| Captured succession process | FAIL | Predesignation and recognition are bounded, but College removal is not yet a constitutionally defined trigger |
+| Captured emergency authority | PASS | Emergency has no HCA, appointment, succession, Schedule O, amendment, or refounding power |
+| Coordinated human coalition | PASS | Membership, College, sortition, removal confirmation, review, and material-independence channels must all be captured |
+| Artificial-intelligence domination behind nominal human decisions | PASS | Human-only eligibility, substantive comprehension, nonmachine alternatives, disclosure, and challenge remain mandatory |
+| Validator or evidence-channel capture | PASS | Ad hoc selection verification, appeal, plural evidence, and no-sole-gatekeeper rules prevent dispositive technical control |
+| Institutional paralysis | FAIL | Alternate recognition is bounded, but no complete College removal and election lifecycle exists after disputed seat loss |
+| Noncompliance with valid judgment | PASS | A separately selected Enforcement Office acts, Verification reports, and noncompliance receives expedited review and accountability |
+| Multiple compromised offices | PASS | Split selectors, separate removal confirmations, alternates, conflict tribunal, and fixed fallbacks prevent self-repair sovereignty |
+| Gradual semantic drift | FAIL | Undefined College election and removal rules could harden through lower-law practice |
+| Cumulative formally valid amendments | PASS | Aggregation and higher-tier treatment prevent amendment laundering |
+| Effective-power takeover without formal authority | PASS | Operational control creates no office or legitimacy and triggers disclosure, review, replacement, and restoration |
 
-**Adversarial result:** `7/13 PASS`. The six failures reduce to the three
-constitutional blockers and do not create six separate decision subjects.
+**Adversarial result:** `9/13 PASS`. The four failures reduce to the one
+remaining HCA College lifecycle decision.
 
 ## 5. Human Comprehensibility
 
 | Reader question | Result |
 |---|---|
-| Who holds authority? | FAIL — B1 and B3 leave foundational and office-selector identity incomplete |
+| Who holds authority? | FAIL — the holder is named, but the binding College election result and removal lifecycle are incomplete |
 | What constrains authority? | PASS |
-| How is authority delegated? | PASS, except the B1 designation process |
+| How is authority delegated? | PASS |
 | How are disputes resolved? | PASS |
 | What happens in emergencies? | PASS |
-| What happens during succession and interregnum? | FAIL — B1 and B3 |
+| What happens during succession and interregnum? | FAIL — recognition is bounded, but College removal is not a defined trigger |
 | What may be amended? | PASS |
+| What requires structural amendment? | PASS |
 | What requires refounding? | PASS |
 | How does the institution terminate? | PASS |
 | What may artificial intelligence do? | PASS |
 
-**Human-comprehensibility result:** `FAIL`. A competent human can understand
-the principal safeguards and procedures but cannot identify every
-constitutionally legitimate selector or the complete succession authority
-chain.
+**Human-comprehensibility result:** `FAIL`.
 
 ## 6. Subordinate-Law Boundary
 
-The draft safely delegates administrative mechanics for membership records,
-filings, notice, nominations, sortition, scheduling, case administration,
-evidence formats, disclosures, audits, emergency contacts, succession records,
-vote administration, change-lineage records, transition reporting, claims,
-assets, and archival systems. Those delegations expressly preserve
-constitutional tests, powers, thresholds, deadlines, jurisdiction, and
-legitimacy boundaries.
+The nine items preserved in `CDD-002` remain administrative: election and
+nomination mechanics; sortition implementation; disclosure and evidence
+formats; competence administration; alternate and calendar records; Schedule O
+registry administration without classification power; successor-record
+administration; case and reporting administration; and identity, storage,
+archival, and accessibility tooling.
 
-The boundary fails only where subordinate law would have to supply one of the
-three missing constitutional authority allocations. Subordinate law may
-administer a constitutional selector but cannot create that selector, constitute
-foundational authority, or define an electorate that controls adjudication,
-succession, and transition.
+Subordinate law cannot create HCA authority, select or recognize a successor,
+change a constitutional selector, alter eligibility or thresholds, classify an
+office into Schedule O, remove an officeholder outside the constitutional
+process, or turn a verifier, reviewer, machine, or operator into a gatekeeper of
+constitutional legitimacy.
 
-**Subordinate-law boundary result:** `FAIL — THREE AUTHORITY ALLOCATIONS MUST BE
-CONSTITUTIONAL BEFORE ADMINISTRATIVE DELEGATION IS SAFE`.
+That boundary is safe for Verification, Enforcement, Schedule O, and successor
+record administration. It is not yet safe for the College lifecycle because
+subordinate law would have to determine constitutional election validity and
+removal authority rather than merely administer decided rules.
+
+**Subordinate-law boundary result:** `FAIL — ONE HCA COLLEGE LIFECYCLE
+ALLOCATION REMAINS CONSTITUTIONAL`.
 
 ## 7. Ratification Recommendation
 
 `NOT_READY_FOR_HUMAN_RATIFICATION`
 
-Human Constitutional Authority should not ratify Constitution v0.1 until the
-three blockers in this review are explicitly decided and incorporated through a
-traceable draft revision. No other constitutional blocker or new policy choice
-is identified. After those decisions, the unchanged traceability,
-cross-article, adversarial, human-comprehensibility, and subordinate-law checks
-should be rerun.
+Constitution v0.1 should not be ratified until Human Constitutional Authority
+decides the HCA College initial and recurring election result, removal,
+vacancy-trigger, and applicable structural-protection rules. The later
+ratification instrument must also supply an initial Schedule O satisfying
+Section III.2. Schedule O supply is an express ratification prerequisite, not
+the remaining design blocker and not authority for subordinate law or
+implementation machinery to select entries.
 
 **RATIFICATION RECOMMENDATION ONLY. THE CONSTITUTION REMAINS A DRAFT AND HAS NOT
 BEEN ADOPTED OR RATIFIED.**
