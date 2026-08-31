@@ -4,10 +4,9 @@
 
 ## New Human Constitutional Decisions Required
 
-None.
-
-No cross-article contradiction remains whose resolution requires a new Human
-Constitutional Authority decision.
+One coordinated Human Constitutional Authority decision remains required for
+the HCA College election and removal lifecycle described below. This is a
+constitutional authority allocation, not a cross-article contradiction.
 
 ## Resolved Drafting Question
 
@@ -28,6 +27,26 @@ Mechanism details remain subordinate unless constitutionally necessary. This
 decision resolves the former inconsistency between Sections II.2 and VII.2
 without adopting the Constitution.
 
+### RB-01 through RB-03 — Final Ratification Authority Allocations
+
+**Decision:** `CDD-002 / ADOPT_B`
+
+Human Constitutional Authority explicitly adopted the membership-rooted
+seven-human HCA College, membership-selected successor alternates and
+Verification Office, sortition-selected Enforcement Office, separated removal
+and replacement chains, independent challenge, and structurally protected
+Schedule O. The draft incorporates those allocations without ratification.
+
+Post-incorporation review found one remaining constitutional question not
+decided by Alternative B: the HCA College's initial and recurring election
+result rule, removal and confirmation lifecycle, vacancy trigger, and
+structural protection of those rules. Those matters cannot be supplied by
+subordinate election administration.
+
+The initial Schedule O entries must be supplied in the later ratification
+instrument. Their supply is an express ratification prerequisite, not authority
+for analysis, subordinate law, or implementation to invent or classify entries.
+
 ## Preserved Subordinate Questions
 
 Eligibility administration, nomination, sortition, scheduling, ordinary
@@ -46,4 +65,4 @@ constitutional authority or legitimacy.
 
 ## Count
 
-`OPEN_QUESTIONS_COUNT: 0`
+`OPEN_QUESTIONS_COUNT: 1`

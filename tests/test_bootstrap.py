@@ -194,20 +194,20 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(
             result.metrics["untraced_normative_proposition_count"], 0
         )
-        self.assertEqual(result.metrics["new_human_decisions_required"], 3)
+        self.assertEqual(result.metrics["new_human_decisions_required"], 1)
         self.assertEqual(result.metrics["cross_article_contradictions"], 0)
-        self.assertEqual(result.metrics["open_questions_count"], 0)
+        self.assertEqual(result.metrics["open_questions_count"], 1)
         self.assertEqual(
             result.metrics["ratification_readiness"],
             "NOT_READY_FOR_HUMAN_RATIFICATION",
         )
-        self.assertEqual(result.metrics["constitutional_blocker_count"], 3)
+        self.assertEqual(result.metrics["constitutional_blocker_count"], 1)
         self.assertEqual(
             result.metrics["ratification_cross_article_contradiction_count"],
             0,
         )
         self.assertEqual(
-            result.metrics["ratification_adversarial_tests_pass"], "7/13"
+            result.metrics["ratification_adversarial_tests_pass"], "9/13"
         )
         self.assertEqual(
             result.metrics["human_comprehensibility_result"], "FAIL"
@@ -217,7 +217,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         )
         self.assertEqual(
             result.metrics["ratification_recommendation"],
-            "DO_NOT_RATIFY_UNTIL_3_BLOCKERS_RESOLVED",
+            "DO_NOT_RATIFY_UNTIL_HCA_COLLEGE_LIFECYCLE_IS_DECIDED",
         )
         self.assertEqual(
             result.metrics["final_ratification_blockers_analyzed"], 3
@@ -235,6 +235,10 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(
             result.metrics["final_blocker_subordinate_law_item_count"], 9
         )
+        self.assertEqual(result.metrics["adopted_architecture"], "ALTERNATIVE_B")
+        self.assertEqual(result.metrics["blocker_decision_status"], "DECIDED")
+        self.assertEqual(result.metrics["ratification_blockers_resolved"], 2)
+        self.assertEqual(result.metrics["ratification_blockers_remaining"], 1)
 
     def test_final_blocker_analysis_is_required(self) -> None:
         (
@@ -244,12 +248,12 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         ).unlink()
         self.assert_error("FINAL_BLOCKER_ANALYSIS_REQUIRED")
 
-    def test_final_blocker_analysis_cannot_make_decision(self) -> None:
+    def test_final_blocker_analysis_requires_exact_adoption(self) -> None:
         self.update_json(
             "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
             lambda record: record.update(
-                status="DECIDED",
-                human_decision_made=True,
+                status="ANALYSIS_ONLY",
+                human_decision_made=False,
                 constitutional_effect="BINDING",
             ),
         )
@@ -332,16 +336,90 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         ).unlink()
         self.assert_error("FINAL_BLOCKER_PACKET_REQUIRED")
 
-    def test_final_blocker_packet_cannot_select_option(self) -> None:
+    def test_final_blocker_packet_requires_recorded_adoption(self) -> None:
         self.update_text(
             "constitutional-design/decisions/"
             "FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md",
             lambda text: text.replace(
-                "No option has been selected in this record.",
-                "Alternative B is hereby adopted.",
+                "**HUMAN CONSTITUTIONAL AUTHORITY DECISION: ADOPT_B.**",
+                "**NO HUMAN DECISION HAS BEEN RECORDED.**",
             ),
         )
         self.assert_error("FINAL_BLOCKER_PACKET_CONTENT")
+
+    def test_cdd_002_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CDD-002.yaml"
+        ).unlink()
+        self.assert_error("CDD_002_DECISION")
+
+    def test_cdd_002_requires_explicit_human_authority(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-002.yaml",
+            lambda record: record.update(
+                authorized_by="Artificial-intelligence recommendation"
+            ),
+        )
+        self.assert_error("CDD_002_DECISION")
+
+    def test_cdd_002_binds_exact_recommendation(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-002.yaml",
+            lambda record: record.update(recommendation_sha256="0" * 64),
+        )
+        self.assert_error("CDD_002_DECISION")
+
+    def test_cdd_002_preserves_all_subordinate_items(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-002.yaml",
+            lambda record: record["subordinate_law_items_preserved"].pop(),
+        )
+        self.assert_error("CDD_002_DECISION")
+
+    def test_cdd_002_cannot_claim_ratification(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-002.yaml",
+            lambda record: record["resulting_state"].update(
+                constitution_ratified=True
+            ),
+        )
+        self.assert_error("CDD_002_DECISION")
+
+    def test_cdd_002_requires_honest_post_incorporation_review(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-002.yaml",
+            lambda record: record["post_incorporation_review"].update(
+                new_human_decisions_required=0
+            ),
+        )
+        self.assert_error("CDD_002_DECISION")
+
+    def test_cdd_002_trace_is_required(self) -> None:
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            lambda record: record.pop("ratification_blocker_decision"),
+        )
+        self.assert_error("CONSTITUTION_BLOCKER_DECISION_TRACE")
+
+    def test_cdd_002_section_trace_is_exact(self) -> None:
+        def remove_cdd(record) -> None:
+            section = next(
+                item
+                for item in record["sections"]
+                if item["section_id"] == "III.4"
+            )
+            section["controlling_cdd"].remove("CDD-002")
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            remove_cdd,
+        )
+        self.assert_error("CONSTITUTION_TRACE_SECTIONS")
 
     def test_ratification_review_is_required(self) -> None:
         (
@@ -376,8 +454,9 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.update_text(
             "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
             lambda text: text.replace(
-                "### Blocker 3 — Ordinary Human Governance Offices",
-                "### Observation 3 — Ordinary Human Governance Offices",
+                "### Remaining Blocker — HCA College Election and Removal "
+                "Lifecycle",
+                "### Resolved Topic — HCA College Lifecycle",
             ),
         )
         self.assert_error("RATIFICATION_REVIEW_BLOCKERS")
@@ -416,8 +495,10 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.update_text(
             "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
             lambda text: text.replace(
-                "Subordinate law may\nadminister a constitutional selector",
-                "Subordinate law may create a constitutional selector",
+                "subordinate law would have to determine constitutional "
+                "election validity",
+                "subordinate law may determine constitutional election "
+                "validity",
             ),
         )
         self.assert_error("RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY")
@@ -439,7 +520,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
                 "Alvorada SHALL exist", "Alvorada MAY exist", 1
             ),
         )
-        self.assert_error("RATIFICATION_DRAFT_IMMUTABILITY")
+        self.assert_error("RATIFICATION_DRAFT_INTEGRITY")
 
     def test_constitution_draft_is_required(self) -> None:
         (
@@ -714,8 +795,8 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             "constitutional-design/drafts/"
             "CONSTITUTION_v0.1_OPEN_QUESTIONS.md",
             lambda text: text.replace(
-                "`OPEN_QUESTIONS_COUNT: 0`",
                 "`OPEN_QUESTIONS_COUNT: 1`",
+                "`OPEN_QUESTIONS_COUNT: 0`",
             ),
         )
         self.assert_error("CONSTITUTION_OPEN_QUESTIONS")

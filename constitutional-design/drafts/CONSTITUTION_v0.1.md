@@ -17,19 +17,38 @@ applicable constitutional process.
 2. Human Constitutional Authority SHALL remain sovereign over foundational
    institutional ends. In exercising institutional power, every human and every
    artificial system SHALL remain subject to this Constitution.
-3. Artificial intelligence MAY exercise autonomy only within authority validly
+3. After constitutional activation, Human Constitutional Authority SHALL be
+   exercised only by a College of seven human constitutional members elected by
+   the fixed constitutional membership.
+4. Constitutional membership SHALL be the constituent human root of the
+   College's legitimacy. The College SHALL exercise only the bounded
+   post-activation foundational authority granted by this Constitution.
+5. Every candidate for a College seat or ranked alternate designation SHALL be
+   a human constitutional member, accept service voluntarily, and disclose
+   conflicts and material dependencies. A College member or ranked alternate
+   SHALL NOT simultaneously hold Court, Verification, Enforcement, Succession
+   Council, Transition Authority, continuity-custodian, emergency-command, or
+   material institutional artificial-intelligence-operation status. Each
+   College member SHALL serve a seven-year nonrenewable term, staggered where
+   practicable.
+6. A foundational act SHALL require six College votes and direct confirmation
+   by the fixed constitutional membership, with participation of at least two
+   thirds and approval by at least three quarters of valid votes.
+7. Neither College action alone nor membership action outside a process
+   authorized by this Constitution SHALL create foundational authority.
+8. Artificial intelligence MAY exercise autonomy only within authority validly
    delegated under this Constitution. Artificial intelligence SHALL NOT acquire
    foundational sovereignty, determine foundational institutional ends, or
    inherit Human Constitutional Authority.
-4. Capability, competence, performance, reliability, popularity, validation,
+9. Capability, competence, performance, reliability, popularity, validation,
    delegation, reliance, operational necessity, emergency, succession,
    adjudication, precedent, effective control, continuity, or operational
    indispensability SHALL NOT create, enlarge, transfer, or prove constitutional
    authority.
-5. Formal authority and effective power SHALL remain distinct. The exercise of
+10. Formal authority and effective power SHALL remain distinct. The exercise of
    effective power without lawful authority SHALL NOT become legitimate through
    acquiescence, success, duration, dependence, or later description.
-6. No succession, emergency, delegation, interpretation, cumulative practice,
+11. No succession, emergency, delegation, interpretation, cumulative practice,
    or technical validation MAY convert artificial or practical control into
    foundational sovereignty.
 
@@ -108,6 +127,11 @@ applicable constitutional process.
       conflicted, or not-yet-initialized institution.
 8. Subordinate governance law MAY administer eligibility, nominations,
    sortition, scheduling, and vacancy processing only within these boundaries.
+9. Artificial intelligence MAY assist administration, verification, sortition
+   integrity, provenance, and analysis. It SHALL NOT hold a constitutional
+   office, independently appoint or remove an officer, control selector
+   eligibility or a sortition outcome, or become a final constitutional
+   adjudicator.
 
 ## Article III — Constitutional Adjudication and Enforcement
 
@@ -177,6 +201,31 @@ applicable constitutional process.
     common conflict disables a channel body, a twenty-one-human jury drawn from
     nonconflicted constitutional members SHALL substitute under the quorum and
     approval rules in paragraph 9(c).
+12. Only a human-held ordinary governance office exhaustively identified in
+    constitutional Schedule O SHALL qualify for the ordinary-office selection
+    channel.
+13. Each Schedule O entry SHALL state the office identifier, ordinary
+    nonconstitutional jurisdiction, human selector, term, alternates, removal
+    path, and incompatibilities.
+14. Court, Verification, Enforcement, HCA College, succession, transition,
+    emergency, continuity, institutional artificial-intelligence-operation, and
+    candidate roles SHALL NOT qualify for Schedule O.
+15. The ratification instrument SHALL supply the initial Schedule O with at
+    least three separately held and materially independent qualifying offices.
+    The Constitution SHALL NOT become operational without that schedule.
+16. A later addition, deletion, merger, division, or reclassification of a
+    Schedule O entry SHALL require structural amendment. Ordinary governance
+    law MAY create or administer an ordinary office but SHALL NOT give it
+    Schedule O status or alter that status, selector, or constitutional weight.
+17. Renaming, delegation, temporary assignment, practice, implementation,
+    machine classification, acquiescence, or effective control SHALL NOT change
+    Schedule O status.
+18. The Schedule O electorate SHALL be fixed before public notice of each
+    constitutional exercise. Each nonconflicted human holder SHALL have one
+    vote; holding multiple listed offices SHALL NOT multiply voting power.
+19. Any constitutional member MAY challenge Schedule O eligibility, selector
+    composition, or conflict status through one expedited Court appeal. The
+    Court MAY enforce Schedule O but SHALL NOT amend it.
 
 ### Section III.3 — Recusal, Panels, Appeal, and Conflict Tribunal
 
@@ -211,12 +260,48 @@ applicable constitutional process.
 3. A separate human Enforcement Office SHALL execute final constitutional
    judgments. An independent Verification Office SHALL report publicly on
    compliance.
-4. Noncompliance MAY result in disclosure, expedited constitutional review,
+4. Each Office SHALL have three human members serving staggered six-year
+   nonrenewable terms and three ranked same-channel alternates.
+5. The fixed constitutional membership SHALL select Verification members with
+   participation exceeding one half. Each participating member MAY approve up
+   to three eligible candidates; the three highest totals SHALL prevail, and
+   public human sortition SHALL resolve a final-seat tie.
+6. Enforcement members and their ranked alternates SHALL be selected by public
+   auditable human sortition from an Enforcement-specific constitutionally
+   qualified pool. Its competence review, pool administration, and sortition
+   SHALL be materially independent of the Court and Verification Office.
+7. A Verification or Enforcement candidate SHALL be a voluntary human
+   constitutional member who publishes conflicts and material dependencies,
+   satisfies a public human-administered competence standard, and for three
+   years has held no HCA College, Court, opposite-office, succession-claimant,
+   emergency-command, continuity-custodian, institutional
+   artificial-intelligence-operation, or material institutional-contracting
+   role.
+8. A five-human ad hoc panel selected by public human sortition from
+   noncandidate, nonofficeholding constitutional members SHALL verify compliance
+   with each selection process. Neither permanent Office SHALL verify its own
+   selection.
+9. Removal from either Office SHALL require a five-human independent fact panel
+   selected by public human sortition to find incapacity, serious misconduct,
+   or constitutional disqualification by clear and convincing evidence.
+10. Verification removal SHALL also require a twenty-one-human nonconflicted
+    sortition jury, with seventeen members constituting quorum and approval by
+    two thirds of the full jury. Enforcement removal SHALL instead require
+    fixed constitutional membership confirmation, with participation exceeding
+    one half and majority approval of valid votes.
+11. The next eligible same-channel alternate SHALL fill the remainder of a
+    vacant term. Exhaustion of alternates SHALL repeat only the ordinary
+    selection process constitutionally authorized for that Office.
+12. Any constitutional member MAY bring one expedited Court challenge to an
+    Office selection, removal, replacement, selector composition, sortition,
+    vacancy determination, or Verification or Enforcement act. Whole-Court
+    conflict SHALL invoke the conflict tribunal in Section III.3.
+13. Noncompliance MAY result in disclosure, expedited constitutional review,
    restoration, and bounded personal or institutional accountability.
-5. The Court MAY invalidate an unlawful appointment, suspend unlawful authority,
+14. The Court MAY invalidate an unlawful appointment, suspend unlawful authority,
    declare a vacancy, and order the separately authorized constitutional
    selection process to occur.
-6. The Court SHALL NOT:
+15. The Court SHALL NOT:
    a. appoint a replacement, unless a separate express constitutional rule
       grants a narrowly defined emergency selection function;
    b. create a constitutional office or foundational authority;
@@ -224,21 +309,21 @@ applicable constitutional process.
    d. create or transfer amendment or refounding authority;
    e. exercise continuing managerial control; or
    f. impose open-ended diversification or restructuring.
-7. Replacement SHALL ordinarily be performed by a separately authorized human
+16. Replacement SHALL ordinarily be performed by a separately authorized human
    selector. Any exceptional emergency selection function SHALL identify its
    human selector, trigger, eligibility, scope, challenge path, and nonrenewable
    expiry, and SHALL NOT enlarge Court jurisdiction or create precedent.
-8. The Court MAY require disclosure, verification, recusal, independence
+17. The Court MAY require disclosure, verification, recusal, independence
    safeguards, or narrowly bounded diversification only to remedy a demonstrated
    constitutional violation.
-9. A diversification remedy SHALL be necessary, proportionate, specific,
+18. A diversification remedy SHALL be necessary, proportionate, specific,
    independently reviewable, and time-bounded where appropriate. It SHALL NOT
    appoint personnel, create or reallocate constitutional offices, determine
    institutional ends, control ordinary management, or alter amendment or
    refounding constituencies, thresholds, or authority.
-10. Formal machine validity and nominal human approval SHALL NOT establish
+19. Formal machine validity and nominal human approval SHALL NOT establish
     constitutional legitimacy or cure substantive machine domination.
-11. Subordinate governance law MAY regulate case administration, evidence,
+20. Subordinate governance law MAY regulate case administration, evidence,
     hearings, compliance milestones, reporting, and verification methods. It
     SHALL NOT enlarge jurisdiction or remedies, transfer appointment power to a
     reviewer, or convert a remedy into institutional management.
@@ -404,33 +489,44 @@ applicable constitutional process.
 
 ### Section VI.2 — Predesignation, Proof, and Succession Council
 
-1. Foundational Human Constitutional Authority SHALL maintain one or more
-   current, attributable, reviewable, and revocable successor designations.
-2. A designation SHALL be valid only when made and maintained through the human
-   process authorized by this Constitution and subordinate governance law
-   consistent with it.
-3. Temporary incapacity SHALL require clear and convincing evidence.
-4. Death, permanent loss, identity, return, and successor identity SHALL require
+1. Through the same human election that selects each HCA College member, the
+   fixed constitutional membership SHALL select three public ranked alternates
+   for that seat.
+2. A ranked alternate SHALL be a current, attributable, reviewable, and
+   revocable successor designation. Membership MAY revoke or replace an
+   alternate through the same election process before a succession trigger.
+3. The College SHALL maintain and publish the designation record as a
+   ministerial duty. It SHALL NOT choose, reorder, veto, or make an alternate
+   effective.
+4. Upon a valid trigger, the Succession Council or applicable fallback panel
+   MAY recognize the next eligible nonrecused alternate. Recognition SHALL
+   confirm constitutional compliance and SHALL NOT select or create
+   foundational authority.
+5. Exhaustion of alternates SHALL create a vacancy and invoke a new membership
+   election. It SHALL create no interim, emergency, continuity, machine, or
+   effective-control authority.
+6. Temporary incapacity SHALL require clear and convincing evidence.
+7. Death, permanent loss, identity, return, and successor identity SHALL require
    proof beyond a reasonable doubt from at least three materially independent
    sources.
-5. A common issuer, operator, data source, infrastructure, incentive, or
+8. A common issuer, operator, data source, infrastructure, incentive, or
    artificial-intelligence dependency SHALL defeat source independence.
-6. A seven-human Succession Council SHALL consist of:
+9. A seven-human Succession Council SHALL consist of:
    a. two members selected by the constitutional membership;
    b. two members selected by ordinary human governance offices;
    c. two members selected by the Constitutional Court, no current adjudicator
       serving; and
    d. one member selected by human sortition from the qualified pool.
-7. Five affirmative votes SHALL be required to determine a succession trigger
+10. Five affirmative votes SHALL be required to determine a succession trigger
    or recognize a lawful predesignation. Six affirmative votes SHALL be
    required to conclude that succession is impossible and refer the matter to
    the explicit refounding process.
-8. A claimant, emergency actor, beneficiary with a particularized conflict,
+11. A claimant, emergency actor, beneficiary with a particularized conflict,
    evidence operator, or materially dependent person SHALL recuse.
-9. The Council SHALL publish evidence, reasons, dissent, uncertainty,
+12. The Council SHALL publish evidence, reasons, dissent, uncertainty,
    dependencies, and effective-power conditions. Evidence validation and
    succession judgment SHALL remain separate.
-10. One appeal MAY be taken to the Constitutional Court.
+13. One appeal MAY be taken to the Constitutional Court.
 
 ### Section VI.3 — Non-Quorum Human Fallback
 
@@ -445,7 +541,10 @@ applicable constitutional process.
    rank order SHALL form a fallback panel. Vacancies and recusals SHALL be
    filled in rank order.
 4. Twelve panel members SHALL constitute quorum. Ten affirmative votes SHALL be
-   required to determine a succession trigger or recognize a successor.
+   required to determine a succession trigger or recognize only the next
+   eligible, nonrecused, membership-predesignated alternate under Section
+   VI.2. Exhaustion SHALL proceed only through the membership election required
+   by Section VI.2 and SHALL create no successor-selection power.
 5. The panel SHALL apply the evidence and proof burdens in Section VI.2, publish
    attributable reasons and dissent, and remain subject to one expedited Court
    appeal.
@@ -510,6 +609,18 @@ applicable constitutional process.
 7. Succession SHALL NOT confer amendment or refounding authority.
 8. No adjudicative, emergency, succession, implementation, or validation process
    MAY waive or substitute for the applicable change process.
+9. Structural amendment SHALL be required to change HCA College composition or
+   membership-confirmation rules; Verification or Enforcement
+   composition, selectors, terms, removal, replacement, or challenge paths; or
+   a Schedule O entry, qualification, vote, or anti-manipulation protection.
+10. Explicit refounding SHALL be required to change human sovereignty over
+    foundational institutional ends, constitutional membership as the human
+    source of HCA legitimacy, or artificial-intelligence ineligibility for
+    foundational sovereignty.
+11. Ordinary law, ordinary amendment, adjudication, emergency, succession,
+    continuity, implementation, precedent, vacancy, acquiescence, capability,
+    reliance, or effective control SHALL NOT waive or alter the allocations in
+    paragraphs 9 and 10.
 
 ### Section VII.2 — Amendment and Refounding Procedures
 

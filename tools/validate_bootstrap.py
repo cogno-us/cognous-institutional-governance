@@ -2303,6 +2303,9 @@ FINAL_BLOCKER_PACKET_RELATIVE_PATH = Path(
     "constitutional-design/decisions/"
     "FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md"
 )
+COORDINATED_DECISION_002_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/CDD-002.yaml"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -2411,6 +2414,7 @@ CONSTITUTION_TRACE_FIELDS = {
     "section_count",
     "authority_basis",
     "human_drafting_decision",
+    "ratification_blocker_decision",
     "sections",
     "coverage_summary",
     "provenance",
@@ -2455,13 +2459,13 @@ EXPECTED_DRAFT_SECTION_TITLES = {
 }
 EXPECTED_RATIFICATION_DRAFT_DIGESTS = {
     CONSTITUTION_DRAFT_RELATIVE_PATH: (
-        "b5e39a1b2eddf02317d5b1fc3b2a90cb1850eb3e4a75a531771b3e79e0db85cd"
+        "5cbbaf99442fda6e9ed14e3ed87fdfecb6b3a753f715684c5638a0054db7b6f9"
     ),
     CONSTITUTION_TRACE_RELATIVE_PATH: (
-        "f0778443eedff2f89a8cbbeaeacd8b442fe0498f049c2fcf4dc610b2f40874e0"
+        "8853d8123ddc87a50827d95de0c836200d6360bd6cf8df1228fc80ba69d3f744"
     ),
     CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH: (
-        "af292c0ce09a81700c32bd1fdfc5d6fbea1c58cc3c47fd83567b8696597a1a72"
+        "3a33868366606f4d028e352b54f3c113b263208f5147e84ada93b7128a1bf8bf"
     ),
 }
 FINAL_BLOCKER_ANALYSIS_FIELDS = {
@@ -2471,6 +2475,7 @@ FINAL_BLOCKER_ANALYSIS_FIELDS = {
     "constitutional_effect",
     "draft_modified",
     "human_decision_made",
+    "projection_interpretation",
     "purpose",
     "authoritative_basis",
     "blockers",
@@ -2480,6 +2485,7 @@ FINAL_BLOCKER_ANALYSIS_FIELDS = {
     "recommended_integrated_architecture",
     "subordinate_law_items",
     "residual_questions",
+    "adoption",
     "provenance",
 }
 FINAL_BLOCKER_STRESS_DIMENSIONS = {
@@ -7650,6 +7656,47 @@ def _validate_constitution_draft(
             "Authority adoption, limits, provenance, and non-adoption boundary "
             "are required"
         )
+    expected_blocker_decision = {
+        "decision_id": "CDD-002",
+        "decision": "ADOPT_B",
+        "adopted_architecture": "ALTERNATIVE_B",
+        "status": "DECIDED",
+        "authorized_by": "Human Constitutional Authority",
+        "authorization_record": (
+            "Explicit human instruction received on 2026-08-30 adopting "
+            "Alternative B as the complete coordinated resolution of RB-01 "
+            "through RB-03."
+        ),
+        "decision_date": "2026-08-30",
+        "source_analysis": (
+            "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml"
+        ),
+        "recommendation_sha256": (
+            "1f1dc69386fab2a755f6bc11addee99a1e2828ae93867bf048402fdf758b843b"
+        ),
+        "blockers_addressed": ["RB-01", "RB-02", "RB-03"],
+        "post_incorporation_resolution": {
+            "resolved": ["RB-02", "RB-03"],
+            "partially_resolved": ["RB-01"],
+            "remaining_constitutional_blockers": 1,
+        },
+        "constitutional_effect": "DRAFTING_AUTHORITY_ONLY",
+        "adoption_boundary": (
+            "CDD-002 authorizes direct incorporation of Alternative B but "
+            "does not ratify Constitution v0.1; the ratification instrument "
+            "must supply initial Schedule O."
+        ),
+    }
+    if (
+        trace.get("ratification_blocker_decision")
+        != expected_blocker_decision
+        or "CDD-002" not in trace.get("authority_basis", [])
+    ):
+        errors.append(
+            "CONSTITUTION_BLOCKER_DECISION_TRACE: exact CDD-002 human "
+            "provenance, source digest, and non-ratification boundary are "
+            "required"
+        )
 
     map_record = _load_record(
         root / CONSOLIDATED_MAP_RELATIVE_PATH, errors
@@ -7679,6 +7726,15 @@ def _validate_constitution_draft(
         not isinstance(trace_sections, list)
         or len(section_records) != len(trace_sections)
     )
+    cdd_002_sections = {
+        "I.1",
+        "II.3",
+        "III.2",
+        "III.4",
+        "VI.2",
+        "VI.3",
+        "VII.1",
+    }
     for item in section_records:
         section_id = item.get("section_id")
         ccrs = item.get("consolidated_requirements")
@@ -7706,7 +7762,12 @@ def _validate_constitution_draft(
             or not isinstance(cdrs, list)
             or not cdrs
             or not set(cdrs).issubset(expected_cdrs)
-            or item.get("controlling_cdd") != ["CDD-001"]
+            or item.get("controlling_cdd")
+            != (
+                ["CDD-001", "CDD-002"]
+                if section_id in cdd_002_sections
+                else ["CDD-001"]
+            )
             or not isinstance(rds, list)
             or not rds
             or not set(rds).issubset(expected_rds)
@@ -7843,14 +7904,15 @@ def _validate_constitution_draft(
         "source_requirements_covered": 35,
         "consolidated_groups_covered": 20,
         "foundational_decisions_covered": 5,
-        "coordinated_decisions_covered": 1,
+        "coordinated_decisions_covered": 2,
+        "ratification_blocker_decisions_covered": 1,
         "design_recommendations_covered": 11,
         "coordinated_corrections_covered": 4,
         "refounding_level_principles_covered": 10,
         "untraced_normative_proposition_count": 0,
-        "new_human_decisions_required": 0,
+        "new_human_decisions_required": 1,
         "cross_article_contradictions": 0,
-        "open_questions_count": 0,
+        "open_questions_count": 1,
     }
     if trace.get("coverage_summary") != expected_summary:
         errors.append(
@@ -7872,20 +7934,25 @@ def _validate_constitution_draft(
         open_text = ""
     if (
         open_text.count("# Constitution v0.1 Open Questions") != 1
-        or "## New Human Constitutional Decisions Required\n\nNone."
-        not in open_text
+        or "One coordinated Human Constitutional Authority decision remains "
+        "required" not in open_text
         or "### OQ-001 — Structural-Amendment Cohort Remainders"
         not in open_text
         or "**Decision:** `REMAINDER_SORTITION`" not in open_text
         or "Human Constitutional Authority explicitly directed" not in open_text
-        or "`OPEN_QUESTIONS_COUNT: 0`" not in open_text
+        or "**Decision:** `CDD-002 / ADOPT_B`" not in open_text
+        or "one remaining constitutional question" not in open_text
+        or "cannot be supplied by\nsubordinate election administration"
+        not in open_text
+        or "`OPEN_QUESTIONS_COUNT: 1`" not in open_text
         or "without adopting the Constitution" not in open_text
         or "subordinate governance law" not in open_text
         or "implementation questions" not in open_text
     ):
         errors.append(
-            "CONSTITUTION_OPEN_QUESTIONS: exact resolved remainder decision, "
-            "zero-question count, and non-adoption boundary are required"
+            "CONSTITUTION_OPEN_QUESTIONS: adopted Alternative B, its one "
+            "remaining HCA lifecycle question, and non-adoption boundary are "
+            "required"
         )
 
     metrics["draft_status"] = str(trace.get("draft_status", ""))
@@ -7898,9 +7965,9 @@ def _validate_constitution_draft(
     metrics["coordinated_corrections_covered"] = len(traced_cdcs)
     metrics["refounding_level_principles_covered"] = represented_principles
     metrics["untraced_normative_proposition_count"] = untraced_normative
-    metrics["new_human_decisions_required"] = 0
+    metrics["new_human_decisions_required"] = 1
     metrics["cross_article_contradictions"] = 0
-    metrics["open_questions_count"] = 0
+    metrics["open_questions_count"] = 1
     return metrics
 
 
@@ -7935,7 +8002,7 @@ def _validate_ratification_review(
             "**Draft status preserved:** **DRAFT — NOT ADOPTED CONSTITUTION**"
         )
         != 1
-        or "does not adopt, ratify, amend, redesign, or confer effect"
+        or "does not adopt, ratify, amend, or confer effect"
         not in review
     ):
         errors.append(
@@ -7959,27 +8026,14 @@ def _validate_ratification_review(
         )
 
     blocker_headings = re.findall(
-        r"^### Blocker ([1-3]) — ([^\r\n]+)$",
+        r"^### Remaining Blocker — ([^\r\n]+)$",
         review,
         flags=re.MULTILINE,
     )
-    expected_blockers = [
-        ("1", "Human Constitutional Authority Is Not Constituted"),
-        (
-            "2",
-            "Verification and Enforcement Selection Chains Are Absent",
-        ),
-        ("3", "Ordinary Human Governance Offices Are Undefined Selectors"),
-    ]
-    minimum_decisions = re.findall(
-        r"^\*\*Minimum Human decision required:\*\*",
-        review,
-        flags=re.MULTILINE,
-    )
-    if blocker_headings != expected_blockers or len(minimum_decisions) != 3:
+    if blocker_headings != ["HCA College Election and Removal Lifecycle"]:
         errors.append(
-            "RATIFICATION_REVIEW_BLOCKERS: exactly the three genuine "
-            "constitutional authority-allocation blockers are required"
+            "RATIFICATION_REVIEW_BLOCKERS: exactly one remaining HCA College "
+            "lifecycle blocker is required"
         )
 
     expected_article_pairs = {
@@ -8007,12 +8061,12 @@ def _validate_ratification_review(
     )
     if (
         reviewed_pairs != expected_article_pairs
-        or "No direct cross-article contradiction was found." not in review
-        or "authority\nvacua or undefined selector classes" not in review
+        or "**Cross-article contradiction count:** `0`" not in review
+        or "omitted\nconstitutional lifecycle allocation" not in review
     ):
         errors.append(
             "RATIFICATION_REVIEW_CROSS_ARTICLE: all 28 Article pairs, zero "
-            "direct contradictions, and the authority-gap distinction are "
+            "direct contradictions, and the lifecycle-gap distinction are "
             "required"
         )
 
@@ -8053,13 +8107,13 @@ def _validate_ratification_review(
     )
     if (
         len(adversarial_names) != 13
-        or adversarial_passes != 7
-        or adversarial_failures != 6
-        or "**Adversarial result:** `7/13 PASS`" not in review
+        or adversarial_passes != 9
+        or adversarial_failures != 4
+        or "**Adversarial result:** `9/13 PASS`" not in review
     ):
         errors.append(
             "RATIFICATION_REVIEW_ADVERSARIAL: all 13 required scenarios with "
-            "the exact 7-pass, 6-fail blocker-linked result are required"
+            "the exact 9-pass, 4-fail blocker-linked result are required"
         )
 
     required_reader_questions = {
@@ -8070,6 +8124,7 @@ def _validate_ratification_review(
         "What happens in emergencies?",
         "What happens during succession and interregnum?",
         "What may be amended?",
+        "What requires structural amendment?",
         "What requires refounding?",
         "How does the institution terminate?",
         "What may artificial intelligence do?",
@@ -8091,15 +8146,15 @@ def _validate_ratification_review(
         )
     if (
         "**Subordinate-law boundary result:** "
-        "`FAIL — THREE AUTHORITY ALLOCATIONS MUST BE\n"
-        "CONSTITUTIONAL BEFORE ADMINISTRATIVE DELEGATION IS SAFE`"
+        "`FAIL — ONE HCA COLLEGE LIFECYCLE\n"
+        "ALLOCATION REMAINS CONSTITUTIONAL`"
         not in review
-        or "Subordinate law may\nadminister a constitutional selector but "
-        "cannot create that selector"
+        or "subordinate law would have to determine constitutional election "
+        "validity"
         not in review
     ):
         errors.append(
-            "RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY: the exact three-gap "
+            "RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY: the exact one-gap "
             "authority boundary and delegation distinction are required"
         )
 
@@ -8107,17 +8162,19 @@ def _validate_ratification_review(
         "| Source requirements covered | 35/35 |",
         "| Consolidated requirement groups covered | 20/20 |",
         "| Foundational decisions covered | 5/5 |",
+        "| Coordinated design decisions covered | 2/2 |",
         "| Adopted design recommendations covered | 11/11 |",
         "| Coordinated corrections covered | 4/4 |",
         "| Remainder-sortition decision covered | 1/1 |",
+        "| Ratification-blocker decision covered | 1/1 |",
         "| Refounding-level principles protected | 10/10 |",
         "| Untraced normative propositions | 0 |",
-        "| New Human Constitutional Authority decisions required | 3 |",
+        "| New Human Constitutional Authority design decisions required | 1 |",
     )
     if any(item not in review for item in required_coverage):
         errors.append(
             "RATIFICATION_REVIEW_COVERAGE: exact complete traceability and "
-            "three-decision metrics are required"
+            "one-decision metrics are required"
         )
 
     for relative_path, expected_digest in EXPECTED_RATIFICATION_DRAFT_DIGESTS.items():
@@ -8129,20 +8186,22 @@ def _validate_ratification_review(
             continue
         if actual_digest != expected_digest:
             errors.append(
-                "RATIFICATION_DRAFT_IMMUTABILITY: pre-ratification review "
-                f"must not modify {relative_path}"
+                "RATIFICATION_DRAFT_INTEGRITY: incorporated Alternative B "
+                f"artifact mismatch at {relative_path}"
             )
 
     metrics.update(
         {
             "ratification_readiness": "NOT_READY_FOR_HUMAN_RATIFICATION",
-            "constitutional_blocker_count": len(blocker_headings),
+            "constitutional_blocker_count": 1,
             "ratification_cross_article_contradiction_count": 0,
-            "ratification_adversarial_tests_pass": "7/13",
+            "ratification_adversarial_tests_pass": "9/13",
             "human_comprehensibility_result": "FAIL",
             "subordinate_law_boundary_result": "FAIL",
-            "new_human_decisions_required": 3,
-            "ratification_recommendation": "DO_NOT_RATIFY_UNTIL_3_BLOCKERS_RESOLVED",
+            "new_human_decisions_required": 1,
+            "ratification_recommendation": (
+                "DO_NOT_RATIFY_UNTIL_HCA_COLLEGE_LIFECYCLE_IS_DECIDED"
+            ),
         }
     )
     return metrics
@@ -8158,6 +8217,10 @@ def _validate_final_blocker_analysis(
         "projected_ratification_blockers_remaining": 3,
         "final_blocker_human_decisions_required": 0,
         "final_blocker_subordinate_law_item_count": 0,
+        "adopted_architecture": "",
+        "blocker_decision_status": "",
+        "ratification_blockers_resolved": 0,
+        "ratification_blockers_remaining": 3,
     }
     record = _load_record(root / FINAL_BLOCKER_ANALYSIS_RELATIVE_PATH, errors)
     if record is None:
@@ -8171,15 +8234,23 @@ def _validate_final_blocker_analysis(
     if (
         record.get("analysis_id")
         != "FINAL-RATIFICATION-BLOCKER-ANALYSIS-001"
-        or record.get("status") != "ANALYSIS_ONLY"
-        or record.get("decision_effect") != "NONE"
-        or record.get("constitutional_effect") != "NONE"
+        or record.get("status") != "DECIDED"
+        or record.get("decision_effect") != "ALTERNATIVE_B_ADOPTED_FOR_DRAFTING"
+        or record.get("constitutional_effect") != "DESIGN_AUTHORITY_ONLY"
         or record.get("draft_modified") is not False
-        or record.get("human_decision_made") is not False
+        or record.get("human_decision_made") is not True
+        or record.get("projection_interpretation")
+        != (
+            "The zero-blocker result inside "
+            "recommended_integrated_architecture is the historical "
+            "pre-incorporation projection. The post-incorporation "
+            "constitutional review supersedes it for current readiness and "
+            "records one remaining HCA College lifecycle blocker."
+        )
     ):
         errors.append(
-            "FINAL_BLOCKER_ANALYSIS_BOUNDARY: analysis-only, no-decision, "
-            "no-effect, and unchanged-draft boundaries are required"
+            "FINAL_BLOCKER_ANALYSIS_BOUNDARY: exact CDD-002 adoption status, "
+            "analysis non-authorship, and non-ratification boundary are required"
         )
 
     blockers = record.get("blockers")
@@ -8376,18 +8447,37 @@ def _validate_final_blocker_analysis(
             "term staggering may remain"
         )
     provenance = record.get("provenance")
+    adoption = record.get("adoption")
     if (
         not isinstance(provenance, dict)
         or "explicit Human Constitutional Authority instruction"
         not in str(provenance.get("source", ""))
-        or "no constitutional effect"
+        or "analysis itself created no authority"
         not in str(provenance.get("authority_boundary", ""))
-        or "Only an explicit attributable Human Constitutional Authority"
+        or "neither record ratifies Constitution v0.1"
         not in str(provenance.get("authority_boundary", ""))
+        or adoption
+        != {
+            "decision_id": "CDD-002",
+            "decision": "ADOPT_B",
+            "adopted_architecture": "ALTERNATIVE_B",
+            "status": "DECIDED",
+            "authorized_by": "Human Constitutional Authority",
+            "authorization_record": (
+                "Explicit human instruction received on 2026-08-30 adopting "
+                "the complete Alternative B package analyzed in PR #26."
+            ),
+            "decision_date": "2026-08-30",
+            "recommendation_sha256": (
+                "1f1dc69386fab2a755f6bc11addee99a1e2828ae93867bf048402fdf758b843b"
+            ),
+            "constitution_ratified": False,
+        }
     ):
         errors.append(
-            "FINAL_BLOCKER_PROVENANCE: explicit human instruction and "
-            "machine non-authority provenance are required"
+            "FINAL_BLOCKER_PROVENANCE: exact CDD-002 human adoption, source "
+            "digest, analysis non-authority, and non-ratification provenance "
+            "are required"
         )
 
     packet_path = root / FINAL_BLOCKER_PACKET_RELATIVE_PATH
@@ -8397,7 +8487,7 @@ def _validate_final_blocker_analysis(
         errors.append(f"FINAL_BLOCKER_PACKET_REQUIRED: {exc}")
         packet = ""
     required_packet_terms = (
-        "**HUMAN DECISION REQUIRED — NO DECISION RECORDED**",
+        "**HUMAN DECISION RECORDED — ADOPT_B**",
         "**NO CONSTITUTIONAL EFFECT**",
         "## Decision Scope",
         "## Alternatives Considered",
@@ -8411,21 +8501,89 @@ def _validate_final_blocker_analysis(
         "### 7. Change and Non-Accretion Boundaries",
         "## Subordinate Governance and Implementation",
         "## Human Decision",
-        "`ADOPT_RECOMMENDED_INTEGRATED_ARCHITECTURE`",
-        "No option has been selected in this record.",
+        "**Decision:** `ADOPT_B`",
+        "Alternative B and every boundary in this packet are adopted",
+        "## Historical Pre-Incorporation Projection — Superseded by Review",
         "ratification blockers remaining: **0**",
-        "**NO HUMAN DECISION HAS BEEN RECORDED.**",
+        "post-incorporation review below supersedes that projection",
+        "**HUMAN CONSTITUTIONAL AUTHORITY DECISION: ADOPT_B.**",
+        "## Post-Incorporation Review",
+        "`NOT_READY_FOR_HUMAN_RATIFICATION`",
         "**CONSTITUTION v0.1 REMAINS DRAFT — NOT ADOPTED CONSTITUTION.**",
     )
     if (
         any(term not in packet for term in required_packet_terms)
-        or len(re.findall(r"^\d+\. `", packet, flags=re.MULTILINE)) != 6
         or "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml"
         not in packet
     ):
         errors.append(
-            "FINAL_BLOCKER_PACKET_CONTENT: one complete coordinated human "
-            "decision packet with no selected option is required"
+            "FINAL_BLOCKER_PACKET_CONTENT: one complete adopted coordinated "
+            "human decision packet with post-incorporation review is required"
+        )
+
+    cdd_002 = _load_record(
+        root / COORDINATED_DECISION_002_RELATIVE_PATH, errors
+    ) or {}
+    expected_cdd_002_fields = {
+        "decision_id",
+        "title",
+        "status",
+        "decision",
+        "adopted_architecture",
+        "decision_date",
+        "decision_authority",
+        "authorized_by",
+        "authorization_record",
+        "source_analysis",
+        "source_packet",
+        "recommendation_sha256",
+        "adopted_components",
+        "authority_boundaries",
+        "blocker_resolution",
+        "subordinate_law_items_preserved",
+        "initial_schedule_o_boundary",
+        "decision_effect",
+        "constitutional_status",
+        "resulting_state",
+        "post_incorporation_review",
+        "provenance",
+    }
+    resolution = cdd_002.get("blocker_resolution", [])
+    if (
+        set(cdd_002) != expected_cdd_002_fields
+        or cdd_002.get("decision_id") != "CDD-002"
+        or cdd_002.get("status") != "DECIDED"
+        or cdd_002.get("decision") != "ADOPT_B"
+        or cdd_002.get("adopted_architecture") != "ALTERNATIVE_B"
+        or cdd_002.get("authorized_by") != "Human Constitutional Authority"
+        or cdd_002.get("recommendation_sha256")
+        != "1f1dc69386fab2a755f6bc11addee99a1e2828ae93867bf048402fdf758b843b"
+        or len(cdd_002.get("adopted_components", [])) != 7
+        or len(cdd_002.get("authority_boundaries", [])) != 9
+        or [item.get("status") for item in resolution]
+        != ["PARTIALLY_RESOLVED", "RESOLVED", "RESOLVED"]
+        or len(cdd_002.get("subordinate_law_items_preserved", [])) != 9
+        or cdd_002.get("resulting_state", {}).get(
+            "ratification_blockers_resolved"
+        )
+        != 2
+        or cdd_002.get("resulting_state", {}).get(
+            "ratification_blockers_remaining_after_incorporation"
+        )
+        != 1
+        or cdd_002.get("post_incorporation_review", {}).get(
+            "new_human_decisions_required"
+        )
+        != 1
+        or cdd_002.get("constitutional_status") != "DRAFT_NOT_ADOPTED"
+        or cdd_002.get("resulting_state", {}).get("constitution_ratified")
+        is not False
+        or not _has_provenance(cdd_002)
+    ):
+        errors.append(
+            "CDD_002_DECISION: exact Human ADOPT_B provenance, seven "
+            "components, nine subordinate items, 2/1 blocker result, and "
+            "non-ratification state are required"
         )
 
     metrics.update(
@@ -8441,6 +8599,10 @@ def _validate_final_blocker_analysis(
             "final_blocker_subordinate_law_item_count": len(subordinate_items)
             if isinstance(subordinate_items, list)
             else 0,
+            "adopted_architecture": "ALTERNATIVE_B",
+            "blocker_decision_status": "DECIDED",
+            "ratification_blockers_resolved": 2,
+            "ratification_blockers_remaining": 1,
         }
     )
     return metrics

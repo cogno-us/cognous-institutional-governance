@@ -1,14 +1,14 @@
 # Final Ratification Blockers — Coordinated Human Decision Packet
 
-**HUMAN DECISION REQUIRED — NO DECISION RECORDED**
+**HUMAN DECISION RECORDED — ADOPT_B**
 
 **NO CONSTITUTIONAL EFFECT**
 
-This packet presents one coordinated decision on the three interacting
+This packet records one coordinated decision on the three interacting
 authority-chain blockers identified in
-`constitutional-design/RATIFICATION_REVIEW_v0.1.md`. It does not adopt the
-recommendation, modify Constitution v0.1, enact constitutional provisions, or
-ratify the Constitution.
+`constitutional-design/RATIFICATION_REVIEW_v0.1.md`. The Human Constitutional
+Authority adopted Alternative B on 2026-08-30. This decision authorizes direct
+draft incorporation but does not enact or ratify Constitution v0.1.
 
 ## Decision Scope
 
@@ -216,39 +216,50 @@ constitutional legitimacy.
 
 ## Human Decision
 
-Choose exactly one:
+**Decision:** `ADOPT_B`
 
-1. `ADOPT_RECOMMENDED_INTEGRATED_ARCHITECTURE` — adopt Alternative B and every
-   boundary in this packet as one coordinated package, subject to supplying the
-   initial Schedule O entries in the later adoption or ratification instrument.
-2. `SELECT_ALTERNATIVE_A` — adopt Direct Membership Authority and request exact
-   incorporation language.
-3. `SELECT_ALTERNATIVE_C` — adopt Three-Channel Concurrent Authority and
-   request exact incorporation language.
-4. `SELECT_ALTERNATIVE_D` — adopt Founding Roster with Membership Renewal and
-   identify the initial human roster.
-5. `REVISE_PACKAGE` — identify the minimum changes required.
-6. `REJECT_PACKAGE`.
+Alternative B and every boundary in this packet are adopted as one coordinated
+package. The initial Schedule O entries remain to be supplied by Human
+Constitutional Authority in the later ratification instrument. The nine
+identified subordinate-law items remain subordinate.
 
-No option has been selected in this record.
+## Historical Pre-Incorporation Projection — Superseded by Review
 
-## Projected Effect of Recommended Adoption
-
-If Alternative B is explicitly adopted, the initial Schedule O is supplied,
-and the adopted allocations are incorporated into Constitution v0.1:
+Before incorporation, the analysis projected that, after Alternative B was
+incorporated into Constitution v0.1 and the initial Schedule O was supplied in
+the later ratification instrument:
 
 - ratification blockers remaining: **0**;
 - additional decision cycles required for these three blockers: **0**;
 - Constitution v0.1 adopted or ratified by this packet: **NO**;
 - runtime machinery created: **NO**.
 
+The post-incorporation review below supersedes that projection as a statement
+of current readiness.
+
+## Post-Incorporation Review
+
+The adopted architecture directly resolves the original Verification,
+Enforcement, and Schedule O authority gaps and supplies the membership-rooted
+HCA College and successor-alternate architecture. The required rerun identified
+one remaining HCA College lifecycle decision that Alternative B did not state:
+the initial and recurring College election result rule, removal and confirmation
+process, removal-as-succession trigger, and structural protection of those
+rules.
+
+This packet does not invent that missing allocation. Constitution v0.1 remains
+`NOT_READY_FOR_HUMAN_RATIFICATION` until Human Constitutional Authority decides
+it. The initial Schedule O population remains a separate required input to the
+later ratification instrument.
+
 ## Provenance and Authority Boundary
 
-This packet was prepared from repository analysis in response to explicit Human
-Constitutional Authority instruction on 2026-08-30. Artificial-intelligence
+This packet was prepared from repository analysis and adopted by explicit Human
+Constitutional Authority instruction on 2026-08-30. The decision is recorded in
+`constitutional-design/decisions/CDD-002.yaml`. Artificial-intelligence
 analysis, drafting, recommendation, hashing, tests, and validation create no
-authority.
+authority and cannot expand the adopted package.
 
-**NO HUMAN DECISION HAS BEEN RECORDED.**
+**HUMAN CONSTITUTIONAL AUTHORITY DECISION: ADOPT_B.**
 
 **CONSTITUTION v0.1 REMAINS DRAFT — NOT ADOPTED CONSTITUTION.**

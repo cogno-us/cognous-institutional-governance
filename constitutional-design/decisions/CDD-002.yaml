@@ -1,0 +1,86 @@
+{
+  "decision_id": "CDD-002",
+  "title": "Adoption of Final Ratification-Blocker Architecture",
+  "status": "DECIDED",
+  "decision": "ADOPT_B",
+  "adopted_architecture": "ALTERNATIVE_B",
+  "decision_date": "2026-08-30",
+  "decision_authority": "Human Constitutional Authority",
+  "authorized_by": "Human Constitutional Authority",
+  "authorization_record": "Explicit human instruction received on 2026-08-30 adopting Alternative B as the complete coordinated constitutional resolution of the three ratification blockers analyzed in PR #26.",
+  "source_analysis": "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml",
+  "source_packet": "constitutional-design/decisions/FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md",
+  "recommendation_sha256": "1f1dc69386fab2a755f6bc11addee99a1e2828ae93867bf048402fdf758b843b",
+  "adopted_components": [
+    "membership-rooted seven-human Human Constitutional Authority College",
+    "membership-selected successor alternates",
+    "membership-selected Verification Office",
+    "sortition-selected Enforcement Office",
+    "separated removal and replacement chains",
+    "independent challenge",
+    "structurally protected Schedule O selector class"
+  ],
+  "authority_boundaries": [
+    "Foundational authority remains rooted in legitimate human constitutional membership.",
+    "The HCA College is human-only and has seven members.",
+    "No office may unilaterally appoint, remove, and replace its own counter-power.",
+    "A Court vacancy declaration creates no appointment power.",
+    "An Enforcement Office creates no selector, and a Verification Office gains no sovereignty through dependency or appointment control.",
+    "Artificial intelligence may assist administration, verification, sortition integrity, provenance, and analysis but may not hold foundational sovereignty, join the HCA College, independently appoint or remove constitutional officers, finally adjudicate, control selector eligibility, or control sortition outcomes.",
+    "Vacancy, capability, performance, reliance, necessity, emergency, precedent, operational indispensability, and effective control create no authority.",
+    "Schedule O cannot be altered through subordinate law, implementation, adjudication, emergency, succession, custom, or effective control.",
+    "CDD-001, CDR-001 through CDR-005, RD-01 through RD-11, CDC-01 through CDC-04, and HCA-DRAFT-001 remain controlling except where this decision directly supplies the three omitted authority allocations."
+  ],
+  "blocker_resolution": [
+    {
+      "blocker_id": "RB-01",
+      "status": "PARTIALLY_RESOLVED",
+      "resolution": "Constitutional membership is the constituent human root; a seven-human membership-elected HCA College exercises bounded post-activation foundational authority, and membership preselects ranked successor alternates that the adopted succession process may recognize but not create. Post-incorporation review found that the adopted package does not determine the College election result rule, initial election trigger, or removal lifecycle."
+    },
+    {
+      "blocker_id": "RB-02",
+      "status": "RESOLVED",
+      "resolution": "Membership selects Verification, public human sortition selects Enforcement, and each office has separated removal confirmation, same-channel alternates, replacement, independent selection verification, and expedited challenge."
+    },
+    {
+      "blocker_id": "RB-03",
+      "status": "RESOLVED",
+      "resolution": "Only offices exhaustively listed in constitutional Schedule O qualify; ratification supplies the initial schedule, later change requires structural amendment, and no lower process can manipulate selector status or voting weight."
+    }
+  ],
+  "subordinate_law_items_preserved": [
+    "Election and nomination forms, notice, scheduling, ballot administration, recounts, and publication",
+    "Sortition entropy, ceremony, audit, reproducibility, and interface mechanics",
+    "Conflict and dependency disclosure formats and evidence intake",
+    "Competence-assessment administration under the constitutional standard",
+    "Alternate records, term calendars, vacancy notices, and service acceptance",
+    "Schedule O office registries and incumbent-roll administration without classification power",
+    "Successor-designation registration, periodic confirmation, revocation records, and notification",
+    "Case filing, expedited-review scheduling, record retention, and public reporting",
+    "Identity, authentication, signatures, storage, archival integrity, and accessibility tooling"
+  ],
+  "initial_schedule_o_boundary": "The initial Schedule O population must be supplied by Human Constitutional Authority as part of the later ratification instrument. This adoption does not invent its entries, ratify the Constitution, or authorize operational activation without that supply.",
+  "decision_effect": "AUTHORIZES_DIRECT_DRAFT_INCORPORATION_ONLY",
+  "constitutional_status": "DRAFT_NOT_ADOPTED",
+  "resulting_state": {
+    "ratification_blockers_resolved": 2,
+    "ratification_blockers_remaining_after_incorporation": 1,
+    "constitutional_provision_count": 0,
+    "runtime_artifact_count": 0,
+    "constitution_ratified": false
+  },
+  "post_incorporation_review": {
+    "status": "NOT_READY_FOR_HUMAN_RATIFICATION",
+    "remaining_blocker": "The HCA College lacks a constitutionally decided initial and recurring election result rule, initial election trigger, and removal, vacancy-trigger, and confirmation lifecycle.",
+    "direct_corrections_from_adopted_authority": [
+      "Enforcement uses an Enforcement-specific qualified pool whose competence review, administration, and sortition are independent of Verification and the Court.",
+      "The succession fallback may recognize only the next eligible nonrecused membership-predesignated alternate and gains no successor-selection power."
+    ],
+    "new_human_decisions_required": 1
+  },
+  "provenance": {
+    "source": "Explicit Human Constitutional Authority instruction on 2026-08-30 after PR #26 merged into authoritative origin/main.",
+    "recorded_by": "GitHub Copilot as transcription and validation assistant",
+    "authority_boundary": "The human instruction supplies the decision. Artificial-intelligence analysis, drafting, hashes, tests, and validation supply no independent authority and cannot expand Alternative B."
+  }
+}

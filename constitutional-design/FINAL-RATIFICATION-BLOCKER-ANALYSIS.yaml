@@ -1,10 +1,11 @@
 {
   "analysis_id": "FINAL-RATIFICATION-BLOCKER-ANALYSIS-001",
-  "status": "ANALYSIS_ONLY",
-  "decision_effect": "NONE",
-  "constitutional_effect": "NONE",
+  "status": "DECIDED",
+  "decision_effect": "ALTERNATIVE_B_ADOPTED_FOR_DRAFTING",
+  "constitutional_effect": "DESIGN_AUTHORITY_ONLY",
   "draft_modified": false,
-  "human_decision_made": false,
+  "human_decision_made": true,
+  "projection_interpretation": "The zero-blocker result inside recommended_integrated_architecture is the historical pre-incorporation projection. The post-incorporation constitutional review supersedes it for current readiness and records one remaining HCA College lifecycle blocker.",
   "purpose": "Analyze the three Constitution v0.1 ratification blockers as one interacting authority graph and recommend the minimum coherent constitutional allocation that would close all three.",
   "authoritative_basis": [
     "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
@@ -267,8 +268,19 @@
     "The initial Schedule O must be populated by the Human Constitutional Authority in the adoption decision or ratification instrument; its entries cannot be invented by analysis or subordinate law.",
     "Staggering dates for initial HCA College, Verification, and Enforcement terms are transition administration once the constitutional term lengths and channels are adopted."
   ],
+  "adoption": {
+    "decision_id": "CDD-002",
+    "decision": "ADOPT_B",
+    "adopted_architecture": "ALTERNATIVE_B",
+    "status": "DECIDED",
+    "authorized_by": "Human Constitutional Authority",
+    "authorization_record": "Explicit human instruction received on 2026-08-30 adopting the complete Alternative B package analyzed in PR #26.",
+    "decision_date": "2026-08-30",
+    "recommendation_sha256": "1f1dc69386fab2a755f6bc11addee99a1e2828ae93867bf048402fdf758b843b",
+    "constitution_ratified": false
+  },
   "provenance": {
     "source": "Repository analysis performed in response to explicit Human Constitutional Authority instruction on 2026-08-30.",
-    "authority_boundary": "This analysis and its recommendation have no constitutional effect. They do not decide, adopt, ratify, or modify Constitution v0.1. Only an explicit attributable Human Constitutional Authority decision can adopt the integrated architecture."
+    "authority_boundary": "The analysis itself created no authority. CDD-002 records the later explicit Human Constitutional Authority adoption of Alternative B for direct draft incorporation only; neither record ratifies Constitution v0.1."
   }
 }
