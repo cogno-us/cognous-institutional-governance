@@ -299,6 +299,28 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(
             result.metrics["lifecycle_decision_status"], "DECIDED"
         )
+        self.assertEqual(result.metrics["schedule_o_term"], "FIXED_3_YEARS")
+        self.assertEqual(
+            result.metrics["schedule_o_removal_rule"],
+            "FOR_CAUSE_BY_SAME_MEMBERSHIP_ROOTED_SELECTOR",
+        )
+        self.assertEqual(
+            result.metrics["schedule_o_selector_rule"],
+            "MATERIALLY_INDEPENDENT_HUMAN_MEMBERSHIP_ROOTED",
+        )
+        self.assertEqual(
+            result.metrics[
+                "schedule_o_constitutional_design_questions_remaining"
+            ],
+            0,
+        )
+        self.assertEqual(
+            result.metrics["schedule_o_human_identities_required"], 6
+        )
+        self.assertFalse(result.metrics["schedule_o_ratification_ready"])
+        self.assertEqual(
+            result.metrics["schedule_o_qualifying_office_count"], 3
+        )
 
     def test_hca_lifecycle_analysis_is_required(self) -> None:
         (
@@ -545,6 +567,109 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             remove_cdd,
         )
         self.assert_error("CONSTITUTION_TRACE_SECTIONS")
+
+    def test_cdd_004_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CDD-004.yaml"
+        ).unlink()
+        self.assert_error("CDD_004_INTEGRITY")
+
+    def test_cdd_004_requires_human_provenance(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-004.yaml",
+            lambda record: record.update(
+                decision_authority="Artificial Intelligence"
+            ),
+        )
+        self.assert_error("CDD_004_HUMAN_DECISION")
+
+    def test_cdd_004_requires_fixed_three_year_term(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-004.yaml",
+            lambda record: record.update(term_rule="Indefinite term."),
+        )
+        self.assert_error("CDD_004_HUMAN_DECISION")
+
+    def test_cdd_004_requires_membership_rooted_removal(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-004.yaml",
+            lambda record: record.update(
+                removal_rule="The incumbent selects its replacement."
+            ),
+        )
+        self.assert_error("CDD_004_AUTHORITY_RULES")
+
+    def test_cdd_004_requires_all_incompatibilities(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-004.yaml",
+            lambda record: record["incompatibilities"].pop(),
+        )
+        self.assert_error("CDD_004_INDEPENDENCE")
+
+    def test_cdd_004_cannot_ratify_or_populate_schedule_o(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-004.yaml",
+            lambda record: record["resulting_state"].update(
+                populated_qualifying_offices=3,
+                ratification_ready=True,
+                constitution_ratified=True,
+            ),
+        )
+        self.assert_error("CDD_004_NON_RATIFICATION")
+
+    def test_initial_schedule_o_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "INITIAL_SCHEDULE_O.yaml"
+        ).unlink()
+        self.assert_error("INITIAL_SCHEDULE_O_INTEGRITY")
+
+    def test_initial_schedule_o_requires_exact_three_offices(self) -> None:
+        self.update_json(
+            "constitutional-design/INITIAL_SCHEDULE_O.yaml",
+            lambda record: record["offices"].pop(),
+        )
+        self.assert_error("INITIAL_SCHEDULE_O_OFFICES")
+
+    def test_initial_schedule_o_cannot_fabricate_identity(self) -> None:
+        self.update_json(
+            "constitutional-design/INITIAL_SCHEDULE_O.yaml",
+            lambda record: record["offices"][0]["principal"].update(
+                identity="Fabricated Person"
+            ),
+        )
+        self.assert_error("INITIAL_SCHEDULE_O_NO_FABRICATION")
+
+    def test_initial_schedule_o_requires_all_human_inputs(self) -> None:
+        self.update_json(
+            "constitutional-design/INITIAL_SCHEDULE_O.yaml",
+            lambda record: record["human_inputs_still_required"][
+                "appointment_records"
+            ].pop(),
+        )
+        self.assert_error("INITIAL_SCHEDULE_O_HUMAN_INPUTS")
+
+    def test_initial_schedule_o_cannot_claim_ratification(self) -> None:
+        self.update_json(
+            "constitutional-design/INITIAL_SCHEDULE_O.yaml",
+            lambda record: record["non_effects"].pop(2),
+        )
+        self.assert_error("INITIAL_SCHEDULE_O_BOUNDARY")
+
+    def test_initial_schedule_o_prohibits_ai_selection(self) -> None:
+        self.update_json(
+            "constitutional-design/INITIAL_SCHEDULE_O.yaml",
+            lambda record: record["common_rules"].update(
+                artificial_intelligence_boundary=(
+                    "Artificial intelligence selects each office."
+                )
+            ),
+        )
+        self.assert_error("INITIAL_SCHEDULE_O_COMMON_RULES")
 
     def test_final_blocker_analysis_is_required(self) -> None:
         (

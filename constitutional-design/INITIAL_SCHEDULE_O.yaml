@@ -1,0 +1,123 @@
+{
+  "schedule_id": "INITIAL-SCHEDULE-O-v0.1",
+  "status": "ARCHITECTURE_DECIDED_PENDING_HUMAN_POPULATION",
+  "constitutional_effect": "NONE_UNTIL_INCLUDED_IN_HUMAN_RATIFICATION_INSTRUMENT",
+  "controlling_decision": "CDD-004",
+  "constitution_version": "v0.1",
+  "office_count": 3,
+  "common_rules": {
+    "term": "FIXED_3_YEARS",
+    "initial_selector": "Initial Human Constitutional Authority for initial principal and alternate appointments only.",
+    "continuing_selector": "Human institutional members acting through a materially independent, membership-rooted selection process for the office.",
+    "selector_independence": "Selection must remain independent from the other Schedule O offices and every constitutionally incompatible office and must not be controlled by the incumbent.",
+    "artificial_intelligence_boundary": "Artificial intelligence may provide administrative assistance but may not select, certify, veto, or determine an outcome.",
+    "vacancy_and_removal_selector": "Selection authority returns to the same membership-rooted selector class.",
+    "alternate_rule": "One separately selected human alternate per office, selected through the same independent process as the principal, receives no authority while the incumbent validly holds office and may activate only upon a constitutionally valid vacancy or incapacity condition.",
+    "removal": "Removal for cause by the same membership-rooted selector class authorized to select the office, using the constitutionally required independent process.",
+    "replacement_separation": "Removal gives no replacement-appointment authority to another Schedule O office, the Court, Verification Office, Enforcement Office, HCA College, artificial intelligence, or the incumbent.",
+    "non_accretion": "Operational control, dependency, incumbency, and effective power create no appointment authority.",
+    "cross_office_independence": "The offices must have separate incumbents, separate alternates, and materially independent selection records. No person may simultaneously hold or control more than one Schedule O office."
+  },
+  "common_incompatibilities": [
+    "Human Constitutional Authority College membership",
+    "Constitutional Court",
+    "Verification Office",
+    "Enforcement Office",
+    "succession authority",
+    "transition authority",
+    "emergency authority",
+    "continuity authority",
+    "institutional artificial-intelligence-operation authority",
+    "candidate status for any office whose selection the Schedule O office materially administers",
+    "simultaneous service in another Schedule O office"
+  ],
+  "offices": [
+    {
+      "office_id": "SO-01",
+      "title": "RECORDS CUSTODIAN",
+      "ordinary_nonconstitutional_jurisdiction": "Custody, publication, retention, and retrieval of institutional records and archives.",
+      "excluded_authority": "No constitutional interpretation, adjudication, enforcement, succession, emergency, transition, amendment, refounding, or artificial-intelligence-operation authority.",
+      "principal": {
+        "status": "HUMAN_IDENTITY_AND_APPOINTMENT_RECORD_REQUIRED",
+        "identity": null,
+        "appointment_record": null
+      },
+      "alternate": {
+        "status": "HUMAN_IDENTITY_AND_APPOINTMENT_RECORD_REQUIRED",
+        "identity": null,
+        "appointment_record": null
+      }
+    },
+    {
+      "office_id": "SO-02",
+      "title": "FINANCIAL STEWARD",
+      "ordinary_nonconstitutional_jurisdiction": "Ordinary institutional budgeting, accounting, payments, and financial record administration within separately authorized budgets.",
+      "excluded_authority": "No constitutional authority or authority to create institutional ends.",
+      "principal": {
+        "status": "HUMAN_IDENTITY_AND_APPOINTMENT_RECORD_REQUIRED",
+        "identity": null,
+        "appointment_record": null
+      },
+      "alternate": {
+        "status": "HUMAN_IDENTITY_AND_APPOINTMENT_RECORD_REQUIRED",
+        "identity": null,
+        "appointment_record": null
+      }
+    },
+    {
+      "office_id": "SO-03",
+      "title": "OPERATIONS STEWARD",
+      "ordinary_nonconstitutional_jurisdiction": "Ordinary administrative operations, facilities, scheduling, procurement administration, and logistical coordination.",
+      "excluded_authority": "No constitutional, adjudicative, enforcement, succession, emergency, transition, or artificial-intelligence-governance authority.",
+      "principal": {
+        "status": "HUMAN_IDENTITY_AND_APPOINTMENT_RECORD_REQUIRED",
+        "identity": null,
+        "appointment_record": null
+      },
+      "alternate": {
+        "status": "HUMAN_IDENTITY_AND_APPOINTMENT_RECORD_REQUIRED",
+        "identity": null,
+        "appointment_record": null
+      }
+    }
+  ],
+  "human_inputs_still_required": {
+    "principal_identities": [
+      "SO-01 principal",
+      "SO-02 principal",
+      "SO-03 principal"
+    ],
+    "alternate_identities": [
+      "SO-01 alternate",
+      "SO-02 alternate",
+      "SO-03 alternate"
+    ],
+    "appointment_records": [
+      "Attributable Initial Human Constitutional Authority appointment of the SO-01 principal",
+      "Attributable Initial Human Constitutional Authority appointment of the SO-01 alternate",
+      "Attributable Initial Human Constitutional Authority appointment of the SO-02 principal",
+      "Attributable Initial Human Constitutional Authority appointment of the SO-02 alternate",
+      "Attributable Initial Human Constitutional Authority appointment of the SO-03 principal",
+      "Attributable Initial Human Constitutional Authority appointment of the SO-03 alternate"
+    ],
+    "confirmations": [
+      "All six appointees are human institutional members.",
+      "All six appointees are distinct.",
+      "No appointee holds, controls, or is a candidate for an incompatible office.",
+      "Each appointee accepts the fixed three-year term and applicable office limits.",
+      "The six appointment records are materially independent."
+    ]
+  },
+  "ratification_ready": false,
+  "non_effects": [
+    "This instrument does not appoint an incumbent or alternate.",
+    "This instrument does not fabricate an identity, appointment record, credential, signature, or selection result.",
+    "This instrument does not ratify Constitution v0.1.",
+    "This instrument does not authorize constitutional activation or a production governance runtime."
+  ],
+  "provenance": {
+    "source": "Explicit Human Constitutional Authority Schedule O architecture decision received on 2026-08-31.",
+    "recorded_by": "GitHub Copilot as transcription and validation assistant",
+    "authority_boundary": "Only the human decision supplies the office architecture. Artificial-intelligence assistance supplies no appointment, selection, certification, ratification, or operational authority."
+  }
+}

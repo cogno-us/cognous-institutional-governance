@@ -1,0 +1,77 @@
+{
+  "decision_id": "CDD-004",
+  "title": "Initial Schedule O Office Architecture",
+  "status": "DECIDED",
+  "decision": "ADOPT_INITIAL_SCHEDULE_O_ARCHITECTURE",
+  "decision_date": "2026-08-31",
+  "decision_authority": "Human Constitutional Authority",
+  "authorized_by": "Human Constitutional Authority",
+  "authorization_record": "Explicit human instruction received on 2026-08-31 defining the initial Schedule O offices, fixed three-year term, cause-based removal path, continuing membership-rooted selector rule, alternates, incompatibilities, and independence boundary.",
+  "schedule_o_instrument": "constitutional-design/INITIAL_SCHEDULE_O.yaml",
+  "adopted_offices": [
+    "SO-01",
+    "SO-02",
+    "SO-03"
+  ],
+  "term_rule": "Each Schedule O office has a fixed three-year term.",
+  "removal_rule": "A Schedule O incumbent may be removed for cause by the same membership-rooted selector class authorized to select that office, using the constitutionally required independent process. Removal does not give appointment authority to another Schedule O office, the Court, Verification Office, Enforcement Office, HCA College, artificial intelligence, or the incumbent. A vacancy returns selection authority to the same membership-rooted selector class.",
+  "continuing_selector_rule": {
+    "selector_class": "Human institutional members acting through a materially independent, membership-rooted selection process for each office.",
+    "independence": "Each office's selection process remains independent from the other Schedule O offices and constitutionally incompatible offices.",
+    "incumbent_control_prohibited": true,
+    "artificial_intelligence_boundary": "Artificial intelligence may provide administrative assistance but may not select, certify, veto, or determine an outcome.",
+    "vacancy_and_removal": "Selection authority returns to the same membership-rooted selector class.",
+    "alternate_selection": "One human alternate per office is selected through the same independent process as the principal.",
+    "non_accretion": "Operational control, dependency, incumbency, and effective power create no appointment authority."
+  },
+  "initial_selector_rule": "Initial Human Constitutional Authority may make the initial principal and alternate appointments only. This initialization rule creates no continuing selector authority.",
+  "incompatibilities": [
+    "Human Constitutional Authority College membership",
+    "Constitutional Court",
+    "Verification Office",
+    "Enforcement Office",
+    "succession authority",
+    "transition authority",
+    "emergency authority",
+    "continuity authority",
+    "institutional artificial-intelligence-operation authority",
+    "candidate status for any office whose selection the Schedule O office materially administers",
+    "simultaneous service in another Schedule O office"
+  ],
+  "independence_rule": "The three offices must have separate incumbents, separate alternates, and materially independent selection records. No person may simultaneously hold or control more than one Schedule O office.",
+  "human_inputs_still_required": {
+    "principal_identities": 3,
+    "alternate_identities": 3,
+    "initial_appointment_records": 6,
+    "required_confirmations": [
+      "Each principal and alternate is a human institutional member.",
+      "All six people are distinct.",
+      "No principal or alternate holds, controls, or is a candidate for an incompatible office.",
+      "Each principal and alternate accepts the fixed three-year term and applicable office limits.",
+      "Each appointment is attributable to Initial Human Constitutional Authority.",
+      "The six appointment records are materially independent and identify the office and principal-or-alternate capacity."
+    ]
+  },
+  "decision_effect": "AUTHORIZES_INITIAL_SCHEDULE_O_INSTRUMENT_PREPARATION_ONLY",
+  "constitutional_status": "PROPOSED_FOR_HUMAN_RATIFICATION_NOT_ADOPTED",
+  "resulting_state": {
+    "constitutional_design_questions_remaining": 0,
+    "qualifying_office_definitions": 3,
+    "populated_qualifying_offices": 0,
+    "ratification_ready": false,
+    "constitution_ratified": false,
+    "operational_activation_authorized": false
+  },
+  "authority_boundaries": [
+    "This decision supplies Schedule O office architecture only and does not ratify Constitution v0.1.",
+    "No incumbent, alternate, appointment, selection record, credential, signature, constitutional membership, or operational state is created or inferred.",
+    "Artificial-intelligence transcription, administration, analysis, tests, and validation supply no selection, certification, veto, outcome, or constitutional authority.",
+    "The Court, Verification Office, Enforcement Office, HCA College, another Schedule O office, and an incumbent gain no replacement-appointment authority.",
+    "All prior constitutional decisions and the proposed Constitution v0.1 remain unchanged."
+  ],
+  "provenance": {
+    "source": "Explicit Human Constitutional Authority instruction received on 2026-08-31 after the absence of Schedule O term, removal, and continuing-selector rules was identified.",
+    "recorded_by": "GitHub Copilot as transcription and validation assistant",
+    "authority_boundary": "The human instruction supplies the decision. Artificial-intelligence transcription, structuring, tests, validation, and repository operations supply no independent authority and cannot populate Schedule O or ratify Constitution v0.1."
+  }
+}
