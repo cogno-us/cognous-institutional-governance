@@ -2296,6 +2296,12 @@ CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH = Path(
 RATIFICATION_REVIEW_RELATIVE_PATH = Path(
     "constitutional-design/RATIFICATION_REVIEW_v0.1.md"
 )
+RATIFICATION_PACKET_RELATIVE_PATH = Path(
+    "constitutional-design/RATIFICATION_PACKET.md"
+)
+EXPECTED_RATIFICATION_PACKET_DIGEST = (
+    "60b8bba61409e957a773c3ca52e018cd69186202579b032b62e7ade285d5e9cb"
+)
 FINAL_BLOCKER_ANALYSIS_RELATIVE_PATH = Path(
     "constitutional-design/FINAL-RATIFICATION-BLOCKER-ANALYSIS.yaml"
 )
@@ -2476,13 +2482,13 @@ EXPECTED_DRAFT_SECTION_TITLES = {
 }
 EXPECTED_RATIFICATION_DRAFT_DIGESTS = {
     CONSTITUTION_DRAFT_RELATIVE_PATH: (
-        "2fc635dcea329ba2ad2681a75ebc045e2a91d634ece7bbb5ce5df25b2f93a1cc"
+        "127004a2d723e69fe4276b4e5b23bc5b6a44bef2476ce17f8e3fec3ada9c97d6"
     ),
     CONSTITUTION_TRACE_RELATIVE_PATH: (
-        "0a460a5e66ab761a475b1bae6155753ba84ad84570103f74b9e606d2fe255901"
+        "ddb20c3cac43c5a4ead4aa792c507b8dd02e45ecced11b150d6c50c1a19ceb86"
     ),
     CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH: (
-        "dffe82c29748a7a91997a38d83c91c54a77bfacff4034965b8bb12377597bf34"
+        "bcf302e63eb3619e6fb0eff5e1b520689403149d5a72788aad9accdd1d06a521"
     ),
 }
 FINAL_BLOCKER_ANALYSIS_FIELDS = {
@@ -7594,15 +7600,18 @@ def _validate_constitution_draft(
         errors.append(f"CONSTITUTION_DRAFT_REQUIRED: {exc}")
         draft_text = ""
     if (
-        draft_text.count("# Constitution of Alvorada — Draft v0.1") != 1
-        or draft_text.count("**DRAFT — NOT ADOPTED CONSTITUTION**") != 1
+        draft_text.count("# Constitution of Alvorada — Proposed v0.1") != 1
+        or draft_text.count(
+            "**PROPOSED FOR HUMAN RATIFICATION — NOT YET ADOPTED**"
+        )
+        != 1
         or not re.search(
-            r"has no constitutional\s+effect unless adopted", draft_text
+            r"has no\s+constitutional\s+effect unless adopted", draft_text
         )
     ):
         errors.append(
-            "CONSTITUTION_DRAFT_STATUS: exact draft and non-adoption boundary "
-            "are required"
+            "CONSTITUTION_DRAFT_STATUS: exact proposed-for-ratification and "
+            "non-adoption boundary are required"
         )
 
     article_headings = re.findall(
@@ -7645,7 +7654,8 @@ def _validate_constitution_draft(
         )
     if (
         trace.get("traceability_id") != "CONSTITUTION-v0.1-TRACEABILITY"
-        or trace.get("draft_status") != "DRAFT_NOT_ADOPTED"
+        or trace.get("draft_status")
+        != "PROPOSED_FOR_HUMAN_RATIFICATION_NOT_ADOPTED"
         or trace.get("constitutional_effect") != "NONE"
         or trace.get("article_count") != 8
         or trace.get("section_count") != 24
@@ -8028,6 +8038,8 @@ def _validate_constitution_draft(
         open_text = ""
     if (
         open_text.count("# Constitution v0.1 Open Questions") != 1
+        or "**PROPOSED-TEXT SUPPORTING RECORD — NO CONSTITUTIONAL EFFECT**"
+        not in open_text
         or "## New Human Constitutional Decisions Required\n\nNone."
         not in open_text
         or "### OQ-001 — Structural-Amendment Cohort Remainders"
@@ -8096,15 +8108,16 @@ def _validate_ratification_review(
         )
         != 1
         or review.count(
-            "**Draft status preserved:** **DRAFT — NOT ADOPTED CONSTITUTION**"
+            "**Proposal status:** **PROPOSED FOR HUMAN RATIFICATION — NOT YET "
+            "ADOPTED**"
         )
         != 1
-        or "does\nnot adopt, ratify, amend, or give constitutional effect"
+        or "does not adopt, ratify, amend, or give constitutional effect"
         not in review
     ):
         errors.append(
             "RATIFICATION_REVIEW_BOUNDARY: exact recommendation-only, "
-            "no-effect, and draft-status boundaries are required"
+            "no-effect, and proposed-not-adopted boundaries are required"
         )
     if (
         review.count(
@@ -8113,7 +8126,8 @@ def _validate_ratification_review(
         )
         != 1
         or "\n`READY_FOR_HUMAN_RATIFICATION`\n" not in review
-        or "CONSTITUTION REMAINS A DRAFT AND HAS NOT\nBEEN ADOPTED OR RATIFIED"
+        or "CONSTITUTION IS PROPOSED FOR HUMAN\nRATIFICATION AND HAS NOT BEEN "
+        "ADOPTED OR RATIFIED"
         not in review
         or "`NOT_READY_FOR_HUMAN_RATIFICATION`" in review
     ):
@@ -8299,6 +8313,171 @@ def _validate_ratification_review(
             "ratification_recommendation": (
                 "READY_FOR_EXPLICIT_HUMAN_RATIFICATION"
             ),
+        }
+    )
+    return metrics
+
+
+def _validate_ratification_packet(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "ratification_status": "",
+        "constitution_version": "",
+        "ratification_packet_subordinate_law_items": 0,
+        "ratification_packet_implementation_items": 0,
+        "production_runtime_authorized": True,
+    }
+    packet_path = root / RATIFICATION_PACKET_RELATIVE_PATH
+    try:
+        packet_bytes = packet_path.read_bytes()
+        packet = packet_bytes.decode("utf-8").replace("\r\n", "\n")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"RATIFICATION_PACKET_REQUIRED: {exc}")
+        return metrics
+
+    if hashlib.sha256(packet_bytes).hexdigest() != EXPECTED_RATIFICATION_PACKET_DIGEST:
+        errors.append(
+            "RATIFICATION_PACKET_INTEGRITY: exact reviewed ratification "
+            "packet is required"
+        )
+    boundary_terms = (
+        "# Alvorada Constitution v0.1 Ratification Packet",
+        "**PROPOSED FOR HUMAN RATIFICATION",
+        "NOT YET ADOPTED**",
+        "**RATIFICATION PACKET",
+        "NO INDEPENDENT CONSTITUTIONAL EFFECT**",
+        "It does not make that decision",
+        "No ratification option is selected in this packet.",
+        "Only an explicit, attributable Human Constitutional Authority "
+        "instruction may\nratify or reject Constitution v0.1.",
+    )
+    if (
+        any(term not in packet for term in boundary_terms)
+        or "is hereby ratified" in packet.lower()
+        or "constitution v0.1 is adopted" in packet.lower()
+    ):
+        errors.append(
+            "RATIFICATION_PACKET_BOUNDARY: exact proposed, no-decision, "
+            "no-effect, and human-only ratification boundaries are required"
+        )
+
+    constitution_reference_terms = (
+        "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+        "constitutional-design/drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml",
+        "127004a2d723e69fe4276b4e5b23bc5b6a44bef2476ce17f8e3fec3ada9c97d6",
+        "eight Articles and twenty-four Sections",
+        "constitutional blockers: **0**",
+        "cross-article contradictions: **0**",
+        "untraced normative propositions: **0**",
+        "new human constitutional design decisions required: **0**",
+        "complete adversarial tests: **13/13 PASS**",
+        "human comprehensibility: **PASS**",
+        "subordinate-law boundary: **PASS**",
+    )
+    if any(term not in packet for term in constitution_reference_terms):
+        errors.append(
+            "RATIFICATION_PACKET_ARTIFACT: exact proposed artifact, digest, "
+            "counts, and zero-gap readiness results are required"
+        )
+
+    architecture = _markdown_section(
+        packet, "Constitutional Architecture", 2
+    ) or ""
+    architecture_items = re.findall(r"^\d+\. \*\*", architecture, re.MULTILINE)
+    controlling_terms = (
+        "`CDR-001` through `CDR-005`",
+        "`CDD-001`",
+        "`HCA-DRAFT-001 / REMAINDER_SORTITION`",
+        "`CDD-002 / ADOPT_B`",
+        "`CDD-003 / ADOPT_A`",
+        "Only the attributable human decisions supply constitutional design "
+        "authority.",
+    )
+    if len(architecture_items) != 8 or any(
+        term not in packet for term in controlling_terms
+    ):
+        errors.append(
+            "RATIFICATION_PACKET_ARCHITECTURE: eight-Article architecture "
+            "and complete controlling human decisions are required"
+        )
+
+    rights_terms = (
+        "ultimate human beneficiary status and protected human agency",
+        "seven-human, directly membership-elected Human Constitutional "
+        "Authority\n  College",
+        "nine-human Constitutional Court",
+        "Verification and Enforcement Offices",
+        "Schedule O selector class",
+        "durable dissent, correction, supersession, provenance",
+        "Artificial intelligence may exercise only constitutionally delegated "
+        "autonomy",
+        "may not vote, hold foundational authority, select",
+    )
+    if any(term not in packet for term in rights_terms):
+        errors.append(
+            "RATIFICATION_PACKET_RIGHTS: exact rights, powers, institutional "
+            "constraints, and machine-authority prohibitions are required"
+        )
+
+    refounding = _markdown_section(
+        packet, "Refounding-Level Principles", 2
+    ) or ""
+    refounding_items = re.findall(r"^\d+\. ", refounding, re.MULTILINE)
+    if (
+        len(refounding_items) != 10
+        or "explicit human\nrefounding with acknowledged constitutional "
+        "discontinuity" not in refounding
+        or "human-only character of HCA College authority" not in refounding
+    ):
+        errors.append(
+            "RATIFICATION_PACKET_REFOUNDING: all ten principles and the "
+            "human-only HCA protection are required"
+        )
+
+    subordinate_terms = (
+        "Nine lifecycle governance-law categories remain subordinate",
+        "Five implementation categories remain subordinate",
+        "These matters are non-blocking because the Constitution fixes every "
+        "authority",
+        "Neither subordinate law nor\nimplementation may alter those "
+        "boundaries",
+    )
+    if any(term not in packet for term in subordinate_terms):
+        errors.append(
+            "RATIFICATION_PACKET_SUBORDINATE: exact 9/5 nonblocking "
+            "subordinate boundary is required"
+        )
+
+    effect_terms = (
+        "must identify the exact proposed artifact and supply\n"
+        "the initial Schedule O",
+        "at least three\nseparately held, materially independent qualifying "
+        "human offices",
+        "Ratification would authorize only the constitutional order",
+        "**RATIFICATION DOES NOT AUTHORIZE A PRODUCTION GOVERNANCE RUNTIME.**",
+        "deploy or approve a production governance runtime",
+        "deem subordinate governance law enacted",
+        "convert analysis, validation, capability, reliance, necessity, or "
+        "effective\n  control into constitutional authority",
+    )
+    if any(term not in packet for term in effect_terms):
+        errors.append(
+            "RATIFICATION_PACKET_EFFECT: exact Schedule O prerequisite, "
+            "constitutional effect, and production-runtime prohibition are "
+            "required"
+        )
+
+    metrics.update(
+        {
+            "ratification_status": (
+                "PROPOSED_FOR_HUMAN_RATIFICATION_NOT_YET_ADOPTED"
+            ),
+            "constitution_version": "v0.1",
+            "ratification_packet_subordinate_law_items": 9,
+            "ratification_packet_implementation_items": 5,
+            "production_runtime_authorized": False,
         }
     )
     return metrics
@@ -9729,6 +9908,7 @@ def validate(root: Path) -> ValidationResult:
     coordinated_decision_metrics = _validate_coordinated_decision(root, errors)
     constitution_draft_metrics = _validate_constitution_draft(root, errors)
     ratification_review_metrics = _validate_ratification_review(root, errors)
+    ratification_packet_metrics = _validate_ratification_packet(root, errors)
     final_blocker_metrics = _validate_final_blocker_analysis(root, errors)
     hca_lifecycle_metrics = _validate_hca_lifecycle_analysis(root, errors)
 
@@ -10541,6 +10721,7 @@ def validate(root: Path) -> ValidationResult:
         **coordinated_decision_metrics,
         **constitution_draft_metrics,
         **ratification_review_metrics,
+        **ratification_packet_metrics,
         **final_blocker_metrics,
         **hca_lifecycle_metrics,
     }
