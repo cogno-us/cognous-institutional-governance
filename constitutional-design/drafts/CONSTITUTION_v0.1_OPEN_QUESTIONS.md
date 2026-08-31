@@ -4,9 +4,11 @@
 
 ## New Human Constitutional Decisions Required
 
-One coordinated Human Constitutional Authority decision remains required for
-the HCA College election and removal lifecycle described below. This is a
-constitutional authority allocation, not a cross-article contradiction.
+None.
+
+No cross-article contradiction or omitted constitutional authority allocation
+remains whose resolution requires a new Human Constitutional Authority
+decision.
 
 ## Resolved Drafting Question
 
@@ -43,6 +45,22 @@ result rule, removal and confirmation lifecycle, vacancy trigger, and
 structural protection of those rules. Those matters cannot be supplied by
 subordinate election administration.
 
+### RB-01-LIFECYCLE — HCA College Election and Removal Lifecycle
+
+**Decision:** `CDD-003 / ADOPT_A`
+
+On 2026-08-31, Human Constitutional Authority explicitly adopted direct
+fixed-membership approval elections, independent human certification,
+constituent-confirmed cause removal, exclusive temporary and permanent
+lifecycle triggers, separately recognized membership-predesignated successors,
+institutional separation, structural lifecycle protection, and refounding
+protection of the human membership root.
+
+The decision resolves the sole remaining constitutional blocker without
+ratifying Constitution v0.1. Election and removal administration remains
+subordinate within the adopted electorate, result, proof, confirmation,
+finality, succession, and change-tier boundaries.
+
 The initial Schedule O entries must be supplied in the later ratification
 instrument. Their supply is an express ratification prerequisite, not authority
 for analysis, subordinate law, or implementation to invent or classify entries.
@@ -65,4 +83,4 @@ constitutional authority or legitimacy.
 
 ## Count
 
-`OPEN_QUESTIONS_COUNT: 1`
+`OPEN_QUESTIONS_COUNT: 0`

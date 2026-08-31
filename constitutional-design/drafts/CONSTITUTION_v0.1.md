@@ -31,24 +31,110 @@ applicable constitutional process.
    material institutional artificial-intelligence-operation status. Each
    College member SHALL serve a seven-year nonrenewable term, staggered where
    practicable.
-6. A foundational act SHALL require six College votes and direct confirmation
+6. A person who has served as a College member SHALL NOT again be elected or
+   designated as an alternate. Alternate status without service SHALL NOT
+   consume that limit. A candidate MAY stand for only one of the seven numbered
+   College seats in an election. A candidate SHALL NOT administer or serve on
+   an election, fact-finding, removal-confirmation-administration, or review
+   body for the same exercise.
+7. The attributable instrument ratifying this Constitution SHALL give public
+   notice opening seven concurrent numbered-seat elections at constitutional
+   activation. The fixed constitutional membership determined under Section
+   II.2 immediately before notice SHALL be the electorate.
+8. Participation SHALL exceed one half of the fixed constitutional membership.
+   In each seat contest, each participating member MAY approve up to four
+   eligible candidates. The highest approval total SHALL elect the principal,
+   and the next three totals SHALL establish that seat's ranked alternate
+   slate. A tie affecting the principal or alternate order SHALL be resolved
+   only by auditable public human sortition among the tied candidates.
+9. A five-human ad hoc selection-verification panel SHALL be selected by public
+   human sortition from noncandidate, nonofficeholding constitutional members.
+   With all five seats filled, four affirmative votes SHALL be required to
+   certify compliance. The panel SHALL publish the count, sortition record,
+   reasons, and dissent. Certification SHALL verify the authorized process and
+   result and SHALL NOT choose a winner or create authority independently of
+   the membership decision. Any constitutional member MAY bring one expedited
+   validity challenge to the Court or applicable conflict tribunal, which MAY
+   affirm, vacate, or require a rerun but SHALL NOT appoint.
+10. The initial College SHALL exist only after all seven principals and three
+    alternates for each seat have been certified. An incomplete seat contest
+    SHALL repeat automatically. No founding actor, incumbent, reviewer,
+    emergency actor, artificial-intelligence system, or effective controller
+    MAY fill a seat or exercise College authority because an election is
+    incomplete.
+11. Each recurring seat election SHALL open automatically one hundred eighty
+    days before the known expiry of its term. The electorate, approval,
+    ranking, tie, certification, and challenge rules in paragraphs 7 through 9
+    SHALL govern every regular and special election. A failed or incomplete
+    contest SHALL repeat. At term expiry the seat SHALL become vacant; neither
+    the incumbent nor the prior alternate slate SHALL hold over.
+12. Death or permanent loss proved under Article VI, attributable voluntary
+    resignation, or final removal SHALL invoke the ranked-alternate succession
+    process for the remainder of the term. Alternate exhaustion SHALL open a
+    special membership election automatically. Before a succession trigger, an
+    attributable petition supported by at least one tenth of fixed
+    constitutional membership MAY open an alternate-only election for a seat,
+    no more than once in twelve months. The principal SHALL remain in office,
+    and each participating member MAY approve up to three eligible candidates.
+    The three highest approval totals SHALL establish the replacement alternate
+    slate in rank order. Paragraph 7, the tie rule in paragraph 8, and the
+    certification and challenge rules in paragraph 9 SHALL apply; no principal
+    SHALL be selected or displaced in that exercise.
+13. The College SHALL NOT control the membership roll, eligibility,
+    nominations, notice, administration, certification, recount, challenge,
+    repeat election, removal process, or successor recognition for a College
+    seat.
+14. A foundational act SHALL require six College votes and direct confirmation
    by the fixed constitutional membership, with participation of at least two
    thirds and approval by at least three quarters of valid votes.
-7. Neither College action alone nor membership action outside a process
+15. Any constitutional member MAY file an attributable petition to remove a
+    College member only for permanent incapacity, serious misconduct,
+    constitutional disqualification, or a knowing and grave violation of this
+    Constitution. The College as a body SHALL NOT initiate, block, terminate,
+    or control the proceeding.
+16. A five-human fact panel SHALL be selected by auditable public human
+    sortition from noncandidate, nonofficeholding, nonconflicted constitutional
+    members. With all five seats filled, four affirmative votes and clear and
+    convincing evidence SHALL be required to find cause after notice and a
+    meaningful opportunity to respond.
+17. The fact panel SHALL publish the evidence, reasons, dissent, conflicts, and
+    material dependencies. The subject, accuser, a materially interested
+    person, a College member, a ranked alternate for the affected seat, or an
+    operator of materially dependent evidence or artificial-intelligence
+    systems SHALL NOT serve on the panel.
+18. After a cause finding, nonconflicted fixed constitutional membership MAY
+    confirm removal only with participation above one half of that
+    nonconflicted electorate and approval by at least two thirds of valid
+    votes. The subject SHALL NOT participate. Neither the fact panel nor the
+    confirming electorate MAY select or reorder the replacement in that
+    proceeding.
+19. The subject or any constitutional member MAY take one expedited appeal to
+    the Court or applicable conflict tribunal. Review MAY affirm, vacate, or
+    remand for constitutional error but SHALL NOT appoint, rank, recognize, or
+    veto a successor. Removal SHALL be ineffective until the appeal period
+    expires without appeal or final review affirms it. A pending proceeding
+    SHALL create no vacancy, holdover extension, or transfer of foundational
+    authority.
+20. Election administration, certification, removal fact-finding, constituent
+    confirmation, legal review, succession recognition, replacement selection,
+    verification, and enforcement SHALL remain institutionally separable. No
+    actor exercising one function SHALL acquire another by necessity, vacancy,
+    dependence, or effective control.
+21. Neither College action alone nor membership action outside a process
    authorized by this Constitution SHALL create foundational authority.
-8. Artificial intelligence MAY exercise autonomy only within authority validly
+22. Artificial intelligence MAY exercise autonomy only within authority validly
    delegated under this Constitution. Artificial intelligence SHALL NOT acquire
    foundational sovereignty, determine foundational institutional ends, or
    inherit Human Constitutional Authority.
-9. Capability, competence, performance, reliability, popularity, validation,
+23. Capability, competence, performance, reliability, popularity, validation,
    delegation, reliance, operational necessity, emergency, succession,
    adjudication, precedent, effective control, continuity, or operational
    indispensability SHALL NOT create, enlarge, transfer, or prove constitutional
    authority.
-10. Formal authority and effective power SHALL remain distinct. The exercise of
+24. Formal authority and effective power SHALL remain distinct. The exercise of
    effective power without lawful authority SHALL NOT become legitimate through
    acquiescence, success, duration, dependence, or later description.
-11. No succession, emergency, delegation, interpretation, cumulative practice,
+25. No succession, emergency, delegation, interpretation, cumulative practice,
    or technical validation MAY convert artificial or practical control into
    foundational sovereignty.
 
@@ -104,7 +190,8 @@ applicable constitutional process.
    validation, independent verification, succession administration, and
    transition custody SHALL remain functionally separated.
 2. No office SHALL combine final constitutional judgment with enforcement or
-   control of the evidence on which that judgment depends.
+   control of the evidence on which that judgment depends. Verification SHALL
+   remain independent from selection, adjudication, and enforcement.
 3. At initial constitutional activation, Human Constitutional Authority MAY
    make only the minimum human appointments necessary to initialize the
    Constitutional Court, Verification Office, Enforcement Office, and any
@@ -128,9 +215,10 @@ applicable constitutional process.
 8. Subordinate governance law MAY administer eligibility, nominations,
    sortition, scheduling, and vacancy processing only within these boundaries.
 9. Artificial intelligence MAY assist administration, verification, sortition
-   integrity, provenance, and analysis. It SHALL NOT hold a constitutional
-   office, independently appoint or remove an officer, control selector
-   eligibility or a sortition outcome, or become a final constitutional
+   integrity, provenance, and analysis. It SHALL NOT vote in a constitutional
+   exercise, hold a constitutional office, select, appoint, remove, or replace
+   an officer, control selector eligibility or a sortition outcome, certify
+   human constitutional legitimacy, or become a final constitutional
    adjudicator.
 
 ## Article III — Constitutional Adjudication and Enforcement
@@ -498,35 +586,55 @@ applicable constitutional process.
 3. The College SHALL maintain and publish the designation record as a
    ministerial duty. It SHALL NOT choose, reorder, veto, or make an alternate
    effective.
-4. Upon a valid trigger, the Succession Council or applicable fallback panel
-   MAY recognize the next eligible nonrecused alternate. Recognition SHALL
-   confirm constitutional compliance and SHALL NOT select or create
-   foundational authority.
-5. Exhaustion of alternates SHALL create a vacancy and invoke a new membership
-   election. It SHALL create no interim, emergency, continuity, machine, or
-   effective-control authority.
-6. Temporary incapacity SHALL require clear and convincing evidence.
-7. Death, permanent loss, identity, return, and successor identity SHALL require
+4. Only death or permanent loss proved under this Article, attributable
+   voluntary resignation, final removal under Section I.1, or a final temporary-
+   incapacity determination under this Article MAY initiate recognition of an
+   alternate or a succession event for a College seat. Regular term expiry and
+   alternate exhaustion MAY create only the election vacancies expressly
+   governed by Section I.1 and SHALL NOT initiate alternate recognition. No
+   other condition MAY create a College vacancy or succession event.
+5. Temporary incapacity SHALL require clear and convincing evidence and a final
+   determination by the Succession Council or applicable fallback panel. The
+   next eligible membership-predesignated alternate MAY be recognized only as
+   acting member. The principal SHALL retain the seat, and verified return SHALL
+   restore authority under Section VI.4. Acting service SHALL NOT become
+   removal, a new term, or permanent succession and SHALL NOT exceed the
+   interregnum limit. A determination SHALL become final only when the appeal
+   period expires without appeal or final review affirms it.
+6. Permanent incapacity SHALL proceed only through removal under Section I.1.
+   Death, permanent loss, identity, return, and successor identity SHALL require
    proof beyond a reasonable doubt from at least three materially independent
-   sources.
-8. A common issuer, operator, data source, infrastructure, incentive, or
+   sources. Resignation SHALL be voluntary and attributable.
+7. Final removal SHALL create a permanent vacancy and succession trigger only
+   after constituent confirmation and review finality under Section I.1.
+8. Upon a valid trigger, the Succession Council or applicable fallback panel
+   MAY recognize only the next eligible nonrecused membership-predesignated
+   alternate. Recognition SHALL confirm constitutional compliance and SHALL NOT
+   select or create foundational authority.
+9. The petitioner, fact panel, confirming electorate, Court, conflict tribunal,
+   Verification Office, Enforcement Office, and artificial-intelligence systems
+   SHALL NOT choose, reorder, appoint, or veto the successor.
+10. Exhaustion of alternates SHALL create a vacancy and invoke the special
+   membership election required by Section I.1. It SHALL create no interim,
+   emergency, continuity, machine, or effective-control authority.
+11. A common issuer, operator, data source, infrastructure, incentive, or
    artificial-intelligence dependency SHALL defeat source independence.
-9. A seven-human Succession Council SHALL consist of:
+12. A seven-human Succession Council SHALL consist of:
    a. two members selected by the constitutional membership;
    b. two members selected by ordinary human governance offices;
    c. two members selected by the Constitutional Court, no current adjudicator
       serving; and
    d. one member selected by human sortition from the qualified pool.
-10. Five affirmative votes SHALL be required to determine a succession trigger
+13. Five affirmative votes SHALL be required to determine a succession trigger
    or recognize a lawful predesignation. Six affirmative votes SHALL be
    required to conclude that succession is impossible and refer the matter to
    the explicit refounding process.
-11. A claimant, emergency actor, beneficiary with a particularized conflict,
+14. A claimant, emergency actor, beneficiary with a particularized conflict,
    evidence operator, or materially dependent person SHALL recuse.
-12. The Council SHALL publish evidence, reasons, dissent, uncertainty,
+15. The Council SHALL publish evidence, reasons, dissent, uncertainty,
    dependencies, and effective-power conditions. Evidence validation and
    succession judgment SHALL remain separate.
-13. One appeal MAY be taken to the Constitutional Court.
+16. One appeal MAY be taken to the Constitutional Court.
 
 ### Section VI.3 — Non-Quorum Human Fallback
 
@@ -609,14 +717,22 @@ applicable constitutional process.
 7. Succession SHALL NOT confer amendment or refounding authority.
 8. No adjudicative, emergency, succession, implementation, or validation process
    MAY waive or substitute for the applicable change process.
-9. Structural amendment SHALL be required to change HCA College composition or
-   membership-confirmation rules; Verification or Enforcement
+9. Structural amendment SHALL be required to change HCA College composition,
+   numbered seats, terms, nonrenewal, candidate eligibility other than the
+   human-membership rule protected by paragraph 10, election
+   electorate, participation or result rules, alternate ranking, tie handling,
+   certification independence, no-holdover rule, removal cause or proof,
+   fact-finding, constituent confirmation, review, removal finality, succession
+   triggers, selector independence, separation of removal from replacement, or
+   foundational-act membership-confirmation rules; Verification or Enforcement
    composition, selectors, terms, removal, replacement, or challenge paths; or
    a Schedule O entry, qualification, vote, or anti-manipulation protection.
 10. Explicit refounding SHALL be required to change human sovereignty over
     foundational institutional ends, constitutional membership as the human
-    source of HCA legitimacy, or artificial-intelligence ineligibility for
-    foundational sovereignty.
+    source of HCA legitimacy, the human-only character of HCA College
+    authority, or artificial-intelligence ineligibility to hold, exercise, or
+    independently create foundational authority, including foundational
+    sovereignty.
 11. Ordinary law, ordinary amendment, adjudication, emergency, succession,
     continuity, implementation, precedent, vacancy, acquiescence, capability,
     reliance, or effective control SHALL NOT waive or alter the allocations in
@@ -736,6 +852,11 @@ applicable constitutional process.
    discontinuity.
 3. Ordinary or structural amendment SHALL NOT alter, evade, suspend, or
    cumulatively defeat a refounding-level principle.
+4. For purposes of paragraph 1.c and paragraph 1.f, constitutional membership
+   as the constituent human root of HCA legitimacy, the human-only character of
+   HCA College authority, and artificial-intelligence ineligibility to hold,
+   exercise, or independently create foundational authority are
+   refounding-level protections.
 
 ### Section VIII.2 — Termination and Transition Authority
 

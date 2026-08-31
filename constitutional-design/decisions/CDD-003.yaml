@@ -1,0 +1,79 @@
+{
+  "decision_id": "CDD-003",
+  "title": "Adoption of Human Constitutional Authority College Lifecycle Architecture",
+  "status": "DECIDED",
+  "decision": "ADOPT_A",
+  "adopted_architecture": "ALTERNATIVE_A",
+  "decision_date": "2026-08-31",
+  "decision_authority": "Human Constitutional Authority",
+  "authorized_by": "Human Constitutional Authority",
+  "authorization_record": "Explicit human instruction received on 2026-08-31 adopting Alternative A for the HCA College lifecycle architecture analyzed in merged PR #28.",
+  "source_analysis": "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+  "source_packet": "constitutional-design/decisions/HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md",
+  "recommendation_sha256": "801b834cdb5d83c305c7b64b228382d1a1f275361d96a19de1de317418997549",
+  "adopted_components": [
+    "Direct fixed-constitutional-membership approval elections for seven numbered HCA College seats and their ranked alternates",
+    "Independent five-human certification that verifies but does not create membership-selected authority",
+    "Automatic recurring elections, repeat elections without holdover, special elections after alternate exhaustion, and bounded alternate refresh",
+    "Human constitutional-membership eligibility, one-service nonrenewal, incompatibility, disclosure, and anti-incumbent-control rules",
+    "Cause-bounded independent fact-finding followed by nonconflicted constituent confirmation and bounded legal review",
+    "Exclusive lifecycle triggers for death, permanent loss, voluntary resignation, temporary incapacity, and final removal",
+    "Temporary-incapacity substitution without removal, new term, permanent succession, or authority beyond the interregnum limit",
+    "Final removal as a permanent succession trigger using only membership-predesignated alternates",
+    "Institutional separation of election, certification, fact-finding, confirmation, review, succession recognition, replacement selection, and enforcement",
+    "Structural protection of lifecycle architecture and refounding protection of human-only membership-rooted foundational legitimacy"
+  ],
+  "authority_boundaries": [
+    "The HCA College remains exactly seven humans and constitutional membership remains its constituent source of legitimacy.",
+    "Certification verifies the authorized human process and result but creates no constitutional authority independently of the membership decision.",
+    "The College cannot select, certify, remove, replace, or extend itself through an internally controlled chain.",
+    "The Court or conflict tribunal may review validity and declare a vacancy but cannot appoint, rank, recognize, or veto a successor.",
+    "Verification remains independent from selection, adjudication, and enforcement and gains no foundational selector authority.",
+    "Enforcement gains no selection, certification, removal, adjudication, or successor-recognition authority.",
+    "Schedule O remains structurally closed and gains no HCA College lifecycle power under Alternative A.",
+    "Artificial intelligence may assist administration, evidence handling, analysis, and formal validation but may not vote, select, remove, appoint, certify human constitutional legitimacy, or acquire foundational authority.",
+    "Predesignated successors remain separate from removal and may be recognized only through the adopted Succession Council or fallback process.",
+    "No condition other than an exclusive alternate-recognition trigger, regular term expiry, or alternate exhaustion may create the specifically authorized succession or election vacancy; none may create holdover, a substitute selector, or foundational authority.",
+    "Capability, operational control, incumbency, reliance, emergency, adjudication, necessity, or effective power creates no foundational authority.",
+    "CDD-001, CDD-002, CDR-001 through CDR-005, RD-01 through RD-11, CDC-01 through CDC-04, and HCA-DRAFT-001 remain controlling."
+  ],
+  "blocker_resolution": {
+    "blocker_id": "RB-01-LIFECYCLE",
+    "status": "RESOLVED",
+    "resolution": "Alternative A supplies the complete initial and recurring election result, certification, removal, exclusive-trigger, succession, separation, and constitutional-change lifecycle for the membership-rooted seven-human HCA College."
+  },
+  "subordinate_law_items_preserved": [
+    "Candidate filing, nomination forms, service acceptance, withdrawal, and publication",
+    "Election and removal notice delivery, calendars, scheduling, and reasonable filing periods",
+    "Ballot layout, voting interface, accessibility, count administration, recounts, and publication",
+    "Public human sortition ceremony, entropy, reproducibility, audit, and observer procedures",
+    "Conflict and dependency disclosure forms, evidence intake, response procedure, and record formatting",
+    "Panel summons, recusals, replacement members, hearing administration, and procedural order",
+    "Term calendars, vacancy notices, alternate records, successor notification, and service transition",
+    "Expedited case filing, briefing schedules, record transmission, and public reporting",
+    "Schedule O and Verification or Enforcement administration only insofar as their adopted authority remains unchanged"
+  ],
+  "implementation_items_preserved": [
+    "Identity, eligibility-proof, authentication, credential, and signature systems",
+    "Voting, counting, recount, and publication software",
+    "Sortition, randomness, audit, and reproducibility tooling",
+    "Evidence, case-management, notice, and accessibility systems",
+    "Storage, provenance, archival-integrity, telemetry, and recovery infrastructure"
+  ],
+  "decision_effect": "AUTHORIZES_DIRECT_DRAFT_INCORPORATION_ONLY",
+  "constitutional_status": "DRAFT_NOT_ADOPTED",
+  "resulting_state": {
+    "constitutional_blockers_remaining": 0,
+    "cross_article_contradictions": 0,
+    "untraced_normative_propositions": 0,
+    "new_human_constitutional_decisions_required": 0,
+    "ratification_readiness": "READY_FOR_HUMAN_RATIFICATION",
+    "constitution_ratified": false,
+    "operational_authority_created": false
+  },
+  "provenance": {
+    "source": "Explicit Human Constitutional Authority instruction on 2026-08-31 after PR #28 merged into authoritative origin/main.",
+    "recorded_by": "GitHub Copilot as transcription and validation assistant",
+    "authority_boundary": "The human instruction supplies the decision. Artificial-intelligence analysis, drafting, certification checks, hashes, tests, and validation supply no independent authority, do not ratify Constitution v0.1, and cannot create operational authority."
+  }
+}

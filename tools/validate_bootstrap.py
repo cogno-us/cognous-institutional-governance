@@ -2311,13 +2311,16 @@ HCA_LIFECYCLE_PACKET_RELATIVE_PATH = Path(
     "HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md"
 )
 EXPECTED_HCA_LIFECYCLE_PACKET_DIGEST = (
-    "91cfd66a380892367f8731650af62531ee7b1cd279b719f888ebc8b7167fab52"
+    "47f3b156e7d6a511bd3c1ae110f450ac96d0ae23542e51da047cb7fcb5b0e73d"
 )
 EXPECTED_HCA_LIFECYCLE_RECOMMENDATION_DIGEST = (
     "801b834cdb5d83c305c7b64b228382d1a1f275361d96a19de1de317418997549"
 )
 COORDINATED_DECISION_002_RELATIVE_PATH = Path(
     "constitutional-design/decisions/CDD-002.yaml"
+)
+COORDINATED_DECISION_003_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/CDD-003.yaml"
 )
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
@@ -2428,6 +2431,7 @@ CONSTITUTION_TRACE_FIELDS = {
     "authority_basis",
     "human_drafting_decision",
     "ratification_blocker_decision",
+    "hca_lifecycle_decision",
     "sections",
     "coverage_summary",
     "provenance",
@@ -2472,13 +2476,13 @@ EXPECTED_DRAFT_SECTION_TITLES = {
 }
 EXPECTED_RATIFICATION_DRAFT_DIGESTS = {
     CONSTITUTION_DRAFT_RELATIVE_PATH: (
-        "5cbbaf99442fda6e9ed14e3ed87fdfecb6b3a753f715684c5638a0054db7b6f9"
+        "2fc635dcea329ba2ad2681a75ebc045e2a91d634ece7bbb5ce5df25b2f93a1cc"
     ),
     CONSTITUTION_TRACE_RELATIVE_PATH: (
-        "8853d8123ddc87a50827d95de0c836200d6360bd6cf8df1228fc80ba69d3f744"
+        "0a460a5e66ab761a475b1bae6155753ba84ad84570103f74b9e606d2fe255901"
     ),
     CONSTITUTION_OPEN_QUESTIONS_RELATIVE_PATH: (
-        "3a33868366606f4d028e352b54f3c113b263208f5147e84ada93b7128a1bf8bf"
+        "dffe82c29748a7a91997a38d83c91c54a77bfacff4034965b8bb12377597bf34"
     ),
 }
 FINAL_BLOCKER_ANALYSIS_FIELDS = {
@@ -2534,6 +2538,7 @@ HCA_LIFECYCLE_ANALYSIS_FIELDS = {
     "subordinate_law_items",
     "implementation_items",
     "material_ambiguities",
+    "adoption",
     "provenance",
 }
 HCA_LIFECYCLE_STRESS_DIMENSIONS = {
@@ -7741,6 +7746,41 @@ def _validate_constitution_draft(
             "provenance, source digest, and non-ratification boundary are "
             "required"
         )
+    expected_lifecycle_decision = {
+        "decision_id": "CDD-003",
+        "decision": "ADOPT_A",
+        "adopted_architecture": "ALTERNATIVE_A",
+        "status": "DECIDED",
+        "authorized_by": "Human Constitutional Authority",
+        "authorization_record": (
+            "Explicit human instruction received on 2026-08-31 adopting "
+            "Alternative A for the HCA College lifecycle architecture "
+            "analyzed in merged PR #28."
+        ),
+        "decision_date": "2026-08-31",
+        "source_analysis": (
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml"
+        ),
+        "recommendation_sha256": (
+            "801b834cdb5d83c305c7b64b228382d1a1f275361d96a19de1de317418997549"
+        ),
+        "resolved_blocker": "RB-01-LIFECYCLE",
+        "resulting_constitutional_blockers": 0,
+        "constitutional_effect": "DRAFTING_AUTHORITY_ONLY",
+        "adoption_boundary": (
+            "CDD-003 authorizes direct incorporation of Alternative A but "
+            "does not ratify Constitution v0.1 or create operational authority."
+        ),
+    }
+    if (
+        trace.get("hca_lifecycle_decision") != expected_lifecycle_decision
+        or "CDD-003" not in trace.get("authority_basis", [])
+    ):
+        errors.append(
+            "CONSTITUTION_LIFECYCLE_DECISION_TRACE: exact CDD-003 human "
+            "provenance, source digest, resolved blocker, and non-ratification "
+            "boundary are required"
+        )
 
     map_record = _load_record(
         root / CONSOLIDATED_MAP_RELATIVE_PATH, errors
@@ -7779,6 +7819,15 @@ def _validate_constitution_draft(
         "VI.3",
         "VII.1",
     }
+    cdd_003_sections = {
+        "I.1",
+        "II.3",
+        "VI.2",
+        "VI.3",
+        "VI.4",
+        "VII.1",
+        "VIII.1",
+    }
     for item in section_records:
         section_id = item.get("section_id")
         ccrs = item.get("consolidated_requirements")
@@ -7808,9 +7857,9 @@ def _validate_constitution_draft(
             or not set(cdrs).issubset(expected_cdrs)
             or item.get("controlling_cdd")
             != (
-                ["CDD-001", "CDD-002"]
-                if section_id in cdd_002_sections
-                else ["CDD-001"]
+                ["CDD-001"]
+                + (["CDD-002"] if section_id in cdd_002_sections else [])
+                + (["CDD-003"] if section_id in cdd_003_sections else [])
             )
             or not isinstance(rds, list)
             or not rds
@@ -7948,15 +7997,16 @@ def _validate_constitution_draft(
         "source_requirements_covered": 35,
         "consolidated_groups_covered": 20,
         "foundational_decisions_covered": 5,
-        "coordinated_decisions_covered": 2,
+        "coordinated_decisions_covered": 3,
         "ratification_blocker_decisions_covered": 1,
+        "hca_lifecycle_decisions_covered": 1,
         "design_recommendations_covered": 11,
         "coordinated_corrections_covered": 4,
         "refounding_level_principles_covered": 10,
         "untraced_normative_proposition_count": 0,
-        "new_human_decisions_required": 1,
+        "new_human_decisions_required": 0,
         "cross_article_contradictions": 0,
-        "open_questions_count": 1,
+        "open_questions_count": 0,
     }
     if trace.get("coverage_summary") != expected_summary:
         errors.append(
@@ -7978,25 +8028,28 @@ def _validate_constitution_draft(
         open_text = ""
     if (
         open_text.count("# Constitution v0.1 Open Questions") != 1
-        or "One coordinated Human Constitutional Authority decision remains "
-        "required" not in open_text
+        or "## New Human Constitutional Decisions Required\n\nNone."
+        not in open_text
         or "### OQ-001 — Structural-Amendment Cohort Remainders"
         not in open_text
         or "**Decision:** `REMAINDER_SORTITION`" not in open_text
         or "Human Constitutional Authority explicitly directed" not in open_text
         or "**Decision:** `CDD-002 / ADOPT_B`" not in open_text
-        or "one remaining constitutional question" not in open_text
+        or "### RB-01-LIFECYCLE — HCA College Election and Removal Lifecycle"
+        not in open_text
+        or "**Decision:** `CDD-003 / ADOPT_A`" not in open_text
+        or "sole remaining constitutional blocker" not in open_text
         or "cannot be supplied by\nsubordinate election administration"
         not in open_text
-        or "`OPEN_QUESTIONS_COUNT: 1`" not in open_text
+        or "`OPEN_QUESTIONS_COUNT: 0`" not in open_text
         or "without adopting the Constitution" not in open_text
         or "subordinate governance law" not in open_text
         or "implementation questions" not in open_text
     ):
         errors.append(
-            "CONSTITUTION_OPEN_QUESTIONS: adopted Alternative B, its one "
-            "remaining HCA lifecycle question, and non-adoption boundary are "
-            "required"
+            "CONSTITUTION_OPEN_QUESTIONS: CDD-002 history, CDD-003 lifecycle "
+            "resolution, zero open constitutional questions, and non-adoption "
+            "boundary are required"
         )
 
     metrics["draft_status"] = str(trace.get("draft_status", ""))
@@ -8009,9 +8062,9 @@ def _validate_constitution_draft(
     metrics["coordinated_corrections_covered"] = len(traced_cdcs)
     metrics["refounding_level_principles_covered"] = represented_principles
     metrics["untraced_normative_proposition_count"] = untraced_normative
-    metrics["new_human_decisions_required"] = 1
+    metrics["new_human_decisions_required"] = 0
     metrics["cross_article_contradictions"] = 0
-    metrics["open_questions_count"] = 1
+    metrics["open_questions_count"] = 0
     return metrics
 
 
@@ -8046,7 +8099,7 @@ def _validate_ratification_review(
             "**Draft status preserved:** **DRAFT — NOT ADOPTED CONSTITUTION**"
         )
         != 1
-        or "does not adopt, ratify, amend, or confer effect"
+        or "does\nnot adopt, ratify, amend, or give constitutional effect"
         not in review
     ):
         errors.append(
@@ -8056,16 +8109,16 @@ def _validate_ratification_review(
     if (
         review.count(
             "**Review classification:** "
-            "`NOT_READY_FOR_HUMAN_RATIFICATION`"
+            "`READY_FOR_HUMAN_RATIFICATION`"
         )
         != 1
-        or "\n`NOT_READY_FOR_HUMAN_RATIFICATION`\n" not in review
+        or "\n`READY_FOR_HUMAN_RATIFICATION`\n" not in review
         or "CONSTITUTION REMAINS A DRAFT AND HAS NOT\nBEEN ADOPTED OR RATIFIED"
         not in review
-        or "`READY_FOR_HUMAN_RATIFICATION`" in review
+        or "`NOT_READY_FOR_HUMAN_RATIFICATION`" in review
     ):
         errors.append(
-            "RATIFICATION_REVIEW_CLASSIFICATION: exact NOT_READY "
+            "RATIFICATION_REVIEW_CLASSIFICATION: exact READY "
             "classification and non-ratification statement are required"
         )
 
@@ -8074,10 +8127,10 @@ def _validate_ratification_review(
         review,
         flags=re.MULTILINE,
     )
-    if blocker_headings != ["HCA College Election and Removal Lifecycle"]:
+    if blocker_headings:
         errors.append(
-            "RATIFICATION_REVIEW_BLOCKERS: exactly one remaining HCA College "
-            "lifecycle blocker is required"
+            "RATIFICATION_REVIEW_BLOCKERS: no remaining constitutional "
+            "blocker heading is permitted"
         )
 
     expected_article_pairs = {
@@ -8106,11 +8159,12 @@ def _validate_ratification_review(
     if (
         reviewed_pairs != expected_article_pairs
         or "**Cross-article contradiction count:** `0`" not in review
-        or "omitted\nconstitutional lifecycle allocation" not in review
+        or "Every Article was retested against every other Article."
+        not in review
     ):
         errors.append(
             "RATIFICATION_REVIEW_CROSS_ARTICLE: all 28 Article pairs, zero "
-            "direct contradictions, and the lifecycle-gap distinction are "
+            "direct contradictions, and complete review statement are "
             "required"
         )
 
@@ -8151,22 +8205,24 @@ def _validate_ratification_review(
     )
     if (
         len(adversarial_names) != 13
-        or adversarial_passes != 9
-        or adversarial_failures != 4
-        or "**Adversarial result:** `9/13 PASS`" not in review
+        or adversarial_passes != 13
+        or adversarial_failures != 0
+        or "**Adversarial result:** `13/13 PASS`" not in review
     ):
         errors.append(
             "RATIFICATION_REVIEW_ADVERSARIAL: all 13 required scenarios with "
-            "the exact 9-pass, 4-fail blocker-linked result are required"
+            "the exact 13-pass, zero-fail result are required"
         )
 
     required_reader_questions = {
         "Who holds authority?",
         "What constrains authority?",
         "How is authority delegated?",
+        "How are College members and alternates selected?",
+        "How can a College member be removed?",
         "How are disputes resolved?",
         "What happens in emergencies?",
-        "What happens during succession and interregnum?",
+        "What happens during temporary incapacity, succession, and interregnum?",
         "What may be amended?",
         "What requires structural amendment?",
         "What requires refounding?",
@@ -8182,43 +8238,40 @@ def _validate_ratification_review(
     )
     if (
         reader_questions != required_reader_questions
-        or "**Human-comprehensibility result:** `FAIL`" not in review
+        or "**Human-comprehensibility result:** `PASS`" not in review
     ):
         errors.append(
             "RATIFICATION_REVIEW_COMPREHENSIBILITY: all ten reader questions "
-            "and the justified FAIL result are required"
+            "and the PASS result are required"
         )
     if (
-        "**Subordinate-law boundary result:** "
-        "`FAIL — ONE HCA COLLEGE LIFECYCLE\n"
-        "ALLOCATION REMAINS CONSTITUTIONAL`"
-        not in review
-        or "subordinate law would have to determine constitutional election "
-        "validity"
-        not in review
+        "**Subordinate-law boundary result:** `PASS`" not in review
+        or "None may change the constitutional electorate" not in review
+        or "Nine lifecycle categories remain subordinate" not in review
+        or "Five implementation categories remain subordinate" not in review
     ):
         errors.append(
-            "RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY: the exact one-gap "
-            "authority boundary and delegation distinction are required"
+            "RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY: exact safe delegation "
+            "and constitutional outcome boundaries are required"
         )
 
     required_coverage = (
         "| Source requirements covered | 35/35 |",
         "| Consolidated requirement groups covered | 20/20 |",
         "| Foundational decisions covered | 5/5 |",
-        "| Coordinated design decisions covered | 2/2 |",
+        "| Coordinated design decisions covered | 3/3 |",
         "| Adopted design recommendations covered | 11/11 |",
         "| Coordinated corrections covered | 4/4 |",
         "| Remainder-sortition decision covered | 1/1 |",
-        "| Ratification-blocker decision covered | 1/1 |",
+        "| Ratification-blocker decisions covered | 2/2 |",
         "| Refounding-level principles protected | 10/10 |",
         "| Untraced normative propositions | 0 |",
-        "| New Human Constitutional Authority design decisions required | 1 |",
+        "| New Human Constitutional Authority design decisions required | 0 |",
     )
     if any(item not in review for item in required_coverage):
         errors.append(
             "RATIFICATION_REVIEW_COVERAGE: exact complete traceability and "
-            "one-decision metrics are required"
+            "zero-gap metrics are required"
         )
 
     for relative_path, expected_digest in EXPECTED_RATIFICATION_DRAFT_DIGESTS.items():
@@ -8230,21 +8283,21 @@ def _validate_ratification_review(
             continue
         if actual_digest != expected_digest:
             errors.append(
-                "RATIFICATION_DRAFT_INTEGRITY: incorporated Alternative B "
+                "RATIFICATION_DRAFT_INTEGRITY: incorporated Alternative A "
                 f"artifact mismatch at {relative_path}"
             )
 
     metrics.update(
         {
-            "ratification_readiness": "NOT_READY_FOR_HUMAN_RATIFICATION",
-            "constitutional_blocker_count": 1,
+            "ratification_readiness": "READY_FOR_HUMAN_RATIFICATION",
+            "constitutional_blocker_count": 0,
             "ratification_cross_article_contradiction_count": 0,
-            "ratification_adversarial_tests_pass": "9/13",
-            "human_comprehensibility_result": "FAIL",
-            "subordinate_law_boundary_result": "FAIL",
-            "new_human_decisions_required": 1,
+            "ratification_adversarial_tests_pass": "13/13",
+            "human_comprehensibility_result": "PASS",
+            "subordinate_law_boundary_result": "PASS",
+            "new_human_decisions_required": 0,
             "ratification_recommendation": (
-                "DO_NOT_RATIFY_UNTIL_HCA_COLLEGE_LIFECYCLE_IS_DECIDED"
+                "READY_FOR_EXPLICIT_HUMAN_RATIFICATION"
             ),
         }
     )
@@ -8638,14 +8691,14 @@ def _validate_final_blocker_analysis(
             "projected_ratification_blockers_remaining": int(
                 projection.get("ratification_blockers_remaining", 3)
             ),
-            "final_blocker_human_decisions_required": 1,
+            "final_blocker_human_decisions_required": 0,
             "final_blocker_subordinate_law_item_count": len(subordinate_items)
             if isinstance(subordinate_items, list)
             else 0,
             "adopted_architecture": "ALTERNATIVE_B",
             "blocker_decision_status": "DECIDED",
-            "ratification_blockers_resolved": 2,
-            "ratification_blockers_remaining": 1,
+            "ratification_blockers_resolved": 3,
+            "ratification_blockers_remaining": 0,
         }
     )
     return metrics
@@ -8666,6 +8719,8 @@ def _validate_hca_lifecycle_analysis(
         "lifecycle_subordinate_law_items_remaining": 0,
         "lifecycle_implementation_items_remaining": 0,
         "lifecycle_material_ambiguity_count": 0,
+        "adopted_lifecycle_architecture": "",
+        "lifecycle_decision_status": "",
     }
     record = _load_record(root / HCA_LIFECYCLE_ANALYSIS_RELATIVE_PATH, errors)
     if record is None:
@@ -8681,14 +8736,14 @@ def _validate_hca_lifecycle_analysis(
         )
     if (
         record.get("analysis_id") != "HCA-COLLEGE-LIFECYCLE-ANALYSIS-001"
-        or record.get("status") != "AWAITING_HUMAN_DECISION"
-        or record.get("constitutional_effect") != "NONE"
+        or record.get("status") != "DECIDED"
+        or record.get("constitutional_effect") != "DESIGN_AUTHORITY_ONLY"
         or record.get("draft_modified") is not False
-        or record.get("human_decision_made") is not False
+        or record.get("human_decision_made") is not True
     ):
         errors.append(
-            "HCA_LIFECYCLE_AUTHORITY_BOUNDARY: analysis-only status, no human "
-            "decision, no draft modification, and no constitutional effect "
+            "HCA_LIFECYCLE_AUTHORITY_BOUNDARY: exact CDD-003 adoption status, "
+            "historical no-draft-modification state, and design-only effect "
             "are required"
         )
 
@@ -8973,14 +9028,11 @@ def _validate_hca_lifecycle_analysis(
         )
     if (
         not isinstance(ambiguities, list)
-        or len(ambiguities) != 2
-        or "no authority unless Human Constitutional Authority expressly adopts"
-        not in str(ambiguities[0])
-        or "initial Schedule O population" not in str(ambiguities[1])
+        or ambiguities
     ):
         errors.append(
-            "HCA_LIFECYCLE_AMBIGUITIES: only pending human adoption and "
-            "initial Schedule O supply may remain"
+            "HCA_LIFECYCLE_AMBIGUITIES: adopted Alternative A must have no "
+            "material lifecycle ambiguity"
         )
 
     provenance = record.get("provenance")
@@ -8989,30 +9041,31 @@ def _validate_hca_lifecycle_analysis(
         or set(provenance) != {"source", "authority_boundary"}
         or "after PR #27 merged into origin/main"
         not in str(provenance.get("source", ""))
-        or "create no constitutional authority"
+        or "analysis and recommendation created no authority"
         not in str(provenance.get("authority_boundary", ""))
-        or "make no human decision"
-        not in str(provenance.get("authority_boundary", ""))
-        or "do not modify or ratify Constitution v0.1"
+        or "CDD-003 records the later explicit Human Constitutional Authority "
+        "adoption" not in str(provenance.get("authority_boundary", ""))
+        or "neither record ratifies Constitution v0.1"
         not in str(provenance.get("authority_boundary", ""))
     ):
         errors.append(
             "HCA_LIFECYCLE_PROVENANCE: merged-base, analysis non-authority, "
-            "no-decision, and non-ratification provenance are required"
+            "CDD-003 human adoption, and non-ratification provenance are "
+            "required"
         )
 
     try:
         packet_path = root / HCA_LIFECYCLE_PACKET_RELATIVE_PATH
         packet_bytes = packet_path.read_bytes()
-        packet = packet_bytes.decode("utf-8")
+        packet = packet_bytes.decode("utf-8").replace("\r\n", "\n")
         packet_digest = hashlib.sha256(packet_bytes).hexdigest()
     except (OSError, UnicodeError) as exc:
         errors.append(f"HCA_LIFECYCLE_PACKET_REQUIRED: {exc}")
         packet = ""
         packet_digest = ""
     required_packet_terms = (
-        "**AWAITING EXPLICIT HUMAN DECISION**",
-        "**ANALYSIS AND RECOMMENDATION ONLY — NO CONSTITUTIONAL EFFECT**",
+        "**HUMAN DECISION RECORDED",
+        "**DESIGN AUTHORITY ONLY",
         "## Alternatives",
         "### Alternative A",
         "### Alternative B",
@@ -9021,32 +9074,111 @@ def _validate_hca_lifecycle_analysis(
         "constitutional blockers remaining: **0**",
         "lifecycle adversarial tests passed: **10/10**",
         "new Human Constitutional Authority decisions required: **1**",
-        "`ADOPT_A`",
-        "`ADOPT_B`",
-        "`ADOPT_C`",
-        "`REJECT_ALL`",
-        "`REQUEST_REVISION`",
-        "No option is selected in this packet.",
-        "**CONSTITUTION v0.1 REMAINS DRAFT — NOT ADOPTED CONSTITUTION.**",
+        "## Human Decision Recorded",
+        "**Decision:** `ADOPT_A`",
+        "Alternative A and every boundary in its recommended integrated "
+        "allocation",
+        "**HUMAN CONSTITUTIONAL AUTHORITY DECISION: ADOPT_A.**",
+        "**CONSTITUTION v0.1 REMAINS DRAFT",
     )
     if (
         any(term not in packet for term in required_packet_terms)
         or str(HCA_LIFECYCLE_ANALYSIS_RELATIVE_PATH).replace("\\", "/")
         not in packet
         or packet_digest != EXPECTED_HCA_LIFECYCLE_PACKET_DIGEST
-        or any(
-            forbidden in packet
-            for forbidden in (
-                "**Decision:**",
-                "HUMAN CONSTITUTIONAL AUTHORITY DECISION:",
-                "Alternative A is adopted.",
-                "STATUS: DECIDED",
-            )
-        )
     ):
         errors.append(
-            "HCA_LIFECYCLE_PACKET_CONTENT: concise three-option recommendation "
-            "and explicit no-decision boundary are required"
+            "HCA_LIFECYCLE_PACKET_CONTENT: exact ADOPT_A human decision, "
+            "adopted allocation, and non-ratification boundary are required"
+        )
+
+    expected_adoption = {
+        "decision_id": "CDD-003",
+        "decision": "ADOPT_A",
+        "adopted_architecture": "ALTERNATIVE_A",
+        "status": "DECIDED",
+        "authorized_by": "Human Constitutional Authority",
+        "authorization_record": (
+            "Explicit human instruction received on 2026-08-31 adopting "
+            "Alternative A for the HCA College lifecycle architecture "
+            "analyzed in merged PR #28."
+        ),
+        "decision_date": "2026-08-31",
+        "recommendation_sha256": (
+            "801b834cdb5d83c305c7b64b228382d1a1f275361d96a19de1de317418997549"
+        ),
+        "constitution_ratified": False,
+        "operational_authority_created": False,
+    }
+    if record.get("adoption") != expected_adoption:
+        errors.append(
+            "HCA_LIFECYCLE_ADOPTION: exact Human ADOPT_A provenance, source "
+            "digest, and non-ratification boundary are required"
+        )
+
+    cdd_003 = _load_record(
+        root / COORDINATED_DECISION_003_RELATIVE_PATH, errors
+    ) or {}
+    expected_cdd_003_fields = {
+        "decision_id",
+        "title",
+        "status",
+        "decision",
+        "adopted_architecture",
+        "decision_date",
+        "decision_authority",
+        "authorized_by",
+        "authorization_record",
+        "source_analysis",
+        "source_packet",
+        "recommendation_sha256",
+        "adopted_components",
+        "authority_boundaries",
+        "blocker_resolution",
+        "subordinate_law_items_preserved",
+        "implementation_items_preserved",
+        "decision_effect",
+        "constitutional_status",
+        "resulting_state",
+        "provenance",
+    }
+    cdd_result = cdd_003.get("resulting_state", {})
+    if (
+        set(cdd_003) != expected_cdd_003_fields
+        or cdd_003.get("decision_id") != "CDD-003"
+        or cdd_003.get("status") != "DECIDED"
+        or cdd_003.get("decision") != "ADOPT_A"
+        or cdd_003.get("adopted_architecture") != "ALTERNATIVE_A"
+        or cdd_003.get("authorized_by") != "Human Constitutional Authority"
+        or cdd_003.get("recommendation_sha256")
+        != EXPECTED_HCA_LIFECYCLE_RECOMMENDATION_DIGEST
+        or len(cdd_003.get("adopted_components", [])) != 10
+        or len(cdd_003.get("authority_boundaries", [])) != 12
+        or cdd_003.get("blocker_resolution", {}).get("blocker_id")
+        != "RB-01-LIFECYCLE"
+        or cdd_003.get("blocker_resolution", {}).get("status") != "RESOLVED"
+        or len(cdd_003.get("subordinate_law_items_preserved", [])) != 9
+        or len(cdd_003.get("implementation_items_preserved", [])) != 5
+        or cdd_003.get("decision_effect")
+        != "AUTHORIZES_DIRECT_DRAFT_INCORPORATION_ONLY"
+        or cdd_003.get("constitutional_status") != "DRAFT_NOT_ADOPTED"
+        or cdd_result
+        != {
+            "constitutional_blockers_remaining": 0,
+            "cross_article_contradictions": 0,
+            "untraced_normative_propositions": 0,
+            "new_human_constitutional_decisions_required": 0,
+            "ratification_readiness": "READY_FOR_HUMAN_RATIFICATION",
+            "constitution_ratified": False,
+            "operational_authority_created": False,
+        }
+        or not _has_provenance(cdd_003)
+    ):
+        errors.append(
+            "CDD_003_DECISION: exact Human ADOPT_A provenance, ten "
+            "components, 12 authority boundaries, resolved blocker, preserved "
+            "9/5 subordinate categories, and non-ratification state are "
+            "required"
         )
 
     metrics.update(
@@ -9065,11 +9197,7 @@ def _validate_hca_lifecycle_analysis(
             "projected_lifecycle_subordinate_law_boundary_result": str(
                 projection.get("subordinate_law_boundary_result", "")
             ),
-            "lifecycle_new_human_decisions_required": int(
-                projection.get(
-                    "new_human_decisions_required_before_adoption", 0
-                )
-            ),
+            "lifecycle_new_human_decisions_required": 0,
             "lifecycle_subordinate_law_items_remaining": len(subordinate_items)
             if isinstance(subordinate_items, list)
             else 0,
@@ -9081,6 +9209,8 @@ def _validate_hca_lifecycle_analysis(
             "lifecycle_material_ambiguity_count": len(ambiguities)
             if isinstance(ambiguities, list)
             else 0,
+            "adopted_lifecycle_architecture": "ALTERNATIVE_A",
+            "lifecycle_decision_status": "DECIDED",
         }
     )
     return metrics

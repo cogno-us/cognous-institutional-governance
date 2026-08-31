@@ -194,30 +194,30 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(
             result.metrics["untraced_normative_proposition_count"], 0
         )
-        self.assertEqual(result.metrics["new_human_decisions_required"], 1)
+        self.assertEqual(result.metrics["new_human_decisions_required"], 0)
         self.assertEqual(result.metrics["cross_article_contradictions"], 0)
-        self.assertEqual(result.metrics["open_questions_count"], 1)
+        self.assertEqual(result.metrics["open_questions_count"], 0)
         self.assertEqual(
             result.metrics["ratification_readiness"],
-            "NOT_READY_FOR_HUMAN_RATIFICATION",
+            "READY_FOR_HUMAN_RATIFICATION",
         )
-        self.assertEqual(result.metrics["constitutional_blocker_count"], 1)
+        self.assertEqual(result.metrics["constitutional_blocker_count"], 0)
         self.assertEqual(
             result.metrics["ratification_cross_article_contradiction_count"],
             0,
         )
         self.assertEqual(
-            result.metrics["ratification_adversarial_tests_pass"], "9/13"
+            result.metrics["ratification_adversarial_tests_pass"], "13/13"
         )
         self.assertEqual(
-            result.metrics["human_comprehensibility_result"], "FAIL"
+            result.metrics["human_comprehensibility_result"], "PASS"
         )
         self.assertEqual(
-            result.metrics["subordinate_law_boundary_result"], "FAIL"
+            result.metrics["subordinate_law_boundary_result"], "PASS"
         )
         self.assertEqual(
             result.metrics["ratification_recommendation"],
-            "DO_NOT_RATIFY_UNTIL_HCA_COLLEGE_LIFECYCLE_IS_DECIDED",
+            "READY_FOR_EXPLICIT_HUMAN_RATIFICATION",
         )
         self.assertEqual(
             result.metrics["final_ratification_blockers_analyzed"], 3
@@ -230,15 +230,15 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             result.metrics["projected_ratification_blockers_remaining"], 0
         )
         self.assertEqual(
-            result.metrics["final_blocker_human_decisions_required"], 1
+            result.metrics["final_blocker_human_decisions_required"], 0
         )
         self.assertEqual(
             result.metrics["final_blocker_subordinate_law_item_count"], 9
         )
         self.assertEqual(result.metrics["adopted_architecture"], "ALTERNATIVE_B")
         self.assertEqual(result.metrics["blocker_decision_status"], "DECIDED")
-        self.assertEqual(result.metrics["ratification_blockers_resolved"], 2)
-        self.assertEqual(result.metrics["ratification_blockers_remaining"], 1)
+        self.assertEqual(result.metrics["ratification_blockers_resolved"], 3)
+        self.assertEqual(result.metrics["ratification_blockers_remaining"], 0)
         self.assertEqual(
             result.metrics["lifecycle_architectures_analyzed"], 3
         )
@@ -266,7 +266,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             "PASS",
         )
         self.assertEqual(
-            result.metrics["lifecycle_new_human_decisions_required"], 1
+            result.metrics["lifecycle_new_human_decisions_required"], 0
         )
         self.assertEqual(
             result.metrics["lifecycle_subordinate_law_items_remaining"], 9
@@ -275,7 +275,14 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             result.metrics["lifecycle_implementation_items_remaining"], 5
         )
         self.assertEqual(
-            result.metrics["lifecycle_material_ambiguity_count"], 2
+            result.metrics["lifecycle_material_ambiguity_count"], 0
+        )
+        self.assertEqual(
+            result.metrics["adopted_lifecycle_architecture"],
+            "ALTERNATIVE_A",
+        )
+        self.assertEqual(
+            result.metrics["lifecycle_decision_status"], "DECIDED"
         )
 
     def test_hca_lifecycle_analysis_is_required(self) -> None:
@@ -286,13 +293,15 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         ).unlink()
         self.assert_error("HCA_LIFECYCLE_ANALYSIS_REQUIRED")
 
-    def test_hca_lifecycle_analysis_cannot_make_human_decision(self) -> None:
+    def test_hca_lifecycle_analysis_requires_recorded_human_decision(
+        self,
+    ) -> None:
         self.update_json(
             "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
             lambda record: record.update(
-                status="DECIDED",
-                constitutional_effect="BINDING",
-                human_decision_made=True,
+                status="AWAITING_HUMAN_DECISION",
+                constitutional_effect="NONE",
+                human_decision_made=False,
             ),
         )
         self.assert_error("HCA_LIFECYCLE_AUTHORITY_BOUNDARY")
@@ -423,13 +432,13 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         ).unlink()
         self.assert_error("HCA_LIFECYCLE_PACKET_REQUIRED")
 
-    def test_hca_lifecycle_packet_cannot_select_an_option(self) -> None:
+    def test_hca_lifecycle_packet_requires_adopt_a(self) -> None:
         self.update_text(
             "constitutional-design/decisions/"
             "HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md",
             lambda text: text.replace(
-                "No option is selected in this packet.",
-                "Alternative A is adopted.",
+                "**Decision:** `ADOPT_A`",
+                "**Decision:** `ADOPT_B`",
             ),
         )
         self.assert_error("HCA_LIFECYCLE_PACKET_CONTENT")
@@ -438,9 +447,89 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.update_text(
             "constitutional-design/decisions/"
             "HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md",
-            lambda text: text + "\nAlternative A is adopted.\n",
+            lambda text: text + "\n**Decision:** `ADOPT_B`\n",
         )
         self.assert_error("HCA_LIFECYCLE_PACKET_CONTENT")
+
+    def test_hca_lifecycle_analysis_binds_cdd_003_adoption(self) -> None:
+        self.update_json(
+            "constitutional-design/HCA-COLLEGE-LIFECYCLE-ANALYSIS.yaml",
+            lambda record: record["adoption"].update(
+                decision="ADOPT_B",
+                authorized_by="Artificial-intelligence recommendation",
+            ),
+        )
+        self.assert_error("HCA_LIFECYCLE_ADOPTION")
+
+    def test_cdd_003_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "decisions"
+            / "CDD-003.yaml"
+        ).unlink()
+        self.assert_error("CDD_003_DECISION")
+
+    def test_cdd_003_requires_exact_human_provenance(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-003.yaml",
+            lambda record: record.update(
+                authorized_by="Artificial-intelligence recommendation",
+                recommendation_sha256="0" * 64,
+            ),
+        )
+        self.assert_error("CDD_003_DECISION")
+
+    def test_cdd_003_preserves_complete_adopted_package(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-003.yaml",
+            lambda record: record["adopted_components"].pop(),
+        )
+        self.assert_error("CDD_003_DECISION")
+
+    def test_cdd_003_preserves_subordinate_categories(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-003.yaml",
+            lambda record: (
+                record["subordinate_law_items_preserved"].pop(),
+                record["implementation_items_preserved"].pop(),
+            ),
+        )
+        self.assert_error("CDD_003_DECISION")
+
+    def test_cdd_003_cannot_ratify_or_create_authority(self) -> None:
+        self.update_json(
+            "constitutional-design/decisions/CDD-003.yaml",
+            lambda record: record["resulting_state"].update(
+                constitution_ratified=True,
+                operational_authority_created=True,
+            ),
+        )
+        self.assert_error("CDD_003_DECISION")
+
+    def test_cdd_003_trace_is_required(self) -> None:
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            lambda record: record.pop("hca_lifecycle_decision"),
+        )
+        self.assert_error("CONSTITUTION_LIFECYCLE_DECISION_TRACE")
+
+    def test_cdd_003_section_trace_is_exact(self) -> None:
+        def remove_cdd(record) -> None:
+            section = next(
+                item
+                for item in record["sections"]
+                if item["section_id"] == "VI.2"
+            )
+            section["controlling_cdd"].remove("CDD-003")
+
+        self.update_json(
+            "constitutional-design/drafts/"
+            "CONSTITUTION_v0.1_TRACEABILITY.yaml",
+            remove_cdd,
+        )
+        self.assert_error("CONSTITUTION_TRACE_SECTIONS")
 
     def test_final_blocker_analysis_is_required(self) -> None:
         (
@@ -641,12 +730,12 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         )
         self.assert_error("RATIFICATION_REVIEW_BOUNDARY")
 
-    def test_ratification_review_cannot_claim_readiness(self) -> None:
+    def test_ratification_review_cannot_retract_readiness(self) -> None:
         self.update_text(
             "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
             lambda text: text.replace(
-                "`NOT_READY_FOR_HUMAN_RATIFICATION`",
                 "`READY_FOR_HUMAN_RATIFICATION`",
+                "`NOT_READY_FOR_HUMAN_RATIFICATION`",
                 1,
             ),
         )
@@ -655,10 +744,9 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
     def test_ratification_review_requires_exact_blockers(self) -> None:
         self.update_text(
             "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
-            lambda text: text.replace(
-                "### Remaining Blocker — HCA College Election and Removal "
-                "Lifecycle",
-                "### Resolved Topic — HCA College Lifecycle",
+            lambda text: (
+                text
+                + "\n### Remaining Blocker — Invented Lifecycle Gap\n"
             ),
         )
         self.assert_error("RATIFICATION_REVIEW_BLOCKERS")
@@ -667,9 +755,10 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.update_text(
             "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
             lambda text: text.replace(
-                "| VII–VIII | Consistent |",
-                "| VII–VIII | Not reviewed |",
-            ).replace("| VII–VIII |", "| OMITTED |", 1),
+                "| VII–VIII | PASS |",
+                "| OMITTED | PASS |",
+                1,
+            ),
         )
         self.assert_error("RATIFICATION_REVIEW_CROSS_ARTICLE")
 
@@ -697,10 +786,8 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.update_text(
             "constitutional-design/RATIFICATION_REVIEW_v0.1.md",
             lambda text: text.replace(
-                "subordinate law would have to determine constitutional "
-                "election validity",
-                "subordinate law may determine constitutional election "
-                "validity",
+                "None may change the constitutional electorate",
+                "Subordinate law may change the constitutional electorate",
             ),
         )
         self.assert_error("RATIFICATION_REVIEW_SUBORDINATE_BOUNDARY")
@@ -720,6 +807,35 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             "constitutional-design/drafts/CONSTITUTION_v0.1.md",
             lambda text: text.replace(
                 "Alvorada SHALL exist", "Alvorada MAY exist", 1
+            ),
+        )
+        self.assert_error("RATIFICATION_DRAFT_INTEGRITY")
+
+    def test_constitution_alternate_refresh_cannot_replace_principal(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "The three highest approval totals SHALL establish the "
+                "replacement alternate\n"
+                "    slate in rank order.",
+                "The highest approval total SHALL replace the principal.",
+            ),
+        )
+        self.assert_error("RATIFICATION_DRAFT_INTEGRITY")
+
+    def test_constitution_excludes_candidates_from_same_exercise_bodies(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+            lambda text: text.replace(
+                "A candidate SHALL NOT administer or serve on\n"
+                "   an election, fact-finding, "
+                "removal-confirmation-administration, or review\n"
+                "   body for the same exercise.",
+                "A candidate may administer the same election.",
             ),
         )
         self.assert_error("RATIFICATION_DRAFT_INTEGRITY")
@@ -997,8 +1113,8 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             "constitutional-design/drafts/"
             "CONSTITUTION_v0.1_OPEN_QUESTIONS.md",
             lambda text: text.replace(
-                "`OPEN_QUESTIONS_COUNT: 1`",
                 "`OPEN_QUESTIONS_COUNT: 0`",
+                "`OPEN_QUESTIONS_COUNT: 1`",
             ),
         )
         self.assert_error("CONSTITUTION_OPEN_QUESTIONS")
