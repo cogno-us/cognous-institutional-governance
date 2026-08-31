@@ -54,3 +54,13 @@ the human decision recorded in CDR-005.
 `ADOPT_ALL` for the eleven remaining-design recommendations and four coordinated
 cross-domain corrections. It preserves CDR-001 through CDR-005 as controlling
 and creates no constitutional provision or runtime mechanism.
+
+`CDD-002.yaml` and `CDD-003.yaml` record the adopted final-blocker and HCA
+College lifecycle architectures incorporated into proposed Constitution v0.1.
+
+`CDD-004.yaml` records the explicit pre-ratification Human Constitutional
+Authority decision defining the three-office initial Schedule O architecture,
+fixed three-year terms, cause removal, continuing membership-rooted selection,
+alternates, incompatibilities, and independence. It authorizes preparation of
+`../INITIAL_SCHEDULE_O.yaml` only. It appoints nobody and does not ratify the
+Constitution or authorize activation.

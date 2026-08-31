@@ -2328,6 +2328,18 @@ COORDINATED_DECISION_002_RELATIVE_PATH = Path(
 COORDINATED_DECISION_003_RELATIVE_PATH = Path(
     "constitutional-design/decisions/CDD-003.yaml"
 )
+COORDINATED_DECISION_004_RELATIVE_PATH = Path(
+    "constitutional-design/decisions/CDD-004.yaml"
+)
+INITIAL_SCHEDULE_O_RELATIVE_PATH = Path(
+    "constitutional-design/INITIAL_SCHEDULE_O.yaml"
+)
+EXPECTED_CDD_004_DIGEST = (
+    "041a29a6c1d5dd860eeffc0d0c84f9891f7b79f25dadc2a09dd97858414750c3"
+)
+EXPECTED_INITIAL_SCHEDULE_O_DIGEST = (
+    "cd2587a3c3ff831f5aaec8ca68df38ac4c18883edb68e0f4bcb8b55065e3cb78"
+)
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
     "status",
@@ -9395,6 +9407,374 @@ def _validate_hca_lifecycle_analysis(
     return metrics
 
 
+def _validate_initial_schedule_o(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "schedule_o_term": "",
+        "schedule_o_removal_rule": "",
+        "schedule_o_selector_rule": "",
+        "schedule_o_constitutional_design_questions_remaining": 1,
+        "schedule_o_human_identities_required": 0,
+        "schedule_o_ratification_ready": True,
+        "schedule_o_qualifying_office_count": 0,
+    }
+    decision_path = root / COORDINATED_DECISION_004_RELATIVE_PATH
+    schedule_path = root / INITIAL_SCHEDULE_O_RELATIVE_PATH
+    decision = _load_record(decision_path, errors) or {}
+    schedule = _load_record(schedule_path, errors) or {}
+
+    try:
+        decision_digest = hashlib.sha256(decision_path.read_bytes()).hexdigest()
+    except OSError:
+        decision_digest = ""
+    try:
+        schedule_digest = hashlib.sha256(schedule_path.read_bytes()).hexdigest()
+    except OSError:
+        schedule_digest = ""
+    if decision_digest != EXPECTED_CDD_004_DIGEST:
+        errors.append(
+            "CDD_004_INTEGRITY: exact Human Constitutional Authority Schedule "
+            "O decision record is required"
+        )
+    if schedule_digest != EXPECTED_INITIAL_SCHEDULE_O_DIGEST:
+        errors.append(
+            "INITIAL_SCHEDULE_O_INTEGRITY: exact unpopulated three-office "
+            "instrument is required"
+        )
+
+    expected_decision_fields = {
+        "decision_id",
+        "title",
+        "status",
+        "decision",
+        "decision_date",
+        "decision_authority",
+        "authorized_by",
+        "authorization_record",
+        "schedule_o_instrument",
+        "adopted_offices",
+        "term_rule",
+        "removal_rule",
+        "continuing_selector_rule",
+        "initial_selector_rule",
+        "incompatibilities",
+        "independence_rule",
+        "human_inputs_still_required",
+        "decision_effect",
+        "constitutional_status",
+        "resulting_state",
+        "authority_boundaries",
+        "provenance",
+    }
+    if (
+        set(decision) != expected_decision_fields
+        or decision.get("decision_id") != "CDD-004"
+        or decision.get("status") != "DECIDED"
+        or decision.get("decision")
+        != "ADOPT_INITIAL_SCHEDULE_O_ARCHITECTURE"
+        or decision.get("decision_date") != "2026-08-31"
+        or decision.get("decision_authority")
+        != "Human Constitutional Authority"
+        or decision.get("authorized_by") != "Human Constitutional Authority"
+        or "Explicit human instruction received on 2026-08-31"
+        not in str(decision.get("authorization_record", ""))
+        or decision.get("schedule_o_instrument")
+        != INITIAL_SCHEDULE_O_RELATIVE_PATH.as_posix()
+        or decision.get("adopted_offices") != ["SO-01", "SO-02", "SO-03"]
+        or decision.get("term_rule")
+        != "Each Schedule O office has a fixed three-year term."
+    ):
+        errors.append(
+            "CDD_004_HUMAN_DECISION: exact human provenance, three offices, "
+            "and fixed three-year term are required"
+        )
+
+    removal_rule = str(decision.get("removal_rule", ""))
+    selector = decision.get("continuing_selector_rule")
+    if (
+        "removed for cause by the same membership-rooted selector class"
+        not in removal_rule
+        or "using the constitutionally required independent process"
+        not in removal_rule
+        or "A vacancy returns selection authority to the same "
+        "membership-rooted selector class." not in removal_rule
+        or not isinstance(selector, dict)
+        or selector.get("selector_class")
+        != (
+            "Human institutional members acting through a materially "
+            "independent, membership-rooted selection process for each office."
+        )
+        or selector.get("incumbent_control_prohibited") is not True
+        or "may not select, certify, veto, or determine an outcome"
+        not in str(selector.get("artificial_intelligence_boundary", ""))
+        or "same independent process as the principal"
+        not in str(selector.get("alternate_selection", ""))
+        or "effective power create no appointment authority"
+        not in str(selector.get("non_accretion", ""))
+    ):
+        errors.append(
+            "CDD_004_AUTHORITY_RULES: exact cause removal, membership-rooted "
+            "selection, alternate, machine, incumbent-control, and "
+            "non-accretion rules are required"
+        )
+
+    expected_incompatibilities = [
+        "Human Constitutional Authority College membership",
+        "Constitutional Court",
+        "Verification Office",
+        "Enforcement Office",
+        "succession authority",
+        "transition authority",
+        "emergency authority",
+        "continuity authority",
+        "institutional artificial-intelligence-operation authority",
+        (
+            "candidate status for any office whose selection the Schedule O "
+            "office materially administers"
+        ),
+        "simultaneous service in another Schedule O office",
+    ]
+    if (
+        decision.get("incompatibilities") != expected_incompatibilities
+        or "separate incumbents, separate alternates"
+        not in str(decision.get("independence_rule", ""))
+        or "simultaneously hold or control more than one Schedule O office"
+        not in str(decision.get("independence_rule", ""))
+    ):
+        errors.append(
+            "CDD_004_INDEPENDENCE: exact incompatibilities and cross-office "
+            "independence are required"
+        )
+
+    resulting_state = decision.get("resulting_state")
+    if resulting_state != {
+        "constitutional_design_questions_remaining": 0,
+        "qualifying_office_definitions": 3,
+        "populated_qualifying_offices": 0,
+        "ratification_ready": False,
+        "constitution_ratified": False,
+        "operational_activation_authorized": False,
+    }:
+        errors.append(
+            "CDD_004_NON_RATIFICATION: decision must resolve design only, "
+            "populate no office, ratify no Constitution, and authorize no "
+            "activation"
+        )
+
+    if (
+        decision.get("decision_effect")
+        != "AUTHORIZES_INITIAL_SCHEDULE_O_INSTRUMENT_PREPARATION_ONLY"
+        or decision.get("constitutional_status")
+        != "PROPOSED_FOR_HUMAN_RATIFICATION_NOT_ADOPTED"
+        or len(decision.get("authority_boundaries", [])) != 5
+        or not _has_provenance(decision)
+        or "supply no independent authority"
+        not in str(decision.get("provenance", {}).get("authority_boundary", ""))
+    ):
+        errors.append(
+            "CDD_004_AUTHORITY_BOUNDARY: exact preparation-only, "
+            "non-ratification, and machine-nonauthority boundary is required"
+        )
+
+    expected_schedule_fields = {
+        "schedule_id",
+        "status",
+        "constitutional_effect",
+        "controlling_decision",
+        "constitution_version",
+        "office_count",
+        "common_rules",
+        "common_incompatibilities",
+        "offices",
+        "human_inputs_still_required",
+        "ratification_ready",
+        "non_effects",
+        "provenance",
+    }
+    if (
+        set(schedule) != expected_schedule_fields
+        or schedule.get("schedule_id") != "INITIAL-SCHEDULE-O-v0.1"
+        or schedule.get("status")
+        != "ARCHITECTURE_DECIDED_PENDING_HUMAN_POPULATION"
+        or schedule.get("constitutional_effect")
+        != "NONE_UNTIL_INCLUDED_IN_HUMAN_RATIFICATION_INSTRUMENT"
+        or schedule.get("controlling_decision") != "CDD-004"
+        or schedule.get("constitution_version") != "v0.1"
+        or schedule.get("office_count") != 3
+        or schedule.get("common_incompatibilities")
+        != expected_incompatibilities
+        or schedule.get("ratification_ready") is not False
+    ):
+        errors.append(
+            "INITIAL_SCHEDULE_O_SCHEMA: exact pending, no-effect, "
+            "three-office instrument and incompatibilities are required"
+        )
+
+    common_rules = schedule.get("common_rules")
+    if (
+        not isinstance(common_rules, dict)
+        or common_rules.get("term") != "FIXED_3_YEARS"
+        or "Initial Human Constitutional Authority"
+        not in str(common_rules.get("initial_selector", ""))
+        or "initial principal and alternate appointments only"
+        not in str(common_rules.get("initial_selector", ""))
+        or "Human institutional members"
+        not in str(common_rules.get("continuing_selector", ""))
+        or "materially independent, membership-rooted selection process"
+        not in str(common_rules.get("continuing_selector", ""))
+        or "may not select, certify, veto, or determine an outcome"
+        not in str(common_rules.get("artificial_intelligence_boundary", ""))
+        or "Removal for cause by the same membership-rooted selector class"
+        not in str(common_rules.get("removal", ""))
+        or "effective power create no appointment authority"
+        not in str(common_rules.get("non_accretion", ""))
+    ):
+        errors.append(
+            "INITIAL_SCHEDULE_O_COMMON_RULES: exact term, initial and "
+            "continuing selectors, removal, machine boundary, and "
+            "non-accretion rule are required"
+        )
+
+    expected_offices = [
+        (
+            "SO-01",
+            "RECORDS CUSTODIAN",
+            (
+                "Custody, publication, retention, and retrieval of "
+                "institutional records and archives."
+            ),
+            (
+                "No constitutional interpretation, adjudication, enforcement, "
+                "succession, emergency, transition, amendment, refounding, or "
+                "artificial-intelligence-operation authority."
+            ),
+        ),
+        (
+            "SO-02",
+            "FINANCIAL STEWARD",
+            (
+                "Ordinary institutional budgeting, accounting, payments, and "
+                "financial record administration within separately authorized "
+                "budgets."
+            ),
+            (
+                "No constitutional authority or authority to create "
+                "institutional ends."
+            ),
+        ),
+        (
+            "SO-03",
+            "OPERATIONS STEWARD",
+            (
+                "Ordinary administrative operations, facilities, scheduling, "
+                "procurement administration, and logistical coordination."
+            ),
+            (
+                "No constitutional, adjudicative, enforcement, succession, "
+                "emergency, transition, or artificial-intelligence-governance "
+                "authority."
+            ),
+        ),
+    ]
+    offices = schedule.get("offices")
+    office_summaries: list[tuple[Any, Any, Any, Any]] = []
+    population_slots: list[Any] = []
+    if isinstance(offices, list):
+        for office in offices:
+            if not isinstance(office, dict):
+                continue
+            office_summaries.append(
+                (
+                    office.get("office_id"),
+                    office.get("title"),
+                    office.get("ordinary_nonconstitutional_jurisdiction"),
+                    office.get("excluded_authority"),
+                )
+            )
+            population_slots.extend(
+                [office.get("principal"), office.get("alternate")]
+            )
+    if office_summaries != expected_offices:
+        errors.append(
+            "INITIAL_SCHEDULE_O_OFFICES: exact SO-01, SO-02, and SO-03 "
+            "ordinary nonconstitutional jurisdictions are required"
+        )
+    if (
+        len(population_slots) != 6
+        or any(
+            slot
+            != {
+                "status": "HUMAN_IDENTITY_AND_APPOINTMENT_RECORD_REQUIRED",
+                "identity": None,
+                "appointment_record": None,
+            }
+            for slot in population_slots
+        )
+    ):
+        errors.append(
+            "INITIAL_SCHEDULE_O_NO_FABRICATION: six human identities and six "
+            "appointment records must remain explicitly unsupplied"
+        )
+
+    human_inputs = schedule.get("human_inputs_still_required")
+    if (
+        not isinstance(human_inputs, dict)
+        or len(human_inputs.get("principal_identities", [])) != 3
+        or len(human_inputs.get("alternate_identities", [])) != 3
+        or len(human_inputs.get("appointment_records", [])) != 6
+        or len(human_inputs.get("confirmations", [])) != 5
+    ):
+        errors.append(
+            "INITIAL_SCHEDULE_O_HUMAN_INPUTS: exact six identities, six "
+            "appointments, and five human confirmations are required"
+        )
+
+    required_non_effects = {
+        "This instrument does not appoint an incumbent or alternate.",
+        (
+            "This instrument does not fabricate an identity, appointment "
+            "record, credential, signature, or selection result."
+        ),
+        "This instrument does not ratify Constitution v0.1.",
+        (
+            "This instrument does not authorize constitutional activation or "
+            "a production governance runtime."
+        ),
+    }
+    if (
+        set(schedule.get("non_effects", [])) != required_non_effects
+        or not _has_provenance(schedule)
+        or "Artificial-intelligence assistance supplies no appointment"
+        not in str(schedule.get("provenance", {}).get("authority_boundary", ""))
+    ):
+        errors.append(
+            "INITIAL_SCHEDULE_O_BOUNDARY: no appointment, fabrication, "
+            "ratification, activation, runtime, or machine authority is "
+            "permitted"
+        )
+
+    metrics.update(
+        {
+            "schedule_o_term": "FIXED_3_YEARS",
+            "schedule_o_removal_rule": (
+                "FOR_CAUSE_BY_SAME_MEMBERSHIP_ROOTED_SELECTOR"
+            ),
+            "schedule_o_selector_rule": (
+                "MATERIALLY_INDEPENDENT_HUMAN_MEMBERSHIP_ROOTED"
+            ),
+            "schedule_o_constitutional_design_questions_remaining": 0,
+            "schedule_o_human_identities_required": 6,
+            "schedule_o_ratification_ready": False,
+            "schedule_o_qualifying_office_count": len(offices)
+            if isinstance(offices, list)
+            else 0,
+        }
+    )
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -9911,6 +10291,7 @@ def validate(root: Path) -> ValidationResult:
     ratification_packet_metrics = _validate_ratification_packet(root, errors)
     final_blocker_metrics = _validate_final_blocker_analysis(root, errors)
     hca_lifecycle_metrics = _validate_hca_lifecycle_analysis(root, errors)
+    initial_schedule_o_metrics = _validate_initial_schedule_o(root, errors)
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -10724,6 +11105,7 @@ def validate(root: Path) -> ValidationResult:
         **ratification_packet_metrics,
         **final_blocker_metrics,
         **hca_lifecycle_metrics,
+        **initial_schedule_o_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
