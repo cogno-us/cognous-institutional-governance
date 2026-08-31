@@ -1,6 +1,6 @@
 {
   "traceability_id": "CONSTITUTION-v0.1-TRACEABILITY",
-  "draft_status": "DRAFT_NOT_ADOPTED",
+  "draft_status": "PROPOSED_FOR_HUMAN_RATIFICATION_NOT_ADOPTED",
   "constitutional_effect": "NONE",
   "article_count": 8,
   "section_count": 24,
@@ -375,6 +375,6 @@
   },
   "provenance": {
     "source": "Drafted from explicit Human Constitutional Authority decisions CDR-001 through CDR-005, CDD-001, HCA-DRAFT-001, CDD-002, and CDD-003 through 2026-08-31.",
-    "authority_boundary": "This traceability record and the draft have no constitutional effect. Drafting and validation do not adopt the Constitution or create authority."
+    "authority_boundary": "This traceability record and the proposed text have no constitutional effect. Preparation, review, and validation do not adopt the Constitution or create authority."
   }
 }

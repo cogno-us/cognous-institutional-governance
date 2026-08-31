@@ -2,19 +2,20 @@
 
 **RECOMMENDATION_ONLY — NO CONSTITUTIONAL EFFECT**
 
-**Reviewed draft:** `constitutional-design/drafts/CONSTITUTION_v0.1.md`
+**Reviewed proposed text:** `constitutional-design/drafts/CONSTITUTION_v0.1.md`
 
-**Draft status preserved:** **DRAFT — NOT ADOPTED CONSTITUTION**
+**Proposal status:** **PROPOSED FOR HUMAN RATIFICATION — NOT YET ADOPTED**
 
 **Review classification:** `READY_FOR_HUMAN_RATIFICATION`
 
 This review was rerun after explicit Human Constitutional Authority adoption of
-Alternative A in `CDD-003` and its direct incorporation into the draft. It does
-not adopt, ratify, amend, or give constitutional effect to Constitution v0.1.
+Alternative A in `CDD-003` and its direct incorporation into the proposed text.
+It does not adopt, ratify, amend, or give constitutional effect to Constitution
+v0.1.
 
 ## Executive Determination
 
-The draft now contains a complete human, membership-rooted lifecycle for the
+The proposed text now contains a complete human, membership-rooted lifecycle for the
 seven-member Human Constitutional Authority College:
 
 1. the attributable ratification instrument opens seven numbered-seat
@@ -68,9 +69,10 @@ traceability entry. The sections directly affected by `CDD-003` identify it as
 controlling authority. All ten refounding-level principles remain represented,
 and no normative proposition lacks attributable authority.
 
-Constitution v0.1 remains explicitly **DRAFT — NOT ADOPTED CONSTITUTION**.
-Decision records, this review, tests, validation, and readiness classification
-do not ratify it.
+Constitution v0.1 remains explicitly **PROPOSED FOR HUMAN RATIFICATION — NOT
+YET ADOPTED**.
+Decision records, this review, tests, validation, proposal status, and readiness
+classification do not ratify it.
 
 ## 2. Constitutional Blockers
 
@@ -225,5 +227,5 @@ decision. The ratification instrument must supply an initial Schedule O that
 satisfies Section III.2. Readiness does not itself adopt the Constitution,
 populate Schedule O, create operational authority, or authorize implementation.
 
-**RATIFICATION RECOMMENDATION ONLY. THE CONSTITUTION REMAINS A DRAFT AND HAS NOT
-BEEN ADOPTED OR RATIFIED.**
+**RATIFICATION RECOMMENDATION ONLY. THE CONSTITUTION IS PROPOSED FOR HUMAN
+RATIFICATION AND HAS NOT BEEN ADOPTED OR RATIFIED.**

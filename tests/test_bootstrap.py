@@ -180,7 +180,10 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(result.metrics["design_recommendations_adopted"], 11)
         self.assertEqual(result.metrics["decision_components_adopted"], 4)
         self.assertEqual(result.metrics["blocking_contradictions_remaining"], 0)
-        self.assertEqual(result.metrics["draft_status"], "DRAFT_NOT_ADOPTED")
+        self.assertEqual(
+            result.metrics["draft_status"],
+            "PROPOSED_FOR_HUMAN_RATIFICATION_NOT_ADOPTED",
+        )
         self.assertEqual(result.metrics["article_count"], 8)
         self.assertEqual(result.metrics["section_count"], 24)
         self.assertEqual(result.metrics["source_requirements_covered"], 35)
@@ -219,6 +222,18 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             result.metrics["ratification_recommendation"],
             "READY_FOR_EXPLICIT_HUMAN_RATIFICATION",
         )
+        self.assertEqual(
+            result.metrics["ratification_status"],
+            "PROPOSED_FOR_HUMAN_RATIFICATION_NOT_YET_ADOPTED",
+        )
+        self.assertEqual(result.metrics["constitution_version"], "v0.1")
+        self.assertEqual(
+            result.metrics["ratification_packet_subordinate_law_items"], 9
+        )
+        self.assertEqual(
+            result.metrics["ratification_packet_implementation_items"], 5
+        )
+        self.assertFalse(result.metrics["production_runtime_authorized"])
         self.assertEqual(
             result.metrics["final_ratification_blockers_analyzed"], 3
         )
@@ -811,6 +826,119 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         )
         self.assert_error("RATIFICATION_DRAFT_INTEGRITY")
 
+    def test_ratification_packet_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "RATIFICATION_PACKET.md"
+        ).unlink()
+        self.assert_error("RATIFICATION_PACKET_REQUIRED")
+
+    def test_ratification_packet_requires_canonical_artifact(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "constitutional-design/drafts/CONSTITUTION_v0.1.md",
+                "constitutional-design/drafts/OTHER.md",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_ARTIFACT")
+
+    def test_ratification_packet_requires_artifact_digest(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "127004a2d723e69fe4276b4e5b23bc5b6a44bef2476ce17f8e3fec3ada9c97d6",
+                "027004a2d723e69fe4276b4e5b23bc5b6a44bef2476ce17f8e3fec3ada9c97d6",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_ARTIFACT")
+
+    def test_ratification_packet_cannot_select_ratification(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "No ratification option is selected in this packet.",
+                "Ratification is selected in this packet.",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_BOUNDARY")
+
+    def test_ratification_packet_cannot_claim_adoption(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "**PROPOSED FOR HUMAN RATIFICATION — NOT YET ADOPTED**",
+                "**CONSTITUTION v0.1 IS ADOPTED**",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_BOUNDARY")
+
+    def test_ratification_packet_requires_controlling_decisions(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "`CDD-003 / ADOPT_A`",
+                "`CDD-003 omitted`",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_ARCHITECTURE")
+
+    def test_ratification_packet_requires_ten_refounding_principles(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "10. durable provenance and non-erasure of constitutional "
+                "history.",
+                "durable provenance and non-erasure of constitutional "
+                "history.",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_REFOUNDING")
+
+    def test_ratification_packet_requires_zero_gap_readiness(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "constitutional blockers: **0**",
+                "constitutional blockers: **1**",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_ARTIFACT")
+
+    def test_ratification_packet_preserves_subordinate_boundary(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "Nine lifecycle governance-law categories remain subordinate",
+                "Eight lifecycle governance-law categories remain subordinate",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_SUBORDINATE")
+
+    def test_ratification_packet_requires_schedule_o_supply(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "must identify the exact proposed artifact and supply",
+                "need not identify the artifact or supply",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_EFFECT")
+
+    def test_ratification_packet_cannot_authorize_runtime(self) -> None:
+        self.update_text(
+            "constitutional-design/RATIFICATION_PACKET.md",
+            lambda text: text.replace(
+                "**RATIFICATION DOES NOT AUTHORIZE A PRODUCTION GOVERNANCE "
+                "RUNTIME.**",
+                "**RATIFICATION AUTHORIZES A PRODUCTION GOVERNANCE RUNTIME.**",
+            ),
+        )
+        self.assert_error("RATIFICATION_PACKET_EFFECT")
+
     def test_constitution_alternate_refresh_cannot_replace_principal(
         self,
     ) -> None:
@@ -853,7 +981,7 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.update_text(
             "constitutional-design/drafts/CONSTITUTION_v0.1.md",
             lambda text: text.replace(
-                "**DRAFT — NOT ADOPTED CONSTITUTION**",
+                "**PROPOSED FOR HUMAN RATIFICATION — NOT YET ADOPTED**",
                 "**ADOPTED CONSTITUTION**",
             ),
         )

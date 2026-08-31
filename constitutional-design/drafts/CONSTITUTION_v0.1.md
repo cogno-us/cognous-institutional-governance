@@ -1,11 +1,11 @@
-# Constitution of Alvorada — Draft v0.1
+# Constitution of Alvorada — Proposed v0.1
 
-**DRAFT — NOT ADOPTED CONSTITUTION**
+**PROPOSED FOR HUMAN RATIFICATION — NOT YET ADOPTED**
 
-This text is a complete constitutional draft prepared from the decisions and
-requirements identified in its traceability record. It has no constitutional
-effect unless adopted by legitimate Human Constitutional Authority through the
-applicable constitutional process.
+This text is the complete constitutional proposal prepared from the decisions
+and requirements identified in its traceability record. It has no
+constitutional effect unless adopted by legitimate Human Constitutional
+Authority through the applicable constitutional process.
 
 ## Article I — Constitutional Identity and Human Sovereignty
 

@@ -1,6 +1,6 @@
 # Constitution v0.1 Open Questions
 
-**DRAFT SUPPORTING RECORD — NO CONSTITUTIONAL EFFECT**
+**PROPOSED-TEXT SUPPORTING RECORD — NO CONSTITUTIONAL EFFECT**
 
 ## New Human Constitutional Decisions Required
 
