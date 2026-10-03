@@ -21,6 +21,29 @@ implications. Distinguish proposals from adopted human design decisions and
 operative law. A maintainer merging a contribution does not ratify the
 Constitution or exercise constitutional jurisdiction.
 
+## Submission and review
+
+Use issues for questions, constitutional critique, source corrections, and
+reproducible defects. Use pull requests for concrete changes. Templates help
+identify the commit, affected record, primary evidence, alternatives, dissent,
+conflicts, authority implications, and actual verification results. Do not
+paste unverified model output as a verified source or a human decision.
+
+For AI-assisted contributions, identify material assistance and what the
+contributor actually checked. The contributor remains responsible for source
+accuracy, sharing rights, and claims of execution. Do not infer an author's
+private motives or consent from generated text.
+
+Follow [repository governance](GOVERNANCE.md), [community conduct](CODE_OF_CONDUCT.md),
+and [sensitive-reporting guidance](SECURITY.md). For readability, define terms
+on first use, use descriptive headings, provide meaningful link text, avoid
+color-only distinctions, and supply text alternatives for diagrams. Preserve
+non-English source context and translation uncertainty when relevant.
+
+There is no guaranteed response or merge deadline. Substantive objections should
+remain traceable even when a proposal is declined. See [release guidance](docs/RELEASE_GUIDANCE.md)
+for version, citation, and adaptation boundaries.
+
 ## Verification
 
 Run from the repository root with Python 3.10 or later:

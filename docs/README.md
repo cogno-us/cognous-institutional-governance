@@ -4,6 +4,11 @@ Start with the [repository overview](../README.md).
 
 | Guide | Purpose |
 |---|---|
+| [Getting started](GETTING_STARTED.md) | Reader, reviewer, contributor, and application paths with a worked example |
+| [FAQ](FAQ.md) | Common questions about status, authority, reuse, and testing |
+| [Pilot evaluation](PILOT_EVALUATION.md) | Bounded assessment method and reporting template; no executed results |
+| [Release guidance](RELEASE_GUIDANCE.md) | Snapshot, citation, version, relocation, and adaptation procedure |
+| [Public-launch review](PUBLICATION_REVIEW.md) | Documentation comparison, gaps addressed, and remaining owner-side recommendations |
 | [Working design principles](DESIGN_PRINCIPLES.md) | Seventeen research and design principles; not adopted law |
 | [Glossary](GLOSSARY.md) | Terms used in the constitutional records |
 | [Architecture and current status](ARCHITECTURE_GUIDE.md) | Institutional allocation, foundational protections, ratification boundary, and remaining work |

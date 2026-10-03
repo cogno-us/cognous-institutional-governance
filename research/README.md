@@ -77,3 +77,7 @@ The [comparative assessment](COMPARATIVE_WORKS.md) examines close precedents,
 overlap, potential value, adoption costs, and evaluation limits. The
 [development index](../history/DEVELOPMENT_RECORD.md) distinguishes preserved
 constitutional evidence from current status and unadopted future proposals.
+
+[Evidence limitations and evaluation priorities](LIMITATIONS_AND_EVALUATION.md)
+collect the current source-status counts, review-independence limits, and next
+research steps without claiming field validation.

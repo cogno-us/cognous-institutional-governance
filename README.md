@@ -18,6 +18,9 @@ validation cannot create authority.
 
 ## Start here
 
+Use [Getting started](docs/GETTING_STARTED.md) for a worked example and first-use
+paths, or the [FAQ](docs/FAQ.md) for common questions.
+
 | What you want to understand | Read next |
 |---|---|
 | The principles and terminology | [Working principles](docs/DESIGN_PRINCIPLES.md) and [glossary](docs/GLOSSARY.md) |
@@ -125,9 +128,25 @@ they must be read alongside the later decisions that addressed them.
 | [governance-engineering/](governance-engineering/) | Deferred implementation scope; no production runtime |
 | [tools/](tools/) and [tests/](tests/) | Repository validation and invariant tests |
 
+## Public launch and evidence limits
+
+The [public-launch review](docs/PUBLICATION_REVIEW.md) compares documentation
+practices in related policy kits, identifies gaps addressed, and records remaining
+recommendations. [Evidence limitations](research/LIMITATIONS_AND_EVALUATION.md)
+distinguish recorded design choices and repository checks from unexecuted
+application exercises and unverified field performance. Use the
+[pilot method](docs/PILOT_EVALUATION.md) for a bounded evaluation.
+
+The owner plans to rename and relocate the repository. Current links remain in
+use until that change is verified. [Release guidance](docs/RELEASE_GUIDANCE.md)
+explains frozen snapshots, citation, adaptation, and relocation. No launch date,
+tagged release, constitutional ratification, or deployment is implied.
+
 ## Contributing and verification
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes. Useful work
+Read [CONTRIBUTING.md](CONTRIBUTING.md), [repository governance](GOVERNANCE.md),
+[community conduct](CODE_OF_CONDUCT.md), and [sensitive reporting](SECURITY.md)
+before submitting changes. Useful work
 includes source verification, independent constitutional critique, adversarial
 review, and bounded downstream design. Keep private implementation material and
 unpublished proprietary technology out of contributions.
@@ -145,6 +164,9 @@ performance. AI recommendations and maintainer actions are not human
 constitutional decisions.
 
 ## Licensing and attribution
+
+Use [CITATION.cff](CITATION.cff) and identify the exact commit or release consulted.
+The [change history](CHANGELOG.md) summarizes recent public documentation work.
 
 Original repository material is licensed under [CC BY 4.0](LICENSE), allowing
 attributed reuse and adaptation, including commercial use. External sources

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the research framework using the preferred citation and identify the exact commit or release consulted."
+title: "Constitutional Governance for Human–AI Institutions (Alvorada)"
+authors:
+  - family-names: "de Lima"
+    given-names: "André"
+    affiliation: "Cognous"
+    website: "https://cogno.us"
+url: "https://github.com/titanicprime/alvorada"
+repository-code: "https://github.com/titanicprime/alvorada"
+license: "CC-BY-4.0"
+abstract: "An open research framework and proposed constitutional architecture for authority, accountability, and institutional lifecycle in human–AI institutions. Constitution v0.1 is proposed for human ratification, not adopted."
+preferred-citation:
+  type: report
+  title: "Constitutional Governance for Human–AI Institutions (Alvorada): A Research Framework"
+  authors:
+    - family-names: "de Lima"
+      given-names: "André"
+      affiliation: "Cognous"
+  year: 2026
+  url: "https://github.com/titanicprime/alvorada"
