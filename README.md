@@ -340,6 +340,13 @@ Subordinate law may make these rules administrable. It may not change the
 constitutional electorate, selector, result rule, burden, threshold, trigger,
 separation, or change category it implements.
 
+The proposed [governed-agency Phase H work package](constitutional-design/organic-governance/GOVERNED_AGENCY_DESIGN_REQUIREMENTS.md)
+adds delegation-expansion and lifecycle design, practical human-agency and
+replacement requirements, and [capture-review cases](constitutional-design/organic-governance/CAPTURE_TAXONOMY_AND_TESTS.md).
+These remain unadopted design proposals. The separate
+[synthetic moral-status research issue](constitutional-design/future-research/IR-19-synthetic-moral-status.md)
+does not reopen v0.1 or change its ratification prerequisites.
+
 ### C. Implementation
 
 Implementation work remains open for identity and authentication;

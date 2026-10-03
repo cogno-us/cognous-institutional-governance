@@ -45,6 +45,12 @@ Draft human-readable constitutional law.
 Only after the Constitution is sufficiently stable, design subordinate
 procedures implementing it.
 
+The proposed [governed-agency work package](organic-governance/GOVERNED_AGENCY_DESIGN_REQUIREMENTS.md)
+records delegation expansion and authority lifecycle (H-GA-01), practical human
+agency and replacement (H-GA-02), and an accompanying
+[capture taxonomy and adversarial catalogue](organic-governance/CAPTURE_TAXONOMY_AND_TESTS.md).
+These are unadopted design inputs, not operative law or runtime authorization.
+
 ### Phase I - Formal representation
 
 Only after the normative architecture is sufficiently stable, create
@@ -79,3 +85,10 @@ engines, or runtime enforcement be designed.
 - `decisions/CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md` presents one
   human correction package for the four authority-chain contradictions; all
   four components were adopted by `CDD-001`.
+
+## Future research
+
+[IR-19 — Synthetic moral status, membership, and authority separation](future-research/IR-19-synthetic-moral-status.md)
+is an open future research question, separate from the inherited bootstrap issue
+set and the closed v0.1 drafting questions. It creates no ratification blocker
+and proposes no constitutional change.
