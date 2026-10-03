@@ -288,6 +288,23 @@ The historical register remains preliminary. These sections add source-supported
 context and explanatory synthesis; they do not invent decisions, upgrade every
 historical claim, amend v0.1, or authorize a private or production runtime.
 
+## Applications
+
+The [Applications subsection](applications/README.md) provides one file for each
+of eighteen contexts: customer response and service, sales, finance, clinical
+and administrative healthcare, government services and policy, military support
+and logistics, cybersecurity, employment, education, research, infrastructure,
+procurement, enterprise agents, and community services.
+
+Each context maps all seventeen working principles and all ten protected
+foundational commitments to the Constitution, with decision workflows,
+capture risks, emergency and continuity boundaries, change and withdrawal,
+tradeoffs, and proposed acceptance exercises. The
+[principle catalogue](applications/PRINCIPLE_CATALOGUE.md) covers all 24 sections.
+These are illustrative applications, not sector deployments or constitutional
+adoption. Principle-inspired practice, institutional adaptation, and full
+adoption remain distinct.
+
 ## Design lineage
 
 Alvorada preserves a staged lineage:
@@ -408,6 +425,7 @@ authority and constitutional law.
 | [`research/`](research/) | Research questions, evidence streams, and the development of principles |
 | [`history/`](history/) | Project chronology and comparative constitutional influences |
 | [`process/`](process/) | Methodology and decision rationale |
+| [`applications/`](applications/) | Eighteen context files applying every working principle and foundational protection |
 | [`governance-engineering/`](governance-engineering/) | Reserved downstream governance-engineering layer; no runtime artifacts |
 
 Historical and prior-art registers are evidence, not inherited authority.
