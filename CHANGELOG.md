@@ -4,6 +4,14 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-03 — Repository-native testing
+
+- Added a dedicated testing index, 47 proposed operational exercises, and incident reporting links.
+- Added fixed fixtures, documented reference harness, preserved original observations,
+  repository-integrated replay, integrity verifier and operational record template.
+- Separated synthetic results from repository checks and unexecuted operational tests.
+- Updated reading paths; no operational efficacy or adoption is asserted.
+
 ## 2026-10-03 — Public research documentation
 
 - Added licensing and attribution, a scoped public release review, and contribution guidance.

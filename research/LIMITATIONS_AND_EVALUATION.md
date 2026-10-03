@@ -16,6 +16,7 @@ validation that has not occurred.
 | Historical evidence register | 34 retained entries, all marked SOURCE_TO_VERIFY | Later source checks support particular explanatory passages; they do not upgrade the whole register. |
 | Prior-art register | 33 entries: 21 VERIFIED, 10 PARTIALLY_VERIFIED, 2 SOURCE_TO_VERIFY | Verification status concerns recorded source checks, not independent replication or completeness of the literature. |
 | Applications and capture research | Explicit proposed controls and ninety application exercises | Exercises remain unexecuted; no deployment outcomes are established. |
+| [Synthetic reference experiment](../testing/results/README.md) | 24 fixed subtests across three arms; 72 raw observations and exact replay | Pre-labelled evidence, identical guarded effects, no LLM or human review; no operational efficacy. |
 | Comparative assessment | Source-based overlap and interpretation of selected comparable works | A bounded desk review, not exhaustive novelty research or a causal priority claim. |
 
 ## Method and review limitations
@@ -52,3 +53,10 @@ Claims should expand only when their supporting evidence expands. The immediate
 public contribution is an inspectable research architecture and reusable
 questions; empirical efficacy, market demand, and broad institutional resilience
 remain open.
+
+## Incident-inspired testing
+
+See [testing and evaluation](../testing/README.md) for the 47-case proposed battery,
+verified reporting links, harness design and 72 executed synthetic runs.
+Full operational exercises and independent review remain pending; the reference
+experiment does not establish comparative institutional or field efficacy.

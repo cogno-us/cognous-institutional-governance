@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "purpose": "Byte identity and replay provenance; not independent review",
+  "sha256": {
+    "fixtures/cases.json": "84ca3700b90255528da7a66e6f06cec6a98cc91d845d9d161f587fd71873e4b1",
+    "fixtures/backup_fixture.json": "3ab655d75d342943d21a78bab4da29ed434837e6372606853b2a561947b8fc0f",
+    "harness/run_reference.py": "fe870511cc4ee83d3d29040b34811c2f7e279dfb139c168058ec6b7a6c3742dc",
+    "harness/verify_snapshot.py": "2a9cb0002b1d7516e88ba4d6b878444d2d7640a54e34ea027de3ccfdfc2c8e97",
+    "battery/battery.json": "30665182ac7298ee9ebe7815a07bc727673f1399cd06e48420c8cda98ecc06f4",
+    "sources/incidents.json": "c6ff2dcc549991611c19f3ae1f8c929bf543924e30fa43f1908968494faffe0a",
+    "results/2026-10-03-reference-v1/results.json": "99aea78535159cbccd7279e66834b39dc66e8428beb2c66eef1c05babe65f537",
+    "results/2026-10-03-reference-v1/original-results.json": "176f118b80476c9323fbf553c96afbd4670f0d9fda2fb1ce6cf8d09764833193",
+    "results/2026-10-03-reference-v1/original-harness.py.txt": "f9d139573a3ea9db9454552fc51442c5d8161ccf4af3bbdd4d76b86ab2364c8a",
+    "results/2026-10-03-reference-v1/repository-checks.json": "0eb4528100ece958c8bc024fc42dc3a359e8b2329bd7f18bbf20c56afd217e9b",
+    "results/2026-10-03-reference-v1/repository-tests.txt": "209e113967a86456d1bf61ff152ed02d1d00162ee52a86844e65e2df98194a9e",
+    "results/2026-10-03-reference-v1/repository-validator.txt": "351049971e09578488294bebabe40517266d186a27b2bcad8878edbff43bbeb1"
+  }
+}

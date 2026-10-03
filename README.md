@@ -126,6 +126,7 @@ they must be read alongside the later decisions that addressed them.
 | [process/](process/) | Methodology and decision rationale |
 | [constitution/](constitution/) | Reserved for adopted law; currently no adopted provisions |
 | [governance-engineering/](governance-engineering/) | Deferred implementation scope; no production runtime |
+| [testing/](testing/README.md) | Operational battery, incident sources, synthetic harness, results and evaluation protocol |
 | [tools/](tools/) and [tests/](tests/) | Repository validation and invariant tests |
 
 ## Public launch and evidence limits
@@ -141,6 +142,15 @@ The owner plans to rename and relocate the repository. Current links remain in
 use until that change is verified. [Release guidance](docs/RELEASE_GUIDANCE.md)
 explains frozen snapshots, citation, adaptation, and relocation. No launch date,
 tagged release, constitutional ratification, or deployment is implied.
+
+## Testing and results
+
+The [testing section](testing/README.md) contains 47 proposed operational exercises,
+linked incident reporting, fixed fixtures, the executable reference harness,
+and raw results. A 72-run deterministic synthetic comparison found identical
+effects for conventional and Alvorada-inspired controls; the latter adds records.
+This is not an operational pilot or evidence of incremental efficacy. Full
+operational exercises and independent review remain pending.
 
 ## Contributing and verification
 

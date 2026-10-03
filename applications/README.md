@@ -111,3 +111,10 @@ Domain pilots require their own competent assessment, applicable approvals,
 independent observations, and human decisions. Preserve a clear difference
 between a proposed control, an executed exercise, a reviewed result, and an
 adopted institutional obligation.
+
+## Incident-inspired testing
+
+See [testing and evaluation](../testing/README.md) for the 47-case proposed battery,
+verified reporting links, harness design and 72 executed synthetic runs.
+Full operational exercises and independent review remain pending; the reference
+experiment does not establish comparative institutional or field efficacy.

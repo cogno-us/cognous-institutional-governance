@@ -81,3 +81,10 @@ constitutional evidence from current status and unadopted future proposals.
 [Evidence limitations and evaluation priorities](LIMITATIONS_AND_EVALUATION.md)
 collect the current source-status counts, review-independence limits, and next
 research steps without claiming field validation.
+
+## Incident-inspired testing
+
+See [testing and evaluation](../testing/README.md) for the 47-case proposed battery,
+verified reporting links, harness design and 72 executed synthetic runs.
+Full operational exercises and independent review remain pending; the reference
+experiment does not establish comparative institutional or field efficacy.

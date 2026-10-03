@@ -1,6 +1,10 @@
 # Evaluating an application without assuming adoption
 
-**PROPOSED METHOD — NO PILOT RESULTS OR OPERATIONAL AUTHORIZATION**
+**PROPOSED OPERATIONAL METHOD — NO OPERATIONAL PILOT OR AUTHORIZATION**
+
+A [testing section](../testing/README.md) now includes a proposed battery and
+executed synthetic reference experiment. Synthetic adapter results do not
+complete this operational method.
 
 This guide supports a bounded assessment of principle-inspired practice under
 existing lawful authority. Full constitutional adoption requires a separate
