@@ -3136,6 +3136,17 @@ class ValidationResult:
         return not self.errors
 
 
+def _reviewed_artifact_digest(data: bytes) -> str:
+    """Hash reviewed text using the CRLF form of the pinned snapshots.
+
+    Git may check these text artifacts out with LF or CRLF. Normalize only
+    newline representation; all other bytes and the final newline remain
+    significant. The historical expected digests are deliberately unchanged.
+    """
+    canonical = data.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def _load_record(path: Path, errors: list[str]) -> dict[str, Any] | None:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
@@ -8303,7 +8314,7 @@ def _validate_ratification_review(
     for relative_path, expected_digest in EXPECTED_RATIFICATION_DRAFT_DIGESTS.items():
         path = root / relative_path
         try:
-            actual_digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            actual_digest = _reviewed_artifact_digest(path.read_bytes())
         except OSError as exc:
             errors.append(f"RATIFICATION_DRAFT_IMMUTABILITY: {path}: {exc}")
             continue
@@ -8349,7 +8360,7 @@ def _validate_ratification_packet(
         errors.append(f"RATIFICATION_PACKET_REQUIRED: {exc}")
         return metrics
 
-    if hashlib.sha256(packet_bytes).hexdigest() != EXPECTED_RATIFICATION_PACKET_DIGEST:
+    if _reviewed_artifact_digest(packet_bytes) != EXPECTED_RATIFICATION_PACKET_DIGEST:
         errors.append(
             "RATIFICATION_PACKET_INTEGRITY: exact reviewed ratification "
             "packet is required"
@@ -9249,7 +9260,7 @@ def _validate_hca_lifecycle_analysis(
         packet_path = root / HCA_LIFECYCLE_PACKET_RELATIVE_PATH
         packet_bytes = packet_path.read_bytes()
         packet = packet_bytes.decode("utf-8").replace("\r\n", "\n")
-        packet_digest = hashlib.sha256(packet_bytes).hexdigest()
+        packet_digest = _reviewed_artifact_digest(packet_bytes)
     except (OSError, UnicodeError) as exc:
         errors.append(f"HCA_LIFECYCLE_PACKET_REQUIRED: {exc}")
         packet = ""
@@ -9426,11 +9437,11 @@ def _validate_initial_schedule_o(
     schedule = _load_record(schedule_path, errors) or {}
 
     try:
-        decision_digest = hashlib.sha256(decision_path.read_bytes()).hexdigest()
+        decision_digest = _reviewed_artifact_digest(decision_path.read_bytes())
     except OSError:
         decision_digest = ""
     try:
-        schedule_digest = hashlib.sha256(schedule_path.read_bytes()).hexdigest()
+        schedule_digest = _reviewed_artifact_digest(schedule_path.read_bytes())
     except OSError:
         schedule_digest = ""
     if decision_digest != EXPECTED_CDD_004_DIGEST:

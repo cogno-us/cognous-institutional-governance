@@ -105,17 +105,17 @@ Acceptance evidence for the later design:
 
 ## Implementation firewall and later Phase I representation
 
-These are design inputs for proposed organic law. They do not authorize ODEX/IMX
+These are design inputs for proposed organic law. They do not authorize machine
 encoding, a compiler, identity enrollment, voting software, validators, or
 runtime enforcement. Complete subordinate procedures and their competent human
 adoption before treating them as operative. Ratification and activation cannot
 be inferred from a commit, model output, or passing test.
 
-A later formal representation should cover actor, identity, delegation, scope,
-authority source, constraints, expiry, dependencies, human control path, review,
-revocation, and provenance. This is a conceptual field list, not an adopted
-schema or a source of authority. Validation may report conformity; it cannot
-ratify, adjudicate, confer standing, or determine legitimacy.
+Any later formal representation must preserve the human-readable authority
+boundaries, decision records, review paths, and human-control requirements
+set out above. No data model, protocol, algorithm, or implementation schema is
+published or adopted here. Validation may report conformity; it cannot ratify,
+adjudicate, confer standing, or determine legitimacy.
 
 See the [capture taxonomy and adversarial cases](CAPTURE_TAXONOMY_AND_TESTS.md)
 and the separate [synthetic moral-status research issue](../future-research/IR-19-synthetic-moral-status.md).

@@ -1,5 +1,12 @@
 # Alvorada
 
+An open constitutional-governance research framework by **André de Lima**,
+founder of [Cognous](https://cogno.us).
+
+**License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE).
+See [attribution and scope](NOTICE.md), [public release review](docs/PUBLIC_RELEASE_REVIEW.md),
+and [contribution guidance](CONTRIBUTING.md).
+
 Alvorada is an experimental constitutional-governance architecture for
 institutions in which humans and artificial-intelligence systems may both
 participate in consequential activity. Its central object of governance is
@@ -461,3 +468,21 @@ The project is an open constitutional-engineering effort: ambitious about
 institutional rigor, conservative about claims of authority, and explicit
 about the distance between a validated design and a legitimate operating
 institution.
+
+## Licensing and attribution
+
+Original repository material, including research documents, structured records,
+and repository-validation scripts and tests, is released under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Retain attribution,
+link the license, and indicate modifications when sharing. Commercial reuse
+is permitted under its terms. External works cited or linked retain their own
+rights; this license does not relicense them.
+
+Suggested credit: “Alvorada — André de Lima, founder of Cognous
+(https://cogno.us), https://github.com/titanicprime/alvorada, CC BY 4.0;
+modified where indicated.”
+
+This is an open research publication, not a production governance runtime.
+Its copyright license does not grant patent or trademark rights, license
+separate proprietary technology, or imply endorsement or constitutional
+adoption. See [NOTICE.md](NOTICE.md) and the unmodified [license text](LICENSE).
