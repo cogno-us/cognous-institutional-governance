@@ -1,8 +1,9 @@
-# Constitution
+# Adopted constitutional law
 
-No constitutional provisions exist yet.
+This directory is reserved for adopted constitutional law. It currently
+contains **no adopted provisions**.
 
-This directory is reserved for future human-readable constitutional law after
-research, alternatives, adversarial review, explicit human decisions, and
-traceable constitutional requirements justify drafting.
-
+The complete [Constitution v0.1 proposal](../constitutional-design/drafts/CONSTITUTION_v0.1.md)
+exists in the design directory. Its review readiness does not make it adopted;
+ratification and activation require the specified human institutional acts.
+See the [current status guide](../docs/ARCHITECTURE_GUIDE.md).

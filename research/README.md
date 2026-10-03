@@ -70,3 +70,10 @@ institution or production governance runtime is established by this repository.
 4. [Decisions and their rationale](../process/DECISIONS_AND_RATIONALE.md).
 5. [Constitution v0.1](../constitutional-design/drafts/CONSTITUTION_v0.1.md)
    and its [traceability record](../constitutional-design/drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml).
+
+## Comparative assessment and reconstruction
+
+The [comparative assessment](COMPARATIVE_WORKS.md) examines close precedents,
+overlap, potential value, adoption costs, and evaluation limits. The
+[development index](../history/DEVELOPMENT_RECORD.md) distinguishes preserved
+constitutional evidence from current status and unadopted future proposals.

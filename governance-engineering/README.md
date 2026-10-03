@@ -1,13 +1,14 @@
-# Governance engineering
+# Governance engineering: deferred implementation
 
-Governance engineering is deferred until the normative architecture is stable
-enough to justify formalization.
+The constitutional proposal is available, but this directory contains no
+production governance runtime. Identity, credentials, storage, voting systems,
+interfaces, and executable enforcement remain downstream design work.
 
-This bootstrap does not create a constitutional compiler, policy runtime,
-authority graph engine, governance event engine, agent communication protocol,
-artificial intelligence orchestration system, user interface, database, or
-complex schema framework.
+The [architecture guide](../docs/ARCHITECTURE_GUIDE.md#what-remains) identifies
+remaining subordinate-law and implementation needs. The
+[governed-agency proposal](../constitutional-design/organic-governance/GOVERNED_AGENCY_DESIGN_REQUIREMENTS.md)
+is unadopted research, not executable authorization.
 
-The only executable work at this stage is lightweight structural validation of
-the research repository.
-
+The scripts in [tools/](../tools/) validate repository structure, traceability,
+and specified invariants. They are not a constitutional compiler or operating
+institution. Technical success cannot create constitutional authority.

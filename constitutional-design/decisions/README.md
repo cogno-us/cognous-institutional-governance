@@ -1,66 +1,42 @@
 # Constitutional decisions
 
-A Constitutional Decision Record captures alternatives, review, dissent, and
-explicit human authorization. CDR-001 through CDR-003 now contain substantive
-decisions with explicit Human Constitutional Authority provenance.
+These records preserve explicit human **design decisions**. They selected the
+architecture of proposed Constitution v0.1; they do not ratify or activate it.
+For a readable explanation of alternatives and retained costs, start with
+[Decisions and rationale](../../process/DECISIONS_AND_RATIONALE.md).
 
-Allowed statuses are `PROPOSED`, `UNDER_REVIEW`, `DISPUTED`, `DECIDED`,
-`DEFERRED`, `SUPERSEDED`, and `UNRESOLVED`.
+## Five foundational decisions
 
-`DECIDED` requires explicit human decision evidence identifying the human
-constitutional authority, the authorization record, and the decision date.
-Artificial intelligence consensus cannot satisfy this requirement.
+| Record | Question and selected design | Earlier advisory packet |
+|---|---|---|
+| [CDR-001](CDR-001.yaml) | Human foundational sovereignty with binding constraint of ordinary institutional power | [Alternatives and recommendation](packets/CDR-001-HUMAN-DECISION-PACKET.md) |
+| [CDR-002](CDR-002.yaml) | Prior emergency delegation with a narrow human-only necessity fallback | [Emergency analysis](packets/CDR-002-HUMAN-DECISION-PACKET.md) |
+| [CDR-003](CDR-003.yaml) | Administrative continuity without sovereign succession | [Succession analysis](packets/CDR-003-HUMAN-DECISION-PACKET.md) |
+| [CDR-004](CDR-004.yaml) | Independent bounded human constitutional adjudication | [Adjudication analysis](packets/CDR-004-HUMAN-DECISION-PACKET.md) |
+| [CDR-005](CDR-005.yaml) | Distinct ordinary amendment, structural amendment, and explicit refounding | [Change analysis](packets/CDR-005-HUMAN-DECISION-PACKET.md) |
 
-Future structured records should be named `CDR-*.yaml` and use the template
-fields.
+The advisory packets preserve recommendations and earlier alternatives. The
+human decision provenance in each CDR determines the selected design;
+recommendations and AI consensus cannot substitute for that provenance.
 
-An analytical CDR may place structured architecture definitions, adversarial
-tests, evidence mappings, and qualitative reviews inside the existing template
-fields. Such content remains research: candidate architectures are not
-requirements, comparative review is not selection, and an analytical record
-must not contain human-decision evidence or resulting requirements until an
-explicit human constitutional decision is made.
+## Coordinated decisions completing the proposal
 
-The concise advisory packet for CDR-001 is at
-`packets/CDR-001-HUMAN-DECISION-PACKET.md`. It is recommendation-only, has no
-constitutional effect, and did not authorize the later explicit human decision
-recorded in CDR-001.
+| Record | Design contribution | Supporting record |
+|---|---|---|
+| [CDD-001](CDD-001.yaml) | Eleven integrated design recommendations and four cross-domain corrections | [Design packet](REMAINING-DESIGN-DECISION-PACKET.md) and [correction packet](CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md) |
+| [CDD-002](CDD-002.yaml) | Membership-rooted College and separated office-selection chains | [Final-blocker packet](FINAL-RATIFICATION-BLOCKERS-HUMAN-DECISION-PACKET.md) |
+| [CDD-003](CDD-003.yaml) | Complete College election, removal, vacancy, incapacity, and succession lifecycle | [Lifecycle packet](HCA-COLLEGE-LIFECYCLE-HUMAN-DECISION-PACKET.md) |
+| [CDD-004](CDD-004.yaml) | Initial three-office Schedule O architecture and selection constraints | [Initial Schedule O](../INITIAL_SCHEDULE_O.yaml) |
 
-CDR-002 records the later explicit human decision on FQ-02 emergency necessity.
-Its concise advisory packet is retained at
-`packets/CDR-002-HUMAN-DECISION-PACKET.md`; the packet's recommendation has no
-constitutional effect, created no emergency authority, and did not authorize
-the human decision recorded in CDR-002.
+CDD-004 supplies architecture only: no identities, appointments, ratification,
+or activation follow from it. Refer to the [development index](../../history/DEVELOPMENT_RECORD.md)
+for supporting analyses and the order in which gaps were closed.
 
-CDR-003 records the later explicit human decision on FQ-03 succession and
-interregnum. Its advisory packet is retained at
-`packets/CDR-003-HUMAN-DECISION-PACKET.md`; the packet's recommendation has no
-constitutional effect and did not authorize the human decision recorded in
-CDR-003.
+## Creating or interpreting records
 
-CDR-004 records the later explicit human decision on FQ-04 constitutional
-adjudication. Its advisory packet is retained at
-`packets/CDR-004-HUMAN-DECISION-PACKET.md`; the packet's recommendation has no
-constitutional effect and did not authorize the human decision recorded in
-CDR-004.
-
-CDR-005 records the later explicit human decision on FQ-05 amendment and
-refounding. Its advisory packet is retained at
-`packets/CDR-005-HUMAN-DECISION-PACKET.md`; the packet's recommendation and
-proposed commitment levels have no constitutional effect and did not authorize
-the human decision recorded in CDR-005.
-
-`CDD-001.yaml` records the explicit Human Constitutional Authority decision
-`ADOPT_ALL` for the eleven remaining-design recommendations and four coordinated
-cross-domain corrections. It preserves CDR-001 through CDR-005 as controlling
-and creates no constitutional provision or runtime mechanism.
-
-`CDD-002.yaml` and `CDD-003.yaml` record the adopted final-blocker and HCA
-College lifecycle architectures incorporated into proposed Constitution v0.1.
-
-`CDD-004.yaml` records the explicit pre-ratification Human Constitutional
-Authority decision defining the three-office initial Schedule O architecture,
-fixed three-year terms, cause removal, continuing membership-rooted selection,
-alternates, incompatibilities, and independence. It authorizes preparation of
-`../INITIAL_SCHEDULE_O.yaml` only. It appoints nobody and does not ratify the
-Constitution or authorize activation.
+Use [DECISION_TEMPLATE.yaml](DECISION_TEMPLATE.yaml) for new Constitutional
+Decision Records. Allowed statuses are `PROPOSED`, `UNDER_REVIEW`, `DISPUTED`,
+`DECIDED`, `DEFERRED`, `SUPERSEDED`, and `UNRESOLVED`. `DECIDED` requires explicit
+human evidence identifying the authority, authorization record, and date.
+An analytical record can preserve alternatives, tests, and evidence mappings,
+but cannot fabricate human-decision evidence or resulting accepted requirements.

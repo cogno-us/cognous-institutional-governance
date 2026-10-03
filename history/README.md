@@ -60,3 +60,10 @@ be promoted into an appointment, ratification, or operational delegation.
 Prior public commits are retained; this history does not claim to retract
 previous disclosures. The present framework remains proposed constitutional
 research awaiting real human institutional acts.
+
+## Reconstructing the design
+
+Use the [development-record index](DEVELOPMENT_RECORD.md) for a short sequence
+and a record-by-record explanation of retained evidence, older analyses, review
+results, and future proposals. The [architecture guide](../docs/ARCHITECTURE_GUIDE.md)
+explains the current proposal and outstanding human activation commitments.
