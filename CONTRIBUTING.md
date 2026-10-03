@@ -1,4 +1,6 @@
-# Contributing to Alvorada
+# Contributing to Constitutional Governance for Human–AI Institutions
+
+Alvorada is the project name of this research framework.
 
 Contributions should improve constitutional analysis, source quality,
 comprehensibility, adversarial review, and the distinction between lawful

@@ -1,7 +1,11 @@
-# Alvorada
+# Constitutional Governance for Human–AI Institutions
 
-An open constitutional-governance research framework by **André de Lima**,
-founder of [Cognous](https://cogno.us).
+An open research framework for authority, accountability, and institutional
+lifecycle in organizations where humans and AI systems act together.
+
+**Project name:** Alvorada.
+
+By **André de Lima**, founder of [Cognous](https://cogno.us).
 
 **License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE).
 See [attribution and scope](NOTICE.md), [public release review](docs/PUBLIC_RELEASE_REVIEW.md),
@@ -638,9 +642,9 @@ link the license, and indicate modifications when sharing. Commercial reuse
 is permitted under its terms. External works cited or linked retain their own
 rights; this license does not relicense them.
 
-Suggested credit: “Alvorada — André de Lima, founder of Cognous
-(https://cogno.us), https://github.com/titanicprime/alvorada, CC BY 4.0;
-modified where indicated.”
+Suggested credit: “Constitutional Governance for Human–AI Institutions
+(Alvorada) — André de Lima, founder of Cognous (https://cogno.us),
+https://github.com/titanicprime/alvorada, CC BY 4.0; modified where indicated.”
 
 This is an open research publication, not a production governance runtime.
 Its copyright license does not grant patent or trademark rights, license
