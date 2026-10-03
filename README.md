@@ -269,6 +269,25 @@ the constitutionally specified human membership, selections, certifications,
 records, and initialization conditions. Text does not populate institutions,
 and deployment does not create legitimacy.
 
+## Research, history, and process
+
+The principles were developed through comparative historical inquiry, competing
+institutional designs, adversarial review, and explicit human decisions. This
+recorded method treats history as evidence for questions and tradeoffs, not as
+an automatic source of constitutional authority.
+
+- [Research](research/README.md) explains the problem, evidence streams, and
+  synthesis into the current design.
+- [History](history/README.md) traces the recorded project development and
+  [Greek, Roman, British, and American influences](history/COMPARATIVE_CONSTITUTIONAL_HISTORY.md).
+- [Process](process/README.md) explains the
+  [methodology](process/METHODOLOGY.md) and
+  [decisions, reasons, rejected alternatives, and retained costs](process/DECISIONS_AND_RATIONALE.md).
+
+The historical register remains preliminary. These sections add source-supported
+context and explanatory synthesis; they do not invent decisions, upgrade every
+historical claim, amend v0.1, or authorize a private or production runtime.
+
 ## Design lineage
 
 Alvorada preserves a staged lineage:
@@ -385,8 +404,10 @@ authority and constitutional law.
 | [`docs/`](docs/) | Glossary and working design principles |
 | [`tools/validate_bootstrap.py`](tools/validate_bootstrap.py) | Repository-wide structural, traceability, boundary, and integrity validator |
 | [`tests/test_bootstrap.py`](tests/test_bootstrap.py) | Positive and mutation tests for repository invariants |
-| [`history/`](history/) | Project origin and provenance boundary |
 | [`constitution/`](constitution/) | Reserved location for adopted constitutional law; currently contains no provisions |
+| [`research/`](research/) | Research questions, evidence streams, and the development of principles |
+| [`history/`](history/) | Project chronology and comparative constitutional influences |
+| [`process/`](process/) | Methodology and decision rationale |
 | [`governance-engineering/`](governance-engineering/) | Reserved downstream governance-engineering layer; no runtime artifacts |
 
 Historical and prior-art registers are evidence, not inherited authority.
