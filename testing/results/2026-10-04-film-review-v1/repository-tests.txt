@@ -1,0 +1,11 @@
+Repository checks: python3 -m unittest discover -s tests -q
+----------------------------------------------------------------------
+Ran 423 tests in 45.159s
+
+OK
+
+Film-adapter checks: python3 -m unittest discover -s testing/harness -p test_*.py -q
+----------------------------------------------------------------------
+Ran 8 tests in 0.015s
+
+OK

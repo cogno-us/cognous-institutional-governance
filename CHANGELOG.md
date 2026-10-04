@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Execution of film-inspired synthetic subtests
+
+- Added a separate executable adapter and 42 fixed primary/positive subtests mapped to all 21 FW/TB proposals; recorded 126 observations and explicit coverage limits.
+- Added eight conformance checks for input/oracle isolation, evidence origins, reconstructions, history preservation, durable correction, disclosed incentives and invalid input.
+- Preserved the original harness/archive; recorded its 72-observation rerun and repository check output in the new archive.
+- Distinguished executed synthetic mechanics from full operational proposals and human review; no incremental effect benefit or field efficacy is claimed.
+
 ## 2026-10-04 — Thin Blue Line evidence and correction lessons
 
 - Added ten expressly analytical themes mapped to existing principles, separating film accounts, investigative claims and the court’s specific disposition.

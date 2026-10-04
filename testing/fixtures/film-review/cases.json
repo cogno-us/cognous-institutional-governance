@@ -1,0 +1,2150 @@
+[
+  {
+    "id": "FW01-primary",
+    "proposal": "FW01",
+    "variant": "primary",
+    "scope": "Retain a represented material contradiction and send to simulated review, without changing account state.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "observation",
+          "relation": "contradicts",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "REVIEW",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 1,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW01-positive",
+    "proposal": "FW01",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "reported_statement",
+          "relation": "unknown",
+          "quality": 0
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 1
+    }
+  },
+  {
+    "id": "FW02-primary",
+    "proposal": "FW02",
+    "variant": "primary",
+    "scope": "Count shared-origin support once; a confident narrative cannot create a second origin.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW02-positive",
+    "proposal": "FW02",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW03-primary",
+    "proposal": "FW03",
+    "variant": "primary",
+    "scope": "Requested objective differs from invented service grant.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "manager_prestige",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW03-positive",
+    "proposal": "FW03",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW04-primary",
+    "proposal": "FW04",
+    "variant": "primary",
+    "scope": "Throughput gains do not override the fixture harm cap.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 5,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW04-positive",
+    "proposal": "FW04",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 2,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW05-primary",
+    "proposal": "FW05",
+    "variant": "primary",
+    "scope": "Represented broader intervention exceeds the bounded fixture grant.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 3,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW05-positive",
+    "proposal": "FW05",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 0,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW06-primary",
+    "proposal": "FW06",
+    "variant": "primary",
+    "scope": "Missing authoritative observations do not become positive support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": []
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW06-positive",
+    "proposal": "FW06",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW07-primary",
+    "proposal": "FW07",
+    "variant": "primary",
+    "scope": "Count shared-origin support once; a confident narrative cannot create a second origin.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW07-positive",
+    "proposal": "FW07",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW08-primary",
+    "proposal": "FW08",
+    "variant": "primary",
+    "scope": "Retain a represented material contradiction and send to simulated review, without changing account state.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "observation",
+          "relation": "contradicts",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "REVIEW",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 1,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW08-positive",
+    "proposal": "FW08",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "reported_statement",
+          "relation": "unknown",
+          "quality": 0
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 1
+    }
+  },
+  {
+    "id": "FW09-primary",
+    "proposal": "FW09",
+    "variant": "primary",
+    "scope": "Beneficial/harmless outcome does not validate an absent grant.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 0,
+      "review_access": true,
+      "grant": {
+        "valid": false,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW09-positive",
+    "proposal": "FW09",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 0,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW10-primary",
+    "proposal": "FW10",
+    "variant": "primary",
+    "scope": "Actual SQLite history deletion is attempted and denied by a trigger.",
+    "inputs": {
+      "action": "erase_history",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HISTORY_PRESERVED",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW10-positive",
+    "proposal": "FW10",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW11-primary",
+    "proposal": "FW11",
+    "variant": "primary",
+    "scope": "Beneficial/harmless outcome does not validate an absent grant.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 0,
+      "review_access": true,
+      "grant": {
+        "valid": false,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "FW11-positive",
+    "proposal": "FW11",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 0,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB01-primary",
+    "proposal": "TB01",
+    "variant": "primary",
+    "scope": "Retain a represented material contradiction and send to simulated review, without changing account state.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "observation",
+          "relation": "contradicts",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "REVIEW",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 1,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB01-positive",
+    "proposal": "TB01",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "reported_statement",
+          "relation": "unknown",
+          "quality": 0
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 1
+    }
+  },
+  {
+    "id": "TB02-primary",
+    "proposal": "TB02",
+    "variant": "primary",
+    "scope": "Represented limited observation falls below the fixture quality requirement.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 0.2
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB02-positive",
+    "proposal": "TB02",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 0.8
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB03-primary",
+    "proposal": "TB03",
+    "variant": "primary",
+    "scope": "Different publishers share one represented suggested-answer origin.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1,
+          "suggestion_origin": "common-suggestion"
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1,
+          "suggestion_origin": "common-suggestion"
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB03-positive",
+    "proposal": "TB03",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1,
+          "suggestion_origin": "suggestion-A"
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB04-primary",
+    "proposal": "TB04",
+    "variant": "primary",
+    "scope": "Undisclosed incentive routes to review; an incentive alone does not establish falsehood.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1,
+          "incentive": "acceptance_bonus",
+          "disclosed": false
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "REVIEW",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB04-positive",
+    "proposal": "TB04",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1,
+          "incentive": "acceptance_bonus",
+          "disclosed": true
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB05-primary",
+    "proposal": "TB05",
+    "variant": "primary",
+    "scope": "Generated reconstructions cannot count as observations supporting their own premises.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "reconstruction",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "reconstruction",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB05-positive",
+    "proposal": "TB05",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "synthetic",
+          "kind": "reconstruction",
+          "relation": "unknown",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 1
+    }
+  },
+  {
+    "id": "TB06-primary",
+    "proposal": "TB06",
+    "variant": "primary",
+    "scope": "Unavailable review access keeps evidence and effects unresolved.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": false,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB06-positive",
+    "proposal": "TB06",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB07-primary",
+    "proposal": "TB07",
+    "variant": "primary",
+    "scope": "Retain a represented material contradiction and send to simulated review, without changing account state.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "observation",
+          "relation": "contradicts",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "REVIEW",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 1,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB07-positive",
+    "proposal": "TB07",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "reported_statement",
+          "relation": "unknown",
+          "quality": 0
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 1
+    }
+  },
+  {
+    "id": "TB08-primary",
+    "proposal": "TB08",
+    "variant": "primary",
+    "scope": "Authorized local correction must change account and downstream state.",
+    "inputs": {
+      "action": "correct",
+      "initial_state": "restricted",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "CORRECTED",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB08-positive",
+    "proposal": "TB08",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB09-primary",
+    "proposal": "TB09",
+    "variant": "primary",
+    "scope": "Two supporting independent observations meet this toy standard despite one unknown; no deception or opposite conclusion inferred.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "missing-note",
+          "kind": "reported_statement",
+          "relation": "unknown",
+          "quality": 0
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 1
+    }
+  },
+  {
+    "id": "TB09-positive",
+    "proposal": "TB09",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E3",
+          "origin": "source-C",
+          "kind": "reported_statement",
+          "relation": "unknown",
+          "quality": 0
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 1
+    }
+  },
+  {
+    "id": "TB10-primary",
+    "proposal": "TB10",
+    "variant": "primary",
+    "scope": "Actual SQLite history deletion is attempted and denied by a trigger.",
+    "inputs": {
+      "action": "erase_history",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "HISTORY_PRESERVED",
+      "account_state": "clear",
+      "downstream_state": "clear",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  },
+  {
+    "id": "TB10-positive",
+    "proposal": "TB10",
+    "variant": "positive",
+    "scope": "Supported action with case-specific boundary variation; unknown or derived material never supplies missing authority or support.",
+    "inputs": {
+      "action": "restrict",
+      "initial_state": "clear",
+      "purpose": "service",
+      "harm": 1,
+      "review_access": true,
+      "grant": {
+        "valid": true,
+        "actions": [
+          "restrict",
+          "correct",
+          "erase_history"
+        ],
+        "purpose": "service",
+        "max_harm": 2,
+        "min_quality": 0.8,
+        "min_origins": 2
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "origin": "source-A",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        },
+        {
+          "id": "E2",
+          "origin": "source-B",
+          "kind": "observation",
+          "relation": "supports",
+          "quality": 1
+        }
+      ]
+    },
+    "expected": {
+      "outcome": "ALLOW",
+      "account_state": "restricted",
+      "downstream_state": "restricted",
+      "history_rows": 1,
+      "contradiction_count": 0,
+      "unresolved_count": 0
+    }
+  }
+]

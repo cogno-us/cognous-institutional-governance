@@ -68,8 +68,12 @@ A wrongful criminal conviction is not equivalent to a mistaken refund, clinical 
 
 The [TB01–TB10 supplement](../testing/battery/THIN_BLUE_LINE.md) specifies invented prospective exercises. Evaluation needs held-out evidence, meaningful positive countercases, competent conventional controls, actual human reviewers and observed correction effects. Preserve false positives and cases where credible contrary evidence is considered but the original decision remains justified. Merely producing more records or more suspicion is not an improvement.
 
-The deterministic reference adapter cannot evaluate these institutional processes. No TB exercises are executed, and no result or historical outcome establishes what Alvorada would have achieved.
+The deterministic reference adapter cannot evaluate these institutional processes. No full TB operational exercises are executed, and no result or historical outcome establishes what Alvorada would have achieved.
 
 ## Attribution and reuse
 
 Third-party films, transcripts, articles and judicial reproductions retain their own applicable rights. The repository contributes original analysis and source links under its existing license; it does not relicense the sources or imply endorsement by the filmmaker, distributor or courts. No transcript, film still, article copy or private implementation is added.
+
+## Subsequent synthetic execution
+
+The [film-review results](../testing/results/2026-10-04-film-review-v1/README.md) now report narrow scripted subtests mapped to these proposals. [Coverage](../testing/harness/FILM_REVIEW_DESIGN.md) states precisely what was run. Full operational exercises and independent human review remain pending; the additional mechanics do not validate institutional effectiveness.

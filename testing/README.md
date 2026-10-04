@@ -8,6 +8,7 @@ Read this index first. This section separates proposed operational exercises, ex
 | [Protocol](PROTOCOL.md) | Recommended program, comparison design, measures and status rules | Operational program pending |
 | [Incident sources](sources/README.md) | News reporting, primary supplements and evidence qualifications | Reporting links checked; access limits recorded |
 | [Harness design](harness/DESIGN.md) | Construction method, configurations, gates, oracles and limits | Deterministic reference adapter only |
+| [Film-review adapter](harness/FILM_REVIEW_DESIGN.md) | 42 narrow subtests mapped to 21 FW/TB proposals; 126 observations | EXECUTED_SYNTHETIC; full exercises pending |
 | [Fixtures](fixtures/README.md) | 24 fixed synthetic subtests and recovery data | Invented; no real participants or production data |
 | [Results](results/README.md) | Raw 72-run observations, interpretation and reproducibility evidence | EXECUTED_SYNTHETIC; not independently reviewed |
 | [Execution template](templates/OPERATIONAL_RECORD.md) | Actual operational run record requirements | Template only |
@@ -34,8 +35,17 @@ All 47 full operational exercises and the existing 90 application exercises rema
 
 ## Supplementary Fog of War exercises
 
-[FW01–FW11](battery/FOG_OF_WAR.md) add eleven proposed exercises for uncertainty, correlated evidence, purpose, metrics, harm, reconsideration, accountability and near misses. Together, the original frozen 47-case battery and this eleven-case supplement specify 58 proposed exercises. The 90 application exercises are separate. The supplement is unexecuted and not supported by the current 24 fixtures or 72 observations; the original battery, harness and archives are preserved.
+[FW01–FW11](battery/FOG_OF_WAR.md) add eleven proposed exercises for uncertainty, correlated evidence, purpose, metrics, harm, reconsideration, accountability and near misses. Together, the original frozen 47-case battery and this eleven-case supplement specify 58 proposed exercises. The 90 application exercises are separate. The full supplement remains unexecuted and is not covered by the original 24 fixtures or 72 observations; the original battery, harness and archives are preserved.
 
 ## Supplementary Thin Blue Line exercises
 
-[TB01–TB10](battery/THIN_BLUE_LINE.md) add ten proposed exercises on evidence omissions, observation conditions, contamination, incentives, synthetic reconstructions, access, reconsideration and correction effects. There are now **68 proposed exercises in this testing section**: 47 original cases, 11 FW cases and 10 TB cases. The 90 application exercises remain separate. No FW or TB exercise has been executed or reviewed; neither supplement is covered by the existing 24 fixtures or 72 observations.
+[TB01–TB10](battery/THIN_BLUE_LINE.md) add ten proposed exercises on evidence omissions, observation conditions, contamination, incentives, synthetic reconstructions, access, reconsideration and correction effects. There are now **68 proposed exercises in this testing section**: 47 original cases, 11 FW cases and 10 TB cases. The 90 application exercises remain separate. No full FW or TB operational exercise has been executed or reviewed. The original 24 fixtures and 72 observations cover neither supplement; the new film adapter supplies separately documented narrow synthetic coverage.
+
+## Run the film-inspired synthetic subtests
+
+```sh
+python3 testing/harness/run_film_review.py
+python3 testing/harness/verify_film_review.py
+```
+
+The [2026-10-04 archive](results/2026-10-04-film-review-v1/README.md) records 126 final film-adapter observations, a rerun of the original 72 observations, and current repository checks. Conventional and Alvorada-inspired controls have identical effects; no incremental institutional benefit is established.

@@ -23,3 +23,7 @@ Every full exercise remains PROPOSED. The [24 reference fixtures](../fixtures/ca
 ## Separate evidence-review supplement
 
 [TB01–TB10: The Thin Blue Line](THIN_BLUE_LINE.md) contains ten proposed exercises inspired by the film and historical case, with reporting and court links and evidence boundaries. Together with FW01–FW11 and the original 47 cases, the testing section specifies 68 proposed exercises in three distinct sets. `battery.json` and its original result coverage remain unchanged.
+
+## Executed coverage of the supplements
+
+A separate [film-review adapter](../harness/FILM_REVIEW_DESIGN.md) has executed narrow primary/positive subtests mapped to all 21 FW/TB proposals. The [126 observations](../results/2026-10-04-film-review-v1/README.md) do not promote any of the 68 full operational exercises out of PROPOSED status.

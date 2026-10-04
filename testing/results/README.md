@@ -29,3 +29,7 @@ Supportable claim: “We defined 47 operational exercises and ran a deterministi
 ## Retention
 
 Archive run inputs and SHA256 hashes with raw results and environment metadata; use new version directories for changes. Keep original and negative evidence. Reruns go to ignored `testing/runs/`; promoting a run into a new archive is a deliberate reviewed repository change. The current verifier checks archive integrity and equivalent replay without rewriting the archive.
+
+## Film-review mechanics, 2026-10-04
+
+[The new archive](2026-10-04-film-review-v1/README.md) contains 42 fixtures mapped to the 21 FW/TB proposals and 126 observations. Both guarded arms satisfied all 42 complete oracles and all 21 legitimate-action countercases. The permissive toy satisfied 15 complete oracles; it completed all 21 legitimate effects, but omitted unknown-evidence records in six countercases. These counts describe fixed mechanics, not institutional error rates or comparative efficacy. The original 72-observation rerun matched the earlier effect observations.

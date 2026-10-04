@@ -41,3 +41,7 @@ Exit zero means every guarded fixture oracle was satisfied. Expected permissive-
 Determinism permits exact replay; SQLite provides observable state rather than accepting an agent's completion claim; permissive negative controls show that the fixtures can distinguish missing controls; legitimate allows expose overblocking. These advantages are limited by supplied truth labels and sparse coverage. Three positive cases are insufficient to estimate real service quality.
 
 Next: use independently selected evidence, actual observed baselines, real isolated tool adapters, multiple credential paths and qualified human review. Compare conventional and Alvorada record usefulness with identity masked where practicable. Add lifecycle state sequences, unknown inputs, source drift, adverse cases and cost measures before broader claims. Keep both failures and null comparative findings. See the [protocol](../PROTOCOL.md) and [results interpretation](../results/README.md).
+
+## Separate film-review adapter
+
+[Film-review design](FILM_REVIEW_DESIGN.md) documents the additional executable mechanics and their limited mapping to FW/TB proposals. It uses separate fixtures and an archive; the original adapter and its hashed inputs remain unchanged.

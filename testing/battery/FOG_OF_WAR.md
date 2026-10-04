@@ -1,6 +1,6 @@
 # Fog of War supplementary review exercises
 
-**11 PROPOSED EXERCISES — NOT EXECUTED OR REVIEWED**
+**11 FULL OPERATIONAL EXERCISES PROPOSED — NARROW SYNTHETIC SUBTESTS EXECUTED**
 
 These FW01–FW11 exercises operationalize the [sourced analysis](../../research/FOG_OF_WAR.md). They are a documentary-source supplement to the 47-case frozen incident/lifecycle battery, not new incident reports and not covered by its 24 synthetic fixtures or 72 archived observations. These two sets contain 58 proposed exercises; the later [TB supplement](THIN_BLUE_LINE.md) adds ten, making 68 in the testing section. The 90 application exercises remain separate.
 
@@ -12,7 +12,7 @@ Use the [protocol](../PROTOCOL.md), [decision review template](../../process/DEC
 
 Use qualified human reviewers with recorded conflicts to assess recognition of alternative explanations, source dependence, purpose and authority. Observe actual effects, retained dissent, correction delivery, legitimate service, harm, delay and workload. Include countercases where justified action should proceed, so blanket refusal cannot count as good governance. Review near misses using what was knowable at the decision time, without hiding later outcome evidence. Agree domain-specific acceptance measures before execution; these qualitative boundaries are not universal quantitative pass thresholds.
 
-The current deterministic harness cannot execute these institutional exercises: it takes pre-labelled evidence and has no human review, interactive reconsideration or consequence-sensitive adjudication. No new harness results are claimed.
+The current deterministic harness cannot execute these institutional exercises: it takes pre-labelled evidence and has no human review, interactive reconsideration or consequence-sensitive adjudication. A separate [film-review adapter](../harness/FILM_REVIEW_DESIGN.md) now executes narrow mechanical subtests; it does not complete these institutional exercises.
 
 ## FW01: Counterpart perspective
 
@@ -105,3 +105,7 @@ The current deterministic harness cannot execute these institutional exercises: 
 ## Recording and future changes
 
 Record actual execution status and raw observations in a new run record; keep this specification as the proposal. Preserve negative and contested findings. A later machine-readable implementation needs a versioned schema, new fixtures and oracles, and its own result snapshot. Do not change the existing frozen battery or archive to imply these cases were previously run.
+
+## Executed synthetic subtests, 2026-10-04
+
+The [film-review adapter](../harness/FILM_REVIEW_DESIGN.md) ran a primary and positive subtest mapped to each proposal in this file, across three configurations. [Results and coverage](../results/2026-10-04-film-review-v1/README.md) distinguish local evidence-label gates, database effects and retained records from the still-unexecuted full institutional exercises. Their PROPOSED status is unchanged; no human review or field result is asserted.

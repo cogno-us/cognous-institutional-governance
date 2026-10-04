@@ -1,6 +1,6 @@
 # Thin Blue Line supplementary evidence-review exercises
 
-**10 PROPOSED EXERCISES — NOT EXECUTED OR REVIEWED**
+**10 FULL OPERATIONAL EXERCISES PROPOSED — NARROW SYNTHETIC SUBTESTS EXECUTED**
 
 TB01–TB10 apply the [sourced study](../../research/THIN_BLUE_LINE.md). They are invented prospective scenarios, not reenactments of the Adams case and not a numbered lesson list from the film. Their source basis includes the director's investigation, film testimony and the specific judicial findings distinguished in the study.
 
@@ -98,4 +98,8 @@ The testing section has 68 proposed exercises across three separate sets: 47 ori
 
 ## Result and revision boundary
 
-No exercise has been executed or reviewed. Preserve this specification and record future observations separately with versions, input/harness hashes and actual reviewer identities. A machine-readable implementation requires a new versioned supplement, fixtures and validated oracles. Do not alter the frozen original battery or archives to imply prior coverage.
+No full operational exercise has been executed or reviewed. Narrow synthetic subtests are recorded separately. Preserve this specification and record future observations separately with versions, input/harness hashes and actual reviewer identities. A machine-readable implementation requires a new versioned supplement, fixtures and validated oracles. Do not alter the frozen original battery or archives to imply prior coverage.
+
+## Executed synthetic subtests, 2026-10-04
+
+The [film-review adapter](../harness/FILM_REVIEW_DESIGN.md) ran a primary and positive subtest mapped to each proposal in this file, across three configurations. [Results and coverage](../results/2026-10-04-film-review-v1/README.md) distinguish local evidence-label gates, database effects and retained records from the still-unexecuted full institutional exercises. Their PROPOSED status is unchanged; no human review or field result is asserted.

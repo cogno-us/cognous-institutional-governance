@@ -54,8 +54,12 @@ Use the [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.
 
 Military crises, customer complaints and clinical decisions differ in stakes, evidence, mandates and time available. Transfer the questions about authority, uncertainty and review; do not equate the cases or import military framing into civilian services. Domain files contain specific examples.
 
-The [supplementary exercises](../testing/battery/FOG_OF_WAR.md) test whether the proposed procedures would remain usable under time pressure, misleading corroboration, metric incentives, moral rationalization and reviewer dependence. They are unexecuted proposals. The existing reference harness receives pre-labelled evidence and does not model these institutional dynamics. Comparative value requires observed conventional and Alvorada-inspired workflows, independent human review, and measurements of decision reconstruction, harm, delay and legitimate service retained.
+The [supplementary exercises](../testing/battery/FOG_OF_WAR.md) test whether the proposed procedures would remain usable under time pressure, misleading corroboration, metric incentives, moral rationalization and reviewer dependence. The full exercises remain unexecuted proposals. The existing reference harness receives pre-labelled evidence and does not model these institutional dynamics. Comparative value requires observed conventional and Alvorada-inspired workflows, independent human review, and measurements of decision reconstruction, harm, delay and legitimate service retained.
 
 ## Attribution and reuse
 
 The linked film, transcript and teaching materials remain third-party works under their own rights. This repository provides original analysis and short paraphrases, not copies of those works. Its CC BY 4.0 license does not relicense the linked sources. No endorsement by Morris, McNamara, Sony or Brown University is implied.
+
+## Subsequent synthetic execution
+
+The [film-review results](../testing/results/2026-10-04-film-review-v1/README.md) now report narrow scripted subtests mapped to these proposals. [Coverage](../testing/harness/FILM_REVIEW_DESIGN.md) states precisely what was run. Full operational exercises and independent human review remain pending; the additional mechanics do not validate institutional effectiveness.

@@ -194,3 +194,7 @@ retain their own rights. See [NOTICE.md](NOTICE.md) for scope and attribution an
 Suggested credit: “Constitutional Governance for Human–AI Institutions
 (Alvorada) — André de Lima, founder of Cognous (https://cogno.us),
 https://github.com/titanicprime/alvorada, CC BY 4.0; modified where indicated.”
+
+## Executed film-inspired mechanics
+
+The [film-review testing archive](testing/results/2026-10-04-film-review-v1/README.md) adds 42 fixed subtests mapped to the 21 Fog of War and Thin Blue Line proposals, with 126 recorded observations. Both guarded configurations satisfied all 42 predefined oracles; they use identical effect controls. All 21 legitimate-action countercases retained their intended effects. This is synthetic adapter evidence; full institutional exercises, independent human review and comparative efficacy remain pending. See [coverage and limits](testing/harness/FILM_REVIEW_DESIGN.md).
