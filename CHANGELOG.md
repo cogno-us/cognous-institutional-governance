@@ -4,6 +4,12 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Repository relocation
+
+- Updated canonical URLs, attribution and citation metadata to `cogno-us/constitutional-governance-for-institutions`, including the historical review snapshot link with its original commit unchanged.
+- Updated repository ownership and current release/remediation guidance to record the completed move. Added clone and existing-checkout remote instructions; external announcements remain outside this revision.
+- Verified the new main branch retained the preceding public commit. Original constitutional evidence and archived experimental inputs/results are unchanged.
+
 ## 2026-10-04 — Public documentation refactor and historical attribution
 
 - Replaced the cumulative main README with a short public introduction and task-based reading path; grouped guide navigation and added plain-language executive summaries linking to detailed analysis.

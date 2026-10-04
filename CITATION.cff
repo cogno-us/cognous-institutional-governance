@@ -6,8 +6,8 @@ authors:
     given-names: "André"
     affiliation: "Cognous"
     website: "https://cogno.us"
-url: "https://github.com/titanicprime/alvorada"
-repository-code: "https://github.com/titanicprime/alvorada"
+url: "https://github.com/cogno-us/constitutional-governance-for-institutions"
+repository-code: "https://github.com/cogno-us/constitutional-governance-for-institutions"
 license: "CC-BY-4.0"
 abstract: "An open research framework and proposed constitutional architecture for authority, accountability, and institutional lifecycle across human-run, software-supported and AI-enabled institutions. Constitution v0.1 is proposed for human ratification, not adopted."
 preferred-citation:
@@ -18,4 +18,4 @@ preferred-citation:
       given-names: "André"
       affiliation: "Cognous"
   year: 2026
-  url: "https://github.com/titanicprime/alvorada"
+  url: "https://github.com/cogno-us/constitutional-governance-for-institutions"

@@ -49,8 +49,9 @@ evidence. Runtime engineering remains explicitly deferred.
 
 The short entry point is suitable for public research distribution. It is not
 proof of adoption, efficacy, legal completeness or IP clearance. The owner still
-needs to decide repository identity/location, exact release snapshot and optional
-archival deposit. A private reporting route, continuity and independent review
+has moved the repository to
+[cogno-us/constitutional-governance-for-institutions](https://github.com/cogno-us/constitutional-governance-for-institutions).
+An exact release snapshot and optional archival deposit remain owner decisions. A private reporting route, continuity and independent review
 must be verified rather than invented. See [release guidance](RELEASE_GUIDANCE.md)
 and [remaining work](REMEDIATION_STATUS.md).
 

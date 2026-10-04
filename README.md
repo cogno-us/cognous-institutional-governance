@@ -49,8 +49,8 @@ records have not demonstrated better institutional outcomes. See
 
 Read [contribution guidance](CONTRIBUTING.md), [repository governance](GOVERNANCE.md)
 and [sensitive reporting](SECURITY.md). For public distribution, use the
-[release guide](docs/RELEASE_GUIDANCE.md); the planned rename/transfer is not yet
-assumed complete. [All guides](docs/README.md) and [change history](CHANGELOG.md)
+[release guide](docs/RELEASE_GUIDANCE.md). The canonical repository is now
+[cogno-us/constitutional-governance-for-institutions](https://github.com/cogno-us/constitutional-governance-for-institutions). [All guides](docs/README.md) and [change history](CHANGELOG.md)
 provide deeper navigation.
 
 **Author:** André de Lima, founder of [Cognous](https://cogno.us).

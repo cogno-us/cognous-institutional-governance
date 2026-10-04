@@ -51,7 +51,7 @@ remain the foundation of the public package.
 
 | Priority | Recommendation | Current status and boundary |
 |---|---|---|
-| Before selecting the announcement snapshot | Complete the owner's planned repository rename and organization move; update and verify canonical links and citation metadata. | Pending owner action; current URLs are intentionally retained. |
+| Before selecting the announcement snapshot | Complete the owner's planned repository rename and organization move; update and verify canonical links and citation metadata. | Completed 2026-10-04: new location verified and repository links/citation metadata updated. Outside announcements were not reviewed. |
 | Before announcing a numbered release | Select a frozen commit and create an attributable research release with status, limitations, changes, and verification results. | No GitHub release was listed at review time. This revision creates documentation, not a release tag or announcement date. |
 | Before relying on confidential reporting | Establish and test a private contact route or enable and verify private vulnerability reporting. | Dedicated contact and feature availability remain unverified; SECURITY.md supplies a minimal fallback. |
 | Before accepting substantial external code changes | Automate applicable validation and review required-check settings, write access, and protected-branch policy. | No validation workflow is supplied in this documentation revision; hosting settings were not verified. Local checks are not a configured CI gate. |

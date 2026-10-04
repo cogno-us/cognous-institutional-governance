@@ -48,9 +48,25 @@ v0.1 adoption. See [Applications](../applications/README.md).
 
 ## Rename or organization transfer
 
-After the owner changes the repository location, check the clone URL, README,
+The repository moved to
+[cogno-us/constitutional-governance-for-institutions](https://github.com/cogno-us/constitutional-governance-for-institutions)
+on 2026-10-04, as reported by the owner and verified at the new location.
+Main retained commit `d70e1dc714a3a197f8fce857cffc74486b364734` at verification.
+Canonical links and citation metadata now use this location. Clone with:
+
+```sh
+git clone https://github.com/cogno-us/constitutional-governance-for-institutions.git
+```
+
+For an existing checkout, update its remote with:
+
+```sh
+git remote set-url origin https://github.com/cogno-us/constitutional-governance-for-institutions.git
+```
+
+For any future location change, check the clone URL, README,
 NOTICE, citation metadata, release notes, reporting links, issue-template links,
 and any outside announcements. Verify the new authoritative remote and any
 redirects. Do not rely on assumed redirects for permanent citations; retain
-commit identity and explain the relocation. The present links use the current
-repository until that move occurs.
+commit identity and explain the relocation. Outside announcements and independently maintained copies need separate updates;
+they were not changed by this repository revision.

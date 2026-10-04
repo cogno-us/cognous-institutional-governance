@@ -3,7 +3,7 @@
 Constitutional Governance for Institutions (Alvorada) —
 André de Lima and contributing rights holders, 2026.
 Founder affiliation: [Cognous](https://cogno.us).
-Canonical repository: https://github.com/titanicprime/alvorada
+Canonical repository: https://github.com/cogno-us/constitutional-governance-for-institutions
 
 Original material in this repository is licensed under the Creative Commons
 Attribution 4.0 International Public License, to the extent the respective
@@ -17,7 +17,7 @@ the license. One reasonable credit is:
 
 > Constitutional Governance for Institutions (Alvorada) —
 > André de Lima, founder of Cognous (https://cogno.us),
-> https://github.com/titanicprime/alvorada, licensed under CC BY 4.0.
+> https://github.com/cogno-us/constitutional-governance-for-institutions, licensed under CC BY 4.0.
 > Changes: [describe your modifications, if any].
 
 The license permits commercial reuse and adaptation. This notice adds no

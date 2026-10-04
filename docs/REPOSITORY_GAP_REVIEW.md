@@ -3,7 +3,7 @@
 **ANALYTICAL REVIEW — NOT INDEPENDENT CERTIFICATION OR CONSTITUTIONAL AMENDMENT**
 
 Review date: 2026-10-04. Reviewed public base:
-[`a0f1777c6f917bef69c0a2037cb6fb2bb7a01f5e`](https://github.com/titanicprime/alvorada/tree/a0f1777c6f917bef69c0a2037cb6fb2bb7a01f5e).
+[`a0f1777c6f917bef69c0a2037cb6fb2bb7a01f5e`](https://github.com/cogno-us/constitutional-governance-for-institutions/tree/a0f1777c6f917bef69c0a2037cb6fb2bb7a01f5e).
 Local reviewed tree: `51a7cf898b785c53a2b016aeb6de786a914f31a5`.
 This review adds recommendations; it does not appoint owners, execute a human
 study, alter original decisions or reopen the draft through implication.

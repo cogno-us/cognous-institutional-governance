@@ -6,7 +6,7 @@ not adopt Alvorada's Constitution or populate its institutions.
 ## Responsibility and participation
 
 André de Lima is the project author. The current repository is owned by the
-GitHub account `titanicprime`. Repository write access and release permissions
+GitHub organization `cogno-us`. Repository write access and release permissions
 are platform permissions, not constitutional standing or sovereignty. No
 additional maintainer or independent review board is established by this file.
 

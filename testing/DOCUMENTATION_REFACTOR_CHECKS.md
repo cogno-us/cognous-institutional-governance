@@ -30,7 +30,8 @@ fixtures and result archives are unchanged. No new experiment was executed.
 Have unfamiliar readers attempt the three starting tasks and report time,
 misinterpretations and missing links. Obtain independent scholarly and contextual
 review before treating this framework as an institutional commitment. Repository
-identity, release snapshot and archival deposit remain owner decisions. See the
+identity has since been updated to the new organization/location; a release
+snapshot and archival deposit remain owner decisions. See the
 [documentation map](../docs/DOCUMENTATION_STRUCTURE.md),
 [release guide](../docs/RELEASE_GUIDANCE.md) and
 [remaining work](../docs/REMEDIATION_STATUS.md).

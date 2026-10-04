@@ -40,9 +40,9 @@ or normative finding is closed merely by adding a document.
 | G21 CI/runtime | Whole-repository versus harness runtime guidance clarified | Deferred: CI code/version matrix/platform protections remain unimplemented and unverified |
 | G22 maintainer/private route | Clear status: institutional protections are not repo reporting capacity | External: actual maintainer continuity and tested private contact; no invented channel |
 | G23 documentation overload | One short route: charter/profile → proportional procedure → worked case; other worksheets optional | Partial: newcomer testing and later consolidation of repeated sector prose |
-| G24 release/deposit | Current status and identity/archival boundary retained | External/owner decision: exact release/deposit after name/location choice; not manufactured here |
+| G24 release/deposit | Current status and identity/archival boundary retained | Location updated 2026-10-04; exact release/deposit remains an owner decision, not manufactured here |
 | G25 disclosure/IP | New material is public theory/guidance with linked sources; bounded current-tree scan documented in change note | External: qualified IP/provenance comparison if required; history/private IP not exhaustively audited |
-| G26 discovery metadata | Descriptive README scope includes modular and AI institutional support | Deferred to owner rename/transfer; GitHub topics/description not changed |
+| G26 discovery metadata | Descriptive README scope includes modular and AI institutional support | Rename/transfer completed and canonical metadata updated 2026-10-04; GitHub topics/description not changed |
 
 ## New design questions introduced by this remediation
 
