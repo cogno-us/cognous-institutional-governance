@@ -4,6 +4,13 @@ This section explains the documented development of Alvorada's principles and
 constitutional proposal. It is supporting explanation, not a new human design
 decision, amendment, ratification, or implementation authorization.
 
+The [modular design proposal](../constitutional-design/modular/README.md) is a
+later context-sensitive extension; it records new proposed choices without
+rewriting the original design decisions. Use [proportional governance](PROPORTIONAL_GOVERNANCE.md)
+for review tiers, [rights/records/interfaces](RIGHTS_RECORDS_AND_INTERFACES.md)
+when material, and [virtuous recursion](VIRTUOUS_RECURSION.md) for improvement.
+AI's optional contribution is described in the [institutional support module](../applications/ai-assisted-institutional-governance.md).
+
 For practical use, begin with the [decision-making workflow](DECISION_MAKING.md)
 and [blank record](templates/DECISION_RECORD.md). They connect the reviews below
 into one proportionate route from objectives and alternatives to an accountable

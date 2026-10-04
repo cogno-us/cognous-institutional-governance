@@ -196,3 +196,15 @@ These are proposed applications of the [eleven-theme analysis](../research/FOG_O
 Keep original data, reported observations and analytical reconstructions separately attributable. Disclose source incentives and prior versions without automatically rejecting a result. A correction should reach relevant outputs and downstream users through authorized routes while preserving the original claim and material dissent.
 
 Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
+
+## Context-specific structure, proportional review and AI support
+
+Use the [modular routing map](MODULAR_ROUTING.md) and
+[charter/profiles](../constitutional-design/modular/README.md) for offices and
+terms suited to this context, with explicit departures from fixed v0.1.
+[Proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) scales evidence
+and review to the actual act; routine work and severe reliance need different
+routes. The [AI support module](ai-assisted-institutional-governance.md) and
+[recursive process](../process/VIRTUOUS_RECURSION.md) explain how assistance can
+reduce preparation and improve future practice without acquiring authority.
+These additions are proposals; this file's five exercises remain unexecuted.

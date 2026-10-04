@@ -11,6 +11,11 @@ The [critique response](decision-making/GOVERNANCE_CRITIQUE.md) investigates
 delay costs, incumbent incentives and whether records improve substantive
 correction; its proposed practices and studies are not observed outcomes.
 
+The [modular and AI-support source review](AI_ASSISTED_GOVERNANCE_SOURCES.md)
+adds selective primary support and countervailing evidence for context-specific
+profiles, task fit, verification burden and human agency. Exact tiers and terms
+are design proposals, not prescriptions or observed effects from those sources.
+
 Alvorada investigates durable institutional governance: authority that remains
 attributable, bounded and contestable, with humans retaining foundational
 authority over institutional ends. Human-only, conventional-software and

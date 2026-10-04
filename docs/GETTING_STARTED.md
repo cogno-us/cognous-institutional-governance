@@ -4,6 +4,21 @@ You can use this repository as a reader, reviewer, researcher, or institutional
 designer. Reading requires no software installation or account. The repository
 contains no agent service to deploy and no adoption-by-installation mechanism.
 
+## Short practical route
+
+1. Choose the [modular charter/profile](../constitutional-design/modular/README.md)
+   for the institution and complete actual decision rights; v0.1 is a fixed
+   reference proposal, not a required form for every principle-inspired use.
+2. Use [proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) for the act's
+   evidence and review depth. Routine authorized work need not use every worksheet.
+3. Read the [complete invented service case](examples/SERVICE_CASE.md). Add
+   [AI assistance](../applications/ai-assisted-institutional-governance.md) and
+   [recursive learning](../process/VIRTUOUS_RECURSION.md) when useful.
+
+The [current evidence map](EVIDENCE_STATUS.md) distinguishes proposed designs,
+illustrations, synthetic observations and actual institutional evidence. The
+[remediation ledger](REMEDIATION_STATUS.md) identifies unfinished work.
+
 ## Choose a path
 
 | Purpose | First steps |

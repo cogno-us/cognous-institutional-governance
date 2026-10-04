@@ -13,7 +13,8 @@ evidence and leave unknowns UNKNOWN. A completed worksheet is not approval.
 - Competent human decision-maker; grant source, scope, exclusions and expiry: UNKNOWN
 - Actual proposer, analyst, executor, reviewer and verifier: UNKNOWN
 - Shared people, conflicts, evidence/resource dependencies and assistance: UNKNOWN
-- Required depth of review and reason: UNKNOWN
+- Required depth of review, T0–T4 tier where useful, actual consequence/reliance and reason: UNKNOWN
+- Institutional profile/version, material departures and reserved decision rights: UNKNOWN
 - Actual response route/grant, timing evidence, response target and authorized alternate: UNKNOWN
 
 ## Objectives and alternatives

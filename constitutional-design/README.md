@@ -4,16 +4,19 @@ This directory preserves the proposed Constitution and the research, human
 design decisions, requirements, and reviews that produced it. Constitution
 v0.1 is **proposed for human ratification, not adopted**.
 
-## Read the current proposal first
+## Reference proposal and new modular design
 
 | Question | Current record |
 |---|---|
+| How can structure and terms vary by context? | [Modular framework proposal](modular/README.md), shared charter and four profiles |
 | What does the proposal say? | [Constitution v0.1](drafts/CONSTITUTION_v0.1.md) |
 | What supports each section? | [Traceability](drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml) |
 | Which review findings remain relevant? | [Final pre-ratification review](RATIFICATION_REVIEW_v0.1.md) |
 | What prevents ratification now? | [Ratification packet](RATIFICATION_PACKET.md) and [unfilled initial Schedule O](INITIAL_SCHEDULE_O.yaml) |
 | Which drafting questions were resolved? | [Drafting-question record](drafts/CONSTITUTION_v0.1_OPEN_QUESTIONS.md) |
 
+The modular proposal is separate from v0.1 and has not received its recorded
+design review. It requires its own human decisions, traceability and approval.
 The review records text-level readiness. Actual ratification still requires
 human institutional acts and staffing; text review does not populate offices.
 

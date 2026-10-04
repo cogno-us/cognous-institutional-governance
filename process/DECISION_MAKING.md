@@ -8,8 +8,16 @@ It brings together the existing reviews rather than requiring a separate form
 for each research influence. The [business and econometrics review](../research/decision-making/README.md)
 records the sources, inclusion choices and evidence limits behind this extension.
 
+For a context-sensitive architecture, choose the [modular charter/profile](../constitutional-design/modular/README.md)
+and complete the [profile schedule](templates/INSTITUTIONAL_PROFILE.md).
+Use the [complete invented packet](../docs/examples/SERVICE_CASE.md) as a reading
+example; it is not an executed case. Other review worksheets are optional
+supplements selected for material questions, not a checklist for every reply.
+
 ## Choose a proportionate level of review
 
+Use [T0–T4 proportional governance](PROPORTIONAL_GOVERNANCE.md) to assess
+consequences, evidence sufficiency, reliance and review burden.
 For a bounded routine choice under a clear standing grant, record the actual
 authority, relevant evidence, choice, responsible person and review route.
 Use a deeper review when consequences, irreversibility, uncertainty, conflicting
@@ -145,3 +153,13 @@ remain separate observations; this example reports neither.
 
 See the [principle catalogue](../applications/PRINCIPLE_CATALOGUE.md) for precise
 definitions. These mappings describe the proposal; full adoption remains pending.
+
+## AI support and recursive improvement
+
+[AI institutional support](../applications/ai-assisted-institutional-governance.md)
+can prepare source packets and drafts, surface contradictions and monitor pending
+remedies. Bounded routine execution needs a real prior grant. Use
+[virtuous recursion](VIRTUOUS_RECURSION.md) to turn verified outcomes into proposed
+improvements with distinct approval and stable outcome assessment. Time savings
+and improved judgment remain hypotheses; measure total checking and correction
+work as well as drafting effort.

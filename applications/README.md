@@ -40,6 +40,21 @@ support and logistics likewise separate command accountability from resource
 administration. Cross-cutting enterprise-agent and cybersecurity files help
 examine shared tools without collapsing these domain distinctions.
 
+## Context-sensitive modules
+
+Use the [modular charter and four profiles](../constitutional-design/modular/README.md)
+for institutional structure and terms. The [routing map](MODULAR_ROUTING.md)
+shows lower- and higher-burden acts in all eighteen existing contexts. Apply
+[proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) to actual
+consequences; an industry label never establishes a risk tier.
+
+[AI helping govern institutions](ai-assisted-institutional-governance.md) is an
+additional cross-context guidance module, separate from the original eighteen
+contexts and ninety exercises. It explains assistance, bounded ordinary work and
+[virtuous recursive learning](../process/VIRTUOUS_RECURSION.md), with all seventeen
+working principles and ten refounding protections mapped. No new exercise result
+or unchanged-v0.1 adoption is asserted.
+
 ## Choose the form of application
 
 1. **Principle-inspired practice:** improve an existing organization's delegation,

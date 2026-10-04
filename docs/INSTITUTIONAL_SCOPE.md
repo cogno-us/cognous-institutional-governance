@@ -43,3 +43,13 @@ Broad relevance is a research claim about the questions addressed, not proof of 
 ## Begin with observable institutional conditions
 
 The [institutional assessment program](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) prioritizes usable access, feasible review workloads and independently verified remedies. Its first proposed workflow is complaints handled by people. AI-supported versions can be assessed later as separately identified conditions; their results should not be pooled without justification.
+
+## Modular form and governance supported by AI
+
+The [modular design proposal](../constitutional-design/modular/README.md)
+separates shared protections from office terms and procedures suited to different
+institutions. It preserves the fixed v0.1 proposal and records departures.
+[AI institutional support](../applications/ai-assisted-institutional-governance.md)
+addresses AI helping institutions govern, alongside governance of AI itself;
+[virtuous recursion](../process/VIRTUOUS_RECURSION.md) explains authorized learning
+from verified effects. All new benefits remain hypotheses pending assessment.

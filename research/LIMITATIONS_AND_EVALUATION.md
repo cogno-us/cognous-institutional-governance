@@ -68,3 +68,15 @@ The [cross-disciplinary source ledger](cross-disciplinary/SOURCE_REVIEW.md) reco
 ## Broad institutional scope and prepared assessment
 
 The framework’s current scope includes human-only, software-supported and AI-enabled institutions; broader scope is not broader performance evidence. The [prepared assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) prioritizes access, review capacity and remedy completion in a human-run workflow. Its actual owner, institutional grants, participant arrangements, independent assessor and observations remain unfilled. Current synthetic findings must not be generalized to these human or institutional outcomes.
+
+## Later modular and AI-support proposals
+
+The [modular charter/profiles](../constitutional-design/modular/README.md),
+[proportional procedures](../process/PROPORTIONAL_GOVERNANCE.md),
+[AI assistance](../applications/ai-assisted-institutional-governance.md) and
+[recursive learning](../process/VIRTUOUS_RECURSION.md) are later design work.
+They have no independent normative review, executed tabletop, deployed AI,
+observed savings or demonstrated institutional benefit. The
+[current remediation ledger](../docs/REMEDIATION_STATUS.md) records documentary
+improvements without closing empirical gaps. This does not retroactively change
+the dated evidence ledger above or the original source statuses.

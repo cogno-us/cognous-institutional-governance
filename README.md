@@ -31,6 +31,9 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 
 | What you want to understand | Read next |
 |---|---|
+| Choose a context-specific structure and term | [Modular charter and profiles](constitutional-design/modular/README.md) |
+| Scale review and evidence to consequences | [Proportional governance](process/PROPORTIONAL_GOVERNANCE.md) |
+| Use AI to support institutional governance | [AI assistance](applications/ai-assisted-institutional-governance.md) and [recursive improvement](process/VIRTUOUS_RECURSION.md) |
 | How to use it to make a decision | [Decision-making workflow](process/DECISION_MAKING.md) and [blank decision record](process/templates/DECISION_RECORD.md) |
 | The principles and terminology | [Working principles](docs/DESIGN_PRINCIPLES.md) and [glossary](docs/GLOSSARY.md) |
 | The proposed constitutional design | [Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md) and [architecture guide](docs/ARCHITECTURE_GUIDE.md) |
@@ -45,6 +48,32 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 | Remaining weaknesses and remediation priorities | [Whole-repository gap review](docs/REPOSITORY_GAP_REVIEW.md): 26 findings with completion criteria |
 | How to reconstruct the development | [Development record](history/DEVELOPMENT_RECORD.md) and [chronology](history/README.md) |
 
+## Modular use and AI institutional support
+
+For practical adaptation, use the [modular framework](constitutional-design/modular/README.md):
+a shared core charter, context-specific offices and terms, and procedures scaled
+to the consequences of each decision. Commercial, public, safety-critical and
+community profiles are proposed alternatives. The commercial example uses a
+12-month review appointment, renewable once; the original v0.1 proposal retains
+its fixed seven-, nine- and six-year office terms.
+
+Use [proportional governance](process/PROPORTIONAL_GOVERNANCE.md) to distinguish
+routine information and reversible actions from consequential, severe and
+foundational decisions. Evidence sufficiency and administrative overhead scale
+with actual effects, uncertainty and reliance; controlling proof standards and
+prohibitions cannot be waived by a risk score.
+
+[AI helping govern institutions](applications/ai-assisted-institutional-governance.md)
+explains how AI can reduce retrieval, preparation, documentation and routine
+approval burdens while preserving accountable human judgment. The
+[virtuous recursive process](process/VIRTUOUS_RECURSION.md) connects independently
+observed effects to proposed improvements and separately authorized revisions.
+It permits less automation or fewer optional records when those are justified.
+These are guidance/theory and unadopted design proposals, with no code or new
+empirical results. See the [complete invented service case](docs/examples/SERVICE_CASE.md),
+[current evidence map](docs/EVIDENCE_STATUS.md) and
+[remediation ledger](docs/REMEDIATION_STATUS.md) for remaining work.
+
 ## Current state
 
 | Area | Status |
@@ -52,6 +81,7 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 | Foundational design | Five foundational questions resolved through explicit human design decisions |
 | Constitutional proposal | Eight Articles, 24 Sections, and 35 traced accepted requirements |
 | Text review | Passed the repository's recorded pre-ratification design review |
+| Modular architecture | Separately proposed charter/profiles; not a reviewed v0.2 ratification packet |
 | Constitutional effect | **PROPOSED FOR HUMAN RATIFICATION — NOT YET ADOPTED** |
 | Ratification instrument | Not ready: required initial Schedule O human staffing and appointment records remain unfilled |
 | Production runtime | Not authorized and not implemented |

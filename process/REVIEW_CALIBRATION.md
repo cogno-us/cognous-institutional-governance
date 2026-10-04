@@ -84,3 +84,12 @@ of grants, staffing or scope; they do not automatically weaken safeguards.
 No response target or probability threshold has been validated here. The
 [record-value program](../testing/programs/RECORD_VALUE.md) includes unexecuted
 questions about both dangerous delay and unsupported fast action.
+
+## Contextual severity and AI assistance
+
+[Proportional governance](PROPORTIONAL_GOVERNANCE.md) separates institution form,
+act severity, formal proof and administrative burden. Use it to authorize routine
+classes and escalate consequential exceptions; deadlines do not create automatic
+approval. [AI support](../applications/ai-assisted-institutional-governance.md)
+can reduce preparation, while [recursive learning](VIRTUOUS_RECURSION.md) requires
+separate approval of any changed grant or procedure.

@@ -14,9 +14,23 @@ Read this index first. This section separates proposed operational exercises, ex
 | [Execution template](templates/OPERATIONAL_RECORD.md) | Actual operational run record requirements | Template only |
 | [Repository checks](../tests/README.md) | Validator and existing invariant tests | Conformance checks, not efficacy evidence |
 
+## Current coverage and validation meaning
+
+Use the [coverage crosswalk](COVERAGE_MAP.md) for all 68 numbered proposals,
+their narrower fixtures and unmapped behaviors. The [evidence status map](../docs/EVIDENCE_STATUS.md)
+distinguishes recorded design review from operational readiness. New modular
+and AI-support guidance has no executed result. Its [tabletop review questions](research/MODULAR_GOVERNANCE_REVIEW.md)
+are separately proposed, not additions to an archived battery.
+
+The [modular-remediation check record](REMEDIATION_CHECKS.md) documents current
+conformance checks and explicit limits; it is not a module-efficacy result.
+
 ## Run locally
 
-From the repository root, using Python 3.9+ and no additional dependencies:
+The standalone reference/film adapters document Python 3.9+; full-checkout
+validation and repository tests use Python 3.10+ guidance. From the repository
+root, use Python 3.10+ for the combined commands below, with no additional
+dependencies. A supported-version matrix has not been verified in CI:
 
 ```sh
 python3 testing/harness/run_reference.py

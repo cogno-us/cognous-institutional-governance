@@ -4,6 +4,13 @@ Start with the [repository overview](../README.md).
 
 | Guide | Purpose |
 |---|---|
+| [Modular charter and profiles](../constitutional-design/modular/README.md) | Context-specific structure and terms, separately proposed from v0.1 |
+| [Proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) | Severity, evidence sufficiency and process burden |
+| [AI institutional assistance](../applications/ai-assisted-institutional-governance.md) | Reduce administrative work and support accountable judgment |
+| [Virtuous recursion](../process/VIRTUOUS_RECURSION.md) | Govern how observed outcomes inform authorized improvements |
+| [Complete teaching packet](examples/SERVICE_CASE.md) | Invented end-to-end case with departures, challenge, remedy and learning |
+| [Current evidence status](EVIDENCE_STATUS.md) | Historical design review versus current operational evidence |
+| [Remediation status](REMEDIATION_STATUS.md) | All 26 earlier gaps, documentary improvements and unfinished work |
 | [Getting started](GETTING_STARTED.md) | Reader, reviewer, contributor, and application paths with a worked example |
 | [Institutional scope](INSTITUTIONAL_SCOPE.md) | Broad governance framing, human-only examples and adaptation boundaries |
 | [Institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) | Prepared program and templates for access, workload and remedy evidence |

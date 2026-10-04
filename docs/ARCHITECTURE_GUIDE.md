@@ -7,6 +7,20 @@ and AI safeguards remain unchanged.
 Start with the [overview](../README.md); use the
 [development record](../history/DEVELOPMENT_RECORD.md) to reconstruct decisions.
 
+## Context-sensitive architecture now proposed
+
+The [modular framework](../constitutional-design/modular/README.md) separates
+common protections from institutional profiles, exact office terms and
+proportional procedures. It is a new design proposal responding to the owner's
+request; the original reference text and its traced decisions remain unchanged.
+A shorter commercial appointment is an explicit adaptation, not an interpretation
+that v0.1's nine-year Court term means twelve months.
+
+For first use, follow [Getting started](GETTING_STARTED.md). Use the
+[evidence map](EVIDENCE_STATUS.md) beside validator readiness labels: those labels
+check a recorded design assessment, not independent present-day readiness,
+comprehension or practical staffing. New modular proposals do not inherit it.
+
 ## Core constitutional distinctions
 
 These distinctions began as research principles. Where incorporated through

@@ -196,3 +196,15 @@ These are proposed applications of the [eleven-theme analysis](../research/FOG_O
 Separate detector output, observed conduct and reconstructed explanation in a misconduct record. Preserve the student’s account and inspect evidence omitted from the initial summary. Correcting an accusation requires checking discipline, assessment records and notification through the institution’s actual process.
 
 Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
+
+## Context-specific structure, proportional review and AI support
+
+Use the [modular routing map](MODULAR_ROUTING.md) and
+[charter/profiles](../constitutional-design/modular/README.md) for offices and
+terms suited to this context, with explicit departures from fixed v0.1.
+[Proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) scales evidence
+and review to the actual act; routine work and severe reliance need different
+routes. The [AI support module](ai-assisted-institutional-governance.md) and
+[recursive process](../process/VIRTUOUS_RECURSION.md) explain how assistance can
+reduce preparation and improve future practice without acquiring authority.
+These additions are proposals; this file's five exercises remain unexecuted.

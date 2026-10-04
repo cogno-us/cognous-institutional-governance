@@ -4,6 +4,15 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Modular governance, proportional review and AI support
+
+- Added a separate modular charter proposal, article-by-article change map, four institutional profiles, shorter commercial/community appointment examples and a profile/departure schedule. Fixed v0.1 text and review status remain intact.
+- Developed T0–T4 guidance for consequences, claim-specific evidence and review overhead; separated legality, formal proof, institutional form and reserved change. No invented risk cutoff or emergency waiver.
+- Added AI institutional support and a bounded virtuous-recursion process: reduce preparation/routine approval work, retain meaningful judgment, independently assess effects and separately authorize improvements. No code or observed saving is claimed.
+- Added proposed rights/records/independence/remedy/interface procedures, an entirely invented end-to-end service packet, a current evidence map, a 26-gap remediation ledger and all-68-proposal coverage crosswalk. Linked the short route and all eighteen original context guides.
+- New guidance needs contextual authority, completed schedules, independent review and field evidence; CI/refactoring remain deferred under the guidance/theory scope. Historical decisions, requirements, source statuses, fixture inputs and archives are preserved.
+- Repository validation, all 431 unit tests and both archived replay/integrity checks passed; [verification record](testing/REMEDIATION_CHECKS.md) documents scope and limits. No original code or archives changed.
+
 ## 2026-10-04 — Whole-repository gap review
 
 - Inventoried the 261-file public base and combined structural checks with targeted architectural, institutional, research, testing and maintenance review; documented the limits of this analysis.
