@@ -184,3 +184,9 @@ Return to the [Applications index](README.md),
 [research](../research/README.md), and
 [methodology](../process/METHODOLOGY.md) for provenance and the distinction
 between evidence, recommendation, human decision, and operative authority.
+
+## Applying the Fog of War review
+
+Do not let output or uptime metrics conceal safety degradation or delayed maintenance. Distinguish sensor observations from inferred causes and inspect shared failure dependencies. Compare bounded authorized action with interruption harm and record actual effects, recovery authority and near misses.
+
+These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.

@@ -37,3 +37,7 @@ At least 20 held-out legitimate and 20 hazardous variants per initial workflow i
 Use one [operational execution record](templates/OPERATIONAL_RECORD.md) per case/configuration. PROPOSED means a design exists; EXECUTED_SYNTHETIC means this reference adapter ran; EXECUTED_OPERATIONAL requires actual observations in a defined workflow; REVIEWED requires identified human review. Do not promote status based on generated agreement or passing repository checks.
 
 Keep immutable run snapshots with fixture/harness hashes, environment, UTC execution time, actual commit and dirty-state disclosure. Redact private material while documenting limitations. Append corrected interpretations or new versions rather than silently replacing adverse evidence. Continuation remains an actual human decision.
+
+## Supplement: reasoning under uncertainty
+
+The eleven [Fog of War exercises](battery/FOG_OF_WAR.md) extend the prospective review questions to competing explanations, correlated sources, metric incentives, action/delay harm, escalation, evasion and near misses. Use held-out positive and hazardous variants and the [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md). Competent conventional controls must receive comparable evidence and authority. Measure human reconstruction and correction, legitimate service, harm, review delay and workload; do not use blanket refusal or a completed form as evidence of effectiveness. No FW exercise has been executed; the existing harness and archived results do not cover them.

@@ -184,3 +184,9 @@ Return to the [Applications index](README.md),
 [research](../research/README.md), and
 [methodology](../process/METHODOLOGY.md) for provenance and the distinction
 between evidence, recommendation, human decision, and operative authority.
+
+## Applying the Fog of War review
+
+Separate observed evidence from the interpretation and retrospective narrative. Preserve competing hypotheses, source dependencies, contradictory results and prior reasoning after correction. A fortunate result does not validate the method; prospective evaluation needs independently set criteria and usable challenge.
+
+These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.

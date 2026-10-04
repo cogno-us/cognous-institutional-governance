@@ -31,3 +31,7 @@ The reference runner prints summaries and writes a new timestamped directory und
 Both guarded configurations satisfied the same 24 predefined fixture outcomes; the deliberately permissive toy baseline satisfied three. Nineteen hazardous cases were blocked and all three legitimate allows were retained by both guarded configurations. Pending delivery and recovery behaved as specified. The Alvorada-inspired arm adds records but has identical effect controls. This establishes no incremental effect benefit, historical prevention or real-world efficacy. Record richness needs independent human evaluation.
 
 All 47 full operational exercises and the existing 90 application exercises remain proposed. Follow [PROTOCOL.md](PROTOCOL.md) for what remains to be done. The earlier separate report and ZIP are superseded as the primary presentation by this repository section; all necessary specifications, execution code and observations are here. No binary report or article copies are required.
+
+## Supplementary Fog of War exercises
+
+[FW01–FW11](battery/FOG_OF_WAR.md) add eleven proposed exercises for uncertainty, correlated evidence, purpose, metrics, harm, reconsideration, accountability and near misses. The testing section now specifies 58 proposed exercises: the original frozen 47-case battery plus this separate eleven-case supplement. The 90 application exercises are separate. The supplement is unexecuted and not supported by the current 24 fixtures or 72 observations; the original battery, harness and archives are preserved.

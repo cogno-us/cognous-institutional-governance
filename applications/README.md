@@ -118,3 +118,7 @@ See [testing and evaluation](../testing/README.md) for the 47-case proposed batt
 verified reporting links, harness design and 72 executed synthetic runs.
 Full operational exercises and independent review remain pending; the reference
 experiment does not establish comparative institutional or field efficacy.
+
+## Cross-context review under uncertainty
+
+Each context now includes a domain-specific application of the [Fog of War analysis](../research/FOG_OF_WAR.md). Use the [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md) for alternative explanations, evidence dependence, beneficiary harm, authority limits, dissent and reconsideration. The eleven [supplementary FW exercises](../testing/battery/FOG_OF_WAR.md) are separate from the ninety original application exercises; neither set is evaluated.

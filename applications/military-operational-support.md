@@ -184,3 +184,9 @@ Return to the [Applications index](README.md),
 [research](../research/README.md), and
 [methodology](../process/METHODOLOGY.md) for provenance and the distinction
 between evidence, recommendation, human decision, and operative authority.
+
+## Applying the Fog of War review
+
+In non-tactical decision briefs, distinguish original reports, uncertain inference and command authorization. Expose common-source dependence, alternative interpretations and dissent; specify who can reopen a premise under lawful oversight. This is institutional review guidance, not targeting, weapons-employment or operational planning advice; historical success does not prove legitimacy.
+
+These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.

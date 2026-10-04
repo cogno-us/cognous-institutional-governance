@@ -88,3 +88,7 @@ See [testing and evaluation](../testing/README.md) for the 47-case proposed batt
 verified reporting links, harness design and 72 executed synthetic runs.
 Full operational exercises and independent review remain pending; the reference
 experiment does not establish comparative institutional or field efficacy.
+
+## Later comparative learning: The Fog of War
+
+[The Fog of War analysis](FOG_OF_WAR.md) maps all eleven film themes to existing principles and constitutional provisions, qualifies the difficult lessons, and explains the proposed decision-review procedure and supplementary exercises. Incorporated 2026-10-04 as a later reading; no original influence, historical prevention or amendment is asserted.

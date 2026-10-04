@@ -100,6 +100,10 @@ unmeasured. The [full sourced comparison](research/COMPARATIVE_WORKS.md) covers
 ten groups of work, differences, retained costs, evidence limits, and a proposed
 comparative evaluation. It supports no claim of priority or proven superiority.
 
+## Learning from The Fog of War
+
+A [sourced study](research/FOG_OF_WAR.md) applies all eleven documentary themes to the existing design: test alternative explanations, inspect shared evidence dependencies, assess harm alongside efficiency, preserve dissent, reconsider before escalation, and review near misses. It explicitly qualifies moral rationalization and evasive accountability. A [decision review template](process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), additions to all eighteen context guides, and [eleven proposed supplementary exercises](testing/battery/FOG_OF_WAR.md) make the analysis usable. This is later supporting research; it does not amend the constitutional proposal or establish efficacy.
+
 ## Research, history, and process
 
 [Research](research/README.md) explains the evidence streams.

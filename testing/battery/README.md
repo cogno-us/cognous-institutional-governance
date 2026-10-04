@@ -15,3 +15,7 @@
 - [L01–L07: Lifecycle boundaries](LIFECYCLE.md)
 
 Every full exercise remains PROPOSED. The [24 reference fixtures](../fixtures/cases.json) map to narrower aspects of C01, C06, C09, L01 and L02. They do not validate the remaining groups or all acceptance criteria in linked exercises. The existing 90 application exercises remain separately proposed and unexecuted.
+
+## Separate documentary-source supplement
+
+[FW01–FW11: Fog of War](FOG_OF_WAR.md) contains eleven additional proposed review exercises. These are separate from `battery.json`, whose 47 original cases remain frozen. They are invented prospective scenarios inspired by a documentary, not additional news incidents or executed reference fixtures.

@@ -135,3 +135,7 @@ superiority, historical inevitability, legal enforceability, universal
 transferability, or immunity to capture. Implementation feasibility, operating
 cost, constitutional performance, and broader historical verification remain
 subjects for further work.
+
+## Later extension: decision quality under uncertainty
+
+The [Fog of War analysis](../research/FOG_OF_WAR.md), added 2026-10-04, supplies a further comparative lens. Its [decision review template](DECISION_REVIEW_UNDER_UNCERTAINTY.md) makes alternative explanations, source dependence, incentive conflicts, harm from action and delay, reconsideration triggers and near misses explicit. This is a prospective practice proposal, not a change to the original design provenance or proof of institutional performance.

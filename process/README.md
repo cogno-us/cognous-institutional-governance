@@ -14,3 +14,7 @@ decision, amendment, ratification, or implementation authorization.
 These explanations are secondary to the original decision records and proposed
 constitutional text. If a summary conflicts with its controlling record, correct
 the summary; do not reinterpret the adopted design through documentation.
+
+## Reviewing consequential decisions
+
+[Decision review under uncertainty](DECISION_REVIEW_UNDER_UNCERTAINTY.md) translates the later Fog of War study into a proposed record for evidence, alternative explanations, harm, authority, dissent, reconsideration and observed effects. It supports existing provisions and does not authorize a new workflow.

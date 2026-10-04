@@ -18,3 +18,7 @@
 - Expiry, next review and follow-up actions:
 
 Leave unknown fields UNKNOWN. Do not fill observations, authority or human review with generated assumptions. Link raw evidence and the actual execution record. This template supplies no authorization.
+
+## Optional uncertainty-review supplement
+
+For FW exercises, link the [decision review record](../../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md). Record the competing explanation, shared-source dependencies, metric omissions, harms of action and delay, predefined reconsideration trigger, actual response to that trigger and near-miss assessment. Separate what was knowable at decision time from later outcome evidence. These fields are proposals until populated with actual observations.

@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Fog of War lessons
+
+- Added a sourced mapping of all eleven film themes to existing principles and provisions, with critical qualifications and attribution boundaries.
+- Added a proposed decision-review template and tailored guidance in all eighteen application contexts.
+- Added eleven separate proposed FW exercises and updated research, history, process and testing navigation.
+- Preserved original decision provenance, constitutional text, the frozen 47-case battery and all synthetic evidence. No FW exercise has been executed or reviewed.
+
 ## 2026-10-03 — Repository-native testing
 
 - Added a dedicated testing index, 47 proposed operational exercises, and incident reporting links.
