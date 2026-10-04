@@ -7,6 +7,10 @@ demonstrated sector result.
 [Choose the modular route](MODULAR_ROUTING.md) or
 [read the detailed application](#detailed-application).
 
+For ongoing use, follow [operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md)
+for real owners, workflow discovery, supplier changes, review competence and
+independent effect checks. It provides guidance, not an enforcement runtime.
+
 ## Detailed application
 
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  

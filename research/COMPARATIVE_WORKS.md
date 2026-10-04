@@ -126,6 +126,18 @@ unique, complete in practice, or proven to preserve sovereignty are unsupported.
 
 
 
+## Enterprise operating-framework comparison, 2026-10-04
+
+The [four-work review](ENTERPRISE_GOVERNANCE_REVIEW.md) adds Sun, Kenney, IMDA
+and Gan/Wilczek-Stronczek/Papasava with exact source scopes and limits. These
+works already connect governance commitments to ownership, controls and evidence;
+whole-system scope, proportionate oversight or human accountability alone are not
+unique contributions. Alvorada can complement operational programs through its
+traceable constitutional choices, challenge/remedy and institutional lifecycle.
+The review also identifies gaps in our operating guidance, addressed by the
+[shared stewardship guide](../process/OPERATIONAL_STEWARDSHIP.md). This is
+documentary improvement, not comparative superiority or validated implementation.
+
 Return to the [overview](../README.md) or [research index](README.md).
 
 ## Scope clarification: broad institutional governance, 2026-10-04

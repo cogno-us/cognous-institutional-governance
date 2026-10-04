@@ -4,6 +4,14 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Enterprise operating-governance review
+
+- Compared four supplied governance works with existing guidance; recorded exact source/page scopes, attachment fingerprints, partial-manual/access limits and ten operational gaps in the unified research section. No PDFs, diagrams or source templates were copied.
+- Added one shared stewardship guide and optional workflow record, linked through existing practical paths. Reused rights, proportional review, adoption, evidence and recursive-learning procedures instead of multiplying sector worksheets.
+- Added twelve explicitly unexecuted review scenarios in testing/research. Original constitution, decision data, source-status registers, harness, fixtures and frozen results remain unchanged; no measured saving, efficacy or compliance claim is added.
+
+- Repository validation, all 431 unit tests, both archived replays, 1,430 local file-link destinations and whitespace/scope checks passed. The [testing index](testing/README.md#enterprise-guidance-repository-checks-2026-10-04) records verification limits.
+
 ## 2026-10-04 — Public comparison summary
 
 - Added a plain-language comparison near the top of the README covering authority, proportional review, institutional continuity, traceable reasoning and AI-supported learning. Linked the deeper comparative review and evidence status; proposed design benefits are distinguished from demonstrated superiority.

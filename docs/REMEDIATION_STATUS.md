@@ -44,6 +44,20 @@ or normative finding is closed merely by adding a document.
 | G25 disclosure/IP | New material is public theory/guidance with linked sources; bounded current-tree scan documented in change note | External: qualified IP/provenance comparison if required; history/private IP not exhaustively audited |
 | G26 discovery metadata | Descriptive README scope includes modular and AI institutional support | Rename/transfer completed and canonical metadata updated 2026-10-04; GitHub topics/description not changed |
 
+## Later enterprise operating gaps, 2026-10-04
+
+The [four-work review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) adds OS1–OS10
+to the earlier G01–G26 review without rewriting that historical baseline. The
+[stewardship guide](../process/OPERATIONAL_STEWARDSHIP.md) and optional record
+provide documentary remediation for workflow discovery, portfolio dependencies,
+operating ownership, supplier/obligation continuity, separate capability/readiness
+assessment, lifecycle change, human competence, complete effect evidence, incident
+response and substantive reporting. Actual capacity, contextual/legal review,
+independent assurance and comparative benefits remain unverified. Twelve
+[review scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md) are
+proposed and unexecuted; the supplied Kenney manual ends at page 300, so review
+of its unavailable later chapters remains deferred.
+
 ## New design questions introduced by this remediation
 
 The common charter and profiles need their own normative review, traceability and

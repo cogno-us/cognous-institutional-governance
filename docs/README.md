@@ -19,6 +19,7 @@ all the research or fill every worksheet to understand the framework.
 |---|---|
 | Structure and terms | [Modular framework](../constitutional-design/modular/README.md) |
 | Review effort and evidence | [Proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) |
+| Keeping safeguards operational | [Operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md): workflows, ownership, changes and effects |
 | AI support and learning | [AI assistance](../applications/ai-assisted-institutional-governance.md), [recursive learning](../process/VIRTUOUS_RECURSION.md) |
 | Research, history and films | [Unified research section](../research/README.md) |
 | Actual status and open work | [Evidence status](EVIDENCE_STATUS.md), [remediation ledger](REMEDIATION_STATUS.md) |

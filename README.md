@@ -61,6 +61,9 @@ eighteen domain guides, decision templates, comparative research and a testing
 section. The original [Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md)
 and its design history remain available for detailed review.
 
+The [operating guide](process/OPERATIONAL_STEWARDSHIP.md) connects material
+workflows to owners, suppliers, change review, incident handling and effect checks.
+
 Routine work can use bounded standing authorization. Serious or irreversible
 choices need stronger evidence and human review. Prohibited acts do not become
 permissible through more process. Profiles can vary offices and terms, with

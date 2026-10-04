@@ -32,6 +32,17 @@ These explanations are secondary to the original decision records and proposed
 constitutional text. If a summary conflicts with its controlling record, correct
 the summary; do not reinterpret the adopted design through documentation.
 
+## Keeping governance operational
+
+Use [operational stewardship](OPERATIONAL_STEWARDSHIP.md) at the level of a material
+workflow or routine action class: discovery, dependencies, owners, suppliers,
+changes, review quality, incidents and retirement. The
+[optional record](templates/WORKFLOW_STEWARDSHIP_RECORD.md) links existing records
+rather than create a second mandatory case worksheet. Its
+[reading basis](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) and
+[unexecuted review scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md)
+remain separate from operational evidence.
+
 ## Reviewing consequential decisions
 
 [Decision review under uncertainty](DECISION_REVIEW_UNDER_UNCERTAINTY.md) translates the later Fog of War study into a proposed record for evidence, alternative explanations, harm, authority, dissent, reconsideration and observed effects. It supports existing provisions and does not authorize a new workflow.

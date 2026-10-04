@@ -5,6 +5,11 @@ to inspect and put scarce review effort where mistakes would matter most.
 Formal approval, many records and a successful outcome are each insufficient
 on their own. Alvorada's added practical value still needs testing.
 
+The later [enterprise governance review](ENTERPRISE_GOVERNANCE_REVIEW.md)
+adds an operating lesson: connect each material workflow to real owners, current
+conditions, supplier/dependency review and independently checked effects. These
+readings also reinforce that documented maturity is not demonstrated performance.
+
 ## Six findings in plain language
 
 | Finding | Practical implication | Deeper evidence and analysis |

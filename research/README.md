@@ -26,6 +26,7 @@ historical argument, empirical research, design interpretation and untested clai
 | What do philosophy, economics and social science add? | [Cross-disciplinary studies](cross-disciplinary/README.md) and [deeper synthesis](cross-disciplinary/DEEP_SYNTHESIS.md) |
 | What helps people make better decisions? | [Business and econometrics](decision-making/README.md) |
 | How can AI assist governance responsibly? | [Primary research and limits](AI_ASSISTED_GOVERNANCE_SOURCES.md) |
+| What does enterprise implementation add? | [Four-work governance review](ENTERPRISE_GOVERNANCE_REVIEW.md): operating ownership, lifecycle, suppliers and assurance |
 | Does comparable work exist? | [Comparative assessment](COMPARATIVE_WORKS.md) |
 
 ## Trace the development

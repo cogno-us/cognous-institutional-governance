@@ -28,6 +28,23 @@ conformance checks and explicit limits; it is not a module-efficacy result.
 The [documentation-refactor check record](DOCUMENTATION_REFACTOR_CHECKS.md)
 records migration verification and the remaining need for newcomer review.
 
+The [operational-stewardship review](research/OPERATIONAL_STEWARDSHIP_REVIEW.md)
+adds twelve separately proposed tabletop scenarios from the later enterprise
+readings. No scenario has been executed or added to the archived adapters.
+
+## Enterprise-guidance repository checks, 2026-10-04
+
+Against base `48fd3697cfa4e4aee03745b68d2c2ef344a7a785`, Python 3.12.14:
+repository validator passed, 423 repository tests and eight harness tests passed,
+and both archived integrity/replay verifiers passed. A relative Markdown scan
+resolved all 1,430 file destinations; this does not certify external availability
+or every fragment anchor. Patch whitespace and a bounded changed-document
+proper-name/credential-marker scan passed. All changed files are Markdown;
+original constitutional data, source-status registers, code, battery inputs,
+fixtures and frozen results are unchanged. These checks verify conformance and
+archive integrity, not the twelve new scenarios, reader comprehension, source
+authenticity, legal compliance, IP clearance or real-world operating effectiveness.
+
 ## Run locally
 
 The standalone reference/film adapters document Python 3.9+; full-checkout

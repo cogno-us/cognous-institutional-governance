@@ -4,6 +4,10 @@
 
 [Read the detailed guidance](#detailed-guidance).
 
+For ongoing use, follow [operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md)
+for real owners, workflow discovery, supplier changes, review competence and
+independent effect checks. It provides guidance, not an enforcement runtime.
+
 ## Detailed guidance
 
 **GUIDANCE AND THEORY; no deployed system, grant or demonstrated saving.**

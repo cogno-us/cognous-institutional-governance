@@ -4,6 +4,11 @@
 
 [Read the detailed guidance](#detailed-guidance).
 
+The later [enterprise review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) and
+[operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md) are source
+analysis and proposed guidance. Their twelve tabletop scenarios are unexecuted;
+no new operational benefit or synthetic result is claimed.
+
 ## Detailed guidance
 
 **Current explanatory status; historical review records remain unchanged.**
@@ -19,7 +24,7 @@
 | Film archive | 42 synthetic fixtures × three arms = 126 observations | Full FW/TB execution, human evidence judgment or organizational independence |
 | All numbered operational proposals | 47 original + 11 FW + 10 TB = 68 | 68 executed or unique independently validated mechanisms |
 | Original application exercises | 18 contexts × five exercises = 90, proposed | Sector adoption or field effectiveness |
-| Additional research designs | 12 governed-agency proposals, six SC usability scenarios, three record-value questions, new modular tabletop guidance | Additional archived observations; counts are not additive measures of unique coverage |
+| Additional research designs | 12 governed-agency proposals, six SC usability scenarios, three record-value questions, new modular tabletop guidance and twelve stewardship scenarios | Additional archived observations; counts are not additive measures of unique coverage |
 | Repository validator/unit tests | Conformance, pinned reviewed records, specific behavior and archive provenance | A new human comprehension assessment, legitimacy, institutional safety or field efficacy |
 | Real-world benefit/independent review | Not established by this repository | Cannot be inferred from document volume, model agreement or passing software checks |
 
