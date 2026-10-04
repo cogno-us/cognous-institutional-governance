@@ -151,3 +151,7 @@ The [five leadership studies](../research/leadership/README.md), added 2026-10-0
 ## Later extension: cross-disciplinary comparison
 
 The [sixteen additional studies](../research/cross-disciplinary/README.md), added 2026-10-04, examine political leadership, philosophy, economics and social science. They use purposive selection, competing considerations and explicit distinctions among inspected primary text, scholarly summary, publisher overview and indexed excerpts. Interpretation supplies proposed questions about participation, local knowledge, human feasibility and systemic correction. This is neither a completed literature review nor retroactive evidence for original design choices.
+
+## Deepening source review without rewriting provenance
+
+The [targeted source ledger](../research/cross-disciplinary/SOURCE_REVIEW.md), added later on 2026-10-04, records accessible primary passages for six priority contributors. Earlier indexed-excerpt limitations remain in public Git history; current notes state their improved but still bounded source coverage. The [synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) separates existing constitutional commitments, proposed subordinate practices and normative questions that require actual human decisions. Its evaluation scenarios remain unexecuted.

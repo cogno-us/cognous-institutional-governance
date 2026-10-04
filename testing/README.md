@@ -49,3 +49,7 @@ python3 testing/harness/verify_film_review.py
 ```
 
 The [2026-10-04 archive](results/2026-10-04-film-review-v1/README.md) records 126 final film-adapter observations, a rerun of the original 72 observations, and current repository checks. Conventional and Alvorada-inspired controls have identical effects; no incremental institutional benefit is established.
+
+## Research designs: institutional usability
+
+Six [institutional usability scenarios](research/INSTITUTIONAL_USABILITY.md), drawn from deeper interdisciplinary studies, examine participation barriers, local/shared scope, effective voice, usable alternatives, reviewer workload and shared failures. Each includes legitimate countercases and cost observations. They are **unexecuted research designs outside the 68 numbered operational proposals**, with no new fixtures, harness results or efficacy findings.

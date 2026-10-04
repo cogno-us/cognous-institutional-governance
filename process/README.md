@@ -30,3 +30,7 @@ The [leadership review worksheet](LEADERSHIP_REVIEW.md) adds questions about sep
 ## Participation, knowledge and review capacity
 
 The [cross-disciplinary supplement](CROSS_DISCIPLINARY_REVIEW.md) adds usable standing, voice and exit, local knowledge, realistic human workload and shared safeguard dependencies to existing review questions. Its [sixteen source studies](../research/cross-disciplinary/README.md) are later comparative learning, not adopted rules.
+
+## Deeper analysis and evidence design
+
+The [six-study synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) now distinguishes formal protections from demonstrated operational capacity and flags individual exit as a separate normative question. The review supplement links six [unexecuted usability scenarios](../testing/research/INSTITUTIONAL_USABILITY.md) for future evaluation.

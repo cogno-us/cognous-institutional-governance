@@ -60,3 +60,7 @@ See [testing and evaluation](../testing/README.md) for the 47-case proposed batt
 verified reporting links, harness design and 72 executed synthetic runs.
 Full operational exercises and independent review remain pending; the reference
 experiment does not establish comparative institutional or field efficacy.
+
+## Later targeted leadership and disciplinary studies
+
+The [cross-disciplinary source ledger](cross-disciplinary/SOURCE_REVIEW.md) records specific primary passages inspected for six contributors. This does not upgrade the original historical register or verify complete corpora. The [deeper synthesis](cross-disciplinary/DEEP_SYNTHESIS.md) identifies missing operational evidence for participation, review capacity, voice, local grants and independent correction. Six [research scenarios](../testing/research/INSTITUTIONAL_USABILITY.md) are unexecuted and outside the numbered batteries; no new causal, comparative or efficacy results accompany them.

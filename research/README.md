@@ -104,3 +104,7 @@ The [leadership studies](leadership/README.md) examine Eisenhower, Woodrow Wilso
 ## Cross-disciplinary extension
 
 [Sixteen additional studies](cross-disciplinary/README.md) extend leadership analysis into political philosophy, economics and social science. Each distinguishes its source basis, interpretation, limits and unexecuted questions. The synthesis identifies research priorities, tensions and source-access limitations.
+
+## Deeper study: participation and feasible judgment
+
+The [six-study synthesis](cross-disciplinary/DEEP_SYNTHESIS.md) examines Ambedkar, Ostrom, Hirschman, Sen, Simon and Reason through targeted primary passages. It maps existing constitutional support against implementation questions about access, local grants, effective voice, usable alternatives, review workload and shared failures. Sources and unexecuted testing designs are separately documented.

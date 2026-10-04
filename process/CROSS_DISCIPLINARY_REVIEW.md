@@ -19,3 +19,7 @@ Record tradeoffs and the accountable human’s actual decision. A barrier may ju
 ## Evaluation boundary
 
 These are prospective questions outside the numbered testing batteries. For a future exercise, define an observable failure and legitimate-action countercase, reviewer independence, time and cost measures, and accessible participation. Follow the [testing protocol](../testing/PROTOCOL.md). No new test execution, score or efficacy claim accompanies this supplement.
+
+## Turning answers into observable evidence
+
+The [deeper synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) distinguishes textual support from staffed operational capacity. For each material claim above, identify the actual participant or reviewer, usable evidence route, competent act, completed effect and contrary evidence. Record access barriers, review minutes, unnecessary holds, service retained and remedy completion separately; a favorable aggregate score cannot cure an authority breach. The six [research scenarios](../testing/research/INSTITUTIONAL_USABILITY.md) are prospective designs, not completed checks. Individual exit rules require separate attention: institutional termination provisions do not settle every participant’s departure rights or continuing duties.

@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Deeper primary-source analysis
+
+- Deepened Ambedkar, Ostrom, Hirschman, Sen, Simon and Reason using targeted primary passages; resolved four earlier retrieval limitations and documented exact review boundaries.
+- Added a synthesis separating existing constitutional protections from operational gaps, tradeoffs and normative questions; expanded practical evidence guidance.
+- Added six unexecuted institutional usability research scenarios in testing, outside the numbered batteries; no new harness observations or efficacy findings.
+- Preserved constitutional text, original decisions, preliminary register statuses and frozen test archives.
+
 ## 2026-10-04 — Cross-disciplinary lesson extension
 
 - Added sixteen scoped studies across political leadership, philosophy, economics and social science, with source-depth and access limits recorded.

@@ -83,3 +83,7 @@ Five [separate studies and a comparison](../research/leadership/README.md) exami
 ## Later incorporation: cross-disciplinary studies, 2026-10-04
 
 The [cross-disciplinary extension](../research/cross-disciplinary/README.md) adds sixteen scoped studies and a research agenda. New political cases include Washington, Lincoln, Mandela and Ambedkar. Other comparisons draw from philosophy, economics and social science. Source depth and retrieval limits remain visible; these additions do not change the original historical register or constitutional provenance.
+
+## Later deepening: six primary-source studies, 2026-10-04
+
+A same-day [source-review ledger](../research/cross-disciplinary/SOURCE_REVIEW.md) and [deeper synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) extend six priority notes beyond their initial orientation. Four earlier retrieval gaps were resolved for targeted passages. The work identifies implementation questions and unexecuted testing scenarios; original decisions, constitutional text and historical register statuses retain their provenance.
