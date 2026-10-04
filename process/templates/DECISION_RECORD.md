@@ -14,6 +14,7 @@ evidence and leave unknowns UNKNOWN. A completed worksheet is not approval.
 - Actual proposer, analyst, executor, reviewer and verifier: UNKNOWN
 - Shared people, conflicts, evidence/resource dependencies and assistance: UNKNOWN
 - Required depth of review and reason: UNKNOWN
+- Actual response route/grant, timing evidence, response target and authorized alternate: UNKNOWN
 
 ## Objectives and alternatives
 

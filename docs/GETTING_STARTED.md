@@ -9,6 +9,8 @@ contains no agent service to deploy and no adoption-by-installation mechanism.
 | Purpose | First steps |
 |---|---|
 | Make and review an institutional choice | Use the [decision workflow](../process/DECISION_MAKING.md) and [blank record](../process/templates/DECISION_RECORD.md); identify actual authority before comparing options. |
+| Calibrate time-sensitive review | Use [review calibration](../process/REVIEW_CALIBRATION.md); distinguish a standing grant, required review and the strict emergency fallback. |
+| Consider organizational adoption | Map rights, incentives, objections, resources and actual commitments with the [adoption assessment](ADOPTION_ASSESSMENT.md). |
 | Understand the design | Read the [overview](../README.md), [principles](DESIGN_PRINCIPLES.md), and [architecture guide](ARCHITECTURE_GUIDE.md), then the [proposal](../constitutional-design/drafts/CONSTITUTION_v0.1.md). |
 | Review a disputed choice | Use the [development index](../history/DEVELOPMENT_RECORD.md) and [decision rationale](../process/DECISIONS_AND_RATIONALE.md); identify the controlling decision and provision. |
 | Explore an application | Select a [context](../applications/README.md), identify real decision rights, and use the bounded [evaluation guide](PILOT_EVALUATION.md). |

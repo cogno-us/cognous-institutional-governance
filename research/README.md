@@ -7,6 +7,10 @@ For the current decision-making purpose, start with the
 register and inclusion recommendations. They are later supporting research,
 separate from the original development history reconstructed below.
 
+The [critique response](decision-making/GOVERNANCE_CRITIQUE.md) investigates
+delay costs, incumbent incentives and whether records improve substantive
+correction; its proposed practices and studies are not observed outcomes.
+
 Alvorada investigates durable institutional governance: authority that remains
 attributable, bounded and contestable, with humans retaining foundational
 authority over institutional ends. Human-only, conventional-software and

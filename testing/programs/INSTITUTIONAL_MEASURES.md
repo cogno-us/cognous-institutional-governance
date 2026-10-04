@@ -35,6 +35,19 @@ Use with the [assessment program](INSTITUTIONAL_ASSESSMENT.md). Before execution
 | Verification independence | Actual control and dependence in source evidence, staffing, infrastructure, finance, selection and incentives. | Different role names are not independence; disclose common dependencies and their material effects. |
 | Remaining obligations and recurrence | Uncompleted duties and repeated relevant failures within the defined follow-up period. | No observed recurrence during a short period is not proof of permanent correction. |
 
+## Substantive correction and timing supplement
+
+Use the [record-value extension](RECORD_VALUE.md). These definitions add no
+observations or universal thresholds.
+
+| Measure | Operational definition | Important qualification |
+|---|---|---|
+| Material-defect recognition | Independently assessed recognition among cases with an independently established material defect. | Report unknown ground truth separately; an objection alone is not an established defect. |
+| Appropriate disposition | Independently assessed authorized and evidence-supported dispositions among assessable cases, with disagreement retained. | Includes sound refusals and retained legitimate action; assessors do not create institutional grants. |
+| Recognition-to-correction chain | Case-specific timestamps and evidence linking recognized defect, competent disposition, execution and verified remedy. | Identify breaks, unverified effects and pending obligations; complete records are not complete correction. |
+| Time to authorized effect | Elapsed time from a predefined trigger/receipt event to the intended authorized effect, with required review/queue time separate. | Retain never-completed and censored cases; speed without authority is not successful completion. |
+| Added record burden | Preparation, entry, maintenance and review person-minutes plus participant/resource costs, compared across actual conditions. | Report resource differences; optional elaboration and mandatory records are distinct. |
+
 ## Comparison and reporting rules
 
 Report A/B/C case counts, resources and differences explicitly. If A is unobserved, say so; do not substitute the permissive toy adapter for an organizational baseline. Separate human-only and AI-supported conditions unless pooling is justified in the frozen plan.

@@ -9,6 +9,11 @@ and [blank record](templates/DECISION_RECORD.md). They connect the reviews below
 into one proportionate route from objectives and alternatives to an accountable
 choice, observed effects and correction.
 
+Use [review calibration](REVIEW_CALIBRATION.md) for bounded routine work,
+required prior review and predelegated incident response. Its timing assessment
+creates no new exception. Institutional rollout also needs the separate
+[adoption assessment](../docs/ADOPTION_ASSESSMENT.md).
+
 - [Methodology](METHODOLOGY.md): evidence, alternatives, adversarial review,
   human decisions, requirements, drafting, and the downstream implementation boundary.
 - [Decisions and rationale](DECISIONS_AND_RATIONALE.md): what was selected,

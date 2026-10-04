@@ -36,6 +36,14 @@ Its initial decision-quality question concerns independently assessed
 reconstruction of evidence and authority, alongside burden and legitimate
 service. Do not infer a causal record-format benefit from a confounded comparison.
 
+For substantive value, use the [record-value extension](RECORD_VALUE.md) to
+trace recognition through competent disposition and verified correction, and
+compare optional elaboration against concise adequate records. Define any new
+conditions prospectively; keep the original program and frozen observations
+distinct. Assess actual rollout commitments with the
+[adoption guide](../../docs/ADOPTION_ASSESSMENT.md) and timing with
+[review calibration](../../process/REVIEW_CALIBRATION.md).
+
 ### 2. Prepare cases and legitimate countercases
 
 Use the [six research scenarios](../research/INSTITUTIONAL_USABILITY.md) as mechanisms, not ready-made ground truth. A first wave emphasizes access, review capacity and remedy delivery, with voice as the route connecting them. SC-02 local/shared scope can follow after the initial instruments are assessed. Do not renumber the existing 68 proposals or call these new scenarios executed fixtures.

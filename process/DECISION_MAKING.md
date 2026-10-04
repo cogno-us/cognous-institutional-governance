@@ -20,6 +20,11 @@ A longer form does not establish better judgment. Assess whether the added work
 helps someone reconstruct, challenge or correct the decision. Follow actual
 institutional rules where they require more; this guide cannot waive them.
 
+Use [review calibration](REVIEW_CALIBRATION.md) to specify authorized routes,
+timing evidence, response targets and competent alternatives before an incident.
+The [record-value study](../testing/programs/RECORD_VALUE.md) tests whether fuller
+optional elaboration improves substantive correction enough to justify its burden.
+
 ## 1. Define the choice and decision rights
 
 State the action being considered, deadline, affected people and institutional

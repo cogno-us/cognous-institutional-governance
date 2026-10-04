@@ -56,6 +56,9 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 | Production runtime | Not authorized and not implemented |
 
 A validated proposal is different from an adopted and activated institution.
+Filling staffing schedules would not by itself establish affected-person
+consent, resources, incumbent commitments or practical independence. Use the
+[adoption assessment](docs/ADOPTION_ASSESSMENT.md) to investigate those conditions.
 No office is occupied, person appointed, or system authorized merely because a
 file describes it. Review results establish the recorded design assessment;
 they do not demonstrate real-world capture resistance or human consent.
@@ -103,6 +106,16 @@ The [evaluation supplement](testing/programs/DECISION_EVALUATION.md) defines
 what to specify before collecting effects, including comparators, assignment,
 outcomes, burden and inference limits. These are prepared practices and research
 instruments, not a new constitutional amendment or executed human study.
+
+The [critique response](research/decision-making/GOVERNANCE_CRITIQUE.md)
+addresses three unresolved challenges: decision delay, incumbent resistance
+to binding constraints, and record overhead without substantive correction.
+It adds [review calibration](process/REVIEW_CALIBRATION.md),
+[adoption assessment](docs/ADOPTION_ASSESSMENT.md) and a
+[record-value comparison](testing/programs/RECORD_VALUE.md). Calibration stays
+within actual authority; no probability threshold creates an exception. Added
+records must be assessed for correction, harm, legitimate service and burden,
+not merely completeness. All new research designs remain unexecuted.
 
 ## Applications
 

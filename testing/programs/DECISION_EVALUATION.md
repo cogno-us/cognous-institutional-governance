@@ -18,6 +18,12 @@ an acceptable additional burden, while retaining legitimate service. Define
 what counts as reconstruction before collecting results. A favorable complaint
 disposition is not inherently evidence of better decision quality.
 
+The [record-value extension](RECORD_VALUE.md) connects this intermediate
+reconstruction measure to error recognition, appropriate authorized disposition
+and independently verified correction. It proposes C-min/C-full conditions for
+a separately frozen study, preserving mandatory safeguards in every arm and
+testing optional elaboration alongside latency and burden.
+
 Keep A, the observed organizational baseline, separate from B/C if its data
 come from a different period or population. The primary incremental comparison
 is **C versus B** with the same effect controls and comparable resources.

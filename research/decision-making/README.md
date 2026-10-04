@@ -14,6 +14,11 @@ entrepreneurship, organizational learning and econometrics. It is not a
 systematic review or an assessment of every article from those institutions.
 Publication venue is not an evidence grade or an endorsement of Alvorada.
 
+The [follow-up critique response](GOVERNANCE_CRITIQUE.md) adds two scoped
+readings on formal/effective authority and bounded initiative, and practical
+guides for delay, adoption incentives and substantive record value. The
+initial eleven-work register remains distinct from those later additions.
+
 ## Read and use
 
 | Need | Document |

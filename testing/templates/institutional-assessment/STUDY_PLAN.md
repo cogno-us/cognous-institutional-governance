@@ -33,6 +33,10 @@ Use the [evaluation supplement](../../programs/DECISION_EVALUATION.md).
 - Missingness, exclusions, attrition and noncompliance handling: UNKNOWN
 - Multiplicity, exploratory analyses and assumption-specific checks: UNKNOWN
 - Plan freeze time/version; later changes and whether results were already seen: UNKNOWN
+- Actual B/C or B/C-min/C-full packets; mandatory content retained and optional contrast: UNKNOWN
+- Substantive recognition/disposition/correction endpoints and burdens: UNKNOWN
+- Timing routes, actual grants, contextual response targets and continuity on misses: UNKNOWN
+- Actual sponsor/resource commitments and review-control dependencies: UNKNOWN
 
 A later retrospective plan is not preregistration. Fields remain blank until
 actual study decisions and supporting evidence are recorded.

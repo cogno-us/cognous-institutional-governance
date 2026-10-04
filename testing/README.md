@@ -67,3 +67,13 @@ comparisons, causal estimates and model predictions. Use it before collecting
 human observations; no new observations, fixtures or efficacy claims are added.
 The source basis is in [business and econometrics research](../research/decision-making/README.md),
 and the practical choice record is in [process](../process/DECISION_MAKING.md).
+
+## Substantive record value and calibration
+
+The [record-value extension](programs/RECORD_VALUE.md) proposes a comparison of
+competent conventional practice, concise structured records and fuller optional
+elaboration. It traces reconstruction through error recognition, competent
+disposition and independently verified correction, alongside harm, delay and
+burden. Three additional research questions cover timing, adoption conditions
+and substantive impact with legitimate countercases. They are unexecuted,
+outside the 68 numbered proposals and six SC designs, with no new fixtures or results.
