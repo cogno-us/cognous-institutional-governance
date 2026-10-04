@@ -4,6 +4,12 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Cross-disciplinary lesson extension
+
+- Added sixteen scoped studies across political leadership, philosophy, economics and social science, with source-depth and access limits recorded.
+- Added synthesis of competing considerations, six recommended deep studies, application priorities and a practical review supplement.
+- Updated navigation and methodology without changing constitutional text, original decisions, historical register statuses, numbered batteries or archived results. All new evaluation questions remain unexecuted.
+
 ## 2026-10-04 — Five leadership studies
 
 - Added separate sourced studies of Eisenhower, Woodrow Wilson, Churchill, Disraeli and FDR, pairing constructive institutional lessons with failures and limits.

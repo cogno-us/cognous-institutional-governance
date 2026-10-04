@@ -29,6 +29,7 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 | Why the choices were made | [Decisions and rationale](process/DECISIONS_AND_RATIONALE.md) and [methodology](process/METHODOLOGY.md) |
 | How it compares with other work | [Comparative assessment](research/COMPARATIVE_WORKS.md) |
 | Lessons from political leadership | [Five leadership studies](research/leadership/README.md): Eisenhower, Wilson, Churchill, Disraeli and FDR |
+| Lessons across disciplines | [Sixteen further studies](research/cross-disciplinary/README.md): leadership, philosophy, economics and social science |
 | How to reconstruct the development | [Development record](history/DEVELOPMENT_RECORD.md) and [chronology](history/README.md) |
 
 ## Current state

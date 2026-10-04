@@ -26,3 +26,7 @@ the summary; do not reinterpret the adopted design through documentation.
 ## Leadership and institutional review
 
 The [leadership review worksheet](LEADERSHIP_REVIEW.md) adds questions about separate approvals, practical dependence, excluded people, comprehensible reasons, crisis limits and observed delivery, drawing on the [five studies](../research/leadership/README.md). Use it within existing authority alongside the uncertainty and evidence reviews.
+
+## Participation, knowledge and review capacity
+
+The [cross-disciplinary supplement](CROSS_DISCIPLINARY_REVIEW.md) adds usable standing, voice and exit, local knowledge, realistic human workload and shared safeguard dependencies to existing review questions. Its [sixteen source studies](../research/cross-disciplinary/README.md) are later comparative learning, not adopted rules.

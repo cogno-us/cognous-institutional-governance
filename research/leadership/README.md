@@ -45,3 +45,7 @@ Sources linked in the five studies were consulted on 2026-10-04. Source links ar
 This is later learning, alongside [The Fog of War](../FOG_OF_WAR.md) and [The Thin Blue Line](../THIN_BLUE_LINE.md). It is not evidence that these five leaders originally supplied particular CDR choices. Original decisions, requirements, constitutional text and frozen test archives remain authoritative for their recorded purposes.
 
 The future evaluation questions in each study are **unexecuted and outside the numbered operational batteries**. This addition creates no observations, test scores or new efficacy claims. Follow the [testing protocol](../../testing/PROTOCOL.md) before converting questions into defined cases, independently assessed oracles and observed exercises. Cross-cultural comparison, affected-person accounts and independent historical review remain valuable gaps.
+
+## Extended reading
+
+The [cross-disciplinary extension](../cross-disciplinary/README.md) adds Washington, Lincoln, Mandela and Ambedkar, plus twelve contributors in philosophy, economics and social science. It shifts attention toward usable participation, dispersed knowledge, review capacity and systemic failure; source-review depth varies and is explicitly recorded.

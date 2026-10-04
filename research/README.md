@@ -100,3 +100,7 @@ experiment does not establish comparative institutional or field efficacy.
 ## Later comparative learning: five leadership studies
 
 The [leadership studies](leadership/README.md) examine Eisenhower, Woodrow Wilson, Churchill, Disraeli and FDR in separate sourced files, with a cross-comparison of dependence, approval, dissent, inclusion, crisis powers and delivery. They distinguish historical observations from interpretation and proposed practice; this later research does not alter original decision provenance or supply new test results.
+
+## Cross-disciplinary extension
+
+[Sixteen additional studies](cross-disciplinary/README.md) extend leadership analysis into political philosophy, economics and social science. Each distinguishes its source basis, interpretation, limits and unexecuted questions. The synthesis identifies research priorities, tensions and source-access limitations.

@@ -79,3 +79,7 @@ The [Thin Blue Line study](../research/THIN_BLUE_LINE.md) extends the later comp
 ## Later incorporation: leadership studies, 2026-10-04
 
 Five [separate studies and a comparison](../research/leadership/README.md) examine Eisenhower, Woodrow Wilson, Churchill, Disraeli and FDR. Sourced episodes generate questions about authority, practical dependence, inclusion, scrutiny, emergency powers and implementation. This later interpretation leaves original decision records and historical source statuses intact; it neither ranks the leaders nor attributes undocumented original influence to them.
+
+## Later incorporation: cross-disciplinary studies, 2026-10-04
+
+The [cross-disciplinary extension](../research/cross-disciplinary/README.md) adds sixteen scoped studies and a research agenda. New political cases include Washington, Lincoln, Mandela and Ambedkar. Other comparisons draw from philosophy, economics and social science. Source depth and retrieval limits remain visible; these additions do not change the original historical register or constitutional provenance.

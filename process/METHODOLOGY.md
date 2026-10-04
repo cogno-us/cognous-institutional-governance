@@ -147,3 +147,7 @@ The [Thin Blue Line study](../research/THIN_BLUE_LINE.md), added 2026-10-04, sep
 ## Later extension: leadership as an institutional comparison
 
 The [five leadership studies](../research/leadership/README.md), added 2026-10-04, pair selected achievements with failures or limits in Eisenhower, Wilson, Churchill, Disraeli and FDR. They separate primary statements, institutional historical context, present constitutional interpretation and unexecuted evaluation questions. The [worksheet](LEADERSHIP_REVIEW.md) is a proposed practice aid. These cases are later learning, not retroactive evidence for the original choices; personal reputation and favorable outcomes do not substitute for authorization, inclusion or delivered remedies.
+
+## Later extension: cross-disciplinary comparison
+
+The [sixteen additional studies](../research/cross-disciplinary/README.md), added 2026-10-04, examine political leadership, philosophy, economics and social science. They use purposive selection, competing considerations and explicit distinctions among inspected primary text, scholarly summary, publisher overview and indexed excerpts. Interpretation supplies proposed questions about participation, local knowledge, human feasibility and systemic correction. This is neither a completed literature review nor retroactive evidence for original design choices.
