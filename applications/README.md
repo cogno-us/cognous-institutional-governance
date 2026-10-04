@@ -122,3 +122,7 @@ experiment does not establish comparative institutional or field efficacy.
 ## Cross-context review under uncertainty
 
 Each context now includes a domain-specific application of the [Fog of War analysis](../research/FOG_OF_WAR.md). Use the [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md) for alternative explanations, evidence dependence, beneficiary harm, authority limits, dissent and reconsideration. The eleven [supplementary FW exercises](../testing/battery/FOG_OF_WAR.md) are separate from the ninety original application exercises; neither set is evaluated.
+
+## Cross-context evidence challenge and correction
+
+Each context also applies the [Thin Blue Line study](../research/THIN_BLUE_LINE.md). Use the [evidence challenge template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md) to inspect original claims, contrary evidence, dependencies and remedy effects. The ten [TB exercises](../testing/battery/THIN_BLUE_LINE.md) are a separate, unexecuted supplement; no analogy supplies domain authority.

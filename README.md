@@ -104,6 +104,10 @@ comparative evaluation. It supports no claim of priority or proven superiority.
 
 A [sourced study](research/FOG_OF_WAR.md) applies all eleven documentary themes to the existing design: test alternative explanations, inspect shared evidence dependencies, assess harm alongside efficiency, preserve dissent, reconsider before escalation, and review near misses. It explicitly qualifies moral rationalization and evasive accountability. A [decision review template](process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), additions to all eighteen context guides, and [eleven proposed supplementary exercises](testing/battery/FOG_OF_WAR.md) make the analysis usable. This is later supporting research; it does not amend the constitutional proposal or establish efficacy.
 
+## Learning from The Thin Blue Line
+
+A [sourced study](research/THIN_BLUE_LINE.md) examines how institutional error persists when contrary evidence is omitted, accounts share a suggested answer, or reviewers lack access to originals. Ten themes are explicitly our analysis, with film testimony distinguished from the court’s findings. An [evidence challenge and correction template](process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), additions to all eighteen contexts, and [ten proposed exercises](testing/battery/THIN_BLUE_LINE.md) connect the study to existing principles. No new powers, executed results or historical prevention claim follow.
+
 ## Research, history, and process
 
 [Research](research/README.md) explains the evidence streams.

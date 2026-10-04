@@ -71,3 +71,7 @@ explains the current proposal and outstanding human activation commitments.
 ## Later incorporation: 2026-10-04
 
 A [Fog of War study](../research/FOG_OF_WAR.md) was added as a later comparative reading of the existing design. It informed proposed uncertainty review, domain guidance and eleven supplementary exercises. It is not retroactive evidence for the original CDR choices; original records and the constitutional draft retain their status.
+
+## Later incorporation: The Thin Blue Line, 2026-10-04
+
+The [Thin Blue Line study](../research/THIN_BLUE_LINE.md) extends the later comparative work to evidence challenge and institutional correction. Ten themes are the repository’s analysis, not a canonical film lesson list. The accompanying template, eighteen domain additions and ten proposed exercises do not change the original constitutional decisions or their provenance.

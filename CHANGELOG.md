@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Thin Blue Line evidence and correction lessons
+
+- Added ten expressly analytical themes mapped to existing principles, separating film accounts, investigative claims and the court’s specific disposition.
+- Added an evidence challenge/correction template, a link from uncertainty review and tailored additions in all eighteen contexts.
+- Added ten separate, unexecuted TB exercises with historical news and judicial source links; testing now specifies 68 proposed exercises across three separate sets.
+- Updated research, history, methodology and newcomer navigation while preserving constitutional text, original decisions, frozen testing inputs and archived results.
+
 ## 2026-10-04 — Fog of War lessons
 
 - Added a sourced mapping of all eleven film themes to existing principles and provisions, with critical qualifications and attribution boundaries.

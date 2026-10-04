@@ -139,3 +139,7 @@ subjects for further work.
 ## Later extension: decision quality under uncertainty
 
 The [Fog of War analysis](../research/FOG_OF_WAR.md), added 2026-10-04, supplies a further comparative lens. Its [decision review template](DECISION_REVIEW_UNDER_UNCERTAINTY.md) makes alternative explanations, source dependence, incentive conflicts, harm from action and delay, reconsideration triggers and near misses explicit. This is a prospective practice proposal, not a change to the original design provenance or proof of institutional performance.
+
+## Later extension: inspectable evidence and correction
+
+The [Thin Blue Line study](../research/THIN_BLUE_LINE.md), added 2026-10-04, separates testimony, investigation, reconstruction, institutional judgment and observed correction. The [evidence challenge template](EVIDENCE_CHALLENGE_AND_CORRECTION.md) makes claim-specific support, contrary evidence, access barriers, dependencies and downstream remedy effects explicit. This is a prospective practice extension, not retroactive source verification or an amendment of the constitutional design.

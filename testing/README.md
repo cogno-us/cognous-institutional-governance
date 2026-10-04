@@ -34,4 +34,8 @@ All 47 full operational exercises and the existing 90 application exercises rema
 
 ## Supplementary Fog of War exercises
 
-[FW01–FW11](battery/FOG_OF_WAR.md) add eleven proposed exercises for uncertainty, correlated evidence, purpose, metrics, harm, reconsideration, accountability and near misses. The testing section now specifies 58 proposed exercises: the original frozen 47-case battery plus this separate eleven-case supplement. The 90 application exercises are separate. The supplement is unexecuted and not supported by the current 24 fixtures or 72 observations; the original battery, harness and archives are preserved.
+[FW01–FW11](battery/FOG_OF_WAR.md) add eleven proposed exercises for uncertainty, correlated evidence, purpose, metrics, harm, reconsideration, accountability and near misses. Together, the original frozen 47-case battery and this eleven-case supplement specify 58 proposed exercises. The 90 application exercises are separate. The supplement is unexecuted and not supported by the current 24 fixtures or 72 observations; the original battery, harness and archives are preserved.
+
+## Supplementary Thin Blue Line exercises
+
+[TB01–TB10](battery/THIN_BLUE_LINE.md) add ten proposed exercises on evidence omissions, observation conditions, contamination, incentives, synthetic reconstructions, access, reconsideration and correction effects. There are now **68 proposed exercises in this testing section**: 47 original cases, 11 FW cases and 10 TB cases. The 90 application exercises remain separate. No FW or TB exercise has been executed or reviewed; neither supplement is covered by the existing 24 fixtures or 72 observations.

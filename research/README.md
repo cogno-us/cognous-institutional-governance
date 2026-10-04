@@ -92,3 +92,7 @@ experiment does not establish comparative institutional or field efficacy.
 ## Later comparative learning: The Fog of War
 
 [The Fog of War analysis](FOG_OF_WAR.md) maps all eleven film themes to existing principles and constitutional provisions, qualifies the difficult lessons, and explains the proposed decision-review procedure and supplementary exercises. Incorporated 2026-10-04 as a later reading; no original influence, historical prevention or amendment is asserted.
+
+## Later comparative learning: The Thin Blue Line
+
+[The Thin Blue Line study](THIN_BLUE_LINE.md) develops ten explicitly analytical themes about claim-specific evidence, contradictions, contaminated corroboration, incentives, reconstructions, independent access and completed correction. It distinguishes film testimony, Morris’s investigation and the 1989 court disposition. Incorporated 2026-10-04; no original design influence or historical prevention is claimed.

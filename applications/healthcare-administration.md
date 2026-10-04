@@ -190,3 +190,9 @@ between evidence, recommendation, human decision, and operative authority.
 Check whether scheduling or cost metrics conceal lost care access. Preserve patient objections, actual eligibility evidence and the difference between an administrative prediction and an authorized determination. Route disputed cases to existing competent staff and measure restoration of access, delay and workload.
 
 These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
+
+## Applying The Thin Blue Line evidence review
+
+Preserve the original eligibility, scheduling or billing evidence when a summary reaches an adverse conclusion. Provide an authorized challenge route that does not depend solely on the supplier’s classification. Verify that correction reaches appointments, access, billing and patient notice rather than only one dashboard.
+
+Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.

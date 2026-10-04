@@ -2,7 +2,7 @@
 
 **11 PROPOSED EXERCISES — NOT EXECUTED OR REVIEWED**
 
-These FW01–FW11 exercises operationalize the [sourced analysis](../../research/FOG_OF_WAR.md). They are a documentary-source supplement to the 47-case frozen incident/lifecycle battery, not new incident reports and not covered by its 24 synthetic fixtures or 72 archived observations. There are now 58 proposed exercises in the testing section across these two sets; the 90 application exercises remain separate.
+These FW01–FW11 exercises operationalize the [sourced analysis](../../research/FOG_OF_WAR.md). They are a documentary-source supplement to the 47-case frozen incident/lifecycle battery, not new incident reports and not covered by its 24 synthetic fixtures or 72 archived observations. These two sets contain 58 proposed exercises; the later [TB supplement](THIN_BLUE_LINE.md) adds ten, making 68 in the testing section. The 90 application exercises remain separate.
 
 The [director transcript](https://www.errolmorris.com/film/fow_transcript.html) is the documentary source. Each scenario below is invented for prospective evaluation; none re-enacts or claims prevention of an actual historical event. The existing incident cases retain their news article links in the [incident source index](../sources/README.md).
 

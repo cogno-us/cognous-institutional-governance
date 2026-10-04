@@ -19,3 +19,7 @@ Every full exercise remains PROPOSED. The [24 reference fixtures](../fixtures/ca
 ## Separate documentary-source supplement
 
 [FW01–FW11: Fog of War](FOG_OF_WAR.md) contains eleven additional proposed review exercises. These are separate from `battery.json`, whose 47 original cases remain frozen. They are invented prospective scenarios inspired by a documentary, not additional news incidents or executed reference fixtures.
+
+## Separate evidence-review supplement
+
+[TB01–TB10: The Thin Blue Line](THIN_BLUE_LINE.md) contains ten proposed exercises inspired by the film and historical case, with reporting and court links and evidence boundaries. Together with FW01–FW11 and the original 47 cases, the testing section specifies 68 proposed exercises in three distinct sets. `battery.json` and its original result coverage remain unchanged.

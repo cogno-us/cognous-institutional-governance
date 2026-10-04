@@ -190,3 +190,9 @@ between evidence, recommendation, human decision, and operative authority.
 In non-tactical decision briefs, distinguish original reports, uncertain inference and command authorization. Expose common-source dependence, alternative interpretations and dissent; specify who can reopen a premise under lawful oversight. This is institutional review guidance, not targeting, weapons-employment or operational planning advice; historical success does not prove legitimacy.
 
 These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
+
+## Applying The Thin Blue Line evidence review
+
+For non-tactical institutional review, distinguish firsthand reports, hearsay, interpretation and simulated reconstruction. Preserve contradictions and examine incentives without presuming deception. Competent oversight needs access independent of the originator’s summary; corrections must reach affected institutional records and obligations under lawful authority.
+
+Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.

@@ -36,3 +36,7 @@ For imminent threats, distinguish valid predelegation from the narrow V.2 necess
 ## Evaluation boundary
 
 Measure whether another reviewer can reconstruct the actual grant, contrary evidence, options, decision and completed effects. Record time, workload, missed hazards and unnecessary delays. A completed form is not proof of independent judgment or effective control. Use the [testing protocol](../testing/PROTOCOL.md) and [execution record](../testing/templates/OPERATIONAL_RECORD.md) for observed exercises.
+
+## When a material claim is challenged
+
+Use the complementary [evidence challenge and correction ledger](EVIDENCE_CHALLENGE_AND_CORRECTION.md) when originals, contradictory accounts, source incentives or completed remedies need examination. Its [Thin Blue Line basis](../research/THIN_BLUE_LINE.md) distinguishes observations from reconstructions and requires authorized, usable review access. A coherent decision narrative is not sufficient evidence of truth or delivered correction.

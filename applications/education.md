@@ -190,3 +190,9 @@ between evidence, recommendation, human decision, and operative authority.
 Preserve uncertainty in misconduct or attainment inferences and the student’s account. A repeated detector result may reflect one shared method rather than corroboration. Qualified institutional review needs evidence access and correction power; measure retained legitimate learning and mistaken accusations alongside processing speed.
 
 These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
+
+## Applying The Thin Blue Line evidence review
+
+Separate detector output, observed conduct and reconstructed explanation in a misconduct record. Preserve the student’s account and inspect evidence omitted from the initial summary. Correcting an accusation requires checking discipline, assessment records and notification through the institution’s actual process.
+
+Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.

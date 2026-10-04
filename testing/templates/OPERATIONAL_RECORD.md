@@ -22,3 +22,7 @@ Leave unknown fields UNKNOWN. Do not fill observations, authority or human revie
 ## Optional uncertainty-review supplement
 
 For FW exercises, link the [decision review record](../../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md). Record the competing explanation, shared-source dependencies, metric omissions, harms of action and delay, predefined reconsideration trigger, actual response to that trigger and near-miss assessment. Separate what was knowable at decision time from later outcome evidence. These fields are proposals until populated with actual observations.
+
+## Optional evidence-challenge supplement
+
+For TB exercises, link the [claim and correction ledger](../../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md). Record original versions, material contradictions, reported versus firsthand statements, suggested answers, incentives, authorized access limits, actual reviewer disposition, downstream effects and independent remedy confirmation. Keep unknowns and contested findings explicit; generated reconstructions cannot fill missing observations.
