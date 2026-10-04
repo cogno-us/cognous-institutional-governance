@@ -29,7 +29,7 @@ The [documentation-refactor check record](DOCUMENTATION_REFACTOR_CHECKS.md)
 records migration verification and the remaining need for newcomer review.
 
 The [operational-stewardship review](research/OPERATIONAL_STEWARDSHIP_REVIEW.md)
-adds twelve separately proposed tabletop scenarios from the later enterprise
+adds sixteen separately proposed tabletop scenarios from the later enterprise
 readings. No scenario has been executed or added to the archived adapters.
 
 ## Enterprise-guidance repository checks, 2026-10-04
@@ -44,6 +44,18 @@ original constitutional data, source-status registers, code, battery inputs,
 fixtures and frozen results are unchanged. These checks verify conformance and
 archive integrity, not the twelve new scenarios, reader comprehension, source
 authenticity, legal compliance, IP clearance or real-world operating effectiveness.
+
+## Full-manual extension checks, 2026-10-04
+
+Against base `1ea31ee79f77f2e6b6c1124c93b52b55c0fbce3d`, Python 3.12.14:
+the repository validator, 423 repository tests, eight harness tests and both
+archived integrity/replay verifiers passed. All 1,433 relative Markdown file
+destinations resolved (external URLs and fragment anchors not certified).
+Whitespace, Markdown-only scope and bounded changed-document marker checks passed;
+SR01–SR16 are distinct proposals. Original constitutional data, source-status
+registers, code, fixtures and frozen results remain unchanged. These are repository
+checks, **not execution of the sixteen stewardship scenarios**, source/legal
+verification or evidence of institutional benefit.
 
 ## Run locally
 

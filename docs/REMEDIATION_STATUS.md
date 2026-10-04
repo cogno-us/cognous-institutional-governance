@@ -46,17 +46,20 @@ or normative finding is closed merely by adding a document.
 
 ## Later enterprise operating gaps, 2026-10-04
 
-The [four-work review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) adds OS1–OS10
+The [four-work review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) adds OS1–OS14
 to the earlier G01–G26 review without rewriting that historical baseline. The
 [stewardship guide](../process/OPERATIONAL_STEWARDSHIP.md) and optional record
 provide documentary remediation for workflow discovery, portfolio dependencies,
 operating ownership, supplier/obligation continuity, separate capability/readiness
 assessment, lifecycle change, human competence, complete effect evidence, incident
 response and substantive reporting. Actual capacity, contextual/legal review,
-independent assurance and comparative benefits remain unverified. Twelve
+independent assurance and comparative benefits remain unverified. The full manual
+extends guidance to downstream rights execution, evaluation/explanation scope,
+bounded assurance and joined security/governance incidents. Sixteen
 [review scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md) are
-proposed and unexecuted; the supplied Kenney manual ends at page 300, so review
-of its unavailable later chapters remains deferred.
+proposed and unexecuted. The initial 300-page review is preserved as provenance;
+the later complete 745-page attachment received targeted review, not verification
+of every claim, legal interpretation or template.
 
 ## New design questions introduced by this remediation
 

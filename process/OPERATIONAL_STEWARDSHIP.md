@@ -95,6 +95,19 @@ does not determine the consequences in the deployed workflow. Certification does
 not settle all local obligations. Unavailable critical evidence or controls should
 lead to narrower use or an unresolved readiness finding, not assumed assurance.
 
+For assurance reports or certificates, record the issuing body, assessed entity,
+product/service, versions, operating region, period, criteria, exclusions and expiry
+or change triggers. Compare that scope with this deployment and its evidence needs.
+A corporate certificate, contractual promise and verified local configuration are
+different evidence. Check shared upstream providers, model substitutions and
+subcontractors; several vendor names may conceal one dependency. An outside
+reviewer still requires an effective-control/conflict assessment.
+
+Rights requests need an actual route through sources, derived records, retrieval,
+outputs, recipients and delegated services. Link the [rights execution procedure](RIGHTS_RECORDS_AND_INTERFACES.md#execute-rights-requests-through-the-workflow),
+including verified propagation, lawful preservation and honest technical limits.
+A front-end confirmation is not proof that downstream reliance changed.
+
 Use the [rights/records/interface schedule](RIGHTS_RECORDS_AND_INTERFACES.md)
 for privacy, custody, retention and counterparties; link it rather than copy it.
 
@@ -161,6 +174,25 @@ Train staff to recognize changed policies, missing evidence and unavailable
 authority. Demonstrate continued manual or alternative operation for critical
 tasks; course attendance alone does not prove readiness or retained skill.
 
+### Test suitability and explanations for the intended use
+
+Define what an evaluation can support: purpose, population and relevant subgroups,
+site, language, time, input conditions, version, human support and prohibited uses.
+Examine whether labels or historical practice embed the harm being evaluated.
+Choose and justify acceptance criteria before reviewing results; do not import a
+universal fairness ratio or assume aggregate accuracy covers small groups. Report
+sample limitations and uncertainty, including groups not adequately observed.
+A changed population or operating condition may require narrower reliance and
+renewed review. Rights and protected constraints are not averaged away.
+
+Provide reasons appropriate to affected people and reviewers. Separately assess
+whether an explanation is intelligible, supported by the actual evidence and
+faithful to the relevant decision process. A plausible AI narrative, agreement
+between explanation methods or a polished model card proves none of these.
+Where reasons cannot be substantiated, preserve that uncertainty and apply the
+contextual challenge/containment route rather than manufacture an explanation.
+The same questions apply to human scoring rules and ordinary software.
+
 ## 8. Verify effects and evidence coverage
 
 For a material act, distinguish the decision/approval record, the authoritative
@@ -205,6 +237,22 @@ count can reflect good protection or recurring bad proposals; report both.
 Separate an interim workaround from correction of the originating cause and
 test the affected path before restart. Give material dissent a route beyond the
 original operator. Do not let an AI certify its own correction as complete.
+
+### Join security response and institutional accountability
+
+Use a linked case when an incident crosses technical security, service delivery
+and rights. Share authorized evidence, a chronology, versions and status rather
+than competing accounts. Name who decides containment, institutional consequences,
+affected-person communication, remedy and restart under each actual mandate.
+A suspicious technical signal does not itself authorize dismissal, benefit denial
+or indefinite loss of access. Preserve an accessible challenge and safe service
+where required while uncertainty is investigated. Different notification duties
+may apply; competent review determines them, not an invented universal deadline.
+
+Coordination does not collapse separation of functions: operators contain, competent
+actors decide material consequences, and noninvolved reviewers check correction.
+Verify both technical recovery and restoration of affected people's position.
+An incident closed in the security queue can remain open as a governance claim.
 
 ## 10. Report substantive outcomes and learn without self-authorization
 

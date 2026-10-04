@@ -4,6 +4,14 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Full practitioner-manual extension
+
+- Extended the earlier targeted review with the complete 745-page Kenney attachment, preserving the original partial-file provenance and recording the full-file fingerprint and actual passage scopes. Availability is complete; review and verification remain bounded.
+- Added downstream rights execution, fitness/explanation checks, scoped assurance and joined security/governance incident guidance in existing canonical documents. No source thresholds, legal interpretations or templates become Alvorada defaults.
+- Added four original unexecuted scenarios, bringing stewardship proposals to sixteen. No source PDF, code, constitutional data or archived observations were changed.
+
+- Repository validator, all 431 unit tests, both archived replays, 1,433 relative file destinations and scope/whitespace checks passed. See the [check record](testing/README.md#full-manual-extension-checks-2026-10-04) for limits.
+
 ## 2026-10-04 — Enterprise operating-governance review
 
 - Compared four supplied governance works with existing guidance; recorded exact source/page scopes, attachment fingerprints, partial-manual/access limits and ten operational gaps in the unified research section. No PDFs, diagrams or source templates were copied.

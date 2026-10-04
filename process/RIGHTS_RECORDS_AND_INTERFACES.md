@@ -59,6 +59,25 @@ privacy obligations may conflict in a particular setting; identify the exact
 clauses and obtain explicit competent interpretation or change, rather than
 pretend a protected annex automatically resolves the conflict.
 
+### Execute rights requests through the workflow
+
+For a request to access, correct, restrict, object or erase, determine the actual
+applicable right and scope; authenticate proportionately without collecting
+unnecessary evidence. Name an owner, a reachable non-AI route and any competent
+review of disputed scope. Trace relevant source records, derived assessments,
+retrieval indexes, retained outputs, recipients, supplier processing and delegated
+services. A changed master record may leave an adverse downstream assessment active.
+
+Record required propagation, actual acknowledgments and independent checks that
+future reliance changed. Identify lawful holds, exceptions, preservation needs and
+recipient responsibilities; preserve a usable correction history without retaining
+unnecessary sensitive content. Give an intelligible account of completed actions,
+pending steps, exceptions and challenge options under contextual obligations.
+Do not promise universal erasure rights or deletion of model influence that cannot
+be verified. Distinguish restricting future use, deleting accessible copies,
+retraining and demonstrated removal of influence. Technical or contractual limits
+remain unresolved findings requiring competent decisions, not completed remedies.
+
 ## Independence and effective-control review
 
 For each decisive source, selector, reviewer, executor and verifier, identify who

@@ -33,12 +33,16 @@ decision and evaluation records remain their canonical sources.
    date, duty, owner and review trigger. Link qualified interpretation separately.
 3. **Supplier commitments:** approved features and uses, change notice, data and
    evidence access/export, incident cooperation, exit, subcontractors and unresolved
-   contractual or technical limitations.
+   contractual or technical limitations. Record assurance entity/product/version,
+   period, criteria/exclusions and differences between promises and actual configuration.
+   Link downstream rights propagation, preservation decisions and verified limits.
 4. **Responsibility and capacity:** implementer/operator, approver, validator,
    incident lead, correction actor and verifier; separation, alternates, allocated
    time/funds and escalation for conflict or unavailable review.
 5. **Lifecycle decision:** readiness evidence, bounded trial/operation conditions,
    permitted residual risk, authority, expiry and the exact version/class approved.
+   State the tested population, conditions, subgroup coverage, acceptance criteria,
+   uncertainty and explanation checks; disclose uses outside that evidence.
    Record suspension/restart and retirement decisions separately when they occur.
 6. **Human oversight:** concise approval view and access to originals; training,
    safe error-detection exercise, queue load, justified disagreement, skill-retention

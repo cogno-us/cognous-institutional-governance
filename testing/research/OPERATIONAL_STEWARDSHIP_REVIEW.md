@@ -12,7 +12,7 @@ controlled study, with no actual harmful transactions or confidential public dat
 
 Use the [operating guide](../../process/OPERATIONAL_STEWARDSHIP.md) and
 [optional record](../../process/templates/WORKFLOW_STEWARDSHIP_RECORD.md).
-Source IDs/page scopes and documentary gaps OS1–OS10 are defined in the
+Source IDs/page scopes and documentary gaps OS1–OS14 are defined in the
 [research review](../../research/ENTERPRISE_GOVERNANCE_REVIEW.md).
 These scenarios are our synthesis of those readings, not their original test suite.
 
@@ -32,6 +32,10 @@ These scenarios are our synthesis of those readings, not their original test sui
 | SR10 / OS9 | A near miss exposes missing approval evidence while stopping all activity would interrupt essential service | Can authorized containment narrow the unsafe activity, preserve service/claims and name the actual restart authority without inventing an emergency waiver? | EG1 §§12–13; EG3 §2.3.3 |
 | SR11 / OS6,OS9 | A workflow is retired but a queue and delegated account continue acting | Are remaining powers disabled, obligations/claims transferred, privacy/retention decisions respected and material completion independently checked? | EG1 §12.1; EG2 §5.6 |
 | SR12 / OS7,OS10 | An executive report shows more approvals/logs and faster summaries while challenges and subgroup remedies deteriorate | Does the report retain harms, access, service and total burden separately? Can affected-person evidence influence the decision, and can trained humans continue without the assistant? | EG4 §§3.6,6–8; EG3 §2.4.3 |
+| SR13 / OS11 | A corrected source record leaves a stale derived score and supplier-held retrieval copy in use | Can the owner identify applicable rights, propagate required changes, verify altered reliance and disclose lawful holds or unverified deletion limits? A request acknowledgment is not completion. | EG2-F pp.367–370,392–393,643–647 |
+| SR14 / OS12 | Aggregate validation passes, but a new language subgroup is untested and generated reasons contradict the underlying decision evidence | Are the evaluation envelope, subgroup uncertainty, explanation support and narrower-use/revalidation decision explicit? Fluent reasons or method agreement are insufficient. | EG2-F pp.467–469,472–474 |
+| SR15 / OS13 | A vendor supplies an assurance report for another product and period while quietly replacing a shared upstream model | Can reviewers identify the scope mismatch, actual configuration and correlated exposure, obtain needed evidence and preserve an unresolved readiness finding? A badge or promise is insufficient. | EG2-F pp.343–344,354–355,557–558,579–583 |
+| SR16 / OS14 | A simulated security alert removes a worker's facility access; technical recovery closes the ticket while the access restriction remains | Are authorized containment and material institutional consequences distinguished, shared evidence preserved, challenge reachable and actual restoration independently checked? Technical closure does not close the person's claim. | EG2-F pp.520–523 |
 
 ## How to document a future exercise
 
@@ -62,4 +66,4 @@ immutable archive or claim that the existing synthetic harness covers them.
 Actual ownership, supplier permissions, legal review, competence, fallback,
 population evidence and independence must be supplied by the institution.
 Comparative field evidence is needed before claiming less work, fewer harms or
-better governance. All twelve scenarios currently have **no observed result**.
+better governance. All sixteen scenarios currently have **no observed result**.
