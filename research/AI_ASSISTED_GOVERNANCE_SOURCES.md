@@ -1,5 +1,12 @@
 # Source basis for modular governance and AI institutional support
 
+**Executive summary:** Research motivates bounded AI assistance and careful checking. It does not establish the proposed terms, risk tiers or Alvorada-specific savings.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](README.md).
+
+## Detailed analysis
+
 Review date: 2026-10-04. This is selective supporting research, not an exhaustive
 review, external endorsement or evidence that the new modules work. Source
 passages were accessed through primary publishers. No external source text is

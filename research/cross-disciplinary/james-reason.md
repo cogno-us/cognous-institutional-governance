@@ -1,5 +1,12 @@
 # James Reason: independence must survive shared failures
 
+**Executive summary:** Errors can arise from shared conditions across many safeguards. Correct the recurring system problem as well as the individual incident.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **DEEPENED COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Targeted primary-text extension: 2026-10-04. See the [source ledger](SOURCE_REVIEW.md).

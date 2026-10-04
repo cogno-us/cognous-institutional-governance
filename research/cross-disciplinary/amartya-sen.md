@@ -1,5 +1,12 @@
 # Amartya Sen: usable freedom and agency beyond welfare scores
 
+**Executive summary:** Formal options are different from usable choices. Assess what people can actually do and whose interests or agency are missing from a success measure.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **DEEPENED COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Targeted primary-text extension: 2026-10-04. This updates the earlier indexed-excerpt orientation for selected arguments. See the [source ledger](SOURCE_REVIEW.md).

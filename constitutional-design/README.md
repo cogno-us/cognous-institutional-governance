@@ -30,7 +30,7 @@ human institutional acts and staffing; text review does not populate offices.
 3. [Accepted requirements](requirements/README.md) and the
    [consolidated map](CONSOLIDATED_REQUIREMENT_MAP.yaml) translate decisions into
    drafting constraints.
-4. [Development record](../history/DEVELOPMENT_RECORD.md) identifies the older
+4. [Development record](../research/history/DEVELOPMENT_RECORD.md) identifies the older
    analysis and decision packets to consult when reconstructing a specific choice.
 5. The proposal and traceability above show the resulting text.
 

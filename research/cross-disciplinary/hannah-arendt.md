@@ -1,5 +1,12 @@
 # Hannah Arendt: institutional lessons
 
+**Executive summary:** Administrative routines can conceal responsibility for serious harm. Keep judgment, affected people and accountability visible within organized action.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Philosophy. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

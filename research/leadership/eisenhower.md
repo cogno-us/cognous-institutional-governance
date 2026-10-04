@@ -1,5 +1,12 @@
 # Dwight D. Eisenhower: dependence, restraint and enforceable rights
 
+**Executive summary:** Check dependence on suppliers and experts, and distinguish an authorized remedy from its delivery. Constructive institutional restraint must be assessed alongside covert intervention.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Historical observations below are separated from the repository’s interpretation and proposed applications. This is a selective institutional study, not a complete biography or evidence that Alvorada would have prevented the events. See the [comparison and method](README.md).

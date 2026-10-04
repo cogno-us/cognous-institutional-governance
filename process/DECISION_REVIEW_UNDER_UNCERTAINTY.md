@@ -2,7 +2,7 @@
 
 **PROPOSED PRACTICE TEMPLATE — NO GRANT, AMENDMENT OR RATIFICATION**
 
-This template applies the [Fog of War analysis](../research/FOG_OF_WAR.md) to existing lawful workflows. Use it before consequential commitments and when a review trigger occurs. It supports IV.1 records and IV.2 dependency review under the proposed Constitution; it does not instantiate constitutional offices or invent sector authority.
+This template applies the [Fog of War analysis](../research/films/FOG_OF_WAR.md) to existing lawful workflows. Use it before consequential commitments and when a review trigger occurs. It supports IV.1 records and IV.2 dependency review under the proposed Constitution; it does not instantiate constitutional offices or invent sector authority.
 
 ## Record to complete
 
@@ -39,4 +39,4 @@ Measure whether another reviewer can reconstruct the actual grant, contrary evid
 
 ## When a material claim is challenged
 
-Use the complementary [evidence challenge and correction ledger](EVIDENCE_CHALLENGE_AND_CORRECTION.md) when originals, contradictory accounts, source incentives or completed remedies need examination. Its [Thin Blue Line basis](../research/THIN_BLUE_LINE.md) distinguishes observations from reconstructions and requires authorized, usable review access. A coherent decision narrative is not sufficient evidence of truth or delivered correction.
+Use the complementary [evidence challenge and correction ledger](EVIDENCE_CHALLENGE_AND_CORRECTION.md) when originals, contradictory accounts, source incentives or completed remedies need examination. Its [Thin Blue Line basis](../research/films/THIN_BLUE_LINE.md) distinguishes observations from reconstructions and requires authorized, usable review access. A coherent decision narrative is not sufficient evidence of truth or delivered correction.

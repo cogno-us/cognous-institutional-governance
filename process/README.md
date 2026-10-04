@@ -26,7 +26,7 @@ creates no new exception. Institutional rollout also needs the separate
 - [Decisions and rationale](DECISIONS_AND_RATIONALE.md): what was selected,
   why the records support it, which alternatives were declined, and remaining costs.
 - [Research](../research/README.md): the questions and evidence streams.
-- [History](../history/README.md): project chronology and comparative influences.
+- [History](../research/history/README.md): project chronology and comparative influences.
 
 These explanations are secondary to the original decision records and proposed
 constitutional text. If a summary conflicts with its controlling record, correct

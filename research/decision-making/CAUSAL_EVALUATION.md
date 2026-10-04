@@ -1,5 +1,12 @@
 # Causal evaluation: what changed because of the decision?
 
+**Executive summary:** To assess benefit, compare credible alternatives and explain what changed. Predictions, correlations and causal evidence are different claims.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **METHODOLOGICAL SYNTHESIS — NO NEW EFFECT ESTIMATE**
 
 See [sources and access limits](SOURCES.md). Econometrics is useful for testing

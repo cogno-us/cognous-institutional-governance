@@ -1,5 +1,12 @@
 # John Rawls: institutional lessons
 
+**Executive summary:** Fair institutional rules require explicit questions about rights and distribution. A vote or an aggregate benefit score does not settle every claim of justice.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Philosophy. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

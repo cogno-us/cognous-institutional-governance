@@ -1,5 +1,12 @@
 # Critique response: delay, adoption and substantive impact
 
+**Executive summary:** Governance can be too slow, difficult to adopt or heavy on records without improving outcomes. Investigate those costs directly instead of assuming constitutional detail resolves them.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER ANALYSIS — SUPPORTING PRACTICE; NO AMENDMENT OR NEW RESULTS**
 
 Added 2026-10-04 in response to a critique supplied by the maintainer and

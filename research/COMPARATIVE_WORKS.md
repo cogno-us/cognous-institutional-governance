@@ -1,5 +1,12 @@
 # Comparative work and Alvorada's value
 
+**Executive summary:** Related governance systems and institutional theories already exist. Alvorada combines traceable authority, review and correction; its distinct practical benefit remains to be demonstrated.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](README.md).
+
+## Detailed analysis
+
 **Assessment date: 2026-10-03. This is a bounded comparative review, not an
 exhaustive literature survey or a finding of novelty, patentability, legal
 validity, or empirical superiority.**

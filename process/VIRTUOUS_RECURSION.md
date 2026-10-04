@@ -1,5 +1,11 @@
 # Virtuously recursive institutional governance
 
+**Executive summary:** Use verified outcomes to propose better rules, then authorize and evaluate each change. Improvement can mean less automation or fewer optional steps.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 **PROPOSED THEORY AND PROCESS; no observed self-improving institution claimed.**
 
 Governance becomes recursively useful when its decisions produce inspectable

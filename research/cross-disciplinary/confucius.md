@@ -1,5 +1,12 @@
 # Confucius: institutional lessons
 
+**Executive summary:** Conduct, example and institutional roles influence how power is used. Moral aspiration still needs contestable evidence and accountability.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Philosophy. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

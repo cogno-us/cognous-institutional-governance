@@ -1,5 +1,12 @@
 # James C. Scott: institutional lessons
 
+**Executive summary:** Simple central categories can miss how people actually live and work. Preserve local knowledge and test whether administrative simplification creates harm.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Social science and organizational behavior. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

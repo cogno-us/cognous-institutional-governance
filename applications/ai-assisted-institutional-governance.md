@@ -1,5 +1,11 @@
 # AI helping govern institutions
 
+**Executive summary:** AI can prepare evidence, drafts and routine records so people can focus on meaningful choices. Measure all checking and correction work, and preserve the ability to reject its advice.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 **GUIDANCE AND THEORY; no deployed system, grant or demonstrated saving.**
 
 Alvorada addresses both governance of AI and **AI supporting the governance of

@@ -1,5 +1,11 @@
 # Proportional governance: consequence, evidence and overhead
 
+**Executive summary:** Routine authorized work needs a lighter route than serious or irreversible choices. Stronger process cannot make prohibited acts permissible.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 **PROPOSED OPERATING GUIDANCE. Does not waive controlling law or v0.1 rules.**
 
 Govern the decision's plausible effects, not the label of the sector, the use

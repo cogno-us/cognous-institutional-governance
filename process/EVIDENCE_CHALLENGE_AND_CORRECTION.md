@@ -2,7 +2,7 @@
 
 **PROPOSED PRACTICE TEMPLATE — NO NEW AUTHORITY OR ADOPTED LAW**
 
-This template applies the [Thin Blue Line analysis](../research/THIN_BLUE_LINE.md) to existing lawful workflows. Use it for a material challenged claim, missing contrary evidence, suspected shared-source corroboration or a correction whose effects remain incomplete. It supplements [decision review under uncertainty](DECISION_REVIEW_UNDER_UNCERTAINTY.md).
+This template applies the [Thin Blue Line analysis](../research/films/THIN_BLUE_LINE.md) to existing lawful workflows. Use it for a material challenged claim, missing contrary evidence, suspected shared-source corroboration or a correction whose effects remain incomplete. It supplements [decision review under uncertainty](DECISION_REVIEW_UNDER_UNCERTAINTY.md).
 
 ## Authority and access record
 

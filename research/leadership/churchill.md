@@ -1,5 +1,12 @@
 # Winston Churchill: resolve with scrutiny, and the limits of imperial accountability
 
+**Executive summary:** Resolve needs honest reporting, scrutiny and limits. Leadership under pressure does not remove questions about unequal participation and accountability.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Historical observations below are separated from the repository’s interpretation and proposed applications. This is a selective institutional study, not a complete biography or evidence that Alvorada would have prevented the events. See the [comparison and method](README.md).

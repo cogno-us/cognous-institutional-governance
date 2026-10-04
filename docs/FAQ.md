@@ -50,7 +50,7 @@ misconduct, dependence, and practical control across humans and systems.
 
 They preserve initial research baselines. Later decision and drafting records
 resolve the five foundational questions and v0.1 drafting gaps. Use the
-[development index](../history/DEVELOPMENT_RECORD.md), not a baseline status alone,
+[development index](../research/history/DEVELOPMENT_RECORD.md), not a baseline status alone,
 to determine current design or ratification status.
 
 ## What has been tested?

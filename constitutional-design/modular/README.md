@@ -1,5 +1,11 @@
 # Modular constitutional framework — design proposal
 
+**Executive summary:** Use common protections with offices, terms and procedures suited to the institution. These are separate proposed adaptations; they do not silently change the fixed original Constitution.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 **UNADOPTED DESIGN PROPOSAL. No office, grant or empirical finding is created.**
 
 This is the recommended general-purpose architecture for further development:

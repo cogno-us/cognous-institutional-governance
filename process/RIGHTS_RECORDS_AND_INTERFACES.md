@@ -1,5 +1,11 @@
 # Rights, records, independence and institutional interfaces
 
+**Executive summary:** Protect usable challenges, sensitive evidence and real remedy delivery. Complete these procedures under actual contextual obligations.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 **PROPOSED PROCEDURE SET for contextual completion; no compliance certification.**
 
 Use this single supplement when material questions arise, rather than require

@@ -1,5 +1,12 @@
 # Benjamin Disraeli: negotiated reform, partial inclusion and delivery
 
+**Executive summary:** Negotiated reform must be workable and its effects checked. Partial inclusion and political compromise leave questions that enactment alone cannot settle.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Historical observations below are separated from the repository’s interpretation and proposed applications. This is a selective institutional study, not a complete biography or evidence that Alvorada would have prevented the events. See the [comparison and method](README.md).

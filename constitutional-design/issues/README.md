@@ -20,7 +20,7 @@ Constitution v0.1 still has eighteen drafting blockers. The
 [foundational-question record](../FOUNDATIONAL_QUESTIONS.yaml),
 [human decisions](../decisions/README.md), and
 [final review](../RATIFICATION_REVIEW_v0.1.md) record the later resolutions.
-Follow the [development index](../../history/DEVELOPMENT_RECORD.md) to distinguish
+Follow the [development index](../../research/history/DEVELOPMENT_RECORD.md) to distinguish
 baseline questions, selected designs, and current ratification prerequisites.
 The records are preserved rather than retrospectively rewritten to resemble
 knowledge available only after later decisions.

@@ -1,5 +1,12 @@
 # Herbert A. Simon: human judgment must be feasible
 
+**Executive summary:** People have limited time and attention. Make the real choice and decisive evidence understandable instead of equating a complete packet with good judgment.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **DEEPENED COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Targeted primary-text extension: 2026-10-04. See the [source ledger](SOURCE_REVIEW.md) for identity and retrieval details.

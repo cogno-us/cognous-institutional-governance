@@ -29,7 +29,7 @@ recommendations and AI consensus cannot substitute for that provenance.
 | [CDD-004](CDD-004.yaml) | Initial three-office Schedule O architecture and selection constraints | [Initial Schedule O](../INITIAL_SCHEDULE_O.yaml) |
 
 CDD-004 supplies architecture only: no identities, appointments, ratification,
-or activation follow from it. Refer to the [development index](../../history/DEVELOPMENT_RECORD.md)
+or activation follow from it. Refer to the [development index](../../research/history/DEVELOPMENT_RECORD.md)
 for supporting analyses and the order in which gaps were closed.
 
 ## Creating or interpreting records

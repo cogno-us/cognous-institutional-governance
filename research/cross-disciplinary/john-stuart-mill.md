@@ -1,5 +1,12 @@
 # John Stuart Mill: institutional lessons
 
+**Executive summary:** Disagreement can reveal error and protect human freedom. Participation needs limits on coercive power as well as opportunities to speak.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Philosophy. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

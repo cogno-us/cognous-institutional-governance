@@ -1,5 +1,12 @@
 # Targeted primary-source review
 
+**Executive summary:** Specific source passages support specific interpretations. This review records access and limits rather than claiming every cited author has been exhaustively checked.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **PASSAGE REVIEW — NOT COMPLETE CORPUS VERIFICATION**
 
 Reviewed 2026-10-04. The six deep studies now inspect primary-source passages rather than rely only on the original orientation summaries. Earlier public versions retain their actual retrieval limits in Git history. This ledger records the new evidence boundary; it does not upgrade the original 34 historical register entries.

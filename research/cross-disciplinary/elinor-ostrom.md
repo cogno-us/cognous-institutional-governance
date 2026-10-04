@@ -1,5 +1,12 @@
 # Elinor Ostrom: local autonomy with accountable coordination
 
+**Executive summary:** Rules should fit local knowledge and the scale of shared effects. Several centers of decision-making do not automatically create accountable governance.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **DEEPENED COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Targeted primary-text extension: 2026-10-04. The earlier indexed-excerpt boundary is superseded for the specific passages now inspected, not for the original historical register. See the [source ledger](SOURCE_REVIEW.md).

@@ -1,5 +1,12 @@
 # Decision process: objectives, alternatives and judgment
 
+**Executive summary:** Frame the choice, identify constraints and examine assumptions before committing. A structured process helps expose judgment; it cannot supply missing authority or evidence.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **SOURCE INTERPRETATION AND PROPOSED PRACTICE — NOT VALIDATED EFFECTIVENESS**
 
 Source IDs resolve to the [reviewed bibliography and access limits](SOURCES.md).

@@ -1,8 +1,17 @@
 # Change history
 
 This is a curated summary, not a replacement for Git commits or the
-[constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
+[constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
+
+## 2026-10-04 — Public documentation refactor and historical attribution
+
+- Replaced the cumulative main README with a short public introduction and task-based reading path; grouped guide navigation and added plain-language executive summaries linking to detailed analysis.
+- Consolidated historical background/development and film essays under the research section, with a unified findings synthesis. Preserved the earlier research narrative at a deeper level and six small relocation notices for old links.
+- Explicitly credited Vernon Bogdanor for reviewed British constitutional analysis, preserving coauthor and Robin Butler distinctions. Added a scoped Richard J. Evans study of emergency rule, institutional capture and coercion/consent with primary passages and access limits.
+- Repaired live relative links and documented the migration, progressive-disclosure approach and remaining owner-side distribution work. No retrospective original influence, endorsement, new constitutional decision or empirical benefit is asserted.
+
+- Repository validation, all 431 unit tests and both archived replay/integrity checks passed; [verification record](testing/DOCUMENTATION_REFACTOR_CHECKS.md) documents scope and remaining usability review.
 
 ## 2026-10-04 — Modular governance, proportional review and AI support
 
@@ -106,6 +115,6 @@ asserts no tagged release or operational deployment.
 
 ## Earlier constitutional development
 
-Read the [chronology](history/README.md) and [development index](history/DEVELOPMENT_RECORD.md)
+Read the [chronology](research/history/README.md) and [development index](research/history/DEVELOPMENT_RECORD.md)
 for foundational decisions, requirements, coordinated corrections, drafting,
 and review. Original dates and authorizations remain in their source records.

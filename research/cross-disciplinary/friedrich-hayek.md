@@ -1,5 +1,12 @@
 # Friedrich Hayek: institutional lessons
 
+**Executive summary:** Important knowledge is dispersed across people and situations. Central analysis can miss local information; decentralized action still needs clear limits.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Economics and institutional governance. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

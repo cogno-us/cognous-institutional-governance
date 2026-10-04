@@ -1,5 +1,12 @@
 # Decision-making source register
 
+**Executive summary:** This register identifies what was actually read and what each source supports. A respected publication venue does not make a proposed practice effective in every institution.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **SELECTIVE REVIEW — ACCESS AND EVIDENCE LIMITS RETAINED**
 
 Checked 2026-10-04. Stable IDs below identify works, not test cases or accepted

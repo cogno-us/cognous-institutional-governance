@@ -27,7 +27,7 @@ illustrations, synthetic observations and actual institutional evidence. The
 | Calibrate time-sensitive review | Use [review calibration](../process/REVIEW_CALIBRATION.md); distinguish a standing grant, required review and the strict emergency fallback. |
 | Consider organizational adoption | Map rights, incentives, objections, resources and actual commitments with the [adoption assessment](ADOPTION_ASSESSMENT.md). |
 | Understand the design | Read the [overview](../README.md), [principles](DESIGN_PRINCIPLES.md), and [architecture guide](ARCHITECTURE_GUIDE.md), then the [proposal](../constitutional-design/drafts/CONSTITUTION_v0.1.md). |
-| Review a disputed choice | Use the [development index](../history/DEVELOPMENT_RECORD.md) and [decision rationale](../process/DECISIONS_AND_RATIONALE.md); identify the controlling decision and provision. |
+| Review a disputed choice | Use the [development index](../research/history/DEVELOPMENT_RECORD.md) and [decision rationale](../process/DECISIONS_AND_RATIONALE.md); identify the controlling decision and provision. |
 | Explore an application | Select a [context](../applications/README.md), identify real decision rights, and use the bounded [evaluation guide](PILOT_EVALUATION.md). |
 | Start a practical assessment | Use the [institutional scope guide](INSTITUTIONAL_SCOPE.md) and [prepared assessment program](../testing/programs/INSTITUTIONAL_ASSESSMENT.md); actual owners and observed evidence are still required. |
 | Contribute a source or correction | Read [contribution guidance](../CONTRIBUTING.md), identify the exact claim and source, and open an issue or pull request. |

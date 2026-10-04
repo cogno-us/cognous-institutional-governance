@@ -25,8 +25,8 @@ constitutional law.
 
 ## Applying these principles under uncertainty
 
-The [Fog of War analysis](../research/FOG_OF_WAR.md) applies these existing principles through source-dependence checks, retained alternative explanations, harm-aware review, reconsideration triggers and near-miss assessment. Use the [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md). This supporting interpretation adds no numbered principle or constitutional requirement.
+The [Fog of War analysis](../research/films/FOG_OF_WAR.md) applies these existing principles through source-dependence checks, retained alternative explanations, harm-aware review, reconsideration triggers and near-miss assessment. Use the [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md). This supporting interpretation adds no numbered principle or constitutional requirement.
 
 ## Applying these principles to contested evidence
 
-The [Thin Blue Line analysis](../research/THIN_BLUE_LINE.md) applies the same principles to claim-specific support, contrary evidence, source dependence, authorized challenge and independently observed correction. Its [evidence review template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md) adds no numbered principle, constitutional office or new grant.
+The [Thin Blue Line analysis](../research/films/THIN_BLUE_LINE.md) applies the same principles to claim-specific support, contrary evidence, source dependence, authorized challenge and independently observed correction. Its [evidence review template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md) adds no numbered principle, constitutional office or new grant.

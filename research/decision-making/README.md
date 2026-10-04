@@ -1,5 +1,12 @@
 # Decision-making research
 
+**Executive summary:** Make choices explicit, compare real alternatives and learn from outcomes. Business and econometrics research offers useful methods, with different evidence strengths and limits.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER SUPPORTING RESEARCH — PROPOSED PRACTICES; NO CONSTITUTIONAL EFFECT**
 
 Reviewed 2026-10-04 at the maintainer's direction. Alvorada is ultimately a tool

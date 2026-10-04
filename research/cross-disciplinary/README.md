@@ -1,5 +1,12 @@
 # Cross-disciplinary institutional lessons
 
+**Executive summary:** Different disciplines expose different weaknesses in institutional design. Compare their tensions rather than turn all the authors into one agreed doctrine.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER RESEARCH SYNTHESIS — NO ADOPTION, RATIFICATION OR PERFORMANCE FINDING**
 
 Added 2026-10-04 to extend the [five leadership studies](../leadership/README.md). Sixteen additional figures provide scoped comparisons across political leadership, philosophy, economics and social science. Categories organize a reading path; many contributors cross those boundaries.

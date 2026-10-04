@@ -1,5 +1,12 @@
 # B. R. Ambedkar: equality that people can exercise
 
+**Executive summary:** Political equality can coexist with dependence and exclusion. Examine whether people can disagree and participate without losing practical security.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **DEEPENED COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Initial note and targeted primary-text extension: 2026-10-04. This is not a complete account of Ambedkar’s political thought. See the [source ledger](SOURCE_REVIEW.md) and [synthesis](DEEP_SYNTHESIS.md).

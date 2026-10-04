@@ -1,5 +1,12 @@
 # Albert O. Hirschman: correction needs effective voice and realistic exit
 
+**Executive summary:** People need effective ways to object or leave. Low departure or complaint counts do not by themselves show that an institution is healthy.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **DEEPENED COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Targeted primary-text extension: 2026-10-04. See the [source ledger](SOURCE_REVIEW.md) for the particular chapters inspected and the limits of this comparison.

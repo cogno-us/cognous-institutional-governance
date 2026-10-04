@@ -1,5 +1,12 @@
 # Franklin D. Roosevelt: understandable action and the dangers of executive expansion
 
+**Executive summary:** Explain interventions clearly and keep executive power contestable. Institutional reform and crisis action must also be judged against serious violations of human rights.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE STUDY — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Historical observations below are separated from the repository’s interpretation and proposed applications. This is a selective institutional study, not a complete biography or evidence that Alvorada would have prevented the events. See the [comparison and method](README.md).

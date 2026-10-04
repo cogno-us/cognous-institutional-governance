@@ -1,5 +1,11 @@
 # Decision-making workflow
 
+**Executive summary:** Identify who may decide, compare permissible options, check evidence and verify what happens. Use only the review depth the actual decision needs.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 **PROPOSED SUPPORTING PRACTICE — USE WITH ACTUAL INSTITUTIONAL AUTHORITY**
 
 Alvorada helps people make, explain, challenge and revisit consequential

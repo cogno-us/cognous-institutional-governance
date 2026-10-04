@@ -1,11 +1,17 @@
 # Architecture and current status
 
+**Executive summary:** The reference proposal separates authority, review, execution and verification. Modular profiles offer other institutional forms with explicit differences and no inherited adoption status.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 This guide explains the current constitutional proposal and remaining work.
 The broader [institutional scope](INSTITUTIONAL_SCOPE.md) includes human-only,
 software-supported and AI-enabled arrangements; the draft’s specific allocations
 and AI safeguards remain unchanged.
 Start with the [overview](../README.md); use the
-[development record](../history/DEVELOPMENT_RECORD.md) to reconstruct decisions.
+[development record](../research/history/DEVELOPMENT_RECORD.md) to reconstruct decisions.
 
 ## Context-sensitive architecture now proposed
 

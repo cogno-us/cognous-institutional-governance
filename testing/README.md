@@ -25,6 +25,9 @@ are separately proposed, not additions to an archived battery.
 The [modular-remediation check record](REMEDIATION_CHECKS.md) documents current
 conformance checks and explicit limits; it is not a module-efficacy result.
 
+The [documentation-refactor check record](DOCUMENTATION_REFACTOR_CHECKS.md)
+records migration verification and the remaining need for newcomer review.
+
 ## Run locally
 
 The standalone reference/film adapters document Python 3.9+; full-checkout

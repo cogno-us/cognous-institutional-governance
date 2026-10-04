@@ -1,129 +1,40 @@
-# Research: how the principles were developed
+# Research, history and film studies
 
-**EXPLANATORY RESEARCH RECORD — NO CONSTITUTIONAL EFFECT**
+**Executive summary:** good governance needs more than rules on paper. People
+must be able to understand decisions, question evidence, resist improper power
+and obtain real correction. The studies collected here explain those lessons,
+their tradeoffs and what remains uncertain.
 
-For the current decision-making purpose, start with the
-[business and econometrics studies](decision-making/README.md), their source
-register and inclusion recommendations. They are later supporting research,
-separate from the original development history reconstructed below.
+This is the single research section. Historical background, leadership,
+philosophy, economics, business studies and film analysis have one reading path;
+[detailed findings](FINDINGS.md) connect them to practice. None proves that
+Alvorada is effective or grants institutional authority.
 
-The [critique response](decision-making/GOVERNANCE_CRITIQUE.md) investigates
-delay costs, incumbent incentives and whether records improve substantive
-correction; its proposed practices and studies are not observed outcomes.
+## Start with the findings
 
-The [modular and AI-support source review](AI_ASSISTED_GOVERNANCE_SOURCES.md)
-adds selective primary support and countervailing evidence for context-specific
-profiles, task fit, verification burden and human agency. Exact tiers and terms
-are design proposals, not prescriptions or observed effects from those sources.
+Read [the plain-language synthesis](FINDINGS.md), then select the deeper evidence
+below. The [source and evaluation limits](LIMITATIONS_AND_EVALUATION.md) distinguish
+historical argument, empirical research, design interpretation and untested claims.
 
-Alvorada investigates durable institutional governance: authority that remains
-attributable, bounded and contestable, with humans retaining foundational
-authority over institutional ends. Human-only, conventional-software and
-AI-supported institutions are within the research scope. The object of the research is institutional
-power: who may decide, who can practically determine outcomes, and what prevents
-one from silently becoming the other.
+| Question | Deeper study |
+|---|---|
+| How did constitutional governance develop? | [Greek, Roman, British and American history](history/COMPARATIVE_CONSTITUTIONAL_HISTORY.md) |
+| What does British constitutional experience contribute? | [Vernon Bogdanor](history/VERNON_BOGDANOR.md): continuity, conventions and accountable government |
+| How can institutions lose their safeguards? | [Richard J. Evans](history/RICHARD_J_EVANS.md): emergency powers, capture and coerced consent |
+| What do films teach about judgment and evidence? | [Film studies](films/README.md): The Fog of War and The Thin Blue Line |
+| What can we learn from political leadership? | [Five leadership studies](leadership/README.md) |
+| What do philosophy, economics and social science add? | [Cross-disciplinary studies](cross-disciplinary/README.md) and [deeper synthesis](cross-disciplinary/DEEP_SYNTHESIS.md) |
+| What helps people make better decisions? | [Business and econometrics](decision-making/README.md) |
+| How can AI assist governance responsibly? | [Primary research and limits](AI_ASSISTED_GOVERNANCE_SOURCES.md) |
+| Does comparable work exist? | [Comparative assessment](COMPARATIVE_WORKS.md) |
 
-This section reconstructs the documented method from repository records. It
-does not claim to recover every conversation, reading, or private intention
-that preceded them. Historical influence is evidenced by the mappings in the
-Constitutional Decision Records, not inferred solely from resemblance.
+## Trace the development
 
-## Three lines of inquiry
+[Origin and chronology](history/README.md), [development record](history/DEVELOPMENT_RECORD.md)
+and [method and earlier synthesis](METHOD_AND_FINDINGS.md) preserve the project's
+history. The [design decisions](../process/DECISIONS_AND_RATIONALE.md) identify
+which choices were actually recorded. Newly reviewed authors are not retroactively
+claimed as original influences or endorsers.
 
-**Comparative constitutional history** supplied examples of participation,
-rotation, counter-power, emergency authority, executive migration, succession,
-continuity, and institutional breakdown. Athens, Greek political thought,
-Rome, British parliamentary development, and the American constitutional
-experiment are discussed in the [historical study](../history/COMPARATIVE_CONSTITUTIONAL_HISTORY.md).
-The existing register also includes Dutch and Swiss experience, Burke and the
-French Revolution, and cross-cutting lessons. This is therefore a comparison
-of multiple traditions, not a claim of one inevitable Western progression.
-
-**Institutional alternatives** converted those lessons into competing answers
-to five questions: constraint of foundational human authority, emergency
-necessity, succession and interregnum, adjudication when authority is a party,
-and amendment versus refounding. Each foundational decision compared five
-architectures. Qualitative tradeoffs did not produce an automatic winner.
-
-**Contemporary governance research** considered authorization, separation of
-duties, provenance, decision records, policy systems, and computational
-institutions. The [prior-art register](../constitutional-design/sources/PRIOR_ART_REGISTER.yaml)
-distinguishes established mechanisms from partial analogues and gaps. Reusing a
-known mechanism does not establish a complete constitutional order or novelty.
-
-## The synthesis
-
-The selected design combines reserved human sovereignty over foundational ends
-with binding constraints on ordinary human and artificial power. It uses
-independent human judgment, separated selection and enforcement chains,
-time-bounded exceptional authority, disclosed dependencies, and durable records
-of reasons, dissent, correction, and constitutional change.
-
-The principles were not deduced from an admired historical institution. They
-emerged from asking what fails under each alternative, which tradeoffs remain,
-and which human-authorized arrangement preserves the intended boundaries.
-See the [methodology](../process/METHODOLOGY.md) and
-[decision rationale](../process/DECISIONS_AND_RATIONALE.md).
-
-## Evidence boundary
-
-The historical register contains 34 preliminary entries, all still marked
-`SOURCE_TO_VERIFY`. The original source index records that boundary. New source
-checks in the historical study support specific passages; they do not upgrade
-all original entries or retrospectively validate the whole research programme.
-
-A historical analogy is neither proof of transferability nor authority to
-adopt a rule. Constitutional review results are design-review results, not
-empirical evidence that an activated institution resists capture. No such
-institution or production governance runtime is established by this repository.
-
-## Reading path
-
-1. [Project origin and chronology](../history/README.md).
-2. [Comparative constitutional history](../history/COMPARATIVE_CONSTITUTIONAL_HISTORY.md).
-3. [Development methodology](../process/METHODOLOGY.md).
-4. [Decisions and their rationale](../process/DECISIONS_AND_RATIONALE.md).
-5. [Constitution v0.1](../constitutional-design/drafts/CONSTITUTION_v0.1.md)
-   and its [traceability record](../constitutional-design/drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml).
-
-## Comparative assessment and reconstruction
-
-The [comparative assessment](COMPARATIVE_WORKS.md) examines close precedents,
-overlap, potential value, adoption costs, and evaluation limits. The
-[development index](../history/DEVELOPMENT_RECORD.md) distinguishes preserved
-constitutional evidence from current status and unadopted future proposals.
-
-[Evidence limitations and evaluation priorities](LIMITATIONS_AND_EVALUATION.md)
-collect the current source-status counts, review-independence limits, and next
-research steps without claiming field validation.
-
-## Incident-inspired testing
-
-See [testing and evaluation](../testing/README.md) for the 47-case proposed battery,
-verified reporting links, harness design and 72 executed synthetic runs.
-Full operational exercises and independent review remain pending; the reference
-experiment does not establish comparative institutional or field efficacy.
-
-## Later comparative learning: The Fog of War
-
-[The Fog of War analysis](FOG_OF_WAR.md) maps all eleven film themes to existing principles and constitutional provisions, qualifies the difficult lessons, and explains the proposed decision-review procedure and supplementary exercises. Incorporated 2026-10-04 as a later reading; no original influence, historical prevention or amendment is asserted.
-
-## Later comparative learning: The Thin Blue Line
-
-[The Thin Blue Line study](THIN_BLUE_LINE.md) develops ten explicitly analytical themes about claim-specific evidence, contradictions, contaminated corroboration, incentives, reconstructions, independent access and completed correction. It distinguishes film testimony, Morris’s investigation and the 1989 court disposition. Incorporated 2026-10-04; no original design influence or historical prevention is claimed.
-
-## Later comparative learning: five leadership studies
-
-The [leadership studies](leadership/README.md) examine Eisenhower, Woodrow Wilson, Churchill, Disraeli and FDR in separate sourced files, with a cross-comparison of dependence, approval, dissent, inclusion, crisis powers and delivery. They distinguish historical observations from interpretation and proposed practice; this later research does not alter original decision provenance or supply new test results.
-
-## Cross-disciplinary extension
-
-[Sixteen additional studies](cross-disciplinary/README.md) extend leadership analysis into political philosophy, economics and social science. Each distinguishes its source basis, interpretation, limits and unexecuted questions. The synthesis identifies research priorities, tensions and source-access limitations.
-
-## Deeper study: participation and feasible judgment
-
-The [six-study synthesis](cross-disciplinary/DEEP_SYNTHESIS.md) examines Ambedkar, Ostrom, Hirschman, Sen, Simon and Reason through targeted primary passages. It maps existing constitutional support against implementation questions about access, local grants, effective voice, usable alternatives, review workload and shared failures. Sources and unexecuted testing designs are separately documented.
-
-## Selected operational priority
-
-The maintainer selected practical assessment of usable access, feasible review workloads and independently verified remedies on 2026-10-04. The [prepared program](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) starts with a human-run complaints workflow, includes collection templates and makes actual missing evidence explicit. This is a research-program direction, not a constitutional adoption or completed study.
+For action, return to the [decision workflow](../process/DECISION_MAKING.md).
+For evidence of execution, use [testing](../testing/README.md).

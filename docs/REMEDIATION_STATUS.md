@@ -1,5 +1,11 @@
 # Remediation status after modular and AI-support design
 
+**Executive summary:** Documentary gaps have been addressed where possible. Real authority, people, independence, enforcement and measured outcomes remain to be supplied.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 Date: 2026-10-04. This follows the [26-gap review](REPOSITORY_GAP_REVIEW.md).
 The earlier review remains the dated baseline. This ledger records documentary
 remediation, not evidence that an institution has adopted or successfully used it.

@@ -1,5 +1,12 @@
 # Evidence limits and evaluation priorities
 
+**Executive summary:** The repo has recorded designs and reproducible synthetic checks, but no demonstrated institutional benefit. The evidence types and remaining questions need to stay separate.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](README.md).
+
+## Detailed analysis
+
 **Research assessment dated 2026-10-03.** This record describes what the public
 repository currently supports, what remains uncertain, and how to improve the
 evidence. It neither changes source-status labels nor supplies independent

@@ -1,5 +1,12 @@
 # Leadership studies: institutions beyond the leader
 
+**Executive summary:** Leadership can help institutions act, but personal capability does not replace accountability. These studies examine constructive choices alongside exclusion, overreach and failed delivery.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE RESEARCH — NOT ORIGINAL DESIGN PROVENANCE**
 
 Added 2026-10-04 at the maintainer’s request. Five selective studies examine how leadership interacts with authority, constraint, dissent, inclusion and institutional continuity. The unit of comparison is a decision or mechanism, not an overall ranking of leaders. Success in one setting and harm in another can coexist.
@@ -42,7 +49,7 @@ Sources linked in the five studies were consulted on 2026-10-04. Source links ar
 
 ## Relationship to the project record and testing
 
-This is later learning, alongside [The Fog of War](../FOG_OF_WAR.md) and [The Thin Blue Line](../THIN_BLUE_LINE.md). It is not evidence that these five leaders originally supplied particular CDR choices. Original decisions, requirements, constitutional text and frozen test archives remain authoritative for their recorded purposes.
+This is later learning, alongside [The Fog of War](../films/FOG_OF_WAR.md) and [The Thin Blue Line](../films/THIN_BLUE_LINE.md). It is not evidence that these five leaders originally supplied particular CDR choices. Original decisions, requirements, constitutional text and frozen test archives remain authoritative for their recorded purposes.
 
 The future evaluation questions in each study are **unexecuted and outside the numbered operational batteries**. This addition creates no observations, test scores or new efficacy claims. Follow the [testing protocol](../../testing/PROTOCOL.md) before converting questions into defined cases, independently assessed oracles and observed exercises. Cross-cultural comparison, affected-person accounts and independent historical review remain valuable gaps.
 

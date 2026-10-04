@@ -1,5 +1,12 @@
 # Nelson Mandela: institutional lessons
 
+**Executive summary:** Institutional transition needs legitimacy, inclusion and continuing accountability. Personal reconciliation does not replace durable protections and independent institutions.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Political leadership. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

@@ -1,5 +1,12 @@
 # Abraham Lincoln: institutional lessons
 
+**Executive summary:** Preserving an institution under crisis raises hard questions about emergency power and inclusion. A desirable end does not eliminate the need to inspect means and authority.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Political leadership. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

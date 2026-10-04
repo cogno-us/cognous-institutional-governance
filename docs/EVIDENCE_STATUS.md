@@ -1,5 +1,11 @@
 # Current design, evidence and readiness map
 
+**Executive summary:** Separate proposals, illustrations, synthetic checks and actual institutional observations. Passing repository tests does not establish effective governance.
+
+[Read the detailed guidance](#detailed-guidance).
+
+## Detailed guidance
+
 **Current explanatory status; historical review records remain unchanged.**
 
 | Item | What exists | What it does not establish |

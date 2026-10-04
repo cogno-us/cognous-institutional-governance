@@ -1,5 +1,12 @@
 # Organizational learning: evidence, experimentation and dissent
 
+**Executive summary:** People need to be able to report mistakes and challenge accepted practice. Learning is useful only when it changes future decisions and correction, not just reporting volume.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **QUALIFIED RESEARCH FINDINGS AND OUR PROPOSED APPLICATIONS**
 
 See the [source register](SOURCES.md) for links and review depth.

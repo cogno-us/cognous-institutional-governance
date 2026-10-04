@@ -1,5 +1,12 @@
 # George Washington: institutional lessons
 
+**Executive summary:** Leadership transitions should preserve an institution without making a leader indispensable. Restraint and succession require actual arrangements, not personal promises.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **LATER COMPARATIVE NOTE — NO CONSTITUTIONAL EFFECT**
 
 Added 2026-10-04. Category: Political leadership. This is a scoped initial study, not a biography, full literature review or empirical validation. See the [method and synthesis](README.md).

@@ -1,5 +1,14 @@
 # Government: public services, benefits, and administrative decisions
 
+**Executive summary:** Deliver services under the lawful mandate, with accessible reasons, challenge and correction. Routine acts and serious consequences
+need different review. This is proposed guidance, not an adopted institution or
+demonstrated sector result.
+
+[Choose the modular route](MODULAR_ROUTING.md) or
+[read the detailed application](#detailed-application).
+
+## Detailed application
+
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  
 **Acceptance exercises: PROPOSED — NOT YET EVALUATED**
 
@@ -189,13 +198,13 @@ between evidence, recommendation, human decision, and operative authority.
 
 Record the legal mandate separately from a plausible explanation of eligibility. Preserve the claimant’s contrary evidence and identify duplicated data sources. Efficiency in processing denials cannot substitute for correct decisions, accessible appeal and delivered remedies under the real public authority.
 
-These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
+These are proposed applications of the [eleven-theme analysis](../research/films/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
 
 ## Applying The Thin Blue Line evidence review
 
 A convincing case summary should not hide the claimant’s contrary documents or their access limits. Use the actual legal standard and authorized review process; new evidence is not a self-executing decision. Track corrected eligibility records, downstream restrictions and delivered benefits or other remedies.
 
-Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
+Use the [sourced analysis](../research/films/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
 
 ## Context-specific structure, proportional review and AI support
 

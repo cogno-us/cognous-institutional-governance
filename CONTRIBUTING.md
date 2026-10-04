@@ -40,6 +40,11 @@ on first use, use descriptive headings, provide meaningful link text, avoid
 color-only distinctions, and supply text alternatives for diagrams. Preserve
 non-English source context and translation uncertainty when relevant.
 
+Use [progressive disclosure](docs/DOCUMENTATION_STRUCTURE.md): a short, plain-language
+summary first, descriptive links next, detailed analysis and source limits deeper.
+Keep research, history and films in the unified research section, and experimental
+claims in testing. Maintain one canonical analysis rather than parallel copies.
+
 There is no guaranteed response or merge deadline. Substantive objections should
 remain traceable even when a proposal is declined. See [release guidance](docs/RELEASE_GUIDANCE.md)
 for version, citation, and adaptation boundaries.

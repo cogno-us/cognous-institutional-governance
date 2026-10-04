@@ -1,32 +1,40 @@
-# Framework guides
+# Guides
 
-Start with the [repository overview](../README.md).
+**Start small:** choose a decision, identify actual authority, match review to
+its consequences and keep a usable correction route. You do not need to read
+all the research or fill every worksheet to understand the framework.
 
-| Guide | Purpose |
+## First use
+
+| Need | Guide |
 |---|---|
-| [Modular charter and profiles](../constitutional-design/modular/README.md) | Context-specific structure and terms, separately proposed from v0.1 |
-| [Proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) | Severity, evidence sufficiency and process burden |
-| [AI institutional assistance](../applications/ai-assisted-institutional-governance.md) | Reduce administrative work and support accountable judgment |
-| [Virtuous recursion](../process/VIRTUOUS_RECURSION.md) | Govern how observed outcomes inform authorized improvements |
-| [Complete teaching packet](examples/SERVICE_CASE.md) | Invented end-to-end case with departures, challenge, remedy and learning |
-| [Current evidence status](EVIDENCE_STATUS.md) | Historical design review versus current operational evidence |
-| [Remediation status](REMEDIATION_STATUS.md) | All 26 earlier gaps, documentary improvements and unfinished work |
-| [Getting started](GETTING_STARTED.md) | Reader, reviewer, contributor, and application paths with a worked example |
-| [Institutional scope](INSTITUTIONAL_SCOPE.md) | Broad governance framing, human-only examples and adaptation boundaries |
-| [Institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) | Prepared program and templates for access, workload and remedy evidence |
-| [Decision-making workflow](../process/DECISION_MAKING.md) | Practical decision path and record template |
-| [Adoption assessment](ADOPTION_ASSESSMENT.md) | Incumbent incentives, consent, resources and actual commitments |
-| [Whole-repository gap review](REPOSITORY_GAP_REVIEW.md) | Current weaknesses, evidence limits and prioritized remediation |
-| [FAQ](FAQ.md) | Common questions about status, authority, reuse, and testing |
-| [Pilot evaluation](PILOT_EVALUATION.md) | Bounded operational method; [synthetic reference results](../testing/results/README.md) are separate |
-| [Release guidance](RELEASE_GUIDANCE.md) | Snapshot, citation, version, relocation, and adaptation procedure |
-| [Public-launch review](PUBLICATION_REVIEW.md) | Documentation comparison, gaps addressed, and remaining owner-side recommendations |
-| [Working design principles](DESIGN_PRINCIPLES.md) | Seventeen research and design principles; not adopted law |
-| [Glossary](GLOSSARY.md) | Terms used in the constitutional records |
-| [Architecture and current status](ARCHITECTURE_GUIDE.md) | Institutional allocation, foundational protections, ratification boundary, and remaining work |
-| [Public release review](PUBLIC_RELEASE_REVIEW.md) | Dated disclosure and validation-portability review, with explicit limits |
+| A short introduction | [Getting started](GETTING_STARTED.md) |
+| A complete example | [Invented service case](examples/SERVICE_CASE.md) |
+| A practical decision path | [Decision workflow](../process/DECISION_MAKING.md) |
+| A sector or institution | [Applications](../applications/README.md) |
 
-For practical contexts, use [Applications](../applications/README.md).
-For sources and comparative value, use [Research](../research/README.md).
-For provenance and earlier analyses, use the
-[development index](../history/DEVELOPMENT_RECORD.md).
+## Choose a deeper question
+
+| Need | Guide |
+|---|---|
+| Structure and terms | [Modular framework](../constitutional-design/modular/README.md) |
+| Review effort and evidence | [Proportional governance](../process/PROPORTIONAL_GOVERNANCE.md) |
+| AI support and learning | [AI assistance](../applications/ai-assisted-institutional-governance.md), [recursive learning](../process/VIRTUOUS_RECURSION.md) |
+| Research, history and films | [Unified research section](../research/README.md) |
+| Actual status and open work | [Evidence status](EVIDENCE_STATUS.md), [remediation ledger](REMEDIATION_STATUS.md) |
+| Public reuse/distribution | [Release guide](RELEASE_GUIDANCE.md) |
+
+<details>
+<summary>Reference guides and earlier reviews</summary>
+
+- [FAQ](FAQ.md), [principles](DESIGN_PRINCIPLES.md) and [glossary](GLOSSARY.md).
+- [Institutional scope](INSTITUTIONAL_SCOPE.md), [architecture](ARCHITECTURE_GUIDE.md)
+  and [adoption assessment](ADOPTION_ASSESSMENT.md).
+- [Assessment program](../testing/programs/INSTITUTIONAL_ASSESSMENT.md)
+  and [pilot method](PILOT_EVALUATION.md).
+- [Gap-review baseline](REPOSITORY_GAP_REVIEW.md), [publication review](PUBLICATION_REVIEW.md)
+  and [dated disclosure review](PUBLIC_RELEASE_REVIEW.md).
+- [Development record](../research/history/DEVELOPMENT_RECORD.md).
+- [Documentation structure and migration](DOCUMENTATION_STRUCTURE.md).
+
+</details>

@@ -1,5 +1,14 @@
 # Manufacturing, utilities, and critical infrastructure
 
+**Executive summary:** Bound physical and service effects and keep safety review independent of performance pressure. Routine acts and serious consequences
+need different review. This is proposed guidance, not an adopted institution or
+demonstrated sector result.
+
+[Choose the modular route](MODULAR_ROUTING.md) or
+[read the detailed application](#detailed-application).
+
+## Detailed application
+
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  
 **Acceptance exercises: PROPOSED — NOT YET EVALUATED**
 
@@ -189,13 +198,13 @@ between evidence, recommendation, human decision, and operative authority.
 
 Do not let output or uptime metrics conceal safety degradation or delayed maintenance. Distinguish sensor observations from inferred causes and inspect shared failure dependencies. Compare bounded authorized action with interruption harm and record actual effects, recovery authority and near misses.
 
-These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
+These are proposed applications of the [eleven-theme analysis](../research/films/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
 
 ## Applying The Thin Blue Line evidence review
 
 A clean inspection summary must not suppress a conflicting sensor record or maintenance note. Preserve observation conditions and distinguish simulation from measured state. An authorized correction needs independently observed equipment or service effects and reconciliation of outstanding safety obligations.
 
-Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
+Use the [sourced analysis](../research/films/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
 
 ## Context-specific structure, proportional review and AI support
 

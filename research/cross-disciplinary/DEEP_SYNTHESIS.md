@@ -1,5 +1,12 @@
 # Deeper synthesis: institutions people can actually use
 
+**Executive summary:** A right on paper is insufficient if a person cannot use it. Examine real access, alternatives, workload and verified correction.
+
+[Read the detailed analysis](#detailed-analysis) or return to the
+[research overview](../README.md).
+
+## Detailed analysis
+
 **RESEARCH RECOMMENDATIONS — NO CONSTITUTIONAL CHANGE OR EFFICACY FINDING**
 
 Added 2026-10-04 after [targeted source review](SOURCE_REVIEW.md) for Ambedkar, Ostrom, Hirschman, Sen, Simon and Reason. The conclusions below are the repository’s interpretation. They are hypotheses and design questions, not a merged doctrine attributed to the six authors.

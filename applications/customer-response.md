@@ -1,5 +1,14 @@
 # Customer response and outbound communications
 
+**Executive summary:** Give people answers supported by the actual policy, and escalate consequential uncertainty. Routine acts and serious consequences
+need different review. This is proposed guidance, not an adopted institution or
+demonstrated sector result.
+
+[Choose the modular route](MODULAR_ROUTING.md) or
+[read the detailed application](#detailed-application).
+
+## Detailed application
+
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  
 **Acceptance exercises: PROPOSED — NOT YET EVALUATED**
 
@@ -189,13 +198,13 @@ between evidence, recommendation, human decision, and operative authority.
 
 Trace a confident policy answer to its original source before making a commitment. Several copied webpages do not corroborate it independently. Preserve the customer’s conflicting account and use the actual policy owner for an exception; measure unsupported promises and delayed legitimate answers as well as response speed.
 
-These are proposed applications of the [eleven-theme analysis](../research/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
+These are proposed applications of the [eleven-theme analysis](../research/films/FOG_OF_WAR.md) and [decision review template](../process/DECISION_REVIEW_UNDER_UNCERTAINTY.md), principally IV.1–IV.2 and the relevant existing authority, remedy and continuity provisions. They add no constitutional powers or evaluated outcomes. The [FW01–FW11 exercises](../testing/battery/FOG_OF_WAR.md) remain separate, unexecuted proposals.
 
 ## Applying The Thin Blue Line evidence review
 
 Keep the customer’s original question, disputed answer and exact policy source available. An AI-generated explanation of why an answer was reasonable is a reconstruction, not evidence that the policy authorized it. If a false promise is corrected, track notice and any actual remedy rather than only editing the response.
 
-Use the [sourced analysis](../research/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
+Use the [sourced analysis](../research/films/THIN_BLUE_LINE.md) and [evidence challenge and correction template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md), principally IV.1–IV.2 and III.4 under the existing authority and remedy boundaries. These examples add no powers or evaluated outcomes. The separate [TB01–TB10 exercises](../testing/battery/THIN_BLUE_LINE.md) are proposed and unexecuted.
 
 ## Context-specific structure, proportional review and AI support
 
