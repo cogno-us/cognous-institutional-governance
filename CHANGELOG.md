@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Broad institutional scope and prepared assessment
+
+- Updated the public title to Constitutional Governance for Institutions and current citation/attribution guidance; AI remains one application, with original history and AI safeguards preserved.
+- Added a broad institutional scope guide and human-run newcomer example.
+- Prepared an access, review-capacity and remedy assessment program, metric definitions and five separate collection/reporting templates inside testing.
+- Recorded execution prerequisites and evidence limits. No actual participant observations, new operational results, constitutional amendment or repository rename is asserted.
+
 ## 2026-10-04 — Deeper primary-source analysis
 
 - Deepened Ambedkar, Ostrom, Hirschman, Sen, Simon and Reason using targeted primary passages; resolved four earlier retrieval limitations and documented exact review boundaries.

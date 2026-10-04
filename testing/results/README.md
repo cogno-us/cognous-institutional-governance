@@ -33,3 +33,7 @@ Archive run inputs and SHA256 hashes with raw results and environment metadata; 
 ## Film-review mechanics, 2026-10-04
 
 [The new archive](2026-10-04-film-review-v1/README.md) contains 42 fixtures mapped to the 21 FW/TB proposals and 126 observations. Both guarded arms satisfied all 42 complete oracles and all 21 legitimate-action countercases. The permissive toy satisfied 15 complete oracles; it completed all 21 legitimate effects, but omitted unknown-evidence records in six countercases. These counts describe fixed mechanics, not institutional error rates or comparative efficacy. The original 72-observation rerun matched the earlier effect observations.
+
+## Institutional assessment evidence remains pending
+
+The [prepared program](../programs/INSTITUTIONAL_ASSESSMENT.md) has no operational result archive. Usable access, human review capacity and independent remedy delivery remain unobserved here. Its blank reporting template is not a run, and existing synthetic archives do not establish effectiveness in human-only or broader institutional settings.

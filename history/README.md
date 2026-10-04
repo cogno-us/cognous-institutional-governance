@@ -87,3 +87,7 @@ The [cross-disciplinary extension](../research/cross-disciplinary/README.md) add
 ## Later deepening: six primary-source studies, 2026-10-04
 
 A same-day [source-review ledger](../research/cross-disciplinary/SOURCE_REVIEW.md) and [deeper synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) extend six priority notes beyond their initial orientation. Four earlier retrieval gaps were resolved for targeted passages. The work identifies implementation questions and unexecuted testing scenarios; original decisions, constitutional text and historical register statuses retain their provenance.
+
+## Scope clarification and evaluation priority, 2026-10-04
+
+The maintainer clarified that Alvorada is a framework for broad institutional governance, with AI as one application, and selected the deeper analysis’s practical evaluation priority. The public title became Constitutional Governance for Institutions. A [scope guide](../docs/INSTITUTIONAL_SCOPE.md) and [prepared assessment program](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) were added. This records a documentation and research direction; original AI-related origins and constitutional decisions remain unchanged.

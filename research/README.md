@@ -2,9 +2,10 @@
 
 **EXPLANATORY RESEARCH RECORD — NO CONSTITUTIONAL EFFECT**
 
-Alvorada investigates how durable institutions can use human and artificial
-capability while keeping authority attributable, bounded, contestable, and
-human at the foundational level. The object of the research is institutional
+Alvorada investigates durable institutional governance: authority that remains
+attributable, bounded and contestable, with humans retaining foundational
+authority over institutional ends. Human-only, conventional-software and
+AI-supported institutions are within the research scope. The object of the research is institutional
 power: who may decide, who can practically determine outcomes, and what prevents
 one from silently becoming the other.
 
@@ -108,3 +109,7 @@ The [leadership studies](leadership/README.md) examine Eisenhower, Woodrow Wilso
 ## Deeper study: participation and feasible judgment
 
 The [six-study synthesis](cross-disciplinary/DEEP_SYNTHESIS.md) examines Ambedkar, Ostrom, Hirschman, Sen, Simon and Reason through targeted primary passages. It maps existing constitutional support against implementation questions about access, local grants, effective voice, usable alternatives, review workload and shared failures. Sources and unexecuted testing designs are separately documented.
+
+## Selected operational priority
+
+The maintainer selected practical assessment of usable access, feasible review workloads and independently verified remedies on 2026-10-04. The [prepared program](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) starts with a human-run complaints workflow, includes collection templates and makes actual missing evidence explicit. This is a research-program direction, not a constitutional adoption or completed study.

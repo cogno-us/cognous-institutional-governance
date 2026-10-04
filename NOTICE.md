@@ -1,6 +1,6 @@
 # Attribution and licensing scope
 
-Constitutional Governance for Human–AI Institutions (Alvorada) —
+Constitutional Governance for Institutions (Alvorada) —
 André de Lima and contributing rights holders, 2026.
 Founder affiliation: [Cognous](https://cogno.us).
 Canonical repository: https://github.com/titanicprime/alvorada
@@ -15,7 +15,7 @@ When sharing, retain supplied attribution and notices, link the license and
 source where reasonably practicable, and indicate modifications as required by
 the license. One reasonable credit is:
 
-> Constitutional Governance for Human–AI Institutions (Alvorada) —
+> Constitutional Governance for Institutions (Alvorada) —
 > André de Lima, founder of Cognous (https://cogno.us),
 > https://github.com/titanicprime/alvorada, licensed under CC BY 4.0.
 > Changes: [describe your modifications, if any].

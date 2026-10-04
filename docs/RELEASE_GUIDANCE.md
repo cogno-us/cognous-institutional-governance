@@ -26,7 +26,7 @@ repository. Cite specific decision or section identifiers when making a precise
 constitutional claim. No DOI, archived deposit, or release identifier is asserted
 unless it has actually been created and verified.
 
-Example: André de Lima. *Constitutional Governance for Human–AI Institutions
+Example: André de Lima. *Constitutional Governance for Institutions
 (Alvorada): A Research Framework*. 2026. Repository URL, commit [actual SHA],
 accessed [actual date]. Constitution v0.1 proposed, not adopted.
 

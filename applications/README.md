@@ -2,8 +2,8 @@
 
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**
 
-Alvorada can inform any setting where humans and artificial systems exercise
-consequential power together. These eighteen context files translate its
+Alvorada can inform settings where institutions exercise consequential power,
+including human-only, conventional-software and AI-supported arrangements. These eighteen context files translate its
 principles into decisions, grants, records, review, continuity, and withdrawal.
 Each context covers **all 17 working principles, all 10 protected foundational
 commitments, and all 8 constitutional Articles**. The
@@ -126,3 +126,7 @@ Each context now includes a domain-specific application of the [Fog of War analy
 ## Cross-context evidence challenge and correction
 
 Each context also applies the [Thin Blue Line study](../research/THIN_BLUE_LINE.md). Use the [evidence challenge template](../process/EVIDENCE_CHALLENGE_AND_CORRECTION.md) to inspect original claims, contrary evidence, dependencies and remedy effects. The ten [TB exercises](../testing/battery/THIN_BLUE_LINE.md) are a separate, unexecuted supplement; no analogy supplies domain authority.
+
+## Broad institutional scope and first assessment
+
+The [scope guide](../docs/INSTITUTIONAL_SCOPE.md) supplies human-only reading examples; technology is optional except in explicitly technology-specific contexts. The [prepared institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) begins with complaints handled by people and separately measures usable access, review capacity and completed remedies. It does not execute or upgrade the ninety application exercises.

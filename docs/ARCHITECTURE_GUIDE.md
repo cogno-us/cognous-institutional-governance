@@ -1,6 +1,9 @@
 # Architecture and current status
 
 This guide explains the current constitutional proposal and remaining work.
+The broader [institutional scope](INSTITUTIONAL_SCOPE.md) includes human-only,
+software-supported and AI-enabled arrangements; the draft’s specific allocations
+and AI safeguards remain unchanged.
 Start with the [overview](../README.md); use the
 [development record](../history/DEVELOPMENT_RECORD.md) to reconstruct decisions.
 

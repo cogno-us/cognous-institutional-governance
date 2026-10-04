@@ -1,4 +1,4 @@
-# Contributing to Constitutional Governance for Human–AI Institutions
+# Contributing to Constitutional Governance for Institutions
 
 Alvorada is the project name of this research framework.
 

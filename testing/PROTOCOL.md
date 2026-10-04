@@ -49,3 +49,7 @@ The ten [Thin Blue Line exercises](battery/THIN_BLUE_LINE.md) use the [evidence 
 ## Executed narrow film adapter
 
 [Film-review coverage](harness/FILM_REVIEW_DESIGN.md) and [results](results/2026-10-04-film-review-v1/README.md) record 42 fixed subtests and 126 observations. Their execution does not complete the full FW/TB program above. Expected labels are excluded from the policy input; evidence relations, dependencies, quality and authority are still author-supplied. Both guarded arms use identical gates, so only future observed human/institutional comparison can assess incremental value.
+
+## Institutional assessment without AI
+
+The [prepared program](programs/INSTITUTIONAL_ASSESSMENT.md) applies this protocol to a human-run complaints workflow. Use its [measures](programs/INSTITUTIONAL_MEASURES.md) to distinguish usable access, active review time, elapsed delay, legitimate service and independently verified remedies. Baseline A must be observed; B/C need equivalent cases and resources. AI is an optional, separately declared condition, not a prerequisite for institutional evaluation. Preparation does not supply execution evidence.

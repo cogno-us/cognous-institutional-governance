@@ -64,3 +64,7 @@ experiment does not establish comparative institutional or field efficacy.
 ## Later targeted leadership and disciplinary studies
 
 The [cross-disciplinary source ledger](cross-disciplinary/SOURCE_REVIEW.md) records specific primary passages inspected for six contributors. This does not upgrade the original historical register or verify complete corpora. The [deeper synthesis](cross-disciplinary/DEEP_SYNTHESIS.md) identifies missing operational evidence for participation, review capacity, voice, local grants and independent correction. Six [research scenarios](../testing/research/INSTITUTIONAL_USABILITY.md) are unexecuted and outside the numbered batteries; no new causal, comparative or efficacy results accompany them.
+
+## Broad institutional scope and prepared assessment
+
+The framework’s current scope includes human-only, software-supported and AI-enabled institutions; broader scope is not broader performance evidence. The [prepared assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) prioritizes access, review capacity and remedy completion in a human-run workflow. Its actual owner, institutional grants, participant arrangements, independent assessor and observations remain unfilled. Current synthetic findings must not be generalized to these human or institutional outcomes.

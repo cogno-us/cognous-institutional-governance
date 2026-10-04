@@ -53,3 +53,7 @@ The [2026-10-04 archive](results/2026-10-04-film-review-v1/README.md) records 12
 ## Research designs: institutional usability
 
 Six [institutional usability scenarios](research/INSTITUTIONAL_USABILITY.md), drawn from deeper interdisciplinary studies, examine participation barriers, local/shared scope, effective voice, usable alternatives, reviewer workload and shared failures. Each includes legitimate countercases and cost observations. They are **unexecuted research designs outside the 68 numbered operational proposals**, with no new fixtures, harness results or efficacy findings.
+
+## Prepared institutional assessment program
+
+The [first assessment program](programs/INSTITUTIONAL_ASSESSMENT.md) prioritizes usable access, feasible review workloads and verified remedies in a human-run complaints workflow. [Metric definitions](programs/INSTITUTIONAL_MEASURES.md) and separate study, case, review, remedy and results templates are ready. Actual owners, grants, participants, independent assessment and observations remain unfilled; no new operational evidence is claimed. The existing numbered exercises and frozen results retain their status.

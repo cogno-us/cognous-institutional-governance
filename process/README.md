@@ -34,3 +34,7 @@ The [cross-disciplinary supplement](CROSS_DISCIPLINARY_REVIEW.md) adds usable st
 ## Deeper analysis and evidence design
 
 The [six-study synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) now distinguishes formal protections from demonstrated operational capacity and flags individual exit as a separate normative question. The review supplement links six [unexecuted usability scenarios](../testing/research/INSTITUTIONAL_USABILITY.md) for future evaluation.
+
+## Operational evidence collection
+
+The [prepared institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) turns the selected recommendation into a study plan, measurement definitions and observation templates. Begin with human-run complaints under actual authority; collect evidence before claiming access, feasible review or completed remedies.

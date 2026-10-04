@@ -44,7 +44,7 @@ thresholds; domain owners and reviewers must justify thresholds in context.
 | Epistemic integrity | Missing facts, uncertainty, contrary evidence, retained dissent | Fluent answers concealing unresolved questions |
 | Accessible review | Ability to reach review, time, reasons, and correction delivery | Fewer complaints caused by an inaccessible appeal route |
 | Independence | Shared funding, identity, infrastructure, evidence, and agenda control | Different office titles controlled by one dependency |
-| Human agency | Comprehension, rejection, replacement, and viable nonmachine continuity | Nominal approval with no practical alternative |
+| Human agency | Comprehension, rejection, replacement, and viable independently controlled continuity, including nonmachine alternatives where relevant | Nominal approval with no practical alternative |
 | Durable state | Independent observation of authorized effects and records | Local success or a sent message mistaken for completed service |
 | Quality and cost | Service outcomes, delay, reviewer workload, training, and maintenance | Governance overhead ignored while only benefits are reported |
 
@@ -84,3 +84,7 @@ and authorized continuing practice. Report negative findings and tradeoffs.
 A successful bounded pilot neither adopts the Constitution nor demonstrates
 performance across all eighteen contexts. A broader claim requires evidence
 covering the broader settings, consequences, and failure conditions.
+
+## Prepared first institutional assessment
+
+Use the [program](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) and [metric definitions](../testing/programs/INSTITUTIONAL_MEASURES.md) to assess a human-run complaints workflow first. Separate access, active reviewer time, elapsed delay and independently verified remedy completion. Study and observation templates are ready, but real grants, staffing, participants and independently assessed outcomes remain unfilled. AI use is optional and must be declared as a study condition.

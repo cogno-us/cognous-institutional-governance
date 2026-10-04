@@ -1,5 +1,15 @@
 # Frequently asked questions
 
+## Is this only about AI governance?
+
+No. It is a framework for broad institutional governance: authority, constraint,
+participation, evidence, review, emergency, continuity and change. AI is one
+application. The same questions apply to human hierarchies, boards, committees,
+public administration and service organizations. Read the [scope guide](INSTITUTIONAL_SCOPE.md).
+The AI-specific safeguards in the existing constitutional draft still apply
+where relevant; broadening the research scope does not remove them or establish
+universal effectiveness.
+
 ## Is this an adopted constitution?
 
 No. v0.1 is proposed for human ratification. The architecture is drafted and
@@ -78,3 +88,7 @@ There is no support service-level agreement or promised response deadline.
 Use [CITATION.cff](../CITATION.cff) and include the exact commit or release consulted.
 Constitution v0.1 is a document version, not proof that a public repository
 release, institutional adoption, or deployment has occurred.
+
+## Can the new institutional assessment already claim results?
+
+No. The [program and measurement kit](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) are prepared, but actual institutional ownership, relevant approvals, participants and independent observations are not supplied. Existing synthetic results remain narrower evidence. A prepared protocol is not an executed human study.

@@ -1,7 +1,8 @@
-# Constitutional Governance for Human–AI Institutions
+# Constitutional Governance for Institutions
 
 An open research framework for authority, accountability, and institutional
-lifecycle in organizations where humans and AI systems act together.
+lifecycle across businesses, public bodies, nonprofits, communities and other
+institutions. It applies to human-run, software-supported and AI-enabled work.
 
 **Project name:** Alvorada.
 
@@ -10,11 +11,16 @@ lifecycle in organizations where humans and AI systems act together.
 **License:** [Creative Commons Attribution 4.0 International](LICENSE).
 
 Alvorada asks how authority is created, bounded, challenged, transferred, and
-changed when human and artificial actors participate in consequential work.
+changed wherever institutional actors exercise consequential power.
 Its object of governance is **power and authority, not substrate**. Humans
 retain foundational sovereignty; ordinary human and artificial power is subject
 to binding constraints. Capability, intelligence, reliance, and technical
 validation cannot create authority.
+
+AI governance is one application of this broader framework. Human hierarchy,
+committees, professional expertise, vendors and administrative systems can also
+concentrate effective power. See the [institutional scope guide](docs/INSTITUTIONAL_SCOPE.md)
+for human-only examples and adaptation boundaries.
 
 ## Start here
 
@@ -26,6 +32,7 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 | The principles and terminology | [Working principles](docs/DESIGN_PRINCIPLES.md) and [glossary](docs/GLOSSARY.md) |
 | The proposed constitutional design | [Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md) and [architecture guide](docs/ARCHITECTURE_GUIDE.md) |
 | How it applies to your domain | [Applications](applications/README.md): eighteen context files |
+| How to assess practical institutional performance | [Institutional assessment program](testing/programs/INSTITUTIONAL_ASSESSMENT.md): access, review capacity and verified remedies |
 | Why the choices were made | [Decisions and rationale](process/DECISIONS_AND_RATIONALE.md) and [methodology](process/METHODOLOGY.md) |
 | How it compares with other work | [Comparative assessment](research/COMPARATIVE_WORKS.md) |
 | Lessons from political leadership | [Five leadership studies](research/leadership/README.md): Eisenhower, Wilson, Churchill, Disraeli and FDR |
@@ -194,10 +201,14 @@ attributed reuse and adaptation, including commercial use. External sources
 retain their own rights. See [NOTICE.md](NOTICE.md) for scope and attribution and
 [the public release review](docs/PUBLIC_RELEASE_REVIEW.md) for its evidence limits.
 
-Suggested credit: “Constitutional Governance for Human–AI Institutions
+Suggested credit: “Constitutional Governance for Institutions
 (Alvorada) — André de Lima, founder of Cognous (https://cogno.us),
 https://github.com/titanicprime/alvorada, CC BY 4.0; modified where indicated.”
 
 ## Executed film-inspired mechanics
 
 The [film-review testing archive](testing/results/2026-10-04-film-review-v1/README.md) adds 42 fixed subtests mapped to the 21 Fog of War and Thin Blue Line proposals, with 126 recorded observations. Both guarded configurations satisfied all 42 predefined oracles; they use identical effect controls. All 21 legitimate-action countercases retained their intended effects. This is synthetic adapter evidence; full institutional exercises, independent human review and comparative efficacy remain pending. See [coverage and limits](testing/harness/FILM_REVIEW_DESIGN.md).
+
+## First institutional assessment
+
+The [prepared assessment program](testing/programs/INSTITUTIONAL_ASSESSMENT.md) starts with a human-run complaints workflow and compares existing practice, competent conventional controls and Alvorada-inspired records. It includes metric definitions and separate study, case, review, remedy and reporting templates. Preparation is complete; real ownership, grants, participants, independent assessment and observations remain outstanding. No new operational results are asserted.

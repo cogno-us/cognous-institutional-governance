@@ -120,3 +120,7 @@ unique, complete in practice, or proven to preserve sovereignty are unsupported.
 
 
 Return to the [overview](../README.md) or [research index](README.md).
+
+## Scope clarification: broad institutional governance, 2026-10-04
+
+The public framework now explicitly covers human-only, conventional-software and AI-supported institutions. The dated comparison above remains a bounded review; a broader title does not establish novelty across political or organizational theory. The [leadership](leadership/README.md) and [cross-disciplinary studies](cross-disciplinary/README.md) broaden the reading path, while the [institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) asks whether usable access, feasible review and completed remedies add observable value over competent conventional arrangements. Any benefit must be demonstrated in the actual institution and cannot be inferred from differences from AI-specific tools.
