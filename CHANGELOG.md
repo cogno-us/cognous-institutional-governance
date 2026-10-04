@@ -4,6 +4,10 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Public comparison summary
+
+- Added a plain-language comparison near the top of the README covering authority, proportional review, institutional continuity, traceable reasoning and AI-supported learning. Linked the deeper comparative review and evidence status; proposed design benefits are distinguished from demonstrated superiority.
+
 ## 2026-10-04 — Repository relocation
 
 - Updated canonical URLs, attribution and citation metadata to `cogno-us/constitutional-governance-for-institutions`, including the historical review snapshot link with its original commit unchanged.

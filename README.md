@@ -11,6 +11,32 @@ AI can help prepare and organize this work; it does not create authority.
 **Status:** proposed guidance and constitutional designs. Not an adopted
 constitution or deployed governance system. Real-world benefits remain unproven.
 
+## How it differs and what it aims to improve
+
+Alvorada brings decision methods, limits on power and institutional learning
+into one framework. It builds on established governance ideas; its contribution
+is their integration into an inspectable design that applies with or without AI.
+
+- **Connect decisions to authority:** specify who may act, who can challenge the
+  decision and who checks that a remedy actually happened.
+- **Match governance to consequences:** use lighter review for routine,
+  reversible work and stronger evidence and independent review for serious
+  outcomes. Modular profiles adapt offices and terms to different institutions.
+- **Plan for institutional failure:** address emergencies, vacancies, succession
+  and changes to foundational rules, alongside everyday decisions.
+- **Make reasoning open to challenge:** connect principles to design choices,
+  sources, objections and testing limits so reviewers can examine the basis.
+- **Use AI to reduce governance work:** support evidence preparation and routine
+  review, while keeping authority and consequential judgment accountable.
+  Check outcomes and separately approve process changes to create a learning loop.
+
+These are proposed improvements in design and usability, not demonstrated
+superiority over other frameworks. Existing systems share many of these
+features. Alvorada can complement risk-management standards and policy tools;
+it still needs contextual adoption and comparative field testing. Read the
+[comparative analysis](research/COMPARATIVE_WORKS.md) and
+[evidence status](docs/EVIDENCE_STATUS.md) for overlap, tradeoffs and limits.
+
 ## Start here
 
 1. [Getting started](docs/GETTING_STARTED.md): choose a practical path.
