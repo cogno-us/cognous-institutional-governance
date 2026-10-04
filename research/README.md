@@ -96,3 +96,7 @@ experiment does not establish comparative institutional or field efficacy.
 ## Later comparative learning: The Thin Blue Line
 
 [The Thin Blue Line study](THIN_BLUE_LINE.md) develops ten explicitly analytical themes about claim-specific evidence, contradictions, contaminated corroboration, incentives, reconstructions, independent access and completed correction. It distinguishes film testimony, Morris’s investigation and the 1989 court disposition. Incorporated 2026-10-04; no original design influence or historical prevention is claimed.
+
+## Later comparative learning: five leadership studies
+
+The [leadership studies](leadership/README.md) examine Eisenhower, Woodrow Wilson, Churchill, Disraeli and FDR in separate sourced files, with a cross-comparison of dependence, approval, dissent, inclusion, crisis powers and delivery. They distinguish historical observations from interpretation and proposed practice; this later research does not alter original decision provenance or supply new test results.

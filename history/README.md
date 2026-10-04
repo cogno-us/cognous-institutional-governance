@@ -75,3 +75,7 @@ A [Fog of War study](../research/FOG_OF_WAR.md) was added as a later comparative
 ## Later incorporation: The Thin Blue Line, 2026-10-04
 
 The [Thin Blue Line study](../research/THIN_BLUE_LINE.md) extends the later comparative work to evidence challenge and institutional correction. Ten themes are the repository’s analysis, not a canonical film lesson list. The accompanying template, eighteen domain additions and ten proposed exercises do not change the original constitutional decisions or their provenance.
+
+## Later incorporation: leadership studies, 2026-10-04
+
+Five [separate studies and a comparison](../research/leadership/README.md) examine Eisenhower, Woodrow Wilson, Churchill, Disraeli and FDR. Sourced episodes generate questions about authority, practical dependence, inclusion, scrutiny, emergency powers and implementation. This later interpretation leaves original decision records and historical source statuses intact; it neither ranks the leaders nor attributes undocumented original influence to them.

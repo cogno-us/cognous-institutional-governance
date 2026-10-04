@@ -22,3 +22,7 @@ the summary; do not reinterpret the adopted design through documentation.
 ## Challenging evidence and verifying correction
 
 [Evidence challenge and correction](EVIDENCE_CHALLENGE_AND_CORRECTION.md) adds a claim-and-contradiction ledger, access and incentive review, and an execution/verification record for remedies. It complements uncertainty review under existing authority; templates and AI comparisons are not adjudication or operational results.
+
+## Leadership and institutional review
+
+The [leadership review worksheet](LEADERSHIP_REVIEW.md) adds questions about separate approvals, practical dependence, excluded people, comprehensible reasons, crisis limits and observed delivery, drawing on the [five studies](../research/leadership/README.md). Use it within existing authority alongside the uncertainty and evidence reviews.

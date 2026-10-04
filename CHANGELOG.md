@@ -4,6 +4,12 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Five leadership studies
+
+- Added separate sourced studies of Eisenhower, Woodrow Wilson, Churchill, Disraeli and FDR, pairing constructive institutional lessons with failures and limits.
+- Added a cross-comparison, source methodology and proposed leadership review worksheet; linked newcomer, research, process and history navigation.
+- Preserved original constitutional decisions, draft text, historical register statuses and frozen test archives. Future evaluation questions are unexecuted and outside the numbered batteries.
+
 ## 2026-10-04 — Execution of film-inspired synthetic subtests
 
 - Added a separate executable adapter and 42 fixed primary/positive subtests mapped to all 21 FW/TB proposals; recorded 126 observations and explicit coverage limits.
