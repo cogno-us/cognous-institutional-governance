@@ -124,3 +124,20 @@ Return to the [overview](../README.md) or [research index](README.md).
 ## Scope clarification: broad institutional governance, 2026-10-04
 
 The public framework now explicitly covers human-only, conventional-software and AI-supported institutions. The dated comparison above remains a bounded review; a broader title does not establish novelty across political or organizational theory. The [leadership](leadership/README.md) and [cross-disciplinary studies](cross-disciplinary/README.md) broaden the reading path, while the [institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) asks whether usable access, feasible review and completed remedies add observable value over competent conventional arrangements. Any benefit must be demonstrated in the actual institution and cannot be inferred from differences from AI-specific tools.
+
+## Decision-making comparison, 2026-10-04
+
+The [eleven-work decision-making review](decision-making/README.md) supplies
+another set of close precedents: decision analysis, evidence-based management,
+structured strategic judgment, organizational learning and effect evaluation.
+Its [source register](decision-making/SOURCES.md) distinguishes empirical
+findings from methodological and practitioner proposals. Alvorada should not
+claim to originate explicit alternatives, uncertainty analysis or experiments.
+
+Our proposed contribution is connecting those practices to actual authority,
+usable challenge, effective independence, correction and institutional
+lifecycle. Conventional organizations can already implement many such controls.
+The [evaluation supplement](../testing/programs/DECISION_EVALUATION.md) therefore
+asks for an incremental comparison against competent conventional practice,
+including burden and retained legitimate service. This proposed integration is
+a value hypothesis; it is not a measured advantage or a new uniqueness claim.

@@ -20,6 +20,23 @@ Use the [program](../../programs/INSTITUTIONAL_ASSESSMENT.md). Leave unknowns UN
 - Raw evidence location, access, privacy limits and version/hash recording: UNKNOWN
 - Review, reporting and actual human continuation process: UNKNOWN
 
+## Prespecified effect and analysis
+
+Use the [evaluation supplement](../../programs/DECISION_EVALUATION.md).
+
+- Research question, hypothesis and alternative explanation: UNKNOWN
+- Estimand: contrast, population, outcome, unit and observation window: UNKNOWN
+- Primary/secondary outcomes and frozen assessment criteria: UNKNOWN
+- Assignment and analysis units; order, clustering and contamination handling: UNKNOWN
+- Actual allocation and identifying assumptions; qualified method reviewer: UNKNOWN
+- Effect-size/uncertainty plan, sample rationale and contextual materiality: UNKNOWN
+- Missingness, exclusions, attrition and noncompliance handling: UNKNOWN
+- Multiplicity, exploratory analyses and assumption-specific checks: UNKNOWN
+- Plan freeze time/version; later changes and whether results were already seen: UNKNOWN
+
+A later retrospective plan is not preregistration. Fields remain blank until
+actual study decisions and supporting evidence are recorded.
+
 ## Readiness record
 
 For each item, record verified evidence / missing / not applicable with reasons. Identify who actually assessed it. Do not mark readiness solely because this form exists.

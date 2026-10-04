@@ -57,3 +57,13 @@ Six [institutional usability scenarios](research/INSTITUTIONAL_USABILITY.md), dr
 ## Prepared institutional assessment program
 
 The [first assessment program](programs/INSTITUTIONAL_ASSESSMENT.md) prioritizes usable access, feasible review workloads and verified remedies in a human-run complaints workflow. [Metric definitions](programs/INSTITUTIONAL_MEASURES.md) and separate study, case, review, remedy and results templates are ready. Actual owners, grants, participants, independent assessment and observations remain unfilled; no new operational evidence is claimed. The existing numbered exercises and frozen results retain their status.
+
+## Decision-making and credible effect evaluation
+
+The [decision evaluation supplement](programs/DECISION_EVALUATION.md) adds
+prespecified questions, estimands, allocation, outcome criteria, dependence,
+missingness and uncertainty to the prepared program. It separates descriptive
+comparisons, causal estimates and model predictions. Use it before collecting
+human observations; no new observations, fixtures or efficacy claims are added.
+The source basis is in [business and econometrics research](../research/decision-making/README.md),
+and the practical choice record is in [process](../process/DECISION_MAKING.md).

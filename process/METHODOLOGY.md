@@ -155,3 +155,20 @@ The [sixteen additional studies](../research/cross-disciplinary/README.md), adde
 ## Deepening source review without rewriting provenance
 
 The [targeted source ledger](../research/cross-disciplinary/SOURCE_REVIEW.md), added later on 2026-10-04, records accessible primary passages for six priority contributors. Earlier indexed-excerpt limitations remain in public Git history; current notes state their improved but still bounded source coverage. The [synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) separates existing constitutional commitments, proposed subordinate practices and normative questions that require actual human decisions. Its evaluation scenarios remain unexecuted.
+
+## Later extension: decision-making and empirical evaluation
+
+The [business and econometrics review](../research/decision-making/README.md),
+added 2026-10-04, selects eleven works for framing choices, examining evidence,
+learning and evaluating effects. Its source register distinguishes inspected
+primary passages, publisher abstracts and practitioner descriptions, retaining
+access and version limits. Inclusion recommendations are supporting practice,
+not retrospective origins or new accepted constitutional requirements.
+
+The [unified workflow](DECISION_MAKING.md) connects objectives, alternatives,
+uncertainty and accountable action to the existing review architecture. The
+[evaluation supplement](../testing/programs/DECISION_EVALUATION.md) keeps
+descriptive observations, identified causal effects and model predictions
+separate. Measuring a desirable effect cannot settle authority or contested
+ends. No operational observation or comparative efficacy follows from preparing
+these documents.

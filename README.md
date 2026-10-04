@@ -1,8 +1,10 @@
 # Constitutional Governance for Institutions
 
-An open research framework for authority, accountability, and institutional
+An open research framework for accountable institutional decision-making:
+framing choices, comparing options, identifying who may decide, and reviewing
+and correcting effects. It addresses authority, accountability and institutional
 lifecycle across businesses, public bodies, nonprofits, communities and other
-institutions. It applies to human-run, software-supported and AI-enabled work.
+institutions, in human-run, software-supported and AI-enabled work.
 
 **Project name:** Alvorada.
 
@@ -29,12 +31,14 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 
 | What you want to understand | Read next |
 |---|---|
+| How to use it to make a decision | [Decision-making workflow](process/DECISION_MAKING.md) and [blank decision record](process/templates/DECISION_RECORD.md) |
 | The principles and terminology | [Working principles](docs/DESIGN_PRINCIPLES.md) and [glossary](docs/GLOSSARY.md) |
 | The proposed constitutional design | [Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md) and [architecture guide](docs/ARCHITECTURE_GUIDE.md) |
 | How it applies to your domain | [Applications](applications/README.md): eighteen context files |
 | How to assess practical institutional performance | [Institutional assessment program](testing/programs/INSTITUTIONAL_ASSESSMENT.md): access, review capacity and verified remedies |
 | Why the choices were made | [Decisions and rationale](process/DECISIONS_AND_RATIONALE.md) and [methodology](process/METHODOLOGY.md) |
 | How it compares with other work | [Comparative assessment](research/COMPARATIVE_WORKS.md) |
+| What business and econometrics research contributes | [Decision-making studies](research/decision-making/README.md): eleven selected works, evidence limits and inclusion decisions |
 | Lessons from political leadership | [Five leadership studies](research/leadership/README.md): Eisenhower, Wilson, Churchill, Disraeli and FDR |
 | Lessons across disciplines | [Sixteen further studies](research/cross-disciplinary/README.md): leadership, philosophy, economics and social science |
 | Deeper institutional lessons | [Six-study synthesis](research/cross-disciplinary/DEEP_SYNTHESIS.md): usable participation, feasible judgment and effective correction |
@@ -78,6 +82,27 @@ explain the adopted design directions. The [traceability record](constitutional-
 links the proposal to those decisions and requirements. The
 [ten foundational protections](applications/PRINCIPLE_CATALOGUE.md) require
 explicit refounding when institutional identity is replaced.
+
+## Using the framework for decision-making
+
+Begin with the [decision workflow](process/DECISION_MAKING.md): define the
+choice and actual rights, state objectives and constraints, compare alternatives,
+inspect evidence and assumptions, invite challenge, record the accountable
+choice, observe effects and revisit it. It connects the existing uncertainty,
+evidence and participation reviews without requiring every form for every choice.
+
+The [business and econometrics review](research/decision-making/README.md)
+examines HBR, MIT SMR, Stanford and other primary research on judgment,
+evidence-based management, experimentation, organizational learning and causal
+evaluation. It distinguishes practitioner proposals, empirical findings and
+our recommendations. Existing decision science supplies substantial precedent;
+the proposed value is connecting decision methods with accountable authority
+and effective correction. Incremental benefit remains unmeasured.
+
+The [evaluation supplement](testing/programs/DECISION_EVALUATION.md) defines
+what to specify before collecting effects, including comparators, assignment,
+outcomes, burden and inference limits. These are prepared practices and research
+instruments, not a new constitutional amendment or executed human study.
 
 ## Applications
 

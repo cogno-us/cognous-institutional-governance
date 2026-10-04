@@ -6,6 +6,13 @@ Clarified 2026-10-04 at the maintainer’s direction. The public title is now **
 
 ## What the framework examines
 
+Its practical purpose is institutional decision-making. The
+[decision workflow](../process/DECISION_MAKING.md) connects choices, objectives,
+evidence and alternatives with actual authority, challenge and correction.
+The [business and econometrics review](../research/decision-making/README.md)
+adds candidate practices and effect-evaluation methods with explicit evidence
+limits. Decision support requires no AI or numerical optimization.
+
 Authority creation and limits; membership and standing; separation of functions; evidence, reasons and dissent; effective power and dependence; emergency; succession; change; transition and continuing obligations. A committee, respected founder, professional expert or records office can concentrate power without any AI present.
 
 | Setting | Human-only example | Questions that remain relevant |

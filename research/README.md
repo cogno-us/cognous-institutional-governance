@@ -2,6 +2,11 @@
 
 **EXPLANATORY RESEARCH RECORD — NO CONSTITUTIONAL EFFECT**
 
+For the current decision-making purpose, start with the
+[business and econometrics studies](decision-making/README.md), their source
+register and inclusion recommendations. They are later supporting research,
+separate from the original development history reconstructed below.
+
 Alvorada investigates durable institutional governance: authority that remains
 attributable, bounded and contestable, with humans retaining foundational
 authority over institutional ends. Human-only, conventional-software and

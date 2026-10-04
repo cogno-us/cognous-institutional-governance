@@ -4,6 +4,11 @@ This section explains the documented development of Alvorada's principles and
 constitutional proposal. It is supporting explanation, not a new human design
 decision, amendment, ratification, or implementation authorization.
 
+For practical use, begin with the [decision-making workflow](DECISION_MAKING.md)
+and [blank record](templates/DECISION_RECORD.md). They connect the reviews below
+into one proportionate route from objectives and alternatives to an accountable
+choice, observed effects and correction.
+
 - [Methodology](METHODOLOGY.md): evidence, alternatives, adversarial review,
   human decisions, requirements, drafting, and the downstream implementation boundary.
 - [Decisions and rationale](DECISIONS_AND_RATIONALE.md): what was selected,

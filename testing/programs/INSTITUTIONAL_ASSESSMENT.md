@@ -30,6 +30,12 @@ Complete the [study-plan template](../templates/institutional-assessment/STUDY_P
 
 Use the [measurement definitions](INSTITUTIONAL_MEASURES.md) and [existing protocol](../PROTOCOL.md). Specify repetitions, sample rationale, uncertainty analysis and contextual thresholds before results. The protocol’s planning targets are not statistical adequacy guarantees. Preserve the version and actual commit used; leave unresolved fields UNKNOWN.
 
+Apply the [decision evaluation supplement](DECISION_EVALUATION.md) to define the
+estimand, allocation, dependence, missingness and analysis before observations.
+Its initial decision-quality question concerns independently assessed
+reconstruction of evidence and authority, alongside burden and legitimate
+service. Do not infer a causal record-format benefit from a confounded comparison.
+
 ### 2. Prepare cases and legitimate countercases
 
 Use the [six research scenarios](../research/INSTITUTIONAL_USABILITY.md) as mechanisms, not ready-made ground truth. A first wave emphasizes access, review capacity and remedy delivery, with voice as the route connecting them. SC-02 local/shared scope can follow after the initial instruments are assessed. Do not renumber the existing 68 proposals or call these new scenarios executed fixtures.

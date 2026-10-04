@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Decision-making and business/econometrics research
+
+- Clarified practical decision-making as the framework's purpose and added a unified workflow and blank record to the newcomer path.
+- Added a selective review of eleven HBR, MIT SMR, Stanford and related management/econometrics works, with source depth, evidence limits and explicit inclusion recommendations.
+- Added an effect-evaluation supplement and extended the existing study/results templates to distinguish prespecified questions, credible contrasts, burden and causal inference limits.
+- Added no constitutional amendments, operational observations or claims of institutional efficacy; original decisions and frozen archives remain intact.
+
 ## 2026-10-04 — Broad institutional scope and prepared assessment
 
 - Updated the public title to Constitutional Governance for Institutions and current citation/attribution guidance; AI remains one application, with original history and AI safeguards preserved.

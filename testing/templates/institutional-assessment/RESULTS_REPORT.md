@@ -31,6 +31,9 @@ This is a reporting template, not an executed run. Use actual records and the [m
 
 - Claims supported by observations; alternative explanations: UNKNOWN
 - Context, sampling, uncertainty and generalization limits: UNKNOWN
+- Prespecified estimand, observed effect size, uncertainty and analysis units: UNKNOWN
+- Allocation, dependence, missingness and assumption checks; departures from frozen plan: UNKNOWN
+- Descriptive versus causal versus model-predicted claims; exploratory findings: UNKNOWN
 - Document-format versus staffing/access intervention effects: UNKNOWN
 - Negative findings and changes justified by evidence: UNKNOWN
 - Competent human decision to continue, narrow, revise, defer or stop: UNKNOWN
