@@ -42,6 +42,7 @@ paths, or the [FAQ](docs/FAQ.md) for common questions.
 | Lessons from political leadership | [Five leadership studies](research/leadership/README.md): Eisenhower, Wilson, Churchill, Disraeli and FDR |
 | Lessons across disciplines | [Sixteen further studies](research/cross-disciplinary/README.md): leadership, philosophy, economics and social science |
 | Deeper institutional lessons | [Six-study synthesis](research/cross-disciplinary/DEEP_SYNTHESIS.md): usable participation, feasible judgment and effective correction |
+| Remaining weaknesses and remediation priorities | [Whole-repository gap review](docs/REPOSITORY_GAP_REVIEW.md): 26 findings with completion criteria |
 | How to reconstruct the development | [Development record](history/DEVELOPMENT_RECORD.md) and [chronology](history/README.md) |
 
 ## Current state

@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — Whole-repository gap review
+
+- Inventoried the 261-file public base and combined structural checks with targeted architectural, institutional, research, testing and maintenance review; documented the limits of this analysis.
+- Recorded 26 remaining gaps with linked evidence, priority, recommended remediation and completion criteria. Recommended consolidation, independent review and one bounded human workflow study before further expansion or efficacy claims.
+- Linked the review from the newcomer paths and added missing current guides to the documentation index. Constitutional text, historical decisions and frozen test archives remain unchanged.
+- Validation, all 431 unit tests and both archived integrity/replay checks passed. No human study, independent certification, appointment or activation occurred.
+
 ## 2026-10-04 — Critique response: delay, adoption and substantive value
 
 - Assessed the supplied critique against actual emergency provisions, material-record requirements and identical guarded synthetic effects.

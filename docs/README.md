@@ -7,6 +7,9 @@ Start with the [repository overview](../README.md).
 | [Getting started](GETTING_STARTED.md) | Reader, reviewer, contributor, and application paths with a worked example |
 | [Institutional scope](INSTITUTIONAL_SCOPE.md) | Broad governance framing, human-only examples and adaptation boundaries |
 | [Institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) | Prepared program and templates for access, workload and remedy evidence |
+| [Decision-making workflow](../process/DECISION_MAKING.md) | Practical decision path and record template |
+| [Adoption assessment](ADOPTION_ASSESSMENT.md) | Incumbent incentives, consent, resources and actual commitments |
+| [Whole-repository gap review](REPOSITORY_GAP_REVIEW.md) | Current weaknesses, evidence limits and prioritized remediation |
 | [FAQ](FAQ.md) | Common questions about status, authority, reuse, and testing |
 | [Pilot evaluation](PILOT_EVALUATION.md) | Bounded operational method; [synthetic reference results](../testing/results/README.md) are separate |
 | [Release guidance](RELEASE_GUIDANCE.md) | Snapshot, citation, version, relocation, and adaptation procedure |
