@@ -75,3 +75,11 @@ The [six-study synthesis](../research/cross-disciplinary/DEEP_SYNTHESIS.md) now 
 ## Operational evidence collection
 
 The [prepared institutional assessment](../testing/programs/INSTITUTIONAL_ASSESSMENT.md) turns the selected recommendation into a study plan, measurement definitions and observation templates. Begin with human-run complaints under actual authority; collect evidence before claiming access, feasible review or completed remedies.
+
+## Connecting authority requirements to the public stack
+
+The [proposed implementation profile 0.1.0](implementation/public-stack-v0.1/README.md)
+maps existing provisions to human responsibilities, declared requirements,
+issued grants, downstream controls and evidence. Its Authority Context schema
+and local reference fixtures create no grants, adoption or runtime enforcement.
+Cross-component interfaces remain proposed pending Governor review.

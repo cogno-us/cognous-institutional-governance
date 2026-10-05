@@ -1,0 +1,105 @@
+{
+  "snapshot": {
+    "authority_bases": [
+      "urn:example:local-mandate:service"
+    ],
+    "accountable_roles": [
+      {
+        "role_id": "urn:example:role:service-owner",
+        "human_principal": "urn:example:human:owner",
+        "mandate_ref": "urn:example:mandate:owner"
+      }
+    ],
+    "precedence_refs": [
+      "urn:example:rules:controlling-law",
+      "urn:example:policy:refund"
+    ],
+    "unresolved_conflict": false,
+    "human_adoption_records": [],
+    "issuers": [
+      [
+        "urn:example:human:owner",
+        "urn:example:role:service-owner",
+        "urn:example:record:issuance",
+        "urn:example:institution:service",
+        "customer-service"
+      ]
+    ],
+    "statuses": {
+      "urn:example:status:refund": {
+        "grant_id": "urn:example:grant:refund",
+        "revision": "1",
+        "state": "active",
+        "observed_at": "2026-10-05T12:00:00Z"
+      }
+    },
+    "max_status_age_seconds": 10,
+    "policies": {
+      "urn:example:policy:refund": "1"
+    },
+    "actor_roles": {
+      "urn:example:principal:service": [
+        "urn:example:role:executor"
+      ]
+    },
+    "evidence": {
+      "urn:example:obligation:eligibility": {
+        "state": "satisfied",
+        "source_ref": "urn:example:records:eligibility",
+        "observed_at": "2026-10-05T12:00:00Z",
+        "effect_id": "urn:example:effect:refund"
+      },
+      "urn:example:obligation:case-review": {
+        "state": "satisfied",
+        "source_ref": "urn:example:records:case-review",
+        "observed_at": "2026-10-05T12:00:00Z",
+        "effect_id": "urn:example:effect:refund"
+      }
+    },
+    "approval_role_bindings": {
+      "urn:example:role:finance-approver": [
+        "urn:example:human:finance"
+      ]
+    },
+    "independent_reviewers": [
+      "urn:example:human:finance"
+    ],
+    "approvals": {
+      "urn:example:approval:finance": {
+        "state": "approved",
+        "role_id": "urn:example:role:finance-approver",
+        "approver": "urn:example:human:finance",
+        "grant_id": "urn:example:grant:refund",
+        "grant_revision": "1",
+        "binding": "fd066590a1f014de402de09b8229c586108a7f7d0c199575c97774ed6d9841fa",
+        "policy_versions": [
+          {
+            "ref": "urn:example:policy:refund",
+            "version": "1"
+          }
+        ],
+        "not_before": "2026-10-05T09:00:00Z",
+        "expires_at": "2026-10-05T18:00:00Z"
+      }
+    },
+    "parents": {},
+    "requirement_bindings": {
+      "urn:example:requirement:refund": "1aa829e595b99c0ed0bb9fe29c6baa3bbbd062d001297ec699fc00c1bb49fad8"
+    }
+  },
+  "action": {
+    "effect_id": "urn:example:effect:refund",
+    "action": "refund",
+    "target": "urn:example:account:customer-a",
+    "data_scopes": [
+      "refund-record"
+    ],
+    "amount": 1000,
+    "unit": "USD",
+    "effects": 1,
+    "institution_id": "urn:example:institution:service",
+    "authority_domain": "customer-service",
+    "acting_identity": "urn:example:identity:service-bot"
+  },
+  "now": "2026-10-05T12:00:00Z"
+}

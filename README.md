@@ -52,6 +52,7 @@ it still needs contextual adoption and comparative field testing. Read the
 | What structure and terms suit my institution? | [Modular charter and profiles](constitutional-design/modular/README.md) |
 | How can AI help, and how can the process improve? | [AI institutional support](applications/ai-assisted-institutional-governance.md) and [recursive learning](process/VIRTUOUS_RECURSION.md) |
 | What did the research and history teach us? | [Research, history and film studies](research/README.md) |
+| How can software consume authority requirements? | [Proposed public-stack implementation profile](process/implementation/public-stack-v0.1/README.md) |
 | What is supported, tested or still missing? | [Evidence status](docs/EVIDENCE_STATUS.md), [testing](testing/README.md) and [remaining work](docs/REMEDIATION_STATUS.md) |
 
 ## What is here

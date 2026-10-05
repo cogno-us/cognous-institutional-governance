@@ -1,0 +1,367 @@
+{
+  "status": "EXECUTED_LOCAL_REFERENCE_CHECKS",
+  "runtime_enforcement": false,
+  "independently_reviewed": false,
+  "fixture_count": 44,
+  "passed": 44,
+  "results": [
+    {
+      "id": "scoped-class-grant",
+      "schema_valid": true,
+      "reference_errors": [],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "explicit-human-approval",
+      "schema_valid": true,
+      "reference_errors": [],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "bounded-delegation",
+      "schema_valid": true,
+      "reference_errors": [],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "requirement-without-issued-grant",
+      "schema_valid": true,
+      "reference_errors": [
+        "no_issued_grant"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "missing-authority-basis",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_authority_basis"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "missing-required-field",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    },
+    {
+      "id": "missing-human-approval",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_or_invalid_approval"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "expired-at-boundary",
+      "schema_valid": true,
+      "reference_errors": [
+        "expired_or_not_yet_valid",
+        "missing_or_stale_evidence",
+        "stale_status"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "revoked",
+      "schema_valid": true,
+      "reference_errors": [
+        "inactive_or_changed_grant"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "suspended",
+      "schema_valid": true,
+      "reference_errors": [
+        "inactive_or_changed_grant"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "stale-revocation-snapshot",
+      "schema_valid": true,
+      "reference_errors": [
+        "stale_status"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "unknown-status",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_status"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "amended-grant-revision",
+      "schema_valid": true,
+      "reference_errors": [
+        "inactive_or_changed_grant"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "incompatible-roles",
+      "schema_valid": true,
+      "reference_errors": [
+        "incompatible_roles"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "conflicting-rules",
+      "schema_valid": true,
+      "reference_errors": [
+        "conflicting_rules"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "policy-change-after-approval",
+      "schema_valid": true,
+      "reference_errors": [
+        "policy_changed"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "unsupported-version",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    },
+    {
+      "id": "malformed-status-reference",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    },
+    {
+      "id": "signature-as-permission",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_authority_basis",
+        "untrusted_requirement_binding"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "blockchain-as-permission",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_authority_basis",
+        "untrusted_requirement_binding"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "feedback-as-amendment",
+      "schema_valid": true,
+      "reference_errors": [
+        "unadopted_amendment"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "feedback-as-proposal",
+      "schema_valid": true,
+      "reference_errors": [],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "negative-effect-amount",
+      "schema_valid": true,
+      "reference_errors": [
+        "invalid_action_limits"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "changed-approved-payload",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_or_invalid_approval"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "unknown-required-evidence",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_or_stale_evidence"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "dropped-approval-obligation",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_reserved_approval_requirement",
+        "untrusted_requirement_binding"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "forged-approval-role",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_or_invalid_approval"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "missing-governing-policy",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_governing_policy",
+        "policy_changed"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "out-of-scope-target",
+      "schema_valid": true,
+      "reference_errors": [
+        "action_out_of_scope"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "cross-domain-action",
+      "schema_valid": true,
+      "reference_errors": [
+        "action_domain_binding"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "exceeded-class-cap",
+      "schema_valid": true,
+      "reference_errors": [
+        "action_out_of_scope"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "untrusted-issuer",
+      "schema_valid": true,
+      "reference_errors": [
+        "untrusted_issuer_mandate"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "schema-extra-runtime-decision",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    },
+    {
+      "id": "child-exceeds-parent",
+      "schema_valid": true,
+      "reference_errors": [
+        "child_exceeds_parent",
+        "grant_exceeds_requirement"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "revoked-parent",
+      "schema_valid": true,
+      "reference_errors": [
+        "parent:inactive_or_changed_grant"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "parent-forbids-delegation",
+      "schema_valid": true,
+      "reference_errors": [
+        "delegation_not_permitted"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delegation-expiry",
+      "schema_valid": true,
+      "reference_errors": [
+        "delegation_validity"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delegation-drops-evidence",
+      "schema_valid": true,
+      "reference_errors": [
+        "delegation_drops_obligations",
+        "untrusted_requirement_binding"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delegation-missing-parent",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_or_malformed_parent"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "self-approval",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_or_invalid_approval"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "expired-human-approval",
+      "schema_valid": true,
+      "reference_errors": [
+        "missing_or_invalid_approval"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "constitutional-tier-is-not-routine-grant",
+      "schema_valid": true,
+      "reference_errors": [
+        "reserved_constitutional_process",
+        "untrusted_requirement_binding"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "required-unknown-cannot-continue",
+      "schema_valid": true,
+      "reference_errors": [
+        "invalid_unknown_semantics",
+        "untrusted_requirement_binding"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "missing-uri-format",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    }
+  ],
+  "input_sha256": {
+    "process/implementation/public-stack-v0.1/authority-context.schema.json": "7b9e26f0f44fed7a6adbecb9194e8494a1d407faa2e4bd7b726825d728bc98c7",
+    "process/implementation/public-stack-v0.1/examples/higher-consequence-reference-input.json": "fe4cd14717b99c15ac9fa72785e522d9e567c31b5f38e9a2a0f6600df9a9f616",
+    "process/implementation/public-stack-v0.1/examples/higher-consequence.json": "9a09ba86bfdf744e48a09e4f94e02cd670178ba069a62c64e8d545dfc2366ecb",
+    "process/implementation/public-stack-v0.1/examples/requirement-only.json": "e45990ff4c4f7ca63f3aa9aa20aff19b3ce739aa31d69cb0b76a40312dedb059",
+    "process/implementation/public-stack-v0.1/examples/routine-reference-input.json": "11b417ab2372bcdc17c87a98732fd15f242d7310fb78a5cc8014b4ef45923c79",
+    "process/implementation/public-stack-v0.1/examples/routine.json": "7b03112e1237f2224227ebf4d4e4eaf9a6a4d5de4170c4bfdc1e96b8031bf588",
+    "testing/fixtures/authority-context/bases.json": "3c627f398d77d4c6cc2d18e01b087516dc9d58a2cd1fd954e6280db3f3330556",
+    "testing/fixtures/authority-context/cases.json": "bf110a8e9b4e5844555a406369b8afe87b5021f8cd230c4cb6dc314b1f7685c1",
+    "testing/harness/authority_context.py": "cf08bbdf487bcf8edd8801f58e73488599f1eb975492c1c271f8f0c129a95600",
+    "testing/harness/requirements-authority.txt": "a788c906c98e9789932143da72413fdc0877b73c896a289dd29f01c7ea30a9c9",
+    "testing/harness/run_authority_context.py": "2accbdc8185507511b9279c2cab5e7701a38039cc44aa3c05d53a2895981fa17",
+    "tests/test_authority_context.py": "26354cdeeda4a8d07f7ded10a88fdae82b097ac3e41d0f5f779dcaba96ac5f8e"
+  }
+}

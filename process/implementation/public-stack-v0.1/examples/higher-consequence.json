@@ -1,0 +1,153 @@
+{
+  "schema_version": "0.1.0",
+  "interface_status": "proposed_pending_governor_review",
+  "context_id": "urn:example:context:high",
+  "institution": {
+    "institution_id": "urn:example:institution:service",
+    "authority_domain": "customer-service",
+    "authority_basis_ref": "urn:example:local-mandate:service",
+    "authority_mode": "principle_inspired"
+  },
+  "principal": "urn:example:principal:service",
+  "acting_identity": "urn:example:identity:service-bot",
+  "accountable_human_role": {
+    "role_id": "urn:example:role:service-owner",
+    "human_principal": "urn:example:human:owner",
+    "mandate_ref": "urn:example:mandate:owner"
+  },
+  "requirement": {
+    "requirement_id": "urn:example:requirement:refund",
+    "governing_sources": [
+      {
+        "ref": "urn:alvorada:design:constitution",
+        "version": "v0.1",
+        "provision": "I.1(22\u201325); IV.1",
+        "standing": "design_proposal"
+      },
+      {
+        "ref": "urn:example:policy:refund",
+        "version": "1",
+        "provision": "bounded refund class",
+        "standing": "local_policy"
+      }
+    ],
+    "permissions": [
+      {
+        "action": "refund",
+        "targets": [
+          "urn:example:account:customer-a"
+        ],
+        "data_scopes": [
+          "refund-record"
+        ],
+        "max_amount": 1000,
+        "unit": "USD",
+        "max_effects": 1
+      }
+    ],
+    "approvals": [
+      {
+        "role_id": "urn:example:role:finance-approver",
+        "independent_of_actor": true
+      }
+    ],
+    "evidence": [
+      {
+        "obligation_id": "urn:example:obligation:eligibility",
+        "kind": "authorization",
+        "source_ref": "urn:example:records:eligibility",
+        "max_age_seconds": 60,
+        "required": true,
+        "unknown_behavior": "hold_effect"
+      },
+      {
+        "obligation_id": "urn:example:obligation:case-review",
+        "kind": "authorization",
+        "source_ref": "urn:example:records:case-review",
+        "max_age_seconds": 30,
+        "required": true,
+        "unknown_behavior": "hold_effect"
+      },
+      {
+        "obligation_id": "urn:example:obligation:delivery",
+        "kind": "post_effect",
+        "source_ref": "urn:example:records:payments",
+        "max_age_seconds": 60,
+        "required": true,
+        "unknown_behavior": "reconcile_no_blind_retry"
+      }
+    ],
+    "consequence": {
+      "tier": "T2",
+      "rationale": "Invented exceptional USD 1000 payment; stronger case evidence and prior human approval.",
+      "profile_ref": "urn:alvorada:design:proportional-governance"
+    }
+  },
+  "conflicts": {
+    "precedence_refs": [
+      "urn:example:rules:controlling-law",
+      "urn:example:policy:refund"
+    ],
+    "incompatible_role_pairs": [
+      [
+        "urn:example:role:executor",
+        "urn:example:role:contested-reviewer"
+      ]
+    ],
+    "escalation_ref": "urn:example:procedure:escalate",
+    "appeal_ref": "urn:example:procedure:appeal",
+    "continuity_ref": "urn:example:procedure:continuity",
+    "remedy_ref": "urn:example:procedure:remedy"
+  },
+  "grant": {
+    "grant_id": "urn:example:grant:refund",
+    "revision": "1",
+    "requirement_id": "urn:example:requirement:refund",
+    "issuer": "urn:example:human:owner",
+    "issuer_role": "urn:example:role:service-owner",
+    "issuance_record_ref": "urn:example:record:issuance",
+    "grantee": "urn:example:principal:service",
+    "acting_identity": "urn:example:identity:service-bot",
+    "issued_at": "2026-10-05T09:00:00Z",
+    "not_before": "2026-10-05T09:00:00Z",
+    "expires_at": "2026-10-05T18:00:00Z",
+    "status_ref": "urn:example:status:refund",
+    "policy_versions": [
+      {
+        "ref": "urn:example:policy:refund",
+        "version": "1"
+      }
+    ],
+    "permissions": [
+      {
+        "action": "refund",
+        "targets": [
+          "urn:example:account:customer-a"
+        ],
+        "data_scopes": [
+          "refund-record"
+        ],
+        "max_amount": 1000,
+        "unit": "USD",
+        "max_effects": 1
+      }
+    ],
+    "delegation": {
+      "parent_grant_id": null,
+      "may_delegate": true,
+      "remaining_depth": 1
+    },
+    "approval_refs": [
+      "urn:example:approval:finance"
+    ]
+  },
+  "supporting_evidence_refs": [
+    "urn:example:bitrep:attestation",
+    "urn:example:index:claim"
+  ],
+  "change": {
+    "kind": "none",
+    "proposal_ref": null,
+    "adoption_record_ref": null
+  }
+}
