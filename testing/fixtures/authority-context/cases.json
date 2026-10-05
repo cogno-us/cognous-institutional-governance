@@ -1,0 +1,853 @@
+[
+  {
+    "id": "scoped-class-grant",
+    "base": "routine",
+    "patches": [],
+    "schema_valid": true,
+    "expected_errors": []
+  },
+  {
+    "id": "explicit-human-approval",
+    "base": "higher-consequence",
+    "patches": [],
+    "schema_valid": true,
+    "expected_errors": []
+  },
+  {
+    "id": "bounded-delegation",
+    "base": "delegation",
+    "patches": [],
+    "schema_valid": true,
+    "expected_errors": []
+  },
+  {
+    "id": "requirement-without-issued-grant",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "delete",
+        "path": [
+          "context",
+          "grant"
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "no_issued_grant"
+    ]
+  },
+  {
+    "id": "missing-authority-basis",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "authority_bases"
+        ],
+        "value": []
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_authority_basis"
+    ]
+  },
+  {
+    "id": "missing-required-field",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "delete",
+        "path": [
+          "context",
+          "institution",
+          "authority_basis_ref"
+        ]
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
+  },
+  {
+    "id": "missing-human-approval",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "grant",
+          "approval_refs"
+        ],
+        "value": []
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_or_invalid_approval"
+    ]
+  },
+  {
+    "id": "expired-at-boundary",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "now"
+        ],
+        "value": "2026-10-05T18:00:00Z"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "expired_or_not_yet_valid",
+      "stale_status",
+      "missing_or_stale_evidence"
+    ]
+  },
+  {
+    "id": "revoked",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "statuses",
+          "urn:example:status:refund",
+          "state"
+        ],
+        "value": "revoked"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "inactive_or_changed_grant"
+    ]
+  },
+  {
+    "id": "suspended",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "statuses",
+          "urn:example:status:refund",
+          "state"
+        ],
+        "value": "suspended"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "inactive_or_changed_grant"
+    ]
+  },
+  {
+    "id": "stale-revocation-snapshot",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "statuses",
+          "urn:example:status:refund",
+          "observed_at"
+        ],
+        "value": "2026-10-05T11:59:00Z"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "stale_status"
+    ]
+  },
+  {
+    "id": "unknown-status",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "delete",
+        "path": [
+          "snapshot",
+          "statuses",
+          "urn:example:status:refund"
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_status"
+    ]
+  },
+  {
+    "id": "amended-grant-revision",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "statuses",
+          "urn:example:status:refund",
+          "revision"
+        ],
+        "value": "2"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "inactive_or_changed_grant"
+    ]
+  },
+  {
+    "id": "incompatible-roles",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "actor_roles",
+          "urn:example:principal:service"
+        ],
+        "value": [
+          "urn:example:role:executor",
+          "urn:example:role:contested-reviewer"
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "incompatible_roles"
+    ]
+  },
+  {
+    "id": "conflicting-rules",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "unresolved_conflict"
+        ],
+        "value": true
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "conflicting_rules"
+    ]
+  },
+  {
+    "id": "policy-change-after-approval",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "policies",
+          "urn:example:policy:refund"
+        ],
+        "value": "2"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "policy_changed"
+    ]
+  },
+  {
+    "id": "unsupported-version",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "schema_version"
+        ],
+        "value": "1.0.0"
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
+  },
+  {
+    "id": "malformed-status-reference",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "grant",
+          "status_ref"
+        ],
+        "value": "refund-status"
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
+  },
+  {
+    "id": "signature-as-permission",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "institution",
+          "authority_basis_ref"
+        ],
+        "value": "urn:example:bitrep:attestation"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_authority_basis",
+      "untrusted_requirement_binding"
+    ]
+  },
+  {
+    "id": "blockchain-as-permission",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "institution",
+          "authority_basis_ref"
+        ],
+        "value": "urn:example:index:claim"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_authority_basis",
+      "untrusted_requirement_binding"
+    ]
+  },
+  {
+    "id": "feedback-as-amendment",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "change",
+          "kind"
+        ],
+        "value": "constitutional_proposal"
+      },
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "change",
+          "proposal_ref"
+        ],
+        "value": "urn:example:outcome:successful"
+      },
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "change",
+          "adoption_record_ref"
+        ],
+        "value": "urn:example:outcome:successful"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "unadopted_amendment"
+    ]
+  },
+  {
+    "id": "feedback-as-proposal",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "change",
+          "kind"
+        ],
+        "value": "constitutional_proposal"
+      },
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "change",
+          "proposal_ref"
+        ],
+        "value": "urn:example:outcome:successful"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": []
+  },
+  {
+    "id": "negative-effect-amount",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "action",
+          "amount"
+        ],
+        "value": -1
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "invalid_action_limits"
+    ]
+  },
+  {
+    "id": "changed-approved-payload",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "action",
+          "amount"
+        ],
+        "value": 999
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_or_invalid_approval"
+    ]
+  },
+  {
+    "id": "unknown-required-evidence",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "delete",
+        "path": [
+          "snapshot",
+          "evidence",
+          "urn:example:obligation:eligibility"
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_or_stale_evidence"
+    ]
+  },
+  {
+    "id": "dropped-approval-obligation",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "approvals"
+        ],
+        "value": []
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "untrusted_requirement_binding",
+      "missing_reserved_approval_requirement"
+    ]
+  },
+  {
+    "id": "forged-approval-role",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "approvals",
+          "urn:example:approval:finance",
+          "approver"
+        ],
+        "value": "urn:example:human:intruder"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_or_invalid_approval"
+    ]
+  },
+  {
+    "id": "missing-governing-policy",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "grant",
+          "policy_versions"
+        ],
+        "value": [
+          {
+            "ref": "urn:example:policy:other",
+            "version": "1"
+          }
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_governing_policy",
+      "policy_changed"
+    ]
+  },
+  {
+    "id": "out-of-scope-target",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "action",
+          "target"
+        ],
+        "value": "urn:example:account:customer-b"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "action_out_of_scope"
+    ]
+  },
+  {
+    "id": "cross-domain-action",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "action",
+          "authority_domain"
+        ],
+        "value": "healthcare"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "action_domain_binding"
+    ]
+  },
+  {
+    "id": "exceeded-class-cap",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "action",
+          "amount"
+        ],
+        "value": 30
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "action_out_of_scope"
+    ]
+  },
+  {
+    "id": "untrusted-issuer",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "issuers"
+        ],
+        "value": []
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "untrusted_issuer_mandate"
+    ]
+  },
+  {
+    "id": "schema-extra-runtime-decision",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "runtime_decision"
+        ],
+        "value": {
+          "allowed": true
+        }
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
+  },
+  {
+    "id": "child-exceeds-parent",
+    "base": "delegation",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "grant",
+          "permissions"
+        ],
+        "value": [
+          {
+            "action": "refund",
+            "targets": [
+              "urn:example:account:customer-a"
+            ],
+            "data_scopes": [
+              "refund-record"
+            ],
+            "max_amount": 30,
+            "unit": "USD",
+            "max_effects": 1
+          }
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "child_exceeds_parent",
+      "grant_exceeds_requirement"
+    ]
+  },
+  {
+    "id": "revoked-parent",
+    "base": "delegation",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "statuses",
+          "urn:example:status:refund",
+          "state"
+        ],
+        "value": "revoked"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "parent:inactive_or_changed_grant"
+    ]
+  },
+  {
+    "id": "parent-forbids-delegation",
+    "base": "delegation",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "parents",
+          "urn:example:grant:refund",
+          "grant",
+          "delegation",
+          "may_delegate"
+        ],
+        "value": false
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "delegation_not_permitted"
+    ]
+  },
+  {
+    "id": "delegation-expiry",
+    "base": "delegation",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "grant",
+          "expires_at"
+        ],
+        "value": "2026-10-06T18:00:00Z"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "delegation_validity"
+    ]
+  },
+  {
+    "id": "delegation-drops-evidence",
+    "base": "delegation",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "evidence"
+        ],
+        "value": []
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "delegation_drops_obligations",
+      "untrusted_requirement_binding"
+    ]
+  },
+  {
+    "id": "delegation-missing-parent",
+    "base": "delegation",
+    "patches": [
+      {
+        "op": "delete",
+        "path": [
+          "snapshot",
+          "parents",
+          "urn:example:grant:refund"
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_or_malformed_parent"
+    ]
+  },
+  {
+    "id": "self-approval",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "approvals",
+          "urn:example:approval:finance",
+          "approver"
+        ],
+        "value": "urn:example:principal:service"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_or_invalid_approval"
+    ]
+  },
+  {
+    "id": "expired-human-approval",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "approvals",
+          "urn:example:approval:finance",
+          "expires_at"
+        ],
+        "value": "2026-10-05T12:00:00Z"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "missing_or_invalid_approval"
+    ]
+  },
+  {
+    "id": "constitutional-tier-is-not-routine-grant",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "tier"
+        ],
+        "value": "T4"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "reserved_constitutional_process",
+      "untrusted_requirement_binding"
+    ]
+  },
+  {
+    "id": "required-unknown-cannot-continue",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "evidence"
+        ],
+        "value": [
+          {
+            "obligation_id": "urn:example:obligation:eligibility",
+            "kind": "authorization",
+            "source_ref": "urn:example:records:eligibility",
+            "max_age_seconds": 60,
+            "required": true,
+            "unknown_behavior": "preserve_if_other_basis_suffices"
+          }
+        ]
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "invalid_unknown_semantics",
+      "untrusted_requirement_binding"
+    ]
+  },
+  {
+    "id": "missing-uri-format",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "grant",
+          "status_ref"
+        ],
+        "value": "https://"
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
+  }
+]

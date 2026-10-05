@@ -16,3 +16,7 @@ readiness/comprehensibility fields check a recorded design review, not a new
 human assessment. The modular charter, profiles and AI guidance do not inherit
 v0.1's review status. Historical snapshots and hashes remain controlling for
 archive-integrity checks; current documentation can evolve without rewriting them.
+
+The optional [Authority Context checks](../testing/fixtures/authority-context/README.md)
+require their pinned schema dependency and dedicated runner. They check proposed
+structure and synthetic semantics, never institutional authority or effects.

@@ -1,0 +1,605 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cognous:alvorada:authority-context:0.1.0",
+  "title": "Proposed Authority Context 0.1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "interface_status": {
+      "const": "proposed_pending_governor_review"
+    },
+    "context_id": {
+      "type": "string",
+      "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+    },
+    "institution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "institution_id": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "authority_domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority_basis_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        },
+        "authority_mode": {
+          "enum": [
+            "principle_inspired",
+            "modular_adaptation",
+            "full_v0.1"
+          ]
+        }
+      },
+      "required": [
+        "institution_id",
+        "authority_domain",
+        "authority_basis_ref",
+        "authority_mode"
+      ]
+    },
+    "principal": {
+      "type": "string",
+      "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+    },
+    "acting_identity": {
+      "type": "string",
+      "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+    },
+    "accountable_human_role": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role_id": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "human_principal": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "mandate_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        }
+      },
+      "required": [
+        "role_id",
+        "human_principal",
+        "mandate_ref"
+      ]
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requirement_id": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "governing_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "standing": {
+                "enum": [
+                  "design_proposal",
+                  "local_policy",
+                  "adopted_rule"
+                ]
+              }
+            },
+            "required": [
+              "ref",
+              "version",
+              "provision",
+              "standing"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string",
+                "minLength": 1
+              },
+              "targets": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "data_scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "max_amount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "max_effects": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "action",
+              "targets",
+              "data_scopes",
+              "max_amount",
+              "unit",
+              "max_effects"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "approvals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "role_id": {
+                "type": "string",
+                "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+              },
+              "independent_of_actor": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "role_id",
+              "independent_of_actor"
+            ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "obligation_id": {
+                "type": "string",
+                "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+              },
+              "kind": {
+                "enum": [
+                  "authorization",
+                  "context",
+                  "post_effect"
+                ]
+              },
+              "source_ref": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+              },
+              "max_age_seconds": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "unknown_behavior": {
+                "enum": [
+                  "hold_effect",
+                  "preserve_if_other_basis_suffices",
+                  "reconcile_no_blind_retry"
+                ]
+              }
+            },
+            "required": [
+              "obligation_id",
+              "kind",
+              "source_ref",
+              "max_age_seconds",
+              "required",
+              "unknown_behavior"
+            ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "consequence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tier": {
+              "enum": [
+                "T0",
+                "T1",
+                "T2",
+                "T3",
+                "T4"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "profile_ref": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+            }
+          },
+          "required": [
+            "tier",
+            "rationale",
+            "profile_ref"
+          ]
+        }
+      },
+      "required": [
+        "requirement_id",
+        "governing_sources",
+        "permissions",
+        "approvals",
+        "evidence",
+        "consequence"
+      ]
+    },
+    "conflicts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "precedence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "incompatible_role_pairs": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+            },
+            "minItems": 2,
+            "uniqueItems": true,
+            "maxItems": 2
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "escalation_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        },
+        "appeal_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        },
+        "continuity_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        },
+        "remedy_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        }
+      },
+      "required": [
+        "precedence_refs",
+        "incompatible_role_pairs",
+        "escalation_ref",
+        "appeal_ref",
+        "continuity_ref",
+        "remedy_ref"
+      ]
+    },
+    "grant": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "grant_id": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requirement_id": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "issuer": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "issuer_role": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "issuance_record_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        },
+        "grantee": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "acting_identity": {
+          "type": "string",
+          "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+        },
+        "issued_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "not_before": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status_ref": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+        },
+        "policy_versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "ref",
+              "version"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string",
+                "minLength": 1
+              },
+              "targets": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "data_scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "max_amount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "max_effects": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "action",
+              "targets",
+              "data_scopes",
+              "max_amount",
+              "unit",
+              "max_effects"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "delegation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "parent_grant_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "may_delegate": {
+              "type": "boolean"
+            },
+            "remaining_depth": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "parent_grant_id",
+            "may_delegate",
+            "remaining_depth"
+          ]
+        },
+        "approval_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "grant_id",
+        "revision",
+        "requirement_id",
+        "issuer",
+        "issuer_role",
+        "issuance_record_ref",
+        "grantee",
+        "acting_identity",
+        "issued_at",
+        "not_before",
+        "expires_at",
+        "status_ref",
+        "policy_versions",
+        "permissions",
+        "delegation",
+        "approval_refs"
+      ]
+    },
+    "supporting_evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "change": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "none",
+            "policy_proposal",
+            "constitutional_proposal"
+          ]
+        },
+        "proposal_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adoption_record_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "proposal_ref",
+        "adoption_record_ref"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "interface_status",
+    "context_id",
+    "institution",
+    "principal",
+    "acting_identity",
+    "accountable_human_role",
+    "requirement",
+    "conflicts",
+    "supporting_evidence_refs",
+    "change"
+  ]
+}
