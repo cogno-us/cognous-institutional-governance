@@ -27,7 +27,8 @@ decision and evaluation records remain their canonical sources.
 
 1. **Discovery and portfolio:** known coverage, undiscovered-use limitations,
    related workflows, shared providers/reviewers/evidence routes and cumulative
-   affected population. Name the person responsible for refresh.
+   affected population; shared spend/time/retry allowances, period, owner,
+   continuity reserve and escalation. Name the person responsible for refresh.
 2. **Boundary and obligations:** inputs, users, sources, AI/software/human roles,
    integrations and effects; applicable instrument/source/version/verification
    date, duty, owner and review trigger. Link qualified interpretation separately.
@@ -43,6 +44,8 @@ decision and evaluation records remain their canonical sources.
    permitted residual risk, authority, expiry and the exact version/class approved.
    State the tested population, conditions, subgroup coverage, acceptance criteria,
    uncertainty and explanation checks; disclose uses outside that evidence.
+   Include permitted model substitutions, actual versions and any internal-to-public
+   transition decision; preserve relevant language/intent and accessible-review checks.
    Record suspension/restart and retirement decisions separately when they occur.
 6. **Human oversight:** concise approval view and access to originals; training,
    safe error-detection exercise, queue load, justified disagreement, skill-retention
@@ -50,6 +53,7 @@ decision and evaluation records remain their canonical sources.
 7. **Effect and coverage checks:** approved versus delivered target/scope, independent
    delivery source, eligible population/period, matching method, exclusions, missing
    or conflicting records, duplicate or orphan effects and verifier conclusion.
+   Check material intermediate actions and handoff conditions, not just final success.
 8. **Incident and retirement:** containment, continuing effects, communication,
    pending claims, workaround versus source correction, restart evidence, revoked
    grants/access, lawful disposition and checked transfer of obligations.

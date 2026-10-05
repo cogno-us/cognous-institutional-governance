@@ -11,6 +11,8 @@ For ongoing use, follow [operational stewardship](../process/OPERATIONAL_STEWARD
 for real owners, workflow discovery, supplier changes, review competence and
 independent effect checks. It provides guidance, not an enforcement runtime.
 
+For practice-informed extensions, see [the OECD workflow case](#oecd-workflow-case).
+
 ## Detailed application
 
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  
@@ -221,3 +223,19 @@ routes. The [AI support module](ai-assisted-institutional-governance.md) and
 [recursive process](../process/VIRTUOUS_RECURSION.md) explain how assistance can
 reduce preparation and improve future practice without acquiring authority.
 These additions are proposals; this file's five exercises remain unexecuted.
+
+## OECD workflow case
+
+**Whole-workflow grants, substitutions and effects — PROPOSED; NOT EXECUTED.**
+
+Evaluate action paths, material handoffs and combined exposure alongside final completion. Define approved routing/substitution conditions rather than assume every model inherits prior assurance. An internal pilot does not itself authorize external deployment.
+
+Use the shared catalogue for ambiguous intent, cumulative allowances, partner handoffs, language, substitution, transition and recovery. Disclose actual model/tool versions and evaluate the legitimate countercases alongside hazards.
+
+Use **SR17–SR26** in the [shared stewardship scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26),
+with [operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md). The
+[OECD source review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md#oecd-practical-deployment-evidence-and-its-implications)
+identifies reported applications and evidence limits. These invented cases are
+our transfer analysis, not reported failures or OECD endorsement. They supply
+no new constitutional powers or observed prevention/benefit; original exercises
+and principle/Article mappings remain unchanged.

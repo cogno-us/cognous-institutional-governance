@@ -1,7 +1,7 @@
 # Lessons from enterprise and agentic governance
 
 **Executive summary:** Alvorada already addresses authority, challenge and
-correction. These four readings expose a less developed connection to everyday
+correction. These readings expose a less developed connection to everyday
 operations: knowing which workflows exist, who maintains them, when changes need
 review and whether safeguards actually work. Add that connection without turning
 every routine decision into a committee meeting.
@@ -40,6 +40,14 @@ This is **targeted review of a complete supplied file**, not verification of eve
 page, legal claim, template or bibliography. Its contents-page pagination does
 not always match actual appendix positions; references here use actual PDF positions.
 
+The OECD extension was reviewed on 2026-10-04 (America/Los_Angeles), against
+`3d614fa71bfbabc689aebb44923a1dabaf825922`. The complete supplied 36-page PDF
+was text-extracted; review focused on methodology, findings, responses and Annex A,
+with selected visual inspection. Its printed page numbers are one lower than PDF
+positions. The official publication page confirms title, date, series and DOI;
+organization/product descriptions remain interview-time reports, not current
+product verification or independent outcome assessment.
+
 ### Source register
 
 | ID | Work and provenance | Passages used and access limits |
@@ -49,6 +57,7 @@ not always match actual appendix positions; references here use actual PDF posit
 | EG2-F | Kenney, same work, full supplied manual, 745 pages | Targeted later review: chapter 23 pp.343–344,354–355 (supplier commitments); chapter 24 pp.367–370 and chapter 26 pp.392–393 (rights in operation); chapter 29 pp.421–426 (privacy design); chapter 33 pp.467–469,472–474 (fairness, explanation and scope); chapter 37 pp.520–523 (joined security/governance); chapter 39 pp.557–558 and chapter 41 pp.579–583 (assurance reporting and supplier chains); chapter 46 pp.643–648 (delegation, memory and unresolved rights questions). Appendices are present, not adopted templates. Legal interpretations, thresholds and technical assertions are not independently validated. |
 | EG3 | Infocomm Media Development Authority (IMDA), *Model AI Governance Framework for Agentic AI*, v1.5, published 20 May 2026, updated 5 June 2026; supplied `GOVERNANCE_ON_AI.pdf`, 53 pages | §§2.1–2.4, especially PDF pp.15–24, 25–30, 38–47. Suitability, bounded access/actions, value-chain accountability, approval effectiveness, monitoring and user competence. Best-practice guidance; company cases are reported illustrations, not independent causal tests. [Official framework PDF](https://www.imda.gov.sg/assets/63438074-73f6-4dcc-a281-030f42642cf4.pdf) and [official announcement](https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai): retrieval met a verification wall; passage review used the supplied version. |
 | EG4 | Kim Chin Jean Gan, Barbara Wilczek-Stronczek and Angeliki Papasava, *Governing the algorithm: a conceptual review of strategic AI oversight in global corporations*, AI & SOCIETY, 2026, 24 supplied pages; [DOI and publisher](https://doi.org/10.1007/s00146-026-03207-2), [university record](https://livrepository.liverpool.ac.uk/3199306/) | Abstract, §§2.5, 3.1–3.6, 6–8; especially PDF pp.5–8 and 16–18. Eight purposively selected firms, public disclosures, managerial/critical perspectives and strategic oversight. The review does not establish causality, internal-control effectiveness or legal compliance; public disclosure is selective and nonrepresentative. Publisher metadata checked: publication 1 July 2026. |
+| EG5 | OECD (2026), *Agentic AI in organisations: Early insights from practitioner interviews*, OECD Artificial Intelligence Papers No.65, OECD Publishing, Paris, published 16 September 2026; 36 supplied pages. Prepared by Merve Hickok, Rentaro Iida, Luis Aranda and Kasumi Sugimoto. [Official publication](https://www.oecd.org/en/publications/agentic-ai-in-organisations_1257a26f-en.html), [DOI](https://doi.org/10.1787/1257a26f-en) | PDF pp.9–11: methodology/limitations; pp.12–17: applications and deployment choices; pp.18–24: risks, evaluation and safeguards; pp.26–29: organization-reported examples. Interviews with 25 consenting organizations from 74 contacted; nonrepresentative, self-reported qualitative evidence with no independent quantitative outcome validation. Annex examples describe offerings at interview time. |
 
 Attachment fingerprints identify the copies consulted, not a certification of
 their authenticity or public availability:
@@ -60,6 +69,7 @@ their authenticity or public availability:
 | EG2-F | `55b76c592c13d86ea4bbc6c1198a9f3977517bb1207c328e775f5ba72a2226de` |
 | EG3 | `2636e19ff1c86e862394d2fc900592e97b83c04cc35e3c8443108114b7f1dfba` |
 | EG4 | `24c42a327a395fcd915aa9f14f1ea6dd03f9ce833129d69a4421438988adfa81` |
+| EG5 | `724ca77313e1ef0af3d4b016b9094bd4c355904d1590878af40bb5e3a688e0e1` |
 
 ### What the readings add
 
@@ -107,9 +117,51 @@ lesson is to inspect stakeholder concerns, board responses and control evidence
 separately. Formal structures, persuasive disclosures and maturity descriptions
 cannot establish equitable outcomes or effective restraint.
 
+### OECD: practical deployment evidence and its implications
+
+EG5 reports bounded deployment, staged exposure, domain-informed evaluation and
+checkpoint review across varied organizations. This supports the relevance of
+Alvorada's existing choices; it does not validate the Constitution, prove causal
+benefits or establish uniqueness. Some reported practices are already conventional
+controls. Interviews can identify mechanisms worth investigating but cannot
+estimate their effectiveness or prevalence across institutions.
+
+The strongest additional documentary needs are language-specific access and
+intent/tool accuracy (OS15), cumulative resource limits (OS16), explicit assurance
+conditions for model substitution (OS17), and internal-to-public deployment
+transition review (OS18). Existing OS2/OS4/OS7/OS8/OS9 already support composition,
+partner handoffs, competence, effect reconstruction and recovery; extend their
+cases rather than claim these are newly discovered principles.
+
+A workflow should be assessed on authorized means as well as delivered outcomes:
+a correct result reached through falsified evidence or prohibited intermediate
+acts is not success. Components can pass separately while their combination fails.
+This is a design inference for both agentic and human institutional workflows.
+Technical connection/authentication alone does not establish an institutional
+grant; an open protocol or model does not establish accountability or independence.
+AI-generated monitoring can assist detection but cannot be the sole proof of its
+own compliance or the source of additional authority.
+
+Annex A supplies useful application anchors: KDDI's staff-facing response drafts,
+BMDS administrative support, Fujitsu supply-chain coordination, Qhala's mixed-language
+health-information assistant, infrastructure examples from Deutsche Telekom/Infosys,
+and research-support examples from RELX/Preferred Networks/Sakana. These are
+reported uses with differing stages, not independently verified results. Our linked
+[domain extensions](../applications/README.md#practice-informed-workflow-cases)
+are invented transfer cases, not allegations of failures by those organizations.
+Healthcare information support is not evidence for autonomous clinical decisions.
+Military, education and other contexts must not be claimed as evaluated by this study.
+
+The proposed [SR17–SR26 scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26)
+include legitimate countercases, observable boundaries and domain routes.
+Nondeterministic operation needs repeated, declared trials; a single correct answer
+or a deterministic supplied-label replay does not establish runtime reliability.
+Domain experts and affected-person perspectives remain needed to choose meaningful
+criteria. Simpler automation or human practice remains a valid option.
+
 ### Gap and remediation crosswalk
 
-These are additions to existing guidance, not fourteen newly discovered constitutional
+These are additions to existing guidance, not eighteen newly discovered constitutional
 principles. Existing coverage is acknowledged to avoid duplicating worksheets.
 
 | Gap | Already present | Remaining documentary weakness | Remediation / further work |
@@ -128,6 +180,10 @@ principles. Existing coverage is acknowledged to avoid duplicating worksheets.
 | OS12 fitness and explanation | Subgroup harms, reviewer competence and outcome measures | Evaluation scope and explanation fidelity need explicit acceptance questions | §§7–8; local population/condition tests and intelligibility/fidelity assessment pending (EG2-F ch.33) |
 | OS13 bounded assurance | Supplier duties and independence review | Certificates, reports and promises can be overgeneralized beyond entity/product/period or actual configuration | §4 and optional record; inspect scope, exclusions, chain changes and evidence independence (EG2-F chs.23,39,41) |
 | OS14 joined incident handling | Incident lead, remedies and emergency separation | Security response and rights-affecting governance can lose each other's evidence or confuse mandates | §9; shared case and separated decisions need a real exercise (EG2-F ch.37) |
+| OS15 linguistic access and intent | Accessible notice and tested language envelope | No paired multilingual/cultural-context case with intent and action checks | Stewardship §7 and SR21; competent language/domain assessors and access observations pending (EG5 pp.19,22,28) |
+| OS16 cumulative resources | Portfolio exposure, burden and containment | No explicit shared time/compute/spend/retry allowance and continuity response | §2 and SR19/SR23; contextual limits and real resource enforcement pending (EG5 pp.21,23) |
+| OS17 model substitution | Material provider/model change and versioned assurance | No compact conditions for allowed routing/substitution and outside-envelope fallback | §5 and SR22; actual configurations and local regression evidence pending (EG5 pp.16,22) |
+| OS18 deployment transitions | Staged lifecycle, tested populations and readiness | Internal trials can be treated as assurance for external users or different stakes | §5 and SR24; new population/effects/access review and actual authorization pending (EG5 pp.15–17) |
 
 ### Decisions made and why
 
@@ -168,6 +224,13 @@ assumptions and use. Certification and independent scrutiny need bounded scope;
 an outside contractor is not automatically independent. Maturity and audit volume
 remain distinct from substantive impact. No source's legal crosswalk, contract
 notice period or unsettled claim about model erasure becomes authoritative here.
+
+EG5 is licensed CC BY 4.0 with attribution and third-party exceptions. This
+repository adds original critical synthesis and invented application scenarios;
+it does not reproduce the PDF, cover, logos or vendor diagrams. No OECD endorsement
+is implied. To the extent the guidance is read as an adaptation: this is an
+adaptation of an original work by the OECD; its opinions and arguments should not
+be reported as representing the official views of the OECD or its Member countries.
 
 External works retain their rights. EG1 states noncommercial-use terms in Appendix
 F; EG2 states all rights reserved. This repository includes original critical

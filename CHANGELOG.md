@@ -4,6 +4,15 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-04 — OECD practitioner applications and workflow review
+
+- Added the OECD interview study to the existing research review, with official DOI, attachment fingerprint, exact page scopes, selection/self-report limits and no efficacy or endorsement inference.
+- Extended operating guidance for cumulative resources, substitutions, deployment transitions, language/intent, intermediate actions and handoffs; reused the optional record and measurement definitions.
+- Added ten original SR17–SR26 scenarios with legitimate countercases and repeated-trial design, bringing stewardship proposals to 26. Added concrete linked cases to twelve existing domain/module files; no new duplicate domain manual or runtime was introduced.
+- Original Constitution, decision/source-status data, original exercises, code, fixtures and archived observations remain unchanged. New scenarios require actual grants, domain/language assessors and workflow access before execution.
+
+- Validation: all 431 unit tests, repository validator, both archive verifiers and fresh reference/film runs passed their applicable guarded checks. Observations exactly reproduced existing archives; the [testing record](testing/README.md#oecd-application-extension-checks-2026-10-04) separates these runs from unexecuted new scenarios and documents remaining work.
+
 ## 2026-10-04 — Full practitioner-manual extension
 
 - Extended the earlier targeted review with the complete 745-page Kenney attachment, preserving the original partial-file provenance and recording the full-file fingerprint and actual passage scopes. Availability is complete; review and verification remain bounded.

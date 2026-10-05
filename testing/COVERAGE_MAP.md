@@ -19,6 +19,7 @@ adapter scope, not every behavior named in the full proposal.
 | [Institutional usability](research/INSTITUTIONAL_USABILITY.md) | Six SC research designs | None |
 | [Record value](programs/RECORD_VALUE.md) | Three questions on timing/adoption/impact | None |
 | [Modular review](research/MODULAR_GOVERNANCE_REVIEW.md) | New proposed documentary/tabletop questions | None; no new fixtures or archive |
+| [Operational stewardship](research/OPERATIONAL_STEWARDSHIP_REVIEW.md) | 26 SR proposals, including ten OECD-informed workflow cases with legitimate countercases | None; historical adapters do not execute them |
 | Repository conformance tests | Encoded records, invariants and limited adapter behavior | Local tests; no institutional outcome inference |
 
 ## Mechanisms and evidence boundaries

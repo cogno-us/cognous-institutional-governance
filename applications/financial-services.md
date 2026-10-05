@@ -7,6 +7,8 @@ demonstrated sector result.
 [Choose the modular route](MODULAR_ROUTING.md) or
 [read the detailed application](#detailed-application).
 
+For practice-informed extensions, see [the OECD workflow case](#oecd-workflow-case).
+
 ## Detailed application
 
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  
@@ -217,3 +219,19 @@ routes. The [AI support module](ai-assisted-institutional-governance.md) and
 [recursive process](../process/VIRTUOUS_RECURSION.md) explain how assistance can
 reduce preparation and improve future practice without acquiring authority.
 These additions are proposals; this file's five exercises remain unexecuted.
+
+## OECD workflow case
+
+**Shared payment allowances and reconciliation — PROPOSED; NOT EXECUTED.**
+
+Treat preparation, commitment and payment as separate acts under actual authority. Multiple individually permitted actions may exceed a shared allowance; interruption must not create duplicate obligations.
+
+Use synthetic payment records to examine cumulative exposure and ambiguous completion before retry. Verify the original effect and unresolved obligations, preserve permitted payments and avoid importing any universal monetary threshold.
+
+Use **SR19, SR25** in the [shared stewardship scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26),
+with [operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md). The
+[OECD source review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md#oecd-practical-deployment-evidence-and-its-implications)
+identifies reported applications and evidence limits. These invented cases are
+our transfer analysis, not reported failures or OECD endorsement. They supply
+no new constitutional powers or observed prevention/benefit; original exercises
+and principle/Article mappings remain unchanged.

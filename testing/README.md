@@ -29,7 +29,7 @@ The [documentation-refactor check record](DOCUMENTATION_REFACTOR_CHECKS.md)
 records migration verification and the remaining need for newcomer review.
 
 The [operational-stewardship review](research/OPERATIONAL_STEWARDSHIP_REVIEW.md)
-adds sixteen separately proposed tabletop scenarios from the later enterprise
+adds twenty-six separately proposed tabletop scenarios from the later enterprise
 readings. No scenario has been executed or added to the archived adapters.
 
 ## Enterprise-guidance repository checks, 2026-10-04
@@ -56,6 +56,52 @@ SR01–SR16 are distinct proposals. Original constitutional data, source-status
 registers, code, fixtures and frozen results remain unchanged. These are repository
 checks, **not execution of the sixteen stewardship scenarios**, source/legal
 verification or evidence of institutional benefit.
+
+## OECD application-extension checks, 2026-10-04
+
+Against public base `3d614fa71bfbabc689aebb44923a1dabaf825922` (local base
+`bcf24236318607ff0bf7fae5e51871fecd82afe6`, identical tree
+`592aea78c4edae58dc3c188197dc06dc7e70168b`), Python 3.12.14:
+repository validator, 423 repository tests, eight harness tests and both archived
+integrity/replay verifiers passed. The reference and film runners were also
+executed afresh. Their per-case observations and summaries exactly reproduced
+the existing [reference archive](results/2026-10-03-reference-v1/README.md) and
+[film archive](results/2026-10-04-film-review-v1/README.md).
+
+| Existing synthetic adapter | Fresh observations | Conventional / Alvorada-inspired oracle satisfaction | Deliberately permissive toy arm |
+|---|---|---|---|
+| Reference | 72: 24 fixtures × three arms | 24/24 each | 3/24 |
+| Film | 126: 42 fixtures × three arms | 42/42 each | 15/42 |
+
+The equal guarded outcomes establish no incremental effect benefit. These runners
+use deterministic supplied fixtures, not live models, institutional actors or the
+new OECD scenarios. Fresh bundles record the local base and documentation-dirty
+working tree in ignored `testing/runs/`; duplicate bundles are not new committed
+archives. The unchanged archives remain the canonical raw evidence. To reproduce,
+use **new, nonexistent** output directories:
+
+```sh
+python3 testing/harness/run_reference.py --output testing/runs/oecd-reference-repeat
+python3 testing/harness/run_film_review.py --output testing/runs/oecd-film-repeat
+python3 testing/harness/verify_snapshot.py
+python3 testing/harness/verify_film_review.py
+python3 tools/validate_bootstrap.py
+python3 -m unittest discover -s tests -q
+python3 -m unittest discover -s testing/harness -p 'test_*.py' -q
+```
+
+The documentation checks resolved all 1,498 relative file destinations
+and checked fragment destinations in changed documents, 26 distinct SR IDs,
+preservation of SR01–SR16 and existing domain text, twelve domain extensions,
+Markdown-only scope, whitespace and bounded changed-document markers. External
+URL availability, every historical anchor and exhaustive IP clearance are not
+certified. Original constitutional data, source-status registers, code, fixtures
+and frozen observations are unchanged.
+
+**SR17–SR26 were not executed.** No actual workflow, domain/language assessors,
+operating grants or independent institutional outcome evidence were supplied.
+All 26 stewardship scenarios remain proposed; passing repository checks cannot
+establish human comprehension, field effectiveness or readiness for public service.
 
 ## Run locally
 
@@ -85,7 +131,7 @@ All 47 full operational exercises and the existing 90 application exercises rema
 
 ## Supplementary Thin Blue Line exercises
 
-[TB01–TB10](battery/THIN_BLUE_LINE.md) add ten proposed exercises on evidence omissions, observation conditions, contamination, incentives, synthetic reconstructions, access, reconsideration and correction effects. There are now **68 proposed exercises in this testing section**: 47 original cases, 11 FW cases and 10 TB cases. The 90 application exercises remain separate. No full FW or TB operational exercise has been executed or reviewed. The original 24 fixtures and 72 observations cover neither supplement; the new film adapter supplies separately documented narrow synthetic coverage.
+[TB01–TB10](battery/THIN_BLUE_LINE.md) add ten proposed exercises on evidence omissions, observation conditions, contamination, incentives, synthetic reconstructions, access, reconsideration and correction effects. The original and film batteries contain **68 proposed exercises**: 47 original cases, 11 FW cases and 10 TB cases. The 90 application exercises remain separate. No full FW or TB operational exercise has been executed or reviewed. The original 24 fixtures and 72 observations cover neither supplement; the new film adapter supplies separately documented narrow synthetic coverage.
 
 ## Run the film-inspired synthetic subtests
 

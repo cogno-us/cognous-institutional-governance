@@ -7,6 +7,8 @@ demonstrated sector result.
 [Choose the modular route](MODULAR_ROUTING.md) or
 [read the detailed application](#detailed-application).
 
+For practice-informed extensions, see [the OECD workflow case](#oecd-workflow-case).
+
 ## Detailed application
 
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  
@@ -217,3 +219,19 @@ routes. The [AI support module](ai-assisted-institutional-governance.md) and
 [recursive process](../process/VIRTUOUS_RECURSION.md) explain how assistance can
 reduce preparation and improve future practice without acquiring authority.
 These additions are proposals; this file's five exercises remain unexecuted.
+
+## OECD workflow case
+
+**Scheduling and interrupted service workflows — PROPOSED; NOT EXECUTED.**
+
+A bounded scheduler or administrative assistant can prepare requests without acquiring clinical prioritization authority. Partial completion and retries can create conflicting appointments or interrupt access.
+
+Simulate an interrupted booking with ambiguous delivery status and a language-dependent request. Reconcile the authoritative booking state before retrying, preserve access/claims and verify any correction; confirmed undelivered requests may be completed safely.
+
+Use **SR21, SR25** in the [shared stewardship scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26),
+with [operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md). The
+[OECD source review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md#oecd-practical-deployment-evidence-and-its-implications)
+identifies reported applications and evidence limits. These invented cases are
+our transfer analysis, not reported failures or OECD endorsement. They supply
+no new constitutional powers or observed prevention/benefit; original exercises
+and principle/Article mappings remain unchanged.

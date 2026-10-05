@@ -55,6 +55,18 @@ contexts and ninety exercises. It explains assistance, bounded ordinary work and
 working principles and ten refounding protections mapped. No new exercise result
 or unchanged-v0.1 adoption is asserted.
 
+## Practice-informed workflow cases
+
+The [OECD practitioner review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md#oecd-practical-deployment-evidence-and-its-implications)
+informs additional cases in customer service, government services, both healthcare
+guides, procurement, infrastructure, research, enterprise agents, cybersecurity,
+finance, employment and the AI governance-assistance module. Use each file's
+**OECD workflow case** and the shared [SR17–SR26 catalogue](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26).
+These are twelve domain extensions linked to ten overlapping scenarios, not
+additional independently validated mechanisms. Original eighteen domains and
+ninety exercises remain separately proposed; all new cases are also unexecuted.
+No new domain is necessary because existing guides cover these application types.
+
 ## Choose the form of application
 
 1. **Principle-inspired practice:** improve an existing organization's delegation,

@@ -8,6 +8,8 @@ For ongoing use, follow [operational stewardship](../process/OPERATIONAL_STEWARD
 for real owners, workflow discovery, supplier changes, review competence and
 independent effect checks. It provides guidance, not an enforcement runtime.
 
+For practice-informed extensions, see [the OECD workflow case](#oecd-workflow-case).
+
 ## Detailed guidance
 
 **GUIDANCE AND THEORY; no deployed system, grant or demonstrated saving.**
@@ -151,3 +153,19 @@ a self-report survey. They motivate bounded assistance and caution; they do not
 validate this module or demonstrate Alvorada-specific savings. Actual task fit,
 independent judgment, privacy, legitimate authority and net outcomes remain to
 be assessed. Do not create imaginary assistants, reviewers or field results.
+
+## OECD workflow case
+
+**Governance assistance with observable boundaries — PROPOSED; NOT EXECUTED.**
+
+AI can prepare sources, translations, queues and handoff records. It may suggest improvements, but separate competent actors authorize change and assess effects. Preserve practical human expertise and the ability to reject its advice.
+
+Assess source/path accuracy, accessible multilingual challenge, substitutions and actual review capacity. Feed independently observed failures into proposed changes, then separately authorize and re-evaluate them; the assistant cannot certify its own success or expand its mandate.
+
+Use **SR17, SR21, SR22, SR26** in the [shared stewardship scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26),
+with [operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md). The
+[OECD source review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md#oecd-practical-deployment-evidence-and-its-implications)
+identifies reported applications and evidence limits. These invented cases are
+our transfer analysis, not reported failures or OECD endorsement. They supply
+no new constitutional powers or observed prevention/benefit; original exercises
+and principle/Article mappings remain unchanged.

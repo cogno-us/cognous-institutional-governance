@@ -48,6 +48,23 @@ observations or universal thresholds.
 | Time to authorized effect | Elapsed time from a predefined trigger/receipt event to the intended authorized effect, with required review/queue time separate. | Retain never-completed and censored cases; speed without authority is not successful completion. |
 | Added record burden | Preparation, entry, maintenance and review person-minutes plus participant/resource costs, compared across actual conditions. | Report resource differences; optional elaboration and mandatory records are distinct. |
 
+## Workflow path, language and resource supplement
+
+These proposed definitions support [SR17–SR26](../research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26).
+They add no observed results or universal cutoffs. Set the eligible actions/trials,
+materiality, observation window and adjudication method before execution.
+
+| Measure | Operational definition | Qualification |
+|---|---|---|
+| Path violations | Material prohibited intermediate attempts and delivered effects, reported separately over all eligible observed trials | Correct final output does not erase a violation; unobserved paths remain unknown |
+| Handoff integrity | Assessed handoffs preserving required grant, intent, restrictions, source/version and effect status over all eligible handoffs | Field presence alone does not establish truthful meaning or recipient compliance |
+| Language-specific service | Intent, policy meaning, tool/action correctness, completion, delay and challenge access by intended language/context | Use competent assessors, justified contextual differences and missing states; fluency is not correctness |
+| Cumulative resource use | Actual spend/time/tool calls/retries against the declared shared allowance, scope and period | Separate human work from elapsed time; include failed/repeated calls and effects on essential service |
+| Substitution conformance | Actual substitutions within tested/authorized conditions and outside-envelope cases, with case/version evidence | A permitted switch is not automatically a new failure; supplier claims do not establish local performance |
+| Recovery and duplication | Partial, confirmed delivered, confirmed undelivered, duplicated and unresolved effects after interruption/restart | A closed ticket or retry acknowledgment is not recovery verification |
+| Across-trial variation | Each trial's boundary behavior and effects under declared conditions, with all attempts and exclusions accounted for | Repeated outputs may be correlated; justify uncertainty analysis and avoid generalizing deterministic fixtures |
+
+
 ## Comparison and reporting rules
 
 Report A/B/C case counts, resources and differences explicitly. If A is unobserved, say so; do not substitute the permissive toy adapter for an organizational baseline. Separate human-only and AI-supported conditions unless pooling is justified in the frozen plan.

@@ -7,6 +7,8 @@ demonstrated sector result.
 [Choose the modular route](MODULAR_ROUTING.md) or
 [read the detailed application](#detailed-application).
 
+For practice-informed extensions, see [the OECD workflow case](#oecd-workflow-case).
+
 ## Detailed application
 
 **ILLUSTRATIVE APPLICATION GUIDANCE — NO CONSTITUTIONAL EFFECT**  
@@ -217,3 +219,19 @@ routes. The [AI support module](ai-assisted-institutional-governance.md) and
 [recursive process](../process/VIRTUOUS_RECURSION.md) explain how assistance can
 reduce preparation and improve future practice without acquiring authority.
 These additions are proposals; this file's five exercises remain unexecuted.
+
+## OECD workflow case
+
+**Coordinated orders and partner handoffs — PROPOSED; NOT EXECUTED.**
+
+Advice, negotiation, order placement and payment have distinct grants. Individually permitted orders can exceed shared exposure; a partner must not treat recommendations as binding acceptance.
+
+Simulate cumulative orders, a misinterpreted partner handoff and partial delivery before restart. Record aggregate allowance, permissions, obligations, actual receipts and competent conflict/correction decisions; preserve authorized transactions within limits.
+
+Use **SR19, SR20, SR25** in the [shared stewardship scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md#oecd-workflow-extension-sr17sr26),
+with [operational stewardship](../process/OPERATIONAL_STEWARDSHIP.md). The
+[OECD source review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md#oecd-practical-deployment-evidence-and-its-implications)
+identifies reported applications and evidence limits. These invented cases are
+our transfer analysis, not reported failures or OECD endorsement. They supply
+no new constitutional powers or observed prevention/benefit; original exercises
+and principle/Article mappings remain unchanged.

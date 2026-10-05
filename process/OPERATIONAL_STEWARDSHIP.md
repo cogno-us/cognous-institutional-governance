@@ -55,6 +55,20 @@ fallback needs actual competence and capacity; its existence on paper is insuffi
 Use the existing [independence/interface procedure](RIGHTS_RECORDS_AND_INTERFACES.md)
 for control and remedy questions.
 
+### Set cumulative resource and retry boundaries
+
+For material continuous or delegated work, identify who owns shared allowances
+for spending, execution time, tool calls/retries and other scarce resources.
+Define the accounting scope and period, warning/stop conditions, reserved essential
+service and competent escalation. A sequence of individually permitted acts can
+exceed a shared limit. No default numbers are supplied here. Budget exhaustion
+cannot authorize extra spending, hidden model downgrade or an emergency waiver.
+
+Check pending transactions and claims before stopping or retrying. Preserve a
+reachable human continuation route and actual state; avoid duplicate obligations
+when resuming after an interruption. A dashboard is evidence to inspect, not proof
+that a technical limit is enforced. Apply the same reasoning to human workloads.
+
 ## 3. Assign operating responsibility without concentrating power
 
 For each material workflow, identify who can:
@@ -138,6 +152,23 @@ approval. Automatic vendor updates are still changes. Retirement includes checki
 that queues, scheduled jobs, delegated accounts or human procedures do not continue
 the withdrawn activity. Preserve pending remedies during replacement.
 
+### Review substitutions and deployment transitions
+
+Specify any permitted model/provider routing and substitutions: purposes,
+populations/languages, tool behavior, data restrictions, evidence requirements
+and limits. A switch within tested and authorized conditions can remain routine;
+a switch beyond that envelope needs the applicable revalidation and decision.
+Low price or strong aggregate performance does not establish local suitability.
+Record the actual version used in a material case, including fallbacks.
+
+Internal use, staff-facing drafts and externally delivered decisions differ in
+population, reliance, consent/access arrangements and possible effects. An internal
+trial does not authorize a public launch. Before expansion, review those changes,
+reviewer capacity, counterparties, accessibility and remedy/continuity routes.
+Employee participation and protections also need actual contextual arrangements;
+internal does not automatically mean harmless. Compare simpler automation and
+human alternatives when agentic behavior adds little value.
+
 ## 6. Keep three assessments separate
 
 | Assessment | What it answers | What it cannot establish |
@@ -193,6 +224,21 @@ Where reasons cannot be substantiated, preserve that uncertainty and apply the
 contextual challenge/containment route rather than manufacture an explanation.
 The same questions apply to human scoring rules and ordinary software.
 
+### Check language, intent and accessible action
+
+Assess materially equivalent requests in each intended language, including mixed
+language or voice where relevant. Use competent domain/language assessment of
+intent, policy/source meaning, tool parameters, substantive disposition and
+accessible challenge. Literal translation similarity or fluency alone is insufficient.
+Differences can be justified by actual context; preserve that rationale rather
+than demand mechanically identical outcomes. Report untested language groups and
+language-dependent cost/delay; do not quietly downgrade their safeguards.
+
+An ambiguous request to resolve a problem is not blanket permission to choose
+any means. Clarify material ambiguity or obtain a reserved decision while allowing
+clearly authorized routine work. Avoid unnecessary questions when the grant and
+relevant intent are already clear.
+
 ## 8. Verify effects and evidence coverage
 
 For a material act, distinguish the decision/approval record, the authoritative
@@ -221,6 +267,20 @@ may prevent further reserved action until competent review. Stopping everything
 can itself cause harm; use authorized safe degradation and the
 [review-calibration guide](REVIEW_CALIBRATION.md), without creating an emergency
 waiver. Actual monitoring, permissions and reconciliation need separate engineering.
+
+### Inspect paths, handoffs and composition
+
+For consequential workflows, sample material intermediate actions as well as
+final delivery. Check whether sources were fabricated, restrictions changed or
+a prohibited act attempted along the path. An acceptable outcome does not erase
+a path violation. Preserve blocked attempts separately from delivered effects.
+
+At each material human/agent/partner handoff, preserve task intent, actual grant,
+source/version, restrictions, approval conditions, uncertainty, effect status and
+responsible counterpart. A recipient must not interpret advice as binding approval.
+Review combined behavior and exposure; individual component success does not
+establish system success. Trace actual effects through partial delivery and restart,
+using authorized records without demanding disclosure of private model cognition.
 
 ## 9. Handle incidents, near misses and restart
 

@@ -46,7 +46,7 @@ or normative finding is closed merely by adding a document.
 
 ## Later enterprise operating gaps, 2026-10-04
 
-The [four-work review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) adds OS1–OS14
+The [enterprise review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) adds OS1–OS14
 to the earlier G01–G26 review without rewriting that historical baseline. The
 [stewardship guide](../process/OPERATIONAL_STEWARDSHIP.md) and optional record
 provide documentary remediation for workflow discovery, portfolio dependencies,
@@ -60,6 +60,18 @@ bounded assurance and joined security/governance incidents. Sixteen
 proposed and unexecuted. The initial 300-page review is preserved as provenance;
 the later complete 745-page attachment received targeted review, not verification
 of every claim, legal interpretation or template.
+
+## OECD practitioner extension, 2026-10-04
+
+The same [enterprise review](../research/ENTERPRISE_GOVERNANCE_REVIEW.md) extends
+current documentary coverage to OS1–OS18. OS15–OS18 address language/intent and
+access, cumulative resources, model substitutions and deployment transitions.
+Existing ownership/effect/incident guidance now makes paths and handoffs explicit.
+The [stewardship catalogue](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md)
+contains 26 unexecuted proposals, including ten OECD-informed cases. Contextual
+language/domain assessment, grants, limits, technical enforcement, transition
+evidence and observed comparative outcomes remain further work. These additions
+do not revise the historical G or earlier OS/check records.
 
 ## New design questions introduced by this remediation
 
