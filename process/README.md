@@ -43,6 +43,15 @@ rather than create a second mandatory case worksheet. Its
 [unexecuted review scenarios](../testing/research/OPERATIONAL_STEWARDSHIP_REVIEW.md)
 remain separate from operational evidence.
 
+## Keeping authorization valid through execution
+
+Use the [authorization-to-effect contract](AUTHORIZATION_EFFECT_CONTRACT.md) for
+current grants, temporal evidence, effect/attempt identity, UNKNOWN continuation,
+commit-boundary guarantees and retry reconciliation. It adds no constitutional
+power. The [narrow synthetic adapter](../testing/harness/AUTHORIZATION_EFFECT_DESIGN.md)
+and [execution archive](../testing/results/2026-10-05-authorization-effect-v1/README.md)
+are local mechanics, not a production runtime or verified institutional effects.
+
 ## Reviewing consequential decisions
 
 [Decision review under uncertainty](DECISION_REVIEW_UNDER_UNCERTAINTY.md) translates the later Fog of War study into a proposed record for evidence, alternative explanations, harm, authority, dissent, reconsideration and observed effects. It supports existing provisions and does not authorize a new workflow.

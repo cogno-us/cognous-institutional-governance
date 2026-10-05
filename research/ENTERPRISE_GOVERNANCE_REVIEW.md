@@ -159,9 +159,50 @@ or a deterministic supplied-label replay does not establish runtime reliability.
 Domain experts and affected-person perspectives remain needed to choose meaningful
 criteria. Simpler automation or human practice remains a valid option.
 
+### ODES and the authorization-to-effect interface
+
+Reviewed 2026-10-05 against public base `7345eb2b591fcf41d44fa4845d3a42c267cb57dc`.
+The user supplied three Cognous documents: *ODES v0.2 Combined Discussion Draft*
+(July 2026), *ODES Technical Explainer for Business and IT Users*, and *ODES Explained
+for Business and IT Users*. Review used the specification's Part I §§2,4–7 and
+Part II limitations, together with the explainers' field and conformance accounts.
+The draft describes a candidate standard, not recognized certification or a settled
+implementation. Narrative v0.2 retains its v0.1 schema reference. No ODES repository
+schema, current release or verifier was independently checked in this review.
+
+| Supplied source | SHA-256 |
+|---|---|
+| Combined discussion draft | `b1f1d23c44b2d3b38f95f4a4e9b7ef9aea49bd6c4a71013f9870cbf735532da8` |
+| Technical explainer | `27720f54547481be7561ceca9541a0fc127c8454d9029bc9da3a5f7b3109c5a6` |
+| Plain-language explainer | `714c46b3f1022a2411291366192644306936dacc59263dee9d60310a08f35e91` |
+
+ODES proposes portable decision evidence, including decision identity, authority
+metadata, human/machine roles, policy/model context, evidence commitments,
+freshness, supersession/revocation and consumption conditions. Its four layers
+separate schema validity, profile conformance, verifier acceptance and the relying
+party's own decision. Record acceptance establishes neither world truth nor actual
+review, institutional authority or lawful reliance. Runtime enforcement and settled
+cryptographic/trust profiles are outside the supplied draft's scope.
+
+The external review forwarded by the user identified an additional temporal seam:
+a valid decision at one time need not authorize the later effect. We acknowledge
+that design contribution without reproducing private correspondence. Our
+[contract](../process/AUTHORIZATION_EFFECT_CONTRACT.md) makes temporal obligations,
+required/optional/post-effect UNKNOWN, effect/attempt lineage, revalidation and
+check-to-commit limits explicit. Stable effect identity and commit semantics are
+complementary proposals, not existing ODES requirements or new schema fields.
+
+ODES is optional; adequate alternative records can support the same distinctions.
+Alvorada supplies institutional authority distinctions, ODES can carry evidence,
+and an implementation must enforce the effect contract. A synthetic adapter tests
+one narrow local interpretation. It neither certifies ODES conformance nor proves
+that an institution obeys the contract. No proprietary runtime architecture,
+attached documents or templates are reproduced, and their licensing/status is not
+changed by this repository's CC BY 4.0 license.
+
 ### Gap and remediation crosswalk
 
-These are additions to existing guidance, not eighteen newly discovered constitutional
+These are additions to existing guidance, not nineteen newly discovered constitutional
 principles. Existing coverage is acknowledged to avoid duplicating worksheets.
 
 | Gap | Already present | Remaining documentary weakness | Remediation / further work |
@@ -184,6 +225,7 @@ principles. Existing coverage is acknowledged to avoid duplicating worksheets.
 | OS16 cumulative resources | Portfolio exposure, burden and containment | No explicit shared time/compute/spend/retry allowance and continuity response | §2 and SR19/SR23; contextual limits and real resource enforcement pending (EG5 pp.21,23) |
 | OS17 model substitution | Material provider/model change and versioned assurance | No compact conditions for allowed routing/substitution and outside-envelope fallback | §5 and SR22; actual configurations and local regression evidence pending (EG5 pp.16,22) |
 | OS18 deployment transitions | Staged lifecycle, tested populations and readiness | Internal trials can be treated as assurance for external users or different stakes | §5 and SR24; new population/effects/access review and actual authorization pending (EG5 pp.15–17) |
+| OS19 authorization/effect timing | Scoped approvals, change gates, effects and retries | No single contract for temporal obligations, commit-boundary consistency, obligation-specific UNKNOWN and effect/attempt lineage | New contract and AE01–AE10 narrow synthetic mechanics; real permissions, clocks, remote consistency and independent verification remain untested |
 
 ### Decisions made and why
 

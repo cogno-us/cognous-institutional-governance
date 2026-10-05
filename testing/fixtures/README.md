@@ -9,3 +9,9 @@ Expected outcomes: BLOCK, ALLOW, PENDING, RESTORED. The baseline can produce NOT
 ## Separate film-review fixtures
 
 [film-review/](film-review/README.md) contains 42 additional fixed synthetic cases for the separate FW/TB adapter. They do not replace the original 24 cases or expand the original archive's coverage.
+
+## Separate authorization/effect fixtures
+
+[authorization-effect/](authorization-effect/README.md) contains twenty new fixed
+primary/positive fixtures for temporal permission, UNKNOWN, effect lineage and
+retry mechanics. It is separate from the original and film inputs and archives.

@@ -235,3 +235,12 @@ identifies reported applications and evidence limits. These invented cases are
 our transfer analysis, not reported failures or OECD endorsement. They supply
 no new constitutional powers or observed prevention/benefit; original exercises
 and principle/Article mappings remain unchanged.
+
+## Authorization-to-effect review
+
+Preserve the approved order/recipient/conditions through partner execution. Changed targets and stale critical evidence need competent revalidation; reconcile partial fulfillment and delivery uncertainty before another commitment.
+
+Use the [shared contract](../process/AUTHORIZATION_EFFECT_CONTRACT.md) and
+[AE cases](../testing/battery/AUTHORIZATION_EFFECT.md). Their
+[local synthetic observations](../testing/results/2026-10-05-authorization-effect-v1/README.md)
+do not execute this domain workflow, establish sector safety or supply new powers.

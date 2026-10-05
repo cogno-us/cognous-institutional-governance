@@ -282,6 +282,16 @@ Review combined behavior and exposure; individual component success does not
 establish system success. Trace actual effects through partial delivery and restart,
 using authorized records without demanding disclosure of private model cognition.
 
+### Keep approval valid until the effect occurs
+
+Use the [authorization-to-effect contract](AUTHORIZATION_EFFECT_CONTRACT.md) to
+bind the approved act, declare decision-critical evidence obligations and recheck
+relevant grant/target/policy/currentness conditions at the actual effect boundary.
+Distinguish optional UNKNOWN, required-condition UNKNOWN and unconfirmed delivery.
+Maintain stable effect identity and separate attempts; reconcile partial or unknown
+state before retry. Disclose any check-to-commit gap that the implementation cannot
+close. Observers supply evidence and cannot acquire execution power during outages.
+
 ## 9. Handle incidents, near misses and restart
 
 Identify a reachable incident lead and alternate, preauthorized containment

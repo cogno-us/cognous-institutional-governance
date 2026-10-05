@@ -26,6 +26,7 @@ no new operational benefit or synthetic result is claimed.
 | Original application exercises | 18 contexts × five exercises = 90, proposed | Sector adoption or field effectiveness |
 | Additional research designs | 12 governed-agency proposals, six SC usability scenarios, three record-value questions, new modular tabletop guidance and twenty-six stewardship scenarios | Additional archived observations; counts are not additive measures of unique coverage |
 | Repository validator/unit tests | Conformance, pinned reviewed records, specific behavior and archive provenance | A new human comprehension assessment, legitimacy, institutional safety or field efficacy |
+| Authorization/effect contract and adapter | Proposed interface; 20 local synthetic fixtures × three arms = 60 observations | Production enforcement, distributed atomicity, real authority, independent institutional verification or ODES conformance |
 | Real-world benefit/independent review | Not established by this repository | Cannot be inferred from document volume, model agreement or passing software checks |
 
 The validator's recorded readiness/comprehensibility fields preserve a particular

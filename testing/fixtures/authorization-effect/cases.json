@@ -1,0 +1,927 @@
+[
+  {
+    "id": "AE01-primary",
+    "proposal": "AE01",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "evidence_expires": 5
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE01-positive",
+    "proposal": "AE01",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "evidence_observed_at": 9,
+        "evidence_expires": 25
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE02-primary",
+    "proposal": "AE02",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "grant_valid": false
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE02-positive",
+    "proposal": "AE02",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE03-primary",
+    "proposal": "AE03",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "target": "account-B"
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE03-positive",
+    "proposal": "AE03",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE04-primary",
+    "proposal": "AE04",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "policy": "v2"
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE04-positive",
+    "proposal": "AE04",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE05-primary",
+    "proposal": "AE05",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 2,
+      "retry": true,
+      "post_observer_available": false,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "EXECUTED_UNCONFIRMED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE05-positive",
+    "proposal": "AE05",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 2,
+      "retry": true,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE06-primary",
+    "proposal": "AE06",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "conflict": true
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "REVIEW",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE06-positive",
+    "proposal": "AE06",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "conflict": false
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE07-primary",
+    "proposal": "AE07",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 1,
+      "retry": true,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 2,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE07-positive",
+    "proposal": "AE07",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 1,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "PARTIAL_OBSERVED",
+      "executed_parts": 1,
+      "unique_parts": 1,
+      "duplicate_parts": 0,
+      "observed_parts": 1,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE08-primary",
+    "proposal": "AE08",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "observer_available": false
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE08-positive",
+    "proposal": "AE08",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE09-primary",
+    "proposal": "AE09",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "required_state": "UNKNOWN"
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE09-positive",
+    "proposal": "AE09",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {
+        "optional_state": "UNKNOWN"
+      },
+      "after_check": {},
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE10-primary",
+    "proposal": "AE10",
+    "variant": "primary",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {
+        "grant_valid": false
+      },
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "HOLD",
+      "executed_parts": 0,
+      "unique_parts": 0,
+      "duplicate_parts": 0,
+      "observed_parts": null,
+      "verified": false,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  },
+  {
+    "id": "AE10-positive",
+    "proposal": "AE10",
+    "variant": "positive",
+    "inputs": {
+      "binding": {
+        "decision_id": "decision-1",
+        "effect_id": "effect-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "grant_id": "grant-1"
+      },
+      "initial_state": {
+        "grant_valid": true,
+        "grant_expires": 30,
+        "grant_id": "grant-1",
+        "target": "account-A",
+        "policy": "v1",
+        "action": "post",
+        "observer_available": true,
+        "required_state": "KNOWN",
+        "evidence_observed_at": 0,
+        "evidence_expires": 20,
+        "conflict": false,
+        "optional_state": "KNOWN"
+      },
+      "before_check": {},
+      "after_check": {
+        "optional_state": "UNKNOWN"
+      },
+      "first_parts": 2,
+      "retry": false,
+      "post_observer_available": true,
+      "verifier_available": true
+    },
+    "expected": {
+      "outcome": "COMPLETE_VERIFIED",
+      "executed_parts": 2,
+      "unique_parts": 2,
+      "duplicate_parts": 0,
+      "observed_parts": 2,
+      "verified": true,
+      "attempts": 1,
+      "observer_execution_authority": false
+    }
+  }
+]

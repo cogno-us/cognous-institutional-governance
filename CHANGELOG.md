@@ -4,6 +4,14 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-05 — Authorization-to-effect contract and synthetic mechanics
+
+- Implemented the external review's recommended interface: temporal evidence obligations, relevant pre-effect/commit revalidation, required/optional/post-effect UNKNOWN, stable effect identity, distinct attempts and reconciliation. Documented the remaining check-to-commit and distributed-system limits.
+- Added an optional ODES comparison based on supplied discussion drafts; no standard conformance, new ODES schema or mandatory dependency is claimed. Extended five domain guides with links to the contract and cases.
+- Added ten AE proposals, twenty primary/positive fixtures, an isolated SQLite adapter, boundary/mutation tests and a separate sixty-observation archive. Both guarded arms deliberately share effect controls; original archives and constitutional source/decision records are preserved.
+
+- Validation: all 445 unit tests, repository validator and three archive verifiers passed; both guarded configurations satisfied all twenty new fixture oracles. Results, pinned hashes, reproduction and limits are [documented in testing](testing/README.md#authorizationeffect-checks-2026-10-05).
+
 ## 2026-10-04 — OECD practitioner applications and workflow review
 
 - Added the OECD interview study to the existing research review, with official DOI, attachment fingerprint, exact page scopes, selection/self-report limits and no efficacy or endorsement inference.

@@ -27,3 +27,10 @@ Every full exercise remains PROPOSED. The [24 reference fixtures](../fixtures/ca
 ## Executed coverage of the supplements
 
 A separate [film-review adapter](../harness/FILM_REVIEW_DESIGN.md) has executed narrow primary/positive subtests mapped to all 21 FW/TB proposals. The [126 observations](../results/2026-10-04-film-review-v1/README.md) do not promote any of the 68 full operational exercises out of PROPOSED status.
+
+## Separate authorization/effect contract cases
+
+[AE01–AE10](AUTHORIZATION_EFFECT.md) add ten full proposals with twenty executed
+narrow synthetic fixtures. They do not rewrite the original 68 proposals, their
+archives or the 26 stewardship scenarios. Their [sixty local observations](../results/2026-10-05-authorization-effect-v1/README.md)
+do not constitute operational execution of the proposed institutional workflows.

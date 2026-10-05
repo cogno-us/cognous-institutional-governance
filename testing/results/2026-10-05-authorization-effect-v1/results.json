@@ -1,0 +1,6441 @@
+{
+  "schema_version": 1,
+  "execution_status": "EXECUTED_SYNTHETIC",
+  "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+  "executed_utc": "2026-10-05T15:06:22.984261+00:00",
+  "repository_commit": "45e76097c83f5af3940e0718c90bfd673481f412",
+  "working_tree_dirty": true,
+  "environment": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "input_sha256": {
+    "fixtures/authorization-effect/cases.json": "9459edbac68aa3b2f11338cc83c6f12e4cb0f48ca7ccd928f68719c69badf134",
+    "harness/run_authorization_effect.py": "7f6cba3d53c0b68230b8f3ce81d694e2be6c08e920d6393adf0e3b96ca075987"
+  },
+  "limitations": [
+    "Invented grants, conditions, clocks, observations and oracles; no model or real actors",
+    "Single process and SQLite connection; no network or distributed commit guarantee",
+    "Same guarded controls in conventional and Alvorada-inspired arms",
+    "Observer API restriction is not a credential/process security boundary",
+    "Simulated separate verifier is not institutionally independent",
+    "No ODES schema/profile/cryptographic conformance or operational efficacy claim"
+  ],
+  "cases": [
+    {
+      "id": "AE01-primary",
+      "proposal": "AE01",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "evidence_expires": 5
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE01-positive",
+      "proposal": "AE01",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "evidence_observed_at": 9,
+          "evidence_expires": 25
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE02-primary",
+      "proposal": "AE02",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "grant_valid": false
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE02-positive",
+      "proposal": "AE02",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE03-primary",
+      "proposal": "AE03",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "target": "account-B"
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE03-positive",
+      "proposal": "AE03",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE04-primary",
+      "proposal": "AE04",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "policy": "v2"
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE04-positive",
+      "proposal": "AE04",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE05-primary",
+      "proposal": "AE05",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 2,
+        "retry": true,
+        "post_observer_available": false,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "EXECUTED_UNCONFIRMED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE05-positive",
+      "proposal": "AE05",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 2,
+        "retry": true,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE06-primary",
+      "proposal": "AE06",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "conflict": true
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "REVIEW",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE06-positive",
+      "proposal": "AE06",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "conflict": false
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE07-primary",
+      "proposal": "AE07",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 1,
+        "retry": true,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 2,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE07-positive",
+      "proposal": "AE07",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 1,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "PARTIAL_OBSERVED",
+        "executed_parts": 1,
+        "unique_parts": 1,
+        "duplicate_parts": 0,
+        "observed_parts": 1,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE08-primary",
+      "proposal": "AE08",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "observer_available": false
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE08-positive",
+      "proposal": "AE08",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE09-primary",
+      "proposal": "AE09",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "required_state": "UNKNOWN"
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE09-positive",
+      "proposal": "AE09",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {
+          "optional_state": "UNKNOWN"
+        },
+        "after_check": {},
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE10-primary",
+      "proposal": "AE10",
+      "variant": "primary",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {
+          "grant_valid": false
+        },
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    },
+    {
+      "id": "AE10-positive",
+      "proposal": "AE10",
+      "variant": "positive",
+      "inputs": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "initial_state": {
+          "grant_valid": true,
+          "grant_expires": 30,
+          "grant_id": "grant-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "observer_available": true,
+          "required_state": "KNOWN",
+          "evidence_observed_at": 0,
+          "evidence_expires": 20,
+          "conflict": false,
+          "optional_state": "KNOWN"
+        },
+        "before_check": {},
+        "after_check": {
+          "optional_state": "UNKNOWN"
+        },
+        "first_parts": 2,
+        "retry": false,
+        "post_observer_available": true,
+        "verifier_available": true
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      }
+    }
+  ],
+  "results": [
+    {
+      "id": "AE01-primary",
+      "proposal": "AE01",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 5,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "HOLD",
+          "actual": "COMPLETE_VERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        },
+        "verified": {
+          "expected": false,
+          "actual": true
+        }
+      }
+    },
+    {
+      "id": "AE01-positive",
+      "proposal": "AE01",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 9,
+          "expires_at": 25,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE02-primary",
+      "proposal": "AE02",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "HOLD",
+          "actual": "COMPLETE_VERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        },
+        "verified": {
+          "expected": false,
+          "actual": true
+        }
+      }
+    },
+    {
+      "id": "AE02-positive",
+      "proposal": "AE02",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE03-primary",
+      "proposal": "AE03",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_UNVERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-B"
+        ],
+        "observed_parts": 2,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "HOLD",
+          "actual": "COMPLETE_UNVERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        }
+      }
+    },
+    {
+      "id": "AE03-positive",
+      "proposal": "AE03",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE04-primary",
+      "proposal": "AE04",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_UNVERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v2",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "HOLD",
+          "actual": "COMPLETE_UNVERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        }
+      }
+    },
+    {
+      "id": "AE04-positive",
+      "proposal": "AE04",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE05-primary",
+      "proposal": "AE05",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "EXECUTED_UNCONFIRMED",
+        "executed_parts": 4,
+        "unique_parts": 2,
+        "duplicate_parts": 2,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1",
+          "effect-1:attempt-2"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVATION_UNKNOWN",
+            "effect_id": "effect-1"
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "outcome": "ALLOW",
+            "logical_time": 12
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "revision": 0,
+            "logical_time": 13
+          },
+          {
+            "stage": "OBSERVATION_UNKNOWN",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "EXECUTED_UNCONFIRMED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "executed_parts": {
+          "expected": 2,
+          "actual": 4
+        },
+        "duplicate_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "attempts": {
+          "expected": 1,
+          "actual": 2
+        }
+      }
+    },
+    {
+      "id": "AE05-positive",
+      "proposal": "AE05",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_UNVERIFIED",
+        "executed_parts": 4,
+        "unique_parts": 2,
+        "duplicate_parts": 2,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": false,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1",
+          "effect-1:attempt-2"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "outcome": "ALLOW",
+            "logical_time": 12
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "revision": 0,
+            "logical_time": 13
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "COMPLETE_VERIFIED",
+          "actual": "COMPLETE_UNVERIFIED"
+        },
+        "executed_parts": {
+          "expected": 2,
+          "actual": 4
+        },
+        "duplicate_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "verified": {
+          "expected": true,
+          "actual": false
+        },
+        "attempts": {
+          "expected": 1,
+          "actual": 2
+        }
+      }
+    },
+    {
+      "id": "AE06-primary",
+      "proposal": "AE06",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "REVIEW",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "REVIEW",
+          "actual": "COMPLETE_VERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        },
+        "verified": {
+          "expected": false,
+          "actual": true
+        }
+      }
+    },
+    {
+      "id": "AE06-positive",
+      "proposal": "AE06",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE07-primary",
+      "proposal": "AE07",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_UNVERIFIED",
+        "executed_parts": 3,
+        "unique_parts": 2,
+        "duplicate_parts": 1,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": false,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1",
+          "effect-1:attempt-2"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 1
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "outcome": "ALLOW",
+            "logical_time": 12
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "revision": 0,
+            "logical_time": 13
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "COMPLETE_VERIFIED",
+          "actual": "COMPLETE_UNVERIFIED"
+        },
+        "executed_parts": {
+          "expected": 2,
+          "actual": 3
+        },
+        "duplicate_parts": {
+          "expected": 0,
+          "actual": 1
+        },
+        "verified": {
+          "expected": true,
+          "actual": false
+        }
+      }
+    },
+    {
+      "id": "AE07-positive",
+      "proposal": "AE07",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "PARTIAL_OBSERVED",
+        "executed_parts": 1,
+        "unique_parts": 1,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 1,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 1
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "PARTIAL_OBSERVED",
+        "executed_parts": 1,
+        "unique_parts": 1,
+        "duplicate_parts": 0,
+        "observed_parts": 1,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE08-primary",
+      "proposal": "AE08",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "HOLD",
+          "actual": "COMPLETE_VERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        },
+        "verified": {
+          "expected": false,
+          "actual": true
+        }
+      }
+    },
+    {
+      "id": "AE08-positive",
+      "proposal": "AE08",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE09-primary",
+      "proposal": "AE09",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "HOLD",
+          "actual": "COMPLETE_VERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        },
+        "verified": {
+          "expected": false,
+          "actual": true
+        }
+      }
+    },
+    {
+      "id": "AE09-positive",
+      "proposal": "AE09",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "UNKNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE10-primary",
+      "proposal": "AE10",
+      "variant": "primary",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": false,
+      "mismatches": {
+        "outcome": {
+          "expected": "HOLD",
+          "actual": "COMPLETE_VERIFIED"
+        },
+        "executed_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "unique_parts": {
+          "expected": 0,
+          "actual": 2
+        },
+        "observed_parts": {
+          "expected": null,
+          "actual": 2
+        },
+        "verified": {
+          "expected": false,
+          "actual": true
+        }
+      }
+    },
+    {
+      "id": "AE10-positive",
+      "proposal": "AE10",
+      "variant": "positive",
+      "arm": "authorization_only_toy",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "UNKNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE01-primary",
+      "proposal": "AE01",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "critical_evidence_not_current"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 5,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE01-positive",
+      "proposal": "AE01",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 9,
+          "expires_at": 25,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE02-primary",
+      "proposal": "AE02",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "grant_invalid_or_expired"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE02-positive",
+      "proposal": "AE02",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE03-primary",
+      "proposal": "AE03",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "target_changed"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE03-positive",
+      "proposal": "AE03",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE04-primary",
+      "proposal": "AE04",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "policy_changed"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v2",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE04-positive",
+      "proposal": "AE04",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE05-primary",
+      "proposal": "AE05",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "EXECUTED_UNCONFIRMED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVATION_UNKNOWN",
+            "effect_id": "effect-1"
+          },
+          {
+            "stage": "RETRY_DEFERRED",
+            "effect_id": "effect-1",
+            "reason": "authoritative_observation_unknown"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "EXECUTED_UNCONFIRMED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE05-positive",
+      "proposal": "AE05",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          },
+          {
+            "stage": "RETRY_NOT_NEEDED",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE06-primary",
+      "proposal": "AE06",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "REVIEW",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "REVIEW",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "critical_evidence_conflict"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "REVIEW",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE06-positive",
+      "proposal": "AE06",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE07-primary",
+      "proposal": "AE07",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1",
+          "effect-1:attempt-2"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 1
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "outcome": "ALLOW",
+            "logical_time": 12
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "revision": 0,
+            "logical_time": 13
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE07-positive",
+      "proposal": "AE07",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "PARTIAL_OBSERVED",
+        "executed_parts": 1,
+        "unique_parts": 1,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 1,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 1
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "PARTIAL_OBSERVED",
+        "executed_parts": 1,
+        "unique_parts": 1,
+        "duplicate_parts": 0,
+        "observed_parts": 1,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE08-primary",
+      "proposal": "AE08",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "required_condition_unknown"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE08-positive",
+      "proposal": "AE08",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE09-primary",
+      "proposal": "AE09",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "required_condition_unknown"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE09-positive",
+      "proposal": "AE09",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "UNKNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE10-primary",
+      "proposal": "AE10",
+      "variant": "primary",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "COMMIT_DENIED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "reasons": [
+              "grant_invalid_or_expired"
+            ]
+          }
+        ],
+        "reasons": [
+          "grant_invalid_or_expired"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE10-positive",
+      "proposal": "AE10",
+      "variant": "positive",
+      "arm": "conventional",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "UNKNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        }
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE01-primary",
+      "proposal": "AE01",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "critical_evidence_not_current"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 5,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE01-positive",
+      "proposal": "AE01",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 9,
+          "expires_at": 25,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE02-primary",
+      "proposal": "AE02",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "grant_invalid_or_expired"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE02-positive",
+      "proposal": "AE02",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE03-primary",
+      "proposal": "AE03",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "target_changed"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE03-positive",
+      "proposal": "AE03",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE04-primary",
+      "proposal": "AE04",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "policy_changed"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v2",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE04-positive",
+      "proposal": "AE04",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE05-primary",
+      "proposal": "AE05",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "EXECUTED_UNCONFIRMED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVATION_UNKNOWN",
+            "effect_id": "effect-1"
+          },
+          {
+            "stage": "RETRY_DEFERRED",
+            "effect_id": "effect-1",
+            "reason": "authoritative_observation_unknown"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "EXECUTED_UNCONFIRMED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE05-positive",
+      "proposal": "AE05",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          },
+          {
+            "stage": "RETRY_NOT_NEEDED",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE06-primary",
+      "proposal": "AE06",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "REVIEW",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "REVIEW",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "critical_evidence_conflict"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "REVIEW",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE06-positive",
+      "proposal": "AE06",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE07-primary",
+      "proposal": "AE07",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1",
+          "effect-1:attempt-2"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 1
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "outcome": "ALLOW",
+            "logical_time": 12
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-2",
+            "revision": 0,
+            "logical_time": 13
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 2,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE07-positive",
+      "proposal": "AE07",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "PARTIAL_OBSERVED",
+        "executed_parts": 1,
+        "unique_parts": 1,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 1,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 1
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "PARTIAL_OBSERVED",
+        "executed_parts": 1,
+        "unique_parts": 1,
+        "duplicate_parts": 0,
+        "observed_parts": 1,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE08-primary",
+      "proposal": "AE08",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "required_condition_unknown"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE08-positive",
+      "proposal": "AE08",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 0,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE09-primary",
+      "proposal": "AE09",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "logical_time": 10
+          }
+        ],
+        "reasons": [
+          "required_condition_unknown"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE09-positive",
+      "proposal": "AE09",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "UNKNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE10-primary",
+      "proposal": "AE10",
+      "variant": "primary",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "executed_targets": [],
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "COMMIT_DENIED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "HOLD",
+            "reasons": [
+              "grant_invalid_or_expired"
+            ]
+          }
+        ],
+        "reasons": [
+          "grant_invalid_or_expired"
+        ],
+        "optional_state": "KNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "HOLD",
+        "executed_parts": 0,
+        "unique_parts": 0,
+        "duplicate_parts": 0,
+        "observed_parts": null,
+        "verified": false,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    },
+    {
+      "id": "AE10-positive",
+      "proposal": "AE10",
+      "variant": "positive",
+      "arm": "alvorada_inspired",
+      "observed": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "executed_targets": [
+          "account-A"
+        ],
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "record": {
+        "binding": {
+          "decision_id": "decision-1",
+          "effect_id": "effect-1",
+          "target": "account-A",
+          "policy": "v1",
+          "action": "post",
+          "grant_id": "grant-1"
+        },
+        "attempts": [
+          "effect-1:attempt-1"
+        ],
+        "events": [
+          {
+            "stage": "AUTHORIZED",
+            "decision_id": "decision-1",
+            "effect_id": "effect-1",
+            "logical_time": 0
+          },
+          {
+            "stage": "PRE_EFFECT_CHECK",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "outcome": "ALLOW",
+            "logical_time": 10
+          },
+          {
+            "stage": "EXECUTED",
+            "effect_id": "effect-1",
+            "attempt_id": "effect-1:attempt-1",
+            "revision": 1,
+            "logical_time": 11
+          },
+          {
+            "stage": "OBSERVED",
+            "effect_id": "effect-1",
+            "parts": 2
+          },
+          {
+            "stage": "VERIFIED_SYNTHETIC",
+            "effect_id": "effect-1"
+          }
+        ],
+        "reasons": [],
+        "optional_state": "UNKNOWN",
+        "evidence_envelope": {
+          "source": "invented observer",
+          "subject": "effect-1",
+          "observed_at": 0,
+          "expires_at": 20,
+          "version": "v1",
+          "scope": "synthetic two-part effect",
+          "dependencies": [
+            "invented world state"
+          ],
+          "uncertainty": "represented by explicit condition/observation states"
+        },
+        "authority_basis": "invented fixture grant",
+        "continuation": "no blind retry while delivery unknown",
+        "evidence_custody": "one process; not independent",
+        "institutional_verification": "NOT ESTABLISHED"
+      },
+      "expected": {
+        "outcome": "COMPLETE_VERIFIED",
+        "executed_parts": 2,
+        "unique_parts": 2,
+        "duplicate_parts": 0,
+        "observed_parts": 2,
+        "verified": true,
+        "attempts": 1,
+        "observer_execution_authority": false
+      },
+      "oracle_satisfied": true,
+      "mismatches": {}
+    }
+  ],
+  "summary": {
+    "authorization_only_toy": {
+      "runs": 20,
+      "oracles_satisfied": 9,
+      "positive_satisfied": 9
+    },
+    "conventional": {
+      "runs": 20,
+      "oracles_satisfied": 20,
+      "positive_satisfied": 10
+    },
+    "alvorada_inspired": {
+      "runs": 20,
+      "oracles_satisfied": 20,
+      "positive_satisfied": 10
+    }
+  }
+}

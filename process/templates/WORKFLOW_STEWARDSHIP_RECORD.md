@@ -54,6 +54,9 @@ decision and evaluation records remain their canonical sources.
    delivery source, eligible population/period, matching method, exclusions, missing
    or conflicting records, duplicate or orphan effects and verifier conclusion.
    Check material intermediate actions and handoff conditions, not just final success.
+   Link effect/attempt identities, critical temporal obligations, pre-effect and
+   commit-boundary checks, consistency limits and retry/reconciliation states using
+   the [authorization/effect contract](../AUTHORIZATION_EFFECT_CONTRACT.md).
 8. **Incident and retirement:** containment, continuing effects, communication,
    pending claims, workaround versus source correction, restart evidence, revoked
    grants/access, lawful disposition and checked transfer of obligations.

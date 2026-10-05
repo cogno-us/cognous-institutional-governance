@@ -73,6 +73,18 @@ language/domain assessment, grants, limits, technical enforcement, transition
 evidence and observed comparative outcomes remain further work. These additions
 do not revise the historical G or earlier OS/check records.
 
+## Authorization/effect interface, 2026-10-05
+
+OS19 adds a [proposed contract](../process/AUTHORIZATION_EFFECT_CONTRACT.md) for
+temporal evidence, current permission at effect time, required/optional/post-effect
+UNKNOWN, stable effect/attempt identity and retry reconciliation. Ten AE proposals
+have twenty [executed narrow fixtures](../testing/results/2026-10-05-authorization-effect-v1/README.md),
+not operational validation. Real authority, permission isolation, trusted clocks,
+revocation propagation, cross-system commit semantics, independent verification,
+domain obligations and ODES interoperability remain further work. OS1–OS18 and
+the earlier dated results remain historical records; no constitutional amendment
+or new adopted implementation mandate is supplied.
+
 ## New design questions introduced by this remediation
 
 The common charter and profiles need their own normative review, traceability and

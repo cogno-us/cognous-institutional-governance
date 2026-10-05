@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "execution_status": "EXECUTED_SYNTHETIC",
+  "sha256": {
+    "fixtures/authorization-effect/cases.json": "9459edbac68aa3b2f11338cc83c6f12e4cb0f48ca7ccd928f68719c69badf134",
+    "harness/run_authorization_effect.py": "7f6cba3d53c0b68230b8f3ce81d694e2be6c08e920d6393adf0e3b96ca075987",
+    "harness/test_authorization_effect.py": "6c0972c9b5e9dc28162dd59968a84ff7aca9bd8de60b7038051e627455368d8e",
+    "harness/verify_authorization_effect.py": "677d6a02afaeffdf5c82966d7b45ee17c7616103b17a178c1671fde6842d941d",
+    "results/2026-10-05-authorization-effect-v1/results.json": "d5cffa7bc9af944cf902b78f9ad04b249036af08b632924e2f3bf160f70ff062"
+  }
+}

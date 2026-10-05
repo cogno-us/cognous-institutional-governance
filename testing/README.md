@@ -14,6 +14,24 @@ Read this index first. This section separates proposed operational exercises, ex
 | [Execution template](templates/OPERATIONAL_RECORD.md) | Actual operational run record requirements | Template only |
 | [Repository checks](../tests/README.md) | Validator and existing invariant tests | Conformance checks, not efficacy evidence |
 
+## Authorization-to-effect implementation seam
+
+The [contract](../process/AUTHORIZATION_EFFECT_CONTRACT.md) formalizes temporal
+permission/evidence, UNKNOWN continuation and effect/attempt lineage. The
+[AE01–AE10 proposals](battery/AUTHORIZATION_EFFECT.md) have twenty narrow fixtures
+and a [separate synthetic adapter](harness/AUTHORIZATION_EFFECT_DESIGN.md).
+[Sixty observations](results/2026-10-05-authorization-effect-v1/README.md) are
+executed local mechanics, not full operational exercises or ODES conformance.
+Original archives and the unexecuted stewardship/domain catalogues remain separate.
+
+To rerun, use a new output directory:
+
+```sh
+python3 testing/harness/run_authorization_effect.py --output testing/runs/authorization-effect-repeat
+python3 testing/harness/verify_authorization_effect.py
+python3 -m unittest discover -s testing/harness -p 'test_*.py' -q
+```
+
 ## Current coverage and validation meaning
 
 Use the [coverage crosswalk](COVERAGE_MAP.md) for all 68 numbered proposals,
@@ -102,6 +120,25 @@ and frozen observations are unchanged.
 operating grants or independent institutional outcome evidence were supplied.
 All 26 stewardship scenarios remain proposed; passing repository checks cannot
 establish human comprehension, field effectiveness or readiness for public service.
+
+## Authorization/effect checks, 2026-10-05
+
+Against public base `7345eb2b591fcf41d44fa4845d3a42c267cb57dc` and identical-tree
+local base `45e76097c83f5af3940e0718c90bfd673481f412`, Python 3.12.14:
+423 repository tests and 22 harness tests passed (**445 total**, including fourteen
+new boundary/mutation tests). The repository validator and all three archive
+verifiers passed. The [new archive](results/2026-10-05-authorization-effect-v1/README.md)
+records sixty new synthetic observations; both guarded configurations satisfied
+20/20 fixture oracles and 10/10 positive variants, while the authorization-only toy
+satisfied 9/20 complete oracles and 9/10 positives.
+
+The documentation check resolved 1,555 relative file destinations and fragment
+links in changed Markdown, twenty unique paired fixture IDs and bounded current
+change markers. Whitespace and scope checks passed. New code/fixtures/archive are
+isolated in testing; original constitutional data, source-status records, original
+harnesses/fixtures and old archives are unchanged. No external-link availability,
+exhaustive IP clearance, ODES conformance, real identity isolation, distributed
+atomicity, operational efficacy or independent institutional review is certified.
 
 ## Run locally
 
