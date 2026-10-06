@@ -8,7 +8,7 @@ authors:
     website: "https://cogno.us"
 url: "https://github.com/cogno-us/constitutional-governance-for-institutions"
 repository-code: "https://github.com/cogno-us/constitutional-governance-for-institutions"
-license: "CC-BY-4.0"
+license: "Apache-2.0"
 abstract: "An open research framework and proposed constitutional architecture for authority, accountability, and institutional lifecycle across human-run, software-supported and AI-enabled institutions. Constitution v0.1 is proposed for human ratification, not adopted."
 preferred-citation:
   type: report

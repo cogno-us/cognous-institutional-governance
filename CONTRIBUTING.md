@@ -8,7 +8,7 @@ authority and effective power.
 
 ## Public contribution boundary
 
-Submit material you have authority to share under the repository's CC BY 4.0
+Submit material you have authority to share under the repository's Apache 2.0
 license. Identify third-party material and its applicable rights. Do not submit
 confidential documents, private product designs, unpublished patent material,
 customer information, secrets, or implementation details from proprietary

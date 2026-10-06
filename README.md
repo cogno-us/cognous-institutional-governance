@@ -85,5 +85,5 @@ provide deeper navigation.
 
 **Author:** André de Lima, founder of [Cognous](https://cogno.us).
 
-**License:** [CC BY 4.0](LICENSE) for original material; external sources retain
+**License:** [Apache 2.0](LICENSE) for Cognous-owned original material; external sources retain
 their rights. See [attribution](NOTICE.md) and [citation](CITATION.cff).

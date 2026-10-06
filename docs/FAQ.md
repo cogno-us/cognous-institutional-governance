@@ -67,10 +67,11 @@ explains overlap, distinctions, and the need for independent evaluation.
 
 ## May I reuse or adapt it commercially?
 
-Original material is offered under CC BY 4.0 with attribution and modification
-notice. External sources retain their own rights. Consult the actual
-[license](../LICENSE) and [scope notice](../NOTICE.md); no patent, trademark,
-endorsement, or constitutional authority follows from copyright reuse.
+Cognous-owned original material is offered under Apache 2.0. External material
+and contributions from other rights holders retain their applicable terms.
+See the [license](../LICENSE) and [scope notice](../NOTICE.md). Apache 2.0
+includes its Section 3 patent grant; it does not grant trademarks, endorsement,
+or constitutional authority. Prior CC BY 4.0 grants remain valid.
 
 ## Is it a compliance framework or professional approval?
 

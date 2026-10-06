@@ -26,4 +26,4 @@ available; this file does not invent an independent enforcement team or promise
 confidentiality, resolution, or a response deadline.
 
 These rules concern participation in the hosted community. They add no
-copyright-use restriction to material licensed under CC BY 4.0.
+copyright-use restriction to material licensed under Apache 2.0.

@@ -3,47 +3,26 @@
 Constitutional Governance for Institutions (Alvorada) —
 André de Lima and contributing rights holders, 2026.
 Founder affiliation: [Cognous](https://cogno.us).
-Canonical repository: https://github.com/cogno-us/constitutional-governance-for-institutions
 
-Original material in this repository is licensed under the Creative Commons
-Attribution 4.0 International Public License, to the extent the respective
-licensors hold the applicable rights. This includes the constitutional research,
-original structured records, and supporting repository-validation scripts and
-tests. The full, unmodified license is in [LICENSE](LICENSE).
+Effective 2026-10-06, Cognous-owned original material is offered under the
+[Apache License 2.0](LICENSE), including original constitutional research,
+structured records, repository-validation scripts and tests.
 
-When sharing, retain supplied attribution and notices, link the license and
-source where reasonably practicable, and indicate modifications as required by
-the license. One reasonable credit is:
+Previous CC BY 4.0 grants remain available for material already released
+under those terms. The [prior license](LICENSES/CC-BY-4.0.txt) and
+[prior attribution notice](LICENSES/PRIOR-NOTICE.md) are preserved.
+Contributions from other rights holders retain their existing terms unless
+those rights holders separately authorize Apache 2.0 licensing.
 
-> Constitutional Governance for Institutions (Alvorada) —
-> André de Lima, founder of Cognous (https://cogno.us),
-> https://github.com/cogno-us/constitutional-governance-for-institutions, licensed under CC BY 4.0.
-> Changes: [describe your modifications, if any].
+External publications, standards, quotations, software and marks retain
+their respective rights. No third-party work is relicensed by this notice.
+Retain applicable attribution and notices when redistributing.
 
-The license permits commercial reuse and adaptation. This notice adds no
-noncommercial, field-of-use, approval, or other restriction to the licensed
-copyright rights. It does not require adaptations to be licensed identically.
+Apache 2.0 includes the patent license defined in its Section 3; this notice
+does not narrow or expand it. The license does not grant trademark rights.
+Separate proprietary products and private implementations are not included.
 
-## External material
-
-External publications, standards, software, websites, quotations, names, and
-marks cited or linked in the research records retain their respective rights.
-References and original analytical summaries do not relicense external works.
-The Creative Commons license text itself is supplied under its own stated
-public-domain terms.
-
-## Separate rights and publication status
-
-CC BY 4.0 does not license patent or trademark rights. No separate proprietary
-product, private implementation, or technology outside this repository is
-included in this grant. This is a description of scope, not a restriction on
-use of the material actually licensed here.
-
-Use of the material does not imply endorsement by André de Lima, Cognous,
-contributors, or referenced organizations. The publication is supplied as-is
-under the license's warranty and liability provisions. It is not a certification
-of legal compliance, non-infringement, institutional validity, or IP clearance.
-
-Licensing, maintaining, contributing to, or forking a repository does not ratify
-its proposed Constitution, populate its institutions, confer constitutional
-standing, or grant runtime authority.
+Licensing does not ratify a constitution, establish institutional authority,
+certify compliance, or authorize runtime effects. Historical review documents
+record the license and conclusions at their original revision; this notice
+and LICENSE describe the current distribution.
