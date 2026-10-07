@@ -3,7 +3,7 @@
 **EXPLANATORY FRAMEWORK SCOPE — NO CONSTITUTIONAL AMENDMENT**
 
 Clarified 2026-10-04 at the maintainer’s direction. The public title is now **Constitutional Governance for Institutions (Alvorada)**. It is a research framework for broad institutional governance; AI governance is one application. The research name Alvorada remains. Following the owner's move on 2026-10-04, the canonical repository is
-[cogno-us/constitutional-governance-for-institutions](https://github.com/cogno-us/constitutional-governance-for-institutions).
+[cogno-us/cognous-institutional-governance](https://github.com/cogno-us/cognous-institutional-governance).
 
 ## What the framework examines
 
