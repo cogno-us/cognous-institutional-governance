@@ -1,16 +1,8 @@
-# Origin
+# This document has moved
 
-Alvorada emerged from experiments involving governed artificial intelligence
-collaboration, institutional reasoning, and constitutional design.
+The maintained document is now [Origin](../research/history/ORIGIN.md).
+Research, historical background and film analysis are collected in the
+[research section](../research/README.md).
 
-An earlier experimental implementation existed. Its contents are not
-automatically authoritative for this repository.
-
-The clean repository was created because accumulated experimental scaffolding
-and conversational state made provenance and design boundaries increasingly
-difficult to maintain.
-
-This repository starts again from:
-
-> research -> issues -> alternatives -> review -> explicit human decisions ->
-> requirements -> constitutional drafting
+This small relocation notice preserves older links. Earlier versions remain
+available in Git history; the analytical content has one maintained location.

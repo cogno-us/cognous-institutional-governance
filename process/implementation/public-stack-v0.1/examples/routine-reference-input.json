@@ -1,0 +1,82 @@
+{
+  "snapshot": {
+    "authority_bases": [
+      "urn:example:local-mandate:service"
+    ],
+    "accountable_roles": [
+      {
+        "role_id": "urn:example:role:service-owner",
+        "human_principal": "urn:example:human:owner",
+        "mandate_ref": "urn:example:mandate:owner"
+      }
+    ],
+    "precedence_refs": [
+      "urn:example:rules:controlling-law",
+      "urn:example:policy:refund"
+    ],
+    "unresolved_conflict": false,
+    "human_adoption_records": [],
+    "issuers": [
+      [
+        "urn:example:human:owner",
+        "urn:example:role:service-owner",
+        "urn:example:record:issuance",
+        "urn:example:institution:service",
+        "customer-service"
+      ]
+    ],
+    "statuses": {
+      "urn:example:status:refund": {
+        "grant_id": "urn:example:grant:refund",
+        "revision": "1",
+        "state": "active",
+        "observed_at": "2026-10-05T12:00:00Z"
+      }
+    },
+    "max_status_age_seconds": 10,
+    "policies": {
+      "urn:example:policy:refund": "1"
+    },
+    "actor_roles": {
+      "urn:example:principal:service": [
+        "urn:example:role:executor"
+      ]
+    },
+    "evidence": {
+      "urn:example:obligation:eligibility": {
+        "state": "satisfied",
+        "source_ref": "urn:example:records:eligibility",
+        "observed_at": "2026-10-05T12:00:00Z",
+        "effect_id": "urn:example:effect:refund"
+      }
+    },
+    "approval_role_bindings": {
+      "urn:example:role:finance-approver": [
+        "urn:example:human:finance"
+      ]
+    },
+    "independent_reviewers": [
+      "urn:example:human:finance"
+    ],
+    "approvals": {},
+    "parents": {},
+    "requirement_bindings": {
+      "urn:example:requirement:refund": "18f57d97779469ed170303d9980cf8f05c0120e91e742c6533b663843fef9654"
+    }
+  },
+  "action": {
+    "effect_id": "urn:example:effect:refund",
+    "action": "refund",
+    "target": "urn:example:account:customer-a",
+    "data_scopes": [
+      "refund-record"
+    ],
+    "amount": 10,
+    "unit": "USD",
+    "effects": 1,
+    "institution_id": "urn:example:institution:service",
+    "authority_domain": "customer-service",
+    "acting_identity": "urn:example:identity:service-bot"
+  },
+  "now": "2026-10-05T12:00:00Z"
+}

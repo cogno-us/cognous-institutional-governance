@@ -1,0 +1,2 @@
+# Optional Authority Context reference checks; existing repository suite is stdlib-only.
+jsonschema==4.26.0

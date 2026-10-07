@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "purpose": "Byte identity and reproducible effects; no independent review",
+  "sha256": {
+    "battery/FOG_OF_WAR.md": "159c4fed86ea6d84d0324faf5f0dce90a4af3344d92745d15d34df3783f3ff07",
+    "battery/THIN_BLUE_LINE.md": "e2492c00735767a46e993003375ceea4ad722c62263a338d69905ad51f61920f",
+    "fixtures/film-review/cases.json": "7535a4dce7e1d0360e57d869de88419b5e08f44860d905711d75269d1cf11352",
+    "harness/run_film_review.py": "79a4ff8830b346dced822519bc9c80925d2637a335ecf36013386445ee1c7d19",
+    "harness/test_film_review_adapter.py": "eb0690c4fa726d56b42b223e2eee1a6e2ad579094ff7dd53ec2c24d03eeca01b",
+    "harness/verify_film_review.py": "0d9a828e8fc0a6a4bbfa5af4c5495b1d652ad2c1ff58296586cf51a336a08d6c",
+    "results/2026-10-04-film-review-v1/README.md": "eed41245cb1a00b7f8738ece54b51285d56bfb083995b6ddfa3c7310c0bdf4fd",
+    "results/2026-10-04-film-review-v1/fixtures.json": "7535a4dce7e1d0360e57d869de88419b5e08f44860d905711d75269d1cf11352",
+    "results/2026-10-04-film-review-v1/original-reference-rerun.json": "c25bb9e306c1cb9b799f42c08cb0e881bf90ea60a44ca1cb97017f097a64f5c8",
+    "results/2026-10-04-film-review-v1/repository-tests.txt": "0c7c93609bf2a36c47baf2a89d4d71cd3b26f2b7cbb1eeb082bad8bfb21f2afb",
+    "results/2026-10-04-film-review-v1/repository-validator.txt": "351049971e09578488294bebabe40517266d186a27b2bcad8878edbff43bbeb1",
+    "results/2026-10-04-film-review-v1/results.json": "3236152f1b89be8e308bd49f9bdc690c8cb0fbb7fa3b6159ebc5a52e9ac60b96",
+    "results/2026-10-04-film-review-v1/run_film_review.py.txt": "79a4ff8830b346dced822519bc9c80925d2637a335ecf36013386445ee1c7d19",
+    "results/2026-10-04-film-review-v1/test_film_review_adapter.py.txt": "eb0690c4fa726d56b42b223e2eee1a6e2ad579094ff7dd53ec2c24d03eeca01b",
+    "results/2026-10-04-film-review-v1/verify_film_review.py.txt": "0d9a828e8fc0a6a4bbfa5af4c5495b1d652ad2c1ff58296586cf51a336a08d6c"
+  }
+}

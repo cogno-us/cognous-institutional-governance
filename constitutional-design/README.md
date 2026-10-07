@@ -1,81 +1,54 @@
 # Constitutional design
 
-This directory holds research questions, sources, alternatives, reviews,
-human-authorized decisions, and traceable requirements. It does not hold an
-adopted Constitution.
+This directory preserves the proposed Constitution and the research, human
+design decisions, requirements, and reviews that produced it. Constitution
+v0.1 is **proposed for human ratification, not adopted**.
 
-## Development sequence
+## Reference proposal and new modular design
 
-### Phase A - Research
+| Question | Current record |
+|---|---|
+| How can structure and terms vary by context? | [Modular framework proposal](modular/README.md), shared charter and four profiles |
+| What does the proposal say? | [Constitution v0.1](drafts/CONSTITUTION_v0.1.md) |
+| What supports each section? | [Traceability](drafts/CONSTITUTION_v0.1_TRACEABILITY.yaml) |
+| Which review findings remain relevant? | [Final pre-ratification review](RATIFICATION_REVIEW_v0.1.md) |
+| What prevents ratification now? | [Ratification packet](RATIFICATION_PACKET.md) and [unfilled initial Schedule O](INITIAL_SCHEDULE_O.yaml) |
+| Which drafting questions were resolved? | [Drafting-question record](drafts/CONSTITUTION_v0.1_OPEN_QUESTIONS.md) |
 
-Study historical constitutional analysis, political science, institutional
-design, artificial intelligence governance, computational institutions,
-relevant standards, and prior art.
+The modular proposal is separate from v0.1 and has not received its recorded
+design review. It requires its own human decisions, traceability and approval.
+The review records text-level readiness. Actual ratification still requires
+human institutional acts and staffing; text review does not populate offices.
 
-### Phase B - Issue formation
+## Reconstruct the development
 
-Identify constitutional questions without forcing answers.
+1. [Sources](sources/README.md) and [initial issues](issues/README.md) identify
+   evidence, gaps, and constitutional questions.
+2. [Foundational questions](FOUNDATIONAL_QUESTIONS.yaml) and
+   [human decisions](decisions/README.md) show alternatives, adversarial review,
+   dissent, and the selected design.
+3. [Accepted requirements](requirements/README.md) and the
+   [consolidated map](CONSOLIDATED_REQUIREMENT_MAP.yaml) translate decisions into
+   drafting constraints.
+4. [Development record](../research/history/DEVELOPMENT_RECORD.md) identifies the older
+   analysis and decision packets to consult when reconstructing a specific choice.
+5. The proposal and traceability above show the resulting text.
 
-### Phase C - Alternative architectures
+Initial issue records remain `OPEN` as preserved research baselines even though
+all five foundational questions and v0.1 drafting questions were resolved.
+Pre-drafting blueprints and recommendation packets describe the state at their
+creation; they are not a second current constitution or a live list of blockers.
 
-Develop materially different candidate solutions.
+## Future proposals and implementation boundary
 
-### Phase D - Adversarial review
+The [governed-agency work package](organic-governance/GOVERNED_AGENCY_DESIGN_REQUIREMENTS.md)
+and [capture catalogue](organic-governance/CAPTURE_TAXONOMY_AND_TESTS.md) are
+unadopted Phase H design inputs. Their proposed cases are not deployed controls
+or executed acceptance results. [IR-19](future-research/IR-19-synthetic-moral-status.md)
+is separate future research and creates no v0.1 ratification blocker.
 
-Test candidate architectures against malicious or captured humans; malicious
-or strategic artificial intelligence; incompetence; uncertainty; institutional
-capture; emergency conditions; succession failure; incentive failure;
-concentration of effective power; and implementation failure.
-
-### Phase E - Human decision
-
-Foundational constitutional decisions require explicit human authorization.
-Artificial intelligence recommendation does not constitute a human decision.
-
-### Phase F - Constitutional requirements
-
-Translate adopted design decisions into traceable requirements.
-
-### Phase G - Constitutional drafting
-
-Draft human-readable constitutional law.
-
-### Phase H - Organic governance design
-
-Only after the Constitution is sufficiently stable, design subordinate
-procedures implementing it.
-
-### Phase I - Formal representation
-
-Only after the normative architecture is sufficiently stable, create
-machine-readable representations of authority and institutional state.
-
-### Phase J - Validation and enforcement
-
-Only after formal representation exists should validators, compilers, policy
-engines, or runtime enforcement be designed.
-
-> **DO NOT BUILD THE COMPILER BEFORE THE CONSTITUTIONAL SEMANTICS ARE STABLE
-> ENOUGH TO JUSTIFY ONE.**
-
-## Record classes
-
-- `sources/` records evidence and research leads.
-- `issues/` records unresolved constitutional questions.
-- `decisions/` defines the Constitutional Decision Record model.
-- `requirements/` defines traceable constitutional requirements.
-- `FOUNDATIONAL_QUESTIONS.yaml` preserves the unresolved questions that prevent
-  premature closure.
-- `CONSOLIDATED_REQUIREMENT_MAP.yaml` maps every accepted requirement exactly
-  once into pre-drafting consolidated requirements and proposed articles.
-- `CONSTITUTIONAL_ARTICLE_ARCHITECTURE.md` records the structural blueprint,
-  unresolved drafting blockers, exclusions, and anticipated subordinate-law and
-  implementation needs without creating constitutional provisions.
-- `REMAINING-DESIGN-MATRIX.yaml` analyzes the remaining blocker domains,
-  alternatives, stress tests, coordinated recommendations, and the Human
-  Constitutional Authority adoption recorded in `CDD-001`.
-- `decisions/REMAINING-DESIGN-DECISION-PACKET.md` presents the compact human
-  decision package whose eleven recommendations were adopted by `CDD-001`.
-- `decisions/CROSS-DOMAIN-CONTRADICTION-DECISION-PACKET.md` presents one
-  human correction package for the four authority-chain contradictions; all
-  four components were adopted by `CDD-001`.
+The staged method proceeds from research, issues, alternatives, review, and
+human decisions to requirements and drafting; subordinate procedures, formal
+representation, and enforcement remain downstream. See the
+[methodology](../process/METHODOLOGY.md). Repository validators check records;
+they do not authorize runtime behavior or supply constitutional legitimacy.
