@@ -1,4 +1,4 @@
-# Constitutional Governance for Institutions — One-Page Overview
+# Cognous Institutional Governance — One-Page Overview
 
 ## Purpose
 
