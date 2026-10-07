@@ -15,90 +15,97 @@
 
 # Constitutional Governance for Institutions
 
-**Alvorada helps institutions make decisions, limit power and correct mistakes.**
-It is an open research framework for businesses, public bodies and communities,
-with or without AI.
+**Alvorada: authority, challenge and correction for institutions.**
 
-The basic approach is simple: identify who may decide, use evidence that can be
-checked, match review to the consequences, hear challenges and verify corrections.
-AI can help prepare and organize this work; it does not create authority.
+## Overview
 
-**Status:** proposed guidance and constitutional designs. Not an adopted
-constitution or deployed governance system. Real-world benefits remain unproven.
+An open research framework for businesses, public bodies and communities, with or without AI. It combines proposed constitutional designs, proportional governance, domain guidance, decision templates and a public-stack implementation profile. Repository acceptance does not ratify a constitution.
 
-## How it differs and what it aims to improve
+**Implementation status:** this README describes merged public reference work. Component acceptance, selection in the hub and execution of a qualification are separate facts. The selected revision for this component is `fb3d97938969a89e149e8ff8db2756091d1233fc`; the [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/component-lock.json) is the source of that integration choice.
 
-Alvorada brings decision methods, limits on power and institutional learning
-into one framework. It builds on established governance ideas; its contribution
-is their integration into an inspectable design that applies with or without AI.
+## Purpose and intended users
 
-- **Connect decisions to authority:** specify who may act, who can challenge the
-  decision and who checks that a remedy actually happened.
-- **Match governance to consequences:** use lighter review for routine,
-  reversible work and stronger evidence and independent review for serious
-  outcomes. Modular profiles adapt offices and terms to different institutions.
-- **Plan for institutional failure:** address emergencies, vacancies, succession
-  and changes to foundational rules, alongside everyday decisions.
-- **Make reasoning open to challenge:** connect principles to design choices,
-  sources, objections and testing limits so reviewers can examine the basis.
-- **Use AI to reduce governance work:** support evidence preparation and routine
-  review, while keeping authority and consequential judgment accountable.
-  Check outcomes and separately approve process changes to create a learning loop.
+Institutions need to identify who may decide, how decisions can be challenged and who verifies correction. AI can assist evidence preparation and routine review, but it cannot create institutional authority or turn a published design into operative law.
 
-These are proposed improvements in design and usability, not demonstrated
-superiority over other frameworks. Existing systems share many of these
-features. Alvorada can complement risk-management standards and policy tools;
-it still needs contextual adoption and comparative field testing. Read the
-[comparative analysis](research/COMPARATIVE_WORKS.md) and
-[evidence status](docs/EVIDENCE_STATUS.md) for overlap, tradeoffs and limits.
+Institutional designers, governance reviewers and teams mapping human authority into software should begin with the public research and its evidence limits.
 
-## Start here
+## Key features
 
-1. [Getting started](docs/GETTING_STARTED.md): choose a practical path.
-2. [Worked service example](docs/examples/SERVICE_CASE.md): follow a complete,
-   explicitly invented decision, challenge and correction.
-3. [Applications](applications/README.md): choose your context.
-
-## Explore what you need
-
-| Your question | Read next |
+| Capability | Implemented or specified responsibility |
 |---|---|
-| How much review does this decision need? | [Proportional governance](process/PROPORTIONAL_GOVERNANCE.md) |
-| What structure and terms suit my institution? | [Modular charter and profiles](constitutional-design/modular/README.md) |
-| How can AI help, and how can the process improve? | [AI institutional support](applications/ai-assisted-institutional-governance.md) and [recursive learning](process/VIRTUOUS_RECURSION.md) |
-| What did the research and history teach us? | [Research, history and film studies](research/README.md) |
-| How can software consume authority requirements? | [Proposed public-stack implementation profile](process/implementation/public-stack-v0.1/README.md) |
-| What is supported, tested or still missing? | [Evidence status](docs/EVIDENCE_STATUS.md), [testing](testing/README.md) and [remaining work](docs/REMEDIATION_STATUS.md) |
+| **Constitutional design** | Inspect a common charter, proposed profiles and the preserved original Constitution v0.1. |
+| **Proportional governance** | Match review intensity to consequences, reversibility and uncertainty. |
+| **Challenge and remedy** | Make dissent, review, succession, emergencies and correction visible in institutional design. |
+| **Domain guidance** | Apply the proposed framework to specific contexts while recording departures and local decisions. |
+| **Authority Context profile** | Provide consumable institutional requirements for downstream software without moving runtime enforcement into this repository. |
 
-## What is here
+## How it works
 
-The framework includes a common charter and four proposed institutional profiles,
-eighteen domain guides, decision templates, comparative research and a testing
-section. The original [Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md)
-and its design history remain available for detailed review.
+Choose a domain guide and a proportional review path, then follow the invented service case through decision, challenge and correction. For software integration, map independently established institutional authority into the proposed Authority Context profile. The downstream controller must still authenticate the deployment's resolver and enforce its permissions at effect time.
 
-The [operating guide](process/OPERATIONAL_STEWARDSHIP.md) connects material
-workflows to owners, suppliers, change review, incident handling and effect checks.
+A valid signature, chain inclusion, message receipt, reasoning instruction or evidence-package digest does not authorize execution. Institutional authority must be supplied and evaluated through the appropriate trusted boundary.
 
-Routine work can use bounded standing authorization. Serious or irreversible
-choices need stronger evidence and human review. Prohibited acts do not become
-permissible through more process. Profiles can vary offices and terms, with
-explicit departures from the original proposal.
+## Getting started
 
-The testing archives contain deterministic synthetic observations. Conventional
-and Alvorada-inspired controls had identical effects in those adapters; extra
-records have not demonstrated better institutional outcomes. See
-[results and limits](testing/results/README.md).
+Begin with [getting started](docs/GETTING_STARTED.md), the invented [service case](docs/examples/SERVICE_CASE.md) and an [application guide](applications/README.md). Python 3.10+ is required for repository validation. These commands check repository structure and synthetic invariants, not legitimacy or real-world institutional performance.
 
-## Contribute, reuse or distribute
+```bash
+python tools/validate_bootstrap.py
+python -m unittest discover -s tests -q
+```
 
-Read [contribution guidance](CONTRIBUTING.md), [repository governance](GOVERNANCE.md)
-and [sensitive reporting](SECURITY.md). For public distribution, use the
-[release guide](docs/RELEASE_GUIDANCE.md). The canonical repository is now
-[cogno-us/constitutional-governance-for-institutions](https://github.com/cogno-us/constitutional-governance-for-institutions). [All guides](docs/README.md) and [change history](CHANGELOG.md)
-provide deeper navigation.
+## Evidence and supported scope
 
-**Author:** André de Lima, founder of [Cognous](https://cogno.us).
+The hub selects Authority Context profile 0.1.0 at `fb3d97938969a89e149e8ff8db2756091d1233fc`. Later repository guidance remains research and is not automatically selected runtime semantics. The [implementation profile](process/implementation/public-stack-v0.1/README.md) preserves lawful-source precedence, proposed consumer mappings and the distinction between software checks and actual institutional adoption.
 
-**License:** [Apache 2.0](LICENSE) for Cognous-owned original material; external sources retain
-their rights. See [attribution](NOTICE.md) and [citation](CITATION.cff).
+The accepted [hub persistence-generation evidence](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/examples/control-plane-store-adoption/qualification-summary.json) records 915 Python tests in each of two repetitions, 35 matrix entries satisfying their gates and 120 separate mocked OpenShell tests. Those are aggregate hub results, not a per-component test count or a claim of production readiness. Optional behavioral layers receive static checks only. The [support ledger](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) separates implementation, execution and adoption.
+
+
+The [common charter and modular profiles](constitutional-design/modular/README.md), [proportional procedures](process/PROPORTIONAL_GOVERNANCE.md), [research index](research/README.md) and [original Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md) remain canonical. The [operating guide](process/OPERATIONAL_STEWARDSHIP.md) and [learning process](process/VIRTUOUS_RECURSION.md) describe owners, review and correction. Merging documentation does not adopt any of them.
+
+## Limitations and deployment decisions
+
+This remains proposed guidance and constitutional research, not adopted governance, operative law or demonstrated institutional superiority. Synthetic adapters did not demonstrate better institutional outcomes than conventional controls. Runtime enforcement belongs downstream; constitutional text, recorded decisions and source hierarchy remain intact.
+
+Review original artifacts and their exact source revisions before extending a claim to a new environment. New dependencies, authority sources, destinations or enforcement mechanisms need their own compatibility and qualification. A passing reference case is not a certification of an enterprise deployment.
+
+## Repository guide
+
+Use these sources for details; their historical checkpoints retain the status and scope of the work they recorded:
+
+- [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)
+- [docs/EVIDENCE_STATUS.md](docs/EVIDENCE_STATUS.md)
+- [process/implementation/public-stack-v0.1/README.md](process/implementation/public-stack-v0.1/README.md)
+- [applications/README.md](applications/README.md)
+- [testing/results/README.md](testing/results/README.md)
+
+For a nontechnical introduction, read the [business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md). Both describe this component's role and evidence limits, not additional runtime features.
+
+## Contributing and attribution
+
+[Contribution guidance](CONTRIBUTING.md) describes review and validation expectations. Keep evidence-linked claims, preserve historical records and separate proposed features from accepted implementation.
+
+See [LICENSE](LICENSE) and [attribution](NOTICE.md) for the existing terms and third-party scope. Developed by [Cognous](https://cogno.us); no licensing change is part of this documentation update.
+
+---
+
+## Cognous stack components
+
+[Stack hub](https://github.com/cogno-us/cognous-open-control-stack) · [Selected pins](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) · [Evidence and limits](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md)
+
+Component links are navigation, not a requirement to install every component. The hub lock determines its supported integration.
+
+| Component | Responsibility |
+|---|---|
+| [Agent Action Manifest](https://github.com/cogno-us/cognous-agent-action-manifest) | Declare the action before evaluating permission |
+| [Agent Control Plane](https://github.com/cogno-us/cognous-agent-control-plane) | Evaluate proposals against authority and preserve the decision record |
+| [Agent Replay Bundle](https://github.com/cogno-us/cognous-agent-replay-bundle) | Reconstruct what the retained records support |
+| [Agent Governance Evidence Pack](https://github.com/cogno-us/cognous-agent-governance-evidence-pack) | Turn traceable runtime records into reviewable governance evidence |
+| [Open Decision Evidence Standard](https://github.com/cogno-us/open-decision-evidence-standard) | Portable decision evidence across system and organizational boundaries |
+| [Alvorada Experimental Workbench](https://github.com/cogno-us/alvorada) | Governed exchange and continuity for a bounded synthetic workflow |
+| [Moltbot Safe](https://github.com/cogno-us/moltbot-safe) | Constrained execution beneath independent current authorization |
+| [BitRep](https://github.com/cogno-us/bitrep) | Verify issuer signatures under explicit trust assumptions |
+| [The Index](https://github.com/cogno-us/the-index) | A local blockchain reference for claims, evidence commitments and lifecycle history |
+| [Portable Reasoning Protocol v1.0](https://github.com/cogno-us/portable-reasoning-protocol) | Portable instructions for evidence-bounded reasoning |
+| [Research Intelligence Protocol v1.0](https://github.com/cogno-us/research-intelligence-protocol) | Disciplined discovery and cross-domain abstraction, kept separate |
+| [TFA Protocol (S43)](https://github.com/cogno-us/truth-freedom-agency-protocol) | Truth · Freedom · Agency |
