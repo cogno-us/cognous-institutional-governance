@@ -1,4 +1,4 @@
-# Constitutional Governance for Institutions — Business Collateral
+# Cognous Institutional Governance — Business Collateral
 
 ## 1. Executive Summary
 
