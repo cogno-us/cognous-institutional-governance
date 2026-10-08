@@ -321,6 +321,12 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
         self.assertEqual(
             result.metrics["schedule_o_qualifying_office_count"], 3
         )
+        self.assertEqual(
+            result.metrics["schedule_o_staffing_human_inputs_required"], 6
+        )
+        self.assertTrue(
+            result.metrics["schedule_o_ratification_ready_after_completion"]
+        )
 
     def test_hca_lifecycle_analysis_is_required(self) -> None:
         (
@@ -670,6 +676,80 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             ),
         )
         self.assert_error("INITIAL_SCHEDULE_O_COMMON_RULES")
+
+    def test_schedule_o_appointment_instrument_is_required(self) -> None:
+        (
+            self.root
+            / "constitutional-design"
+            / "ratification"
+            / "INITIAL-SCHEDULE-O-APPOINTMENT-INSTRUMENT.md"
+        ).unlink()
+        self.assert_error("SCHEDULE_O_APPOINTMENT_INSTRUMENT_REQUIRED")
+
+    def test_schedule_o_appointment_instrument_has_exact_slots(self) -> None:
+        self.update_text(
+            "constitutional-design/ratification/"
+            "INITIAL-SCHEDULE-O-APPOINTMENT-INSTRUMENT.md",
+            lambda text: text.replace(
+                "SLOT 6 - SO-03 ALTERNATE - OPERATIONS STEWARD",
+                "SLOT 7 - SO-03 ALTERNATE - OPERATIONS STEWARD",
+            ),
+        )
+        self.assert_error("SCHEDULE_O_APPOINTMENT_SLOTS")
+
+    def test_schedule_o_appointment_instrument_has_minimum_fields(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/ratification/"
+            "INITIAL-SCHEDULE-O-APPOINTMENT-INSTRUMENT.md",
+            lambda text: text.replace(
+                "ELIGIBLE_MEMBERSHIP_CONFIRMED: [YES REQUIRED]",
+                "MEMBERSHIP_FIELD_OMITTED",
+                1,
+            ),
+        )
+        self.assert_error("SCHEDULE_O_APPOINTMENT_FIELDS")
+
+    def test_schedule_o_appointment_instrument_cannot_invent_identity(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/ratification/"
+            "INITIAL-SCHEDULE-O-APPOINTMENT-INSTRUMENT.md",
+            lambda text: text.replace(
+                "FULL_HUMAN_NAME: [REQUIRED]",
+                "FULL_HUMAN_NAME: Fabricated Person",
+                1,
+            ),
+        )
+        self.assert_error("SCHEDULE_O_APPOINTMENT_FIELDS")
+
+    def test_schedule_o_appointment_instrument_preserves_fixed_term(
+        self,
+    ) -> None:
+        self.update_text(
+            "constitutional-design/ratification/"
+            "INITIAL-SCHEDULE-O-APPOINTMENT-INSTRUMENT.md",
+            lambda text: text.replace(
+                "already-decided fixed three-year term",
+                "new four-year term",
+            ),
+        )
+        self.assert_error("SCHEDULE_O_APPOINTMENT_ARCHITECTURE")
+
+    def test_schedule_o_appointment_instrument_cannot_ratify(self) -> None:
+        self.update_text(
+            "constitutional-design/ratification/"
+            "INITIAL-SCHEDULE-O-APPOINTMENT-INSTRUMENT.md",
+            lambda text: text.replace(
+                "This instrument does not\nitself appoint anyone, ratify "
+                "Constitution v0.1",
+                "This instrument appoints everyone and ratifies Constitution "
+                "v0.1",
+            ),
+        )
+        self.assert_error("SCHEDULE_O_APPOINTMENT_BOUNDARY")
 
     def test_final_blocker_analysis_is_required(self) -> None:
         (

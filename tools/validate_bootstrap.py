@@ -2334,11 +2334,18 @@ COORDINATED_DECISION_004_RELATIVE_PATH = Path(
 INITIAL_SCHEDULE_O_RELATIVE_PATH = Path(
     "constitutional-design/INITIAL_SCHEDULE_O.yaml"
 )
+INITIAL_SCHEDULE_O_APPOINTMENT_INSTRUMENT_RELATIVE_PATH = Path(
+    "constitutional-design/ratification/"
+    "INITIAL-SCHEDULE-O-APPOINTMENT-INSTRUMENT.md"
+)
 EXPECTED_CDD_004_DIGEST = (
     "041a29a6c1d5dd860eeffc0d0c84f9891f7b79f25dadc2a09dd97858414750c3"
 )
 EXPECTED_INITIAL_SCHEDULE_O_DIGEST = (
     "cd2587a3c3ff831f5aaec8ca68df38ac4c18883edb68e0f4bcb8b55065e3cb78"
+)
+EXPECTED_INITIAL_SCHEDULE_O_APPOINTMENT_INSTRUMENT_DIGEST = (
+    "d9e72d7d314ade0b09f55b10ec2f406ad2db228daa4546792b947af9d758beaa"
 )
 CONSOLIDATED_MAP_FIELDS = {
     "map_id",
@@ -9786,6 +9793,131 @@ def _validate_initial_schedule_o(
     return metrics
 
 
+def _validate_schedule_o_appointment_instrument(
+    root: Path,
+    errors: list[str],
+) -> dict[str, Any]:
+    metrics: dict[str, Any] = {
+        "schedule_o_staffing_human_inputs_required": 0,
+        "schedule_o_ratification_ready_after_completion": False,
+    }
+    path = root / INITIAL_SCHEDULE_O_APPOINTMENT_INSTRUMENT_RELATIVE_PATH
+    try:
+        instrument_bytes = path.read_bytes()
+        instrument = instrument_bytes.decode("utf-8").replace("\r\n", "\n")
+    except (OSError, UnicodeError) as exc:
+        errors.append(
+            f"SCHEDULE_O_APPOINTMENT_INSTRUMENT_REQUIRED: {exc}"
+        )
+        return metrics
+
+    if (
+        hashlib.sha256(instrument_bytes).hexdigest()
+        != EXPECTED_INITIAL_SCHEDULE_O_APPOINTMENT_INSTRUMENT_DIGEST
+    ):
+        errors.append(
+            "SCHEDULE_O_APPOINTMENT_INSTRUMENT_INTEGRITY: exact reviewed "
+            "six-slot instrument is required"
+        )
+
+    required_header_terms = (
+        "# Initial Schedule O Appointment Instrument",
+        "**HUMAN INPUT REQUIRED - NO APPOINTMENT OR RATIFICATION EFFECT**",
+        "`CDD-004`",
+        "`constitutional-design/INITIAL_SCHEDULE_O.yaml`",
+        "Complete all six slots in one attributable Human Constitutional "
+        "Authority\nresponse.",
+        "fixed three-year term",
+        "Initial Human Constitutional Authority\nmay make these initial "
+        "appointments only.",
+        "## Copy-Paste Human Input Block",
+    )
+    if any(term not in instrument for term in required_header_terms):
+        errors.append(
+            "SCHEDULE_O_APPOINTMENT_INSTRUMENT_CONTEXT: exact controlling "
+            "architecture, human-input, fixed-term, and initial-selector "
+            "context is required"
+        )
+
+    expected_slots = [
+        "SLOT 1 - SO-01 PRINCIPAL - RECORDS CUSTODIAN",
+        "SLOT 2 - SO-01 ALTERNATE - RECORDS CUSTODIAN",
+        "SLOT 3 - SO-02 PRINCIPAL - FINANCIAL STEWARD",
+        "SLOT 4 - SO-02 ALTERNATE - FINANCIAL STEWARD",
+        "SLOT 5 - SO-03 PRINCIPAL - OPERATIONS STEWARD",
+        "SLOT 6 - SO-03 ALTERNATE - OPERATIONS STEWARD",
+    ]
+    actual_slots = re.findall(r"^SLOT \d+ - .+$", instrument, re.MULTILINE)
+    if (
+        actual_slots != expected_slots
+        or instrument.count("```text") != 1
+        or instrument.count("```") != 2
+    ):
+        errors.append(
+            "SCHEDULE_O_APPOINTMENT_SLOTS: exactly six ordered slots in one "
+            "copy-paste block are required"
+        )
+
+    expected_fields = {
+        "FULL_HUMAN_NAME: [REQUIRED]": 6,
+        "ELIGIBLE_MEMBERSHIP_CONFIRMED: [YES REQUIRED]": 6,
+        "INCOMPATIBILITY_COMPLIANCE_CONFIRMED: [YES REQUIRED]": 6,
+        "MATERIAL_INDEPENDENCE_CONFIRMED: [YES REQUIRED]": 6,
+        "FIXED_THREE_YEAR_TERM_ACCEPTED: [YES REQUIRED]": 6,
+        "ATTRIBUTABLE_APPOINTMENT_AND_ACCEPTANCE_RECORD: [REQUIRED]": 6,
+    }
+    if any(
+        instrument.count(field) != expected_count
+        for field, expected_count in expected_fields.items()
+    ):
+        errors.append(
+            "SCHEDULE_O_APPOINTMENT_FIELDS: every slot requires exactly the "
+            "six minimum human-supplied fields"
+        )
+
+    architecture_terms = (
+        "Every principal and alternate must be a distinct human institutional\n"
+        "member.",
+        "comply with all `CDD-004` incompatibilities",
+        "materially\nindependent from the other Schedule O offices and "
+        "incompatible offices",
+        "neither hold nor control another Schedule O office",
+        "already-decided fixed three-year term",
+        "initial Schedule O",
+    )
+    if any(term not in instrument for term in architecture_terms):
+        errors.append(
+            "SCHEDULE_O_APPOINTMENT_ARCHITECTURE: eligibility, "
+            "incompatibility, independence, term, and office scope must match "
+            "CDD-004"
+        )
+
+    boundary_terms = (
+        "does not\nitself appoint anyone",
+        "ratify Constitution v0.1",
+        "establish constitutional\nactivation",
+        "authorize a production governance runtime",
+    )
+    if (
+        any(term not in instrument for term in boundary_terms)
+        or "[REQUIRED]" not in instrument
+        or "[YES REQUIRED]" not in instrument
+    ):
+        errors.append(
+            "SCHEDULE_O_APPOINTMENT_BOUNDARY: identities and attestations "
+            "must remain blank; no appointment, ratification, activation, or "
+            "runtime authority is permitted"
+        )
+
+    metrics.update(
+        {
+            "schedule_o_staffing_human_inputs_required": 6,
+            "schedule_o_ratification_ready_after_completion": True,
+        }
+    )
+    return metrics
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
@@ -10303,6 +10435,9 @@ def validate(root: Path) -> ValidationResult:
     final_blocker_metrics = _validate_final_blocker_analysis(root, errors)
     hca_lifecycle_metrics = _validate_hca_lifecycle_analysis(root, errors)
     initial_schedule_o_metrics = _validate_initial_schedule_o(root, errors)
+    schedule_o_appointment_metrics = (
+        _validate_schedule_o_appointment_instrument(root, errors)
+    )
 
     source_index_path = (
         root / "constitutional-design" / "sources" / "SOURCE_INDEX.yaml"
@@ -11117,6 +11252,7 @@ def validate(root: Path) -> ValidationResult:
         **final_blocker_metrics,
         **hca_lifecycle_metrics,
         **initial_schedule_o_metrics,
+        **schedule_o_appointment_metrics,
     }
     return ValidationResult(tuple(errors), metrics)
 
