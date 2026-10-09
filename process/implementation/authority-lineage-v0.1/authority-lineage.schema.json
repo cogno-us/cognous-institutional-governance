@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cognous:alvorada:authority-lineage:0.1.0",
+  "title": "Non-authorizing Authority Lineage Bundle 0.1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "interface_status": {"const": "proposed_non_authorizing_evidence_only"},
+    "bundle_id": {"$ref": "#/$defs/urn"},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "portability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "format": {"const": "application/json"},
+        "source_bundle_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "portable_evidence_only": {"const": true},
+        "transfers_permission": {"const": false}
+      },
+      "required": ["format", "source_bundle_digest", "portable_evidence_only", "transfers_permission"]
+    },
+    "origins": {"type": "array", "items": {"$ref": "#/$defs/AuthorityOriginRecord"}},
+    "delegations": {"type": "array", "items": {"$ref": "#/$defs/DelegationEdge"}},
+    "mutations": {"type": "array", "items": {"$ref": "#/$defs/AuthorityMutationRecord"}},
+    "successions": {"type": "array", "items": {"$ref": "#/$defs/AuthoritySuccessionRecord"}},
+    "resolution_commitments": {"type": "array", "items": {"$ref": "#/$defs/AuthorityResolutionCommitment"}},
+    "use_links": {"type": "array", "items": {"$ref": "#/$defs/AuthorityUseLink"}}
+  },
+  "required": ["schema_version", "interface_status", "bundle_id", "captured_at", "portability", "origins", "delegations", "mutations", "successions", "resolution_commitments", "use_links"],
+  "$defs": {
+    "urn": {"type": "string", "pattern": "^urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9:._-]+$"},
+    "uri": {"type": "string", "format": "uri", "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"},
+    "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "targets": {"type": "array", "items": {"$ref": "#/$defs/urn"}, "minItems": 1, "uniqueItems": true},
+        "data_scopes": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "max_amount": {"type": "number", "minimum": 0},
+        "unit": {"type": "string", "minLength": 1},
+        "max_effects": {"type": "integer", "minimum": 0}
+      },
+      "required": ["actions", "targets", "data_scopes", "max_amount", "unit", "max_effects"]
+    },
+    "AuthorityOriginRecord": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "record_type": {"const": "AuthorityOriginRecord"},
+        "origin_id": {"$ref": "#/$defs/urn"},
+        "institution_id": {"$ref": "#/$defs/urn"},
+        "authority_domain": {"type": "string", "minLength": 1},
+        "authority_id": {"$ref": "#/$defs/urn"},
+        "authority_revision": {"type": "string", "minLength": 1},
+        "external_mandate_ref": {"$ref": "#/$defs/uri"},
+        "mandate_kind": {"enum": ["adopted_rule", "statute", "charter", "contract", "other_external_basis"]},
+        "effective_at": {"type": "string", "format": "date-time"},
+        "recorded_at": {"type": "string", "format": "date-time"},
+        "permission_scope": {"$ref": "#/$defs/scope"},
+        "source_evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/uri"}, "minItems": 1, "uniqueItems": true},
+        "authority_claim_status": {"enum": ["asserted", "verified_by_declared_source", "disputed"]},
+        "non_authorizing": {"const": true}
+      },
+      "required": ["record_type", "origin_id", "institution_id", "authority_domain", "authority_id", "authority_revision", "external_mandate_ref", "mandate_kind", "effective_at", "recorded_at", "permission_scope", "source_evidence_refs", "authority_claim_status", "non_authorizing"]
+    },
+    "DelegationEdge": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "record_type": {"const": "DelegationEdge"},
+        "delegation_id": {"$ref": "#/$defs/urn"},
+        "institution_id": {"$ref": "#/$defs/urn"},
+        "authority_domain": {"type": "string", "minLength": 1},
+        "parent_authority_id": {"$ref": "#/$defs/urn"},
+        "parent_revision": {"type": "string", "minLength": 1},
+        "child_authority_id": {"$ref": "#/$defs/urn"},
+        "child_revision": {"type": "string", "minLength": 1},
+        "delegated_at": {"type": "string", "format": "date-time"},
+        "valid_from": {"type": "string", "format": "date-time"},
+        "expires_at": {"anyOf": [{"type": "string", "format": "date-time"}, {"type": "null"}]},
+        "permission_scope": {"$ref": "#/$defs/scope"},
+        "may_redelegate": {"type": "boolean"},
+        "remaining_depth": {"type": "integer", "minimum": 0},
+        "source_evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/uri"}, "minItems": 1, "uniqueItems": true},
+        "non_authorizing": {"const": true}
+      },
+      "required": ["record_type", "delegation_id", "institution_id", "authority_domain", "parent_authority_id", "parent_revision", "child_authority_id", "child_revision", "delegated_at", "valid_from", "expires_at", "permission_scope", "may_redelegate", "remaining_depth", "source_evidence_refs", "non_authorizing"]
+    },
+    "AuthorityMutationRecord": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "record_type": {"const": "AuthorityMutationRecord"},
+        "mutation_id": {"$ref": "#/$defs/urn"},
+        "authority_id": {"$ref": "#/$defs/urn"},
+        "prior_revision": {"type": "string", "minLength": 1},
+        "new_revision": {"type": "string", "minLength": 1},
+        "mutation_kind": {"enum": ["amend", "suspend", "reinstate", "revoke"]},
+        "effective_at": {"type": "string", "format": "date-time"},
+        "recorded_at": {"type": "string", "format": "date-time"},
+        "status_after": {"enum": ["active", "suspended", "revoked"]},
+        "permission_scope_after": {"anyOf": [{"$ref": "#/$defs/scope"}, {"type": "null"}]},
+        "basis_ref": {"$ref": "#/$defs/uri"},
+        "non_authorizing": {"const": true}
+      },
+      "required": ["record_type", "mutation_id", "authority_id", "prior_revision", "new_revision", "mutation_kind", "effective_at", "recorded_at", "status_after", "permission_scope_after", "basis_ref", "non_authorizing"]
+    },
+    "AuthoritySuccessionRecord": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "record_type": {"const": "AuthoritySuccessionRecord"},
+        "succession_id": {"$ref": "#/$defs/urn"},
+        "institution_id": {"$ref": "#/$defs/urn"},
+        "authority_domain": {"type": "string", "minLength": 1},
+        "predecessor_authority_id": {"$ref": "#/$defs/urn"},
+        "successor_authority_id": {"$ref": "#/$defs/urn"},
+        "effective_at": {"type": "string", "format": "date-time"},
+        "recorded_at": {"type": "string", "format": "date-time"},
+        "succession_basis_ref": {"$ref": "#/$defs/uri"},
+        "successor_mandate_ref": {"$ref": "#/$defs/uri"},
+        "continuity_semantics": {"const": "no_automatic_permission_transfer"},
+        "non_authorizing": {"const": true}
+      },
+      "required": ["record_type", "succession_id", "institution_id", "authority_domain", "predecessor_authority_id", "successor_authority_id", "effective_at", "recorded_at", "succession_basis_ref", "successor_mandate_ref", "continuity_semantics", "non_authorizing"]
+    },
+    "AuthorityResolutionCommitment": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "record_type": {"const": "AuthorityResolutionCommitment"},
+        "commitment_id": {"$ref": "#/$defs/urn"},
+        "authority_id": {"$ref": "#/$defs/urn"},
+        "resolved_revision": {"type": "string", "minLength": 1},
+        "resolved_status": {"enum": ["active", "suspended", "revoked", "unknown"]},
+        "resolution_time": {"type": "string", "format": "date-time"},
+        "resolver_id": {"$ref": "#/$defs/urn"},
+        "resolver_snapshot_ref": {"$ref": "#/$defs/uri"},
+        "lineage_record_ids": {"type": "array", "items": {"$ref": "#/$defs/urn"}, "minItems": 1, "uniqueItems": true},
+        "historical_record_ids": {"type": "array", "items": {"$ref": "#/$defs/urn"}, "uniqueItems": true},
+        "scope_digest": {"$ref": "#/$defs/digest"},
+        "source_set_digest": {"$ref": "#/$defs/digest"},
+        "commitment_semantics": {"const": "evidence_of_resolution_not_live_permission"},
+        "non_authorizing": {"const": true}
+      },
+      "required": ["record_type", "commitment_id", "authority_id", "resolved_revision", "resolved_status", "resolution_time", "resolver_id", "resolver_snapshot_ref", "lineage_record_ids", "historical_record_ids", "scope_digest", "source_set_digest", "commitment_semantics", "non_authorizing"]
+    },
+    "AuthorityUseLink": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "record_type": {"const": "AuthorityUseLink"},
+        "use_link_id": {"$ref": "#/$defs/urn"},
+        "authority_id": {"$ref": "#/$defs/urn"},
+        "authority_revision": {"type": "string", "minLength": 1},
+        "decision_id": {"$ref": "#/$defs/urn"},
+        "effect_id": {"$ref": "#/$defs/urn"},
+        "used_at": {"type": "string", "format": "date-time"},
+        "resolution_commitment_id": {"$ref": "#/$defs/urn"},
+        "evidence_package_ref": {"$ref": "#/$defs/uri"},
+        "use_disposition": {"enum": ["referenced", "held", "rejected"]},
+        "transfers_permission": {"const": false},
+        "non_authorizing": {"const": true}
+      },
+      "required": ["record_type", "use_link_id", "authority_id", "authority_revision", "decision_id", "effect_id", "used_at", "resolution_commitment_id", "evidence_package_ref", "use_disposition", "transfers_permission", "non_authorizing"]
+    }
+  }
+}
