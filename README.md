@@ -23,6 +23,14 @@ An open research framework for businesses, public bodies and communities, with o
 
 **Implementation status:** this README describes merged public reference work. Component acceptance, selection in the hub and execution of a qualification are separate facts. The selected revision for this component is `fb3d97938969a89e149e8ff8db2756091d1233fc`; the [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/component-lock.json) is the source of that integration choice.
 
+## Read proposed authority versus operative authority
+
+For readers who want one route rather than a repository tour, use the [guides index](docs/README.md), [Getting started](docs/GETTING_STARTED.md), and the [invented service case](docs/examples/SERVICE_CASE.md). Constitutional designs, historical research, proposed workflows and actual institutional adoption are different categories; the [evidence status guide](docs/EVIDENCE_STATUS.md) records those distinctions.
+
+The current [hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `fb3d97938969a89e149e8ff8db2756091d1233fc`. This repository's accepted main source `89e4722b0b7b9337d47f36afd28a28b076b128fd` contains additional research/implementation material. The older `5737267d...` hub link in the historical reference section below is **not** a substitute for the current release lock. Later source acceptance does not create adoption or automatically update runtime selection.
+
+**Example:** A caseworker's refund recommendation may cite a proposed review rule; that citation is not a grant. Before software attempts an effect, the relevant real institution must establish decision rights, authenticate the authority source and provide any required approval through its own process. A synthetic Authority Context fixture can test schema and downstream refusal logic, but cannot attest that an actual institution adopted the proposed constitution, mandate or policy. A successful attestation of bytes likewise establishes no grant. Cognous operational environment trust remains [not established](https://github.com/cogno-us/cognous-stack-orchestrator/issues/30).
+
 ## Purpose and intended users
 
 Institutions need to identify who may decide, how decisions can be challenged and who verifies correction. AI can assist evidence preparation and routine review, but it cannot create institutional authority or turn a published design into operative law.
