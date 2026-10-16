@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
+import tempfile
 import unittest
 from pathlib import Path
 from uuid import uuid4
@@ -4672,6 +4674,52 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             claim_verification,
         )
         self.assert_error("HISTORICAL_SOURCE_STATUS_CONFLICT")
+
+
+    def test_symlinks_inside_root_fail_before_any_read(self) -> None:
+        if not hasattr(os, "symlink"):
+            self.skipTest("symlinks unsupported")
+        with tempfile.TemporaryDirectory() as outside:
+            outside_path = Path(outside)
+            target_file = outside_path / "external.yaml"
+            target_file.write_text("{}\n", encoding="utf-8")
+            (outside_path / "external-dir").mkdir()
+            file_link = self.root / "constitutional-design" / "issues" / "IR-99-link.yaml"
+            dir_link = self.root / "docs" / "external-dir"
+            try:
+                os.symlink(target_file, file_link)
+                os.symlink(
+                    outside_path / "external-dir",
+                    dir_link,
+                    target_is_directory=True,
+                )
+            except (OSError, NotImplementedError) as exc:
+                self.skipTest(f"cannot create symlinks: {exc}")
+            result = validate(self.root)
+        self.assertFalse(result.passed)
+        self.assertEqual(
+            sorted(result.errors),
+            [
+                "SYMLINK_IN_ROOT: constitutional-design/issues/IR-99-link.yaml",
+                "SYMLINK_IN_ROOT: docs/external-dir",
+            ],
+        )
+
+    def test_symlink_replacing_record_file_fails(self) -> None:
+        if not hasattr(os, "symlink"):
+            self.skipTest("symlinks unsupported")
+        record = (
+            self.root / "constitutional-design" / "sources" / "PRIOR_ART_REGISTER.yaml"
+        )
+        with tempfile.TemporaryDirectory() as outside:
+            external = Path(outside) / "PRIOR_ART_REGISTER.yaml"
+            shutil.copyfile(record, external)
+            record.unlink()
+            try:
+                os.symlink(os.path.relpath(external, record.parent), record)
+            except (OSError, NotImplementedError) as exc:
+                self.skipTest(f"cannot create symlinks: {exc}")
+            self.assert_error("SYMLINK_IN_ROOT")
 
 
 if __name__ == "__main__":

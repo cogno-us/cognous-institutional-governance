@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass
@@ -9918,9 +9919,28 @@ def _validate_schedule_o_appointment_instrument(
     return metrics
 
 
+def _symlink_paths(root: Path) -> list[str]:
+    """Return root-relative paths of every symlink, without following links."""
+    found: list[str] = []
+    for current, dirnames, filenames in os.walk(root, followlinks=False):
+        for name in dirnames + filenames:
+            path = Path(current) / name
+            if path.is_symlink():
+                found.append(path.relative_to(root).as_posix())
+    return sorted(found)
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
+
+    # Reads below join paths lexically under root; refuse any symlink so no
+    # read can leave the selected tree.
+    symlinks = _symlink_paths(root)
+    if symlinks:
+        return ValidationResult(
+            tuple(f"SYMLINK_IN_ROOT: {path}" for path in symlinks), {}
+        )
 
     issue_dir = root / "constitutional-design" / "issues"
     issues = _load_record_set(issue_dir, "IR-*.yaml", errors)
