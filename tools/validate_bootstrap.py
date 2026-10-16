@@ -6,8 +6,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import sys
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -9918,9 +9920,35 @@ def _validate_schedule_o_appointment_instrument(
     return metrics
 
 
+def _duplicate_ids(ids: list[str]) -> list[str]:
+    """Return sorted identifiers occurring more than once, in linear time."""
+    return sorted(
+        identifier for identifier, count in Counter(ids).items() if count > 1
+    )
+
+
+def _symlink_paths(root: Path) -> list[str]:
+    """Return root-relative paths of every symlink, without following links."""
+    found: list[str] = []
+    for current, dirnames, filenames in os.walk(root, followlinks=False):
+        for name in dirnames + filenames:
+            path = Path(current) / name
+            if path.is_symlink():
+                found.append(path.relative_to(root).as_posix())
+    return sorted(found)
+
+
 def validate(root: Path) -> ValidationResult:
     root = root.resolve()
     errors: list[str] = []
+
+    # Reads below join paths lexically under root; refuse any symlink so no
+    # read can leave the selected tree.
+    symlinks = _symlink_paths(root)
+    if symlinks:
+        return ValidationResult(
+            tuple(f"SYMLINK_IN_ROOT: {path}" for path in symlinks), {}
+        )
 
     issue_dir = root / "constitutional-design" / "issues"
     issues = _load_record_set(issue_dir, "IR-*.yaml", errors)
@@ -10512,14 +10540,7 @@ def validate(root: Path) -> ValidationResult:
         for prior_art_id in prior_art_ids
         if isinstance(prior_art_id, str)
     ]
-    duplicate_prior_art_ids = sorted(
-        {
-            prior_art_id
-            for prior_art_id in string_prior_art_ids
-            if string_prior_art_ids.count(prior_art_id) > 1
-        },
-        key=str,
-    )
+    duplicate_prior_art_ids = _duplicate_ids(string_prior_art_ids)
     if duplicate_prior_art_ids:
         errors.append(
             "DUPLICATE_PRIOR_ART_ID: "
@@ -10818,13 +10839,7 @@ def validate(root: Path) -> ValidationResult:
         for evidence_id in evidence_ids
         if isinstance(evidence_id, str)
     ]
-    duplicate_evidence_ids = sorted(
-        {
-            evidence_id
-            for evidence_id in string_evidence_ids
-            if string_evidence_ids.count(evidence_id) > 1
-        }
-    )
+    duplicate_evidence_ids = _duplicate_ids(string_evidence_ids)
     if duplicate_evidence_ids:
         errors.append(
             "DUPLICATE_HISTORICAL_EVIDENCE_ID: "
