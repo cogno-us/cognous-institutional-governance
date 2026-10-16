@@ -21,4 +21,15 @@ class AuthorityLineageTests(unittest.TestCase):
             for record in bundle[section]: self.assertTrue(record["non_authorizing"])
         self.assertFalse(bundle["use_links"][0]["transfers_permission"])
 
+    def test_non_finite_parent_or_child_amount_is_rejected(self):
+        from run_authority_lineage import fixture_bundle, semantic_errors, validate
+        for label,value in (("nan",float("nan")),("+inf",float("inf")),("-inf",float("-inf"))):
+            for side,path in (("parent",("origins",)),("child",("delegations",))):
+                with self.subTest(side=side,value=label):
+                    bundle=fixture_bundle()
+                    bundle[path[0]][0]["permission_scope"]["max_amount"]=value
+                    self.assertIn("delegation amount is not finite",semantic_errors(bundle))
+                    self.assertTrue(validate(bundle))
+
+
 if __name__=="__main__": unittest.main()

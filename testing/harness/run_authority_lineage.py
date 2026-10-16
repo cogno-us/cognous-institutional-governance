@@ -1,6 +1,6 @@
 """Scoped synthetic qualification for the non-authorizing authority lineage profile."""
 from __future__ import annotations
-import copy, hashlib, json
+import copy, hashlib, json, math
 from datetime import datetime
 from pathlib import Path
 
@@ -51,6 +51,7 @@ def _authority_state(bundle):
             if not set(c["targets"]).issubset(ps["targets"]): raise ValueError("delegation broadens targets")
             if not set(c["data_scopes"]).issubset(ps["data_scopes"]): raise ValueError("delegation broadens data scopes")
             if c["unit"]!=ps["unit"]: raise ValueError("delegation changes unit")
+            if not (math.isfinite(c["max_amount"]) and math.isfinite(ps["max_amount"])): raise ValueError("delegation amount is not finite")
             if c["max_amount"]>ps["max_amount"]: raise ValueError("delegation broadens amount")
             if c["max_effects"]>ps["max_effects"]: raise ValueError("delegation broadens effect count")
             if e["child_authority_id"] in state: raise ValueError("duplicate/cyclic child authority")

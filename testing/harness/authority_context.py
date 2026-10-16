@@ -28,8 +28,12 @@ def binding(action):
 
 
 def contained(child, parent):
-    """Exact action/unit, finite target/data sets and numeric attenuation only."""
+    """Exact action/unit, finite target/data sets and numeric attenuation only.
+
+    Non-finite amounts (NaN, +/-Inf) are never contained.
+    """
     return all(any(c['action'] == p['action'] and c['unit'] == p['unit']
+                   and math.isfinite(c['max_amount']) and math.isfinite(p['max_amount'])
                    and set(c['targets']) <= set(p['targets'])
                    and set(c['data_scopes']) <= set(p['data_scopes'])
                    and c['max_amount'] <= p['max_amount']
@@ -41,15 +45,24 @@ def reference_errors(context, snapshot, action, now, ancestors=()):
 
     Caller must schema-check first. Snapshot has explicit synthetic trust,
     policy, role, status, approval and evidence premises. No signature validation.
+    Non-finite numbers reaching canonical binding are refused as 'non_finite_value'.
     """
     errors = []
     def check(condition, reason):
         if not condition:
             errors.append(reason)
     inst = context['institution']; req = context['requirement']; grant = context.get('grant')
-    check(snapshot['requirement_bindings'].get(req['requirement_id']) == binding({k: context[k] for k in ('institution', 'accountable_human_role', 'requirement', 'conflicts')}), 'untrusted_requirement_binding')
+    try:
+        requirement_binding = binding({k: context[k] for k in ('institution', 'accountable_human_role', 'requirement', 'conflicts')})
+    except ValueError:
+        return errors + ['non_finite_value']
+    check(snapshot['requirement_bindings'].get(req['requirement_id']) == requirement_binding, 'untrusted_requirement_binding')
     if any(type(action[k]) not in (int, float) or not math.isfinite(action[k]) or action[k] < 0 for k in ('amount', 'effects')) or type(action['effects']) is not int:
         return errors + ['invalid_action_limits']
+    try:
+        action_binding = binding(action)
+    except ValueError:
+        return errors + ['non_finite_value']
     check(inst['authority_basis_ref'] in snapshot['authority_bases'], 'missing_authority_basis')
     check(context['accountable_human_role'] in snapshot['accountable_roles'], 'unbound_accountable_role')
     check(context['conflicts']['precedence_refs'] == snapshot['precedence_refs'], 'unresolved_precedence')
@@ -98,7 +111,7 @@ def reference_errors(context, snapshot, action, now, ancestors=()):
             return (a is not None and a['state'] == 'approved' and a['role_id'] == needed['role_id']
                     and a['approver'] in snapshot['approval_role_bindings'].get(needed['role_id'], [])
                     and a['grant_id'] == gid and a['grant_revision'] == grant['revision']
-                    and a['binding'] == binding(action) and a['policy_versions'] == grant['policy_versions']
+                    and a['binding'] == action_binding and a['policy_versions'] == grant['policy_versions']
                     and timestamp(a['not_before']) <= timestamp(now) < timestamp(a['expires_at'])
                     and (not needed['independent_of_actor'] or a['approver'] not in {context['principal'], context['acting_identity']}
                          and a['approver'] in snapshot['independent_reviewers']))
