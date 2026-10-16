@@ -71,11 +71,21 @@ def _state_at(bundle, authority_id, when):
         if m["permission_scope_after"] is not None: out["scope"]=m["permission_scope_after"]
     return out
 
+_MALFORMED=(KeyError,TypeError,ValueError)
+
+def _semantic_message(exc):
+    return str(exc) if isinstance(exc,ValueError) else f"malformed lineage input: {type(exc).__name__}: {exc}"
+
 def semantic_errors(bundle):
+    """Semantic checks; malformed input yields error strings, never exceptions."""
     errors=[]
+    try: return _semantic_errors(bundle,errors)
+    except _MALFORMED as exc: return errors+[_semantic_message(exc)]
+
+def _semantic_errors(bundle, errors):
     try:
         records=_record_index(bundle); known=set(_authority_state(bundle))
-    except ValueError as exc: return [str(exc)]
+    except _MALFORMED as exc: return [_semantic_message(exc)]
     for s in bundle["successions"]:
         if s["predecessor_authority_id"] not in known: errors.append("succession predecessor unknown")
         if s["successor_authority_id"] not in known: errors.append("succession successor has no independent origin/delegation lineage")
@@ -87,7 +97,7 @@ def semantic_errors(bundle):
             actual=_state_at(bundle,c["authority_id"],_dt(c["resolution_time"]))
             if c["resolved_revision"]!=actual["revision"]: errors.append("resolution revision inconsistent with effective lineage")
             if c["resolved_status"]!=actual["status"]: errors.append("resolution status inconsistent with effective lineage")
-        except ValueError as exc: errors.append(str(exc))
+        except _MALFORMED as exc: errors.append(_semantic_message(exc))
     for u in bundle["use_links"]:
         c=commitments.get(u["resolution_commitment_id"])
         if not c: errors.append("use link commitment missing"); continue
@@ -98,7 +108,7 @@ def semantic_errors(bundle):
             if actual["revision"]!=u["authority_revision"]: errors.append("use link relies on historical revision after effective mutation")
             if actual["status"]!="active" and u["use_disposition"]=="referenced": errors.append("use link references non-active current authority")
             if c["resolved_revision"]!=actual["revision"] or c["resolved_status"]!=actual["status"]: errors.append("use link commitment is stale relative to current effective lineage")
-        except ValueError as exc: errors.append(str(exc))
+        except _MALFORMED as exc: errors.append(_semantic_message(exc))
     return errors
 
 def schema_errors(bundle):
@@ -107,7 +117,10 @@ def schema_errors(bundle):
     v=jsonschema.Draft202012Validator(schema,format_checker=jsonschema.FormatChecker())
     return [e.message for e in v.iter_errors(bundle)]
 
-def validate(bundle): return schema_errors(bundle)+semantic_errors(bundle)
+def validate(bundle):
+    """Schema first; semantics run only on schema-valid bundles."""
+    errors=schema_errors(bundle)
+    return errors if errors else semantic_errors(bundle)
 
 def cases():
     base=fixture_bundle(); out=[]

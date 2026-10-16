@@ -31,5 +31,28 @@ class AuthorityLineageTests(unittest.TestCase):
                     self.assertIn("delegation amount is not finite",semantic_errors(bundle))
                     self.assertTrue(validate(bundle))
 
+    def test_schema_errors_short_circuit_semantics(self):
+        import run_authority_lineage as lineage
+        bundle=lineage.fixture_bundle(); del bundle["delegations"]
+        original=lineage.semantic_errors
+        lineage.semantic_errors=lambda b:self.fail("semantics ran after schema errors")
+        try: errors=lineage.validate(bundle)
+        finally: lineage.semantic_errors=original
+        self.assertTrue(errors)
+
+    def test_malformed_input_returns_errors_not_exceptions(self):
+        from run_authority_lineage import fixture_bundle, semantic_errors, validate
+        missing=fixture_bundle(); del missing["successions"]
+        bad_time=fixture_bundle(); bad_time["resolution_commitments"][0]["resolution_time"]="not-a-timestamp"
+        naive=fixture_bundle(); naive["use_links"][0]["used_at"]="2026-10-03T00:00:01"
+        wrong_container=fixture_bundle(); wrong_container["mutations"]=[None]
+        for name,bundle in (("missing_section",missing),("bad_timestamp",bad_time),("naive_vs_aware",naive),("wrong_container",wrong_container)):
+            with self.subTest(case=name):
+                errors=semantic_errors(bundle)
+                self.assertTrue(errors)
+                self.assertTrue(all(isinstance(e,str) for e in errors))
+                self.assertTrue(validate(bundle))
+        self.assertIn("malformed lineage input: KeyError: 'successions'",semantic_errors(missing))
+        self.assertTrue(any(e.startswith("malformed lineage input: TypeError") for e in semantic_errors(naive)))
 
 if __name__=="__main__": unittest.main()

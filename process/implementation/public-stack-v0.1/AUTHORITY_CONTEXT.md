@@ -141,6 +141,13 @@ requirement binding, active roles, current policies/status, sources and approval
 records. It checks those represented premises, not their truth. A passing result
 means only **reference conditions satisfied under assumed inputs**.
 
+`reference_errors` has a precondition: the caller must first obtain an empty
+`schema_errors` result for the context, and the snapshot, action and `now` must
+have the reference fixture shape. It does not validate those shapes itself, so
+malformed or unchecked input may raise an exception rather than return a refusal
+code. Non-finite permission amounts are never treated as contained, and a
+non-finite value reaching canonical binding returns `non_finite_value`.
+
 The snapshot's trusted requirement binding covers institution, human role,
 requirement and conflicts to expose caller changes. Real deployments need a
 reviewed signing/canonicalization and authenticated resolver design. The reference

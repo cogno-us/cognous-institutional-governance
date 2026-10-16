@@ -28,6 +28,8 @@ The scoped harness checks the following finite invariants:
 7. historical commitments remain historical evidence after later mutation, while current-use checks use the latest effective lineage known at the use time;
 8. evidence can be exported and hashed without transferring permission or creating authority in the recipient.
 
+The harness runs semantic checks only on schema-valid bundles. It rejects non-finite (NaN or infinite) parent and child amounts, and it reports malformed input reached by the semantic pass as error strings, not exceptions.
+
 These checks are synthetic and conservative. They do not authenticate institutional sources, determine lawful mandate, validate cryptographic signatures, provide a production resolver, propagate revocation, enforce runtime permissions, or prove field adoption.
 
 ## Boundaries and dependencies

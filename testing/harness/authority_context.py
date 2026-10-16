@@ -43,9 +43,13 @@ def contained(child, parent):
 def reference_errors(context, snapshot, action, now, ancestors=()):
     """Reject unsupported/missing synthetic premises; never imply permission.
 
-    Caller must schema-check first. Snapshot has explicit synthetic trust,
-    policy, role, status, approval and evidence premises. No signature validation.
-    Non-finite numbers reaching canonical binding are refused as 'non_finite_value'.
+    Precondition: ``schema_errors(context)`` must be empty before calling, and
+    snapshot, action and now must have the reference fixture shape. This
+    function does not validate those shapes; malformed or unchecked input may
+    raise KeyError, TypeError or ValueError instead of returning refusal codes.
+    Non-finite numbers that reach canonical binding are refused as
+    'non_finite_value'. Snapshot has explicit synthetic trust, policy, role,
+    status, approval and evidence premises. No signature validation.
     """
     errors = []
     def check(condition, reason):
