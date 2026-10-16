@@ -4,6 +4,7 @@ import json
 import os
 import shutil
 import tempfile
+import time
 import unittest
 from pathlib import Path
 from uuid import uuid4
@@ -4595,6 +4596,45 @@ class ConstitutionalResearchBaselineTests(unittest.TestCase):
             duplicate_identifier,
         )
         self.assert_error("DUPLICATE_HISTORICAL_EVIDENCE_ID")
+
+    def test_large_duplicate_identifier_registers_scale_linearly(self) -> None:
+        def enlarge(key: str, id_key: str):
+            def update(record) -> None:
+                first = record[key][0][id_key]
+                second = record[key][1][id_key]
+                record[key].extend(
+                    {id_key: f"SCALE-{index:05d}"} for index in range(20000)
+                )
+                record[key].extend([{id_key: second}, {id_key: first}])
+
+            return update
+
+        self.update_json(
+            "constitutional-design/sources/PRIOR_ART_REGISTER.yaml",
+            enlarge("prior_art_entries", "prior_art_id"),
+        )
+        self.update_json(
+            "constitutional-design/sources/HISTORICAL_EVIDENCE_REGISTER.yaml",
+            enlarge("entries", "evidence_id"),
+        )
+        started = time.perf_counter()
+        result = validate(self.root)
+        elapsed = time.perf_counter() - started
+        self.assertIn(
+            "DUPLICATE_PRIOR_ART_ID: PA-EI-001, PA-EI-002", result.errors
+        )
+        duplicate_evidence = [
+            error
+            for error in result.errors
+            if error.startswith("DUPLICATE_HISTORICAL_EVIDENCE_ID:")
+        ]
+        self.assertEqual(len(duplicate_evidence), 1, result.errors)
+        self.assertEqual(
+            duplicate_evidence[0].count(","), 1, duplicate_evidence[0]
+        )
+        # ~20k identifiers per register; quadratic list.count scans took over
+        # ten seconds locally; a Counter pass takes under one.
+        self.assertLess(elapsed, 6.0)
 
     def test_unresolved_historical_evidence_reference_fails(self) -> None:
         self.update_json(

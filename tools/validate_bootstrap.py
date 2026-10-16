@@ -9,6 +9,7 @@ import json
 import os
 import re
 import sys
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -9919,6 +9920,13 @@ def _validate_schedule_o_appointment_instrument(
     return metrics
 
 
+def _duplicate_ids(ids: list[str]) -> list[str]:
+    """Return sorted identifiers occurring more than once, in linear time."""
+    return sorted(
+        identifier for identifier, count in Counter(ids).items() if count > 1
+    )
+
+
 def _symlink_paths(root: Path) -> list[str]:
     """Return root-relative paths of every symlink, without following links."""
     found: list[str] = []
@@ -10532,14 +10540,7 @@ def validate(root: Path) -> ValidationResult:
         for prior_art_id in prior_art_ids
         if isinstance(prior_art_id, str)
     ]
-    duplicate_prior_art_ids = sorted(
-        {
-            prior_art_id
-            for prior_art_id in string_prior_art_ids
-            if string_prior_art_ids.count(prior_art_id) > 1
-        },
-        key=str,
-    )
+    duplicate_prior_art_ids = _duplicate_ids(string_prior_art_ids)
     if duplicate_prior_art_ids:
         errors.append(
             "DUPLICATE_PRIOR_ART_ID: "
@@ -10838,13 +10839,7 @@ def validate(root: Path) -> ValidationResult:
         for evidence_id in evidence_ids
         if isinstance(evidence_id, str)
     ]
-    duplicate_evidence_ids = sorted(
-        {
-            evidence_id
-            for evidence_id in string_evidence_ids
-            if string_evidence_ids.count(evidence_id) > 1
-        }
-    )
+    duplicate_evidence_ids = _duplicate_ids(string_evidence_ids)
     if duplicate_evidence_ids:
         errors.append(
             "DUPLICATE_HISTORICAL_EVIDENCE_ID: "
