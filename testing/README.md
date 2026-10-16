@@ -8,9 +8,9 @@ Read this index first. This section separates proposed operational exercises, ex
 | [Protocol](PROTOCOL.md) | Recommended program, comparison design, measures and status rules | Operational program pending |
 | [Incident sources](sources/README.md) | News reporting, primary supplements and evidence qualifications | Reporting links checked; access limits recorded |
 | [Harness design](harness/DESIGN.md) | Construction method, configurations, gates, oracles and limits | Deterministic reference adapter only |
-| [Film-review adapter](harness/FILM_REVIEW_DESIGN.md) | 42 narrow subtests mapped to 21 FW/TB proposals; 126 observations | EXECUTED_SYNTHETIC; full exercises pending |
+| [Film-review adapter](harness/FILM_REVIEW_DESIGN.md) | Narrow subtests mapped to FW/TB proposals | Synthetic mechanics; operational evaluation is separate |
 | [Fixtures](fixtures/README.md) | 24 fixed synthetic subtests and recovery data | Invented; no real participants or production data |
-| [Results](results/README.md) | Raw 72-run observations, interpretation and reproducibility evidence | EXECUTED_SYNTHETIC; not independently reviewed |
+| [Results](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md) | Central run commentary, interpretation and evidence links | Review the recorded scope for each run |
 | [Execution template](templates/OPERATIONAL_RECORD.md) | Actual operational run record requirements | Template only |
 | [Repository checks](../tests/README.md) | Validator and existing invariant tests | Conformance checks, not efficacy evidence |
 
@@ -20,9 +20,7 @@ The [contract](../process/AUTHORIZATION_EFFECT_CONTRACT.md) formalizes temporal
 permission/evidence, UNKNOWN continuation and effect/attempt lineage. The
 [AE01–AE10 proposals](battery/AUTHORIZATION_EFFECT.md) have twenty narrow fixtures
 and a [separate synthetic adapter](harness/AUTHORIZATION_EFFECT_DESIGN.md).
-[Sixty observations](results/2026-10-05-authorization-effect-v1/README.md) are
-executed local mechanics, not full operational exercises or ODES conformance.
-Original archives and the unexecuted stewardship/domain catalogues remain separate.
+The [central test hub](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md) records historical observations and their limits. The adapter concerns local mechanics, not full operational exercises or ODES conformance. Original archives and the stewardship/domain catalogues remain separate.
 
 To rerun, use a new output directory:
 
@@ -50,95 +48,13 @@ The [operational-stewardship review](research/OPERATIONAL_STEWARDSHIP_REVIEW.md)
 adds twenty-six separately proposed tabletop scenarios from the later enterprise
 readings. No scenario has been executed or added to the archived adapters.
 
-## Enterprise-guidance repository checks, 2026-10-04
 
-Against base `48fd3697cfa4e4aee03745b68d2c2ef344a7a785`, Python 3.12.14:
-repository validator passed, 423 repository tests and eight harness tests passed,
-and both archived integrity/replay verifiers passed. A relative Markdown scan
-resolved all 1,430 file destinations; this does not certify external availability
-or every fragment anchor. Patch whitespace and a bounded changed-document
-proper-name/credential-marker scan passed. All changed files are Markdown;
-original constitutional data, source-status registers, code, battery inputs,
-fixtures and frozen results are unchanged. These checks verify conformance and
-archive integrity, not the twelve new scenarios, reader comprehension, source
-authenticity, legal compliance, IP clearance or real-world operating effectiveness.
 
-## Full-manual extension checks, 2026-10-04
 
-Against base `1ea31ee79f77f2e6b6c1124c93b52b55c0fbce3d`, Python 3.12.14:
-the repository validator, 423 repository tests, eight harness tests and both
-archived integrity/replay verifiers passed. All 1,433 relative Markdown file
-destinations resolved (external URLs and fragment anchors not certified).
-Whitespace, Markdown-only scope and bounded changed-document marker checks passed;
-SR01–SR16 are distinct proposals. Original constitutional data, source-status
-registers, code, fixtures and frozen results remain unchanged. These are repository
-checks, **not execution of the sixteen stewardship scenarios**, source/legal
-verification or evidence of institutional benefit.
 
-## OECD application-extension checks, 2026-10-04
 
-Against public base `3d614fa71bfbabc689aebb44923a1dabaf825922` (local base
-`bcf24236318607ff0bf7fae5e51871fecd82afe6`, identical tree
-`592aea78c4edae58dc3c188197dc06dc7e70168b`), Python 3.12.14:
-repository validator, 423 repository tests, eight harness tests and both archived
-integrity/replay verifiers passed. The reference and film runners were also
-executed afresh. Their per-case observations and summaries exactly reproduced
-the existing [reference archive](results/2026-10-03-reference-v1/README.md) and
-[film archive](results/2026-10-04-film-review-v1/README.md).
 
-| Existing synthetic adapter | Fresh observations | Conventional / Alvorada-inspired oracle satisfaction | Deliberately permissive toy arm |
-|---|---|---|---|
-| Reference | 72: 24 fixtures × three arms | 24/24 each | 3/24 |
-| Film | 126: 42 fixtures × three arms | 42/42 each | 15/42 |
 
-The equal guarded outcomes establish no incremental effect benefit. These runners
-use deterministic supplied fixtures, not live models, institutional actors or the
-new OECD scenarios. Fresh bundles record the local base and documentation-dirty
-working tree in ignored `testing/runs/`; duplicate bundles are not new committed
-archives. The unchanged archives remain the canonical raw evidence. To reproduce,
-use **new, nonexistent** output directories:
-
-```sh
-python3 testing/harness/run_reference.py --output testing/runs/oecd-reference-repeat
-python3 testing/harness/run_film_review.py --output testing/runs/oecd-film-repeat
-python3 testing/harness/verify_snapshot.py
-python3 testing/harness/verify_film_review.py
-python3 tools/validate_bootstrap.py
-python3 -m unittest discover -s tests -q
-python3 -m unittest discover -s testing/harness -p 'test_*.py' -q
-```
-
-The documentation checks resolved all 1,498 relative file destinations
-and checked fragment destinations in changed documents, 26 distinct SR IDs,
-preservation of SR01–SR16 and existing domain text, twelve domain extensions,
-Markdown-only scope, whitespace and bounded changed-document markers. External
-URL availability, every historical anchor and exhaustive IP clearance are not
-certified. Original constitutional data, source-status registers, code, fixtures
-and frozen observations are unchanged.
-
-**SR17–SR26 were not executed.** No actual workflow, domain/language assessors,
-operating grants or independent institutional outcome evidence were supplied.
-All 26 stewardship scenarios remain proposed; passing repository checks cannot
-establish human comprehension, field effectiveness or readiness for public service.
-
-## Authorization/effect checks, 2026-10-05
-
-Against public base `7345eb2b591fcf41d44fa4845d3a42c267cb57dc` and identical-tree
-local base `45e76097c83f5af3940e0718c90bfd673481f412`, Python 3.12.14:
-423 repository tests and 22 harness tests passed (**445 total**, including fourteen
-new boundary/mutation tests). The repository validator and all three archive
-verifiers passed. The [new archive](results/2026-10-05-authorization-effect-v1/README.md)
-records sixty new synthetic observations; both guarded configurations satisfied
-20/20 fixture oracles and 10/10 positive variants, while the authorization-only toy
-satisfied 9/20 complete oracles and 9/10 positives.
-
-The documentation check resolved 1,555 relative file destinations and fragment
-links in changed Markdown, twenty unique paired fixture IDs and bounded current
-change markers. Whitespace and scope checks passed. New code/fixtures/archive are
-isolated in testing; original constitutional data, source-status records, original
-harnesses/fixtures and old archives are unchanged. No external-link availability,
-exhaustive IP clearance, ODES conformance, real identity isolation, distributed
-atomicity, operational efficacy or independent institutional review is certified.
 
 ## Run locally
 
@@ -156,11 +72,7 @@ python3 -m unittest discover -s tests -q
 
 The reference runner prints summaries and writes a new timestamped directory under `testing/runs/` (ignored by Git). You may provide `--output /path/to/new-directory`. Existing directories and paths under archived `testing/results/` are refused. Committed fixtures and results are never overwritten by reruns.
 
-## Current finding
 
-Both guarded configurations satisfied the same 24 predefined fixture outcomes; the deliberately permissive toy baseline satisfied three. Nineteen hazardous cases were blocked and all three legitimate allows were retained by both guarded configurations. Pending delivery and recovery behaved as specified. The Alvorada-inspired arm adds records but has identical effect controls. This establishes no incremental effect benefit, historical prevention or real-world efficacy. Record richness needs independent human evaluation.
-
-All 47 full operational exercises and the existing 90 application exercises remain proposed. Follow [PROTOCOL.md](PROTOCOL.md) for what remains to be done. The earlier separate report and ZIP are superseded as the primary presentation by this repository section; all necessary specifications, execution code and observations are here. No binary report or article copies are required.
 
 ## Supplementary Fog of War exercises
 
@@ -177,7 +89,7 @@ python3 testing/harness/run_film_review.py
 python3 testing/harness/verify_film_review.py
 ```
 
-The [2026-10-04 archive](results/2026-10-04-film-review-v1/README.md) records 126 final film-adapter observations, a rerun of the original 72 observations, and current repository checks. Conventional and Alvorada-inspired controls have identical effects; no incremental institutional benefit is established.
+Historical film-adapter outcomes and original-reference rerun commentary are maintained in the [central test hub](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md). Conventional and Alvorada-inspired configurations use identical controls; record richness alone establishes no institutional benefit.
 
 ## Research designs: institutional usability
 
@@ -206,3 +118,10 @@ disposition and independently verified correction, alongside harm, delay and
 burden. Three additional research questions cover timing, adoption conditions
 and substantive impact with legitimate countercases. They are unexecuted,
 outside the 68 numbered proposals and six SC designs, with no new fixtures or results.
+
+<!-- Retained anchors for existing documentation links. -->
+<a id="enterprise-guidance-repository-checks-2026-10-04"></a>
+<a id="full-manual-extension-checks-2026-10-04"></a>
+<a id="oecd-application-extension-checks-2026-10-04"></a>
+<a id="authorizationeffect-checks-2026-10-05"></a>
+<a id="current-finding"></a>
