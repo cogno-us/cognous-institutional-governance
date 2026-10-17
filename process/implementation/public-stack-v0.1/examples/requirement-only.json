@@ -67,7 +67,11 @@
     "consequence": {
       "tier": "T1",
       "rationale": "Invented bounded reversible refund; no adverse rights decision.",
-      "profile_ref": "urn:alvorada:design:proportional-governance"
+      "profile_ref": "urn:alvorada:design:proportional-governance",
+      "delay_limit": {
+        "max_pending_seconds": 86400,
+        "on_miss": "escalate_to_alternate_reviewer"
+      }
     }
   },
   "conflicts": {

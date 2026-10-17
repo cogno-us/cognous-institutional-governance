@@ -849,5 +849,177 @@
     ],
     "schema_valid": false,
     "expected_errors": []
+  },
+  {
+    "id": "delay-limit-tightened-below-tier-ceiling",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit",
+          "max_pending_seconds"
+        ],
+        "value": 3600
+      },
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "requirement_bindings",
+          "urn:example:requirement:refund"
+        ],
+        "value": "d04a43a802c7af4168bbc14325e5b04eba814a204926b9852f9872147a1aac57"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": []
+  },
+  {
+    "id": "delay-limit-exceeds-tier-ceiling",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit",
+          "max_pending_seconds"
+        ],
+        "value": 86401
+      },
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "requirement_bindings",
+          "urn:example:requirement:refund"
+        ],
+        "value": "1f07f1f972da8168b68be61dd90bc46a2529ed51927507c4cbdb60c38d8475b8"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "delay_limit_exceeds_tier_ceiling"
+    ]
+  },
+  {
+    "id": "delay-limit-exceeds-ceiling-of-higher-consequence-tier",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit",
+          "max_pending_seconds"
+        ],
+        "value": 259201
+      },
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "requirement_bindings",
+          "urn:example:requirement:refund"
+        ],
+        "value": "02d6e62eacde5d595dd953216ca6ec548e2939881ff69e6275d77572a7e86a8f"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "delay_limit_exceeds_tier_ceiling"
+    ]
+  },
+  {
+    "id": "delay-limit-tier-reclassified-without-tightening",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "tier"
+        ],
+        "value": "T0"
+      },
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "requirement_bindings",
+          "urn:example:requirement:refund"
+        ],
+        "value": "60e0060987d9856c6e660f2577bae8e10d62beb406f9a72da879983ddee9ba07"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": [
+      "delay_limit_exceeds_tier_ceiling"
+    ]
+  },
+  {
+    "id": "delay-limit-undeclared",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "delete",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit"
+        ]
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
+  },
+  {
+    "id": "delay-limit-miss-cannot-approve",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit",
+          "on_miss"
+        ],
+        "value": "auto_approve"
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
+  },
+  {
+    "id": "delay-limit-must-be-positive",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit",
+          "max_pending_seconds"
+        ],
+        "value": 0
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
   }
 ]

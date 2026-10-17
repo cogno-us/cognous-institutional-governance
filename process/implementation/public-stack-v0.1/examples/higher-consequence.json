@@ -80,7 +80,11 @@
     "consequence": {
       "tier": "T2",
       "rationale": "Invented exceptional USD 1000 payment; stronger case evidence and prior human approval.",
-      "profile_ref": "urn:alvorada:design:proportional-governance"
+      "profile_ref": "urn:alvorada:design:proportional-governance",
+      "delay_limit": {
+        "max_pending_seconds": 259200,
+        "on_miss": "escalate_to_alternate_reviewer"
+      }
     }
   },
   "conflicts": {

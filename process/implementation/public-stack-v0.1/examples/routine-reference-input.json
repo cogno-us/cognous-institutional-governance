@@ -61,7 +61,7 @@
     "approvals": {},
     "parents": {},
     "requirement_bindings": {
-      "urn:example:requirement:refund": "18f57d97779469ed170303d9980cf8f05c0120e91e742c6533b663843fef9654"
+      "urn:example:requirement:refund": "ebcc5c4ecb8ff3a1ea07fb6c90a0068850eeaddb1f8527312dbbe7461240a590"
     }
   },
   "action": {

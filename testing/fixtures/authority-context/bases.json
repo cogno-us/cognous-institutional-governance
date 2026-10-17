@@ -69,7 +69,11 @@
         "consequence": {
           "tier": "T1",
           "rationale": "Invented bounded reversible refund; no adverse rights decision.",
-          "profile_ref": "urn:alvorada:design:proportional-governance"
+          "profile_ref": "urn:alvorada:design:proportional-governance",
+          "delay_limit": {
+            "max_pending_seconds": 86400,
+            "on_miss": "escalate_to_alternate_reviewer"
+          }
         }
       },
       "conflicts": {
@@ -200,7 +204,7 @@
       "approvals": {},
       "parents": {},
       "requirement_bindings": {
-        "urn:example:requirement:refund": "18f57d97779469ed170303d9980cf8f05c0120e91e742c6533b663843fef9654"
+        "urn:example:requirement:refund": "ebcc5c4ecb8ff3a1ea07fb6c90a0068850eeaddb1f8527312dbbe7461240a590"
       }
     },
     "action": {
@@ -302,7 +306,11 @@
         "consequence": {
           "tier": "T2",
           "rationale": "Invented exceptional USD 1000 payment; stronger case evidence and prior human approval.",
-          "profile_ref": "urn:alvorada:design:proportional-governance"
+          "profile_ref": "urn:alvorada:design:proportional-governance",
+          "delay_limit": {
+            "max_pending_seconds": 259200,
+            "on_miss": "escalate_to_alternate_reviewer"
+          }
         }
       },
       "conflicts": {
@@ -458,7 +466,7 @@
       },
       "parents": {},
       "requirement_bindings": {
-        "urn:example:requirement:refund": "1aa829e595b99c0ed0bb9fe29c6baa3bbbd062d001297ec699fc00c1bb49fad8"
+        "urn:example:requirement:refund": "0d5c77a17d817e04197a98db356b325715fea728b560ae9be99e4b2058bb6dcc"
       }
     },
     "action": {
@@ -547,7 +555,11 @@
         "consequence": {
           "tier": "T1",
           "rationale": "Invented bounded reversible refund; no adverse rights decision.",
-          "profile_ref": "urn:alvorada:design:proportional-governance"
+          "profile_ref": "urn:alvorada:design:proportional-governance",
+          "delay_limit": {
+            "max_pending_seconds": 86400,
+            "on_miss": "escalate_to_alternate_reviewer"
+          }
         }
       },
       "conflicts": {
@@ -759,7 +771,11 @@
             "consequence": {
               "tier": "T1",
               "rationale": "Invented bounded reversible refund; no adverse rights decision.",
-              "profile_ref": "urn:alvorada:design:proportional-governance"
+              "profile_ref": "urn:alvorada:design:proportional-governance",
+              "delay_limit": {
+                "max_pending_seconds": 86400,
+                "on_miss": "escalate_to_alternate_reviewer"
+              }
             }
           },
           "conflicts": {
@@ -830,7 +846,7 @@
         }
       },
       "requirement_bindings": {
-        "urn:example:requirement:refund": "18f57d97779469ed170303d9980cf8f05c0120e91e742c6533b663843fef9654"
+        "urn:example:requirement:refund": "ebcc5c4ecb8ff3a1ea07fb6c90a0068850eeaddb1f8527312dbbe7461240a590"
       }
     },
     "action": {

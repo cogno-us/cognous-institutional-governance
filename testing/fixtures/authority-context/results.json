@@ -2,8 +2,8 @@
   "status": "EXECUTED_LOCAL_REFERENCE_CHECKS",
   "runtime_enforcement": false,
   "independently_reviewed": false,
-  "fixture_count": 44,
-  "passed": 44,
+  "fixture_count": 51,
+  "passed": 51,
   "results": [
     {
       "id": "scoped-class-grant",
@@ -348,20 +348,54 @@
       "schema_valid": false,
       "reference_errors": null,
       "oracle_satisfied": true
+    },
+    {
+      "id": "delay-limit-tightened-below-tier-ceiling",
+      "schema_valid": true,
+      "reference_errors": [],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delay-limit-exceeds-tier-ceiling",
+      "schema_valid": true,
+      "reference_errors": [
+        "delay_limit_exceeds_tier_ceiling"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delay-limit-exceeds-ceiling-of-higher-consequence-tier",
+      "schema_valid": true,
+      "reference_errors": [
+        "delay_limit_exceeds_tier_ceiling"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delay-limit-tier-reclassified-without-tightening",
+      "schema_valid": true,
+      "reference_errors": [
+        "delay_limit_exceeds_tier_ceiling"
+      ],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delay-limit-undeclared",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delay-limit-miss-cannot-approve",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    },
+    {
+      "id": "delay-limit-must-be-positive",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
     }
-  ],
-  "input_sha256": {
-    "process/implementation/public-stack-v0.1/authority-context.schema.json": "7b9e26f0f44fed7a6adbecb9194e8494a1d407faa2e4bd7b726825d728bc98c7",
-    "process/implementation/public-stack-v0.1/examples/higher-consequence-reference-input.json": "fe4cd14717b99c15ac9fa72785e522d9e567c31b5f38e9a2a0f6600df9a9f616",
-    "process/implementation/public-stack-v0.1/examples/higher-consequence.json": "9a09ba86bfdf744e48a09e4f94e02cd670178ba069a62c64e8d545dfc2366ecb",
-    "process/implementation/public-stack-v0.1/examples/requirement-only.json": "e45990ff4c4f7ca63f3aa9aa20aff19b3ce739aa31d69cb0b76a40312dedb059",
-    "process/implementation/public-stack-v0.1/examples/routine-reference-input.json": "11b417ab2372bcdc17c87a98732fd15f242d7310fb78a5cc8014b4ef45923c79",
-    "process/implementation/public-stack-v0.1/examples/routine.json": "7b03112e1237f2224227ebf4d4e4eaf9a6a4d5de4170c4bfdc1e96b8031bf588",
-    "testing/fixtures/authority-context/bases.json": "3c627f398d77d4c6cc2d18e01b087516dc9d58a2cd1fd954e6280db3f3330556",
-    "testing/fixtures/authority-context/cases.json": "bf110a8e9b4e5844555a406369b8afe87b5021f8cd230c4cb6dc314b1f7685c1",
-    "testing/harness/authority_context.py": "cf08bbdf487bcf8edd8801f58e73488599f1eb975492c1c271f8f0c129a95600",
-    "testing/harness/requirements-authority.txt": "a788c906c98e9789932143da72413fdc0877b73c896a289dd29f01c7ea30a9c9",
-    "testing/harness/run_authority_context.py": "2accbdc8185507511b9279c2cab5e7701a38039cc44aa3c05d53a2895981fa17",
-    "tests/test_authority_context.py": "26354cdeeda4a8d07f7ded10a88fdae82b097ac3e41d0f5f779dcaba96ac5f8e"
-  }
+  ]
 }

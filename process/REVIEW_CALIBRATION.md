@@ -43,7 +43,10 @@ Neither calculation nor urgency supplies permission for an otherwise excluded ac
 Response targets are proposed service expectations, not constitutional
 deadlines or licenses to proceed when time expires. Define what happens on a
 miss: authorized alternate, narrower act, escalation or deferral, as applicable.
-Do not hide an unavailable reviewer behind an artificial deadline.
+Do not hide an unavailable reviewer behind an artificial deadline. The tier
+table in [proportional governance](PROPORTIONAL_GOVERNANCE.md#delay-limits)
+proposes a maximum time to a recorded disposition for each tier; a miss still
+resolves only through the responses listed here, never by approval.
 
 ## Preserve review while reducing avoidable work
 
