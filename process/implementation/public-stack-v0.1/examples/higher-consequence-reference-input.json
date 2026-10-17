@@ -84,7 +84,7 @@
     },
     "parents": {},
     "requirement_bindings": {
-      "urn:example:requirement:refund": "1aa829e595b99c0ed0bb9fe29c6baa3bbbd062d001297ec699fc00c1bb49fad8"
+      "urn:example:requirement:refund": "0d5c77a17d817e04197a98db356b325715fea728b560ae9be99e4b2058bb6dcc"
     }
   },
   "action": {

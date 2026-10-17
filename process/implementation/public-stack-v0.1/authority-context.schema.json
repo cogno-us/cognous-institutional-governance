@@ -269,12 +269,35 @@
               "type": "string",
               "format": "uri",
               "pattern": "^(https://[A-Za-z0-9]|urn:[a-z0-9][a-z0-9-]*:[A-Za-z0-9])"
+            },
+            "delay_limit": {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "Proposed maximum elapsed time a complete request may remain without a recorded disposition, and the only permitted responses to a miss. Never a license to proceed, approve or default to the act when time expires.",
+              "properties": {
+                "max_pending_seconds": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "on_miss": {
+                  "enum": [
+                    "escalate_to_alternate_reviewer",
+                    "defer_with_reason",
+                    "narrower_authorized_action"
+                  ]
+                }
+              },
+              "required": [
+                "max_pending_seconds",
+                "on_miss"
+              ]
             }
           },
           "required": [
             "tier",
             "rationale",
-            "profile_ref"
+            "profile_ref",
+            "delay_limit"
           ]
         }
       },

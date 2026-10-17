@@ -19,7 +19,7 @@ permission service. Start with [worked cases](WORKED_CASES.md).
 | `institution` | Institutional ID, authority domain, independently resolvable authority basis and selected mode; modes do not prove adoption |
 | `principal`, `acting_identity` | Responsible principal receiving a grant and authenticated identity acting for it; neither is established by a supplied string |
 | `accountable_human_role` | Human principal, role and actual mandate reference; human accountability cannot be replaced by a wallet or model |
-| `requirement` | Stable requirement ID, governing provisions/version/standing, finite permitted action envelope, required approval roles and evidence/consequence profile; not an issued grant |
+| `requirement` | Stable requirement ID, governing provisions/version/standing, finite permitted action envelope, required approval roles, evidence and consequence profile (tier plus a declared delay limit); not an issued grant |
 | `conflicts` | Ordered precedence references, incompatible role pairs and competent escalation, appeal, continuity and remedy procedures; no arbitrary numeric priority overrides law |
 | Optional `grant` | Claimed issued grant, issuer/role/issuance record, principal and acting identity binding, revision, validity/status, finite permissions, delegation and actual approval references |
 | `supporting_evidence_refs` | Provenance including optional BitRep/Index/ODES records; no authority is derived from their technical acceptance |
@@ -62,6 +62,21 @@ Consequence T0–T4 is the existing proposed consequence/reliance classification
 It is neither a PRP reasoning level, Index epistemic status nor implementation
 maturity score. The competent human owns classifications; this schema cannot
 validate a tier's accuracy or generate a downgrade.
+
+`requirement.consequence.delay_limit` is required. It declares
+`max_pending_seconds`, the longest elapsed time a complete request may remain at
+that tier without a recorded disposition, and `on_miss`, one of
+`escalate_to_alternate_reviewer`, `defer_with_reason` or
+`narrower_authorized_action`. Expiry is never an approval and no value allows
+proceeding, so the schema has no such `on_miss` option. The proposed tier
+ceilings (T0 4 hours, T1 1 day, T2 3 days, T3 7 days, T4 30 days to a recorded
+disposition only) are in the
+[tier table](../../PROPORTIONAL_GOVERNANCE.md#delay-limits) and are marked for
+project-owner confirmation. A context may declare a shorter limit; the reference
+check returns `delay_limit_exceeds_tier_ceiling` for a longer one, including when
+a requirement is moved to a lower tier without tightening its limit. The check
+compares declarations only: it measures no elapsed time, observes no miss and
+enforces no response, and it does not touch the V.2 to V.4 emergency limits.
 
 ## Authority lifecycle
 

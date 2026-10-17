@@ -48,3 +48,15 @@ and the original Constitution/source records remain byte-for-byte unchanged.
 Material AI assistance: this profile, reference code and fixture design were
 prepared in the Worker 3 thread. Checks reported above were locally executed;
 no independent human review or institutional ratification is inferred.
+
+## Addendum — per-tier delay limits (issue 50, failure F-15)
+
+The record above is unchanged and describes the 2026-10-05 run. A later change adds a
+required `requirement.consequence.delay_limit` declaration, one proposed ceiling per
+tier (marked for project-owner confirmation) in the
+[tier table](../../../process/PROPORTIONAL_GOVERNANCE.md#delay-limits), the
+`delay_limit_exceeds_tier_ceiling` reference check, seven fixtures (51 in total) and
+ten test methods (four in `AuthorityContextTests`, six in
+`TierDelayLimitAuthorityContextTests`). `results.json` is regenerated for 51 fixtures.
+The check compares declared limits with tier ceilings only; it measures no elapsed
+time and enforces no miss response.

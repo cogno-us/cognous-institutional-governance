@@ -29,18 +29,59 @@ content, audience, cumulative volume, source, dependency or intended use changes
 
 ## Decision tiers
 
-| Tier | Conditions/examples | Evidence needed | Review and record burden |
-|---|---|---|---|
-| T0: routine information | Reversible, low-reliance information within a clear grant; opening hours from a current source | Current authoritative source/version; no material conflict; answer within allowed scope | Standing human approval of action class; routine execution can be automatic; compact trace, exception route and sampled review |
-| T1: bounded ordinary action | Limited reversible effect; small refund within an actual policy cap | Applicable facts, source, grant, scope/cap and practical reversal/delivery evidence | Delegated human or AI execution if actually authorized; no mandatory per-case committee; transaction record, sampling and challenge |
-| T2: consequential choice | Meaningful financial/access effects, sensitive reliance, dispute or material uncertainty | Claim-specific sources, contrary evidence, alternatives, affected people and reasons sufficient for the competent decision | Competent human prior decision for reserved/adverse choices; noninvolved review of challenges; short structured record and actual remedy check |
-| T3: severe or difficult-to-reverse effect | Death/serious injury, coercion, substantial rights loss, critical infrastructure or credible systemic exposure | Strong contextual evidence, source independence where material, adverse scenarios, external standards, qualified review and unresolved limits | Actual competent human authorization; independent challenge before effect where required; fuller material record, response/continuity arrangements and separate effect verification |
-| T4: foundational/structural change | Change to ends, protected constituency, decision rights or institutional architecture | Complete proposed change, legitimate constituency/process, alternatives, dependencies, dissent and cumulative effects | Reserved human constitutional/change process; cannot be delegated as a routine T0–T3 decision |
+| Tier | Conditions/examples | Evidence needed | Review and record burden | Delay limit (maximum time to a recorded disposition) |
+|---|---|---|---|---|
+| T0: routine information | Reversible, low-reliance information within a clear grant; opening hours from a current source | Current authoritative source/version; no material conflict; answer within allowed scope | Standing human approval of action class; routine execution can be automatic; compact trace, exception route and sampled review | 4 hours (14,400 s) |
+| T1: bounded ordinary action | Limited reversible effect; small refund within an actual policy cap | Applicable facts, source, grant, scope/cap and practical reversal/delivery evidence | Delegated human or AI execution if actually authorized; no mandatory per-case committee; transaction record, sampling and challenge | 1 day (86,400 s) |
+| T2: consequential choice | Meaningful financial/access effects, sensitive reliance, dispute or material uncertainty | Claim-specific sources, contrary evidence, alternatives, affected people and reasons sufficient for the competent decision | Competent human prior decision for reserved/adverse choices; noninvolved review of challenges; short structured record and actual remedy check | 3 days (259,200 s) |
+| T3: severe or difficult-to-reverse effect | Death/serious injury, coercion, substantial rights loss, critical infrastructure or credible systemic exposure | Strong contextual evidence, source independence where material, adverse scenarios, external standards, qualified review and unresolved limits | Actual competent human authorization; independent challenge before effect where required; fuller material record, response/continuity arrangements and separate effect verification | 7 days (604,800 s) |
+| T4: foundational/structural change | Change to ends, protected constituency, decision rights or institutional architecture | Complete proposed change, legitimate constituency/process, alternatives, dependencies, dissent and cumulative effects | Reserved human constitutional/change process; cannot be delegated as a routine T0–T3 decision | 30 days (2,592,000 s), to a recorded disposition into the reserved process only |
 
 The tier is a design recommendation, not a legal classification or validated
 probability cutoff. Controlling sector rules may require stricter treatment at
 any tier. T4 identifies the object of change; a T3 act can have more immediate
 physical consequences. Prohibited acts are outside all authorization routes.
+
+### Delay limits
+
+**PROPOSED; values are placeholders for the project owner to confirm.** The last
+column is the longest elapsed time a *complete* request (the requirement's
+evidence is supplied and the act is ready for the tier's review) may remain at
+that tier without a recorded disposition. A disposition is one of: the decision
+or effect authorized by a competent human or by an actual grant; a narrower
+authorized act; escalation to an alternate reviewer; or deferral with a stated
+reason. The limit is measured in elapsed time, including queue and contact time,
+not active person-minutes.
+
+- **Not a license.** Expiry never approves, never authorizes the act and never
+  moves it to a lower tier. A miss must trigger one of the Authority Context
+  `on_miss` responses: `escalate_to_alternate_reviewer`, `defer_with_reason` or
+  `narrower_authorized_action`. There is no automatic-approval value.
+- **Ceilings, not targets to approach.** An institution's Authority Context may
+  declare a shorter `max_pending_seconds` than its tier's value, never a longer
+  one; the reference check rejects it as `delay_limit_exceeds_tier_ceiling`.
+  Reclassifying to a lower tier therefore needs the shorter limit as well.
+- **Unchanged limits.** The V.2 necessity fallback (earliest V.3 event, no later
+  than 24 hours) and the V.4 filing and review times in
+  [review calibration](REVIEW_CALIBRATION.md) are unaffected. A limit here neither
+  replaces nor extends them and creates no emergency route.
+- **Higher tiers are longer.** They require more sequential review (independent
+  challenge, qualified review, separate effect verification), so their limits are
+  longer, not because more delay is acceptable. Where delay itself is harmful,
+  use a predelegated route or a narrower authorized act, and do not hide an
+  unavailable reviewer behind the limit.
+- **T4** has no decision deadline. Its limit applies only to recording that the
+  proposal has entered the reserved constitutional/change process or has been
+  deferred with reasons; the process sets its own timetable.
+- **Not validated.** These values are not derived from the Constitution or tested
+  against workload, harm or capacity data (see
+  [review calibration](REVIEW_CALIBRATION.md#observe-and-recalibrate)). The
+  competent human owner may change them by the competent procedure, and the
+  numbers in the [Authority Context](implementation/public-stack-v0.1/AUTHORITY_CONTEXT.md)
+  reference check (`TIER_DELAY_CEILING_SECONDS`) and in this table must agree; a
+  test fails if they differ. The reference check only compares a declared limit
+  with its tier ceiling. It does not measure elapsed time or enforce a miss
+  response.
 
 ### Safeguards against false low-risk classification
 

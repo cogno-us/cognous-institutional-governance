@@ -9,6 +9,11 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+# Proposed per-tier ceilings for consequence.delay_limit.max_pending_seconds. Owner to confirm: no value is validated or
+# derived from the constitution. The same numbers appear in the tier table of process/PROPORTIONAL_GOVERNANCE.md; a test
+# fails if the two drift. A context may declare a shorter limit, never a longer one.
+TIER_DELAY_CEILING_SECONDS = {'T0': 4 * 3600, 'T1': 24 * 3600, 'T2': 3 * 86400, 'T3': 7 * 86400, 'T4': 30 * 86400}
+
 SCHEMA_PATH = Path(__file__).resolve().parents[2] / 'process/implementation/public-stack-v0.1/authority-context.schema.json'
 
 
@@ -74,6 +79,7 @@ def reference_errors(context, snapshot, action, now, ancestors=()):
     check(inst['authority_mode'] == 'principle_inspired', 'unsupported_adoption_mode')
     check(context['change']['adoption_record_ref'] is None or context['change']['adoption_record_ref'] in snapshot['human_adoption_records'], 'unadopted_amendment')
     check(req['consequence']['tier'] != 'T4', 'reserved_constitutional_process')
+    check(req['consequence']['delay_limit']['max_pending_seconds'] <= TIER_DELAY_CEILING_SECONDS[req['consequence']['tier']], 'delay_limit_exceeds_tier_ceiling')
     check(req['consequence']['tier'] not in ('T2', 'T3') or bool(req['approvals']), 'missing_reserved_approval_requirement')
     for obligation in req['evidence']:
         expected = 'hold_effect' if obligation['kind'] == 'authorization' and obligation['required'] else 'reconcile_no_blind_retry' if obligation['kind'] == 'post_effect' else 'preserve_if_other_basis_suffices'

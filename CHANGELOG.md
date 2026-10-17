@@ -4,6 +4,12 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-17 — Per-tier delay limits (issue 50)
+
+- Added a proposed delay-limit column to the consequence tier table (T0 4 hours, T1 1 day, T2 3 days, T3 7 days, T4 30 days to a recorded disposition only). The values are placeholders for the project owner to confirm; they are not validated and do not change the V.2 to V.4 emergency limits.
+- A limit is a maximum time to a recorded disposition, never an approval: a miss can only escalate, defer with reasons or fall back to a narrower authorized act.
+- Authority Context 0.1.0 schema now requires `requirement.consequence.delay_limit`; the reference check rejects a limit above its tier ceiling. Seven fixtures and ten test methods added; examples and fixture bases updated. Elapsed-time measurement and miss handling remain unimplemented.
+
 ## 2026-10-05 — Authorization-to-effect contract and synthetic mechanics
 
 - Implemented the external review's recommended interface: temporal evidence obligations, relevant pre-effect/commit revalidation, required/optional/post-effect UNKNOWN, stable effect identity, distinct attempts and reconciliation. Documented the remaining check-to-commit and distributed-system limits.
