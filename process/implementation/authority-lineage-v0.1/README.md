@@ -26,7 +26,8 @@ The scoped harness checks the following finite invariants:
 5. a revoked or suspended current status cannot be represented by a later use as if active;
 6. succession preserves chronology but does not copy permission; the successor needs its own independently evidenced origin/delegation lineage;
 7. historical commitments remain historical evidence after later mutation, while current-use checks use the latest effective lineage known at the use time;
-8. evidence can be exported and hashed without transferring permission or creating authority in the recipient.
+8. evidence can be exported and hashed without transferring permission or creating authority in the recipient;
+9. validity dates are enforced for the synthetic checks: an origin's `effective_at` and each delegation's `valid_from` (inclusive) and `expires_at` (exclusive, `null` is open-ended) bound every point on the chain to an authority. A `referenced` use link, or a resolution commitment with status `active`, outside that window is refused; a `held` or `rejected` use stays representable. A delegation window must be non-empty and lie inside its parent's window.
 
 The harness runs semantic checks only on schema-valid bundles. It rejects non-finite (NaN or infinite) parent and child amounts, and it reports malformed input reached by the semantic pass as error strings, not exceptions.
 

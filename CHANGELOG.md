@@ -4,6 +4,12 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-18 — Authority Context schema generations
+
+- The head Authority Context schema is now **0.2.0** (`requirement.consequence.delay_limit` required). The 0.1.0 schema, as shipped before the delay-limit change, is kept as `authority-context.0.1.0.schema.json`. Each context is validated against the schema its own version names; other versions are refused; the delay-ceiling check runs for 0.2.0 only. No default delay is defined for 0.1.0 contexts, and `delay_limit` remains a declaration that nothing enforces.
+- **REVIEW (owner):** the 0.2.0 generation and the rule that consumers accept both generations explicitly are proposals for confirmation.
+- Authority lineage profile: origin `effective_at` and delegation `valid_from` / `expires_at` are now checked by the synthetic harness (a referenced use or an active resolution outside the window is refused, and a delegation window must be ordered and inside its parent's). Held and rejected uses outside a window remain representable.
+
 ## 2026-10-17 — Per-tier delay limits (issue 50)
 
 - Added a proposed delay-limit column to the consequence tier table (T0 4 hours, T1 1 day, T2 3 days, T3 7 days, T4 30 days to a recorded disposition only). The values are placeholders for the project owner to confirm; they are not validated and do not change the V.2 to V.4 emergency limits.

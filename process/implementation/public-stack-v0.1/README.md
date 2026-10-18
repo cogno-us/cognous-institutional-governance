@@ -63,9 +63,13 @@ establishes office legitimacy, an institutional grant or permission to act.
 
 ## Version and migration
 
-Authority Context and implementation profile are both proposed **0.1.0**. Exact
-version support is required; reject unsupported versions rather than coerce them.
-Schema identifier `urn:cognous:alvorada:authority-context:0.1.0` is an identifier,
+The implementation profile is proposed **0.1.0**. The Authority Context has two schema
+generations, **0.1.0** (`authority-context.0.1.0.schema.json`, no delay limit) and **0.2.0**
+(`authority-context.schema.json`, `requirement.consequence.delay_limit` required). Exact
+version support is required; reject unsupported versions rather than coerce them, and never
+supply a default delay for a 0.1.0 context. See the
+[schema generations](AUTHORITY_CONTEXT.md#schema-generations) table and its REVIEW marker.
+Schema identifiers `urn:cognous:alvorada:authority-context:0.1.0` and `...:0.2.0` are identifiers,
 not a network resolver. References may use URNs resolved through an explicitly
 trusted registry or HTTPS under a declared trust policy; validity is not access.
 No adjacent repository has been changed or bound to these field names.

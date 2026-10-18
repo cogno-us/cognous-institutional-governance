@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:cognous:alvorada:authority-context:0.1.0",
-  "title": "Proposed Authority Context 0.1.0",
+  "$id": "urn:cognous:alvorada:authority-context:0.2.0",
+  "title": "Proposed Authority Context 0.2.0",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "schema_version": {
-      "const": "0.1.0"
+      "const": "0.2.0"
     },
     "interface_status": {
       "const": "proposed_pending_governor_review"

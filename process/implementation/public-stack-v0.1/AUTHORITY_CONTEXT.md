@@ -1,4 +1,4 @@
-# Proposed Authority Context 0.1.0
+# Proposed Authority Context 0.2.0
 
 **Summary:** A requirement says what authority an action needs. A grant records
 what an issuer claims to have issued. A downstream decision determines whether
@@ -6,8 +6,9 @@ a particular effect may proceed under authenticated, current conditions. Keep
 those three objects distinct.
 
 **PROPOSED CROSS-COMPONENT INTERFACE; PENDING GOVERNOR REVIEW.**
-The [JSON Schema](authority-context.schema.json) checks structure, formats and
-exact version. [Reference fixtures](../../../testing/fixtures/authority-context/README.md)
+The [JSON Schema](authority-context.schema.json) (0.2.0; the earlier
+[0.1.0 schema](authority-context.0.1.0.schema.json) is kept as a versioned file) checks
+structure, formats and exact version. [Reference fixtures](../../../testing/fixtures/authority-context/README.md)
 check a finite subset of semantics under synthetic assumptions. Neither is a
 permission service. Start with [worked cases](WORKED_CASES.md).
 
@@ -15,7 +16,7 @@ permission service. Start with [worked cases](WORKED_CASES.md).
 
 | Field | Meaning and required resolution |
 |---|---|
-| `schema_version`, `interface_status`, `context_id` | Exact proposed version 0.1.0, explicit review-pending label and stable context identifier |
+| `schema_version`, `interface_status`, `context_id` | Exact proposed version (0.2.0, or the earlier 0.1.0), explicit review-pending label and stable context identifier |
 | `institution` | Institutional ID, authority domain, independently resolvable authority basis and selected mode; modes do not prove adoption |
 | `principal`, `acting_identity` | Responsible principal receiving a grant and authenticated identity acting for it; neither is established by a supplied string |
 | `accountable_human_role` | Human principal, role and actual mandate reference; human accountability cannot be replaced by a wallet or model |
@@ -63,7 +64,7 @@ It is neither a PRP reasoning level, Index epistemic status nor implementation
 maturity score. The competent human owns classifications; this schema cannot
 validate a tier's accuracy or generate a downgrade.
 
-`requirement.consequence.delay_limit` is required. It declares
+`requirement.consequence.delay_limit` is required in 0.2.0 and not defined in 0.1.0. It declares
 `max_pending_seconds`, the longest elapsed time a complete request may remain at
 that tier without a recorded disposition, and `on_miss`, one of
 `escalate_to_alternate_reviewer`, `defer_with_reason` or
@@ -77,6 +78,25 @@ check returns `delay_limit_exceeds_tier_ceiling` for a longer one, including whe
 a requirement is moved to a lower tier without tightening its limit. The check
 compares declarations only: it measures no elapsed time, observes no miss and
 enforces no response, and it does not touch the V.2 to V.4 emergency limits.
+
+## Schema generations
+
+| Version | Schema file | `consequence.delay_limit` |
+|---|---|---|
+| 0.1.0 | [`authority-context.0.1.0.schema.json`](authority-context.0.1.0.schema.json) | not defined; a context that carries it is refused |
+| 0.2.0 | [`authority-context.schema.json`](authority-context.schema.json) | required |
+
+A context is validated against the schema its own `schema_version` names. A missing,
+unsupported or non-string version is refused; nothing is coerced between generations.
+The requirement member is part of the compared binding, so the same requirement written
+under 0.1.0 and under 0.2.0 has different digests and needs its own trusted binding.
+A consumer that accepts both generations must say so explicitly. It treats `delay_limit`
+as declaration only until it enforces it, and it never supplies a default delay for a
+0.1.0 context: there is no default delay.
+
+**REVIEW (owner):** the 0.2.0 generation, the five proposed tier ceilings and the rule that
+both generations stay accepted are proposals for the project owner to confirm. Nothing here
+is ratified.
 
 ## Authority lifecycle
 
