@@ -17,7 +17,7 @@
 
 **Alvorada: authority, challenge and correction for institutions.**
 
-**Stack group: 02 · Institutional Governance.** See the [six-group component map](#cognous-stack-components).
+**Stack group: 02 · Institutional Governance.** See the [five-group component map](#cognous-stack-components).
 
 ## Overview
 
@@ -29,7 +29,7 @@ An open research framework for businesses, public bodies and communities, with o
 
 For readers who want one route rather than a repository tour, use the [guides index](docs/README.md), [Getting started](docs/GETTING_STARTED.md), and the [invented service case](docs/examples/SERVICE_CASE.md). Constitutional designs, historical research, proposed workflows and actual institutional adoption are different categories; the [evidence status guide](docs/EVIDENCE_STATUS.md) records those distinctions.
 
-The current [hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `fb3d97938969a89e149e8ff8db2756091d1233fc`. This repository's accepted main source `89e4722b0b7b9337d47f36afd28a28b076b128fd` contains additional research/implementation material. The older `5737267d...` hub link in the historical reference section below is **not** a substitute for the current release lock. Later source acceptance does not create adoption or automatically update runtime selection.
+The current [hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `fb3d97938969a89e149e8ff8db2756091d1233fc`. An earlier accepted main source, `89e4722b0b7b9337d47f36afd28a28b076b128fd`, is superseded: the V1 profile (revisions r4 to r8) pins this repository at `cbc39e79`, and main has moved on since (Authority Context 0.2.0 first appears at `d40522af`); the hub lock does not select those later revisions. This repository's main source contains additional research/implementation material. The older `5737267d...` hub link in the historical reference section below is **not** a substitute for the current release lock. Later source acceptance does not create adoption or automatically update runtime selection.
 
 **Example:** A caseworker's refund recommendation may cite a proposed review rule; that citation is not a grant. Before software attempts an effect, the relevant real institution must establish decision rights, authenticate the authority source and provide any required approval through its own process. A synthetic Authority Context fixture can test schema and downstream refusal logic, but cannot attest that an actual institution adopted the proposed constitution, mandate or policy. A successful attestation of bytes likewise establishes no grant. Cognous operational environment trust remains [not established](https://github.com/cogno-us/cognous-stack-orchestrator/issues/30).
 
@@ -110,7 +110,7 @@ See the [research bibliography](https://github.com/cogno-us/cognous-open-control
 
 ## Cognous stack components
 
-The six groups organize component responsibilities. They are not an execution
+The five groups organize component responsibilities. They are not an execution
 sequence or a requirement to install every component. The [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json)
 defines the selected integration; [release status](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md)
 defines its evidence and limits.
@@ -122,7 +122,6 @@ defines its evidence and limits.
 | **03 · Declaration & Policy Control** | [Action Manifest](https://github.com/cogno-us/cognous-action-manifest) · [Control Plane](https://github.com/cogno-us/cognous-control-plane) |
 | **04 · Constrained Execution** | [Execution Runtime (Moltbot Safe)](https://github.com/cogno-us/cognous-execution-runtime) |
 | **05 · Replay & Evidence** | [Replay Bundle](https://github.com/cogno-us/cognous-replay-bundle) · [Governance Evidence Pack](https://github.com/cogno-us/cognous-governance-evidence-pack) · [ODES](https://github.com/cogno-us/open-decision-evidence-standard) |
-| **06 · Reasoning & Human Oversight** | [PRP](https://github.com/cogno-us/portable-reasoning-protocol) · [Research Intelligence](https://github.com/cogno-us/research-intelligence-protocol) · [TFA](https://github.com/cogno-us/truth-freedom-agency-protocol) |
 
 **Cross-cutting exchange:** [Governed Exchange (GAX/IMX)](https://github.com/cogno-us/cognous-governed-exchange) connects
 governed messages, recipient assessment and continuity across the groups. It is
@@ -130,8 +129,9 @@ separate from Alvorada's institutional authority framework.
 
 Execution Runtime and Moltbot Safe name the same repository here. The supported
 Cognous Python execution boundary remains distinct from the retained upstream
-application. PRP, Research Intelligence and TFA are optional behavioral
-instructions; they do not enforce authorization or substitute for human oversight.
+application. The reasoning protocols (PRP, Research Intelligence, TFA) are not part
+of the V1 stack scope; they are optional behavioral instructions and do not enforce
+authorization or substitute for human oversight.
 A signature, registry entry, message receipt or evidence summary does not grant
 execution authority.
 

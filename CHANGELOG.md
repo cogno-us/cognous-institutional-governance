@@ -4,6 +4,10 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-18 — Wording alignment
+
+- README: the component map now lists the five groups of the stack hub; the source-revision sentence names the V1 profile pin and notes that the hub lock selects an earlier Authority Context revision than main. Authority Context 0.2.0 is stated as absent from the hub-lock revision. Authority lineage: single-lineage derivation sentence and known limits of the date checks. Wording only; no behaviour change.
+
 ## 2026-10-18 — Authority Context schema generations
 
 - The head Authority Context schema is now **0.2.0** (`requirement.consequence.delay_limit` required). The 0.1.0 schema, as shipped before the delay-limit change, is kept as `authority-context.0.1.0.schema.json`. Each context is validated against the schema its own version names; other versions are refused; the delay-ceiling check runs for 0.2.0 only. No default delay is defined for 0.1.0 contexts, and `delay_limit` remains a declaration that nothing enforces.
