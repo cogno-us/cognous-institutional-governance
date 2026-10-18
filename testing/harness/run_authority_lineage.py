@@ -71,6 +71,32 @@ def _state_at(bundle, authority_id, when):
         if m["permission_scope_after"] is not None: out["scope"]=m["permission_scope_after"]
     return out
 
+def _windows(bundle, authority_id):
+    """Validity windows (start, end or None) on the chain from an authority back to its origin."""
+    result=[]; current=authority_id
+    for _ in range(len(bundle["delegations"])+1):
+        edge=next((e for e in bundle["delegations"] if e["child_authority_id"]==current),None)
+        if edge is None: break
+        result.append((_dt(edge["valid_from"]),None if edge["expires_at"] is None else _dt(edge["expires_at"])))
+        current=edge["parent_authority_id"]
+    origin=next((o for o in bundle["origins"] if o["authority_id"]==current),None)
+    if origin is not None: result.append((_dt(origin["effective_at"]),None))
+    return result
+
+def _within(bundle, authority_id, when):
+    return all(start<=when and (end is None or when<end) for start,end in _windows(bundle,authority_id))
+
+def _window_errors(bundle):
+    errors=[]
+    for e in bundle["delegations"]:
+        start=_dt(e["valid_from"]); end=None if e["expires_at"] is None else _dt(e["expires_at"])
+        if end is not None and end<=start: errors.append("delegation validity window is empty or inverted")
+        parent=_windows(bundle,e["parent_authority_id"])
+        if parent:
+            p_start=max(s for s,_ in parent); p_ends=[x for _,x in parent if x is not None]
+            if start<p_start or (p_ends and (end is None or end>min(p_ends))): errors.append("delegation validity extends beyond its parent")
+    return errors
+
 _MALFORMED=(KeyError,TypeError,ValueError)
 
 def _semantic_message(exc):
@@ -86,6 +112,8 @@ def _semantic_errors(bundle, errors):
     try:
         records=_record_index(bundle); known=set(_authority_state(bundle))
     except _MALFORMED as exc: return [_semantic_message(exc)]
+    try: errors.extend(_window_errors(bundle))
+    except _MALFORMED as exc: errors.append(_semantic_message(exc))
     for s in bundle["successions"]:
         if s["predecessor_authority_id"] not in known: errors.append("succession predecessor unknown")
         if s["successor_authority_id"] not in known: errors.append("succession successor has no independent origin/delegation lineage")
@@ -97,6 +125,7 @@ def _semantic_errors(bundle, errors):
             actual=_state_at(bundle,c["authority_id"],_dt(c["resolution_time"]))
             if c["resolved_revision"]!=actual["revision"]: errors.append("resolution revision inconsistent with effective lineage")
             if c["resolved_status"]!=actual["status"]: errors.append("resolution status inconsistent with effective lineage")
+            if c["resolved_status"]=="active" and not _within(bundle,c["authority_id"],_dt(c["resolution_time"])): errors.append("resolution status active outside delegation validity window")
         except _MALFORMED as exc: errors.append(_semantic_message(exc))
     for u in bundle["use_links"]:
         c=commitments.get(u["resolution_commitment_id"])
@@ -107,6 +136,7 @@ def _semantic_errors(bundle, errors):
             actual=_state_at(bundle,u["authority_id"],_dt(u["used_at"]))
             if actual["revision"]!=u["authority_revision"]: errors.append("use link relies on historical revision after effective mutation")
             if actual["status"]!="active" and u["use_disposition"]=="referenced": errors.append("use link references non-active current authority")
+            if u["use_disposition"]=="referenced" and not _within(bundle,u["authority_id"],_dt(u["used_at"])): errors.append("use link references authority outside its delegation validity window")
             if c["resolved_revision"]!=actual["revision"] or c["resolved_status"]!=actual["status"]: errors.append("use link commitment is stale relative to current effective lineage")
         except _MALFORMED as exc: errors.append(_semantic_message(exc))
     return errors

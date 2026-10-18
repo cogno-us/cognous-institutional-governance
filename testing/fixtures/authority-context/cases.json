@@ -1021,5 +1021,89 @@
     ],
     "schema_valid": false,
     "expected_errors": []
+  },
+  {
+    "id": "v0-1-0-routine-without-delay-limit",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "schema_version"
+        ],
+        "value": "0.1.0"
+      },
+      {
+        "op": "delete",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit"
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "requirement_bindings",
+          "urn:example:requirement:refund"
+        ],
+        "value": "18f57d97779469ed170303d9980cf8f05c0120e91e742c6533b663843fef9654"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": []
+  },
+  {
+    "id": "v0-1-0-higher-consequence-without-delay-limit",
+    "base": "higher-consequence",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "schema_version"
+        ],
+        "value": "0.1.0"
+      },
+      {
+        "op": "delete",
+        "path": [
+          "context",
+          "requirement",
+          "consequence",
+          "delay_limit"
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "snapshot",
+          "requirement_bindings",
+          "urn:example:requirement:refund"
+        ],
+        "value": "1aa829e595b99c0ed0bb9fe29c6baa3bbbd062d001297ec699fc00c1bb49fad8"
+      }
+    ],
+    "schema_valid": true,
+    "expected_errors": []
+  },
+  {
+    "id": "v0-1-0-cannot-carry-delay-limit",
+    "base": "routine",
+    "patches": [
+      {
+        "op": "set",
+        "path": [
+          "context",
+          "schema_version"
+        ],
+        "value": "0.1.0"
+      }
+    ],
+    "schema_valid": false,
+    "expected_errors": []
   }
 ]

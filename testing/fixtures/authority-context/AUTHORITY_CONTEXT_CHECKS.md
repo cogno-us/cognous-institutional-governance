@@ -60,3 +60,13 @@ ten test methods (four in `AuthorityContextTests`, six in
 `TierDelayLimitAuthorityContextTests`). `results.json` is regenerated for 51 fixtures.
 The check compares declared limits with tier ceilings only; it measures no elapsed
 time and enforces no miss response.
+
+## Addendum — schema generations (0.1.0 and 0.2.0)
+
+The delay-limit requirement above was first added to the 0.1.0 schema in place, so one label
+described two incompatible shapes. The head schema is now 0.2.0 (delay limit required) and the
+0.1.0 schema is kept unchanged as `authority-context.0.1.0.schema.json`. The harness validates
+each context against the schema its `schema_version` names and refuses any other version; the
+tier-ceiling check runs for 0.2.0 only. Three fixtures are added (54 in total): two 0.1.0
+contexts without a delay limit that pass, and a 0.1.0 context that carries one and is refused.
+The 51 earlier results are unchanged apart from the version label on the bases.

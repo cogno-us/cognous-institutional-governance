@@ -13,8 +13,8 @@ class AuthorityContextTests(unittest.TestCase):
     def test_schema_and_semantic_fixture_oracles(self):
         from run_authority_context import execute
         result = execute()
-        self.assertEqual(result['fixture_count'], 51)
-        self.assertEqual(len({row['id'] for row in result['results']}), 51)
+        self.assertEqual(result['fixture_count'], 54)
+        self.assertEqual(len({row['id'] for row in result['results']}), 54)
         for row in result['results']:
             with self.subTest(fixture=row['id']):
                 self.assertTrue(row['oracle_satisfied'], row)

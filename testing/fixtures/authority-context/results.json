@@ -2,8 +2,8 @@
   "status": "EXECUTED_LOCAL_REFERENCE_CHECKS",
   "runtime_enforcement": false,
   "independently_reviewed": false,
-  "fixture_count": 51,
-  "passed": 51,
+  "fixture_count": 54,
+  "passed": 54,
   "results": [
     {
       "id": "scoped-class-grant",
@@ -393,6 +393,24 @@
     },
     {
       "id": "delay-limit-must-be-positive",
+      "schema_valid": false,
+      "reference_errors": null,
+      "oracle_satisfied": true
+    },
+    {
+      "id": "v0-1-0-routine-without-delay-limit",
+      "schema_valid": true,
+      "reference_errors": [],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "v0-1-0-higher-consequence-without-delay-limit",
+      "schema_valid": true,
+      "reference_errors": [],
+      "oracle_satisfied": true
+    },
+    {
+      "id": "v0-1-0-cannot-carry-delay-limit",
       "schema_valid": false,
       "reference_errors": null,
       "oracle_satisfied": true

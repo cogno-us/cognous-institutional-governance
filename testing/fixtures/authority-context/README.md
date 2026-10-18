@@ -1,6 +1,6 @@
 # Authority Context reference checks
 
-**Summary:** These local checks exercise the proposed 0.1.0 interface and reject
+**Summary:** These local checks exercise the proposed 0.1.0 and 0.2.0 interface generations and reject
 represented scope and authority errors. They do not authenticate institutions,
 enforce an external action or establish that a grant is real.
 

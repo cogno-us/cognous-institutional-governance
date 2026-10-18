@@ -1,5 +1,5 @@
 """Scoped qualification for authority-lineage evidence profile 0.1.0."""
-import importlib.util, sys, unittest
+import copy, importlib.util, sys, unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "testing" / "harness"))
 
@@ -54,5 +54,96 @@ class AuthorityLineageTests(unittest.TestCase):
                 self.assertTrue(validate(bundle))
         self.assertIn("malformed lineage input: KeyError: 'successions'",semantic_errors(missing))
         self.assertTrue(any(e.startswith("malformed lineage input: TypeError") for e in semantic_errors(naive)))
+
+
+# Validity dates (origin effective_at, delegation valid_from/expires_at)
+AGENT = "urn:cognous:authority:refund-agent"
+
+
+def two_level(bundle):
+    """Add a second delegation (agent -> sub-agent) under the base delegation."""
+    from run_authority_lineage import _scope
+    edge = copy.deepcopy(bundle["delegations"][0])
+    edge.update(delegation_id="urn:cognous:delegation:edge-2", parent_authority_id=AGENT,
+                child_authority_id="urn:cognous:authority:refund-subagent", delegated_at="2026-10-03T00:00:00Z",
+                valid_from="2026-10-03T00:00:00Z", expires_at="2026-10-20T00:00:00Z",
+                permission_scope=_scope(["refund"], ["urn:cognous:acct:customer-7"], ["billing"], 50, "USD", 1))
+    edge["source_evidence_refs"] = ["urn:cognous:evidence:delegation-2"]
+    bundle["delegations"].append(edge)
+    bundle["delegations"][0].update(may_redelegate=True, remaining_depth=1)
+    return edge
+
+
+@unittest.skipUnless(importlib.util.find_spec("jsonschema"), "install testing/harness/requirements-authority-lineage.txt")
+class AuthorityLineageValidityTests(unittest.TestCase):
+    def bundle(self):
+        from run_authority_lineage import fixture_bundle
+        return fixture_bundle()
+
+    def validate(self, bundle):
+        from run_authority_lineage import validate
+        return validate(bundle)
+
+    def test_valid_controls_still_pass(self):
+        b = self.bundle()
+        self.assertEqual(self.validate(b), [])
+        nested = self.bundle(); two_level(nested)
+        self.assertEqual(self.validate(nested), [])
+        open_ended = self.bundle(); open_ended["delegations"][0]["expires_at"] = None
+        self.assertEqual(self.validate(open_ended), [])
+
+    def test_referenced_use_after_delegation_expiry_is_refused(self):
+        b = self.bundle(); b["delegations"][0]["expires_at"] = "2026-10-03T00:00:02Z"
+        self.assertEqual(self.validate(b), [])
+        b["delegations"][0]["expires_at"] = "2026-10-03T00:00:01Z"  # the end instant itself is outside the window
+        self.assertIn("use link references authority outside its delegation validity window", self.validate(b))
+
+    def test_referenced_use_before_delegation_start_is_refused(self):
+        b = self.bundle(); b["delegations"][0].update(delegated_at="2026-10-02T00:00:00Z", valid_from="2026-10-03T00:00:02Z")
+        self.assertIn("use link references authority outside its delegation validity window", self.validate(b))
+
+    def test_held_use_after_expiry_keeps_the_negative_fact(self):
+        b = self.bundle(); b["delegations"][0]["expires_at"] = "2026-10-03T00:00:00.500000Z"
+        b["use_links"][0]["use_disposition"] = "held"
+        self.assertEqual(self.validate(b), [])
+        b["use_links"][0]["use_disposition"] = "rejected"
+        self.assertEqual(self.validate(b), [])
+
+    def test_active_resolution_outside_the_window_is_refused(self):
+        b = self.bundle(); b["delegations"][0]["expires_at"] = "2026-10-02T12:00:00Z"
+        self.assertIn("resolution status active outside delegation validity window", self.validate(b))
+        early = self.bundle(); early["resolution_commitments"][0]["resolution_time"] = "2026-10-01T12:00:00Z"
+        early["use_links"][0]["used_at"] = "2026-10-01T12:00:01Z"
+        self.assertIn("resolution status active outside delegation validity window", self.validate(early))
+
+    def test_resolution_before_origin_effective_time_is_refused(self):
+        b = self.bundle(); b["origins"][0].update(effective_at="2026-10-04T00:00:00Z", recorded_at="2026-10-04T00:00:00Z")
+        self.assertIn("resolution status active outside delegation validity window", self.validate(b))
+
+    def test_delegation_window_must_be_ordered_and_inside_its_parent(self):
+        inverted = self.bundle(); inverted["delegations"][0].update(valid_from="2026-11-02T00:00:00Z")
+        self.assertIn("delegation validity window is empty or inverted", self.validate(inverted))
+        late = self.bundle(); edge = two_level(late); edge["expires_at"] = "2026-12-01T00:00:00Z"
+        self.assertIn("delegation validity extends beyond its parent", self.validate(late))
+        early = self.bundle(); edge = two_level(early); edge.update(delegated_at="2026-10-01T12:00:00Z", valid_from="2026-10-01T12:00:00Z")
+        self.assertIn("delegation validity extends beyond its parent", self.validate(early))
+        unbounded = self.bundle(); edge = two_level(unbounded); edge["expires_at"] = None
+        self.assertIn("delegation validity extends beyond its parent", self.validate(unbounded))
+
+    def test_nested_use_is_bounded_by_every_edge_on_the_chain(self):
+        b = self.bundle(); edge = two_level(b)
+        b["delegations"][0]["expires_at"] = "2026-10-03T12:00:00Z"
+        edge["expires_at"] = "2026-10-03T12:00:00Z"
+        b["resolution_commitments"][0].update(authority_id=edge["child_authority_id"], resolution_time="2026-10-04T00:00:00Z")
+        b["use_links"][0].update(authority_id=edge["child_authority_id"], used_at="2026-10-04T00:00:01Z")
+        errors = self.validate(b)
+        self.assertIn("use link references authority outside its delegation validity window", errors)
+
+    def test_malformed_dates_return_errors_not_exceptions(self):
+        b = self.bundle(); b["delegations"][0]["expires_at"] = "2026-10-03T00:00:00"
+        errors = self.validate(b)
+        self.assertTrue(errors)
+        self.assertTrue(all(isinstance(e, str) for e in errors))
+
 
 if __name__=="__main__": unittest.main()

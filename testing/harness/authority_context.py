@@ -14,12 +14,20 @@ from pathlib import Path
 # fails if the two drift. A context may declare a shorter limit, never a longer one.
 TIER_DELAY_CEILING_SECONDS = {'T0': 4 * 3600, 'T1': 24 * 3600, 'T2': 3 * 86400, 'T3': 7 * 86400, 'T4': 30 * 86400}
 
-SCHEMA_PATH = Path(__file__).resolve().parents[2] / 'process/implementation/public-stack-v0.1/authority-context.schema.json'
+PROFILE_DIR = Path(__file__).resolve().parents[2] / 'process/implementation/public-stack-v0.1'
+# Head schema is 0.2.0 (consequence.delay_limit required). 0.1.0 stays available as a versioned file and has no delay limit.
+SCHEMA_PATH = PROFILE_DIR / 'authority-context.schema.json'
+SCHEMA_PATHS = {'0.1.0': PROFILE_DIR / 'authority-context.0.1.0.schema.json', '0.2.0': SCHEMA_PATH}
 
 
 def schema_errors(context):
+    """Validate against the schema generation the context names; any other or missing version is refused."""
     from jsonschema import Draft202012Validator, FormatChecker
-    schema = json.loads(SCHEMA_PATH.read_text())
+    version = context.get('schema_version') if isinstance(context, dict) else None
+    path = SCHEMA_PATHS.get(version) if isinstance(version, str) else None
+    if path is None:
+        return ['unsupported or missing schema_version: expected one of ' + ', '.join(sorted(SCHEMA_PATHS))]
+    schema = json.loads(path.read_text())
     Draft202012Validator.check_schema(schema)
     return sorted(error.message for error in Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(context))
 
@@ -79,7 +87,9 @@ def reference_errors(context, snapshot, action, now, ancestors=()):
     check(inst['authority_mode'] == 'principle_inspired', 'unsupported_adoption_mode')
     check(context['change']['adoption_record_ref'] is None or context['change']['adoption_record_ref'] in snapshot['human_adoption_records'], 'unadopted_amendment')
     check(req['consequence']['tier'] != 'T4', 'reserved_constitutional_process')
-    check(req['consequence']['delay_limit']['max_pending_seconds'] <= TIER_DELAY_CEILING_SECONDS[req['consequence']['tier']], 'delay_limit_exceeds_tier_ceiling')
+    # 0.1.0 contexts declare no delay limit: nothing to compare, and no default is invented.
+    if context['schema_version'] == '0.2.0':
+        check(req['consequence']['delay_limit']['max_pending_seconds'] <= TIER_DELAY_CEILING_SECONDS[req['consequence']['tier']], 'delay_limit_exceeds_tier_ceiling')
     check(req['consequence']['tier'] not in ('T2', 'T3') or bool(req['approvals']), 'missing_reserved_approval_requirement')
     for obligation in req['evidence']:
         expected = 'hold_effect' if obligation['kind'] == 'authorization' and obligation['required'] else 'reconcile_no_blind_retry' if obligation['kind'] == 'post_effect' else 'preserve_if_other_basis_suffices'
