@@ -29,6 +29,10 @@ The scoped harness checks the following finite invariants:
 8. evidence can be exported and hashed without transferring permission or creating authority in the recipient;
 9. validity dates are enforced for the synthetic checks: an origin's `effective_at` and each delegation's `valid_from` (inclusive) and `expires_at` (exclusive, `null` is open-ended) bound every point on the chain to an authority. A `referenced` use link, or a resolution commitment with status `active`, outside that window is refused; a `held` or `rejected` use stays representable. A delegation window must be non-empty and lie inside its parent's window.
 
+An effective authority is derived from a single lineage, never from the union of two independent principals' scopes.
+
+Known limits of the date checks: windows come from the delegation chain and the origin only. A mutation recorded after a delegation expired, and lineage-level dates on succession records, are not checked.
+
 The harness runs semantic checks only on schema-valid bundles. It rejects non-finite (NaN or infinite) parent and child amounts, and it reports malformed input reached by the semantic pass as error strings, not exceptions.
 
 These checks are synthetic and conservative. They do not authenticate institutional sources, determine lawful mandate, validate cryptographic signatures, provide a production resolver, propagate revocation, enforce runtime permissions, or prove field adoption.
