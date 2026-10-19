@@ -15,86 +15,141 @@
 
 # Cognous Institutional Governance
 
-**Alvorada: authority, challenge and correction for institutions.**
+**Authority, challenge and correction for institutions.** Display alias: Alvorada (the older name; the repository and the component are called Institutional Governance, and the former alvorada repository is now the [governed exchange](https://github.com/cogno-us/cognous-governed-exchange); see the hub [naming table](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/naming.md)).
 
-**Stack group: 02 · Institutional Governance.** See the [five-group component map](#cognous-stack-components).
+**Status:** group 02 · Institutional Governance; lock status **selected** (Authority Context 0.1.0 at the revision named in the [revision table](#revisions-and-selection)); constitutional designs, the delay limit and the 0.2.0 schema generation are **proposed**; proposed authority is not operative authority. Nothing here is a release. Cognous operational environment trust remains [not established](https://github.com/cogno-us/cognous-stack-orchestrator/issues/30).
 
-## Overview
+## What it is
 
-An open research framework for businesses, public bodies and communities, with or without AI. It combines proposed constitutional designs, proportional governance, domain guidance, decision templates and a public-stack implementation profile. Repository acceptance does not ratify a constitution.
+An open research framework for businesses, public bodies and communities, with or without AI. It combines proposed constitutional designs, proportional governance, domain guidance, decision templates and a public-stack implementation profile (the Authority Context) with a small reference checker. Repository acceptance does not ratify a constitution.
 
-**Implementation status:** public reference work. The [current component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) defines the selected integration; a component merge does not automatically change that selection or approve deployment.
+**Who it is for.** Institutional designers, governance reviewers and teams mapping human authority into software. Institutions need to identify who may decide, how decisions can be challenged and who verifies correction. AI can assist evidence preparation and routine review, but it cannot create institutional authority or turn a published design into operative law.
 
-## Read proposed authority versus operative authority
+**What it does not do.** This remains proposed guidance and constitutional research, not adopted governance, operative law or demonstrated institutional superiority. Synthetic adapters did not demonstrate better institutional outcomes than conventional controls. Runtime enforcement belongs downstream (Control Plane and Execution Runtime); constitutional text, recorded decisions and source hierarchy remain intact. See [limits](#limits).
 
-For readers who want one route rather than a repository tour, use the [guides index](docs/README.md), [Getting started](docs/GETTING_STARTED.md), and the [invented service case](docs/examples/SERVICE_CASE.md). Constitutional designs, historical research, proposed workflows and actual institutional adoption are different categories; the [evidence status guide](docs/EVIDENCE_STATUS.md) records those distinctions.
+**Example.** A caseworker's refund recommendation may cite a proposed review rule; that citation is not a grant. Before software attempts an effect, the relevant real institution must establish decision rights, authenticate the authority source and provide any required approval through its own process. A synthetic Authority Context fixture can test schema and downstream refusal logic, but cannot attest that an actual institution adopted the proposed constitution, mandate or policy. A successful attestation of bytes likewise establishes no grant. A valid signature, chain inclusion, message receipt, reasoning instruction or evidence-package digest does not authorize execution; institutional authority must be supplied and evaluated through the appropriate trusted boundary.
 
-The current [hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `fb3d97938969a89e149e8ff8db2756091d1233fc`. An earlier accepted main source, `89e4722b0b7b9337d47f36afd28a28b076b128fd`, is superseded: the V1 profile (revisions r4 to r8) pins this repository at `cbc39e79`, and main has moved on since (Authority Context 0.2.0 first appears at `d40522af`); the hub lock does not select those later revisions. This repository's main source contains additional research/implementation material. The older `5737267d...` hub link in the historical reference section below is **not** a substitute for the current release lock. Later source acceptance does not create adoption or automatically update runtime selection.
+## Where it fits
 
-**Example:** A caseworker's refund recommendation may cite a proposed review rule; that citation is not a grant. Before software attempts an effect, the relevant real institution must establish decision rights, authenticate the authority source and provide any required approval through its own process. A synthetic Authority Context fixture can test schema and downstream refusal logic, but cannot attest that an actual institution adopted the proposed constitution, mandate or policy. A successful attestation of bytes likewise establishes no grant. Cognous operational environment trust remains [not established](https://github.com/cogno-us/cognous-stack-orchestrator/issues/30).
+<a id="cognous-stack-components"></a>
 
-## Purpose and intended users
+<!-- stack-map:start -->
+<!-- Canonical block: identical text in every component README. Source: docs/stack-map.md in the hub. Refresh at the pin round. -->
+The Open Control Stack groups its repositories by responsibility. The groups are a navigation map, not an execution sequence and not a requirement to install every component. The hub [component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) is the only source of selected revisions; [release status](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) states their evidence and limits. Last checked against `component-lock.json` at hub commit `dcc9bd7533ef`.
 
-Institutions need to identify who may decide, how decisions can be challenged and who verifies correction. AI can assist evidence preparation and routine review, but it cannot create institutional authority or turn a published design into operative law.
+| Group | Members |
+| --- | --- |
+| **01 Knowledge & Provenance** | [Evidence Registry (The Index)](https://github.com/cogno-us/cognous-evidence-registry) · [Evidence Attestation (BitRep)](https://github.com/cogno-us/cognous-evidence-attestation) |
+| **02 Institutional Governance** | [Institutional Governance (Alvorada)](https://github.com/cogno-us/cognous-institutional-governance) |
+| **03 Declaration & Policy Control** | [Action Manifest](https://github.com/cogno-us/cognous-action-manifest) · [Control Plane](https://github.com/cogno-us/cognous-control-plane) |
+| **04 Constrained Execution** | [Execution Runtime](https://github.com/cogno-us/cognous-execution-runtime) |
+| **05 Replay & Evidence** | [Replay Bundle](https://github.com/cogno-us/cognous-replay-bundle) · [Governance Evidence Pack](https://github.com/cogno-us/cognous-governance-evidence-pack) · [ODES](https://github.com/cogno-us/open-decision-evidence-standard) |
+| **Cross-cutting exchange** | [Governed Exchange (GAX/IMX)](https://github.com/cogno-us/cognous-governed-exchange) |
+| **Optional reasoning protocols** (side group) | [Portable Reasoning Protocol (PRP)](https://github.com/cogno-us/portable-reasoning-protocol) · [Research Intelligence Protocol](https://github.com/cogno-us/research-intelligence-protocol) · [TFA Protocol](https://github.com/cogno-us/truth-freedom-agency-protocol) |
+| **Tooling and qualification** (side group) | [Ergonomics (`cognous-ocs`)](https://github.com/cogno-us/cognous-open-control-stack-ergonomics) · [Verifier](https://github.com/cogno-us/cognous-open-control-stack-verifier) · [Orchestrator](https://github.com/cogno-us/cognous-stack-orchestrator) · [Qualification](https://github.com/cogno-us/cognous-stack-qualification) |
 
-Institutional designers, governance reviewers and teams mapping human authority into software should begin with the public research and its evidence limits.
+Status labels used in this README: **merged** (reviewed and merged in the owning repository; not by itself selected), **selected** (pinned in the hub lock), **known limit** (a limitation that is stated and kept visible) and **proposed** (draft or planned work, not a supported interface). Full map, names and commands: [stack map](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/stack-map.md), [naming](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/naming.md), [profiles and tools](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/profiles-and-tools.md). A signature, registry entry, message receipt or evidence summary does not grant execution authority.
+<!-- stack-map:end -->
 
-## Key features
+This component sits in group 02. Its Authority Context is consumed downstream by [Action Manifest](https://github.com/cogno-us/cognous-action-manifest) (declares requirements), [Control Plane](https://github.com/cogno-us/cognous-control-plane) (resolves actual authority and decides) and [Execution Runtime](https://github.com/cogno-us/cognous-execution-runtime) (enforces at the effect boundary); evidence about it can travel through [Replay Bundle](https://github.com/cogno-us/cognous-replay-bundle) and [ODES](https://github.com/cogno-us/open-decision-evidence-standard). The downstream controller must still authenticate the deployment's resolver and enforce its permissions at effect time. Test results, run commentary and historical qualification records are in the [central test hub](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md); read them against their recorded source revisions.
 
-| Capability | Implemented or specified responsibility |
-|---|---|
-| **Constitutional design** | Inspect a common charter, proposed profiles and the preserved original Constitution v0.1. |
-| **Proportional governance** | Match review intensity to consequences, reversibility and uncertainty. |
-| **Challenge and remedy** | Make dissent, review, succession, emergencies and correction visible in institutional design. |
-| **Domain guidance** | Apply the proposed framework to specific contexts while recording departures and local decisions. |
-| **Authority Context profile** | Provide consumable institutional requirements for downstream software without moving runtime enforcement into this repository. |
+## Quick start
 
-## How it works
+Prerequisites: Linux, Python 3.10 or newer (the commands below were run on 3.13), nothing else for the first step. These commands check repository structure and synthetic invariants, not legitimacy or real-world institutional performance.
 
-Choose a domain guide and a proportional review path, then follow the invented service case through decision, challenge and correction. For software integration, map independently established institutional authority into the proposed Authority Context profile. The downstream controller must still authenticate the deployment's resolver and enforce its permissions at effect time.
-
-A valid signature, chain inclusion, message receipt, reasoning instruction or evidence-package digest does not authorize execution. Institutional authority must be supplied and evaluated through the appropriate trusted boundary.
-
-## Getting started
-
-Begin with [getting started](docs/GETTING_STARTED.md), the invented [service case](docs/examples/SERVICE_CASE.md) and an [application guide](applications/README.md). Python 3.10+ is required for repository validation. These commands check repository structure and synthetic invariants, not legitimacy or real-world institutional performance.
+**1. Check the repository (about a second).** `validate_bootstrap.py` reads the constitutional-design records and prints its counts:
 
 ```bash
 python tools/validate_bootstrap.py
+```
+
+Expected: exit code 0 and, among about 130 lines of counts, `VALIDATION_RESULT: PASS`, `ISSUE_COUNT: 18` and `CONSTITUTIONAL_PROVISION_COUNT: 0` (no adopted provision exists).
+
+**2. Install the one optional dependency (about ten seconds).** The Authority Context and lineage checks need `jsonschema`; without it those tests skip silently and the suite still reports OK:
+
+```bash
+python -m pip install -r testing/harness/requirements-authority.txt
+```
+
+**3. Run the Authority Context reference checks (a few seconds):**
+
+```bash
+python testing/harness/run_authority_context.py
+```
+
+Expected: a JSON report that starts with `"status": "EXECUTED_LOCAL_REFERENCE_CHECKS"`, `"runtime_enforcement": false`, `"fixture_count": 54` and `"passed": 54`. Every fixture carries its own expected outcome (accepted or refused); the report counts how many matched.
+
+**4. Run the full test suite (about three minutes; five or more on a loaded machine).** It includes tests that build and verify temporary copies of the repository:
+
+```bash
 python -m unittest discover -s tests -q
 ```
 
-## Scope and compatibility
+Expected: `Ran 469 tests ... OK` with no skips once `jsonschema` is installed (31 tests skip without it).
 
-Use the [current component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) for the selected revision. Later repository guidance remains research and is not automatically selected runtime semantics. The [implementation profile](process/implementation/public-stack-v0.1/README.md) preserves lawful-source precedence, proposed consumer mappings and the distinction between software checks and actual institutional adoption.
+The result of any of these is a statement about encoded invariants and synthetic fixtures. A pass is not a legitimacy, compliance or production conclusion.
 
-The [common charter and modular profiles](constitutional-design/modular/README.md), [proportional procedures](process/PROPORTIONAL_GOVERNANCE.md), [research index](research/README.md) and [original Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md) remain canonical. The [operating guide](process/OPERATIONAL_STEWARDSHIP.md) and [learning process](process/VIRTUOUS_RECURSION.md) describe owners, review and correction. Merging documentation does not adopt any of them.
+**Read first.** For one route through the material rather than a repository tour, use the [guides index](docs/README.md), [Getting started](docs/GETTING_STARTED.md) and the invented [service case](docs/examples/SERVICE_CASE.md). Constitutional designs, historical research, proposed workflows and actual institutional adoption are different categories; the [evidence status guide](docs/EVIDENCE_STATUS.md) records those distinctions.
 
-Test results, run commentary and historical qualification records are maintained in the [central test hub](https://github.com/cogno-us/cognous-stack-qualification/blob/main/results/readme-commentary/index.md). Read them against their recorded source revisions; source selection and deployment approval are separate decisions.
+## What is in this repository
 
-## Limitations and deployment decisions
+Labels: **proposed** (a design or profile that is not adopted), **research** (analysis and sources), **canonical** (text that is the maintained record and is not edited casually), **historical** (a preserved record), **synthetic** (invented fixtures and reference checks).
 
-This remains proposed guidance and constitutional research, not adopted governance, operative law or demonstrated institutional superiority. Synthetic adapters did not demonstrate better institutional outcomes than conventional controls. Runtime enforcement belongs downstream; constitutional text, recorded decisions and source hierarchy remain intact.
+| Area | What it holds | Label |
+| --- | --- | --- |
+| [constitution/](constitution/README.md) | Reserved for adopted constitutional law. It contains no adopted provisions. | canonical (empty by design) |
+| [constitutional-design/](constitutional-design/README.md) | The proposed Constitution v0.1, the [modular framework](constitutional-design/modular/README.md) (shared charter and four profiles), the human design decisions, requirements and reviews behind them. Proposed for human ratification, not adopted. | proposed; canonical text |
+| [process/](process/README.md) | How the principles were developed; [proportional governance](process/PROPORTIONAL_GOVERNANCE.md), [operational stewardship](process/OPERATIONAL_STEWARDSHIP.md), the [authorization-to-effect contract](process/AUTHORIZATION_EFFECT_CONTRACT.md) and the two implementation profiles below. | proposed |
+| [process/implementation/public-stack-v0.1/](process/implementation/public-stack-v0.1/README.md) | Authority Context profile 0.1.0: [specification](process/implementation/public-stack-v0.1/AUTHORITY_CONTEXT.md), provision mapping, worked cases, schemas for generations 0.1.0 and 0.2.0, examples. | proposed profile; schema 0.1.0 selected by the lock |
+| [process/implementation/authority-lineage-v0.1/](process/implementation/authority-lineage-v0.1/README.md) | Authority lineage evidence profile 0.1.0: origin, delegation, mutation, succession, resolution and use records, with a schema. Non-authorizing. | proposed; synthetic checks |
+| [applications/](applications/README.md) | Eighteen illustrative context guides (customer service, finance, health administration, government, AI agents and others). No constitutional effect. | proposed; illustrative |
+| [governance-engineering/](governance-engineering/README.md) | Deferred implementation: no production governance runtime exists. | proposed (deferred) |
+| [research/](research/README.md) | Research, history and film studies, comparative works, limitations and evaluation. | research |
+| [history/](history/README.md) | A relocation notice that preserves older links; the maintained history is under research. | historical |
+| [testing/](testing/README.md) | Proposed operational exercises, synthetic fixtures, reference harnesses and recorded results. Results commentary lives in the central test hub. | proposed; synthetic; historical results |
+| [tests/](tests/README.md) | Repository conformance tests (469): bootstrap, Authority Context, schema generations, lineage, delay limits, reviewed-artifact digest. | synthetic |
+| [tools/](tools/validate_bootstrap.py) | `validate_bootstrap.py`, the structure and traceability validator. | synthetic |
+| [docs/](docs/README.md) | The guides index and reference pages: getting started, evidence status, FAQ, glossary, architecture guide, assessments and reviews. | proposed; reviews are historical |
+| [collateral/](collateral/business-collateral.md) | A [business overview](collateral/business-collateral.md) and a [one-page overview](collateral/one-page-overview.md). Both describe this component's role and evidence limits, not additional runtime features. | non-technical |
 
-Review original artifacts and their exact source revisions before extending a claim to a new environment. New dependencies, authority sources, destinations or enforcement mechanisms need their own compatibility and qualification. A passing reference case is not a certification of an enterprise deployment.
+Single-file items: [CONTRIBUTING.md](CONTRIBUTING.md), [GOVERNANCE.md](GOVERNANCE.md), [SECURITY.md](SECURITY.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [CHANGELOG.md](CHANGELOG.md), [CITATION.cff](CITATION.cff), [LICENSE](LICENSE), [NOTICE.md](NOTICE.md).
 
-## Repository guide
+The Authority Context has two schema generations: 0.1.0 (no delay limit) and 0.2.0 (`requirement.consequence.delay_limit` required, declaration only). A context is validated against the schema its own `schema_version` names; a missing, unsupported or non-string version is refused and nothing is coerced between generations. The reference checker also enforces validity windows for the lineage profile: an origin's `effective_at` and each delegation's `valid_from` (inclusive) and `expires_at` (exclusive) bound every point of a chain. Details and their own limits are on the [Authority Context](process/implementation/public-stack-v0.1/AUTHORITY_CONTEXT.md#schema-generations) and [lineage](process/implementation/authority-lineage-v0.1/README.md) pages.
 
-Use these sources for details; their historical checkpoints retain the status and scope of the work they recorded:
+## Revisions and selection
 
-- [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)
-- [docs/EVIDENCE_STATUS.md](docs/EVIDENCE_STATUS.md)
-- [process/implementation/public-stack-v0.1/README.md](process/implementation/public-stack-v0.1/README.md)
-- [applications/README.md](applications/README.md)
-- [testing/results/README.md](testing/results/README.md)
+The [current hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `fb3d97938969a89e149e8ff8db2756091d1233fc`. An earlier accepted main source, `89e4722b0b7b9337d47f36afd28a28b076b128fd`, is superseded. The V1 profile (revisions r4 to r8) pins this repository at `cbc39e79`, and main has moved on since (Authority Context 0.2.0 first appears at `d40522af`); the hub lock does not select those later revisions. Later source acceptance does not create adoption or automatically update runtime selection.
 
-For a nontechnical introduction, read the [business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md). Both describe this component's role and evidence limits, not additional runtime features.
+| Revision | Role | Note |
+| --- | --- | --- |
+| [`fb3d97938969`](https://github.com/cogno-us/cognous-institutional-governance/commit/fb3d97938969a89e149e8ff8db2756091d1233fc) | selected | What the hub lock selects: Authority Context 0.1.0. |
+| [`89e4722b0b7b`](https://github.com/cogno-us/cognous-institutional-governance/commit/89e4722b0b7b9337d47f36afd28a28b076b128fd) | superseded | An earlier accepted main source (the authority-lineage profile acceptance). Kept as provenance. |
+| `412fbbdcd57d` | licensing head | Recorded in the lock as `licensing_head` (the Apache 2.0 adoption commit); it does not select a version. |
+| [`cbc39e79`](https://github.com/cogno-us/cognous-institutional-governance/commit/cbc39e7) | V1 profile pin | Pinned by V1 profile revisions r4 to r8. Adds the proposed delay limit per consequence tier; the 0.1.0 schema was edited in place there. |
+| [`d40522af`](https://github.com/cogno-us/cognous-institutional-governance/commit/d40522a) | later main | First Authority Context 0.2.0: generations 0.1.0 and 0.2.0 separated, lineage validity dates enforced. |
+| `00c5d7618678` | later main | Head when this table was written. <!-- pin-round: refresh the head row here --> |
+| `5737267d94d2` | historical hub link | An older hub revision linked from the [business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md). It is not a substitute for the current lock. |
+
+The pinned version of this table is a reading aid; the lock is the only source of selection. The [implementation profile](process/implementation/public-stack-v0.1/README.md) preserves lawful-source precedence, proposed consumer mappings and the distinction between software checks and actual institutional adoption. The [common charter and modular profiles](constitutional-design/modular/README.md), [proportional procedures](process/PROPORTIONAL_GOVERNANCE.md), [research index](research/README.md) and [original Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md) remain canonical. The [operating guide](process/OPERATIONAL_STEWARDSHIP.md) and [learning process](process/VIRTUOUS_RECURSION.md) describe owners, review and correction. Merging documentation does not adopt any of them.
+
+## Documentation
+
+The [guides index](docs/README.md) is the documentation index; it lists the guides by question. Start with [getting started](docs/GETTING_STARTED.md), the invented [service case](docs/examples/SERVICE_CASE.md) and an [application guide](applications/README.md). Other entry points: [evidence status](docs/EVIDENCE_STATUS.md), [implementation profile](process/implementation/public-stack-v0.1/README.md), [testing index](testing/README.md) and [recorded results](testing/results/README.md).
+
+## Limits
+
+- **Proposed, not adopted.** Constitution v0.1 is proposed for human ratification. The constitution directory holds no adopted law.
+- **Authority is external.** A schema pass or reference check cannot become a production allow result. Mapping institutional authority into the Authority Context needs a trusted institutional resolver; BitRep or Index records do not populate mandates or revocation.
+- **The delay limit is a declaration.** `requirement.consequence.delay_limit` (0.2.0) is declared, not enforced by this repository, and no default delay exists for a 0.1.0 context. The five tier ceilings and the rule that both generations stay accepted are marked for the project owner to confirm.
+- **One label, more than one content.** The Authority Context 0.1.0 schema at `cbc39e79` differs from the one at `fb3d9793`; generations are separated from `d40522af`. A 0.1.0 context needs its own trusted binding, because the requirement is part of the compared binding.
+- **Date checks cover the chain only.** Lineage windows come from the origin and the delegation chain. A mutation recorded after a delegation expired, and dates on succession records, are not checked.
+- **Synthetic evidence.** The checks cover invented fixtures. Review original artifacts and their exact source revisions before extending a claim to a new environment. New dependencies, authority sources, destinations or enforcement mechanisms need their own compatibility and qualification. A passing reference case is not a certification of an enterprise deployment.
 
 ## Contributing and attribution
 
 [Contribution guidance](CONTRIBUTING.md) describes review and validation expectations. Keep evidence-linked claims, preserve historical records and separate proposed features from accepted implementation.
 
-See [LICENSE](LICENSE) and [attribution](NOTICE.md) for the existing terms and third-party scope. Developed by [Cognous](https://cogno.us); no licensing change is part of this documentation update.
+See [LICENSE](LICENSE) and [attribution](NOTICE.md) for the existing terms and third-party scope. Developed by [Cognous](https://cogno.us); no licensing change is part of this documentation update. Repository renames: see the [rename map](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/repository-renames.md); package names, schema identifiers and retained producer identities are unchanged.
 
 ---
 
@@ -107,38 +162,6 @@ Selected external sources from the October 2026 research review. These inform ev
 - [John W. Creswell and J. David Creswell. *Research Design: Qualitative, Quantitative, and Mixed Methods Approaches*, fifth edition. SAGE (2018)](https://edge.sagepub.com/creswellrd5e). Research-methods reference for explicit questions, comparison designs and interpretation limits.
 
 See the [research bibliography](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/research-bibliography.md) for review scope and source-verification limits.
-
-## Cognous stack components
-
-The five groups organize component responsibilities. They are not an execution
-sequence or a requirement to install every component. The [hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json)
-defines the selected integration; [release status](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md)
-defines its evidence and limits.
-
-| Group | Components |
-| --- | --- |
-| **01 · Knowledge & Provenance** | [The Index (Evidence Registry)](https://github.com/cogno-us/cognous-evidence-registry) · [BitRep (Evidence Attestation)](https://github.com/cogno-us/cognous-evidence-attestation) |
-| **02 · Institutional Governance** | [Alvorada (Institutional Governance)](https://github.com/cogno-us/cognous-institutional-governance) · authority contracts |
-| **03 · Declaration & Policy Control** | [Action Manifest](https://github.com/cogno-us/cognous-action-manifest) · [Control Plane](https://github.com/cogno-us/cognous-control-plane) |
-| **04 · Constrained Execution** | [Execution Runtime (Moltbot Safe)](https://github.com/cogno-us/cognous-execution-runtime) |
-| **05 · Replay & Evidence** | [Replay Bundle](https://github.com/cogno-us/cognous-replay-bundle) · [Governance Evidence Pack](https://github.com/cogno-us/cognous-governance-evidence-pack) · [ODES](https://github.com/cogno-us/open-decision-evidence-standard) |
-
-**Cross-cutting exchange:** [Governed Exchange (GAX/IMX)](https://github.com/cogno-us/cognous-governed-exchange) connects
-governed messages, recipient assessment and continuity across the groups. It is
-separate from Alvorada's institutional authority framework.
-
-Execution Runtime and Moltbot Safe name the same repository here. The supported
-Cognous Python execution boundary remains distinct from the retained upstream
-application. The reasoning protocols (PRP, Research Intelligence, TFA) are not part
-of the V1 stack scope; they are optional behavioral instructions and do not enforce
-authorization or substitute for human oversight.
-A signature, registry entry, message receipt or evidence summary does not grant
-execution authority.
-
-
-## Repository locations
-
-See the [repository rename map and compatibility notes](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/repository-renames.md) for current component URLs. Existing package names, schema identifiers and retained producer identities are unchanged.
 
 <!-- Retained anchors for existing documentation links. -->
 <a id="evidence-and-supported-scope"></a>
