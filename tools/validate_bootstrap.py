@@ -3284,21 +3284,6 @@ def _load_record_set(
     return records
 
 
-def _is_empty_human_decision(record: dict[str, Any]) -> bool:
-    decision = record.get("human_decision")
-    return (
-        isinstance(decision, dict)
-        and set(decision) == HUMAN_DECISION_FIELDS
-        and all(
-            decision.get(field) == []
-            if field in {"incorporated_mechanisms", "rejected_mechanisms"}
-            else decision.get(field) == ""
-            for field in decision
-        )
-        and record.get("decision_date") == ""
-    )
-
-
 def _contains_number(value: Any) -> bool:
     if isinstance(value, bool):
         return False
