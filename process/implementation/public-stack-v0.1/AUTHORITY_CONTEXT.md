@@ -64,7 +64,7 @@ It is neither a PRP reasoning level, Index epistemic status nor implementation
 maturity score. The competent human owns classifications; this schema cannot
 validate a tier's accuracy or generate a downgrade.
 
-`requirement.consequence.delay_limit` is required in 0.2.0 and not defined in 0.1.0. The revision the hub lock currently selects (`fb3d9793`) carries 0.1.0 only; 0.2.0 first appears at `d40522af` and is selected only after the stack's pin round. It declares
+`requirement.consequence.delay_limit` is required in 0.2.0 and not defined in 0.1.0. The revision the hub lock selects (`0124adcd`) carries both generations; 0.2.0 first appears at `d40522af`. It declares
 `max_pending_seconds`, the longest elapsed time a complete request may remain at
 that tier without a recorded disposition, and `on_miss`, one of
 `escalate_to_alternate_reviewer`, `defer_with_reason` or
