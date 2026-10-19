@@ -36,7 +36,7 @@ A valid signature, chain inclusion, message receipt, reasoning instruction or ev
 
 ## 7. What the Evidence Supports
 
-The hub selects Authority Context profile 0.1.0 at `fb3d97938969a89e149e8ff8db2756091d1233fc`. Later repository guidance remains research and is not automatically selected runtime semantics. The [implementation profile](../process/implementation/public-stack-v0.1/README.md) preserves lawful-source precedence, proposed consumer mappings and the distinction between software checks and actual institutional adoption.
+The hub selects Authority Context profiles 0.1.0 and 0.2.0 at `0124adcdceb8cee973f0631adb2639f14472df63`. Later repository guidance remains research and is not automatically selected runtime semantics. The [implementation profile](../process/implementation/public-stack-v0.1/README.md) preserves lawful-source precedence, proposed consumer mappings and the distinction between software checks and actual institutional adoption.
 
 The [accepted hub evidence](https://github.com/cogno-us/cognous-open-control-stack/blob/5737267d94d2b445735c95e8480a31de73a2abe8/examples/control-plane-store-adoption/qualification-summary.json) supports bounded synthetic integration at its exact pins. Aggregate test totals do not establish deployment benefit, compliance or independent real-world verification. The [support ledger](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) distinguishes the standard reference, separate protected-worker campaign and unqualified production work.
 

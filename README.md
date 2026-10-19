@@ -117,17 +117,17 @@ The Authority Context has two schema generations: 0.1.0 (no delay limit) and 0.2
 
 ## Revisions and selection
 
-The [current hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `fb3d97938969a89e149e8ff8db2756091d1233fc`. An earlier accepted main source, `89e4722b0b7b9337d47f36afd28a28b076b128fd`, is superseded. The V1 profile (revisions r4 to r8) pins this repository at `cbc39e79`, and main has moved on since (Authority Context 0.2.0 first appears at `d40522af`); the hub lock does not select those later revisions. Later source acceptance does not create adoption or automatically update runtime selection.
+The [current hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `0124adcdceb8cee973f0631adb2639f14472df63`, which carries Authority Context 0.2.0. Earlier revisions `fb3d97938969` and `89e4722b0b7b` are superseded and kept as provenance. The V1 profile (revisions r4 to r8) pins this repository at `cbc39e79`; the hub lock does not select that revision. Later source acceptance does not create adoption or automatically update runtime selection.
 
 | Revision | Role | Note |
 | --- | --- | --- |
-| [`fb3d97938969`](https://github.com/cogno-us/cognous-institutional-governance/commit/fb3d97938969a89e149e8ff8db2756091d1233fc) | selected | What the hub lock selects: Authority Context 0.1.0. |
+| [`0124adcdceb8`](https://github.com/cogno-us/cognous-institutional-governance/commit/0124adcdceb8cee973f0631adb2639f14472df63) | selected | What the hub lock selects: Authority Context 0.1.0 and 0.2.0 as separate generations, lineage validity dates enforced. |
+| [`fb3d97938969`](https://github.com/cogno-us/cognous-institutional-governance/commit/fb3d97938969a89e149e8ff8db2756091d1233fc) | superseded | Previously selected: Authority Context 0.1.0 only. Kept as provenance. |
 | [`89e4722b0b7b`](https://github.com/cogno-us/cognous-institutional-governance/commit/89e4722b0b7b9337d47f36afd28a28b076b128fd) | superseded | An earlier accepted main source (the authority-lineage profile acceptance). Kept as provenance. |
 | `412fbbdcd57d` | licensing head | Recorded in the lock as `licensing_head` (the Apache 2.0 adoption commit); it does not select a version. |
 | [`cbc39e79`](https://github.com/cogno-us/cognous-institutional-governance/commit/cbc39e7) | V1 profile pin | Pinned by V1 profile revisions r4 to r8. Adds the proposed delay limit per consequence tier; the 0.1.0 schema was edited in place there. |
-| [`d40522af`](https://github.com/cogno-us/cognous-institutional-governance/commit/d40522a) | later main | First Authority Context 0.2.0: generations 0.1.0 and 0.2.0 separated, lineage validity dates enforced. |
-| `00c5d7618678` | later main | Head when this table was written. <!-- pin-round: refresh the head row here --> |
-| `5737267d94d2` | historical hub link | An older hub revision linked from the [business overview](collateral/business-collateral.md) and [one-page overview](collateral/one-page-overview.md). It is not a substitute for the current lock. |
+| [`d40522af`](https://github.com/cogno-us/cognous-institutional-governance/commit/d40522a) | earlier main | First Authority Context 0.2.0: generations 0.1.0 and 0.2.0 separated, lineage validity dates enforced. |
+| `5737267d94d2` | historical hub link | An older hub revision linked from the [business overview](collateral/business-collateral.md). It is not a substitute for the current lock. |
 
 The pinned version of this table is a reading aid; the lock is the only source of selection. The [implementation profile](process/implementation/public-stack-v0.1/README.md) preserves lawful-source precedence, proposed consumer mappings and the distinction between software checks and actual institutional adoption. The [common charter and modular profiles](constitutional-design/modular/README.md), [proportional procedures](process/PROPORTIONAL_GOVERNANCE.md), [research index](research/README.md) and [original Constitution v0.1](constitutional-design/drafts/CONSTITUTION_v0.1.md) remain canonical. The [operating guide](process/OPERATIONAL_STEWARDSHIP.md) and [learning process](process/VIRTUOUS_RECURSION.md) describe owners, review and correction. Merging documentation does not adopt any of them.
 
@@ -140,7 +140,7 @@ The [guides index](docs/README.md) is the documentation index; it lists the guid
 - **Proposed, not adopted.** Constitution v0.1 is proposed for human ratification. The constitution directory holds no adopted law.
 - **Authority is external.** A schema pass or reference check cannot become a production allow result. Mapping institutional authority into the Authority Context needs a trusted institutional resolver; BitRep or Index records do not populate mandates or revocation.
 - **The delay limit is a declaration.** `requirement.consequence.delay_limit` (0.2.0) is declared, not enforced by this repository, and no default delay exists for a 0.1.0 context. The five tier ceilings and the rule that both generations stay accepted are marked for the project owner to confirm.
-- **One label, more than one content.** The Authority Context 0.1.0 schema at `cbc39e79` differs from the one at `fb3d9793`; generations are separated from `d40522af`. A 0.1.0 context needs its own trusted binding, because the requirement is part of the compared binding.
+- **One label, more than one content.** The Authority Context 0.1.0 schema at `cbc39e79` differs from the one at `fb3d9793`; generations are separated from `d40522af`, which the selected revision includes. A 0.1.0 context needs its own trusted binding, because the requirement is part of the compared binding.
 - **Date checks cover the chain only.** Lineage windows come from the origin and the delegation chain. A mutation recorded after a delegation expired, and dates on succession records, are not checked.
 - **Synthetic evidence.** The checks cover invented fixtures. Review original artifacts and their exact source revisions before extending a claim to a new environment. New dependencies, authority sources, destinations or enforcement mechanisms need their own compatibility and qualification. A passing reference case is not a certification of an enterprise deployment.
 
