@@ -95,8 +95,7 @@ as declaration only until it enforces it, and it never supplies a default delay 
 0.1.0 context: there is no default delay.
 
 **REVIEW (owner):** the 0.2.0 generation, the five proposed tier ceilings and the rule that
-both generations stay accepted are proposals for the project owner to confirm. Nothing here
-is ratified.
+both generations stay accepted are proposals for the project owner to confirm. Nothing here is ratified.
 
 ## Authority lifecycle
 
