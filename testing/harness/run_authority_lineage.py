@@ -57,6 +57,7 @@ def _effective(bundle, states, authority_id, when):
     for m in muts:
         if m["prior_revision"]!=out["revision"]: raise ValueError("mutation prior revision mismatch")
         if m["mutation_kind"] in _KIND_STATUS and m["status_after"]!=_KIND_STATUS[m["mutation_kind"]]: raise ValueError("mutation kind inconsistent with status_after")
+        if m["mutation_kind"]=="amend" and m["status_after"]!=out["status"]: raise ValueError("amend must not change status")
         if m["permission_scope_after"] is not None:
             edge=base.get("edge")
             limit=base["scope"] if edge is None else _effective(bundle,states,edge["parent_authority_id"],_dt(m["effective_at"]))["scope"]

@@ -350,3 +350,53 @@ class AuthorityLineageMutationTests(unittest.TestCase):
         b["resolution_commitments"][0]["lineage_record_ids"] = ids + ["urn:cognous:authority-origin:root-2"]
         self.assertIn(self.LINEAGE, self.validate(b))
         self.assertEqual(self.validate(self.bundle()), [])
+
+
+class AuthorityLineageStatusTests(unittest.TestCase):
+    """An amendment cannot change status."""
+    def bundle(self):
+        from run_authority_lineage import fixture_bundle
+        return fixture_bundle()
+
+    def validate(self, b):
+        from run_authority_lineage import validate
+        return validate(b)
+
+    def scope(self):
+        from run_authority_lineage import _scope
+        return _scope(["refund"], ["urn:cognous:acct:customer-7"], ["billing"], 100, "USD", 1)
+
+    def cite(self, b, revision, status, *mids):
+        c = b["resolution_commitments"][0]
+        c.update(resolved_revision=revision, resolved_status=status)
+        c["lineage_record_ids"] += ["urn:cognous:mutation:" + m for m in mids]
+        b["use_links"][0].update(authority_revision=revision)
+
+    def test_amend_cannot_change_status(self):
+        for label, first, second_status, scope in (
+                ("revoked_to_active", ("r1", "revoke", "revoked"), "active", self.scope()),
+                ("revoked_to_active_null_scope", ("r1", "revoke", "revoked"), "active", None),
+                ("suspended_to_active", ("r1", "suspend", "suspended"), "active", None),
+                ("active_to_revoked", None, "revoked", None)):
+            with self.subTest(label):
+                b = self.bundle()
+                if first:
+                    b["mutations"].append(mutation("m1", AGENT, first[0], "r2", first[1], "2026-10-02T12:00:00Z", first[2]))
+                    b["mutations"].append(mutation("m2", AGENT, "r2", "r3", "amend", "2026-10-02T13:00:00Z", second_status, scope))
+                    self.cite(b, "r3", second_status, "m1", "m2")
+                else:
+                    b["mutations"].append(mutation("m2", AGENT, "r1", "r2", "amend", "2026-10-02T13:00:00Z", second_status, scope))
+                    self.cite(b, "r2", second_status, "m2")
+                self.assertIn("amend must not change status", self.validate(b))
+
+    def test_amend_that_keeps_status_and_documented_reinstate_stay_accepted(self):
+        b = self.bundle()  # amend of a revoked authority that keeps it revoked
+        b["mutations"] += [mutation("m1", AGENT, "r1", "r2", "revoke", "2026-10-02T12:00:00Z", "revoked"),
+                           mutation("m2", AGENT, "r2", "r3", "amend", "2026-10-02T13:00:00Z", "revoked", self.scope())]
+        self.cite(b, "r3", "revoked", "m1", "m2"); b["use_links"][0]["use_disposition"] = "held"
+        self.assertEqual(self.validate(b), [])
+        b = self.bundle()  # revoke then reinstate is the one documented way back; its rules stay unchecked (README)
+        b["mutations"] += [mutation("m1", AGENT, "r1", "r2", "revoke", "2026-10-02T12:00:00Z", "revoked"),
+                           mutation("m2", AGENT, "r2", "r3", "reinstate", "2026-10-02T13:00:00Z", "active")]
+        self.cite(b, "r3", "active", "m1", "m2")
+        self.assertEqual(self.validate(b), [])
