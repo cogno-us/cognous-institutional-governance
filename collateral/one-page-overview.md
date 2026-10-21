@@ -23,7 +23,7 @@ A valid signature, chain inclusion, message receipt, reasoning instruction or ev
 
 ## Evidence and Limits
 
-The [current hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects this component at `d4462697197d6eb4e76bbfc3d712c8c1dab27884`. Read the component's [README](../README.md) for version-specific acceptance and the [hub support ledger](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) for the executed scope. Component acceptance is not automatic adoption of newer revisions or production qualification.
+The [current hub lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects this component at `9b5ab721ae0684150e466c01e9d0d59ec61c3e00`. Read the component's [README](../README.md) for version-specific acceptance and the [hub support ledger](https://github.com/cogno-us/cognous-open-control-stack/blob/main/docs/release-status.md) for the executed scope. Component acceptance is not automatic adoption of newer revisions or production qualification.
 
 This remains proposed guidance and constitutional research, not adopted governance, operative law or demonstrated institutional superiority. Synthetic adapters did not demonstrate better institutional outcomes than conventional controls. Runtime enforcement belongs downstream; constitutional text, recorded decisions and source hierarchy remain intact.
 

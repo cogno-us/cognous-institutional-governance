@@ -23,7 +23,7 @@ jobs:
           import re
           root = Path.cwd()
           text = (root / "README.md").read_text(encoding="utf-8")
-          assert "d4462697197d6eb4e76bbfc3d712c8c1dab27884" in text
+          assert "9b5ab721ae0684150e466c01e9d0d59ec61c3e00" in text
           assert "not institutional grant" in text.lower() or "not a grant" in text.lower()
           checked = 0
           for link in re.findall(r'\]\(([^)]+)\)', text):
