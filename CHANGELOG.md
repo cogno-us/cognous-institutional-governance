@@ -4,6 +4,12 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-21 — Authority lineage: redelegation limits and one origin per authority
+
+- The synthetic lineage validator now refuses a delegation whose parent is itself a delegate and whose own edge does not permit further delegation (`may_redelegate` false, or `remaining_depth` below 1), and refuses a delegation whose `remaining_depth` does not decrease below its parent's. Before, the two schema fields were accepted but never checked.
+- It refuses a bundle with more than one origin for the same authority. Before, scope and revision came from the last origin while the validity window came from the first, so an inconsistent pair was accepted.
+- Both findings were reported by an independent static review of the 0124adcd revision and reproduced locally. The profile stays non-authorizing evidence; the fixture, schema and the ten qualification cases are unchanged. Tests: `AuthorityLineageRestrictionTests` (negative cases and valid controls).
+
 ## 2026-10-19 — Pinned references
 
 - README, collateral and the Authority Context page now name revision `0124adcd` as the one the hub lock selects; `fb3d9793` and `89e4722b` are kept as superseded provenance. The README guard in `readme-guides.yml` checks the new revision. Wording only; no behaviour change.

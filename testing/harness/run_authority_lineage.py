@@ -37,6 +37,7 @@ def _record_index(bundle):
 def _authority_state(bundle):
     state={}
     for o in bundle["origins"]:
+        if o["authority_id"] in state: raise ValueError("conflicting origins for one authority")
         state[o["authority_id"]]={"institution_id":o["institution_id"],"authority_domain":o["authority_domain"],"revision":o["authority_revision"],"status":"active","scope":o["permission_scope"]}
     pending=list(bundle["delegations"])
     while pending:
@@ -54,8 +55,12 @@ def _authority_state(bundle):
             if not (math.isfinite(c["max_amount"]) and math.isfinite(ps["max_amount"])): raise ValueError("delegation amount is not finite")
             if c["max_amount"]>ps["max_amount"]: raise ValueError("delegation broadens amount")
             if c["max_effects"]>ps["max_effects"]: raise ValueError("delegation broadens effect count")
+            pe=p.get("edge")
+            if pe is not None:  # the parent is itself a delegate: its own edge limits further delegation
+                if not pe["may_redelegate"] or pe["remaining_depth"]<1: raise ValueError("parent delegation does not permit redelegation")
+                if e["remaining_depth"]>=pe["remaining_depth"]: raise ValueError("delegation depth does not decrease below its parent")
             if e["child_authority_id"] in state: raise ValueError("duplicate/cyclic child authority")
-            state[e["child_authority_id"]]={"institution_id":e["institution_id"],"authority_domain":e["authority_domain"],"revision":e["child_revision"],"status":"active","scope":c}
+            state[e["child_authority_id"]]={"institution_id":e["institution_id"],"authority_domain":e["authority_domain"],"revision":e["child_revision"],"status":"active","scope":c,"edge":e}
             pending.remove(e); progressed=True
         if not progressed: raise ValueError("orphan or cyclic delegation")
     return state
