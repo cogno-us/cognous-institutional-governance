@@ -117,11 +117,12 @@ The Authority Context has two schema generations: 0.1.0 (no delay limit) and 0.2
 
 ## Revisions and selection
 
-The [current hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `0124adcdceb8cee973f0631adb2639f14472df63`, which carries Authority Context 0.2.0. Earlier revisions `fb3d97938969` and `89e4722b0b7b` are superseded and kept as provenance. The V1 profile (revisions r4 to r8) pins this repository at `cbc39e79`; the hub lock does not select that revision. Later source acceptance does not create adoption or automatically update runtime selection.
+The [current hub component lock](https://github.com/cogno-us/cognous-open-control-stack/blob/main/component-lock.json) selects Authority Context revision `d4462697197d6eb4e76bbfc3d712c8c1dab27884`, which carries Authority Context 0.2.0 and the lineage validator fixes of #60. Earlier revisions `0124adcdceb8`, `fb3d97938969` and `89e4722b0b7b` are superseded and kept as provenance. The V1 profile (revisions r4 to r8) pins this repository at `cbc39e79`; the hub lock does not select that revision. Later source acceptance does not create adoption or automatically update runtime selection.
 
 | Revision | Role | Note |
 | --- | --- | --- |
-| [`0124adcdceb8`](https://github.com/cogno-us/cognous-institutional-governance/commit/0124adcdceb8cee973f0631adb2639f14472df63) | selected | What the hub lock selects: Authority Context 0.1.0 and 0.2.0 as separate generations, lineage validity dates enforced. |
+| [`d4462697197d`](https://github.com/cogno-us/cognous-institutional-governance/commit/d4462697197d6eb4e76bbfc3d712c8c1dab27884) | selected | What the hub lock selects: Authority Context 0.1.0 and 0.2.0 as separate generations, lineage validity dates enforced, redelegation limits and one origin per authority enforced by the synthetic lineage validator. |
+| [`0124adcdceb8`](https://github.com/cogno-us/cognous-institutional-governance/commit/0124adcdceb8cee973f0631adb2639f14472df63) | superseded | Previously selected. Kept as provenance. |
 | [`fb3d97938969`](https://github.com/cogno-us/cognous-institutional-governance/commit/fb3d97938969a89e149e8ff8db2756091d1233fc) | superseded | Previously selected: Authority Context 0.1.0 only. Kept as provenance. |
 | [`89e4722b0b7b`](https://github.com/cogno-us/cognous-institutional-governance/commit/89e4722b0b7b9337d47f36afd28a28b076b128fd) | superseded | An earlier accepted main source (the authority-lineage profile acceptance). Kept as provenance. |
 | `412fbbdcd57d` | licensing head | Recorded in the lock as `licensing_head` (the Apache 2.0 adoption commit); it does not select a version. |
