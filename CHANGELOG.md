@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-22 — Pinned references after the g7-r10 qualification
+
+- README, collateral and the Authority Context page now name revision `9b5ab721` as the one the hub lock selects (hub #180, lock digest `71952371c312a64f322d45f792866f063677f5c1c9cdf0facc353229cf9c8f4d`, hub main `f413d1a7274d31b6201d51e1cd29de53b80a4cae`); `d4462697` is kept as superseded provenance. The README guard in `readme-guides.yml` checks the new revision. This is the head the qualification pinned (programme 2 profile r12 / RF-46), not the merge commit of this documentation change, which moves this repository's main without moving the lock.
+- Stack heads selected by the same lock: control plane `e77fe0ee`, execution runtime `cab4d9ab`, action manifest `fa170815`, Replay `53c0cd60`, ODES `dc5cf19d`, evidence pack `99ba3211`, governed exchange `81b0877e`, evidence registry `8e10387f`.
+- Qualification record: controller candidate g7-r10, run 39642578239, retained at qualification main `f03fab60` (amendments 117 to 120 merged in `49f3e44c`; qualification suite fix `7cd87a3d`). The selected verdict is PASS over the reduced mandatory claim; the unreduced mandatory verdict is INCOMPLETE, with 2 declared ODES failing jobs (4 declared cases). This is not a security clearance, certification or production readiness. Non-authorizing; HOLD unchanged; no production use.
+- Wording only; no code, schema, lock file or test change.
+
 ## 2026-10-22 — Authority lineage and Authority Context: status, succession and timestamp checks
 
 - Lineage: an `amend` mutation whose `status_after` differs from the effective status is refused (`amend must not change status`). Before, revoke then `amend` with `status_after` `active` resolved a revoked authority as active. Reinstatement rules remain unchecked and documented as such; a `reinstate` is still accepted.
