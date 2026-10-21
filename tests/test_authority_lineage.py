@@ -400,3 +400,52 @@ class AuthorityLineageStatusTests(unittest.TestCase):
                            mutation("m2", AGENT, "r2", "r3", "reinstate", "2026-10-02T13:00:00Z", "active")]
         self.cite(b, "r3", "active", "m1", "m2")
         self.assertEqual(self.validate(b), [])
+
+
+class AuthorityLineageSuccessionTests(unittest.TestCase):
+    """Succession needs a successor outside the predecessor's own delegation chain."""
+    def bundle(self):
+        from run_authority_lineage import fixture_bundle
+        return fixture_bundle()
+
+    def validate(self, b):
+        from run_authority_lineage import validate
+        return validate(b)
+
+    def succession(self, b, pred, succ):
+        b["successions"].append({"record_type": "AuthoritySuccessionRecord", "succession_id": "urn:cognous:succession:1",
+            "institution_id": "urn:cognous:institution:synthetic", "authority_domain": "customer-refunds",
+            "predecessor_authority_id": pred, "successor_authority_id": succ, "effective_at": "2026-10-04T00:00:00Z",
+            "recorded_at": "2026-10-04T00:00:01Z", "succession_basis_ref": "urn:cognous:mandate:s",
+            "successor_mandate_ref": "urn:cognous:mandate:n", "continuity_semantics": "no_automatic_permission_transfer",
+            "non_authorizing": True})
+
+    def with_independent_origin(self, b):
+        other = copy.deepcopy(b["origins"][0])
+        other.update(origin_id="urn:cognous:authority-origin:root-2", authority_id="urn:cognous:authority:new-manager")
+        b["origins"].append(other)
+
+    def test_self_and_in_chain_succession_is_refused(self):
+        same = "succession predecessor and successor are the same authority"
+        inside = "succession successor is inside the predecessor's own delegation chain"
+        for label, pred, succ, message in (
+                ("self", MANAGER, MANAGER, same), ("self_delegate", AGENT, AGENT, same),
+                ("own_delegate", MANAGER, AGENT, inside), ("own_ancestor", AGENT, MANAGER, inside)):
+            with self.subTest(label):
+                b = self.bundle(); self.succession(b, pred, succ)
+                self.assertIn(message, self.validate(b))
+
+    def test_deep_chain_relatives_are_refused(self):
+        b = self.bundle(); grandchild = two_level(b)["child_authority_id"]  # manager -> agent -> sub-agent
+        for pred, succ in ((MANAGER, grandchild), (grandchild, MANAGER)):
+            with self.subTest(pred=pred[-12:]):
+                c = copy.deepcopy(b); self.succession(c, pred, succ)
+                self.assertIn("succession successor is inside the predecessor's own delegation chain", self.validate(c))
+
+    def test_succession_to_an_independent_authority_stays_accepted(self):
+        b = self.bundle(); self.with_independent_origin(b)
+        self.succession(b, MANAGER, "urn:cognous:authority:new-manager")
+        self.assertEqual(self.validate(b), [])
+        self.succession(b, "urn:cognous:authority:new-manager", MANAGER)  # reverse between independent roots
+        b["successions"][-1]["succession_id"] = "urn:cognous:succession:2"
+        self.assertEqual(self.validate(b), [])

@@ -116,6 +116,17 @@ def _chain_edges(bundle, authority_id):
         edges.append(edge); current=edge["parent_authority_id"]
     return edges
 
+def _delegation_relatives(bundle, authority_id):
+    """Ancestors and descendants of an authority along delegation edges (not the authority itself)."""
+    related={e["parent_authority_id"] for e in _chain_edges(bundle,authority_id)}
+    frontier=[authority_id]; seen={authority_id}
+    while frontier:
+        current=frontier.pop()
+        for e in bundle["delegations"]:
+            child=e["child_authority_id"]
+            if e["parent_authority_id"]==current and child not in seen: seen.add(child); related.add(child); frontier.append(child)
+    return related
+
 def _windows(bundle, authority_id):
     """Validity windows (start, end or None) on the chain from an authority back to its origin."""
     result=[]; current=authority_id
@@ -164,6 +175,8 @@ def _semantic_errors(bundle, errors):
     for s in bundle["successions"]:
         if s["predecessor_authority_id"] not in known: errors.append("succession predecessor unknown")
         if s["successor_authority_id"] not in known: errors.append("succession successor has no independent origin/delegation lineage")
+        elif s["predecessor_authority_id"]==s["successor_authority_id"]: errors.append("succession predecessor and successor are the same authority")
+        elif s["predecessor_authority_id"] in known and s["successor_authority_id"] in _delegation_relatives(bundle,s["predecessor_authority_id"]): errors.append("succession successor is inside the predecessor's own delegation chain")
     for m in bundle["mutations"]:  # every mutation is checked, whether or not a commitment or use cites it
         try: _state_at(bundle,m["authority_id"],_dt(m["effective_at"]))
         except _MALFORMED as exc: errors.append(_semantic_message(exc))
