@@ -53,7 +53,7 @@ class AuthorityLineageTests(unittest.TestCase):
                 self.assertTrue(all(isinstance(e,str) for e in errors))
                 self.assertTrue(validate(bundle))
         self.assertIn("malformed lineage input: KeyError: 'successions'",semantic_errors(missing))
-        self.assertTrue(any(e.startswith("malformed lineage input: TypeError") for e in semantic_errors(naive)))
+        self.assertIn("not an RFC 3339 date-time with an explicit offset",semantic_errors(naive))  # typed refusal; was a caught TypeError
 
 
 # Validity dates (origin effective_at, delegation valid_from/expires_at)
@@ -449,3 +449,43 @@ class AuthorityLineageSuccessionTests(unittest.TestCase):
         self.succession(b, "urn:cognous:authority:new-manager", MANAGER)  # reverse between independent roots
         b["successions"][-1]["succession_id"] = "urn:cognous:succession:2"
         self.assertEqual(self.validate(b), [])
+
+
+class AuthorityLineageTimestampTests(unittest.TestCase):
+    """`format: date-time` is enforced by the harness itself: full date-time with an explicit offset."""
+    BAD = ("not a date", "2026-10-09", "2026-10-09T20:00:00", "2026-10-09 20:00:00Z", "2026-10-09T20:00Z",
+           "2026-10-09T20:00:00+0100", "2026-13-09T20:00:00Z", "2026-10-09T25:00:00Z", "2026-10-09T20:00:60Z",
+           "2026-10-09T20:00:00+24:00", "٢026-10-09T20:00:00Z", "")
+
+    def test_malformed_timestamps_are_refused_by_schema_validation(self):
+        from run_authority_lineage import fixture_bundle, validate
+        for value in self.BAD:
+            for label, setter in (("captured_at", lambda b, v: b.update(captured_at=v)),
+                                  ("origin", lambda b, v: b["origins"][0].update(effective_at=v)),
+                                  ("delegation", lambda b, v: b["delegations"][0].update(expires_at=v)),
+                                  ("use", lambda b, v: b["use_links"][0].update(used_at=v))):
+                with self.subTest(value=value, field=label):
+                    b = fixture_bundle(); setter(b, value)
+                    self.assertTrue(validate(b))
+
+    def test_naive_and_aware_mix_is_a_typed_refusal_not_an_exception(self):
+        from run_authority_lineage import fixture_bundle, semantic_errors, validate
+        b = fixture_bundle(); b["origins"][0]["effective_at"] = "2026-10-01T00:00:00"
+        errors = validate(b)
+        self.assertTrue(errors)
+        self.assertTrue(semantic_errors(b))  # direct semantic call: error strings, no raise
+        self.assertIn("not an RFC 3339 date-time with an explicit offset", semantic_errors(b))
+
+    def test_valid_offsets_fractions_and_lowercase_designators_stay_accepted(self):
+        from run_authority_lineage import fixture_bundle, validate
+        b = fixture_bundle()
+        b["captured_at"] = "2026-10-09T22:00:00.5+02:00"
+        b["origins"][0]["effective_at"] = "2026-10-01t00:00:00z"
+        b["use_links"][0]["used_at"] = "2026-10-03T00:00:01.123456789Z"
+        self.assertEqual(validate(b), [])
+        self.assertEqual(validate(fixture_bundle()), [])
+
+    def test_strict_parser_equals_utc_instants(self):
+        from run_authority_lineage import _dt
+        self.assertEqual(_dt("2026-10-03T02:00:00+02:00"), _dt("2026-10-03T00:00:00Z"))
+        self.assertEqual(_dt("2026-10-03T00:00:00.5Z").microsecond, 500000)

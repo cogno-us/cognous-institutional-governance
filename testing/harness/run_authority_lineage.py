@@ -1,13 +1,36 @@
 """Scoped synthetic qualification for the non-authorizing authority lineage profile."""
 from __future__ import annotations
-import copy, hashlib, json, math
-from datetime import datetime
+import copy, hashlib, json, math, re
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_PATH = ROOT / "process" / "implementation" / "authority-lineage-v0.1" / "authority-lineage.schema.json"
 
-def _dt(value): return datetime.fromisoformat(value.replace("Z", "+00:00"))
+_RFC3339 = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})[Tt]([0-9]{2}):([0-9]{2}):([0-9]{2})(?:\.([0-9]+))?([Zz]|[+-][0-9]{2}:[0-9]{2})", re.ASCII)
+_TIMESTAMP_REFUSAL = "not an RFC 3339 date-time with an explicit offset"
+
+def _dt(value):
+    """Strict RFC 3339 date-time: full date and time and an explicit offset are required; returns an aware datetime.
+    Naive times, date-only values, other text and a leap second (:60) raise ValueError. The pinned jsonschema does not
+    check `format: date-time` without rfc3339-validator, so the harness checks it itself."""
+    m = _RFC3339.fullmatch(value) if isinstance(value, str) else None
+    if m is None: raise ValueError(_TIMESTAMP_REFUSAL)
+    y, mo, d, h, mi, s, frac, off = m.groups()
+    if off in ("Z", "z"): tz = timezone.utc
+    else:
+        oh, om = int(off[1:3]), int(off[4:6])
+        if oh > 23 or om > 59: raise ValueError(_TIMESTAMP_REFUSAL)
+        tz = timezone((-1 if off[0] == "-" else 1) * timedelta(hours=oh, minutes=om))
+    return datetime(int(y), int(mo), int(d), int(h), int(mi), int(s), int((frac or "0").ljust(6, "0")[:6]), tzinfo=tz)
+
+def _format_checker(jsonschema):
+    checker = jsonschema.FormatChecker()
+    def date_time(instance):
+        if isinstance(instance, str): _dt(instance)
+        return True
+    checker.checks("date-time", raises=ValueError)(date_time)
+    return checker
 def _scope(actions, targets, data_scopes, amount, unit, effects):
     return {"actions": actions, "targets": targets, "data_scopes": data_scopes, "max_amount": amount, "unit": unit, "max_effects": effects}
 
@@ -210,7 +233,7 @@ def _semantic_errors(bundle, errors):
 def schema_errors(bundle):
     import jsonschema
     schema=json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
-    v=jsonschema.Draft202012Validator(schema,format_checker=jsonschema.FormatChecker())
+    v=jsonschema.Draft202012Validator(schema,format_checker=_format_checker(jsonschema))
     return [e.message for e in v.iter_errors(bundle)]
 
 def validate(bundle):

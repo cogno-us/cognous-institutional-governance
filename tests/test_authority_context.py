@@ -116,3 +116,31 @@ class AuthorityContextTests(unittest.TestCase):
             with self.subTest(example=name):
                 self.assertEqual(schema_errors(context), [])
                 self.assertLessEqual(consequence['delay_limit']['max_pending_seconds'], TIER_DELAY_CEILING_SECONDS[consequence['tier']])
+
+    def test_date_time_format_is_enforced_by_the_harness(self):
+        """The pinned jsonschema skips `format: date-time` without rfc3339-validator; the harness checks it itself."""
+        from authority_context import schema_errors
+        for value in ('not a date', '2026-10-04', '2026-10-04T00:00:00', '2026-10-04T00:00Z', '2026-13-04T00:00:00Z'):
+            for field in ('issued_at', 'not_before', 'expires_at'):
+                case = self._base('routine')
+                case['context']['grant'][field] = value
+                with self.subTest(value=value, field=field):
+                    self.assertTrue(schema_errors(case['context']))
+
+    def test_naive_or_mixed_times_are_a_typed_refusal_not_an_exception(self):
+        from authority_context import reference_errors
+        case = self._base('routine')
+        case['now'] = case['now'].replace('Z', '')  # naive now against aware grant times
+        self.assertEqual(reference_errors(case['context'], case['snapshot'], case['action'], case['now']), ['invalid_timestamp'])
+        case = self._base('routine')
+        status = case['snapshot']['statuses'][case['context']['grant']['status_ref']]
+        status['observed_at'] = '2026-10-04'
+        self.assertEqual(reference_errors(case['context'], case['snapshot'], case['action'], case['now']), ['invalid_timestamp'])
+
+    def test_strict_timestamp_accepts_offsets_and_fractions(self):
+        from authority_context import timestamp
+        self.assertEqual(timestamp('2026-10-03T02:00:00+02:00'), timestamp('2026-10-03T00:00:00Z'))
+        self.assertEqual(timestamp('2026-10-03T00:00:00.25z').microsecond, 250000)
+        for bad in ('2026-10-03', '2026-10-03T00:00:00', 'x', None):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                timestamp(bad)
