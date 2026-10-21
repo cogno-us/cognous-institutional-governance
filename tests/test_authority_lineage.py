@@ -146,4 +146,94 @@ class AuthorityLineageValidityTests(unittest.TestCase):
         self.assertTrue(all(isinstance(e, str) for e in errors))
 
 
+@unittest.skipUnless(importlib.util.find_spec("jsonschema"), "install testing/harness/requirements-authority-lineage.txt")
+class AuthorityLineageRestrictionTests(unittest.TestCase):
+    """Redelegation limits of a delegation edge and the one-origin-per-authority rule (static scan findings IG-S01, IG-S02)."""
+
+    SUB = "urn:cognous:authority:refund-subagent"
+    NO_REDELEGATION = "parent delegation does not permit redelegation"
+    DEPTH = "delegation depth does not decrease below its parent"
+    CONFLICT = "conflicting origins for one authority"
+
+    def bundle(self):
+        from run_authority_lineage import fixture_bundle
+        return fixture_bundle()
+
+    def validate(self, bundle):
+        from run_authority_lineage import validate
+        return validate(bundle)
+
+    def third_level(self, bundle, parent_depth, middle_depth, may_middle=True):
+        """Chain root -> agent -> sub-agent -> leaf with the stated remaining depths on the first two edges."""
+        from run_authority_lineage import _scope
+        two_level(bundle)
+        bundle["delegations"][0].update(may_redelegate=parent_depth > 0, remaining_depth=parent_depth)
+        bundle["delegations"][1].update(may_redelegate=may_middle, remaining_depth=middle_depth)
+        leaf = copy.deepcopy(bundle["delegations"][1])
+        leaf.update(delegation_id="urn:cognous:delegation:edge-3", parent_authority_id=self.SUB,
+                    child_authority_id="urn:cognous:authority:refund-leaf", valid_from="2026-10-03T00:00:00Z",
+                    expires_at="2026-10-19T00:00:00Z", may_redelegate=False, remaining_depth=0,
+                    permission_scope=_scope(["refund"], ["urn:cognous:acct:customer-7"], ["billing"], 20, "USD", 1))
+        leaf["source_evidence_refs"] = ["urn:cognous:evidence:delegation-3"]
+        bundle["delegations"].append(leaf)
+        return leaf
+
+    def test_valid_controls_still_pass(self):
+        nested = self.bundle(); two_level(nested)
+        self.assertEqual(self.validate(nested), [])
+        chain = self.bundle(); self.third_level(chain, parent_depth=2, middle_depth=1)
+        self.assertEqual(self.validate(chain), [])
+        other = self.bundle()
+        origin = copy.deepcopy(other["origins"][0])
+        origin.update(origin_id="urn:cognous:authority-origin:root-2", authority_id="urn:cognous:authority:other-manager")
+        other["origins"].append(origin)
+        self.assertEqual(self.validate(other), [])
+
+    def test_redelegation_under_a_parent_edge_that_forbids_it_is_refused(self):
+        b = self.bundle(); two_level(b)
+        b["delegations"][0].update(may_redelegate=False, remaining_depth=0)
+        self.assertIn(self.NO_REDELEGATION, self.validate(b))
+
+    def test_redelegation_with_no_depth_left_is_refused(self):
+        b = self.bundle(); two_level(b)
+        b["delegations"][0].update(may_redelegate=True, remaining_depth=0)
+        self.assertIn(self.NO_REDELEGATION, self.validate(b))
+        flag = self.bundle(); two_level(flag)
+        flag["delegations"][0].update(may_redelegate=False, remaining_depth=1)
+        self.assertIn(self.NO_REDELEGATION, self.validate(flag))
+
+    def test_depth_must_decrease_strictly_along_the_chain(self):
+        same = self.bundle(); two_level(same)
+        same["delegations"][1].update(may_redelegate=True, remaining_depth=1)
+        self.assertIn(self.DEPTH, self.validate(same))
+        more = self.bundle(); two_level(more)
+        more["delegations"][1].update(may_redelegate=True, remaining_depth=5)
+        self.assertIn(self.DEPTH, self.validate(more))
+
+    def test_third_level_obeys_the_middle_edge(self):
+        b = self.bundle(); self.third_level(b, parent_depth=2, middle_depth=0, may_middle=False)
+        self.assertIn(self.NO_REDELEGATION, self.validate(b))
+        deep = self.bundle(); self.third_level(deep, parent_depth=1, middle_depth=1)
+        self.assertIn(self.DEPTH, self.validate(deep))
+
+    def test_conflicting_origins_for_one_authority_are_refused(self):
+        b = self.bundle()
+        second = copy.deepcopy(b["origins"][0])
+        second.update(origin_id="urn:cognous:authority-origin:root-2", effective_at="2026-10-20T00:00:00Z",
+                      recorded_at="2026-10-20T00:01:00Z")
+        second["permission_scope"]["max_amount"] = 500
+        b["origins"][0]["permission_scope"]["max_amount"] = 0
+        b["origins"].append(second)
+        self.assertIn(self.CONFLICT, self.validate(b))
+        same_revision = self.bundle()
+        dup = copy.deepcopy(same_revision["origins"][0]); dup["origin_id"] = "urn:cognous:authority-origin:root-3"
+        same_revision["origins"].append(dup)
+        self.assertIn(self.CONFLICT, self.validate(same_revision))
+        other_revision = self.bundle()
+        dup = copy.deepcopy(other_revision["origins"][0])
+        dup.update(origin_id="urn:cognous:authority-origin:root-4", authority_revision="r2")
+        other_revision["origins"].append(dup)
+        self.assertIn(self.CONFLICT, self.validate(other_revision))
+
+
 if __name__=="__main__": unittest.main()
