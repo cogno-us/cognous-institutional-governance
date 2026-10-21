@@ -237,3 +237,116 @@ class AuthorityLineageRestrictionTests(unittest.TestCase):
 
 
 if __name__=="__main__": unittest.main()
+
+
+MANAGER = "urn:cognous:authority:refund-manager"
+
+
+def mutation(mid, authority, prior, new, kind, at, status, scope=None):
+    return {"record_type": "AuthorityMutationRecord", "mutation_id": "urn:cognous:mutation:" + mid, "authority_id": authority,
+            "prior_revision": prior, "new_revision": new, "mutation_kind": kind, "effective_at": at, "recorded_at": at,
+            "status_after": status, "permission_scope_after": scope, "basis_ref": "urn:cognous:mandate:x", "non_authorizing": True}
+
+
+@unittest.skipUnless(importlib.util.find_spec("jsonschema"), "install testing/harness/requirements-authority-lineage.txt")
+class AuthorityLineageMutationTests(unittest.TestCase):
+    """Mutation attenuation, edge checks against the parent's effective state, lineage chain, cheap consistency checks."""
+    def bundle(self):
+        from run_authority_lineage import fixture_bundle
+        return fixture_bundle()
+
+    def validate(self, b):
+        from run_authority_lineage import validate
+        return validate(b)
+
+    def scope(self, actions=("refund",), amount=100, effects=1, unit="USD", targets=("urn:cognous:acct:customer-7",), data=("billing",)):
+        from run_authority_lineage import _scope
+        return _scope(list(actions), list(targets), list(data), amount, unit, effects)
+
+    def amend_child(self, b, scope, at="2026-10-03T00:00:00Z"):
+        b["mutations"].append(mutation("amend-1", AGENT, "r1", "r2", "amend", at, "active", scope))
+        b["resolution_commitments"][0].update(resolved_revision="r2")
+        b["use_links"][0].update(authority_revision="r2")
+
+    def test_valid_amendments_stay_accepted(self):
+        for scope in (self.scope(amount=50), self.scope(amount=500, effects=5)):  # narrower, and equal to the parent
+            b = self.bundle(); self.amend_child(b, scope)
+            self.assertEqual(self.validate(b), [])
+        b = self.bundle()  # origin narrowing itself, then a delegation made after it
+        b["mutations"].append(mutation("o-1", MANAGER, "r1", "r2", "amend", "2026-10-01T12:00:00Z", "active", self.scope(amount=200, effects=2)))
+        b["delegations"][0].update(parent_revision="r2")
+        self.assertEqual(self.validate(b), [])
+
+    def test_mutation_cannot_widen_beyond_parent_scope(self):
+        for label, scope, message in (
+            ("actions", self.scope(actions=("refund", "wire-transfer")), "mutation broadens actions"),
+            ("targets", self.scope(targets=("urn:cognous:acct:customer-7", "urn:cognous:acct:other")), "mutation broadens targets"),
+            ("data", self.scope(data=("billing", "pii")), "mutation broadens data scopes"),
+            ("unit", self.scope(unit="EUR"), "mutation changes unit"),
+            ("amount", self.scope(amount=5000), "mutation broadens amount"),
+            ("effects", self.scope(effects=6), "mutation broadens effect count"),
+            ("non-finite", self.scope(amount=float("inf")), "mutation amount is not finite")):
+            with self.subTest(label):
+                b = self.bundle(); self.amend_child(b, scope)
+                self.assertIn(message, self.validate(b))
+
+    def test_origin_amendment_cannot_widen_beyond_its_base_scope(self):
+        b = self.bundle()
+        b["mutations"].append(mutation("o-1", MANAGER, "r1", "r2", "amend", "2026-10-05T00:00:00Z", "active", self.scope(amount=900, effects=5)))
+        self.assertIn("mutation broadens amount", self.validate(b))
+
+    def test_mutation_is_checked_even_when_nothing_cites_it(self):
+        b = self.bundle()  # effective after every commitment and use
+        b["mutations"].append(mutation("late", AGENT, "r1", "r2", "amend", "2026-12-01T00:00:00Z", "active", self.scope(amount=5000)))
+        self.assertIn("mutation broadens amount", self.validate(b))
+
+    def test_delegation_is_checked_against_the_parents_effective_scope_and_revision(self):
+        b = self.bundle()  # parent narrowed to 10 USD before the 100 USD child was delegated; edge still names r1
+        b["mutations"].append(mutation("pm", MANAGER, "r1", "r2", "amend", "2026-10-01T12:00:00Z", "active", self.scope(amount=10)))
+        self.assertIn("delegation parent revision mismatch", self.validate(b))
+        b["delegations"][0]["parent_revision"] = "r2"  # naming the right revision does not rescue the oversized child
+        self.assertIn("delegation broadens amount", self.validate(b))
+        b["delegations"][0]["permission_scope"]["max_amount"] = 10
+        self.assertEqual(self.validate(b), [])
+
+    def test_later_parent_narrowing_is_not_retroactive(self):
+        b = self.bundle()  # documented choice: a narrowing after delegation does not invalidate the earlier edge
+        b["mutations"].append(mutation("pm", MANAGER, "r1", "r2", "amend", "2026-10-02T12:00:00Z", "active", self.scope(amount=10)))
+        self.assertEqual(self.validate(b), [])
+
+    def test_mutation_for_unknown_authority_is_refused(self):
+        b = self.bundle(); b["mutations"].append(mutation("ghost", "urn:cognous:authority:ghost", "r1", "r2", "revoke", "2026-10-03T00:00:00Z", "revoked"))
+        self.assertIn("unknown authority", self.validate(b))
+
+    def test_mutation_kind_must_match_status_after(self):
+        for kind, status in (("revoke", "active"), ("revoke", "suspended"), ("suspend", "active"), ("reinstate", "revoked")):
+            with self.subTest(kind=kind, status=status):
+                b = self.bundle(); b["mutations"].append(mutation("k", AGENT, "r1", "r2", kind, "2026-10-03T00:00:00Z", status))
+                self.assertIn("mutation kind inconsistent with status_after", self.validate(b))
+
+    def test_delegation_depth_without_redelegation_flag_is_refused(self):
+        b = self.bundle(); b["delegations"][0].update(may_redelegate=False, remaining_depth=7)
+        self.assertIn("delegation remaining_depth without may_redelegate", self.validate(b))
+
+    def test_use_cannot_rely_on_a_delegation_made_after_it(self):
+        b = self.bundle(); b["delegations"][0].update(delegated_at="2026-10-20T00:00:00Z")
+        self.assertIn("use link relies on a delegation made after the use", self.validate(b))
+        b["use_links"][0]["use_disposition"] = "held"  # the negative fact stays representable
+        self.assertNotIn("use link relies on a delegation made after the use", self.validate(b))
+
+    LINEAGE = "resolution commitment lineage is not the origin-to-authority chain"
+
+    def test_commitment_lineage_must_be_the_origin_to_authority_chain(self):
+        ids = ["urn:cognous:authority-origin:root-1", "urn:cognous:delegation:edge-1"]
+        for label, value in (("origin_missing", ids[1:]), ("edge_missing", ids[:1])):
+            with self.subTest(label):
+                b = self.bundle(); b["resolution_commitments"][0]["lineage_record_ids"] = value
+                self.assertIn(self.LINEAGE, self.validate(b))
+        b = self.bundle()  # a real record that is not on this authority's chain
+        other = copy.deepcopy(b["origins"][0]); other.update(origin_id="urn:cognous:authority-origin:root-2", authority_id="urn:cognous:authority:other")
+        b["origins"].append(other)
+        b["resolution_commitments"][0]["lineage_record_ids"] = ["urn:cognous:authority-origin:root-2"]
+        self.assertIn(self.LINEAGE, self.validate(b))
+        b["resolution_commitments"][0]["lineage_record_ids"] = ids + ["urn:cognous:authority-origin:root-2"]
+        self.assertIn(self.LINEAGE, self.validate(b))
+        self.assertEqual(self.validate(self.bundle()), [])

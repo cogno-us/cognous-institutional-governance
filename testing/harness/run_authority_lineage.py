@@ -34,6 +34,37 @@ def _record_index(bundle):
             result[rid]=record
     return result
 
+def _contained(c, ps, label):
+    """Raise unless scope c is contained in scope ps (the one attenuation rule, for edges and mutations)."""
+    if not set(c["actions"]).issubset(ps["actions"]): raise ValueError(f"{label} broadens actions")
+    if not set(c["targets"]).issubset(ps["targets"]): raise ValueError(f"{label} broadens targets")
+    if not set(c["data_scopes"]).issubset(ps["data_scopes"]): raise ValueError(f"{label} broadens data scopes")
+    if c["unit"]!=ps["unit"]: raise ValueError(f"{label} changes unit")
+    if not (math.isfinite(c["max_amount"]) and math.isfinite(ps["max_amount"])): raise ValueError(f"{label} amount is not finite")
+    if c["max_amount"]>ps["max_amount"]: raise ValueError(f"{label} broadens amount")
+    if c["max_effects"]>ps["max_effects"]: raise ValueError(f"{label} broadens effect count")
+
+_KIND_STATUS={"revoke":"revoked","suspend":"suspended","reinstate":"active"}
+
+def _effective(bundle, states, authority_id, when):
+    """Authority state at `when`: base lineage state with every mutation effective at or before `when` applied.
+    An amended scope must stay inside the effective parent scope at the mutation's effective_at (delegate),
+    or inside the origin's own base scope (origin; each amendment is measured against the base, not the previous amendment)."""
+    base=states.get(authority_id)
+    if not base: raise ValueError("unknown authority")
+    out=dict(base)
+    muts=sorted((m for m in bundle["mutations"] if m["authority_id"]==authority_id and _dt(m["effective_at"])<=when), key=lambda m:_dt(m["effective_at"]))
+    for m in muts:
+        if m["prior_revision"]!=out["revision"]: raise ValueError("mutation prior revision mismatch")
+        if m["mutation_kind"] in _KIND_STATUS and m["status_after"]!=_KIND_STATUS[m["mutation_kind"]]: raise ValueError("mutation kind inconsistent with status_after")
+        if m["permission_scope_after"] is not None:
+            edge=base.get("edge")
+            limit=base["scope"] if edge is None else _effective(bundle,states,edge["parent_authority_id"],_dt(m["effective_at"]))["scope"]
+            _contained(m["permission_scope_after"],limit,"mutation")
+            out["scope"]=m["permission_scope_after"]
+        out["revision"],out["status"]=m["new_revision"],m["status_after"]
+    return out
+
 def _authority_state(bundle):
     state={}
     for o in bundle["origins"]:
@@ -43,18 +74,13 @@ def _authority_state(bundle):
     while pending:
         progressed=False
         for e in pending[:]:
-            p=state.get(e["parent_authority_id"])
-            if not p: continue
+            if e["parent_authority_id"] not in state: continue
+            # the parent as it stood when the edge was made: narrowed or amended scope and revision count
+            p=_effective(bundle,state,e["parent_authority_id"],_dt(e["delegated_at"]))
             if e["parent_revision"]!=p["revision"]: raise ValueError("delegation parent revision mismatch")
             if e["institution_id"]!=p["institution_id"] or e["authority_domain"]!=p["authority_domain"]: raise ValueError("delegation crosses institution/domain")
-            c,ps=e["permission_scope"],p["scope"]
-            if not set(c["actions"]).issubset(ps["actions"]): raise ValueError("delegation broadens actions")
-            if not set(c["targets"]).issubset(ps["targets"]): raise ValueError("delegation broadens targets")
-            if not set(c["data_scopes"]).issubset(ps["data_scopes"]): raise ValueError("delegation broadens data scopes")
-            if c["unit"]!=ps["unit"]: raise ValueError("delegation changes unit")
-            if not (math.isfinite(c["max_amount"]) and math.isfinite(ps["max_amount"])): raise ValueError("delegation amount is not finite")
-            if c["max_amount"]>ps["max_amount"]: raise ValueError("delegation broadens amount")
-            if c["max_effects"]>ps["max_effects"]: raise ValueError("delegation broadens effect count")
+            c=e["permission_scope"]
+            _contained(c,p["scope"],"delegation")
             pe=p.get("edge")
             if pe is not None:  # the parent is itself a delegate: its own edge limits further delegation
                 if not pe["may_redelegate"] or pe["remaining_depth"]<1: raise ValueError("parent delegation does not permit redelegation")
@@ -66,15 +92,28 @@ def _authority_state(bundle):
     return state
 
 def _state_at(bundle, authority_id, when):
-    base=_authority_state(bundle).get(authority_id)
-    if not base: raise ValueError("unknown authority")
-    out=dict(base)
-    muts=sorted((m for m in bundle["mutations"] if m["authority_id"]==authority_id and _dt(m["effective_at"])<=when), key=lambda m:_dt(m["effective_at"]))
-    for m in muts:
-        if m["prior_revision"]!=out["revision"]: raise ValueError("mutation prior revision mismatch")
-        out["revision"],out["status"]=m["new_revision"],m["status_after"]
-        if m["permission_scope_after"] is not None: out["scope"]=m["permission_scope_after"]
-    return out
+    return _effective(bundle,_authority_state(bundle),authority_id,when)
+
+def _chain_record_ids(bundle, authority_id, when):
+    """(required, allowed): required is the structural origin-to-authority chain (origin plus each delegation edge);
+    allowed adds the mutations of chain members effective by `when`, which a commitment may cite but need not."""
+    required=set(); allowed=set(); current=authority_id
+    for _ in range(len(bundle["delegations"])+1):
+        allowed.update(m["mutation_id"] for m in bundle["mutations"] if m["authority_id"]==current and _dt(m["effective_at"])<=when)
+        edge=next((e for e in bundle["delegations"] if e["child_authority_id"]==current),None)
+        if edge is None: break
+        required.add(edge["delegation_id"]); current=edge["parent_authority_id"]
+    origin=next((o for o in bundle["origins"] if o["authority_id"]==current),None)
+    if origin is not None: required.add(origin["origin_id"])
+    return required,allowed|required
+
+def _chain_edges(bundle, authority_id):
+    edges=[]; current=authority_id
+    for _ in range(len(bundle["delegations"])+1):
+        edge=next((e for e in bundle["delegations"] if e["child_authority_id"]==current),None)
+        if edge is None: break
+        edges.append(edge); current=edge["parent_authority_id"]
+    return edges
 
 def _windows(bundle, authority_id):
     """Validity windows (start, end or None) on the chain from an authority back to its origin."""
@@ -117,16 +156,23 @@ def _semantic_errors(bundle, errors):
     try:
         records=_record_index(bundle); known=set(_authority_state(bundle))
     except _MALFORMED as exc: return [_semantic_message(exc)]
+    for e in bundle["delegations"]:
+        if not e["may_redelegate"] and e["remaining_depth"]>0: errors.append("delegation remaining_depth without may_redelegate")
     try: errors.extend(_window_errors(bundle))
     except _MALFORMED as exc: errors.append(_semantic_message(exc))
     for s in bundle["successions"]:
         if s["predecessor_authority_id"] not in known: errors.append("succession predecessor unknown")
         if s["successor_authority_id"] not in known: errors.append("succession successor has no independent origin/delegation lineage")
+    for m in bundle["mutations"]:  # every mutation is checked, whether or not a commitment or use cites it
+        try: _state_at(bundle,m["authority_id"],_dt(m["effective_at"]))
+        except _MALFORMED as exc: errors.append(_semantic_message(exc))
     commitments={c["commitment_id"]:c for c in bundle["resolution_commitments"]}
     for c in bundle["resolution_commitments"]:
         for rid in c["lineage_record_ids"]+c["historical_record_ids"]:
             if rid not in records: errors.append("resolution commitment references unknown lineage record")
         try:
+            required,allowed=_chain_record_ids(bundle,c["authority_id"],_dt(c["resolution_time"])); cited=set(c["lineage_record_ids"])
+            if not required<=cited or not cited<=allowed: errors.append("resolution commitment lineage is not the origin-to-authority chain")
             actual=_state_at(bundle,c["authority_id"],_dt(c["resolution_time"]))
             if c["resolved_revision"]!=actual["revision"]: errors.append("resolution revision inconsistent with effective lineage")
             if c["resolved_status"]!=actual["status"]: errors.append("resolution status inconsistent with effective lineage")
@@ -141,6 +187,7 @@ def _semantic_errors(bundle, errors):
             actual=_state_at(bundle,u["authority_id"],_dt(u["used_at"]))
             if actual["revision"]!=u["authority_revision"]: errors.append("use link relies on historical revision after effective mutation")
             if actual["status"]!="active" and u["use_disposition"]=="referenced": errors.append("use link references non-active current authority")
+            if u["use_disposition"]=="referenced" and any(_dt(e["delegated_at"])>_dt(u["used_at"]) for e in _chain_edges(bundle,u["authority_id"])): errors.append("use link relies on a delegation made after the use")
             if u["use_disposition"]=="referenced" and not _within(bundle,u["authority_id"],_dt(u["used_at"])): errors.append("use link references authority outside its delegation validity window")
             if c["resolved_revision"]!=actual["revision"] or c["resolved_status"]!=actual["status"]: errors.append("use link commitment is stale relative to current effective lineage")
         except _MALFORMED as exc: errors.append(_semantic_message(exc))

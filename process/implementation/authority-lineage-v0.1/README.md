@@ -31,6 +31,8 @@ The scoped harness checks the following finite invariants:
 
 An effective authority is derived from a single lineage, never from the union of two independent principals' scopes.
 
+Mutation and edge checks: every mutation's amended scope must be contained in the parent's effective scope at its `effective_at` (a delegate) or in the origin's own base scope (an origin); a delegation edge is checked against the parent's effective scope and revision at `delegated_at`. A later parent narrowing is not applied retroactively, and revocation or suspension of a parent is not propagated to its children. A commitment's `lineage_record_ids` must include the origin and every edge on the chain and may add only mutations of chain members. `scope_digest`, `source_set_digest` and `source_bundle_digest` are format-checked only: no digest recipe is defined, so they are not recomputed. Replayed uses and `max_effects` counts are not checked.
+
 Known limits of the date checks: windows come from the delegation chain and the origin only. A mutation recorded after a delegation expired, and lineage-level dates on succession records, are not checked.
 
 The harness runs semantic checks only on schema-valid bundles. It rejects non-finite (NaN or infinite) parent and child amounts, and it reports malformed input reached by the semantic pass as error strings, not exceptions.

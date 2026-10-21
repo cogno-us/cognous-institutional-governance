@@ -4,6 +4,14 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-22 — Authority lineage: mutation attenuation and effective-state checks
+
+- The synthetic lineage validator now checks every mutation's `permission_scope_after` with the same containment rule as a delegation edge: for a delegate, inside the parent's effective scope at the mutation's `effective_at`; for an origin, inside the origin's own base scope (each amendment is measured against the base, not the previous amendment; the README does not allow an origin to widen itself). Before, an amended scope was applied unchecked. Mutations are checked whether or not a commitment or use cites them.
+- A delegation edge is now checked against the parent's effective scope and revision at the edge's `delegated_at`, not its base scope; `parent_revision` must equal that effective revision. A later parent narrowing is not applied retroactively to an earlier edge or to a child's base scope.
+- A resolution commitment's `lineage_record_ids` must contain the origin and every delegation edge on the chain to the authority, and may add only mutations of chain members effective by the resolution time; unrelated or duplicate ids are refused.
+- Also refused: a mutation for an unknown authority; `revoke`, `suspend` or `reinstate` with a `status_after` that does not match; an edge with `may_redelegate` false and `remaining_depth` above 0; a `referenced` use that relies on a delegation whose `delegated_at` is later than `used_at`.
+- Not changed: `scope_digest`, `source_set_digest` and `portability.source_bundle_digest` are still format-checked only, because no digest recipe is defined in the schema, README or fixture (the fixture holds placeholders); replayed uses and `max_effects` counting, revocation propagation to children, and reinstatement rules are not checked. The profile stays non-authorizing evidence; schema version, fixture and the ten qualification cases are unchanged. Tests: `AuthorityLineageMutationTests`.
+
 ## 2026-10-21 — Pinned references after the lineage fixes
 
 - README, collateral and the README guard in `readme-guides.yml` now name revision `d4462697` as the one the hub lock selects (hub PR #175, qualified by candidate g6-r10); `0124adcd` is kept as superseded provenance. Wording only; no behaviour change.
