@@ -4,6 +4,10 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-21 — Pinned references after the lineage fixes
+
+- README, collateral and the README guard in `readme-guides.yml` now name revision `d4462697` as the one the hub lock selects (hub PR #175, qualified by candidate g6-r10); `0124adcd` is kept as superseded provenance. Wording only; no behaviour change.
+
 ## 2026-10-21 — Authority lineage: redelegation limits and one origin per authority
 
 - The synthetic lineage validator now refuses a delegation whose parent is itself a delegate and whose own edge does not permit further delegation (`may_redelegate` false, or `remaining_depth` below 1), and refuses a delegation whose `remaining_depth` does not decrease below its parent's. Before, the two schema fields were accepted but never checked.
