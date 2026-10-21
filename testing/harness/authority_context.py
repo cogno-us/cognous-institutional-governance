@@ -6,7 +6,8 @@ A satisfied result is NOT a runtime authorization decision.
 import math
 import hashlib
 import json
-from datetime import datetime
+import re
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # Proposed per-tier ceilings for consequence.delay_limit.max_pending_seconds. Owner to confirm: no value is validated or
@@ -22,18 +23,41 @@ SCHEMA_PATHS = {'0.1.0': PROFILE_DIR / 'authority-context.0.1.0.schema.json', '0
 
 def schema_errors(context):
     """Validate against the schema generation the context names; any other or missing version is refused."""
-    from jsonschema import Draft202012Validator, FormatChecker
+    import jsonschema
+    from jsonschema import Draft202012Validator
     version = context.get('schema_version') if isinstance(context, dict) else None
     path = SCHEMA_PATHS.get(version) if isinstance(version, str) else None
     if path is None:
         return ['unsupported or missing schema_version: expected one of ' + ', '.join(sorted(SCHEMA_PATHS))]
     schema = json.loads(path.read_text())
     Draft202012Validator.check_schema(schema)
-    return sorted(error.message for error in Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(context))
+    return sorted(error.message for error in Draft202012Validator(schema, format_checker=_format_checker(jsonschema)).iter_errors(context))
 
+
+_RFC3339 = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})[Tt]([0-9]{2}):([0-9]{2}):([0-9]{2})(?:\.([0-9]+))?([Zz]|[+-][0-9]{2}:[0-9]{2})", re.ASCII)
+_TIMESTAMP_REFUSAL = "not an RFC 3339 date-time with an explicit offset"
 
 def timestamp(value):
-    return datetime.fromisoformat(value.replace('Z', '+00:00'))
+    """Strict RFC 3339 date-time: full date and time and an explicit offset are required; returns an aware datetime.
+    Naive times, date-only values, other text and a leap second (:60) raise ValueError. The pinned jsonschema does not
+    check `format: date-time` without rfc3339-validator, so the harness checks it itself."""
+    m = _RFC3339.fullmatch(value) if isinstance(value, str) else None
+    if m is None: raise ValueError(_TIMESTAMP_REFUSAL)
+    y, mo, d, h, mi, s, frac, off = m.groups()
+    if off in ("Z", "z"): tz = timezone.utc
+    else:
+        oh, om = int(off[1:3]), int(off[4:6])
+        if oh > 23 or om > 59: raise ValueError(_TIMESTAMP_REFUSAL)
+        tz = timezone((-1 if off[0] == "-" else 1) * timedelta(hours=oh, minutes=om))
+    return datetime(int(y), int(mo), int(d), int(h), int(mi), int(s), int((frac or "0").ljust(6, "0")[:6]), tzinfo=tz)
+
+def _format_checker(jsonschema):
+    checker = jsonschema.FormatChecker()
+    def date_time(instance):
+        if isinstance(instance, str): timestamp(instance)
+        return True
+    checker.checks("date-time", raises=ValueError)(date_time)
+    return checker
 
 
 def binding(action):
@@ -54,6 +78,15 @@ def contained(child, parent):
 
 
 def reference_errors(context, snapshot, action, now, ancestors=()):
+    """Typed wrapper: a malformed or naive timestamp is the refusal code 'invalid_timestamp', never a raise."""
+    try:
+        return _reference_errors(context, snapshot, action, now, ancestors)
+    except ValueError as exc:
+        if str(exc) == _TIMESTAMP_REFUSAL: return ['invalid_timestamp']
+        raise
+
+
+def _reference_errors(context, snapshot, action, now, ancestors=()):
     """Reject unsupported/missing synthetic premises; never imply permission.
 
     Precondition: ``schema_errors(context)`` must be empty before calling, and

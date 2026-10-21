@@ -53,7 +53,7 @@ class AuthorityLineageTests(unittest.TestCase):
                 self.assertTrue(all(isinstance(e,str) for e in errors))
                 self.assertTrue(validate(bundle))
         self.assertIn("malformed lineage input: KeyError: 'successions'",semantic_errors(missing))
-        self.assertTrue(any(e.startswith("malformed lineage input: TypeError") for e in semantic_errors(naive)))
+        self.assertIn("not an RFC 3339 date-time with an explicit offset",semantic_errors(naive))  # typed refusal; was a caught TypeError
 
 
 # Validity dates (origin effective_at, delegation valid_from/expires_at)
@@ -350,3 +350,142 @@ class AuthorityLineageMutationTests(unittest.TestCase):
         b["resolution_commitments"][0]["lineage_record_ids"] = ids + ["urn:cognous:authority-origin:root-2"]
         self.assertIn(self.LINEAGE, self.validate(b))
         self.assertEqual(self.validate(self.bundle()), [])
+
+
+class AuthorityLineageStatusTests(unittest.TestCase):
+    """An amendment cannot change status."""
+    def bundle(self):
+        from run_authority_lineage import fixture_bundle
+        return fixture_bundle()
+
+    def validate(self, b):
+        from run_authority_lineage import validate
+        return validate(b)
+
+    def scope(self):
+        from run_authority_lineage import _scope
+        return _scope(["refund"], ["urn:cognous:acct:customer-7"], ["billing"], 100, "USD", 1)
+
+    def cite(self, b, revision, status, *mids):
+        c = b["resolution_commitments"][0]
+        c.update(resolved_revision=revision, resolved_status=status)
+        c["lineage_record_ids"] += ["urn:cognous:mutation:" + m for m in mids]
+        b["use_links"][0].update(authority_revision=revision)
+
+    def test_amend_cannot_change_status(self):
+        for label, first, second_status, scope in (
+                ("revoked_to_active", ("r1", "revoke", "revoked"), "active", self.scope()),
+                ("revoked_to_active_null_scope", ("r1", "revoke", "revoked"), "active", None),
+                ("suspended_to_active", ("r1", "suspend", "suspended"), "active", None),
+                ("active_to_revoked", None, "revoked", None)):
+            with self.subTest(label):
+                b = self.bundle()
+                if first:
+                    b["mutations"].append(mutation("m1", AGENT, first[0], "r2", first[1], "2026-10-02T12:00:00Z", first[2]))
+                    b["mutations"].append(mutation("m2", AGENT, "r2", "r3", "amend", "2026-10-02T13:00:00Z", second_status, scope))
+                    self.cite(b, "r3", second_status, "m1", "m2")
+                else:
+                    b["mutations"].append(mutation("m2", AGENT, "r1", "r2", "amend", "2026-10-02T13:00:00Z", second_status, scope))
+                    self.cite(b, "r2", second_status, "m2")
+                self.assertIn("amend must not change status", self.validate(b))
+
+    def test_amend_that_keeps_status_and_documented_reinstate_stay_accepted(self):
+        b = self.bundle()  # amend of a revoked authority that keeps it revoked
+        b["mutations"] += [mutation("m1", AGENT, "r1", "r2", "revoke", "2026-10-02T12:00:00Z", "revoked"),
+                           mutation("m2", AGENT, "r2", "r3", "amend", "2026-10-02T13:00:00Z", "revoked", self.scope())]
+        self.cite(b, "r3", "revoked", "m1", "m2"); b["use_links"][0]["use_disposition"] = "held"
+        self.assertEqual(self.validate(b), [])
+        b = self.bundle()  # revoke then reinstate is the one documented way back; its rules stay unchecked (README)
+        b["mutations"] += [mutation("m1", AGENT, "r1", "r2", "revoke", "2026-10-02T12:00:00Z", "revoked"),
+                           mutation("m2", AGENT, "r2", "r3", "reinstate", "2026-10-02T13:00:00Z", "active")]
+        self.cite(b, "r3", "active", "m1", "m2")
+        self.assertEqual(self.validate(b), [])
+
+
+class AuthorityLineageSuccessionTests(unittest.TestCase):
+    """Succession needs a successor outside the predecessor's own delegation chain."""
+    def bundle(self):
+        from run_authority_lineage import fixture_bundle
+        return fixture_bundle()
+
+    def validate(self, b):
+        from run_authority_lineage import validate
+        return validate(b)
+
+    def succession(self, b, pred, succ):
+        b["successions"].append({"record_type": "AuthoritySuccessionRecord", "succession_id": "urn:cognous:succession:1",
+            "institution_id": "urn:cognous:institution:synthetic", "authority_domain": "customer-refunds",
+            "predecessor_authority_id": pred, "successor_authority_id": succ, "effective_at": "2026-10-04T00:00:00Z",
+            "recorded_at": "2026-10-04T00:00:01Z", "succession_basis_ref": "urn:cognous:mandate:s",
+            "successor_mandate_ref": "urn:cognous:mandate:n", "continuity_semantics": "no_automatic_permission_transfer",
+            "non_authorizing": True})
+
+    def with_independent_origin(self, b):
+        other = copy.deepcopy(b["origins"][0])
+        other.update(origin_id="urn:cognous:authority-origin:root-2", authority_id="urn:cognous:authority:new-manager")
+        b["origins"].append(other)
+
+    def test_self_and_in_chain_succession_is_refused(self):
+        same = "succession predecessor and successor are the same authority"
+        inside = "succession successor is inside the predecessor's own delegation chain"
+        for label, pred, succ, message in (
+                ("self", MANAGER, MANAGER, same), ("self_delegate", AGENT, AGENT, same),
+                ("own_delegate", MANAGER, AGENT, inside), ("own_ancestor", AGENT, MANAGER, inside)):
+            with self.subTest(label):
+                b = self.bundle(); self.succession(b, pred, succ)
+                self.assertIn(message, self.validate(b))
+
+    def test_deep_chain_relatives_are_refused(self):
+        b = self.bundle(); grandchild = two_level(b)["child_authority_id"]  # manager -> agent -> sub-agent
+        for pred, succ in ((MANAGER, grandchild), (grandchild, MANAGER)):
+            with self.subTest(pred=pred[-12:]):
+                c = copy.deepcopy(b); self.succession(c, pred, succ)
+                self.assertIn("succession successor is inside the predecessor's own delegation chain", self.validate(c))
+
+    def test_succession_to_an_independent_authority_stays_accepted(self):
+        b = self.bundle(); self.with_independent_origin(b)
+        self.succession(b, MANAGER, "urn:cognous:authority:new-manager")
+        self.assertEqual(self.validate(b), [])
+        self.succession(b, "urn:cognous:authority:new-manager", MANAGER)  # reverse between independent roots
+        b["successions"][-1]["succession_id"] = "urn:cognous:succession:2"
+        self.assertEqual(self.validate(b), [])
+
+
+class AuthorityLineageTimestampTests(unittest.TestCase):
+    """`format: date-time` is enforced by the harness itself: full date-time with an explicit offset."""
+    BAD = ("not a date", "2026-10-09", "2026-10-09T20:00:00", "2026-10-09 20:00:00Z", "2026-10-09T20:00Z",
+           "2026-10-09T20:00:00+0100", "2026-13-09T20:00:00Z", "2026-10-09T25:00:00Z", "2026-10-09T20:00:60Z",
+           "2026-10-09T20:00:00+24:00", "٢026-10-09T20:00:00Z", "")
+
+    def test_malformed_timestamps_are_refused_by_schema_validation(self):
+        from run_authority_lineage import fixture_bundle, validate
+        for value in self.BAD:
+            for label, setter in (("captured_at", lambda b, v: b.update(captured_at=v)),
+                                  ("origin", lambda b, v: b["origins"][0].update(effective_at=v)),
+                                  ("delegation", lambda b, v: b["delegations"][0].update(expires_at=v)),
+                                  ("use", lambda b, v: b["use_links"][0].update(used_at=v))):
+                with self.subTest(value=value, field=label):
+                    b = fixture_bundle(); setter(b, value)
+                    self.assertTrue(validate(b))
+
+    def test_naive_and_aware_mix_is_a_typed_refusal_not_an_exception(self):
+        from run_authority_lineage import fixture_bundle, semantic_errors, validate
+        b = fixture_bundle(); b["origins"][0]["effective_at"] = "2026-10-01T00:00:00"
+        errors = validate(b)
+        self.assertTrue(errors)
+        self.assertTrue(semantic_errors(b))  # direct semantic call: error strings, no raise
+        self.assertIn("not an RFC 3339 date-time with an explicit offset", semantic_errors(b))
+
+    def test_valid_offsets_fractions_and_lowercase_designators_stay_accepted(self):
+        from run_authority_lineage import fixture_bundle, validate
+        b = fixture_bundle()
+        b["captured_at"] = "2026-10-09T22:00:00.5+02:00"
+        b["origins"][0]["effective_at"] = "2026-10-01t00:00:00z"
+        b["use_links"][0]["used_at"] = "2026-10-03T00:00:01.123456789Z"
+        self.assertEqual(validate(b), [])
+        self.assertEqual(validate(fixture_bundle()), [])
+
+    def test_strict_parser_equals_utc_instants(self):
+        from run_authority_lineage import _dt
+        self.assertEqual(_dt("2026-10-03T02:00:00+02:00"), _dt("2026-10-03T00:00:00Z"))
+        self.assertEqual(_dt("2026-10-03T00:00:00.5Z").microsecond, 500000)

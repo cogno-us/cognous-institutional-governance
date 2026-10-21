@@ -1,13 +1,36 @@
 """Scoped synthetic qualification for the non-authorizing authority lineage profile."""
 from __future__ import annotations
-import copy, hashlib, json, math
-from datetime import datetime
+import copy, hashlib, json, math, re
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_PATH = ROOT / "process" / "implementation" / "authority-lineage-v0.1" / "authority-lineage.schema.json"
 
-def _dt(value): return datetime.fromisoformat(value.replace("Z", "+00:00"))
+_RFC3339 = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})[Tt]([0-9]{2}):([0-9]{2}):([0-9]{2})(?:\.([0-9]+))?([Zz]|[+-][0-9]{2}:[0-9]{2})", re.ASCII)
+_TIMESTAMP_REFUSAL = "not an RFC 3339 date-time with an explicit offset"
+
+def _dt(value):
+    """Strict RFC 3339 date-time: full date and time and an explicit offset are required; returns an aware datetime.
+    Naive times, date-only values, other text and a leap second (:60) raise ValueError. The pinned jsonschema does not
+    check `format: date-time` without rfc3339-validator, so the harness checks it itself."""
+    m = _RFC3339.fullmatch(value) if isinstance(value, str) else None
+    if m is None: raise ValueError(_TIMESTAMP_REFUSAL)
+    y, mo, d, h, mi, s, frac, off = m.groups()
+    if off in ("Z", "z"): tz = timezone.utc
+    else:
+        oh, om = int(off[1:3]), int(off[4:6])
+        if oh > 23 or om > 59: raise ValueError(_TIMESTAMP_REFUSAL)
+        tz = timezone((-1 if off[0] == "-" else 1) * timedelta(hours=oh, minutes=om))
+    return datetime(int(y), int(mo), int(d), int(h), int(mi), int(s), int((frac or "0").ljust(6, "0")[:6]), tzinfo=tz)
+
+def _format_checker(jsonschema):
+    checker = jsonschema.FormatChecker()
+    def date_time(instance):
+        if isinstance(instance, str): _dt(instance)
+        return True
+    checker.checks("date-time", raises=ValueError)(date_time)
+    return checker
 def _scope(actions, targets, data_scopes, amount, unit, effects):
     return {"actions": actions, "targets": targets, "data_scopes": data_scopes, "max_amount": amount, "unit": unit, "max_effects": effects}
 
@@ -57,6 +80,7 @@ def _effective(bundle, states, authority_id, when):
     for m in muts:
         if m["prior_revision"]!=out["revision"]: raise ValueError("mutation prior revision mismatch")
         if m["mutation_kind"] in _KIND_STATUS and m["status_after"]!=_KIND_STATUS[m["mutation_kind"]]: raise ValueError("mutation kind inconsistent with status_after")
+        if m["mutation_kind"]=="amend" and m["status_after"]!=out["status"]: raise ValueError("amend must not change status")
         if m["permission_scope_after"] is not None:
             edge=base.get("edge")
             limit=base["scope"] if edge is None else _effective(bundle,states,edge["parent_authority_id"],_dt(m["effective_at"]))["scope"]
@@ -115,6 +139,17 @@ def _chain_edges(bundle, authority_id):
         edges.append(edge); current=edge["parent_authority_id"]
     return edges
 
+def _delegation_relatives(bundle, authority_id):
+    """Ancestors and descendants of an authority along delegation edges (not the authority itself)."""
+    related={e["parent_authority_id"] for e in _chain_edges(bundle,authority_id)}
+    frontier=[authority_id]; seen={authority_id}
+    while frontier:
+        current=frontier.pop()
+        for e in bundle["delegations"]:
+            child=e["child_authority_id"]
+            if e["parent_authority_id"]==current and child not in seen: seen.add(child); related.add(child); frontier.append(child)
+    return related
+
 def _windows(bundle, authority_id):
     """Validity windows (start, end or None) on the chain from an authority back to its origin."""
     result=[]; current=authority_id
@@ -163,6 +198,8 @@ def _semantic_errors(bundle, errors):
     for s in bundle["successions"]:
         if s["predecessor_authority_id"] not in known: errors.append("succession predecessor unknown")
         if s["successor_authority_id"] not in known: errors.append("succession successor has no independent origin/delegation lineage")
+        elif s["predecessor_authority_id"]==s["successor_authority_id"]: errors.append("succession predecessor and successor are the same authority")
+        elif s["predecessor_authority_id"] in known and s["successor_authority_id"] in _delegation_relatives(bundle,s["predecessor_authority_id"]): errors.append("succession successor is inside the predecessor's own delegation chain")
     for m in bundle["mutations"]:  # every mutation is checked, whether or not a commitment or use cites it
         try: _state_at(bundle,m["authority_id"],_dt(m["effective_at"]))
         except _MALFORMED as exc: errors.append(_semantic_message(exc))
@@ -196,7 +233,7 @@ def _semantic_errors(bundle, errors):
 def schema_errors(bundle):
     import jsonschema
     schema=json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
-    v=jsonschema.Draft202012Validator(schema,format_checker=jsonschema.FormatChecker())
+    v=jsonschema.Draft202012Validator(schema,format_checker=_format_checker(jsonschema))
     return [e.message for e in v.iter_errors(bundle)]
 
 def validate(bundle):

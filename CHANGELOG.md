@@ -4,6 +4,13 @@ This is a curated summary, not a replacement for Git commits or the
 [constitutional development record](research/history/DEVELOPMENT_RECORD.md). A dated
 entry records repository work; it is not a ratification or activation event.
 
+## 2026-10-22 — Authority lineage and Authority Context: status, succession and timestamp checks
+
+- Lineage: an `amend` mutation whose `status_after` differs from the effective status is refused (`amend must not change status`). Before, revoke then `amend` with `status_after` `active` resolved a revoked authority as active. Reinstatement rules remain unchecked and documented as such; a `reinstate` is still accepted.
+- Lineage: a succession is refused when predecessor and successor are the same authority, or when the successor is an ancestor or a descendant of the predecessor along delegation edges. Before, any existing authority was accepted as successor.
+- Lineage and Authority Context: `format: date-time` is now enforced by the harness (full RFC 3339 date-time, explicit offset required). The pinned `jsonschema` 4.26.0 skipped the format without `rfc3339-validator`, so naive times, date-only values and text such as `not a date` were accepted, and mixing a naive with an aware time raised. Those are now typed refusals (`not an RFC 3339 date-time with an explicit offset`; `invalid_timestamp` from `reference_errors`). No dependency or lock file changed. A leap second (`:60`) is refused. The existing assertion in `test_malformed_input_returns_errors_not_exceptions` for the naive/aware case now expects the typed message instead of a caught `TypeError`.
+- Not changed: digests of lineage commitments are still format-checked only (no recipe); reinstatement and revocation propagation are not checked. The profile stays non-authorizing evidence; schema, fixture and the ten qualification cases are unchanged. Tests: `AuthorityLineageStatusTests`, `AuthorityLineageSuccessionTests`, `AuthorityLineageTimestampTests`, and three timestamp tests in `AuthorityContextTests`.
+
 ## 2026-10-22 — Authority lineage: mutation attenuation and effective-state checks
 
 - The synthetic lineage validator now checks every mutation's `permission_scope_after` with the same containment rule as a delegation edge: for a delegate, inside the parent's effective scope at the mutation's `effective_at`; for an origin, inside the origin's own base scope (each amendment is measured against the base, not the previous amendment; the README does not allow an origin to widen itself). Before, an amended scope was applied unchecked. Mutations are checked whether or not a commitment or use cites them.
