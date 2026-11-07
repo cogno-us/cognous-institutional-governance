@@ -1,0 +1,11 @@
+test_1_valid_root_is_authorized_by_cp_in_synthetic_developer_mode (tests.test_g2_cp_resolver.G2RootLineageToControlPlane.test_1_valid_root_is_authorized_by_cp_in_synthetic_developer_mode) ... check1_valid_root authorized []
+ok
+test_2_revoked_root_holds_with_native_grant_revoked (tests.test_g2_cp_resolver.G2RootLineageToControlPlane.test_2_revoked_root_holds_with_native_grant_revoked) ... check2_revoked_root hold ['grant_revoked']
+ok
+test_3_stale_status_holds_with_native_grant_status_stale_or_future (tests.test_g2_cp_resolver.G2RootLineageToControlPlane.test_3_stale_status_holds_with_native_grant_status_stale_or_future) ... check3_stale_status hold ['grant_status_stale_or_future']
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.288s
+
+OK

@@ -1,0 +1,61 @@
+{
+  "label": "SYNTHETIC FIXTURE FACTS - NOT INSTITUTIONAL AUTHORITY, NOT AUTHENTICATED, DEVELOPMENT ONLY",
+  "roles": {
+    "issuer": "synthetic-ocs-vnext-ig-issuer",
+    "revoker": "synthetic-ocs-vnext-ig-revoker",
+    "policy_owner": "synthetic-ocs-vnext-ig-policy-owner"
+  },
+  "evaluation": {
+    "observed_at": "2026-10-05T19:00:00+00:00",
+    "status_observed_at": "2026-10-05T19:00:00+00:00",
+    "status_version": "status-v1",
+    "status_ref": "urn:cognous:g2-synthetic:status-1"
+  },
+  "tenant_id": "tenant-alpha",
+  "expires_at": "2026-10-05T20:00:00+00:00",
+  "issued_at": "2026-10-05T18:00:00+00:00",
+  "context_ref": "urn:cognous:alvorada:public-stack-profile:0.1.0",
+  "authority_mode": "principle_inspired",
+  "principal": "urn:cognous:principal:refund-service",
+  "acting_identity": "urn:cognous:identity:refund-agent-1",
+  "grantee": "urn:cognous:principal:refund-service",
+  "accountable_human_role": {
+    "role_id": "urn:cognous:role:accountable-human",
+    "human_principal": "urn:cognous:principal:human-1",
+    "mandate_ref": "urn:cognous:mandate:human-1"
+  },
+  "issuer": {
+    "issuer": "synthetic-ocs-vnext-ig-issuer",
+    "issuer_role": "synthetic-ocs-vnext-ig-issuer-role",
+    "issuance_record_ref": "urn:cognous:g2-synthetic:issuance-1",
+    "mandate_valid": true
+  },
+  "identity": {"authenticated": true, "delegation_valid": true, "chain": []},
+  "policy": {"ref": "urn:cognous:g2-synthetic:policy-1", "version": "1.0", "status": "active"},
+  "requirement": {
+    "requirement_id": "urn:cognous:authority-requirement:refund-routine-v1",
+    "governing_sources": [{"ref": "urn:cognous:g2-synthetic:policy-1", "version": "1.0", "provision": "refund", "standing": "local_policy"}],
+    "permissions": [{"action": "refund_issue_routine", "targets": ["urn:cognous:synthetic-account:customer-001"],
+      "data_scopes": ["refund.issue.routine"], "max_amount": 100.0, "unit": "USD", "max_effects": 1}],
+    "approvals": [{"role_id": "urn:cognous:role:customer-service-supervisor", "independent_of_actor": true}],
+    "evidence": [],
+    "consequence": {"tier": "T1", "rationale": "Synthetic development tier.", "profile_ref": "urn:cognous:consequence:T1"}
+  },
+  "conflicts": {
+    "precedence_refs": ["urn:cognous:g2-synthetic:policy-1"],
+    "incompatible_role_pairs": [],
+    "escalation_ref": "urn:cognous:procedure:escalation",
+    "appeal_ref": "urn:cognous:procedure:appeal",
+    "continuity_ref": "urn:cognous:procedure:continuity",
+    "remedy_ref": "urn:cognous:procedure:remedy"
+  },
+  "approval": {
+    "approval_ref": "urn:cognous:g2-synthetic:approval-1",
+    "role_id": "urn:cognous:role:customer-service-supervisor",
+    "approver": "urn:cognous:principal:synthetic-reviewer-1"
+  },
+  "role_mapping": {
+    "version": "roles-v1",
+    "aliases": {"customer-service-supervisor": ["urn:cognous:role:customer-service-supervisor"]}
+  }
+}

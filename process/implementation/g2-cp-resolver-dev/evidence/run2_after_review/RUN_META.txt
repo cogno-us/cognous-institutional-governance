@@ -1,0 +1,1 @@
+run2: same three frozen checks re-run once after the independent-review hardening (pin tightening, nested-fact refusal, provenance map); oracles unchanged.

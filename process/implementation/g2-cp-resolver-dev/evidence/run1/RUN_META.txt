@@ -1,0 +1,5 @@
+run1: three frozen checks, executed once against the frozen oracle (Hub #273 comment 6711045444).
+IG base 03a90c14c4a178997df2b6e527f67452b9c6bb7a (working tree: new untracked files only); Control Plane 484fdbd297235dd24148ddb0703f2055a31eabff (HEAD verified, clean tree).
+command: G2_CP_ROOT=<cp checkout> G2_REQUIRE=1 G2_EVIDENCE_DIR=<dir> python -m unittest tests.test_g2_cp_resolver -v
+development probes before run1 (kept for the record, not part of the three checks): probe1 held with authority_profile_mismatch (my config error: context_ref was not the manifest's authority profile URN); probe2 authorized after the fix. The revoked and stale cases were not probed before run1.
+known fixture inconsistency (not validated by IG): root_lineage_revoked.json captured_at 18:45Z precedes the mutation recorded_at 18:50Z.
