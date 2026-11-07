@@ -1,0 +1,4 @@
+run3: ONLY the frozen revoked-root case (check 2), re-run once against the CORRECTED fixture, per the Architect's conditional disposition (Hub #273 comment 6711152176).
+Correction: fixtures/root_lineage_revoked.json "captured_at" 2026-10-05T18:45:00Z -> 2026-10-05T18:50:00Z (>= the mutation's recorded_at 18:50:00Z). Nothing else changed: mutation effective_at/recorded_at, revision, status, scope, evaluation time (2026-10-05T19:00:00Z) and the oracle are untouched.
+Fixture sha256 before 57a8dd9d85bc0b42c20655a03bc1c0342c1a58c291187f663e3c957f4b0fb704 (the predecessor fixture used by run1 and run2, which remain evidence for it only and do NOT qualify the corrected fixture); after c4b19d4bf12c6514376bd9862eaec8b1e68d21e6e84c229dfead0591358e7b8d.
+Control Plane 484fdbd297235dd24148ddb0703f2055a31eabff (HEAD verified, clean tree). IG validate(): no errors. Checks 1 and 3 were not re-run: they do not read this fixture.

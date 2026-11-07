@@ -1,0 +1,7 @@
+test_2_revoked_root_holds_with_native_grant_revoked (tests.test_g2_cp_resolver.G2RootLineageToControlPlane.test_2_revoked_root_holds_with_native_grant_revoked) ... check2_revoked_root hold ['grant_revoked']
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.247s
+
+OK
